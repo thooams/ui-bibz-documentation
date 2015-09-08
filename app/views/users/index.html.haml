@@ -57,7 +57,7 @@
     = button 'toto', status: :active
     = button 'momo'
     = button 'lolo'
-    = button_dropdown 'Button Dropdown' do |bd|
+    = button_dropdown 'Button Dropdown', type: :dropup do |bd|
       - bd.header 'header'
       - bd.link 'momo', url: '#'
       - bd.divider
@@ -88,6 +88,7 @@
 
   %br
   %br
+  = button_link 'test 1', url: '#', state: :success, outline: true
 
   = nav position: :justified do |n|
     - n.link 'toto', { url: '#toto', status: :active, glyph: 'eye' }
