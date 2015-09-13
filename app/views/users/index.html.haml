@@ -1,8 +1,9 @@
 = container do
-  = navbar(type: :inverse, position: :bottom) do |nb|
+
+  = navbar(state: :danger, title: 'Toto', type: :dark, position: :bottom) do |nb|
     - nb.nav do |n|
       - n.link 'Link 1', url: '#link-1', glyph: 'eye'
-    - nb.text 'My text'
+      - n.link 'Link 2', url: '#link-2', glyph: 'eye'
     -#= nb.form({ url: '/search', type: :form_tag }) do
       -#.form-group
         -#= text_field_tag 'search', nil, { class: 'form-control', placeholder: 'Search' }
@@ -90,7 +91,18 @@
   %br
   = button_link 'test 1', url: '#', state: :success, outline: true
 
+  %br
+  %br
+  = button_group do
+    = button_choice 'toto', type: :radio
+    = button_choice 'tata', type: :radio
+
   = nav position: :justified do |n|
+    - n.link 'toto', { url: '#toto', status: :active, glyph: 'eye' }
+    - n.link 'momo', { url: '#mono' }
+
+  %br
+  = nav type: :tabs do |n|
     - n.link 'toto', { url: '#toto', status: :active, glyph: 'eye' }
     - n.link 'momo', { url: '#mono' }
 
@@ -98,7 +110,15 @@
   = nav type: :pills do |n|
     - n.link 'toto', url: '#toto', status: :active, glyph: 'eye'
     - n.link 'momo', url: '#mono', badge: 30
+    - n.dropdown('Dropdown', state: :primary) do |d|
+      - d.link 'toto', url: '#', glyph: 'eye'
+      - d.header 'header'
+      - d.link 'momo', url: '#'
+      - d.divider
+      - d.link 'lolo', url: '#'
 
+  %br
+  %br
   %br
   = breadcrumb do |b|
     - b.link 'toto', url: '#toto', glyph: 'home'
@@ -115,14 +135,29 @@
     - lg.list 'Momo', glyph: 'home'
     - lg.list 'Toto'
 
-  = panel(state: :danger, tap: true, class: 'toto') do |p|
+  %h1 Cards
+
+  = card(tap: true) do |c|
+    - c.image 'image.svg'
+    - c.block do
+      %h4.card-title Card title
+      %p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    - c.list_group do |lg|
+      - lg.list "Cras justo odio"
+      - lg.list "Dapibas ac facilisis in"
+      - lg.list "vestibulum at eros"
+    - c.block do
+      = link_to "Card link", '#', class: "card-link"
+      = link_to "Card link", '#', class: "card-link"
+
+  = card(state: :danger, tap: true, class: 'toto') do |p|
     - p.header 'toto', glyph: 'eye'
-    - p.body 'toto'
+    - p.block 'toto'
     - p.footer 'toto'
 
-  = panel 'toto', state: :danger, glyph: 'home', class: 'toto'
+  = card 'toto', state: :danger, glyph: 'home', class: 'toto'
 
-  = panel class: 'uei' do
+  = card class: 'uei' do
     = "danger"
 
   = table_panel({ store: @users, tap: true, glyph: 'home', state: :danger }) do |g|
