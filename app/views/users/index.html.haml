@@ -160,6 +160,13 @@
   = card class: 'uei' do
     = "danger"
 
+  = card_group do |cg|
+    - cg.card 'Test 1', block: true
+    - cg.card 'Test 2', block: true
+    - cg.card 'Test 3', block: true
+
+  %br
+
   = table_panel({ store: @users, tap: true, glyph: 'home', state: :danger }) do |g|
     - g.columns do |cls|
       - cls.column :id, name: '#'
