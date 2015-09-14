@@ -155,12 +155,19 @@
     - p.block 'toto'
     - p.footer 'toto'
 
-  = card 'toto', state: :danger, glyph: 'home', class: 'toto'
+  = card 'toto', block: true, state: :danger, glyph: 'home', class: 'toto'
 
-  = card class: 'uei' do
+  = card block: true, class: 'uei' do
     = "danger"
 
   = card_group do |cg|
+    - cg.card 'Test 1', block: true
+    - cg.card 'Test 2', block: true
+    - cg.card 'Test 3', block: true
+
+  %br
+
+  = card_deck do |cg|
     - cg.card 'Test 1', block: true
     - cg.card 'Test 2', block: true
     - cg.card 'Test 3', block: true
