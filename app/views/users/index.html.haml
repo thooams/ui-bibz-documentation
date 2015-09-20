@@ -13,6 +13,14 @@
         - d.link 'Link 2', { url: '#test', glyph: 'eye' }
         - d.link(url: '#link-2', status: :active) do
           Link 3
+  .bd-example-modal
+    = modal do |m|
+      - m.header 'My title'
+      - m.body 'My body'
+      - m.footer do
+        = button_link 'Close', url: '#', state: :link
+        = button_link 'Save', url: '#', state: :primary
+
 
   = etiquette 'label'
   = etiquette 'label 2', state: :success, type: :pill
@@ -30,19 +38,6 @@
     - pb.bar 30, state: :warning
     - pb.bar(type: :striped) do
       = 10
-
-  = grid do |g|
-    - g.view num: 5, position: :left do
-      = 'left'
-    - g.view position: :right do
-      = 'right'
-    - g.view({ position: :top}, { class: 'success'}) do
-      = 'top'
-    - g.view position: :center do
-      = 'center'
-    - g.view position: :bottom do
-      = 'bottom'
-
 
   = notify 'toto', glyph: 'eye', close: true
 
@@ -85,6 +80,7 @@
     - d.link 'momo', url: '#'
     - d.divider
     - d.link 'lolo', url: '#'
+
 
 
   %br
@@ -181,7 +177,7 @@
 
   %br
 
-  = table_panel({ store: @users, tap: true, glyph: 'home', state: :danger }) do |g|
+  = table_card({ store: @users, tap: true, glyph: 'home' }) do |g|
     - g.columns do |cls|
       - cls.column :id, name: '#'
       - cls.column :name
@@ -202,4 +198,5 @@
       - cls.column :company
   = table_pagination store: @users
   = table_pagination_per_page store: @users
+
 
