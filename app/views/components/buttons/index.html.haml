@@ -1,0 +1,23 @@
+%h1 Buttons
+%p Use Bootstrap’s custom button styles for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, states, and more.
+
+%h2 Contents
+%ul
+  %li Examples
+
+= example do |c|
+  - c.block do
+    = button 'Primary', state: :primary
+    = button 'Secondary', state: :secondary
+    = button 'Success', state: :success
+    = button 'Warning', state: :warning
+    = button 'Danger', state: :danger
+    = button 'Link', state: :link
+  - c.code do
+    :preserve
+      button 'Primary', state: :primary
+      button 'Secondary', state: :secondary
+      button 'Success', state: :success
+      button 'Warning', state: :warning
+      button 'Danger', state: :danger
+      button 'Link', state: :link

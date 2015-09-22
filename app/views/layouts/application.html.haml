@@ -3,7 +3,18 @@
   %head
     %title UiBibzApp
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag "//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/default.min.css"
+    = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    :javascript
+      hljs.configure({
+        tabReplace: '  ', // 2 spaces
+        languages: ["ruby"]
+      })
+      hljs.initHighlightingOnLoad();
     = csrf_meta_tags
   %body
+    = navbar title: "Bibz Framework", state: :secondary, type: :light do |nb|
+      - nb.nav do |n|
+        - n.link 'Components', url: '#'
     = yield
