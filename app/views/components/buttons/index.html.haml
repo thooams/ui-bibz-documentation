@@ -2,22 +2,84 @@
 %p Use Bootstrap’s custom button styles for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, states, and more.
 
 %h2 Contents
-%ul
-  %li Examples
+= nav class: 'secondary-nav' do |n|
+  - n.link 'Button', url: '#button'
+  - n.link 'Button Options', url: '#button-options'
+  - n.nav do |na|
+    - na.link 'Outline', url: '#outline'
 
-= example do |c|
-  - c.block do
-    = button 'Primary', state: :primary
-    = button 'Secondary', state: :secondary
-    = button 'Success', state: :success
-    = button 'Warning', state: :warning
-    = button 'Danger', state: :danger
-    = button 'Link', state: :link
-  - c.code do
-    :preserve
+
+= section title: "Button" do
+  = example do |c|
+    - c.header do
+      = button 'Primary', state: :primary
+      = button 'Secondary', state: :secondary
+      = button 'Success', state: :success
+      = button 'Warning', state: :warning
+      = button 'Danger', state: :danger
+      = button 'Link', state: :link
+    - c.code do
       button 'Primary', state: :primary
       button 'Secondary', state: :secondary
       button 'Success', state: :success
       button 'Warning', state: :warning
       button 'Danger', state: :danger
       button 'Link', state: :link
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+%h2 Button Options
+
+= section title: "Outline", tag: :h3 do
+  = example do |c|
+    - c.header do
+      = button 'Primary', state: :primary, outline: true
+      = button 'Secondary', state: :secondary, outline: true
+      = button 'Success', state: :success, outline: true
+      = button 'Warning', state: :warning, outline: true
+      = button 'Danger', state: :danger, outline: true
+    - c.code do
+      button 'Primary', state: :primary, outline: true
+      button 'Secondary', state: :secondary, outline: true
+      button 'Success', state: :success, outline: true
+      button 'Warning', state: :warning, outline: true
+      button 'Danger', state: :danger, outline: true
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+= section title: "Size", tag: :h3 do
+  = example do |c|
+    - c.header do
+      = button 'Large button', state: :primary, size: :lg
+      = button 'Medium button', state: :primary
+      = button 'Small button', state: :primary, size: :sm
+    - c.code do
+      button 'Large button', state: :primary, size: :lg
+      button 'Medium button', state: :primary
+      button 'Small button', state: :primary, size: :sm
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+= section title: "Type", tag: :h3 do
+  = example do |c|
+    - c.header do
+      = button 'Block level button', state: :primary, type: :block
+      = button 'Block level button', state: :secondary, type: :block
+    - c.code do
+      button 'Block level button', state: :primary, type: :block
+      button 'Block level button', state: :secondary, type: :block
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+= section title: "Status", tag: :h3 do
+  = example do |c|
+    - c.header do
+      = button 'Primary', state: :primary, status: :active
+      = button 'Primary', state: :primary, status: :disabled
+    - c.code do
+      button 'Primary', state: :primary, status: :active
+      button 'Primary', state: :primary, status: :disabled
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+

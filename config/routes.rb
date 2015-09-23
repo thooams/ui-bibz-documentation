@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   #end
   namespace :components do
     get 'buttons' => 'buttons#index'
+    get 'buttons/buttons-choice' => 'buttons#buttons_choice'
   end
 
   # Example of regular route:
