@@ -7,6 +7,10 @@
   - n.link 'Button Options', url: '#button-options'
   - n.nav do |na|
     - na.link 'Outline', url: '#outline'
+    - na.link 'Size', url: '#size'
+    - na.link 'Type', url: '#type'
+    - na.link 'Status', url: '#status'
+  - n.link 'Options and html_options', url: '#options-and-html-options'
 
 
 = section title: "Button" do
@@ -79,6 +83,15 @@
     - c.code do
       button 'Primary', state: :primary, status: :active
       button 'Primary', state: :primary, status: :disabled
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+= section title: "Options and html options" do
+  = example do |c|
+    - c.header do
+      = button 'Success', { state: :success }, { class: 'button' }
+    - c.code do
+      button 'Primary', { state: :success }, { class: 'button' }
     - c.footer do
       = documentation_link 'Documentation', '#'
 

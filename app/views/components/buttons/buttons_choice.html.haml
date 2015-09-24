@@ -2,15 +2,15 @@
 
 %h2 Content
 = nav class: 'secondary-nav' do |n|
-  - n.link 'Checkboxes', url: '#checkboxes'
+  - n.link 'Button checkbox', url: '#button-checkbox'
   - n.nav do |na|
-    - na.link 'Checkboxes Options', url: '#checkboxes-options'
-  - n.link 'Radio', url: '#radios'
+    - na.link 'Button checkbox Options', url: '#button-checkbox-options'
+  - n.link 'Radio', url: '#button-radio'
   - n.nav do |na|
-    - na.link 'Radios Options', url: '#radios-options'
+    - na.link 'Radios Options', url: '#button-radio-options'
 
 
-= section title: "Checkboxes" do
+= section title: "Button checkbox" do
   = example do |c|
     - c.header do
       = button_group do
@@ -25,7 +25,7 @@
       = documentation_link 'Documentation', '#'
 
 
-= section title: "Checkboxes options" do
+= section title: "Button checkbox options" do
   = example do |c|
     - c.header do
       = button_group do
@@ -39,7 +39,7 @@
     - c.footer do
       = documentation_link 'Documentation', '#'
 
-= section title: "Radios" do
+= section title: "Button radio" do
   = example do |c|
     - c.header do
       = button_group do
@@ -54,7 +54,7 @@
       = documentation_link 'Documentation', '#'
 
 
-= section title: "Radios options" do
+= section title: "Button radio options" do
   = example do |c|
     - c.header do
       = button_group do
