@@ -1,0 +1,67 @@
+%h1 Buttons group
+
+%h2 Content
+= nav class: 'secondary-nav' do |n|
+  - n.link 'Button group', url: '#button-dropdown'
+  - n.nav do |na|
+    - na.link 'Button group options', url: '#button-dropdown-options'
+
+= section title: "Button group" do
+  = example do |c|
+    - c.header do
+      = button_group do
+        = button 'Left'
+        = button 'Middle'
+        = button 'Right'
+    - c.code do
+      button_group do
+        button 'Left'
+        button 'Middle'
+        button 'Right'
+      end
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+= section title: "Button group nested" do
+  = example do |c|
+    - c.header do
+      = button_group do
+        = button 'Button'
+        = button_link 'Button link', url: '#button-link'
+        = button_dropdown "Dropdown" do |bd|
+          - bd.link "Action", url: '#action'
+          - bd.link "Another action", url: '#another-action'
+          - bd.divider
+          - bd.header 'Header'
+          - bd.link "Separate link", url: '#separate-link'
+    - c.code do
+      button_group do
+        button 'Button'
+        button_link 'Button link', url: '#button-link'
+        button_dropdown "Dropdown" do |bd|
+          bd.link "Action", url: '#action'
+          bd.link "Another action", url: '#another-action'
+          bd.divider
+          bd.header 'Header'
+          bd.link "Separate link", url: '#separate-link'
+        end
+      end
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+
+= section title: "Button group size" do
+  = example do |c|
+    - c.header do
+      = button_group size: :sm do
+        = button 'Left'
+        = button 'Middle'
+        = button 'Right'
+    - c.code do
+      button_group size: :sm do
+        button 'Left'
+        button 'Middle'
+        button 'Right'
+      end
+    - c.footer do
+      = documentation_link 'Documentation', '#'

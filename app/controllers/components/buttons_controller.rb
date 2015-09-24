@@ -7,4 +7,7 @@ class Components::ButtonsController < ApplicationController
 
   def buttons_dropdown
   end
+
+  def buttons_group
+  end
 end
