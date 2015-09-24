@@ -1,0 +1,73 @@
+%h1 Buttons dropdown
+
+%h2 Content
+= nav class: 'secondary-nav' do |n|
+  - n.link 'Checkboxes', url: '#checkboxes'
+  - n.nav do |na|
+    - na.link 'Checkboxes Options', url: '#checkboxes-options'
+  - n.link 'Radio', url: '#radios'
+  - n.nav do |na|
+    - na.link 'Radios Options', url: '#radios-options'
+
+
+= section title: "Button dropdown" do
+  = example do |c|
+    - c.header do
+      - %i(primary secondary danger warning info success).each do |state|
+        = button_dropdown state.to_s.titleize, state: state do |bd|
+          - bd.link "Action"
+          - bd.link "Another action"
+          - bd.divider
+          - bd.header 'Header'
+          - bd.link "Separate link"
+    - c.code do
+      button_dropdown 'Primary' do |bd|
+        bd.link "Action"
+        bd.link "Another action"
+        bd.divider
+        bd.header 'Header'
+        bd.link "Separate link"
+      end
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+
+= section title: "Button dropdown options" do
+  = example do |c|
+    - c.header do
+      = button_dropdown "Dropdown right", state: :success, size: :lg, position: :right do |bd|
+        - bd.link "Action"
+        - bd.link "Another action"
+        - bd.divider
+        - bd.header 'Header'
+        - bd.link "Separate link"
+
+      = button_dropdown "Dropup", state: :danger, size: :sm, type: :dropup do |bd|
+        - bd.link "Action"
+        - bd.link "Another action"
+        - bd.divider
+        - bd.header 'Header'
+        - bd.link "Separate link"
+
+    - c.code do
+      button_dropdown "Dropdown right", state: :success, size: :lg, position: :right do |bd|
+        bd.link "Action"
+        bd.link "Another action"
+        bd.divider
+        bd.header 'Header'
+        bd.link "Separate link"
+      end
+       
+      button_dropdown "Dropup", state: :danger, size: :sm, type: :dropup do |bd|
+        bd.link "Action"
+        bd.link "Another action"
+        bd.divider
+        bd.header 'Header'
+        bd.link "Separate link"
+      end
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+
+
+

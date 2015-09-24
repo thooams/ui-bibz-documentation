@@ -2,18 +2,20 @@
 
 %h2 Content
 = nav class: 'secondary-nav' do |n|
-  - n.link 'Button', url: '#button'
-  - n.link 'Button Options', url: '#button-options'
+  - n.link 'Checkboxes', url: '#checkboxes'
   - n.nav do |na|
-    - na.link 'Outline', url: '#outline'
+    - na.link 'Checkboxes Options', url: '#checkboxes-options'
+  - n.link 'Radio', url: '#radios'
+  - n.nav do |na|
+    - na.link 'Radios Options', url: '#radios-options'
 
 
 = section title: "Checkboxes" do
   = example do |c|
     - c.header do
       = button_group do
-        = button_choice 'Checkbox 1', state: :primary
-        = button_choice 'Checkbox 2', state: :primary, status: :active
+        = button_choice 'Checkbox 1'
+        = button_choice 'Checkbox 2', status: :active
     - c.code do
       button_group do
         button_choice 'Checkbox 1', state: :primary
@@ -22,16 +24,46 @@
     - c.footer do
       = documentation_link 'Documentation', '#'
 
+
+= section title: "Checkboxes options" do
+  = example do |c|
+    - c.header do
+      = button_group do
+        = button_choice 'Checkbox 1', state: :success, outline: true, size: :lg
+        = button_choice 'Checkbox 2', state: :success, status: :active, outline: true, size: :lg
+    - c.code do
+      button_group do
+        button_choice 'Checkbox 1', state: :primary, outline: true, size: :lg
+        button_choice 'Checkbox 2', state: :primary, status: :active, outline: true, size: :lg
+      end
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
 = section title: "Radios" do
   = example do |c|
     - c.header do
       = button_group do
-        = button_choice 'Radio 1', state: :primary, type: :radio
-        = button_choice 'Radio 2', state: :primary, status: :active, type: :radio
+        = button_choice 'Radio 1', type: :radio
+        = button_choice 'Radio 2', status: :active, type: :radio
     - c.code do
       button_group do
         button_choice 'Radio 1', state: :primary, type: :radio
         button_choice 'Radio 2', state: :primary, status: :active, type: :radio
+      end
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+
+= section title: "Radios options" do
+  = example do |c|
+    - c.header do
+      = button_group do
+        = button_choice 'Radio 1', state: :danger, outline: true, size: :lg, type: :radio
+        = button_choice 'Radio 2', state: :danger, status: :active, outline: true, size: :lg, type: :radio
+    - c.code do
+      button_group do
+        button_choice 'Radio 1', state: :danger, outline: true, size: :lg, type: :radio
+        button_choice 'Radio 2', state: :danger, status: :active, outline: true, size: :lg, type: :radio
       end
     - c.footer do
       = documentation_link 'Documentation', '#'
