@@ -1,0 +1,70 @@
+%h1 Buttons split dropdown
+
+%h2 Content
+= nav class: 'secondary-nav' do |n|
+  - n.link 'Button split dropdown', url: '#button-dropdown'
+  - n.nav do |na|
+    - na.link 'Button split dropdown options', url: '#button-dropdown-options'
+
+
+= section title: "Button split dropdown" do
+  = example do |c|
+    - c.header do
+      - %i(primary secondary danger warning info success).each do |state|
+        = button_split_dropdown state.to_s.titleize, state: state do |bd|
+          - bd.link "Action", url: '#action'
+          - bd.link "Another action", url: '#another-action'
+          - bd.divider
+          - bd.header 'Header'
+          - bd.link "Separate link", url: '#separate-link'
+    - c.code do
+      button_split_dropdown 'Primary' do |bd|
+        bd.link "Action", url: '#action'
+        bd.link "Another action", url: '#another-action'
+        bd.divider
+        bd.header 'Header'
+        bd.link "Separate link", url: '#separate-link'
+      end
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+
+= section title: "Buttonsplit  dropdown options" do
+  = example do |c|
+    - c.header do
+      = button_split_dropdown "Dropdown right", state: :success, size: :lg, position: :right do |bd|
+        - bd.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
+        - bd.link "Another action", url: '#another-action'
+        - bd.divider
+        - bd.header 'Header'
+        - bd.link "Separate link", url: '#separate-link'
+
+      = button_split_dropdown "Dropup", state: :danger, size: :sm, type: :dropup do |bd|
+        - bd.link "Action",  { url: '#action' }, { class: 'action' }
+        - bd.link "Another action", url: '#another-action'
+        - bd.divider
+        - bd.header 'Header'
+        - bd.link "Separate link", url: '#separate-link'
+
+    - c.code do
+      button_split_dropdown "Dropdown right", state: :success, size: :lg, position: :right do |bd|
+        bd.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
+        bd.link "Another action", url: '#another-action'
+        bd.divider
+        bd.header 'Header'
+        bd.link "Separate link", url: '#separate-link'
+      end
+       
+      button_split_dropdown "Dropup", state: :danger, size: :sm, type: :dropup do |bd|
+        bd.link "Action",  { url: '#action' }, { class: 'action' }
+        bd.link "Another action", url: '#another-action'
+        bd.divider
+        bd.header 'Header'
+        bd.link "Separate link", url: '#separate-link'
+      end
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+
+
+

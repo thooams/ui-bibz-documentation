@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     get 'buttons/buttons-dropdown' => 'buttons#buttons_dropdown'
     get 'buttons/buttons-group'    => 'buttons#buttons_group'
     get 'buttons/buttons-link'     => 'buttons#buttons_link'
+    get 'buttons/buttons-split-dropdown' => 'buttons#buttons_split_dropdown'
   end
 
   # Example of regular route:
