@@ -1,12 +1,13 @@
 %h1 Buttons group
 
-%h2 Content
-= nav class: 'secondary-nav' do |n|
-  - n.link 'Button group', url: '#button-dropdown'
-  - n.nav do |na|
-    - na.link 'Nesting', url: '#nesting'
-    - na.link 'Size', url: '#size'
-    - na.link 'Position', url: '#position'
+= content_for :third_nav do
+  %h2 Content
+  = nav class: 'secondary-nav' do |n|
+    - n.link 'Button group', url: '#button-dropdown'
+    - n.nav do |na|
+      - na.link 'Nesting', url: '#nesting'
+      - na.link 'Size', url: '#size'
+      - na.link 'Position', url: '#position'
 
 = section title: "Button group" do
   = example do |c|

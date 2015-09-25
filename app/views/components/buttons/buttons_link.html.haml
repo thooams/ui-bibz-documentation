@@ -1,15 +1,16 @@
 %h1 Buttons link
 
-%h2 Contents
-= nav class: 'secondary-nav' do |n|
-  - n.link 'button_link', url: '#button_link'
-  - n.link 'button_link options', url: '#button_link-options'
-  - n.nav do |na|
-    - na.link 'Outline', url: '#outline'
-    - na.link 'Size', url: '#size'
-    - na.link 'Type', url: '#type'
-    - na.link 'Status', url: '#status'
-  - n.link 'Options and html_options', url: '#options-and-html-options'
+= content_for :third_nav do
+  %h2 Contents
+  = nav class: 'secondary-nav' do |n|
+    - n.link 'button_link', url: '#button_link'
+    - n.link 'button_link options', url: '#button_link-options'
+    - n.nav do |na|
+      - na.link 'Outline', url: '#outline'
+      - na.link 'Size', url: '#size'
+      - na.link 'Type', url: '#type'
+      - na.link 'Status', url: '#status'
+    - n.link 'Options and html_options', url: '#options-and-html-options'
 
 
 = section title: "Button link" do

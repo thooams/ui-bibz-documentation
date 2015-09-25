@@ -1,10 +1,11 @@
 %h1 Buttons dropdown
 
-%h2 Content
-= nav class: 'secondary-nav' do |n|
-  - n.link 'Button dropdown', url: '#button-dropdown'
-  - n.nav do |na|
-    - na.link 'Button dropdown options', url: '#button-dropdown-options'
+= content_for :third_nav do
+  %h2 Content
+  = nav class: 'secondary-nav' do |n|
+    - n.link 'Button dropdown', url: '#button-dropdown'
+    - n.nav do |na|
+      - na.link 'Button dropdown options', url: '#button-dropdown-options'
 
 
 = section title: "Button dropdown" do

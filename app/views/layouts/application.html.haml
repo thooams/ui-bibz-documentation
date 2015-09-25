@@ -8,12 +8,34 @@
       "#{ Rouge::Theme::find('github').render(scope: '.highlight') }"
     = csrf_meta_tags
   %body
-    = navbar title: "Bibz Framework", state: :secondary, type: :light do |nb|
-      - nb.nav do |n|
-        - n.link 'Components', url: components_buttons_path
+    %header
+      = navbar title: "Bibz Framework", state: :secondary, type: :light do |nb|
+        - nb.nav do |n|
+          - n.link 'Ui Bibz', url: components_buttons_path
+          - n.link 'Components', url: components_buttons_path, status: :active
+          - n.link 'Framework', url: components_buttons_path
+          - n.link 'Get Started', url: components_buttons_path
+          - n.link 'About', url: components_buttons_path
+      .pageheader
+        = container do
+          = image_tag 'ruby-white.png'
+          %h1 Bibz Framework
+          %p
+            Over a dozen reusable components built to provide iconography, dropdowns, <br/>
+            input groups, navigation, alerts, and much more.
     = container do
       = row do
         = col num: 9 do
           = yield
-        = col num: 3 do
+        = col({ num: 3 }, { class: 'right-nav' }) do
           = render "components/nav"
+          = yield :third_nav
+    %footer
+      = nav type: :links do |n|
+        - n.link glyph_and_text('github', 'Github'), url: 'https://github.com/thooams/Ui-Bibz'
+        - n.link glyph_and_text('book', 'About'), url: 'https://github.com/thooams/Ui-Bibz'
+        - n.link glyph_and_text('diamond', 'Gem'), url: 'https://rubygems.org/gems/ui_bibz'
+      :markdown
+        Bibz Framework is designed and created by Thomas HUMMEL ([@thooams](https://github.com/thooams))<br/>
+        This theme is inspired by ["Boostrap theme documentation](getbootstrap.com)<br/>
+        Currently v2.0.0. Code licensed MIT

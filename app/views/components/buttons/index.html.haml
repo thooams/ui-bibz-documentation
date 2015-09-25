@@ -1,16 +1,17 @@
 %h1 Buttons
 %p Use Bootstrap’s custom button styles for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, states, and more.
 
-%h2 Contents
-= nav class: 'secondary-nav' do |n|
-  - n.link 'Button', url: '#button'
-  - n.link 'Button options', url: '#button-options'
-  - n.nav do |na|
-    - na.link 'Outline', url: '#outline'
-    - na.link 'Size', url: '#size'
-    - na.link 'Type', url: '#type'
-    - na.link 'Status', url: '#status'
-  - n.link 'Options and html_options', url: '#options-and-html-options'
+= content_for :third_nav do
+  %h2 Contents
+  = nav class: 'secondary-nav' do |n|
+    - n.link 'Button', url: '#button'
+    - n.link 'Button options', url: '#button-options'
+    - n.nav do |na|
+      - na.link 'Outline', url: '#outline'
+      - na.link 'Size', url: '#size'
+      - na.link 'Type', url: '#type'
+      - na.link 'Status', url: '#status'
+    - n.link 'Options and html_options', url: '#options-and-html-options'
 
 
 = section title: "Button" do
