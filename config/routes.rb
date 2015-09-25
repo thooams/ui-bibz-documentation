@@ -16,10 +16,11 @@ Rails.application.routes.draw do
     #resource :buttons
   #end
   namespace :components do
-    get 'buttons' => 'buttons#index'
-    get 'buttons/buttons-choice' => 'buttons#buttons_choice'
+    get 'buttons'                  => 'buttons#index'
+    get 'buttons/buttons-choice'   => 'buttons#buttons_choice'
     get 'buttons/buttons-dropdown' => 'buttons#buttons_dropdown'
-    get 'buttons/buttons-group' => 'buttons#buttons_group'
+    get 'buttons/buttons-group'    => 'buttons#buttons_group'
+    get 'buttons/buttons-link'     => 'buttons#buttons_link'
   end
 
   # Example of regular route:

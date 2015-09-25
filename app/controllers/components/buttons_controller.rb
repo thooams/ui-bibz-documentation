@@ -10,4 +10,7 @@ class Components::ButtonsController < ApplicationController
 
   def buttons_group
   end
+
+  def buttons_link
+  end
 end

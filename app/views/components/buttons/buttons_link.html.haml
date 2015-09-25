@@ -1,0 +1,97 @@
+%h1 Button links link
+
+%h2 Contents
+= nav class: 'secondary-nav' do |n|
+  - n.link 'button_link', url: '#button_link'
+  - n.link 'button_link options', url: '#button_link-options'
+  - n.nav do |na|
+    - na.link 'Outline', url: '#outline'
+    - na.link 'Size', url: '#size'
+    - na.link 'Type', url: '#type'
+    - na.link 'Status', url: '#status'
+  - n.link 'Options and html_options', url: '#options-and-html-options'
+
+
+= section title: "Button link" do
+  = example do |c|
+    - c.header do
+      = button_link 'Primary', url: '#primary', state: :primary
+      = button_link 'Secondary', url: '#secondary', state: :secondary
+      = button_link 'Success', url: '#success', state: :success
+      = button_link 'Warning', url: '#warning', state: :warning
+      = button_link 'Danger', url: '#danger', state: :danger
+      = button_link 'Link', url: '#link', state: :link
+    - c.code do
+      button_link 'Primary', url: '#primary', state: :primary
+      button_link 'Secondary', url: '#secondary', state: :secondary
+      button_link 'Success', url: '#success', state: :success
+      button_link 'Warning', url: '#warning', state: :warning
+      button_link 'Danger', url: '#danger', state: :danger
+      button_link 'Link', url: '#link', state: :link
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+%h2 Button link options
+
+= section title: "Outline", tag: :h3 do
+  = example do |c|
+    - c.header do
+      = button_link 'Primary', url: '#', state: :primary, outline: true
+      = button_link 'Secondary', url: '#', state: :secondary, outline: true
+      = button_link 'Success', url: '#', state: :success, outline: true
+      = button_link 'Warning', url: '#', state: :warning, outline: true
+      = button_link 'Danger', url: '#', state: :danger, outline: true
+    - c.code do
+      button_link 'Primary', url: '#', state: :primary, outline: true
+      button_link 'Secondary', url: '#', state: :secondary, outline: true
+      button_link 'Success', url: '#', state: :success, outline: true
+      button_link 'Warning', url: '#', state: :warning, outline: true
+      button_link 'Danger', url: '#', state: :danger, outline: true
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+= section title: "Size", tag: :h3 do
+  = example do |c|
+    - c.header do
+      = button_link 'Large button link', url: 'large-button-link', size: :lg
+      = button_link 'Medium button link', url: '#medium-button-link'
+      = button_link 'Small button link', url: '#small-button-link', size: :sm
+    - c.code do
+      button_link 'Large button link', url: '#large-button-link', size: :lg
+      button_link 'Medium button link', url: '#medium-button-link'
+      button_link 'Small button link', url: '#small-button-link', size: :sm
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+= section title: "Type", tag: :h3 do
+  = example do |c|
+    - c.header do
+      = button_link 'Block level button link', url: '#block-level-button-link', state: :primary, type: :block
+      = button_link 'Block level button link', url: '#block-level-button-link', state: :secondary, type: :block
+    - c.code do
+      button_link 'Block level button link', url: '#block-level-button-link', state: :primary, type: :block
+      button_link 'Block level button link', url: '#block-level-button-link', state: :secondary, type: :block
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+= section title: "Status", tag: :h3 do
+  = example do |c|
+    - c.header do
+      = button_link 'Primary', url: '#active', status: :active
+      = button_link 'Primary', url: '#disabled', status: :disabled
+    - c.code do
+      button_link 'Primary', url: '#active', status: :active
+      button_link 'Primary', url: '#disabled', status: :disabled
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+= section title: "Options and html options" do
+  = example do |c|
+    - c.header do
+      = button_link 'Success', { url: '#', state: :success }, { class: 'button_link' }
+    - c.code do
+      button_link 'Primary', { url: '#', state: :success }, { class: 'button_link' }
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+
