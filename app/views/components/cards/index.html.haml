@@ -31,12 +31,12 @@
       = card tap: true do |c|
         - c.header 'Header'
         - c.block 'Content'
-        - c.footer 'Footer'
+        - c.footer 'Footer', muted: true
     - e.code do
       card tap: true do |c|
         c.header 'Header'
         c.block 'Content'
-        c.footer 'Footer'
+        c.footer 'Footer', muted: true
       end
     - e.footer do
       = documentation_link 'Documentation', '#'
