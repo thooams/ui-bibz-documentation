@@ -103,6 +103,22 @@
           b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
         end
       end
+       
+      card tap: true, text_position: :center do |c|
+        c.block tap: true do |b|
+          b.title "Special title treatment"
+          b.text "With supporting text below as a natural lead-in to additional content."
+          b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
+        end
+      end
+       
+      card tap: true, text_position: :right do |c|
+        c.block tap: true do |b|
+          b.title "Special title treatment"
+          b.text "With supporting text below as a natural lead-in to additional content."
+          b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
+        end
+      end
     - e.footer do
       = documentation_link 'Documentation', '#'
 
