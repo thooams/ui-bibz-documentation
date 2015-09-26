@@ -78,23 +78,24 @@
 = section title: "Position" do
   = example do |e|
     - e.header do
-      = card tap: true do |c|
-        - c.block tap: true do |b|
-          - b.title "Special title treatment"
-          - b.text "With supporting text below as a natural lead-in to additional content."
-          - b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
+      = card_deck do |cd|
+        - cd.card tap: true do |c|
+          - c.block tap: true do |b|
+            - b.title "Special title treatment"
+            - b.text "With supporting text below as a natural lead-in to additional content."
+            - b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
 
-      = card tap: true, text_position: :center do |c|
-        - c.block tap: true do |b|
-          - b.title "Special title treatment"
-          - b.text "With supporting text below as a natural lead-in to additional content."
-          - b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
+        - cd.card tap: true, text_position: :center do |c|
+          - c.block tap: true do |b|
+            - b.title "Special title treatment"
+            - b.text "With supporting text below as a natural lead-in to additional content."
+            - b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
 
-      = card tap: true, text_position: :right do |c|
-        - c.block tap: true do |b|
-          - b.title "Special title treatment"
-          - b.text "With supporting text below as a natural lead-in to additional content."
-          - b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
+        - cd.card tap: true, text_position: :right do |c|
+          - c.block tap: true do |b|
+            - b.title "Special title treatment"
+            - b.text "With supporting text below as a natural lead-in to additional content."
+            - b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
     - e.code do
       card tap: true do |c|
         c.block tap: true do |b|
@@ -122,67 +123,76 @@
     - e.footer do
       = documentation_link 'Documentation', '#'
 
-%h2 Button options
-
-= section title: "Outline", tag: :h3 do
-  = example do |c|
-    - c.header do
-      = button 'Primary', state: :primary, outline: true
-      = button 'Secondary', state: :secondary, outline: true
-      = button 'Success', state: :success, outline: true
-      = button 'Warning', state: :warning, outline: true
-      = button 'Danger', state: :danger, outline: true
-    - c.code do
-      button 'Primary', state: :primary, outline: true
-      button 'Secondary', state: :secondary, outline: true
-      button 'Success', state: :success, outline: true
-      button 'Warning', state: :warning, outline: true
-      button 'Danger', state: :danger, outline: true
-    - c.footer do
+= section title: "Inverse and colors" do
+  = example do |e|
+    - e.header do
+      = card_column do |cd|
+        - cd.card({ tap: true, type: :inverse }, { style: "background-color: #333; border-color: #333;" }) do |c|
+          - c.block tap: true do |b|
+            - b.title "Special title treatment"
+            - b.text "With supporting text below as a natural lead-in to additional content."
+        - cd.card tap: true, type: :inverse, state: :primary do |c|
+          - c.block tap: true do |b|
+            - b.title "Special title treatment"
+            - b.text "With supporting text below as a natural lead-in to additional content."
+        - cd.card tap: true, type: :inverse, state: :success do |c|
+          - c.block tap: true do |b|
+            - b.title "Special title treatment"
+            - b.text "With supporting text below as a natural lead-in to additional content."
+        - cd.card tap: true, type: :inverse, state: :danger do |c|
+          - c.block tap: true do |b|
+            - b.title "Special title treatment"
+            - b.text "With supporting text below as a natural lead-in to additional content."
+        - cd.card tap: true, type: :inverse, state: :info do |c|
+          - c.block tap: true do |b|
+            - b.title "Special title treatment"
+            - b.text "With supporting text below as a natural lead-in to additional content."
+        - cd.card tap: true, type: :inverse, state: :warning do |c|
+          - c.block tap: true do |b|
+            - b.title "Special title treatment"
+            - b.text "With supporting text below as a natural lead-in to additional content."
+    - e.code do
+      card({ tap: true, type: :inverse }, { style: "background-color: #333; border-color: #333;" }) do |c|
+        c.block tap: true do |b|
+          b.title "Special title treatment"
+          b.text "With supporting text below as a natural lead-in to additional content."
+        end
+      end
+       
+      card tap: true, type: :inverse, state: :primary do |c|
+        c.block tap: true do |b|
+          b.title "Special title treatment"
+          b.text "With supporting text below as a natural lead-in to additional content."
+        end
+      end
+       
+      card tap: true, type: :inverse, state: :success do |c|
+        c.block tap: true do |b|
+          b.title "Special title treatment"
+          b.text "With supporting text below as a natural lead-in to additional content."
+        end
+      end
+       
+      card tap: true, type: :inverse, state: :danger do |c|
+        c.block tap: true do |b|
+          b.title "Special title treatment"
+          b.text "With supporting text below as a natural lead-in to additional content."
+        end
+      end
+       
+      card tap: true, type: :inverse, state: :info do |c|
+        c.block tap: true do |b|
+          b.title "Special title treatment"
+          b.text "With supporting text below as a natural lead-in to additional content."
+        end
+      end
+       
+      card tap: true, type: :inverse, state: :warning do |c|
+        c.block tap: true do |b|
+          b.title "Special title treatment"
+          b.text "With supporting text below as a natural lead-in to additional content."
+        end
+      end
+    - e.footer do
       = documentation_link 'Documentation', '#'
-
-= section title: "Size", tag: :h3 do
-  = example do |c|
-    - c.header do
-      = button 'Large button', state: :primary, size: :lg
-      = button 'Medium button', state: :primary
-      = button 'Small button', state: :primary, size: :sm
-    - c.code do
-      button 'Large button', state: :primary, size: :lg
-      button 'Medium button', state: :primary
-      button 'Small button', state: :primary, size: :sm
-    - c.footer do
-      = documentation_link 'Documentation', '#'
-
-= section title: "Type", tag: :h3 do
-  = example do |c|
-    - c.header do
-      = button 'Block level button', state: :primary, type: :block
-      = button 'Block level button', state: :secondary, type: :block
-    - c.code do
-      button 'Block level button', state: :primary, type: :block
-      button 'Block level button', state: :secondary, type: :block
-    - c.footer do
-      = documentation_link 'Documentation', '#'
-
-= section title: "Status", tag: :h3 do
-  = example do |c|
-    - c.header do
-      = button 'Primary', state: :primary, status: :active
-      = button 'Primary', state: :primary, status: :disabled
-    - c.code do
-      button 'Primary', state: :primary, status: :active
-      button 'Primary', state: :primary, status: :disabled
-    - c.footer do
-      = documentation_link 'Documentation', '#'
-
-= section title: "Options and html options" do
-  = example do |c|
-    - c.header do
-      = button 'Success', { state: :success }, { class: 'button' }
-    - c.code do
-      button 'Primary', { state: :success }, { class: 'button' }
-    - c.footer do
-      = documentation_link 'Documentation', '#'
-
 
