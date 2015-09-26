@@ -1,14 +1,17 @@
-%h1 Cards
+%h1 Cards column
 %p Use Bootstrap’s custom button styles for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, states, and more.
 
 = content_for :third_nav do
   %h2 Contents
   = nav class: 'secondary-nav' do |n|
-    - n.link 'Card', url: '#card'
-    - n.link 'Card with header, block and footer', url: '#card-with-header-block-and-footer'
-    - n.link 'Image and block', url: '#image-and-block'
-    - n.link 'Position', url: '#position'
-    - n.link 'Inverse and colors', url: '#inverse-and-colors'
+    - n.link 'Button', url: '#button'
+    - n.link 'Button options', url: '#button-options'
+    - n.nav do |na|
+      - na.link 'Outline', url: '#outline'
+      - na.link 'Size', url: '#size'
+      - na.link 'Type', url: '#type'
+      - na.link 'Status', url: '#status'
+    - n.link 'Options and html_options', url: '#options-and-html-options'
 
 = section title: "Card" do
   = example do |e|
