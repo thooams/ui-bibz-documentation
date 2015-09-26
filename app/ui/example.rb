@@ -3,6 +3,7 @@ module UiBibz::Ui::Ux
 
     def initialize content = nil, options = nil, html_options = nil, &block
       super
+      @options = @options.merge({ tap: true})
       @items = [@content]
     end
 
