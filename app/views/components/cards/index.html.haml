@@ -15,9 +15,18 @@
     - e.header do
       = card do
         = "Content"
+      = card "Content", { state: :info }, { class: 'my-card1'}
+      = card({ state: :success }, { class: 'my-card2'})  do
+        = "Content"
     - e.code do
       card do
         Content
+      end
+       
+      card "Content", { state: :info }, { class: 'my-card1'}
+       
+      card({ state: :success }, { class: 'my-card2'})  do
+        "Content"
       end
     - e.footer do
       = documentation_link 'Documentation', '#'
@@ -25,15 +34,45 @@
 = section title: "Card with header, block and footer" do
   = example do |e|
     - e.header do
-      = card tap: true do |c|
-        - c.header 'Header'
-        - c.block 'Content'
-        - c.footer 'Footer', muted: true
+      = card_deck do |cd|
+        - cd.card tap: true do |c|
+          - c.header 'Header 1'
+          - c.block 'Content 1'
+          - c.footer 'Footer 1'
+        - cd.card tap: true do |c|
+          - c.header 'Header 2', { glyph: 'eye' }, { class: 'my-header' }
+          - c.block 'Content 2', { glyph: 'eye' }, { class: 'my-content' }
+          - c.footer 'Footer 2', { muted: true }, { class: 'my-footer'}
+        - cd.card tap: true do |c|
+          - c.header({ glyph: 'eye' }, { class: 'my-header' }) do
+            = 'Header 3'
+          - c.block({ glyph: 'eye' }, { class: 'my-content' }) do
+            = "Content 3"
+          - c.footer({ muted: true }, { class: 'my-footer'}) do
+            = "Footer 3"
     - e.code do
       card tap: true do |c|
-        c.header 'Header'
-        c.block 'Content'
-        c.footer 'Footer', muted: true
+        c.header 'Header 1'
+        c.block 'Content 1'
+        c.footer 'Footer 1'
+      end
+       
+      card tap: true do |c|
+        c.header 'Header 2', { glyph: 'eye' }, { class: 'my-header' }
+        c.block 'Content 2', { glyph: 'eye' }, { class: 'my-content' }
+        c.footer 'Footer 2', { muted: true }, { class: 'my-footer'}
+      end
+       
+      card tap: true do |c|
+        c.header({ glyph: 'eye' }, { class: 'my-header' }) do
+          'Header 3'
+        end
+        c.block({ glyph: 'eye' }, { class: 'my-content' }) do
+          "Content 3"
+        end
+        c.footer({ muted: true }, { class: 'my-footer'}) do
+          "Footer 3"
+        end
       end
     - e.footer do
       = documentation_link 'Documentation', '#'
