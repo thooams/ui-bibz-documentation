@@ -40,13 +40,13 @@
           - c.block 'Content 1'
           - c.footer 'Footer 1'
         - cd.card tap: true do |c|
-          - c.header 'Header 2', { glyph: 'eye' }, { class: 'my-header' }
-          - c.block 'Content 2', { glyph: 'eye' }, { class: 'my-content' }
+          - c.header 'Header 2', { glyph: 'diamond' }, { class: 'my-header' }
+          - c.block 'Content 2', { glyph: 'diamond' }, { class: 'my-content' }
           - c.footer 'Footer 2', { muted: true }, { class: 'my-footer'}
         - cd.card tap: true do |c|
-          - c.header({ glyph: 'eye' }, { class: 'my-header' }) do
+          - c.header({ glyph: 'diamond' }, { class: 'my-header' }) do
             = 'Header 3'
-          - c.block({ glyph: 'eye' }, { class: 'my-content' }) do
+          - c.block({ glyph: 'diamond' }, { class: 'my-content' }) do
             = "Content 3"
           - c.footer({ muted: true }, { class: 'my-footer'}) do
             = "Footer 3"
@@ -58,16 +58,16 @@
       end
        
       card tap: true do |c|
-        c.header 'Header 2', { glyph: 'eye' }, { class: 'my-header' }
-        c.block 'Content 2', { glyph: 'eye' }, { class: 'my-content' }
+        c.header 'Header 2', { glyph: 'diamond' }, { class: 'my-header' }
+        c.block 'Content 2', { glyph: 'diamond' }, { class: 'my-content' }
         c.footer 'Footer 2', { muted: true }, { class: 'my-footer'}
       end
        
       card tap: true do |c|
-        c.header({ glyph: 'eye' }, { class: 'my-header' }) do
+        c.header({ glyph: 'diamond' }, { class: 'my-header' }) do
           'Header 3'
         end
-        c.block({ glyph: 'eye' }, { class: 'my-content' }) do
+        c.block({ glyph: 'diamond' }, { class: 'my-content' }) do
           "Content 3"
         end
         c.footer({ muted: true }, { class: 'my-footer'}) do

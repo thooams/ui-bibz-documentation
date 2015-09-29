@@ -1,6 +1,6 @@
 = navbar(type: :inverse, position: :bottom) do |nb|
   - nb.nav do |n|
-    - n.link 'Link 1', url: '#link-1', glyph: 'eye'
+    - n.link 'Link 1', url: '#link-1', glyph: 'diamond'
   - nb.text 'My text'
   = nb.form({ url: '/search', type: :form_tag }) do
     .form-group
@@ -8,7 +8,7 @@
     = button 'Submit', type: :submit
   - nb.nav({ position: :right }, { class: 'nav2'}) do |n|
     - n.dropdown 'Dropdown' do |d|
-      - d.list link_to('Link 2', '#test'), { glyph: 'eye' }
+      - d.list link_to('Link 2', '#test'), { glyph: 'diamond' }
       - d.list(url: '#link-2', status: :active) do
         Link 3
 
@@ -42,7 +42,7 @@
     = 'bottom'
 
 
-= notify 'toto', glyph: 'eye', close: true
+= notify 'toto', glyph: 'diamond', close: true
 
 %br
 %br
@@ -78,7 +78,7 @@
 %br
 
 = button_split_dropdown 'Dropdown', state: :primary do |d|
-  - d.link 'toto', url: '#', glyph: 'eye'
+  - d.link 'toto', url: '#', glyph: 'diamond'
   - d.list 'header', type: :header
   - d.link 'momo', url: '#'
   - d.list '---'
@@ -89,12 +89,12 @@
 %br
 
 = nav position: :justified do |n|
-  - n.link 'toto', { url: '#toto', status: :active, glyph: 'eye' }
+  - n.link 'toto', { url: '#toto', status: :active, glyph: 'diamond' }
   - n.link 'momo', { url: '#mono' }
 
 %br
 = nav type: :pills do |n|
-  - n.link 'toto', url: '#toto', status: :active, glyph: 'eye'
+  - n.link 'toto', url: '#toto', status: :active, glyph: 'diamond'
   - n.link 'momo', url: '#mono', badge: 30
 
 %br
@@ -114,7 +114,7 @@
   - lg.list 'Toto'
 
 = panel(state: :danger, tap: true, class: 'toto') do |p|
-  - p.header 'toto', glyph: 'eye'
+  - p.header 'toto', glyph: 'diamond'
   - p.body 'toto'
   - p.footer 'toto'
 
@@ -133,7 +133,7 @@
   - g.actions do |acs|
     - acs.action 'Toto', url: edit_user_path(:id), glyph: 'pencil'
     - acs.action "---"
-    - acs.action 'momo', url: user_path(:id), glyph: 'eye'
+    - acs.action 'momo', url: user_path(:id), glyph: 'diamond'
 
 = table_search_field store: @users
 %br

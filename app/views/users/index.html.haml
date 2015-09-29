@@ -2,15 +2,15 @@
 
   = navbar(state: :danger, title: 'Toto', type: :dark, position: :bottom) do |nb|
     - nb.nav do |n|
-      - n.link 'Link 1', url: '#link-1', glyph: 'eye'
-      - n.link 'Link 2', url: '#link-2', glyph: 'eye'
+      - n.link 'Link 1', url: '#link-1', glyph: 'diamond'
+      - n.link 'Link 2', url: '#link-2', glyph: 'diamond'
     -#= nb.form({ url: '/search', type: :form_tag }) do
       -#.form-group
         -#= text_field_tag 'search', nil, { class: 'form-control', placeholder: 'Search' }
       -#= button 'Submit', type: :submit
     - nb.nav({ position: :right }, { class: 'nav2'}) do |n|
       - n.dropdown 'Dropdown' do |d|
-        - d.link 'Link 2', { url: '#test', glyph: 'eye' }
+        - d.link 'Link 2', { url: '#test', glyph: 'diamond' }
         - d.link(url: '#link-2', status: :active) do
           Link 3
   .bd-example-modal
@@ -39,7 +39,7 @@
     - pb.bar(type: :striped) do
       = 10
 
-  = notify 'toto', glyph: 'eye', close: true
+  = notify 'toto', glyph: 'diamond', close: true
 
   %br
   %br
@@ -75,7 +75,7 @@
   %br
 
   = button_split_dropdown 'Dropdown', state: :primary do |d|
-    - d.link 'toto', url: '#', glyph: 'eye'
+    - d.link 'toto', url: '#', glyph: 'diamond'
     - d.header 'header'
     - d.link 'momo', url: '#'
     - d.divider
@@ -94,20 +94,20 @@
     = button_choice 'tata', type: :radio
 
   = nav position: :justified do |n|
-    - n.link 'toto', { url: '#toto', status: :active, glyph: 'eye' }
+    - n.link 'toto', { url: '#toto', status: :active, glyph: 'diamond' }
     - n.link 'momo', { url: '#mono' }
 
   %br
   = nav type: :tabs do |n|
-    - n.link 'toto', { url: '#toto', status: :active, glyph: 'eye' }
+    - n.link 'toto', { url: '#toto', status: :active, glyph: 'diamond' }
     - n.link 'momo', { url: '#mono' }
 
   %br
   = nav type: :pills do |n|
-    - n.link 'toto', url: '#toto', status: :active, glyph: 'eye'
+    - n.link 'toto', url: '#toto', status: :active, glyph: 'diamond'
     - n.link 'momo', url: '#mono', badge: 30
     - n.dropdown('Dropdown', state: :primary) do |d|
-      - d.link 'toto', url: '#', glyph: 'eye'
+      - d.link 'toto', url: '#', glyph: 'diamond'
       - d.header 'header'
       - d.link 'momo', url: '#'
       - d.divider
@@ -147,7 +147,7 @@
       = link_to "Card link", '#', class: "card-link"
 
   = card(state: :danger, tap: true, class: 'toto') do |p|
-    - p.header 'toto', glyph: 'eye'
+    - p.header 'toto', glyph: 'diamond'
     - p.block 'toto'
     - p.footer 'toto'
 
@@ -186,7 +186,7 @@
     - g.actions do |acs|
       - acs.link 'Toto', url: edit_user_path(:id), glyph: 'pencil'
       - acs.divider
-      - acs.link 'momo', url: user_path(:id), glyph: 'eye'
+      - acs.link 'momo', url: user_path(:id), glyph: 'diamond'
 
   = table_search_field store: @users
   %br

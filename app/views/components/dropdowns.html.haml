@@ -14,65 +14,144 @@
 = section title: "Dropdown" do
   = example do |c|
     - c.header do
-      = dropdown 'Dropdown' do |d|
-        - d.link "Action", url: '#action'
+      = dropdown('Dropdown', { open: true }, { class: 'open-dropdown-example' }) do |d|
+        - d.link "Action 1", url: '#action'
         - d.link url: '#another-action' do
-          = "Another action"
+          = "Action 2"
         - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
-          = "Separate link"
+          = "Action 3"
     - c.code do
-      button_dropdown 'Primary' do |bd|
-        bd.link "Action", url: '#action'
-        bd.link "Another action", url: '#another-action'
-        bd.link url: '#another-action' do
-          "Another action"
+      dropdown 'Dropdown' do |d|
+        d.link "Action 1", url: '#action'
+        d.link url: '#another-action' do
+          "Action 2"
         end
-        bd.divider
-        bd.header 'Header'
-        bd.link "Separate link", url: '#separate-link'
-        bd.link({ url: '#separate-link'}, { class: 'my-link'}) do
-          "Separate link"
+        d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+          "Action 3"
         end
       end
     - c.footer do
       = documentation_link 'Documentation', '#'
 
-
-= section title: "Button dropdown options" do
+= section title: "Dropdown options" do
   = example do |c|
     - c.header do
-      = button_dropdown "Dropdown right", state: :success, size: :lg, position: :right do |bd|
-        - bd.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
-        - bd.link "Another action", url: '#another-action'
-        - bd.divider
-        - bd.header 'Header'
-        - bd.link "Separate link", url: '#separate-link'
-
-      = button_dropdown "Dropup", state: :danger, size: :sm, type: :dropup do |bd|
-        - bd.link "Action",  { url: '#action' }, { class: 'action' }
-        - bd.link "Another action", url: '#another-action'
-        - bd.divider
-        - bd.header 'Header'
-        - bd.link "Separate link", url: '#separate-link'
-
+      = dropdown('Dropdown', { state: :secondary, glyph: 'diamond', open: true }, { class: 'open-dropdown-example' }) do |d|
+        - d.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
+        - d.link url: '#another-action' do
+          = "Action 2"
+        - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+          = "Action 3"
     - c.code do
-      button_dropdown "Dropdown right", state: :success, size: :lg, position: :right do |bd|
-        bd.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
-        bd.link "Another action", url: '#another-action'
-        bd.divider
-        bd.header 'Header'
-        bd.link "Separate link", url: '#separate-link'
-      end
-       
-      button_dropdown "Dropup", state: :danger, size: :sm, type: :dropup do |bd|
-        bd.link "Action",  { url: '#action' }, { class: 'action' }
-        bd.link "Another action", url: '#another-action'
-        bd.divider
-        bd.header 'Header'
-        bd.link "Separate link", url: '#separate-link'
+      dropdown('Dropdown', { state: :secondary, glyph: 'diamond' }, { class: 'my-dropdown'}) do |d|
+        d.link "Action 1", url: '#action'
+        d.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
+        d.link url: '#another-action' do
+          "Action 2"
+        end
+        d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+          "Action 3"
+        end
       end
     - c.footer do
       = documentation_link 'Documentation', '#'
+
+
+= section title: "Position" do
+  = example do |c|
+    - c.header do
+      = dropdown "Dropdown with right menu", position: :right, open: true, class: 'open-dropdown-example' do |d|
+        - d.link "Action 1", url: '#action-1'
+        - d.link "Action 2", url: '#action-2'
+        - d.link "Action 3", url: '#action-3'
+    - c.code do
+      dropdown "Dropdown with right menu", position: :right do |d|
+        d.link "Action 1", url: '#action-1'
+        d.link "Action 2", url: '#action-2'
+        d.link "Action 3", url: '#action-3'
+      end
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+
+= section title: "Header" do
+  = example do |c|
+    - c.header do
+      = dropdown "Dropdown", open: true, class: 'open-dropdown-example' do |d|
+        - d.header "Header 1"
+        - d.link "Action 1", url: '#action-1'
+        - d.header class: 'my-header' do
+          = 'Header 2'
+        - d.link "Action 2", url: '#action-2'
+        - d.link "Action 3", url: '#action-3'
+      %br
+      %br
+      %br
+      %br
+    - c.code do
+      dropdown "Dropdown" do |d|
+        d.header "Header 1"
+        d.link "Action 1", url: '#action-1'
+        d.header class: 'my-header' do
+          'Header 2'
+        end
+        d.link "Action 2", url: '#action-2'
+        d.link "Action 3", url: '#action-3'
+      end
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+
+= section title: "Divider" do
+  = example do |c|
+    - c.header do
+      = dropdown "Dropdown", open: true, class: 'open-dropdown-example' do |d|
+        - d.link "Action 1", url: '#action-1'
+        - d.divider
+        - d.link "Separate action 1", url: '#separate-action-1'
+        - d.link "Separate action 2", url: '#separate-action-2'
+      %br
+      %br
+    - c.code do
+      dropdown "Dropdown" do |d|
+        d.link "Action 1", url: '#action-1'
+        d.divider
+        d.link "Separate action 1", url: '#separate-action-1'
+        d.link "Separate action 2", url: '#separate-action-2'
+      end
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+
+
+= section title: "Disabled" do
+  = example do |c|
+    - c.header do
+      = dropdown "Dropdown", open: true, class: 'open-dropdown-example' do |d|
+        - d.link "Action 1", url: '#action-1'
+        - d.link "Action 2", url: '#action-2', status: :disabled
+        - d.link "Action 3", url: '#action-3'
+    - c.code do
+      dropdown "Dropdown" do |d|
+        d.link "Action 1", url: '#action-1'
+        d.link "Action 2", url: '#action-2'
+        d.link "Action 3", url: '#action-3'
+      end
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
