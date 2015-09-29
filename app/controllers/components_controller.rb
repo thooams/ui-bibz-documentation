@@ -4,4 +4,7 @@ class ComponentsController < ApplicationController
 
   def dropdowns
   end
+
+  def jumbotron
+  end
 end
