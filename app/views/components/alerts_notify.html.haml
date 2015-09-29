@@ -1,0 +1,31 @@
+%h1 Alerts, notify
+
+= content_for :third_nav do
+  %h2 Content
+  = nav class: 'secondary-nav' do |n|
+    - n.link 'Etiquette', url: '#etiquette'
+    - n.nav do |na|
+      - na.link 'Pill', url: '#pill'
+
+
+= section title: "Notify" do
+  = example do |c|
+    - c.header do
+      - %i(danger warning info success).each do |state|
+        = notify state.to_s.titleize, state: state
+    - c.code do
+      notify 'Danger', state: :danger
+      notify 'Warning', state: :warning
+      notify 'Info', state: :info
+      notify 'Success', state: :success
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+= section title: "Notify options" do
+  = example do |c|
+    - c.header do
+      = notify 'Danger', state: :danger, closable: true, class: 'my-alert'
+    - c.code do
+      notify 'Danger', { state: :danger, closable: true }, { class: 'my-alert' }
+    - c.footer do
+      = documentation_link 'Documentation', '#'

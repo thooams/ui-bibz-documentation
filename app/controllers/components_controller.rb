@@ -10,4 +10,7 @@ class ComponentsController < ApplicationController
 
   def labels_etiquettes
   end
+
+  def alerts_notify
+  end
 end

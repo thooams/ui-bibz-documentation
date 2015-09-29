@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     get 'dropdowns'
     get 'jumbotrons'
     get 'labels_etiquettes'
+    get 'alerts_notify'
   end
 
   # Example of regular route:
