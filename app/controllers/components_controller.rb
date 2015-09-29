@@ -7,4 +7,7 @@ class ComponentsController < ApplicationController
 
   def jumbotron
   end
+
+  def labels_etiquettes
+  end
 end

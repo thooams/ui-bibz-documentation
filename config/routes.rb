@@ -24,8 +24,9 @@ Rails.application.routes.draw do
     get 'buttons/buttons-split-dropdown'    => 'buttons#buttons_split_dropdown'
     get 'cards/cards'                       => 'cards#index'
     get 'cards/cards-column-deck-and-group' => 'cards#cards_column_deck_and_group'
-    get 'dropdowns'                         #=> '#dropdowns'
-    get 'jumbotrons'                         #=> '#dropdowns'
+    get 'dropdowns'
+    get 'jumbotrons'
+    get 'labels_etiquettes'
   end
 
   # Example of regular route:

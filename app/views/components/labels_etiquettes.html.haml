@@ -1,0 +1,39 @@
+%h1 Labels, etiquettes
+
+= content_for :third_nav do
+  %h2 Content
+  = nav class: 'secondary-nav' do |n|
+    - n.link 'Etiquette', url: '#etiquette'
+    - n.nav do |na|
+      - na.link 'Pill', url: '#pill'
+
+
+= section title: "Etiquette" do
+  = example do |c|
+    - c.header do
+      - %i(primary default danger warning info success).each do |state|
+        = etiquette state.to_s.titleize, state: state
+    - c.code do
+      etiquette 'Primary', state: :primary
+      etiquette 'Default', state: :default
+      etiquette 'Danger', state: :danger
+      etiquette 'Warning', state: :warning
+      etiquette 'Info', state: :info
+      etiquette 'Success', state: :success
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+= section title: "Pill" do
+  = example do |c|
+    - c.header do
+      - %i(primary default danger warning info success).each do |state|
+        = etiquette state.to_s.titleize, state: state, type: :pill
+    - c.code do
+      etiquette 'Primary', state: :primary, type: :pill
+      etiquette 'Default', state: :default, type: :pill
+      etiquette 'Danger', state: :danger, type: :pill
+      etiquette 'Warning', state: :warning, type: :pill
+      etiquette 'Info', state: :info, type: :pill
+      etiquette 'Success', state: :success, type: :pill
+    - c.footer do
+      = documentation_link 'Documentation', '#'
