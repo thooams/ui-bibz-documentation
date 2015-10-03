@@ -138,4 +138,28 @@
     - c.footer do
       = documentation_link 'Documentation', '#'
 
+= section title: "Content" do
+  = example do |c|
+    - c.header do
+      = nav type: :tabs do |n|
+        - n.link 'Active', url: '#active', status: :active, selector: 'content1'
+        - n.link 'Link', url: '#link', selector: 'content2'
+        - n.link 'Another link', url: '#another-link', selector: 'content3'
+        - n.link 'Disabled', url: '#disabled', status: :disabled, selector: 'content4'
+      %br
+      .tab-content
+        = card 'Content 1', { status: :active }, { id: 'content1' }
+        = card 'Content 1', nil, { id: 'content2' }
+        = card 'Content 1', nil, { id: 'content3' }
+        = card 'Content 1', nil, { id: 'content4' }
+    - c.code do
+      nav type: :tabs do |n|
+        n.link 'Active', url: '#active', status: :active, selector: 'content1'
+        n.link 'Link', url: '#link', selector: 'content2'
+        n.link 'Another link', url: '#another-link', selector: 'content3'
+        n.link 'Disabled', url: '#disabled', status: :disabled, selector: 'content4'
+      end
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
 
