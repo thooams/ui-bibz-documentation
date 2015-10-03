@@ -14,6 +14,9 @@ class ComponentsController < ApplicationController
   def alerts_notify
   end
 
-  def nav
+  def navs
+  end
+
+  def navbars
   end
 end

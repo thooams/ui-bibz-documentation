@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     get 'labels_etiquettes'
     get 'alerts_notify'
     get 'navs'
+    get 'navbars'
   end
 
   # Example of regular route:

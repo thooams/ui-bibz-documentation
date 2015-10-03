@@ -1,0 +1,53 @@
+%h1 Navbars
+
+= content_for :third_nav do
+  %h2 Content
+  = nav class: 'secondary-nav' do |n|
+    - n.link 'Navbar', url: '#navbar'
+    - n.nav do |na|
+      - na.link 'Notify options', url: '#notify-options'
+
+= section title: "Navbar" do
+  = example do |c|
+    - c.header do
+      = navbar title: 'Navbar' do |nb|
+        - nb.nav do |n|
+          - n.link 'Home', url: '#active', status: :active
+          - n.link url: '#link', class: 'my-link' do
+            Features
+          - n.link 'Princing', url: '#another-link'
+          - n.dropdown 'Dropdown' do |d|
+            - d.link "Action 1", url: '#action'
+            - d.link url: '#another-action' do
+              = "Action 2"
+            - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+              = "Action 3"
+        - nb.form '/search', { type: :form_tag, position: :right } do
+          = textfield 'Search'
+          = button 'Search', state: :success, outline: true
+    - c.code do
+      navbar title: 'Navbar' do |nb|
+        nb.nav do |n|
+          n.link 'Home', url: '#active', status: :active
+          n.link url: '#link', class: 'my-link' do
+            Features
+          end
+          n.link 'Princing', url: '#another-link'
+          n.dropdown 'Dropdown' do |d|
+            d.link "Action 1", url: '#action'
+            d.link url: '#another-action' do
+              "Action 2"
+            end
+            d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+              "Action 3"
+            end
+          end
+        end
+        nb.form '/search', { type: :form_tag, position: :right } do
+          textfield 'Search'
+          button 'Search', state: :success, outline: true
+        end
+      end
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
