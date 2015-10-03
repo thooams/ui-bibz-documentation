@@ -38,7 +38,7 @@
 = section title: "Links" do
   = example do |c|
     - c.header do
-      = nav type: :link do |n|
+      = nav type: :links do |n|
         - n.link 'Active', url: '#active', status: :active
         - n.link url: '#link', class: 'my-link' do
           Link
@@ -142,16 +142,16 @@
   = example do |c|
     - c.header do
       = nav type: :tabs do |n|
-        - n.link 'Active', url: '#active', status: :active, selector: 'content1'
-        - n.link 'Link', url: '#link', selector: 'content2'
-        - n.link 'Another link', url: '#another-link', selector: 'content3'
-        - n.link 'Disabled', url: '#disabled', status: :disabled, selector: 'content4'
+        - n.link 'Active', url: '#content1', status: :active
+        - n.link 'Link', url: '#content2'
+        - n.link 'Another link', url: '#content3', selector: 'content3'
+        - n.link 'Disabled', url: '#content4', status: :disabled, selector: 'content4'
       %br
       .tab-content
-        = card 'Content 1', { status: :active }, { id: 'content1' }
-        = card 'Content 1', nil, { id: 'content2' }
-        = card 'Content 1', nil, { id: 'content3' }
-        = card 'Content 1', nil, { id: 'content4' }
+        = card 'Content 1', { tab: true, status: :active }, { id: 'content1' }
+        = card 'Content 2', { tab: true, effect: :fade }, { id: 'content2', role: 'tabpanel' }
+        = card 'Content 3', { tab: true, effect: :fade }, { id: 'content3' }
+        = card 'Content 4', { tab: true }, { id: 'content4' }
     - c.code do
       nav type: :tabs do |n|
         n.link 'Active', url: '#active', status: :active, selector: 'content1'
