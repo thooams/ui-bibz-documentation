@@ -13,4 +13,7 @@ class ComponentsController < ApplicationController
 
   def alerts_notify
   end
+
+  def nav
+  end
 end

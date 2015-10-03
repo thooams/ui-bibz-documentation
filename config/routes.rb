@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     get 'jumbotrons'
     get 'labels_etiquettes'
     get 'alerts_notify'
+    get 'navs'
   end
 
   # Example of regular route:

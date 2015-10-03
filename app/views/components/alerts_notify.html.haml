@@ -3,9 +3,9 @@
 = content_for :third_nav do
   %h2 Content
   = nav class: 'secondary-nav' do |n|
-    - n.link 'Etiquette', url: '#etiquette'
+    - n.link 'Notify', url: '#notify'
     - n.nav do |na|
-      - na.link 'Pill', url: '#pill'
+      - na.link 'Notify options', url: '#notify-options'
 
 
 = section title: "Notify" do
@@ -24,8 +24,14 @@
 = section title: "Notify options" do
   = example do |c|
     - c.header do
-      = notify 'Danger', state: :danger, closable: true, class: 'my-alert'
+      = notify 'Success', state: :success, closable: true, class: 'my-alert'
+      = notify state: :danger, closable: true, class: 'my-alert' do
+        = "Danger notification with #{ link_to('link', '#', class: 'alert-link') }.".html_safe
     - c.code do
-      notify 'Danger', { state: :danger, closable: true }, { class: 'my-alert' }
+      notify 'Success', { state: :success, closable: true }, { class: 'my-alert' }
+       
+      notify({ state: :danger, closable: true }, { class: 'my-alert' }) do
+        "Danger notification with #{ link_to('link', '#', class: 'alert-link') }"
+      end
     - c.footer do
       = documentation_link 'Documentation', '#'
