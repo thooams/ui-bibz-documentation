@@ -4,8 +4,7 @@
   %h2 Content
   = nav class: 'secondary-nav' do |n|
     - n.link 'Navbar', url: '#navbar'
-    - n.nav do |na|
-      - na.link 'Notify options', url: '#notify-options'
+    - n.link 'Color', url: '#color'
 
 = section title: "Navbar" do
   = example do |c|
@@ -46,6 +45,41 @@
         nb.form '/search', { type: :form_tag, position: :right } do
           textfield 'Search'
           button 'Search', state: :success, outline: true
+        end
+      end
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+= section title: "Color" do
+  = example do |c|
+    - c.header do
+      = navbar title: 'Navbar', state: :primary, type: :dark do |nb|
+        - nb.nav do |n|
+          - n.link 'Home', url: '#home'
+      %br
+      = navbar title: 'Navbar', state: :inverse, type: :dark do |nb|
+        - nb.nav do |n|
+          - n.link 'Home', url: '#home'
+      %br
+      = navbar({ title: 'Navbar' }, { style: "background-color: #e3f2fd;"}) do |nb|
+        - nb.nav do |n|
+          - n.link 'Home', url: '#home'
+    - c.code do
+      navbar title: 'Navbar', state: :primary, type: :dark do |nb|
+        nb.nav do |n|
+          n.link 'Home', url: '#home'
+        end
+      end
+       
+      navbar title: 'Navbar', state: :inverse, type: :dark do |nb|
+        nb.nav do |n|
+          n.link 'Home', url: '#home'
+        end
+      end
+       
+      navbar({ title: 'Navbar' }, { style: "background-color: #e3f2fd;"}) do |nb|
+        nb.nav do |n|
+          n.link 'Home', url: '#home'
         end
       end
     - c.footer do
