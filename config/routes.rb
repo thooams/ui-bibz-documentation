@@ -31,6 +31,8 @@ Rails.application.routes.draw do
     get 'navs'
     get 'navbars'
     get 'breadcrumbs'
+    get 'progresses'
+    get 'lists_group'
   end
 
   # Example of regular route:

@@ -19,4 +19,7 @@ class ComponentsController < ApplicationController
 
   def navbars
   end
+
+  def progresses
+  end
 end
