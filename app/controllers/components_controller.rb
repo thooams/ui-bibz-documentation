@@ -22,4 +22,10 @@ class ComponentsController < ApplicationController
 
   def progresses
   end
+
+  def modals
+  end
+
+  def tables
+  end
 end

@@ -1,0 +1,49 @@
+%h1 Tables
+
+= content_for :third_nav do
+  %h2 Content
+  = nav class: 'secondary-nav' do |n|
+    - n.link 'Table', url: '#table'
+
+= section title: "Table" do
+  = example do |c|
+    - c.header do
+      = modal class: 'modal-example' do |m|
+        - m.header 'Modal title'
+        - m.body 'One fine body'
+        - m.footer do
+          = button 'Close', state: :secondary
+          = button 'Save changes'
+    - c.code do
+      modal class: 'modal-example' do |m|
+        m.header 'Modal itle'
+        m.body 'One fine body'
+        m.footer do
+          button 'Close', state: :secondary
+          button 'Save changes'
+        end
+      end
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+
+= section title: "Size" do
+  = example do |c|
+    - c.header do
+      = modal class: 'modal-example', size: :sm do |m|
+        - m.header do
+          = 'Modal title'
+        - m.body do
+          = 'One fine body'
+    - c.code do
+      modal class: 'modal-example' do |m|
+        m.header do
+          'Modal itle'
+        end
+        m.body do
+          'One fine body'
+        end
+      end
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+

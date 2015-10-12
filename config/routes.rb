@@ -33,6 +33,8 @@ Rails.application.routes.draw do
     get 'breadcrumbs'
     get 'progresses'
     get 'lists_group'
+    get 'modals'
+    get 'tables'
   end
 
   # Example of regular route:
