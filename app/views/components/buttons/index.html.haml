@@ -1,5 +1,6 @@
 %h1 Buttons
 %p Use Bootstrap’s custom button styles for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, states, and more.
+%p= extend_of_component 'button'
 
 = content_for :third_nav do
   %h2 Contents
@@ -15,7 +16,17 @@
 
 
 = section title: "Button" do
-  %p= "L'élément bouton est une extension de l'élément #{ link_to 'Composant', '#' }.".html_safe
+  %p
+    L'option
+    %code state
+    à pour agument les symboles suivants :
+  %ul
+    %li :primary
+    %li :secondary
+    %li :success
+    %li :warning
+    %li :danger
+    %li :link
   = example do |c|
     - c.header do
       = button 'Primary', state: :primary
@@ -37,6 +48,10 @@
 %h2 Button options
 
 = section title: "Outline", tag: :h3 do
+  %p
+    Le fond coloré des boutons peut être retiré grâce à l'option
+    %code outline
+    qui possède pour argument un booléan.
   = example do |c|
     - c.header do
       = button 'Primary', state: :primary, outline: true
@@ -54,6 +69,13 @@
       = documentation_link 'Documentation', '#'
 
 = section title: "Size", tag: :h3 do
+  %p
+    La taille peut être être définit â travers l'option
+    %code size
+    qui possède les 2 arguments suivants:
+    %ul
+      %li :lg
+      %li :sm
   = example do |c|
     - c.header do
       = button 'Large button', state: :primary, size: :lg
@@ -67,6 +89,11 @@
       = documentation_link 'Documentation', '#'
 
 = section title: "Type", tag: :h3 do
+  %p
+    Les boutons peuvent être présentés sous forme de block grâce à l'option
+    %code type
+    qui à pour argument le symbole
+    %code :block.
   = example do |c|
     - c.header do
       = button 'Block level button', state: :primary, type: :block
@@ -78,6 +105,15 @@
       = documentation_link 'Documentation', '#'
 
 = section title: "Status", tag: :h3 do
+  %p
+    Les boutons hérite de l'option
+    %code status
+    présente dans l'élément
+    = link_to 'component.', components_components_path
+    Cette option permet de desactivé ou d'activer l'élément concernant à travers ces 2 arguments :
+    %ul
+      %li :active
+      %li :disabled
   = example do |c|
     - c.header do
       = button 'Primary', state: :primary, status: :active
@@ -89,11 +125,26 @@
       = documentation_link 'Documentation', '#'
 
 = section title: "Options and html options" do
+  %p
+    Tout comme le
+    = link_to 'component', components_components_path
+    , l'élément
+    %code bouton
+    peut s'écrire de 2 différentes manières:
+    %ul
+      %li en ligne
+      %li par block
   = example do |c|
     - c.header do
       = button 'Success', { state: :success }, { class: 'button' }
+      = button({ state: :info }, { class: 'button' }) do
+        = 'Info'
     - c.code do
       button 'Primary', { state: :success }, { class: 'button' }
+       
+      button({ state: :success }, { class: 'button' }) do
+        Info
+      end
     - c.footer do
       = documentation_link 'Documentation', '#'
 

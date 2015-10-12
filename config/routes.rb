@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     get 'alerts_notify'
     get 'navs'
     get 'navbars'
+    get 'components'
     get 'breadcrumbs'
     get 'progresses'
     get 'lists_group'
