@@ -9,9 +9,13 @@ module ApplicationHelper
   end
 
   def extend_of_component name
-    "Le composant #{ content_tag :code, name } est une extension de l'élément #{ link_to 'component', components_components_path }.<br>
+    "#{ short_extend_of_component(name) }<br>
     Tout comme ce dernier, le composant #{ content_tag :code, name } possède des #{ content_tag :code, 'options' } et des #{ content_tag :code, 'html_options' } présents sous forme de hash.<br/>
     Il hérite d'ailleurs des options présentes dans l'élement component.".html_safe
+  end
+
+  def short_extend_of_component name
+    "Le composant #{ content_tag :code, name } est une extension de l'élément #{ link_to 'component', components_components_path }.".html_safe
   end
 
 end

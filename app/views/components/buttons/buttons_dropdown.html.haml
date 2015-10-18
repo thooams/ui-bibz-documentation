@@ -1,4 +1,5 @@
 %h1 Buttons dropdown
+%p= extend_of_component 'button_dropdown'
 
 = content_for :third_nav do
   %h2 Content
@@ -9,6 +10,13 @@
 
 
 = section title: "Button dropdown" do
+  %p Le bouton dropdown accepte plusieurs type de block :
+  %ul
+    %li link: Lien
+    %li divider: Ligne séparatrice
+    %li header: Titre de la colonne
+
+  %p= short_extend_of_component 'link'
   = example do |c|
     - c.header do
       - %i(primary secondary danger warning info success).each do |state|
