@@ -8,6 +8,7 @@
     - n.nav do |na|
       - na.link 'Position', url: '#position'
       - na.link 'Header', url: '#header'
+      - na.link 'Html', url: '#html'
       - na.link 'Divider', url: '#divider'
 
 
@@ -122,6 +123,23 @@
     - c.footer do
       = documentation_link 'Documentation', '#'
 
+= section title: "Html" do
+  = example do |c|
+    - c.header do
+      = dropdown "Dropdown", open: true, class: 'open-dropdown-example' do |d|
+        - d.html link_to("Action 1", '#action-1', class:'dropdown-item')
+        - d.html link_to("Action 2", '#action-2', class:'dropdown-item')
+        - d.html link_to("Action 3", '#action-3', class:'dropdown-item')
+      %br
+      %br
+    - c.code do
+      dropdown "Dropdown" do |d|
+        d.html link_to("Action 1", url: '#action-1', class: 'dropdown-item')
+        d.html link_to("Action 2", url: '#action-2', class: 'dropdown-item')
+        d.html link_to("Action 3", url: '#action-3', class: 'dropdown-item')
+      end
+    - c.footer do
+      = documentation_link 'Documentation', '#'
 
 
 = section title: "Disabled" do

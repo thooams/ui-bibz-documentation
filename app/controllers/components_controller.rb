@@ -27,5 +27,7 @@ class ComponentsController < ApplicationController
   end
 
   def tables
+    @users = User.all.limit(3).table_search_pagination(params, session)
   end
+
 end

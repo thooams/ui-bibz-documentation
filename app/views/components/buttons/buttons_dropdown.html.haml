@@ -12,9 +12,10 @@
 = section title: "Button dropdown" do
   %p Le bouton dropdown accepte plusieurs type de block :
   %ul
-    %li link: Lien
-    %li divider: Ligne séparatrice
-    %li header: Titre de la colonne
+    %li= link_to 'link', components_dropdowns_path(anchor: 'link')
+    %li= link_to 'divider', components_dropdowns_path(anchor: 'divider')
+    %li= link_to 'header', components_dropdowns_path(anchor: 'header')
+    %li= link_to 'html', components_dropdowns_path(anchor: 'html')
 
   %p= short_extend_of_component 'link'
   = example do |c|

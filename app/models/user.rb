@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   # Attr_accessor
   searchable_attributes :name
+  self.per_page = 3
 
   # Associations
 

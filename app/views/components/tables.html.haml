@@ -1,0 +1,195 @@
+%h1 Tables
+
+= content_for :third_nav do
+  %h2 Content
+  = nav class: 'secondary-nav' do |n|
+    - n.link 'Table', url: '#table'
+
+%p
+  Le composant
+  %code table
+  peut comporter:
+  %ul
+    %li une pagination
+    %li une recherche
+%p
+  La pagination est gérer grâce à la gem
+  %code will_paginate
+  \.
+%p
+  Les methodes de
+  %code will_paginate
+  fonctionnent avec le composant
+  %code table
+  comme par exemple
+  %code per_page
+  \.
+
+%important
+  %h4 Important
+  Pour ajouter, modifier, supprimer des colonnes et des actions dans le component
+  %code table
+  vous devez ajouter l'option
+  %code tap: true
+  \.
+
+
+= section title: "Model" do
+  %p Insérer dans le model la ligne suivante:
+  = example do |c|
+    - c.code do
+      class MyModel < ActiveRecord::Base
+        include UiBibz::Concerns::Models::Searchable
+        ...
+      end
+
+= section title: "Controller" do
+  %p
+    Utiliser dans votre model la method
+    %code table_search_pagination
+    en passant les arguments:
+    %ul
+      %li params
+      %li session
+      %li opts (optional)
+  = example do |c|
+    - c.code do
+      class MyController < ApplicationController
+        def index
+          @users = MyModel.all.table_search_pagination(params, session)
+          ...
+        end
+        ...
+      end
+
+= section title: "View" do
+  %p
+    Les colonnes sont par défaut toutes affichées et les actions par défaut sont:
+    %ul
+      %li show
+      %li edit
+      %li delete
+  = example do |c|
+    - c.header do
+      = table({ store: @users, tap: true }) do |b|
+        - b.columns do |cls|
+          - cls.column :id
+          - cls.column :email
+          - cls.column :active
+          - cls.column :company
+          - cls.column :created_at
+          - cls.column :updated_at
+        - b.actions do |acs|
+          - acs.link 'Show', url: '#show', glyph: 'eye'
+          - acs.link 'Edit', url: '#show', glyph: 'pencil'
+          - acs.link 'Delete', url: '#show', glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
+    - c.code do
+      table store: @users
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+= section title: "Table Columns" do
+  %p
+    L'ajout de colonnes à travers la méthode column contient plusieurs arguments et cette méthode est basée sur le component :
+    %ul
+      %li data_index (symbol)
+      %li options (hash)
+      %ul
+        %li name (le nom de la colonne)
+        %li count (utilise la méthode count sur l'élément)
+        %li date_format (formate l'affichage de la date en utilisant la méthode strftime ex: '%Y/%M/%D')
+        %li format (formate les élements de la colone en utilisant lambda)
+        %li link (ajoute un lien où l'expression :id est parsé et remplacé par l'entier correspondant)
+        %li sort (permet de trier sur des champs )
+        %li column_id (permet d'identifier la colonne : peut être utile pour le sort)
+        %li custom_sort (indique que le tableau sera triéé d'une manière personnalisée)
+      %li html_options (hash)
+  = example do |c|
+    - c.header do
+      = table({ store: @users, tap: true }) do |b|
+        - b.columns do |cls|
+          - cls.column :id, name: '#'
+          - cls.column :email, link: '#email'
+          - cls.column :active, format: lambda { |records, record| active_icon(record) }
+          - cls.column :company
+          - cls.column :created_at, date_format: '%d/%M/%Y'
+          - cls.column :updated_at
+        - b.actions do |acs|
+          - acs.link 'Show', url: '#show', glyph: 'eye'
+          - acs.link 'Edit', url: '#show', glyph: 'pencil'
+          - acs.link 'Delete', url: '#show', glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
+    - c.code do
+      table({ store: @users, tap: true }) do |b|
+        b.columns do |cls|
+          cls.column :id, name: '#'
+          cls.column :email, link: '#email'
+          cls.column :active, format: lambda { |records, record| active_icon(record) }
+          cls.column :company
+          cls.column :created_at, date_format: '%d/%M/%Y'
+          cls.column :updated_at
+        end
+      end
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+
+= section title: "Table Actions" do
+  %p
+    Les actions sont insérées dans un bouton dropdown.
+    Ces actions héritent du composant
+    %code DropdownLink
+    et propose les méthodes suivantes:
+    %ul
+      %li= link_to 'header', components_dropdowns_path(anchor: 'header')
+      %li= link_to 'divider', components_dropdowns_path(anchor: 'divider')
+      %li= link_to 'link', components_dropdowns_path(anchor: 'link')
+      %li= link_to 'html', components_dropdowns_path(anchor: 'html')
+
+  %p
+    L'option
+    %code link
+    peut injecter l'id du record en écrivant dans votre lien
+    %code :id
+    \.
+
+  %p
+    Les actions peuvent être formaté selon à chaque ligne.
+    Grâce à la méthode
+    %code format
+    vous avez accès au record afin de formater l'action désiré.
+  = example do |c|
+    - c.header do
+      = table({ store: @users, tap: true }) do |b|
+        - b.columns do |cls|
+          - cls.column :id
+          - cls.column :email
+          - cls.column :active
+          - cls.column :company
+          - cls.column :created_at
+          - cls.column :updated_at
+        - b.actions do |acs|
+          - acs.format do |record|
+            - acs.link 'Show', url: '#show', glyph: 'eye'
+            - acs.link 'Edit', url: '#show', glyph: 'pencil'
+            - acs.link 'Delete', url: '#show', glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
+            - if record.active
+              - acs.link 'Active', url: '#active', glyph: 'check-circle'
+            - else
+              - acs.link 'Disabled', url: '#disabled'
+    - c.code do
+      table({ store: @users, tap: true }) do |b|
+        b.actions do |acs|
+          acs.format do |record|
+            acs.link 'Show', url: user_path(:id), glyph: 'eye'
+            acs.link 'Edit', url: edit_user_path(:id), glyph: 'pencil'
+            acs.link 'Delete', url: user_path(:id), glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
+            if record.active?
+              acs.link 'Active', { url: active_users_path(record.id) }
+            else
+              acs.link 'Disabled', { url: disabled_users_path(record.id) }
+            end
+          end
+        end
+      end
+    - c.footer do
+      = documentation_link 'Documentation', '#'

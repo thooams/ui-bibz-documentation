@@ -18,4 +18,8 @@ module ApplicationHelper
     "Le composant #{ content_tag :code, name } est une extension de l'élément #{ link_to 'component', components_components_path }.".html_safe
   end
 
+  def active_icon record
+    record.active ? glyph('check-circle', state: :success) : glyph('alert')
+  end
+
 end
