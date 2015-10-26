@@ -4,6 +4,12 @@
   %h2 Content
   = nav class: 'secondary-nav' do |n|
     - n.link 'Table', url: '#table'
+    - n.nav do |na|
+      - na.link 'Model', url: '#model'
+      - na.link 'Controller', url: '#controller'
+      - na.link 'View', url: '#view'
+    - n.link 'Table columns', url: '#table-columns'
+    - n.link 'Table actions', url: '#table-actions'
 
 %p
   Le composant
@@ -152,11 +158,37 @@
     %code :id
     \.
 
+  = example do |c|
+    - c.header do
+      = table({ store: @users, tap: true }) do |b|
+        - b.columns do |cls|
+          - cls.column :id
+          - cls.column :email
+          - cls.column :active
+          - cls.column :company
+          - cls.column :created_at
+          - cls.column :updated_at
+        - b.actions do |acs|
+          - acs.link 'Open', url: "#open", glyph: 'folder-open'
+          - acs.link 'Close', url: "#close", glyph: 'folder'
+          - acs.link 'Delete', url: "#delete", glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
+    - c.code do
+      table({ store: @users, tap: true }) do |b|
+        b.actions do |acs|
+          acs.link 'Open', url: open_user_path(:id), glyph: 'folder-open'
+          acs.link 'Close', url: close_user_path(:id), glyph: 'folder'
+          acs.link 'Delete', url: user_path(:id), glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
+        end
+      end
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
   %p
     Les actions peuvent être formaté selon à chaque ligne.
     Grâce à la méthode
     %code format
     vous avez accès au record afin de formater l'action désiré.
+
   = example do |c|
     - c.header do
       = table({ store: @users, tap: true }) do |b|

@@ -1,0 +1,76 @@
+%h1 Stars
+
+= content_for :third_nav do
+  %h2 Content
+  = nav class: 'secondary-nav' do |n|
+    - n.link 'Star', url: '#star'
+    - n.nav do |na|
+      - na.link 'Notify options', url: '#notify-options'
+
+
+= section title: "Stars" do
+  = example do |c|
+    - c.header do
+      = stars 2
+    - c.code do
+      stars 2
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+= section title: "Size" do
+  %p
+    Vous pouvez modifier la taille des stars ajoutant l'argument size qui à pour valeur soit un nombre, soit un symbol
+    %code :xs
+    ,
+    %code :md
+    ,
+    %code :lg
+    \.
+
+  = example do |c|
+    - c.header do
+      = stars 4, size: 1
+      = stars 4, size: :md
+      = stars 4, size: :lg
+    - c.code do
+      stars 4, size: :1
+      stars 4, size: :md
+      stars 4, size: :lg
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+
+= section title: "State" do
+  = example do |c|
+    - c.header do
+      - %w(secondary danger warning primary success).each_with_index do |state, i|
+        = stars i , state: state.to_sym
+        %br
+    - c.code do
+      stars 0
+      stars 1, state: :danger
+      stars 2, state: :warning
+      stars 3, state: :primary
+      stars 4, state: :success
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+
+= section title: "Float" do
+  = example do |c|
+    - c.header do
+      = stars 3.5
+    - c.code do
+      stars 3.5
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+= section title: "Other range" do
+  = example do |c|
+    - c.header do
+      = stars 6, num: 8
+    - c.code do
+      stars 6, num: 8
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+

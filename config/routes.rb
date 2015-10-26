@@ -35,6 +35,7 @@ Rails.application.routes.draw do
     get 'progresses'
     get 'lists_group'
     get 'modals'
+    get 'stars'
     get 'tables'
   end
 

@@ -2,6 +2,8 @@
 = nav class: 'nav-right' do |n|
   - n.link 'Core', url: '#core'
   - n.nav do |nc|
+    - nc.link 'Alerts, notify', url: components_alerts_notify_path
+    - nc.link 'Breadcrumbs', url: components_breadcrumbs_path
     - nc.link 'Buttons', url: components_buttons_path, status: :active
     - nc.link 'Buttons choice', url: components_buttons_buttons_choice_path
     - nc.link 'Buttons dropdown', url: components_buttons_buttons_dropdown_path
@@ -13,13 +15,12 @@
     - nc.link 'Dropdowns', url: components_dropdowns_path
     - nc.link 'Jumbotrons', url: components_jumbotrons_path
     - nc.link 'Labels, etiquettes', url: components_labels_etiquettes_path
-    - nc.link 'Alerts, notify', url: components_alerts_notify_path
-    - nc.link 'Navs', url: components_navs_path
-    - nc.link 'Navbars', url: components_navbars_path
-    - nc.link 'Breadcrumbs', url: components_breadcrumbs_path
-    - nc.link 'Progresses', url: components_progresses_path
     - nc.link 'Lists group', url: components_lists_group_path
     - nc.link 'Modals', url: components_modals_path
+    - nc.link 'Navs', url: components_navs_path
+    - nc.link 'Navbars', url: components_navbars_path
+    - nc.link 'Progresses', url: components_progresses_path
+    - nc.link 'Stars', url: components_stars_path
   - n.link 'Ux', url: '#ux'
   - n.nav do |nc|
     - nc.link 'Tables', url: components_tables_path
