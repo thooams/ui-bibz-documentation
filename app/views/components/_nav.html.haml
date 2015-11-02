@@ -1,7 +1,7 @@
 %h2 Components
 = nav class: 'nav-right' do |n|
   - n.link 'Core', url: components_core_path
-  = render partial: 'nav_core', locals: { n: n}
+  = render partial: 'components/nav_core', locals: { n: n}
   - n.link 'Ux', url: components_ux_path
-  = render partial: 'nav_ux', locals: { n: n}
+  = render partial: 'components/nav_ux', locals: { n: n}
 
