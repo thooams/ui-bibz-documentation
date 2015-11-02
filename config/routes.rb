@@ -37,6 +37,8 @@ Rails.application.routes.draw do
     get 'modals'
     get 'stars'
     get 'tables'
+    get 'core'
+    get 'ux'
   end
 
   # Example of regular route:
