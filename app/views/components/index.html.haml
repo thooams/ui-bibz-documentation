@@ -1,2 +1,23 @@
-%h1 Components#index
-%p Find me in app/views/components/index.html.haml
+%h1 Components
+
+= content_for :third_nav do
+  %h2 Content
+  = nav class: 'secondary-nav' do |n|
+    - n.link 'Component', url: '#star'
+    - n.nav do |na|
+      - na.link 'Size', url: '#size'
+      - na.link 'State', url: '#state'
+      - na.link 'Glyph', url: '#glyph'
+
+
+= section title: "Component" do
+  = example do |c|
+    - c.code do
+      Component.new content, options = {}, html_options = {}
+      \# or
+      Component.new(options = {}, html_options = {}) do
+        content
+      end
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
