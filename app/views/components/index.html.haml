@@ -21,3 +21,65 @@
     - c.footer do
       = documentation_link 'Documentation', '#'
 
+= section title: "Render method" do
+  La méthod
+  %code render
+  permet de générer le code html du composant.
+  = example do |c|
+    - c.code do
+      Component.new('My content', { state: :primary }, { class: 'my-class' }).render
+      \# or
+      Component.new({ size: 3 }, { id: 'my-id' }) do
+        My content
+      end.render
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+%h3 Component Options
+
+= section title: "Size" do
+  = example do |c|
+    - c.code do
+      Component.new content, size: :xs
+      Component.new content, size: :md
+      Component.new content, size: :lg
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+= section title: "State" do
+  = example do |c|
+    - c.code do
+      Component.new content, state: :primary
+      Component.new content, state: :secondary
+      Component.new content, state: :danger
+      Component.new content, state: :success
+      Component.new content, state: :info
+      Component.new content, state: :warning
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+= section title: "Glyph" do
+  = example do |c|
+    - c.code do
+      Component.new content, glyph: 'star'
+      Component.new content, glyph: { name: 'star', size: 2, type: 'fw' }
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+= section title: "Status" do
+  = example do |c|
+    - c.code do
+      Component.new content, status: :active
+      Component.new content, status: :disable
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+= section title: "Html_options" do
+  = example do |c|
+    - c.code do
+      Component.new content, {}, { class: 'my-component', data: { target: 'first' }}
+      Component.new({}, { id: 'my-id' }) do
+        content
+      end
+    - c.footer do
+      = documentation_link 'Documentation', '#'
