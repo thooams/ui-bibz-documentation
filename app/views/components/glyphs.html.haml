@@ -1,0 +1,96 @@
+%h1 Glyphs
+
+= content_for :third_nav do
+  %h2 Content
+  = nav class: 'secondary-nav' do |n|
+    - n.link 'Glyph', url: '#glyph'
+    - n.nav do |na|
+      - na.link 'Size', url: '#size'
+      - na.link 'Float', url: '#type'
+      - na.link 'State', url: '#state'
+
+= section title: "Glyph" do
+  = example do |c|
+    - c.header do
+      = glyph 'diamond'
+    - c.code do
+      glyph 'diamond'
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+= section title: "Size" do
+  %p
+    L'argument size accepte pour argument un nombre ou
+    %code :xs
+    %code :md
+    %code :lg
+  = example do |c|
+    - c.header do
+      = glyph 'diamond', size: 3
+    - c.code do
+      glyph 'diamond', size: 3
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+= section title: "Type" do
+  = example do |c|
+    %ul
+      %li
+        %code fw
+        \:fixed width icon
+    - c.header do
+      = glyph 'diamond', type: 'fw'
+    - c.code do
+      glyph 'diamond', type: 'fw'
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+= section title: "State" do
+  = example do |c|
+    - c.header do
+      - %i(primary secondary warning info success danger).each do |state|
+        = glyph 'diamond', state: state
+    - c.code do
+      glyph 'diamond', state: :primary
+      glyph 'diamond', state: :secondary
+      glyph 'diamond', state: :warning
+      glyph 'diamond', state: :info
+      glyph 'diamond', state: :success
+      glyph 'diamond', state: :danger
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+= section title: "Rotate" do
+  = example do |c|
+    - c.header do
+      = glyph 'diamond', rotate: 90
+      = glyph 'diamond', rotate: 180
+      = glyph 'diamond', rotate: 270
+    - c.code do
+      glyph 'diamond', rotate: 90
+      glyph 'diamond', rotate: 180
+      glyph 'diamond', rotate: 270
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+= section title: "Flip" do
+  = example do |c|
+    - c.header do
+      = glyph 'diamond', flip: :horizontal
+      = glyph 'diamond', flip: :vertical
+    - c.code do
+      glyph 'diamond', flip: :horizontal
+      glyph 'diamond', flip: :vertical
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+= section title: "Stack" do
+  = example do |c|
+    - c.header do
+      = glyph 'square', stack: 2
+      = glyph 'diamond', stack: 1, state: :danger
+    - c.code do
+      glyph 'square', stack: 2
+      glyph 'diamond', stack: 1, state: :danger
+    - c.footer do
+      = documentation_link 'Documentation', '#'

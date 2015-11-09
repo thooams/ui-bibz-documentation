@@ -39,6 +39,7 @@ Rails.application.routes.draw do
     get 'tables'
     get 'core'
     get 'ux'
+    get 'glyphs'
   end
 
   # Example of regular route:

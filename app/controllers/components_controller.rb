@@ -36,4 +36,7 @@ class ComponentsController < ApplicationController
   def ux
   end
 
+  def glyph
+  end
+
 end
