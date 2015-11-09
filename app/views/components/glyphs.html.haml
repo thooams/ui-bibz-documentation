@@ -6,8 +6,12 @@
     - n.link 'Glyph', url: '#glyph'
     - n.nav do |na|
       - na.link 'Size', url: '#size'
-      - na.link 'Float', url: '#type'
+      - na.link 'Type', url: '#type'
       - na.link 'State', url: '#state'
+      - na.link 'Rotate', url: '#rotate'
+      - na.link 'Flip', url: '#flip'
+      - na.link 'Stack', url: '#stack'
+      - na.link 'Options', url: '#options'
 
 = section title: "Glyph" do
   = example do |c|
@@ -94,3 +98,14 @@
       glyph 'diamond', stack: 1, state: :danger
     - c.footer do
       = documentation_link 'Documentation', '#'
+
+= section title: "Options" do
+  = example do |c|
+    - c.header do
+      = glyph({ name: 'diamond', size: :md })
+    - c.code do
+      glyph { name: 'diamond', size: :md }
+    - c.footer do
+      = documentation_link 'Documentation', '#'
+
+
