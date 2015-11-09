@@ -30,9 +30,15 @@
     %code :lg
   = example do |c|
     - c.header do
-      = glyph 'diamond', size: 3
+      = glyph 'diamond', size: :xs
+      = glyph 'diamond', size: 2
+      = glyph 'diamond', size: :md
+      = glyph 'diamond', size: :lg
     - c.code do
-      glyph 'diamond', size: 3
+      glyph 'diamond', size: :xs
+      glyph 'diamond', size: 2
+      glyph 'diamond', size: :md
+      glyph 'diamond', size: :lg
     - c.footer do
       = documentation_link 'Documentation', '#'
 
