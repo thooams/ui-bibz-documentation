@@ -20,12 +20,14 @@
           - opts = { url: components_path }
           - opts.merge!({ status: :active }) if controller_name == 'components'
           - n.link 'Components', opts
-          - opts = { url: components_buttons_path }
+          - opts = { url: about_path }
           - opts.merge!({ status: :active}) if params[:action] == 'about'
           - n.link 'About', opts
       .pageheader
         = container do
-          = image_tag 'ruby-white.png'
+          //= image_tag 'ui-bibz-logo-without-border.png'
+          = image_tag 'ui-bibz-logo', class: 'logo'
+          = image_tag 'ruby-white.png', width: 50
           %h1 Ui Bibz
           %p
             Over a dozen reusable components built to provide iconography, dropdowns, <br/>
