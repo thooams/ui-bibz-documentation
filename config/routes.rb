@@ -4,13 +4,15 @@ Rails.application.routes.draw do
 
   resources :users
   get 'home/index'
-  get 'components' => 'components#index'
+  get 'getting_started' => 'home#getting_started'
+  get 'about'       => 'home#about'
+  get 'components'  => 'components#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'buttons#index'
+  root 'home#index'
 
   #resource :components, only: :index do
     #resource :buttons
