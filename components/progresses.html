@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ui Bibz</title>
+    <meta CONTENT='Ui Bibz is a Ruby on Rails Bootstrap Ui Framework. Mix Bootstrap and Ruby to build your own interface' name='Description'>
+    <meta CONTENT='Thomas HUMMEL &lt;thomas@hummel.link&gt;' name='Author'>
+    <meta CONTENT='bootstrap rails, bootstrap ruby, ui bibz, bibz bootstrap, bootstrap interface, bootstrap ui, bootstrap interface' name='Keywords'>
+    <link href='../favicon.ico' rel='shortcut icon' type='image/x-icon'>
+    <link rel="stylesheet" media="all" href="../assets/application.self-d286dba8d0a7ac5081c7c39c8bff3148e3eb2d72dbc61dfb3ef35f5718aa6cfa.css%3Fbody=1.css" data-turbolinks-track="true" />
+    <script src="../assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js%3Fbody=1" data-turbolinks-track="true"></script>
+    <script src="../assets/jquery2.self-a4777c1acac0a74340755725342901a54ed000955bf6f5320491b8b2514c86ec.js%3Fbody=1" data-turbolinks-track="true"></script>
+    <script src="../assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js%3Fbody=1" data-turbolinks-track="true"></script>
+    <script src="../assets/bootstrap-4.0.0-alpha.min.self-1726d805db398d77e09a6d760d771ef17c31444e73956224820f33a352e1dec8.js%3Fbody=1" data-turbolinks-track="true"></script>
+    <script src="../assets/bootstrap-datepicker.min.self-111d9859b66d183536f5329ad23ca02e88aaef43a2b8ee95e3df64d5cf073918.js%3Fbody=1" data-turbolinks-track="true"></script>
+    <script src="../assets/bootstrap-select.min.self-72598210e50755668d95aa99ced0afc6eec70b40367842a1df6efa15bfecb9d2.js%3Fbody=1" data-turbolinks-track="true"></script>
+    <script src="../assets/bootstrap-switch.min.self-173bbdf26e1557d2fff9733a60a645e46002d21b8fcc68e10034b50d4c2ee246.js%3Fbody=1" data-turbolinks-track="true"></script>
+    <script src="../assets/ui_bibz.self-313a04dadd34cf70657e6ec8734bd7654dbf2742b168fc0ba68ebddce4d28eb6.js%3Fbody=1" data-turbolinks-track="true"></script>
+    <script src="../assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js%3Fbody=1" data-turbolinks-track="true"></script>
+    <style>
+      ".highlight table td { padding: 5px; }
+      .highlight table pre { margin: 0; }
+      .highlight .cm {
+        color: #999988;
+        font-style: italic;
+      }
+      .highlight .cp {
+        color: #999999;
+        font-weight: bold;
+      }
+      .highlight .c1 {
+        color: #999988;
+        font-style: italic;
+      }
+      .highlight .cs {
+        color: #999999;
+        font-weight: bold;
+        font-style: italic;
+      }
+      .highlight .c, .highlight .cd {
+        color: #999988;
+        font-style: italic;
+      }
+      .highlight .err {
+        color: #a61717;
+        background-color: #e3d2d2;
+      }
+      .highlight .gd {
+        color: #000000;
+        background-color: #ffdddd;
+      }
+      .highlight .ge {
+        color: #000000;
+        font-style: italic;
+      }
+      .highlight .gr {
+        color: #aa0000;
+      }
+      .highlight .gh {
+        color: #999999;
+      }
+      .highlight .gi {
+        color: #000000;
+        background-color: #ddffdd;
+      }
+      .highlight .go {
+        color: #888888;
+      }
+      .highlight .gp {
+        color: #555555;
+      }
+      .highlight .gs {
+        font-weight: bold;
+      }
+      .highlight .gu {
+        color: #aaaaaa;
+      }
+      .highlight .gt {
+        color: #aa0000;
+      }
+      .highlight .kc {
+        color: #000000;
+        font-weight: bold;
+      }
+      .highlight .kd {
+        color: #000000;
+        font-weight: bold;
+      }
+      .highlight .kn {
+        color: #000000;
+        font-weight: bold;
+      }
+      .highlight .kp {
+        color: #000000;
+        font-weight: bold;
+      }
+      .highlight .kr {
+        color: #000000;
+        font-weight: bold;
+      }
+      .highlight .kt {
+        color: #445588;
+        font-weight: bold;
+      }
+      .highlight .k, .highlight .kv {
+        color: #000000;
+        font-weight: bold;
+      }
+      .highlight .mf {
+        color: #009999;
+      }
+      .highlight .mh {
+        color: #009999;
+      }
+      .highlight .il {
+        color: #009999;
+      }
+      .highlight .mi {
+        color: #009999;
+      }
+      .highlight .mo {
+        color: #009999;
+      }
+      .highlight .m, .highlight .mb, .highlight .mx {
+        color: #009999;
+      }
+      .highlight .sb {
+        color: #d14;
+      }
+      .highlight .sc {
+        color: #d14;
+      }
+      .highlight .sd {
+        color: #d14;
+      }
+      .highlight .s2 {
+        color: #d14;
+      }
+      .highlight .se {
+        color: #d14;
+      }
+      .highlight .sh {
+        color: #d14;
+      }
+      .highlight .si {
+        color: #d14;
+      }
+      .highlight .sx {
+        color: #d14;
+      }
+      .highlight .sr {
+        color: #009926;
+      }
+      .highlight .s1 {
+        color: #d14;
+      }
+      .highlight .ss {
+        color: #990073;
+      }
+      .highlight .s {
+        color: #d14;
+      }
+      .highlight .na {
+        color: #008080;
+      }
+      .highlight .bp {
+        color: #999999;
+      }
+      .highlight .nb {
+        color: #0086B3;
+      }
+      .highlight .nc {
+        color: #445588;
+        font-weight: bold;
+      }
+      .highlight .no {
+        color: #008080;
+      }
+      .highlight .nd {
+        color: #3c5d5d;
+        font-weight: bold;
+      }
+      .highlight .ni {
+        color: #800080;
+      }
+      .highlight .ne {
+        color: #990000;
+        font-weight: bold;
+      }
+      .highlight .nf {
+        color: #990000;
+        font-weight: bold;
+      }
+      .highlight .nl {
+        color: #990000;
+        font-weight: bold;
+      }
+      .highlight .nn {
+        color: #555555;
+      }
+      .highlight .nt {
+        color: #000080;
+      }
+      .highlight .vc {
+        color: #008080;
+      }
+      .highlight .vg {
+        color: #008080;
+      }
+      .highlight .vi {
+        color: #008080;
+      }
+      .highlight .nv {
+        color: #008080;
+      }
+      .highlight .ow {
+        color: #000000;
+        font-weight: bold;
+      }
+      .highlight .o {
+        color: #000000;
+        font-weight: bold;
+      }
+      .highlight .w {
+        color: #bbbbbb;
+      }
+      .highlight {
+        background-color: #f8f8f8;
+      }"
+    </style>
+    <meta name="csrf-param" content="authenticity_token" />
+    <meta name="csrf-token" content="tqAUXdpSBONEqdOiDp7cNK1hfN2KgkF1tf1MbroDpWfvUdWXgBT7CjtoJmsKLsUjjPvAriEtH5E4tykmt/5yFg==" />
+  </head>
+  <body>
+    <header>
+      <nav class="bg-secondary navbar navbar-light"><div class="container-fluid"><div class="navbar-header"><button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbar-collapse-98120201230794934343387236176570662842">☰</button></div><div class="collapse navbar-toggleable-xs" id="navbar-collapse-98120201230794934343387236176570662842"><a class="navbar-brand" href="http://localhost:3000/">Ui Bibz</a><ul class="nav navbar-nav"><li class="nav-item"><a class="nav-link" href="../getting_started.html">Get started</a></li><li class="nav-item"><a class="active nav-link" href="../components.html">Components</a></li><li class="nav-item"><a class="nav-link" href="../about.html">About</a></li></ul></div></div></nav>
+      <div class='pageheader'>
+        <div class="container"><!-- /= image_tag 'ui-bibz-logo-without-border.png' -->
+        <img class="logo" src="../assets/ui-bibz-logo-79e4c924791cf5af86703e09ba1993fdbc42549f0bc164297911b9757536c493.png" alt="Ui bibz logo 79e4c924791cf5af86703e09ba1993fdbc42549f0bc164297911b9757536c493" />
+        <img width="50" src="../assets/ruby-white-f521629ba3a793949559ed374153e6a7d8ecf1ad7526d22d5b2e42222496f168.png" alt="Ruby white f521629ba3a793949559ed374153e6a7d8ecf1ad7526d22d5b2e42222496f168" />
+        <h1>Ui Bibz v2.0.0</h1>
+        <p>
+          Over a dozen reusable components built to provide iconography, dropdowns, <br/>
+          input groups, navigation, alerts, and much more.
+        </p>
+        </div>
+      </div>
+    </header>
+    <div class="container"><div class="row"><div class="col-md-9"><h1>Progresses</h1>
+    
+    <section class="section"><a name="progress"></a><h2>Progress</h2><div class="card-code card"><div class="card-header"><progress class="progress" max="100" value="0">0</progress>
+    <progress class="my-progress progress-primary progress" max="100" value="25">25%</progress>
+    <progress class="my-progress progress-primary progress" max="100" value="50">50
+    </progress>
+    </div><div class="card-block highlight"><pre>
+    <span class="n">progress</span> <span class="mi">0</span>
+    <span class="err"> </span>
+    <span class="n">progress</span> <span class="s2">"25%"</span><span class="p">,</span> <span class="p">{</span> <span class="ss">state: :primary</span><span class="p">,</span> <span class="ss">value: </span><span class="mi">25</span> <span class="p">},</span> <span class="p">{</span> <span class="ss">class: </span><span class="s1">'my-progress'</span> <span class="p">}</span>
+    <span class="err"> </span>
+    <span class="n">progress</span><span class="p">({</span> <span class="ss">state: :primary</span><span class="p">,</span> <span class="ss">value: </span><span class="mi">50</span> <span class="p">},</span> <span class="p">{</span> <span class="ss">class: </span><span class="s1">'my-progress'</span><span class="p">})</span> <span class="k">do</span>
+    <span class="err">  </span><span class="mi">50</span><span class="o">%</span>
+    <span class="k">end</span>
+    </pre></div><div class="card-footer"><a href="progresses.html#"><i class="glyph fa fa-book"></i> Documentation</a>
+    </div></div>
+    </section>
+    <section class="section"><a name="state"></a><h2>State</h2><div class="card-code card"><div class="card-header"><progress class="progress-primary progress" max="100" value="10">10</progress>
+    <progress class="progress-success progress" max="100" value="25">25</progress>
+    <progress class="progress-warning progress" max="100" value="50">50</progress>
+    <progress class="progress-danger progress" max="100" value="75">75</progress>
+    <progress class="progress-info progress" max="100" value="100">100</progress>
+    </div><div class="card-block highlight"><pre>
+    <span class="n">progress</span> <span class="mi">10</span><span class="p">,</span> <span class="ss">state: :primary</span>
+    <span class="n">progress</span> <span class="mi">25</span><span class="p">,</span> <span class="ss">state: :success</span>
+    <span class="n">progress</span> <span class="mi">50</span><span class="p">,</span> <span class="ss">state: :warning</span>
+    <span class="n">progress</span> <span class="mi">75</span><span class="p">,</span> <span class="ss">state: :danger</span>
+    <span class="n">progress</span> <span class="mi">100</span><span class="p">,</span> <span class="ss">state: :info</span>
+    </pre></div><div class="card-footer"><a href="progresses.html#"><i class="glyph fa fa-book"></i> Documentation</a>
+    </div></div>
+    </section>
+    <section class="section"><a name="striped"></a><h2>Striped</h2><div class="card-code card"><div class="card-header"><progress class="progress-primary progress progress-striped" max="100" value="10">10</progress>
+    <progress class="progress-success progress progress-striped" max="100" value="25">25</progress>
+    <progress class="progress-warning progress progress-striped" max="100" value="50">50</progress>
+    <progress class="progress-danger progress progress-striped" max="100" value="75">75</progress>
+    <progress class="progress-info progress progress-striped" max="100" value="100">100</progress>
+    </div><div class="card-block highlight"><pre>
+    <span class="n">progress</span> <span class="mi">10</span><span class="p">,</span> <span class="ss">state: :primary</span><span class="p">,</span> <span class="ss">striped: </span><span class="kp">true</span>
+    <span class="n">progress</span> <span class="mi">25</span><span class="p">,</span> <span class="ss">state: :success</span><span class="p">,</span> <span class="ss">striped: </span><span class="kp">true</span>
+    <span class="n">progress</span> <span class="mi">50</span><span class="p">,</span> <span class="ss">state: :warning</span><span class="p">,</span> <span class="ss">striped: </span><span class="kp">true</span>
+    <span class="n">progress</span> <span class="mi">75</span><span class="p">,</span> <span class="ss">state: :danger</span><span class="p">,</span> <span class="ss">striped: </span><span class="kp">true</span>
+    <span class="n">progress</span> <span class="mi">100</span><span class="p">,</span> <span class="ss">state: :info</span><span class="p">,</span> <span class="ss">striped: </span><span class="kp">true</span>
+    </pre></div><div class="card-footer"><a href="progresses.html#"><i class="glyph fa fa-book"></i> Documentation</a>
+    </div></div>
+    </section>
+    <section class="section"><a name="animated"></a><h2>Animated</h2><div class="card-code card"><div class="card-header"><progress class="progress-primary progress progress-striped progress-animated" max="100" value="10">10</progress>
+    <progress class="progress-success progress progress-striped progress-animated" max="100" value="25">25</progress>
+    <progress class="progress-warning progress progress-striped progress-animated" max="100" value="50">50</progress>
+    <progress class="progress-danger progress progress-striped progress-animated" max="100" value="75">75</progress>
+    <progress class="progress-info progress progress-striped progress-animated" max="100" value="100">100</progress>
+    </div><div class="card-block highlight"><pre>
+    <span class="n">progress</span> <span class="mi">10</span><span class="p">,</span> <span class="ss">state: :primary</span><span class="p">,</span> <span class="ss">striped: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">animated: </span><span class="kp">true</span>
+    <span class="n">progress</span> <span class="mi">25</span><span class="p">,</span> <span class="ss">state: :success</span><span class="p">,</span> <span class="ss">striped: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">animated: </span><span class="kp">true</span>
+    <span class="n">progress</span> <span class="mi">50</span><span class="p">,</span> <span class="ss">state: :warning</span><span class="p">,</span> <span class="ss">striped: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">animated: </span><span class="kp">true</span>
+    <span class="n">progress</span> <span class="mi">75</span><span class="p">,</span> <span class="ss">state: :danger</span><span class="p">,</span> <span class="ss">striped: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">animated: </span><span class="kp">true</span>
+    <span class="n">progress</span> <span class="mi">100</span><span class="p">,</span> <span class="ss">state: :info</span><span class="p">,</span> <span class="ss">striped: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">animated: </span><span class="kp">true</span>
+    </pre></div><div class="card-footer"><a href="progresses.html#"><i class="glyph fa fa-book"></i> Documentation</a>
+    </div></div>
+    </section>
+    </div>
+    <div class="right-nav col-md-3"><h2>Components</h2>
+    
+    
+    <ul class="nav-right nav"><li class="nav-item"><a class="nav-link" href="core.html">Core</a></li><li class="nav-item"><ul class="nav"><li class="nav-item"><a class="nav-link" href="alerts_notify.html">Alerts, notify</a></li><li class="nav-item"><a class="nav-link" href="breadcrumbs.html">Breadcrumbs</a></li><li class="nav-item"><a class="active nav-link" href="buttons.html">Buttons</a></li><li class="nav-item"><a class="nav-link" href="buttons/buttons-choice.html">Buttons choice</a></li><li class="nav-item"><a class="nav-link" href="buttons/buttons-dropdown.html">Buttons dropdown</a></li><li class="nav-item"><a class="nav-link" href="buttons/buttons-group.html">Buttons group</a></li><li class="nav-item"><a class="nav-link" href="buttons/buttons-link.html">Buttons link</a></li><li class="nav-item"><a class="nav-link" href="buttons/buttons-split-dropdown.html">Buttons split dropdown</a></li><li class="nav-item"><a class="nav-link" href="cards/cards.html">Cards</a></li><li class="nav-item"><a class="nav-link" href="cards/cards-column-deck-and-group.html">Cards column deck and group</a></li><li class="nav-item"><a class="nav-link" href="../components.html">Components</a></li><li class="nav-item"><a class="nav-link" href="dropdowns.html">Dropdowns</a></li><li class="nav-item"><a class="nav-link" href="jumbotrons.html">Jumbotrons</a></li><li class="nav-item"><a class="nav-link" href="glyphs.html">Glyphs</a></li><li class="nav-item"><a class="nav-link" href="labels_etiquettes.html">Labels, etiquettes</a></li><li class="nav-item"><a class="nav-link" href="lists_group.html">Lists group</a></li><li class="nav-item"><a class="nav-link" href="modals.html">Modals</a></li><li class="nav-item"><a class="nav-link" href="navs.html">Navs</a></li><li class="nav-item"><a class="nav-link" href="navbars.html">Navbars</a></li><li class="nav-item"><a class="nav-link" href="progresses.html">Progresses</a></li><li class="nav-item"><a class="nav-link" href="stars.html">Stars</a></li></ul></li><li class="nav-item"><a class="nav-link" href="ux.html">Ux</a></li><li class="nav-item"><ul class="nav"><li class="nav-item"><a class="nav-link" href="tables.html">Tables</a></li></ul></li></ul>
+    <h2>Content</h2>
+    <ul class="secondary-nav nav"><li class="nav-item"><a class="nav-link" href="progresses.html#progress">Progress</a></li></ul>
+    </div>
+    </div>
+    </div>
+    <footer>
+      <nav class="nav nav-links"><a class="nav-link" href="https://github.com/thooams/Ui-Bibz"><i class="glyph fa fa-github"></i> Github</a><a class="nav-link" href="https://github.com/thooams/Ui-Bibz"><i class="glyph fa fa-book"></i> About</a><a class="nav-link" href="https://rubygems.org/gems/ui_bibz"><i class="glyph fa fa-diamond"></i> Gem</a></nav>
+      <p>Bibz Framework is designed and created by Thomas HUMMEL (<a href="https://github.com/thooams">@thooams</a>)<br/>
+      This theme is inspired by <a href="http://localhost:3000/components/getbootstrap.com">&quot;Bootstrap theme documentation&quot;</a><br/>
+      Currently v2.0.0. Code licensed MIT</p>
+    </footer>
+  </body>
+</html>
