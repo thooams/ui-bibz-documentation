@@ -1,0 +1,38 @@
+%h1 Multi Select Fields
+%p Use Bootstrap’s custom button styles for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, states, and more.
+
+= content_for :third_nav do
+  %h2 Contents
+  = nav class: 'secondary-nav' do |n|
+    - n.link 'Multi select field', url: '#multi-select'
+    - n.link 'Multi select field options', url: '#multi-select-options'
+
+= section title: "Multi select" do
+  = example do |e|
+    - e.header do
+      = multi_select_field 'example', option_tags: options_for_select(([1]*10).map.with_index{ |i,a| "option #{a*i}" })
+    - e.code do
+      options = options_for_select(([1]*10).map.with_index{ |i,a| "option \#{a*i}" })
+      multi_select_field 'example', option_tags: options
+    - e.footer do
+      = documentation_link 'Documentation', '#'
+
+= section title: "Multi select options" do
+  = example do |e|
+    - e.header do
+      - grouped_options = { 'North America' => [['United States','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+      = multi_select_field 'example', { option_tags: grouped_options_for_select(grouped_options), selectable_opt_group: true }
+    - e.code do
+      grouped_options = { 'North America' => [['United States','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+      multi_select_field 'example', { option_tags: grouped_options_for_select(grouped_options), selectable_opt_group: true }
+    - e.footer do
+      = documentation_link 'Documentation', '#'
+
+  = example do |e|
+    - e.header do
+      = multi_select_field 'example', { option_tags: options_for_select(([1]*10).map.with_index{ |i,a| "option #{a*i}" }), searchable: true }
+    - e.code do
+      options = options_for_select(([1]*10).map.with_index{ |i,a| "option \#{a*i}" })
+      multi_select_field 'example', { option_tags: options, searchable: true }
+    - e.footer do
+      = documentation_link 'Documentation', '#'

@@ -24,6 +24,8 @@ Rails.application.routes.draw do
     get 'buttons/buttons-group'             => 'buttons#buttons_group'
     get 'buttons/buttons-link'              => 'buttons#buttons_link'
     get 'buttons/buttons-split-dropdown'    => 'buttons#buttons_split_dropdown'
+    get 'inputs/surround-fields'            => 'inputs#surround_fields'
+    get 'inputs/multi-select-fields'        => 'inputs#multi_select_fields'
     get 'cards/cards'                       => 'cards#index'
     get 'cards/cards-column-deck-and-group' => 'cards#cards_column_deck_and_group'
     get 'dropdowns'
