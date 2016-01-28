@@ -1,0 +1,17 @@
+%h1 Surround Fields
+%p Use Bootstrap’s custom button styles for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, states, and more.
+
+= content_for :third_nav do
+  %h2 Contents
+  = nav class: 'secondary-nav' do |n|
+    - n.link 'Surround field', url: '#surround-field'
+    - n.link 'Surround field options', url: '#surround-field'
+
+= section title: "Surround Field" do
+  = example do |e|
+    - e.header do
+      = surround_field 'search', { append: glyph('pencil'), prepend: glyph('camera-retro') }, { class: 'exemple' }
+    - e.code do
+      surround_field 'search', { append: glyph('pencil'), prepend: glyph('camera-retro') }, { class: 'exemple' }
+    - e.footer do
+      = documentation_link 'Documentation', '#'

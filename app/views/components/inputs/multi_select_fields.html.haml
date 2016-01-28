@@ -10,7 +10,7 @@
 = section title: "Multi select" do
   = example do |e|
     - e.header do
-      = multi_select_field 'example', option_tags: options_for_select(([1]*10).map.with_index{ |i,a| "option #{a*i}" })
+      = multi_select_field 'example1', option_tags: options_for_select(([1]*10).map.with_index{ |i,a| "option #{a*i}" })
     - e.code do
       options = options_for_select(([1]*10).map.with_index{ |i,a| "option \#{a*i}" })
       multi_select_field 'example', option_tags: options
@@ -21,7 +21,7 @@
   = example do |e|
     - e.header do
       - grouped_options = { 'North America' => [['United States','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
-      = multi_select_field 'example', { option_tags: grouped_options_for_select(grouped_options), selectable_opt_group: true }
+      = multi_select_field 'example2', { option_tags: grouped_options_for_select(grouped_options), selectable_optgroup: true }
     - e.code do
       grouped_options = { 'North America' => [['United States','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
       multi_select_field 'example', { option_tags: grouped_options_for_select(grouped_options), selectable_opt_group: true }
@@ -30,7 +30,7 @@
 
   = example do |e|
     - e.header do
-      = multi_select_field 'example', { option_tags: options_for_select(([1]*10).map.with_index{ |i,a| "option #{a*i}" }), searchable: true }
+      = multi_select_field 'example3', { option_tags: options_for_select(([1]*10).map.with_index{ |i,a| "option #{a*i}" }), searchable: true }
     - e.code do
       options = options_for_select(([1]*10).map.with_index{ |i,a| "option \#{a*i}" })
       multi_select_field 'example', { option_tags: options, searchable: true }
