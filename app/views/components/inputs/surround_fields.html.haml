@@ -10,8 +10,8 @@
 = section title: "Surround Field" do
   = example do |e|
     - e.header do
-      = surround_field 'search', { append: glyph('pencil'), prepend: glyph('camera-retro') }, { class: 'exemple' }
+      = surround_field 'search', { append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
     - e.code do
-      surround_field 'search', { append: glyph('pencil'), prepend: glyph('camera-retro') }, { class: 'exemple' }
+      surround_field 'search', { append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
     - e.footer do
       = documentation_link 'Documentation', '#'
