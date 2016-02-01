@@ -9,4 +9,7 @@ class Components::InputsController < ApplicationController
   def multi_column_fields
   end
 
+  def date_picker_fields
+  end
+
 end

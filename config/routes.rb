@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     get 'buttons/buttons-link'              => 'buttons#buttons_link'
     get 'buttons/buttons-split-dropdown'    => 'buttons#buttons_split_dropdown'
     get 'inputs/surround-fields'            => 'inputs#surround_fields'
+    get 'inputs/date-picker-fields'         => 'inputs#date_picker_fields'
     get 'inputs/multi-select-fields'        => 'inputs#multi_select_fields'
     get 'inputs/multi-column-fields'        => 'inputs#multi_column_fields'
     get 'cards/cards'                       => 'cards#index'
