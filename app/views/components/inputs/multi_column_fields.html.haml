@@ -10,9 +10,9 @@
 = section title: "Multi column" do
   = example do |e|
     - e.header do
-      = multi_column_field 'example1', option_tags: options_for_select(([1]*10).map.with_index{ |i,a| "option #{a*i}" })
+      = multi_column_field 'example1', option_tags: options_for_select(10.times.map{ |i| "option \#{i}" })
     - e.code do
-      options = options_for_select(([1]*10).map.with_index{ |i,a| "option \#{a*i}" })
+      options = options_for_select(10.times.map{ |i| "option \#{i}" })
       multi_column_field 'example', option_tags: options
     - e.footer do
       = documentation_link 'Documentation', '#'
@@ -30,9 +30,9 @@
 
   = example do |e|
     - e.header do
-      = multi_column_field 'example3', { option_tags: options_for_select(([1]*10).map.with_index{ |i,a| "option #{a*i}" }), searchable: true }
+      = multi_column_field 'example3', { option_tags: options_for_select(10.times.map{ |i| "option \#{i}" }), searchable: true }
     - e.code do
-      options = options_for_column(([1]*10).map.with_index{ |i,a| "option \#{a*i}" })
+      options = options_for_select(10.times.map{ |i| "option \#{i}" })
       multi_column_field 'example', { option_tags: options, searchable: true }
     - e.footer do
       = documentation_link 'Documentation', '#'

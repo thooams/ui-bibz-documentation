@@ -10,9 +10,9 @@
 = section title: "Multi select" do
   = example do |e|
     - e.header do
-      = multi_select_field 'example1', option_tags: options_for_select(([1]*10).map.with_index{ |i,a| "option #{a*i}" })
+      = multi_select_field 'example1', option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
     - e.code do
-      options = options_for_select(([1]*10).map.with_index{ |i,a| "option \#{a*i}" })
+      options = options_for_select(10.times.map{ |i| "option \#{i}" })
       multi_select_field 'example', option_tags: options
     - e.footer do
       = documentation_link 'Documentation', '#'
@@ -42,9 +42,9 @@
 = section title: "Multi select filter" do
   = example do |e|
     - e.header do
-      = multi_select_field 'example1', filter: true, option_tags: options_for_select(([1]*10).map.with_index{ |i,a| "option #{a*i}" })
+      = multi_select_field 'example1', filter: true, option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
     - e.code do
-      options = options_for_select(([1]*10).map.with_index{ |i,a| "option \#{a*i}" })
+      options = options_for_select(10.times.map{ |i| "option \#{i}" })
       multi_select_field 'example', filter: true, option_tags: options
     - e.footer do
       = documentation_link 'Documentation', '#'
@@ -52,9 +52,24 @@
 = section title: "Multi select select_all_option" do
   = example do |e|
     - e.header do
-      = multi_select_field 'example1', select_all_option: true, option_tags: options_for_select(([1]*10).map.with_index{ |i,a| "option #{a*i}" })
+      = multi_select_field 'example1', select_all_option: true, option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
     - e.code do
-      options = options_for_select(([1]*10).map.with_index{ |i,a| "option \#{a*i}" })
+      options = options_for_select(10.times.map{ |i| "option \#{i}" })
       multi_select_field 'example', select_all_option: true, option_tags: options
+    - e.footer do
+      = documentation_link 'Documentation', '#'
+
+= section title: "Multi select select_all_option" do
+  = example do |e|
+    - e.header do
+      - %w(primary secondary success warning link).each do |s|
+        = multi_select_field s, state: s.to_sym, option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
+    - e.code do
+      options = options_for_select(10.times.map{ |i| "option \#{i}" })
+      multi_select_field 'primary', state: :primary, option_tags: options
+      multi_select_field 'secondary', state: :secondary, option_tags: options
+      multi_select_field 'success', state: :success, option_tags: options
+      multi_select_field 'warning', state: :warning, option_tags: options
+      multi_select_field 'link', state: :link, option_tags: options
     - e.footer do
       = documentation_link 'Documentation', '#'
