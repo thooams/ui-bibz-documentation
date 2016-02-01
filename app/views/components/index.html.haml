@@ -11,6 +11,16 @@
 
 
 = section title: "Component" do
+  %p
+    Le composant est au coeur de l'expérience Ui Bibz.
+    Chaque élément du framework hérite de l'élément
+    %code composant
+    \.
+    Ce dernier peut contenir 3 arguments:
+    %ul
+      %li content (variable ou block)
+      %li options
+      %li html_options
   = example do |c|
     - c.code do
       Component.new content, options = {}, html_options = {}
@@ -22,9 +32,10 @@
       = documentation_link 'Documentation', '#'
 
 = section title: "Render method" do
-  La méthod
-  %code render
-  permet de générer le code html du composant.
+  %p
+    La méthode
+    %code render
+    permet de générer le code html du composant.
   = example do |c|
     - c.code do
       Component.new('My content', { state: :primary }, { class: 'my-class' }).render
@@ -38,6 +49,13 @@
 %h3 Component Options
 
 = section title: "Size" do
+  %p
+    Certain composant peuvent avoir l'option size dans leurs paramètres.
+    L'argument size contient 3 valeurs distincts:
+    %ul
+      %li :xs
+      %li :md
+      %li :lg
   = example do |c|
     - c.code do
       Component.new content, size: :xs
@@ -45,8 +63,34 @@
       Component.new content, size: :lg
     - c.footer do
       = documentation_link 'Documentation', '#'
+      |
+      = itag "buttons", components_buttons_path
+      ,
+      = itag "dropdowns", components_dropdowns_path
+      ,
+      = itag "glyphs", components_glyphs_path
+      ,
+      = itag "navs", components_navs_path
+      ,
+      = itag "stars", components_stars_path
 
 = section title: "State" do
+  %p
+    Certain composant peuvent avoir l'option
+    %code state
+    dans leurs paramètres.
+    Cette option permet de changer la couleur de l'élément comme précisé dans
+    = link_to "la documentation Boostrap", "http://v4-alpha.getbootstrap.com/components/buttons/", target: '_blank'
+    \. L'argument
+    %code state
+    contient 7 valeurs distincts:
+    %ul
+      %li :primary
+      %li :secondary
+      %li :danger
+      %li :success
+      %li :info
+      %li :warning
   = example do |c|
     - c.code do
       Component.new content, state: :primary
@@ -57,14 +101,45 @@
       Component.new content, state: :warning
     - c.footer do
       = documentation_link 'Documentation', '#'
+      |
+      = itag "buttons", components_buttons_path
+      ,
+      = itag "dropdowns", components_dropdowns_path
+      ,
+      = itag "glyphs", components_glyphs_path
+      ,
+      = itag "navs", components_navs_path
+      ,
+      = itag "stars", components_stars_path
 
 = section title: "Glyph" do
+  %p
+    Certain composant peuvent avoir l'option
+    %code glyph
+    dans leurs paramètres.
+    Cette option permet d'ajouter un glyph à son composant.
+    Vous pouvez écrire la valeur de cet argument de plusieurs manières, pour celà, veuillez vous référer
+    au componsant
+    = link_to 'glyph', components_glyphs_path
+    \.
   = example do |c|
     - c.code do
       Component.new content, glyph: 'star'
       Component.new content, glyph: { name: 'star', size: 2, type: 'fw' }
     - c.footer do
       = documentation_link 'Documentation', '#'
+      |
+      = itag "buttons", components_buttons_path
+      ,
+      = itag "dropdowns", components_dropdowns_path
+      ,
+      = itag "glyphs", components_glyphs_path
+      ,
+      = itag "navs", components_navs_path
+      ,
+      = itag "stars", components_stars_path
+      ,
+      = itag "cards", components_cards_cards_path
 
 = section title: "Status" do
   = example do |c|

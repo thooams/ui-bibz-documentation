@@ -4,10 +4,6 @@ module ApplicationHelper
     link_to "#{ glyph 'book' } #{ name }".html_safe, url
   end
 
-  def glyph_and_text glyph_args, text
-    "#{ glyph glyph_args } #{ text }".html_safe
-  end
-
   def extend_of_component name
     "#{ short_extend_of_component(name) }<br>
     Tout comme ce dernier, le composant #{ content_tag :code, name } possède des #{ content_tag :code, 'options' } et des #{ content_tag :code, 'html_options' } présents sous forme de hash.<br/>
@@ -20,6 +16,10 @@ module ApplicationHelper
 
   def active_icon record
     record.active ? glyph('check-circle', state: :success) : glyph('alert')
+  end
+
+  def itag text, link
+    link_to(glyph_and_text('tag', text), link)
   end
 
 end
