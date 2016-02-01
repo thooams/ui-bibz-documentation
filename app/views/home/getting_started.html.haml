@@ -1,18 +1,18 @@
 %h1 Getting Started
-%h2 Installation
+%h2 Install
 %p
-  Ajouter la gem dans Rails :
+  Add this line in your Gemfile:
   %br
   %code gem "ui_bibz", '~> #{ UiBibzApp::Application::VERSION }'
 
 %p
-  Lancer la command suivante :
+  Run this command:
   %br
   %code  bundle install
 
-%h2 Installation des assets
+%h2 Assets Install
 %p
-  Placer la ligne suivante dans
+  Put this line in:
   %code /app/assets/stylesheets/applications.css
 
   %pre
@@ -21,19 +21,19 @@
     \...
 
 %p
-  Placer la ligne suivante dans
+  Put this line in:
   %code /app/assets/javascripts/applications.js
   %pre
           ...
     \//= require ui_bibz
     \...
 
-  _Ps: Vous pouvez utiliser les variables sass présentes dans boostrap._
+  _Ps: You can use sass variables into Boostrap._
 
 %h2 Simple form
 %p
-  La gem est compatible avec la librairie
+  Gem is compatible with
   = link_to "simple_form", "https://github.com/plataformatec/simple_form"
-  \. Tous les inputs peuvent être utilisé avec
+  \. All inputs fields can be used with
   %strong simple_form.
 
