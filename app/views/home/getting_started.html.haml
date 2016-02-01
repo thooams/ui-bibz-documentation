@@ -2,44 +2,13 @@
 %h2 Installation
 %p
   Ajouter la gem dans Rails :
-  %pre
-    gem "ui_bibz", '~> 1.2.3'
+  %br
+  %code gem "ui_bibz", '~> #{ UiBibzApp::Application::VERSION }'
 
 %p
   Lancer la command suivante :
-  %pre
-    bundle install
-
-%h2 Installation dans le layout
-%p
-  Placer la ligne suivante dans
-  %code app/views/layouts/application.rb
-  \.
-  %pre
-    ui_bibz_meta_links
-
-%p
-  = "Exemple (#{ link_to "haml", 'http://haml.info/' })".html_safe
-  %pre
-    \!!!
-    \%html
-    \  %head
-    \    ...
-    \    = ui_bibz_meta_links
-    \    ...
-    \  %body
-
-%p
-  Ui Bibz chargera les librairies en CDN directement dans votre application.
-  Si vous préférez charger les librairies en locales, utilisez plutôt la méthode
-  %code ui_bibz_local_meta_links
-  et insérez dans le fichier
-  %code /config/initializers/assets.rb
-  de votre application cette ligne:
-
-  %pre
-    \# For Ui bibz js
-    Rails.application.config.assets.precompile += %w(jquery-2.1.4.min.js)
+  %br
+  %code  bundle install
 
 %h2 Installation des assets
 %p
@@ -47,7 +16,7 @@
   %code /app/assets/stylesheets/applications.css
 
   %pre
-    \...
+          ...
     \*= require ui_bibz
     \...
 
@@ -55,9 +24,16 @@
   Placer la ligne suivante dans
   %code /app/assets/javascripts/applications.js
   %pre
-    \...
+          ...
     \//= require ui_bibz
     \...
 
   _Ps: Vous pouvez utiliser les variables sass présentes dans boostrap._
+
+%h2 Simple form
+%p
+  La gem est compatible avec la librairie
+  = link_to "simple_form", "https://github.com/plataformatec/simple_form"
+  \. Tous les inputs peuvent être utilisé avec
+  %strong simple_form.
 

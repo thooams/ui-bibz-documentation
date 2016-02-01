@@ -1,8 +1,8 @@
 !!!
 %html
   %head
-    %title Ui Bibz
-    %meta{ name: 'Description', CONTENT: 'Ui Bibz is a Ruby on Rails Bootstrap Ui Framework. Mix Bootstrap and Ruby to build your own interface'}
+    %title= UiBibzApp::Application::NAME
+    %meta{ name: 'Description', CONTENT: 'Ui Bibz is a Ruby on Rails Bootstrap Framework. Mix Bootstrap and Ruby to build your own interface'}
     %meta{ name: 'Author', CONTENT: 'Thomas HUMMEL <thomas@hummel.link>'}
     %meta{ name: 'Keywords', CONTENT: 'bootstrap rails, bootstrap ruby, ui bibz, bibz bootstrap, bootstrap interface, bootstrap ui, bootstrap interface'}
     %link{ rel: "shortcut icon", type: "image/x-icon", href: "/favicon.ico" }
@@ -13,7 +13,7 @@
     = csrf_meta_tags
   %body
     %header
-      = navbar title: "Ui Bibz", state: :secondary, type: :light do |nb|
+      = navbar title: UiBibzApp::Application::NAME, state: :secondary, type: :light do |nb|
         - nb.nav do |n|
           - opts = { url: getting_started_path }
           - opts.merge!({ status: :active }) if params[:action] == 'getting_started'
@@ -29,7 +29,7 @@
           //= image_tag 'ui-bibz-logo-without-border.png'
           = image_tag 'ui-bibz-logo', class: 'logo'
           = image_tag 'ruby-white.png', width: 50
-          %h1 Ui Bibz v2.0.0
+          %h1= "#{ UiBibzApp::Application::NAME } v#{ UiBibz::VERSION }"
           %p
             Over a dozen reusable components built to provide iconography, dropdowns, <br/>
             input groups, navigation, alerts, and much more.
@@ -46,6 +46,6 @@
         - n.link glyph_and_text('book', 'About'), url: 'https://github.com/thooams/Ui-Bibz'
         - n.link glyph_and_text('diamond', 'Gem'), url: 'https://rubygems.org/gems/ui_bibz'
       :markdown
-        Bibz Framework is designed and created by Thomas HUMMEL ([@thooams](https://github.com/thooams))<br/>
+        Ui Bibz Framework is designed and created by Thomas HUMMEL ([@thooams](https://github.com/thooams))<br/>
         This theme is inspired by ["Bootstrap theme documentation"](getbootstrap.com)<br/>
-        Currently v2.0.0. Code licensed MIT
+        Currently v#{ UiBibz::VERSION }. Code licensed MIT

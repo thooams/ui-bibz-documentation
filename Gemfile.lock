@@ -9,7 +9,7 @@ PATH
       rails (>= 4.2.0)
       sass-rails (>= 5.0.0)
       will-paginate-i18n
-      will_paginate (~> 3.1.0)
+      will_paginate (~> 3.0.6)
       will_paginate-bootstrap
 
 GEM
@@ -51,7 +51,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
-    autoprefixer-rails (6.3.1)
+    autoprefixer-rails (6.0.2)
       execjs
       json
     awesome_print (1.6.1)
@@ -61,9 +61,9 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (3.3.6)
-      autoprefixer-rails (>= 5.2.1)
-      sass (>= 3.3.4)
+    bootstrap-sass (3.3.5.1)
+      autoprefixer-rails (>= 5.0.0.1)
+      sass (>= 3.3.0)
     builder (3.2.2)
     coderay (1.1.0)
     coffee-rails (4.1.0)
@@ -76,7 +76,7 @@ GEM
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.6.0)
-    font-awesome-sass (4.5.0)
+    font-awesome-sass (4.4.0)
       sass (>= 3.2)
     foreman (0.78.0)
       thor (~> 0.19.1)
@@ -190,7 +190,7 @@ GEM
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
     will-paginate-i18n (0.1.15)
-    will_paginate (3.1.0)
+    will_paginate (3.0.7)
     will_paginate-bootstrap (1.0.1)
       will_paginate (>= 3.0.3)
 
@@ -218,6 +218,3 @@ DEPENDENCIES
   ui_bibz!
   unicorn
   web-console (~> 2.0)
-
-BUNDLED WITH
-   1.10.6
