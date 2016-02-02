@@ -15,3 +15,30 @@
       date_picker_field 'search'
     - e.footer do
       = documentation_link 'Documentation', '#'
+
+= section title: "Date picker with glyphs" do
+  = example do |e|
+    - e.header do
+      = date_picker_field 'date_at', append: glyph('calendar'), prepend: glyph('pencil')
+    - e.code do
+      date_picker_field 'date_at', append: glyph('calendar'), prepend: glyph('pencil')
+    - e.footer do
+      = documentation_link 'Documentation', '#'
+
+= section title: "Date picker Field range" do
+  = example do |e|
+    - e.header do
+      = date_picker_field 'range', range: 'to'
+    - e.code do
+      date_picker_field 'range', range: 'to'
+    - e.footer do
+      = documentation_link 'Documentation', '#'
+
+= section title: "Date picker Field range with glyph" do
+  = example do |e|
+    - e.header do
+      = date_picker_field 'range', range: glyph('calendar-minus-o'), append: glyph('car'), prepend: glyph('pencil')
+    - e.code do
+      date_picker_field 'range', range: glyph('calendar-minus-o'), append: glyph('car'), prepend: glyph('pencil')
+    - e.footer do
+      = documentation_link 'Documentation', '#'

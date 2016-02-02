@@ -10,27 +10,28 @@
 = section title: "Multi column" do
   = example do |e|
     - e.header do
-      = multi_column_field 'example1', option_tags: options_for_select(10.times.map{ |i| "option \#{i}" })
+      = multi_column_field 'example1', option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
     - e.code do
       options = options_for_select(10.times.map{ |i| "option \#{i}" })
       multi_column_field 'example', option_tags: options
     - e.footer do
       = documentation_link 'Documentation', '#'
 
-= section title: "Multi column options" do
+= section title: "Multi column selectable optgroup" do
   = example do |e|
     - e.header do
       - grouped_options = { 'North America' => [['United States','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
-      = multi_column_field 'example2', { option_tags: grouped_options_for_select(grouped_options), columnable_optgroup: true }
+      = multi_column_field 'example2', { option_tags: grouped_options_for_select(grouped_options), selectable_opt_group: true }
     - e.code do
       grouped_options = { 'North America' => [['United States','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
-      multi_column_field 'example', { option_tags: grouped_options_for_column(grouped_options), columnable_opt_group: true }
+      multi_column_field 'example', { option_tags: grouped_options_for_column(grouped_options), selectable_opt_group: true }
     - e.footer do
       = documentation_link 'Documentation', '#'
 
+= section title: "Multi column with search" do
   = example do |e|
     - e.header do
-      = multi_column_field 'example3', { option_tags: options_for_select(10.times.map{ |i| "option \#{i}" }), searchable: true }
+      = multi_column_field 'example3', { option_tags: options_for_select(10.times.map{ |i| "option #{i}" }), searchable: true }
     - e.code do
       options = options_for_select(10.times.map{ |i| "option \#{i}" })
       multi_column_field 'example', { option_tags: options, searchable: true }
