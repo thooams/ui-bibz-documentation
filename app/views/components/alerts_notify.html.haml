@@ -1,37 +1,32 @@
 %h1 Alerts, notify
 
-= content_for :third_nav do
-  %h2 Content
-  = nav class: 'secondary-nav' do |n|
-    - n.link 'Notify', url: '#notify'
-    - n.nav do |na|
-      - na.link 'Notify options', url: '#notify-options'
+- @sections = sections do |s|
+  - s.section title: "Notify" do
+    = example do |c|
+      - c.header do
+        - %i(danger warning info success).each do |state|
+          = notify state.to_s.titleize, state: state
+      - c.code do
+        notify 'Danger', state: :danger
+        notify 'Warning', state: :warning
+        notify 'Info', state: :info
+        notify 'Success', state: :success
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
+  - s.section title: "Notify options" do
+    = example do |c|
+      - c.header do
+        = notify 'Success', state: :success, closable: true, class: 'my-alert'
+        = notify state: :danger, closable: true, class: 'my-alert' do
+          = "Danger notification with #{ link_to('link', '#', class: 'alert-link') }.".html_safe
+      - c.code do
+        notify 'Success', { state: :success, closable: true }, { class: 'my-alert' }
+         
+        notify({ state: :danger, closable: true }, { class: 'my-alert' }) do
+          "Danger notification with #{ link_to('link', '#', class: 'alert-link') }"
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: "Notify" do
-  = example do |c|
-    - c.header do
-      - %i(danger warning info success).each do |state|
-        = notify state.to_s.titleize, state: state
-    - c.code do
-      notify 'Danger', state: :danger
-      notify 'Warning', state: :warning
-      notify 'Info', state: :info
-      notify 'Success', state: :success
-    - c.footer do
-      = documentation_link 'Documentation', '#'
-
-= section title: "Notify options" do
-  = example do |c|
-    - c.header do
-      = notify 'Success', state: :success, closable: true, class: 'my-alert'
-      = notify state: :danger, closable: true, class: 'my-alert' do
-        = "Danger notification with #{ link_to('link', '#', class: 'alert-link') }.".html_safe
-    - c.code do
-      notify 'Success', { state: :success, closable: true }, { class: 'my-alert' }
-       
-      notify({ state: :danger, closable: true }, { class: 'my-alert' }) do
-        "Danger notification with #{ link_to('link', '#', class: 'alert-link') }"
-      end
-    - c.footer do
-      = documentation_link 'Documentation', '#'
+= @sections.render

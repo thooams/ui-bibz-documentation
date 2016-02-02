@@ -1,39 +1,36 @@
 %h1 Multi Column Fields
 %p Use Bootstrap’s custom button styles for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, states, and more.
 
-= content_for :third_nav do
-  %h2 Contents
-  = nav class: 'secondary-nav' do |n|
-    - n.link 'Multi column field', url: '#multi-column'
-    - n.link 'Multi column field options', url: '#multi-column-options'
+- @sections = sections do |s|
+  - s.section title: "Multi Column Field" do
+    = example do |e|
+      - e.header do
+        = multi_column_field 'example1', option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
+      - e.code do
+        options = options_for_select(10.times.map{ |i| "option \#{i}" })
+        multi_column_field 'example', option_tags: options
+      - e.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: "Multi column" do
-  = example do |e|
-    - e.header do
-      = multi_column_field 'example1', option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
-    - e.code do
-      options = options_for_select(10.times.map{ |i| "option \#{i}" })
-      multi_column_field 'example', option_tags: options
-    - e.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "Multi Column Field selectable optgroup" do
+    = example do |e|
+      - e.header do
+        - grouped_options = { 'North America' => [['United States','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+        = multi_column_field 'example2', { option_tags: grouped_options_for_select(grouped_options), selectable_opt_group: true }
+      - e.code do
+        grouped_options = { 'North America' => [['United States','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+        multi_column_field 'example', { option_tags: grouped_options_for_column(grouped_options), selectable_opt_group: true }
+      - e.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: "Multi column selectable optgroup" do
-  = example do |e|
-    - e.header do
-      - grouped_options = { 'North America' => [['United States','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
-      = multi_column_field 'example2', { option_tags: grouped_options_for_select(grouped_options), selectable_opt_group: true }
-    - e.code do
-      grouped_options = { 'North America' => [['United States','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
-      multi_column_field 'example', { option_tags: grouped_options_for_column(grouped_options), selectable_opt_group: true }
-    - e.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "Multi Column Field with search" do
+    = example do |e|
+      - e.header do
+        = multi_column_field 'example3', { option_tags: options_for_select(10.times.map{ |i| "option #{i}" }), searchable: true }
+      - e.code do
+        options = options_for_select(10.times.map{ |i| "option \#{i}" })
+        multi_column_field 'example', { option_tags: options, searchable: true }
+      - e.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: "Multi column with search" do
-  = example do |e|
-    - e.header do
-      = multi_column_field 'example3', { option_tags: options_for_select(10.times.map{ |i| "option #{i}" }), searchable: true }
-    - e.code do
-      options = options_for_select(10.times.map{ |i| "option \#{i}" })
-      multi_column_field 'example', { option_tags: options, searchable: true }
-    - e.footer do
-      = documentation_link 'Documentation', '#'
+= @sections.render

@@ -1,53 +1,49 @@
-%h1 Surround Fields
+%h1 Date Picker Fields
 %p Use Bootstrap’s custom button styles for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, states, and more.
 
-- titles = ["Date picker Field", "Date picker with glyphs", "Date picker Field range", "Date picker Field range with glyph", "Date picker Field date options"]
-= content_for :third_nav do
-  %h2 Contents
-  = subnav class: 'secondary-nav' do |n|
-    - titles.each do |t|
-      - n.link t
+- @sections = sections do |s|
+  - s.section title: "Date Picker Field" do
+    = example do |e|
+      - e.header do
+        = date_picker_field 'search'
+      - e.code do
+        date_picker_field 'search'
+      - e.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: titles.shift do
-  = example do |e|
-    - e.header do
-      = date_picker_field 'search'
-    - e.code do
-      date_picker_field 'search'
-    - e.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "Date Picker Field with glyph" do
+    = example do |e|
+      - e.header do
+        = date_picker_field 'date_at', append: glyph('calendar'), prepend: glyph('pencil')
+      - e.code do
+        date_picker_field 'date_at', append: glyph('calendar'), prepend: glyph('pencil')
+      - e.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: titles.shift do
-  = example do |e|
-    - e.header do
-      = date_picker_field 'date_at', append: glyph('calendar'), prepend: glyph('pencil')
-    - e.code do
-      date_picker_field 'date_at', append: glyph('calendar'), prepend: glyph('pencil')
-    - e.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "Date Picker Field range" do
+    = example do |e|
+      - e.header do
+        = date_picker_field 'range', range: 'to'
+      - e.code do
+        date_picker_field 'range', range: 'to'
+      - e.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: titles.shift do
-  = example do |e|
-    - e.header do
-      = date_picker_field 'range', range: 'to'
-    - e.code do
-      date_picker_field 'range', range: 'to'
-    - e.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "Date Picker Field range with glyph" do
+    = example do |e|
+      - e.header do
+        = date_picker_field 'range', range: glyph('calendar-minus-o'), append: glyph('car'), prepend: glyph('pencil')
+      - e.code do
+        date_picker_field 'range', range: glyph('calendar-minus-o'), append: glyph('car'), prepend: glyph('pencil')
+      - e.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: titles.shift do
-  = example do |e|
-    - e.header do
-      = date_picker_field 'range', range: glyph('calendar-minus-o'), append: glyph('car'), prepend: glyph('pencil')
-    - e.code do
-      date_picker_field 'range', range: glyph('calendar-minus-o'), append: glyph('car'), prepend: glyph('pencil')
-    - e.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "Date Picker Field date options" do
+    %p
+      %ul
+        %li date_today_highlight - Boolean
+        %li calendar_weeks - Boolean
+        %li autoclose - Boolean
+        %li dates_disabled - String or Array
 
-= section title: titles.shift do
-  %p
-    %ul
-      %li date_today_highlight - Boolean
-      %li calendar_weeks - Boolean
-      %li autoclose - Boolean
-      %li dates_disabled - String or Array
+= @sections.render

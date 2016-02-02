@@ -40,6 +40,11 @@
         = col({ num: 3 }, { class: 'right-nav' }) do
           = render "components/nav"
           = yield :third_nav
+          - unless @sections.nil?
+            %h2 Contents
+            = subnav class: 'secondary-nav' do |n|
+              - @sections.names.each do |s|
+                - n.link s
     %footer
       = nav type: :links do |n|
         - n.link glyph_and_text('github', 'Github'), url: 'https://github.com/thooams/Ui-Bibz'

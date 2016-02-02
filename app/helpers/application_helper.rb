@@ -22,4 +22,10 @@ module ApplicationHelper
     link_to(glyph_and_text('tag', text), link)
   end
 
+  def add_sections_titles array, text = nil
+    array = array.map{ |i| "#{ text } #{i}"} unless text.nil?
+    @sections = array
+    @titles   = array.clone
+  end
+
 end

@@ -1,75 +1,72 @@
 %h1 Multi Select Fields
 %p Use Bootstrap’s custom button styles for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, states, and more.
 
-= content_for :third_nav do
-  %h2 Contents
-  = nav class: 'secondary-nav' do |n|
-    - n.link 'Multi select field', url: '#multi-select'
-    - n.link 'Multi select field options', url: '#multi-select-options'
+- @sections = sections do |s|
+  - s.section title: "Multi Select Field" do
+    = example do |e|
+      - e.header do
+        = multi_select_field 'example1', option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
+      - e.code do
+        options = options_for_select(10.times.map{ |i| "option \#{i}" })
+        multi_select_field 'example', option_tags: options
+      - e.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: "Multi select" do
-  = example do |e|
-    - e.header do
-      = multi_select_field 'example1', option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
-    - e.code do
-      options = options_for_select(10.times.map{ |i| "option \#{i}" })
-      multi_select_field 'example', option_tags: options
-    - e.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "Multi Select Field optgroup clickable" do
+    = example do |e|
+      - e.header do
+        - grouped_options = { 'North America' => [['United States','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+        = multi_select_field 'example2', { clickable_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
+      - e.code do
+        grouped_options = { 'North America' => [['United States','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+        multi_select_field 'example', { clickable_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
+      - e.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: "Multi select optgroup clickable" do
-  = example do |e|
-    - e.header do
-      - grouped_options = { 'North America' => [['United States','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
-      = multi_select_field 'example2', { clickable_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
-    - e.code do
-      grouped_options = { 'North America' => [['United States','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
-      multi_select_field 'example', { clickable_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
-    - e.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "Multi Select Field optgroup collapsible" do
+    = example do |e|
+      - e.header do
+        - grouped_options = { 'North America' => [['United States','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+        = multi_select_field 'example2', { collapsible_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
+      - e.code do
+        grouped_options = { 'North America' => [['United States','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+        multi_select_field 'example', { collapsible_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
+      - e.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: "Multi select optgroup collapsible" do
-  = example do |e|
-    - e.header do
-      - grouped_options = { 'North America' => [['United States','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
-      = multi_select_field 'example2', { collapsible_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
-    - e.code do
-      grouped_options = { 'North America' => [['United States','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
-      multi_select_field 'example', { collapsible_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
-    - e.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "Multi Select Field filter" do
+    = example do |e|
+      - e.header do
+        = multi_select_field 'example1', filter: true, option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
+      - e.code do
+        options = options_for_select(10.times.map{ |i| "option \#{i}" })
+        multi_select_field 'example', filter: true, option_tags: options
+      - e.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: "Multi select filter" do
-  = example do |e|
-    - e.header do
-      = multi_select_field 'example1', filter: true, option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
-    - e.code do
-      options = options_for_select(10.times.map{ |i| "option \#{i}" })
-      multi_select_field 'example', filter: true, option_tags: options
-    - e.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "Multi Select Field select_all_option" do
+    = example do |e|
+      - e.header do
+        = multi_select_field 'example1', select_all_option: true, option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
+      - e.code do
+        options = options_for_select(10.times.map{ |i| "option \#{i}" })
+        multi_select_field 'example', select_all_option: true, option_tags: options
+      - e.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: "Multi select select_all_option" do
-  = example do |e|
-    - e.header do
-      = multi_select_field 'example1', select_all_option: true, option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
-    - e.code do
-      options = options_for_select(10.times.map{ |i| "option \#{i}" })
-      multi_select_field 'example', select_all_option: true, option_tags: options
-    - e.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "Multi Select Field state" do
+    = example do |e|
+      - e.header do
+        - %w(primary secondary success warning link).each do |s|
+          = multi_select_field s, state: s.to_sym, option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
+      - e.code do
+        options = options_for_select(10.times.map{ |i| "option \#{i}" })
+        multi_select_field 'primary', state: :primary, option_tags: options
+        multi_select_field 'secondary', state: :secondary, option_tags: options
+        multi_select_field 'success', state: :success, option_tags: options
+        multi_select_field 'warning', state: :warning, option_tags: options
+        multi_select_field 'link', state: :link, option_tags: options
+      - e.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: "Multi select select_all_option" do
-  = example do |e|
-    - e.header do
-      - %w(primary secondary success warning link).each do |s|
-        = multi_select_field s, state: s.to_sym, option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
-    - e.code do
-      options = options_for_select(10.times.map{ |i| "option \#{i}" })
-      multi_select_field 'primary', state: :primary, option_tags: options
-      multi_select_field 'secondary', state: :secondary, option_tags: options
-      multi_select_field 'success', state: :success, option_tags: options
-      multi_select_field 'warning', state: :warning, option_tags: options
-      multi_select_field 'link', state: :link, option_tags: options
-    - e.footer do
-      = documentation_link 'Documentation', '#'
+= @sections.render

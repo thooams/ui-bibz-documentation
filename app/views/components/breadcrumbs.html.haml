@@ -1,39 +1,36 @@
 %h1 Breadcrumbs
 
-= content_for :third_nav do
-  %h2 Content
-  = nav class: 'secondary-nav' do |n|
-    - n.link 'Breadcrumb', url: '#breadcrumb'
+- @sections = sections do |s|
+  - s.section title: "Breadcrumb" do
+    = example do |c|
+      - c.header do
+        = breadcrumb do |b|
+          - b.link 'Home', status: :active
+        %br
+        = breadcrumb do |b|
+          - b.link 'Home', url: '#home'
+          - b.link 'Library', status: :active
+        %br
+        = breadcrumb do |b|
+          - b.link 'Home', url: '#active'
+          - b.link 'Library', url: '#library'
+          - b.link 'Data', status: :active
+      - c.code do
+        breadcrumb do |b|
+          b.link 'Home', status: :active
+        end
+         
+        breadcrumb do |b|
+          b.link 'Home', url: '#home'
+          b.link 'Library', status: :active
+        end
+         
+        breadcrumb do |b|
+          b.link 'Home', url: '#home'
+          b.link 'Library', url: '#library'
+          b.link 'Data', status: :active
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: "Breadcrumb" do
-  = example do |c|
-    - c.header do
-      = breadcrumb do |b|
-        - b.link 'Home', status: :active
-      %br
-      = breadcrumb do |b|
-        - b.link 'Home', url: '#home'
-        - b.link 'Library', status: :active
-      %br
-      = breadcrumb do |b|
-        - b.link 'Home', url: '#active'
-        - b.link 'Library', url: '#library'
-        - b.link 'Data', status: :active
-    - c.code do
-      breadcrumb do |b|
-        b.link 'Home', status: :active
-      end
-       
-      breadcrumb do |b|
-        b.link 'Home', url: '#home'
-        b.link 'Library', status: :active
-      end
-       
-      breadcrumb do |b|
-        b.link 'Home', url: '#home'
-        b.link 'Library', url: '#library'
-        b.link 'Data', status: :active
-      end
-    - c.footer do
-      = documentation_link 'Documentation', '#'
-
+= @sections.render
