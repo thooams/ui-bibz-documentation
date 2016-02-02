@@ -8,4 +8,7 @@ module ComponentsHelper
     ::UiBibz::Ui::Ux::Section.new(content, options, html_options, &block).render
   end
 
+  def subnav content = nil, options = nil, html_options = nil, &block
+    ::UiBibz::Ui::Ux::SubNav.new(content, options, html_options).tap(&block).render
+  end
 end

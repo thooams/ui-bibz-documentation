@@ -1,13 +1,14 @@
 %h1 Surround Fields
 %p Use Bootstrap’s custom button styles for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, states, and more.
 
+- titles = ["Date picker Field", "Date picker with glyphs", "Date picker Field range", "Date picker Field range with glyph", "Date picker Field date options"]
 = content_for :third_nav do
   %h2 Contents
-  = nav class: 'secondary-nav' do |n|
-    - n.link 'Surround field', url: '#surround-field'
-    - n.link 'Surround field options', url: '#surround-field'
+  = subnav class: 'secondary-nav' do |n|
+    - titles.each do |t|
+      - n.link t
 
-= section title: "Date picker Field" do
+= section title: titles.shift do
   = example do |e|
     - e.header do
       = date_picker_field 'search'
@@ -16,7 +17,7 @@
     - e.footer do
       = documentation_link 'Documentation', '#'
 
-= section title: "Date picker with glyphs" do
+= section title: titles.shift do
   = example do |e|
     - e.header do
       = date_picker_field 'date_at', append: glyph('calendar'), prepend: glyph('pencil')
@@ -25,7 +26,7 @@
     - e.footer do
       = documentation_link 'Documentation', '#'
 
-= section title: "Date picker Field range" do
+= section title: titles.shift do
   = example do |e|
     - e.header do
       = date_picker_field 'range', range: 'to'
@@ -34,7 +35,7 @@
     - e.footer do
       = documentation_link 'Documentation', '#'
 
-= section title: "Date picker Field range with glyph" do
+= section title: titles.shift do
   = example do |e|
     - e.header do
       = date_picker_field 'range', range: glyph('calendar-minus-o'), append: glyph('car'), prepend: glyph('pencil')
@@ -42,3 +43,11 @@
       date_picker_field 'range', range: glyph('calendar-minus-o'), append: glyph('car'), prepend: glyph('pencil')
     - e.footer do
       = documentation_link 'Documentation', '#'
+
+= section title: titles.shift do
+  %p
+    %ul
+      %li date_today_highlight - Boolean
+      %li calendar_weeks - Boolean
+      %li autoclose - Boolean
+      %li dates_disabled - String or Array
