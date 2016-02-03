@@ -11,4 +11,28 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
+  - s.section title: "Simple form" do
+    %p
+      Vous pouvez utiliser l'input surround avec la gem
+      = link_to 'simple form', "https://github.com/plataformatec/simple_form"
+      \.
+      %br
+      Vous devez ajouter cette ligne
+      dans le fichier
+      %code "config/initializers/simple_form.rb"
+    = example do |e|
+      - e.code do
+        \...
+        config.custom_inputs_namespaces << "CustomInputs"
+        \...
+
+    %p Ensuite dans votre vue, vous pouvez insérer votre champ input surround.
+    = example do |e|
+      - e.code do
+        simple_form(@search) do |f|
+          ...
+          f.input :price, as: :surround, append: '$'
+          ...
+        end
+
 = @sections.render

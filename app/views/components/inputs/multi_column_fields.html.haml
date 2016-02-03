@@ -19,7 +19,7 @@
         = multi_column_field 'example2', { option_tags: grouped_options_for_select(grouped_options), selectable_opt_group: true }
       - e.code do
         grouped_options = { 'North America' => [['United States','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
-        multi_column_field 'example', { option_tags: grouped_options_for_column(grouped_options), selectable_opt_group: true }
+        multi_column_field 'example', { option_tags: grouped_options_for_select(grouped_options), selectable_opt_group: true }
       - e.footer do
         = documentation_link 'Documentation', '#'
 
@@ -32,5 +32,29 @@
         multi_column_field 'example', { option_tags: options, searchable: true }
       - e.footer do
         = documentation_link 'Documentation', '#'
+
+  - s.section title: "Simple form" do
+    %p
+      Vous pouvez utiliser l'input multi_column avec la gem
+      = link_to 'simple form', "https://github.com/plataformatec/simple_form"
+      \.
+      %br
+      Vous devez ajouter cette ligne
+      dans le fichier
+      %code "config/initializers/simple_form.rb"
+    = example do |e|
+      - e.code do
+        \...
+        config.custom_inputs_namespaces << "CustomInputs"
+        \...
+
+    %p Ensuite dans votre vue, vous pouvez insérer votre champ input multi_column.
+    = example do |e|
+      - e.code do
+        simple_form(@search) do |f|
+          ...
+          f.input :company, as: :multi_column, searchable: true
+          ...
+        end
 
 = @sections.render
