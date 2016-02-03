@@ -1,87 +1,81 @@
 %h1 Buttons group
 
-= content_for :third_nav do
-  %h2 Content
-  = nav class: 'secondary-nav' do |n|
-    - n.link 'Button group', url: '#button-dropdown'
-    - n.nav do |na|
-      - na.link 'Nesting', url: '#nesting'
-      - na.link 'Size', url: '#size'
-      - na.link 'Position', url: '#position'
+- @sections = sections do |s|
+  - s.section title: "Button group" do
+    = example do |c|
+      - c.header do
+        = button_group do
+          = button 'Left'
+          = button 'Middle'
+          = button 'Right'
+      - c.code do
+        button_group do
+          button 'Left'
+          button 'Middle'
+          button 'Right'
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: "Button group" do
-  = example do |c|
-    - c.header do
-      = button_group do
-        = button 'Left'
-        = button 'Middle'
-        = button 'Right'
-    - c.code do
-      button_group do
-        button 'Left'
-        button 'Middle'
-        button 'Right'
-      end
-    - c.footer do
-      = documentation_link 'Documentation', '#'
-
-= section title: "Nesting" do
-  = example do |c|
-    - c.header do
-      = button_group do
-        = button 'Button'
-        = button_link 'Button link', url: '#button-link'
-        = button_dropdown "Dropdown" do |bd|
-          - bd.link "Action", url: '#action'
-          - bd.link "Another action", url: '#another-action'
-          - bd.divider
-          - bd.header 'Header'
-          - bd.link "Separate link", url: '#separate-link'
-    - c.code do
-      button_group do
-        button 'Button'
-        button_link 'Button link', url: '#button-link'
-        button_dropdown "Dropdown" do |bd|
-          bd.link "Action", url: '#action'
-          bd.link "Another action", url: '#another-action'
-          bd.divider
-          bd.header 'Header'
-          bd.link "Separate link", url: '#separate-link'
-        end
-      end
-    - c.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "Nesting" do
+    = example do |c|
+      - c.header do
+        = button_group do
+          = button 'Button'
+          = button_link 'Button link', url: '#button-link'
+          = button_dropdown "Dropdown" do |bd|
+            - bd.link "Action", url: '#action'
+            - bd.link "Another action", url: '#another-action'
+            - bd.divider
+            - bd.header 'Header'
+            - bd.link "Separate link", url: '#separate-link'
+      - c.code do
+        button_group do
+          button 'Button'
+          button_link 'Button link', url: '#button-link'
+          button_dropdown "Dropdown" do |bd|
+            bd.link "Action", url: '#action'
+            bd.link "Another action", url: '#another-action'
+            bd.divider
+            bd.header 'Header'
+            bd.link "Separate link", url: '#separate-link'
+          end
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
 
-= section title: "Size" do
-  = example do |c|
-    - c.header do
-      = button_group size: :sm do
-        = button 'Left'
-        = button 'Middle'
-        = button 'Right'
-    - c.code do
-      button_group size: :sm do
-        button 'Left'
-        button 'Middle'
-        button 'Right'
-      end
-    - c.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "Size" do
+    = example do |c|
+      - c.header do
+        = button_group size: :sm do
+          = button 'Left'
+          = button 'Middle'
+          = button 'Right'
+      - c.code do
+        button_group size: :sm do
+          button 'Left'
+          button 'Middle'
+          button 'Right'
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
 
-= section title: "Position" do
-  = example do |c|
-    - c.header do
-      = button_group position: :vertical do
-        = button 'Left'
-        = button 'Middle'
-        = button 'Right'
-    - c.code do
-      button_group position: :vertical do
-        button 'Left'
-        button 'Middle'
-        button 'Right'
-      end
-    - c.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "Position" do
+    = example do |c|
+      - c.header do
+        = button_group position: :vertical do
+          = button 'Left'
+          = button 'Middle'
+          = button 'Right'
+      - c.code do
+        button_group position: :vertical do
+          button 'Left'
+          button 'Middle'
+          button 'Right'
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+= @sections.render

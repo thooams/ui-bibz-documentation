@@ -1,16 +1,5 @@
 %h1 Tables
 
-= content_for :third_nav do
-  %h2 Content
-  = nav class: 'secondary-nav' do |n|
-    - n.link 'Table', url: '#table'
-    - n.nav do |na|
-      - na.link 'Model', url: '#model'
-      - na.link 'Controller', url: '#controller'
-      - na.link 'View', url: '#view'
-    - n.link 'Table columns', url: '#table-columns'
-    - n.link 'Table actions', url: '#table-actions'
-
 %p
   Le composant
   %code table
@@ -40,225 +29,227 @@
   \.
 
 
-= section title: "Model" do
-  %p Insérer dans le model la ligne suivante:
-  = example do |c|
-    - c.code do
-      class MyModel < ActiveRecord::Base
-        include UiBibz::Concerns::Models::Searchable
-        ...
-      end
+- @sections = sections do |s|
+  - s.section title: "Model" do
+    %p Insérer dans le model la ligne suivante:
+    = example do |c|
+      - c.code do
+        class MyModel < ActiveRecord::Base
+          include UiBibz::Concerns::Models::Searchable
+          ...
+        end
 
-= section title: "Controller" do
-  %p
-    Utiliser dans votre model la method
-    %code table_search_pagination
-    en passant les arguments:
-    %ul
-      %li params
-      %li session
-      %li opts (optional)
-  = example do |c|
-    - c.code do
-      class MyController < ApplicationController
-        def index
-          @users = MyModel.all.table_search_pagination(params, session)
-          ...
-        end
-        ...
-      end
-
-= section title: "View" do
-  %p
-    Les colonnes sont par défaut toutes affichées et les actions par défaut sont:
-    %ul
-      %li show
-      %li edit
-      %li delete
-  = example do |c|
-    - c.header do
-      = table({ store: @users, tap: true }) do |b|
-        - b.columns do |cls|
-          - cls.column :id
-          - cls.column :email
-          - cls.column :active
-          - cls.column :company
-          - cls.column :created_at
-          - cls.column :updated_at
-        - b.actions do |acs|
-          - acs.link 'Show', url: '#show', glyph: 'eye'
-          - acs.link 'Edit', url: '#show', glyph: 'pencil'
-          - acs.link 'Delete', url: '#show', glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
-    - c.code do
-      table store: @users
-    - c.footer do
-      = documentation_link 'Documentation', '#'
-
-= section title: "Table Columns" do
-  %p
-    L'ajout de colonnes à travers la méthode column contient plusieurs arguments et cette méthode est basée sur le component :
-    %ul
-      %li data_index (symbol)
-      %li options (hash)
+  - s.section title: "Controller" do
+    %p
+      Utiliser dans votre model la method
+      %code table_search_pagination
+      en passant les arguments:
       %ul
-        %li name (le nom de la colonne)
-        %li count (utilise la méthode count sur l'élément)
-        %li date_format (formate l'affichage de la date en utilisant la méthode strftime ex: '%Y/%M/%D')
-        %li format (formate les élements de la colone en utilisant lambda)
-        %li link (ajoute un lien où l'expression :id est parsé et remplacé par l'entier correspondant)
-        %li sort (permet de trier sur des champs )
-        %li column_id (permet d'identifier la colonne : peut être utile pour le sort)
-        %li custom_sort (indique que le tableau sera triéé d'une manière personnalisée)
-      %li html_options (hash)
-  = example do |c|
-    - c.header do
-      = table({ store: @users, tap: true }) do |b|
-        - b.columns do |cls|
-          - cls.column :id, name: '#'
-          - cls.column :email, link: '#email'
-          - cls.column :active, format: lambda { |records, record| active_icon(record) }
-          - cls.column :company
-          - cls.column :created_at, date_format: '%d/%M/%Y'
-          - cls.column :updated_at
-        - b.actions do |acs|
-          - acs.link 'Show', url: '#show', glyph: 'eye'
-          - acs.link 'Edit', url: '#show', glyph: 'pencil'
-          - acs.link 'Delete', url: '#show', glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
-    - c.code do
-      table({ store: @users, tap: true }) do |b|
-        b.columns do |cls|
-          cls.column :id, name: '#'
-          cls.column :email, link: '#email'
-          cls.column :active, format: lambda { |records, record| active_icon(record) }
-          cls.column :company
-          cls.column :created_at, date_format: '%d/%M/%Y'
-          cls.column :updated_at
-        end
-      end
-    - c.footer do
-      = documentation_link 'Documentation', '#'
+        %li params
+        %li session
+        %li opts (optional)
+    = example do |c|
+      - c.code do
+        class MyController < ApplicationController
+          def index
+            @users = MyModel.all.table_search_pagination(params, session)
+            ...
+          end
+          ...
+        end
 
-
-= section title: "Table Actions" do
-  %p
-    Les actions sont insérées dans un bouton dropdown.
-    Ces actions héritent du composant
-    %code DropdownLink
-    et propose les méthodes suivantes:
-    %ul
-      %li= link_to 'header', components_dropdowns_path(anchor: 'header')
-      %li= link_to 'divider', components_dropdowns_path(anchor: 'divider')
-      %li= link_to 'link', components_dropdowns_path(anchor: 'link')
-      %li= link_to 'html', components_dropdowns_path(anchor: 'html')
-
-  %p
-    L'option
-    %code link
-    peut injecter l'id du record en écrivant dans votre lien
-    %code :id
-    \.
-
-  = example do |c|
-    - c.header do
-      = table({ store: @users, tap: true }) do |b|
-        - b.columns do |cls|
-          - cls.column :id
-          - cls.column :email
-          - cls.column :active
-          - cls.column :company
-          - cls.column :created_at
-          - cls.column :updated_at
-        - b.actions do |acs|
-          - acs.link 'Open', url: "#open", glyph: 'folder-open'
-          - acs.link 'Close', url: "#close", glyph: 'folder'
-          - acs.link 'Delete', url: "#delete", glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
-    - c.code do
-      table({ store: @users, tap: true }) do |b|
-        b.actions do |acs|
-          acs.link 'Open', url: open_user_path(:id), glyph: 'folder-open'
-          acs.link 'Close', url: close_user_path(:id), glyph: 'folder'
-          acs.link 'Delete', url: user_path(:id), glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
-        end
-      end
-    - c.footer do
-      = documentation_link 'Documentation', '#'
-
-  %p
-    Les actions peuvent être formaté selon à chaque ligne.
-    Grâce à la méthode
-    %code format
-    vous avez accès au record afin de formater l'action désiré.
-
-  = example do |c|
-    - c.header do
-      = table({ store: @users, tap: true }) do |b|
-        - b.columns do |cls|
-          - cls.column :id
-          - cls.column :email
-          - cls.column :active
-          - cls.column :company
-          - cls.column :created_at
-          - cls.column :updated_at
-        - b.actions do |acs|
-          - acs.format do |record|
+  - s.section title: "View" do
+    %p
+      Les colonnes sont par défaut toutes affichées et les actions par défaut sont:
+      %ul
+        %li show
+        %li edit
+        %li delete
+    = example do |c|
+      - c.header do
+        = table({ store: @users, tap: true }) do |b|
+          - b.columns do |cls|
+            - cls.column :id
+            - cls.column :email
+            - cls.column :active
+            - cls.column :company
+            - cls.column :created_at
+            - cls.column :updated_at
+          - b.actions do |acs|
             - acs.link 'Show', url: '#show', glyph: 'eye'
             - acs.link 'Edit', url: '#show', glyph: 'pencil'
             - acs.link 'Delete', url: '#show', glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
-            - if record.active
-              - acs.link 'Active', url: '#active', glyph: 'check-circle'
-            - else
-              - acs.link 'Disabled', url: '#disabled'
-    - c.code do
-      table({ store: @users, tap: true }) do |b|
-        b.actions do |acs|
-          acs.format do |record|
-            acs.link 'Show', url: user_path(:id), glyph: 'eye'
-            acs.link 'Edit', url: edit_user_path(:id), glyph: 'pencil'
-            acs.link 'Delete', url: user_path(:id), glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
-            if record.active?
-              acs.link 'Active', { url: active_users_path(record.id) }
-            else
-              acs.link 'Disabled', { url: disabled_users_path(record.id) }
-            end
-          end
-        end
-      end
-    - c.footer do
-      = documentation_link 'Documentation', '#'
+      - c.code do
+        table store: @users
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Table Columns" do
+    %p
+      L'ajout de colonnes à travers la méthode column contient plusieurs arguments et cette méthode est basée sur le component :
+      %ul
+        %li data_index (symbol)
+        %li options (hash)
+        %ul
+          %li name (le nom de la colonne)
+          %li count (utilise la méthode count sur l'élément)
+          %li date_format (formate l'affichage de la date en utilisant la méthode strftime ex: '%Y/%M/%D')
+          %li format (formate les élements de la colone en utilisant lambda)
+          %li link (ajoute un lien où l'expression :id est parsé et remplacé par l'entier correspondant)
+          %li sort (permet de trier sur des champs )
+          %li column_id (permet d'identifier la colonne : peut être utile pour le sort)
+          %li custom_sort (indique que le tableau sera triéé d'une manière personnalisée)
+        %li html_options (hash)
+    = example do |c|
+      - c.header do
+        = table({ store: @users, tap: true }) do |b|
+          - b.columns do |cls|
+            - cls.column :id, name: '#'
+            - cls.column :email, link: '#email'
+            - cls.column :active, format: lambda { |records, record| active_icon(record) }
+            - cls.column :company
+            - cls.column :created_at, date_format: '%d/%M/%Y'
+            - cls.column :updated_at
+          - b.actions do |acs|
+            - acs.link 'Show', url: '#show', glyph: 'eye'
+            - acs.link 'Edit', url: '#show', glyph: 'pencil'
+            - acs.link 'Delete', url: '#show', glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
+      - c.code do
+        table({ store: @users, tap: true }) do |b|
+          b.columns do |cls|
+            cls.column :id, name: '#'
+            cls.column :email, link: '#email'
+            cls.column :active, format: lambda { |records, record| active_icon(record) }
+            cls.column :company
+            cls.column :created_at, date_format: '%d/%M/%Y'
+            cls.column :updated_at
+          end
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
 
-= section title: "Controller arguments" do
-  %p
-    Si l'on souhaite, par exemple, dénombrer des utilisateurs qui ont un lien non direct avec les documents. Imaginons par exemple, un utilisateur à des produits et que ces produits contiennent plusieurs documents. On souhaite compter le nombre d'utilisateurs par documents.
-    On peut ajouter des arguments dans la méthode
-    %code table_search_pagination
-    qui vont permettre de faire des jointures.
-  = example do |c|
-    - c.code do
-      Arguments  = { sortable: {
-        column: 'users',
-        count:  true,
-        joins: "LEFT OUTER JOIN documents_products ON documents_products.document_id = documents.id
-                LEFT OUTER JOIN products ON products.id = documents_products.product_id
-                LEFT OUTER JOIN products_users ON products_users.product_id = products.id
-                LEFT OUTER JOIN users ON users.id = products_users.user_id"
-      } }
+  - s.section title: "Table Actions" do
+    %p
+      Les actions sont insérées dans un bouton dropdown.
+      Ces actions héritent du composant
+      %code DropdownLink
+      et propose les méthodes suivantes:
+      %ul
+        %li= link_to 'header', components_dropdowns_path(anchor: 'header')
+        %li= link_to 'divider', components_dropdowns_path(anchor: 'divider')
+        %li= link_to 'link', components_dropdowns_path(anchor: 'link')
+        %li= link_to 'html', components_dropdowns_path(anchor: 'html')
 
-      @documents = Document.includes(:users).table_search_pagination(params, session, arguments)
-  %p
-    Ici l'argument sortable signifie que l'on souhaite s'interresser à la fonctionnalité de trie.
-    Pour celà il faut :
-    %ul
-    %li définir le nom de la colonne triéé à travers l'argument column: (string)
-    %li définir si le traitement se fait sur le comptage avec l'argument count: (boolean)
-    %li définir la jointure avec l'argument joins: (string, array, hash)
+    %p
+      L'option
+      %code link
+      peut injecter l'id du record en écrivant dans votre lien
+      %code :id
+      \.
+
+    = example do |c|
+      - c.header do
+        = table({ store: @users, tap: true }) do |b|
+          - b.columns do |cls|
+            - cls.column :id
+            - cls.column :email
+            - cls.column :active
+            - cls.column :company
+            - cls.column :created_at
+            - cls.column :updated_at
+          - b.actions do |acs|
+            - acs.link 'Open', url: "#open", glyph: 'folder-open'
+            - acs.link 'Close', url: "#close", glyph: 'folder'
+            - acs.link 'Delete', url: "#delete", glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
+      - c.code do
+        table({ store: @users, tap: true }) do |b|
+          b.actions do |acs|
+            acs.link 'Open', url: open_user_path(:id), glyph: 'folder-open'
+            acs.link 'Close', url: close_user_path(:id), glyph: 'folder'
+            acs.link 'Delete', url: user_path(:id), glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
+          end
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+    %p
+      Les actions peuvent être formaté selon à chaque ligne.
+      Grâce à la méthode
+      %code format
+      vous avez accès au record afin de formater l'action désiré.
+
+    = example do |c|
+      - c.header do
+        = table({ store: @users, tap: true }) do |b|
+          - b.columns do |cls|
+            - cls.column :id
+            - cls.column :email
+            - cls.column :active
+            - cls.column :company
+            - cls.column :created_at
+            - cls.column :updated_at
+          - b.actions do |acs|
+            - acs.format do |record|
+              - acs.link 'Show', url: '#show', glyph: 'eye'
+              - acs.link 'Edit', url: '#show', glyph: 'pencil'
+              - acs.link 'Delete', url: '#show', glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
+              - if record.active
+                - acs.link 'Active', url: '#active', glyph: 'check-circle'
+              - else
+                - acs.link 'Disabled', url: '#disabled'
+      - c.code do
+        table({ store: @users, tap: true }) do |b|
+          b.actions do |acs|
+            acs.format do |record|
+              acs.link 'Show', url: user_path(:id), glyph: 'eye'
+              acs.link 'Edit', url: edit_user_path(:id), glyph: 'pencil'
+              acs.link 'Delete', url: user_path(:id), glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
+              if record.active?
+                acs.link 'Active', { url: active_users_path(record.id) }
+              else
+                acs.link 'Disabled', { url: disabled_users_path(record.id) }
+              end
+            end
+          end
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
 
-  = example do |c|
-    - c.code do
-      table store: @documents do |g|
-        g.columns do |c|
-          c.column :users, { name: 'Users count', count: true, custom_sort: true }
-        end
-      end
+  - s.section title: "Controller arguments" do
+    %p
+      Si l'on souhaite, par exemple, dénombrer des utilisateurs qui ont un lien non direct avec les documents. Imaginons par exemple, un utilisateur à des produits et que ces produits contiennent plusieurs documents. On souhaite compter le nombre d'utilisateurs par documents.
+      On peut ajouter des arguments dans la méthode
+      %code table_search_pagination
+      qui vont permettre de faire des jointures.
+    = example do |c|
+      - c.code do
+        Arguments  = { sortable: {
+          column: 'users',
+          count:  true,
+          joins: "LEFT OUTER JOIN documents_products ON documents_products.document_id = documents.id
+                  LEFT OUTER JOIN products ON products.id = documents_products.product_id
+                  LEFT OUTER JOIN products_users ON products_users.product_id = products.id
+                  LEFT OUTER JOIN users ON users.id = products_users.user_id"
+        } }
 
+        @documents = Document.includes(:users).table_search_pagination(params, session, arguments)
+    %p
+      Ici l'argument sortable signifie que l'on souhaite s'interresser à la fonctionnalité de trie.
+      Pour celà il faut :
+      %ul
+      %li définir le nom de la colonne triéé à travers l'argument column: (string)
+      %li définir si le traitement se fait sur le comptage avec l'argument count: (boolean)
+      %li définir la jointure avec l'argument joins: (string, array, hash)
+
+
+    = example do |c|
+      - c.code do
+        table store: @documents do |g|
+          g.columns do |c|
+            c.column :users, { name: 'Users count', count: true, custom_sort: true }
+          end
+        end
+
+= @sections.render

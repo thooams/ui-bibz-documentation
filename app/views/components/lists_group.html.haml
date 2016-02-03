@@ -1,169 +1,157 @@
 %h1 Lists group
 
-= content_for :third_nav do
-  %h2 Content
-  = nav class: 'secondary-nav' do |n|
-    - n.link 'List group', url: '#list-group'
-    - n.link 'Labels', url: '#labels'
-    - n.link 'Linked items', url: '#linked-items'
-    - n.link 'Button items', url: '#button-items'
-    - n.link 'Disabled items', url: '#disabled-items'
-    - n.link 'State', url: '#state'
-    - n.link 'Custom content', url: '#custom-content'
+- @sections = sections do |s|
+  - s.section title: "List group" do
+    = example do |c|
+      - c.header do
+        = list_group do |lg|
+          - lg.list 'Cras justo odio'
+          - lg.list 'Dapibus ac facilisis in'
+          - lg.list 'Morbi leo risus'
+          - lg.list 'Porta ac consectetur ac'
+          - lg.list 'Vestibulum at eros'
+      - c.code do
+        list_group do |lg|
+          lg.list 'Cras justo odio'
+          lg.list 'Dapibus ac facilisis in'
+          lg.list 'Morbi leo risus'
+          lg.list 'Porta ac consectetur ac'
+          lg.list 'Vestibulum at eros'
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: "List group" do
-  = example do |c|
-    - c.header do
-      = list_group do |lg|
-        - lg.list 'Cras justo odio'
-        - lg.list 'Dapibus ac facilisis in'
-        - lg.list 'Morbi leo risus'
-        - lg.list 'Porta ac consectetur ac'
-        - lg.list 'Vestibulum at eros'
-    - c.code do
-      list_group do |lg|
-        lg.list 'Cras justo odio'
-        lg.list 'Dapibus ac facilisis in'
-        lg.list 'Morbi leo risus'
-        lg.list 'Porta ac consectetur ac'
-        lg.list 'Vestibulum at eros'
-      end
-    - c.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "Labels" do
+    = example do |c|
+      - c.header do
+        = list_group do |lg|
+          - lg.list 'Cras justo odio', label: 14
+          - lg.list 'Dapibus ac facilisis in', label: 2
+          - lg.list 'Morbi leo risus', label: 1
+      - c.code do
+        list_group do |lg|
+          lg.list 'Cras justo odio', label: 14
+          lg.list 'Dapibus ac facilisis in', label: 2
+          lg.list 'Morbi leo risus', label: 1
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
+  - s.section title: "Linked items" do
+    = example do |c|
+      - c.header do
+        = list_group type: :link do |lg|
+          - lg.list 'Cras justo odio', status: :active
+          - lg.list 'Dapibus ac facilisis in'
+          - lg.list 'Morbi leo risus'
+          - lg.list 'Porta ac consectetur ac'
+          - lg.list 'Vestibulum at eros'
+      - c.code do
+        list_group type: :link do |lg|
+          lg.list 'Cras justo odio', status: :active
+          lg.list 'Dapibus ac facilisis in'
+          lg.list 'Morbi leo risus'
+          lg.list 'Porta ac consectetur ac'
+          lg.list 'Vestibulum at eros'
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: "Labels" do
-  = example do |c|
-    - c.header do
-      = list_group do |lg|
-        - lg.list 'Cras justo odio', label: 14
-        - lg.list 'Dapibus ac facilisis in', label: 2
-        - lg.list 'Morbi leo risus', label: 1
-    - c.code do
-      list_group do |lg|
-        lg.list 'Cras justo odio', label: 14
-        lg.list 'Dapibus ac facilisis in', label: 2
-        lg.list 'Morbi leo risus', label: 1
-      end
-    - c.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "Button items" do
+    = example do |c|
+      - c.header do
+        = list_group type: :button do |lg|
+          - lg.list 'Cras justo odio'
+          - lg.list 'Dapibus ac facilisis in'
+          - lg.list 'Morbi leo risus'
+          - lg.list 'Porta ac consectetur ac'
+          - lg.list 'Vestibulum at eros'
+      - c.code do
+        list_group type: :button do |lg|
+          lg.list 'Cras justo odio'
+          lg.list 'Dapibus ac facilisis in'
+          lg.list 'Morbi leo risus'
+          lg.list 'Porta ac consectetur ac'
+          lg.list 'Vestibulum at eros'
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
-
-= section title: "Linked items" do
-  = example do |c|
-    - c.header do
-      = list_group type: :link do |lg|
-        - lg.list 'Cras justo odio', status: :active
-        - lg.list 'Dapibus ac facilisis in'
-        - lg.list 'Morbi leo risus'
-        - lg.list 'Porta ac consectetur ac'
-        - lg.list 'Vestibulum at eros'
-    - c.code do
-      list_group type: :link do |lg|
-        lg.list 'Cras justo odio', status: :active
-        lg.list 'Dapibus ac facilisis in'
-        lg.list 'Morbi leo risus'
-        lg.list 'Porta ac consectetur ac'
-        lg.list 'Vestibulum at eros'
-      end
-    - c.footer do
-      = documentation_link 'Documentation', '#'
-
-
-= section title: "Button items" do
-  = example do |c|
-    - c.header do
-      = list_group type: :button do |lg|
-        - lg.list 'Cras justo odio'
-        - lg.list 'Dapibus ac facilisis in'
-        - lg.list 'Morbi leo risus'
-        - lg.list 'Porta ac consectetur ac'
-        - lg.list 'Vestibulum at eros'
-    - c.code do
-      list_group type: :button do |lg|
-        lg.list 'Cras justo odio'
-        lg.list 'Dapibus ac facilisis in'
-        lg.list 'Morbi leo risus'
-        lg.list 'Porta ac consectetur ac'
-        lg.list 'Vestibulum at eros'
-      end
-    - c.footer do
-      = documentation_link 'Documentation', '#'
-
-
-= section title: "Disabled items" do
-  = example do |c|
-    - c.header do
-      = list_group  do |lg|
-        - lg.list 'Cras justo odio', status: :disabled
-        - lg.list 'Dapibus ac facilisis in'
-        - lg.list 'Morbi leo risus'
-        - lg.list 'Porta ac consectetur ac'
-        - lg.list 'Vestibulum at eros'
-    - c.code do
-      list_group do |lg|
-        lg.list 'Cras justo odio', status: :disabled
-        lg.list 'Dapibus ac facilisis in'
-        lg.list 'Morbi leo risus'
-        lg.list 'Porta ac consectetur ac'
-        lg.list 'Vestibulum at eros'
-      end
-    - c.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "Disabled items" do
+    = example do |c|
+      - c.header do
+        = list_group  do |lg|
+          - lg.list 'Cras justo odio', status: :disabled
+          - lg.list 'Dapibus ac facilisis in'
+          - lg.list 'Morbi leo risus'
+          - lg.list 'Porta ac consectetur ac'
+          - lg.list 'Vestibulum at eros'
+      - c.code do
+        list_group do |lg|
+          lg.list 'Cras justo odio', status: :disabled
+          lg.list 'Dapibus ac facilisis in'
+          lg.list 'Morbi leo risus'
+          lg.list 'Porta ac consectetur ac'
+          lg.list 'Vestibulum at eros'
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
 
-= section title: "State" do
-  = example do |c|
-    - c.header do
-      = list_group  do |lg|
-        - lg.list 'Cras justo odio', state: :danger
-        - lg.list 'Dapibus ac facilisis in', state: :info
-        - lg.list 'Morbi leo risus', state: :warning
-        - lg.list 'Porta ac consectetur ac', state: :success
-        - lg.list 'Vestibulum at eros', state: :primary
-    - c.code do
-      list_group do |lg|
-        lg.list 'Cras justo odio', state: :danger
-        lg.list 'Dapibus ac facilisis in', state: :info
-        lg.list 'Morbi leo risus', state: :warning
-        lg.list 'Porta ac consectetur ac', state: :success
-        lg.list 'Vestibulum at eros', state: :primary
-      end
-    - c.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "State" do
+    = example do |c|
+      - c.header do
+        = list_group  do |lg|
+          - lg.list 'Cras justo odio', state: :danger
+          - lg.list 'Dapibus ac facilisis in', state: :info
+          - lg.list 'Morbi leo risus', state: :warning
+          - lg.list 'Porta ac consectetur ac', state: :success
+          - lg.list 'Vestibulum at eros', state: :primary
+      - c.code do
+        list_group do |lg|
+          lg.list 'Cras justo odio', state: :danger
+          lg.list 'Dapibus ac facilisis in', state: :info
+          lg.list 'Morbi leo risus', state: :warning
+          lg.list 'Porta ac consectetur ac', state: :success
+          lg.list 'Vestibulum at eros', state: :primary
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: "Custom content" do
-  = example do |c|
-    - c.header do
-      = list_group  do |lg|
-        - lg.list tap: true, status: :active do |l|
-          - l.header 'List group item heading'
-          - l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
-        - lg.list tap: true do |l|
-          - l.header class: 'my-header' do
-            = 'List group item heading'
-          - l.body class: 'my-body' do
-            = 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
-        - lg.list tap: true do |l|
-          - l.header 'List group item heading'
-          - l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
-    - c.code do
-      list_group do |lg|
-        lg.list tap: true, status: :active do |l|
-          l.header 'List group item heading'
-          l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
-        end
-        lg.list tap: true do |l|
-          l.header class: 'my-header' do
-            'List group item heading'
-          end
-          l.body class: 'my-body' do
-            'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
-          end
-        lg.list tap: true do |l|
-          l.header 'List group item heading'
-          l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
-        end
-      end
-    - c.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "Custom content" do
+    = example do |c|
+      - c.header do
+        = list_group  do |lg|
+          - lg.list tap: true, status: :active do |l|
+            - l.header 'List group item heading'
+            - l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
+          - lg.list tap: true do |l|
+            - l.header class: 'my-header' do
+              = 'List group item heading'
+            - l.body class: 'my-body' do
+              = 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
+          - lg.list tap: true do |l|
+            - l.header 'List group item heading'
+            - l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
+      - c.code do
+        list_group do |lg|
+          lg.list tap: true, status: :active do |l|
+            l.header 'List group item heading'
+            l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
+          end
+          lg.list tap: true do |l|
+            l.header class: 'my-header' do
+              'List group item heading'
+            end
+            l.body class: 'my-body' do
+              'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
+            end
+          lg.list tap: true do |l|
+            l.header 'List group item heading'
+            l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
+          end
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+= @sections.render

@@ -1,69 +1,65 @@
 %h1 Cards column, deck and group
 %p Use Bootstrap’s custom button styles for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, states, and more.
 
-= content_for :third_nav do
-  %h2 Contents
-  = nav class: 'secondary-nav' do |n|
-    - n.link 'Card column', url: '#card-column'
-    - n.link 'Card deck', url: '#card-deck'
-    - n.link 'Card group', url: '#card-group'
+- @sections = sections do |s|
+  - s.section title: "Card column" do
+    = example do |e|
+      - e.header do
+        = card_column do |cc|
+          - cc.card "content 1"
+          - cc.card "content 2"
+          - cc.card "Content 3 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
+          - cc.card "Content 4 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
+          - cc.card "content 5"
+      - e.code do
+        card_column do |cc|
+          cc.card "content 1"
+          cc.card "content 2"
+          cc.card "Content 3 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
+          cc.card "Content 4 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
+          cc.card "content 5"
+        end
+      - e.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: "Card column" do
-  = example do |e|
-    - e.header do
-      = card_column do |cc|
-        - cc.card "content 1"
-        - cc.card "content 2"
-        - cc.card "Content 3 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
-        - cc.card "Content 4 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
-        - cc.card "content 5"
-    - e.code do
-      card_column do |cc|
-        cc.card "content 1"
-        cc.card "content 2"
-        cc.card "Content 3 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
-        cc.card "Content 4 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
-        cc.card "content 5"
-      end
-    - e.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "Card deck" do
+    = example do |e|
+      - e.header do
+        = card_deck do |cd|
+          - cd.card "content 1"
+          - cd.card "Content 2 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
+          - cd.card "content 3"
+          - cd.card "Content 4 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
+          - cd.card "content 5"
+      - e.code do
+        card_deck do |cd|
+          cc.card "content 1"
+          cc.card "Content 2 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
+          cc.card "content 3"
+          cc.card "Content 4 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
+          cc.card "content 5"
+        end
+      - e.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: "Card deck" do
-  = example do |e|
-    - e.header do
-      = card_deck do |cd|
-        - cd.card "content 1"
-        - cd.card "Content 2 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
-        - cd.card "content 3"
-        - cd.card "Content 4 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
-        - cd.card "content 5"
-    - e.code do
-      card_deck do |cd|
-        cc.card "content 1"
-        cc.card "Content 2 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
-        cc.card "content 3"
-        cc.card "Content 4 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
-        cc.card "content 5"
-      end
-    - e.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "Card group" do
+    = example do |e|
+      - e.header do
+        = card_group do |cg|
+          - cg.card "content 1"
+          - cg.card "Content 2 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
+          - cg.card "content 3"
+          - cg.card "Content 4 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
+          - cg.card "content 5"
+      - e.code do
+        card_group do |cg|
+          cg.card "content 1"
+          cg.card "Content 2 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
+          cg.card "content 3"
+          cg.card "Content 4 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
+          cg.card "content 5"
+        end
+      - e.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: "Card group" do
-  = example do |e|
-    - e.header do
-      = card_group do |cg|
-        - cg.card "content 1"
-        - cg.card "Content 2 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
-        - cg.card "content 3"
-        - cg.card "Content 4 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
-        - cg.card "content 5"
-    - e.code do
-      card_group do |cg|
-        cg.card "content 1"
-        cg.card "Content 2 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
-        cg.card "content 3"
-        cg.card "Content 4 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
-        cg.card "content 5"
-      end
-    - e.footer do
-      = documentation_link 'Documentation', '#'
+= @sections.render

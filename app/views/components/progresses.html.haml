@@ -1,76 +1,74 @@
 %h1 Progresses
 
-= content_for :third_nav do
-  %h2 Content
-  = nav class: 'secondary-nav' do |n|
-    - n.link 'Progress', url: '#progress'
-
-= section title: "Progress" do
-  = example do |c|
-    - c.header do
-      = progress 0
-      = progress '25%', { state: :primary, value: 25 }, { class: 'my-progress' }
-      = progress({ state: :primary, value: 50 }, { class: 'my-progress'}) do
-        = 50
-    - c.code do
-      progress 0
-       
-      progress "25%", { state: :primary, value: 25 }, { class: 'my-progress' }
-       
-      progress({ state: :primary, value: 50 }, { class: 'my-progress'}) do
-        50%
-      end
-    - c.footer do
-      = documentation_link 'Documentation', '#'
+- @sections = sections do |s|
+  - s.section title: "Progress" do
+    = example do |c|
+      - c.header do
+        = progress 0
+        = progress '25%', { state: :primary, value: 25 }, { class: 'my-progress' }
+        = progress({ state: :primary, value: 50 }, { class: 'my-progress'}) do
+          = 50
+      - c.code do
+        progress 0
+         
+        progress "25%", { state: :primary, value: 25 }, { class: 'my-progress' }
+         
+        progress({ state: :primary, value: 50 }, { class: 'my-progress'}) do
+          50%
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
 
-= section title: "State" do
-  = example do |c|
-    - c.header do
-      = progress 10, state: :primary
-      = progress 25, state: :success
-      = progress 50, state: :warning
-      = progress 75, state: :danger
-      = progress 100, state: :info
-    - c.code do
-      progress 10, state: :primary
-      progress 25, state: :success
-      progress 50, state: :warning
-      progress 75, state: :danger
-      progress 100, state: :info
-    - c.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "State" do
+    = example do |c|
+      - c.header do
+        = progress 10, state: :primary
+        = progress 25, state: :success
+        = progress 50, state: :warning
+        = progress 75, state: :danger
+        = progress 100, state: :info
+      - c.code do
+        progress 10, state: :primary
+        progress 25, state: :success
+        progress 50, state: :warning
+        progress 75, state: :danger
+        progress 100, state: :info
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: "Striped" do
-  = example do |c|
-    - c.header do
-      = progress 10, state: :primary, striped: true
-      = progress 25, state: :success, striped: true
-      = progress 50, state: :warning, striped: true
-      = progress 75, state: :danger, striped: true
-      = progress 100, state: :info, striped: true
-    - c.code do
-      progress 10, state: :primary, striped: true
-      progress 25, state: :success, striped: true
-      progress 50, state: :warning, striped: true
-      progress 75, state: :danger, striped: true
-      progress 100, state: :info, striped: true
-    - c.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "Striped" do
+    = example do |c|
+      - c.header do
+        = progress 10, state: :primary, striped: true
+        = progress 25, state: :success, striped: true
+        = progress 50, state: :warning, striped: true
+        = progress 75, state: :danger, striped: true
+        = progress 100, state: :info, striped: true
+      - c.code do
+        progress 10, state: :primary, striped: true
+        progress 25, state: :success, striped: true
+        progress 50, state: :warning, striped: true
+        progress 75, state: :danger, striped: true
+        progress 100, state: :info, striped: true
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: "Animated" do
-  = example do |c|
-    - c.header do
-      = progress 10, state: :primary, striped: true, animated: true
-      = progress 25, state: :success, striped: true, animated: true
-      = progress 50, state: :warning, striped: true, animated: true
-      = progress 75, state: :danger, striped: true, animated: true
-      = progress 100, state: :info, striped: true, animated: true
-    - c.code do
-      progress 10, state: :primary, striped: true, animated: true
-      progress 25, state: :success, striped: true, animated: true
-      progress 50, state: :warning, striped: true, animated: true
-      progress 75, state: :danger, striped: true, animated: true
-      progress 100, state: :info, striped: true, animated: true
-    - c.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "Animated" do
+    = example do |c|
+      - c.header do
+        = progress 10, state: :primary, striped: true, animated: true
+        = progress 25, state: :success, striped: true, animated: true
+        = progress 50, state: :warning, striped: true, animated: true
+        = progress 75, state: :danger, striped: true, animated: true
+        = progress 100, state: :info, striped: true, animated: true
+      - c.code do
+        progress 10, state: :primary, striped: true, animated: true
+        progress 25, state: :success, striped: true, animated: true
+        progress 50, state: :warning, striped: true, animated: true
+        progress 75, state: :danger, striped: true, animated: true
+        progress 100, state: :info, striped: true, animated: true
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+= @sections.render

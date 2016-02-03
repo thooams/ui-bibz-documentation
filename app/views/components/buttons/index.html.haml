@@ -2,150 +2,138 @@
 %p Use Bootstrap’s custom button styles for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, states, and more.
 %p= extend_of_component 'button'
 
-= content_for :third_nav do
-  %h2 Contents
-  = nav class: 'secondary-nav' do |n|
-    - n.link 'Button', url: '#button'
-    - n.link 'Button options', url: '#button-options'
-    - n.nav do |na|
-      - na.link 'Outline', url: '#outline'
-      - na.link 'Size', url: '#size'
-      - na.link 'Type', url: '#type'
-      - na.link 'Status', url: '#status'
-    - n.link 'Options and html_options', url: '#options-and-html-options'
-
-
-= section title: "Button" do
-  %p
-    L'option
-    %code state
-    à pour agument les symboles suivants :
-  %ul
-    %li :primary
-    %li :secondary
-    %li :success
-    %li :warning
-    %li :danger
-    %li :link
-  = example do |c|
-    - c.header do
-      = button 'Primary', state: :primary
-      = button 'Secondary', state: :secondary
-      = button 'Success', state: :success
-      = button 'Warning', state: :warning
-      = button 'Danger', state: :danger
-      = button 'Link', state: :link
-    - c.code do
-      button 'Primary', state: :primary
-      button 'Secondary', state: :secondary
-      button 'Success', state: :success
-      button 'Warning', state: :warning
-      button 'Danger', state: :danger
-      button 'Link', state: :link
-    - c.footer do
-      = documentation_link 'Documentation', '#'
-
-%h2 Button options
-
-= section title: "Outline", tag: :h3 do
-  %p
-    Le fond coloré des boutons peut être retiré grâce à l'option
-    %code outline
-    qui possède pour argument un booléan.
-  = example do |c|
-    - c.header do
-      = button 'Primary', state: :primary, outline: true
-      = button 'Secondary', state: :secondary, outline: true
-      = button 'Success', state: :success, outline: true
-      = button 'Warning', state: :warning, outline: true
-      = button 'Danger', state: :danger, outline: true
-    - c.code do
-      button 'Primary', state: :primary, outline: true
-      button 'Secondary', state: :secondary, outline: true
-      button 'Success', state: :success, outline: true
-      button 'Warning', state: :warning, outline: true
-      button 'Danger', state: :danger, outline: true
-    - c.footer do
-      = documentation_link 'Documentation', '#'
-
-= section title: "Size", tag: :h3 do
-  %p
-    La taille peut être être définit â travers l'option
-    %code size
-    qui possède les 2 arguments suivants:
+- @sections = sections do |s|
+  - s.section title: "Button" do
+    %p
+      L'option
+      %code state
+      à pour agument les symboles suivants :
     %ul
-      %li :lg
-      %li :sm
-  = example do |c|
-    - c.header do
-      = button 'Large button', state: :primary, size: :lg
-      = button 'Medium button', state: :primary
-      = button 'Small button', state: :primary, size: :sm
-    - c.code do
-      button 'Large button', state: :primary, size: :lg
-      button 'Medium button', state: :primary
-      button 'Small button', state: :primary, size: :sm
-    - c.footer do
-      = documentation_link 'Documentation', '#'
+      %li :primary
+      %li :secondary
+      %li :success
+      %li :warning
+      %li :danger
+      %li :link
+    = example do |c|
+      - c.header do
+        = button 'Primary', state: :primary
+        = button 'Secondary', state: :secondary
+        = button 'Success', state: :success
+        = button 'Warning', state: :warning
+        = button 'Danger', state: :danger
+        = button 'Link', state: :link
+      - c.code do
+        button 'Primary', state: :primary
+        button 'Secondary', state: :secondary
+        button 'Success', state: :success
+        button 'Warning', state: :warning
+        button 'Danger', state: :danger
+        button 'Link', state: :link
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: "Type", tag: :h3 do
-  %p
-    Les boutons peuvent être présentés sous forme de block grâce à l'option
-    %code type
-    qui à pour argument le symbole
-    %code :block.
-  = example do |c|
-    - c.header do
-      = button 'Block level button', state: :primary, type: :block
-      = button 'Block level button', state: :secondary, type: :block
-    - c.code do
-      button 'Block level button', state: :primary, type: :block
-      button 'Block level button', state: :secondary, type: :block
-    - c.footer do
-      = documentation_link 'Documentation', '#'
+  %h2 Button options
 
-= section title: "Status", tag: :h3 do
-  %p
-    Les boutons hérite de l'option
-    %code status
-    présente dans l'élément
-    = link_to 'component.', components_components_path
-    Cette option permet de desactivé ou d'activer l'élément concernant à travers ces 2 arguments :
-    %ul
-      %li :active
-      %li :disabled
-  = example do |c|
-    - c.header do
-      = button 'Primary', state: :primary, status: :active
-      = button 'Primary', state: :primary, status: :disabled
-    - c.code do
-      button 'Primary', state: :primary, status: :active
-      button 'Primary', state: :primary, status: :disabled
-    - c.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "Outline", tag: :h3 do
+    %p
+      Le fond coloré des boutons peut être retiré grâce à l'option
+      %code outline
+      qui possède pour argument un booléan.
+    = example do |c|
+      - c.header do
+        = button 'Primary', state: :primary, outline: true
+        = button 'Secondary', state: :secondary, outline: true
+        = button 'Success', state: :success, outline: true
+        = button 'Warning', state: :warning, outline: true
+        = button 'Danger', state: :danger, outline: true
+      - c.code do
+        button 'Primary', state: :primary, outline: true
+        button 'Secondary', state: :secondary, outline: true
+        button 'Success', state: :success, outline: true
+        button 'Warning', state: :warning, outline: true
+        button 'Danger', state: :danger, outline: true
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: "Options and html options" do
-  %p
-    Tout comme le
-    = link_to 'component', components_components_path
-    , l'élément
-    %code bouton
-    peut s'écrire de 2 différentes manières:
-    %ul
-      %li en ligne
-      %li par block
-  = example do |c|
-    - c.header do
-      = button 'Success', { state: :success }, { class: 'button' }
-      = button({ state: :info }, { class: 'button' }) do
-        = 'Info'
-    - c.code do
-      button 'Primary', { state: :success }, { class: 'button' }
-       
-      button({ state: :success }, { class: 'button' }) do
-        Info
-      end
-    - c.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "Size", tag: :h3 do
+    %p
+      La taille peut être être définit â travers l'option
+      %code size
+      qui possède les 2 arguments suivants:
+      %ul
+        %li :lg
+        %li :sm
+    = example do |c|
+      - c.header do
+        = button 'Large button', state: :primary, size: :lg
+        = button 'Medium button', state: :primary
+        = button 'Small button', state: :primary, size: :sm
+      - c.code do
+        button 'Large button', state: :primary, size: :lg
+        button 'Medium button', state: :primary
+        button 'Small button', state: :primary, size: :sm
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
+  - s.section title: "Type", tag: :h3 do
+    %p
+      Les boutons peuvent être présentés sous forme de block grâce à l'option
+      %code type
+      qui à pour argument le symbole
+      %code :block.
+    = example do |c|
+      - c.header do
+        = button 'Block level button', state: :primary, type: :block
+        = button 'Block level button', state: :secondary, type: :block
+      - c.code do
+        button 'Block level button', state: :primary, type: :block
+        button 'Block level button', state: :secondary, type: :block
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
+  - s.section title: "Status", tag: :h3 do
+    %p
+      Les boutons hérite de l'option
+      %code status
+      présente dans l'élément
+      = link_to 'component.', components_components_path
+      Cette option permet de desactivé ou d'activer l'élément concernant à travers ces 2 arguments :
+      %ul
+        %li :active
+        %li :disabled
+    = example do |c|
+      - c.header do
+        = button 'Primary', state: :primary, status: :active
+        = button 'Primary', state: :primary, status: :disabled
+      - c.code do
+        button 'Primary', state: :primary, status: :active
+        button 'Primary', state: :primary, status: :disabled
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Options and html options" do
+    %p
+      Tout comme le
+      = link_to 'component', components_components_path
+      , l'élément
+      %code bouton
+      peut s'écrire de 2 différentes manières:
+      %ul
+        %li en ligne
+        %li par block
+    = example do |c|
+      - c.header do
+        = button 'Success', { state: :success }, { class: 'button' }
+        = button({ state: :info }, { class: 'button' }) do
+          = 'Info'
+      - c.code do
+        button 'Primary', { state: :success }, { class: 'button' }
+         
+        button({ state: :success }, { class: 'button' }) do
+          Info
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+= @sections.render

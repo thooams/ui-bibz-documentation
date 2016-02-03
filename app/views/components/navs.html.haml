@@ -1,175 +1,166 @@
 %h1 Navs
 
-= content_for :third_nav do
-  %h2 Content
-  = nav class: 'secondary-nav' do |n|
-    - n.link 'Nav', url: '#nav'
-    - n.link 'Links', url: '#links'
-    - n.link 'Tabs', url: '#tabs'
-    - n.link 'Pills', url: '#pills'
-    - n.link 'Stacked pills', url: '#stacked-pills'
-    - n.link 'Connection', url: '#connection'
+- @sections = sections do |s|
+  - s.section title: "Nav" do
+    = example do |c|
+      - c.header do
+        = nav do |n|
+          - n.link 'Active', url: '#active', status: :active
+          - n.link url: '#link', class: 'my-link' do
+            Link
+          - n.nav do |na|
+            - na.link 'Another link', url: '#another-link'
+            - na.link 'Disabled', url: '#disabled', status: :disabled
+          - n.link 'Another link 2', url: '#another-link2'
+          - n.link 'Another link 3', url: '#another-link3'
+      - c.code do
+        nav do |n|
+          n.link 'Active', url: '#active', status: :active
+          n.link({ url: '#link' }, { class: 'my-link'}) do
+            "Link"
+          end
+          n.nav do |na|
+            na.link 'Another link', url: '#another-link'
+            na.link 'Disabled', url: '#disabled', status: :disabled
+          end
+          n.link 'Another link 2', url: '#another-link2'
+          n.link 'Another link 3', url: '#another-link3'
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: "Nav" do
-  = example do |c|
-    - c.header do
-      = nav do |n|
-        - n.link 'Active', url: '#active', status: :active
-        - n.link url: '#link', class: 'my-link' do
-          Link
-        - n.nav do |na|
-          - na.link 'Another link', url: '#another-link'
-          - na.link 'Disabled', url: '#disabled', status: :disabled
-        - n.link 'Another link 2', url: '#another-link2'
-        - n.link 'Another link 3', url: '#another-link3'
-    - c.code do
-      nav do |n|
-        n.link 'Active', url: '#active', status: :active
-        n.link({ url: '#link' }, { class: 'my-link'}) do
-          "Link"
-        end
-        n.nav do |na|
-          na.link 'Another link', url: '#another-link'
-          na.link 'Disabled', url: '#disabled', status: :disabled
-        end
-        n.link 'Another link 2', url: '#another-link2'
-        n.link 'Another link 3', url: '#another-link3'
-      end
-    - c.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "Links" do
+    = example do |c|
+      - c.header do
+        = nav type: :links do |n|
+          - n.link 'Active', url: '#active', status: :active
+          - n.link url: '#link', class: 'my-link' do
+            Link
+          - n.link 'Another link', url: '#another-link'
+          - n.link 'Disabled', url: '#disabled', status: :disabled
+      - c.code do
+        nav type: :links do |n|
+          n.link 'Active', url: '#active', status: :active
+          n.link({ url: '#link' }, { class: 'my-link'}) do
+            "Link"
+          end
+          n.link 'Another link', url: '#another-link'
+          n.link 'Disabled', url: '#disabled', status: :disabled
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: "Links" do
-  = example do |c|
-    - c.header do
-      = nav type: :links do |n|
-        - n.link 'Active', url: '#active', status: :active
-        - n.link url: '#link', class: 'my-link' do
-          Link
-        - n.link 'Another link', url: '#another-link'
-        - n.link 'Disabled', url: '#disabled', status: :disabled
-    - c.code do
-      nav type: :links do |n|
-        n.link 'Active', url: '#active', status: :active
-        n.link({ url: '#link' }, { class: 'my-link'}) do
-          "Link"
-        end
-        n.link 'Another link', url: '#another-link'
-        n.link 'Disabled', url: '#disabled', status: :disabled
-      end
-    - c.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "Tabs" do
+    = example do |c|
+      - c.header do
+        = nav type: :tabs do |n|
+          - n.link 'Active', url: '#active', status: :active
+          - n.dropdown 'Dropdown' do |d|
+            - d.link "Action 1", url: '#action'
+            - d.link url: '#another-action' do
+              = "Action 2"
+            - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+              = "Action 3"
+          - n.link 'Another link', url: '#another-link'
+          - n.link 'Disabled', url: '#disabled', status: :disabled
+      - c.code do
+        nav type: :tabs do |n|
+          n.link 'Active', url: '#active', status: :active
+          n.dropdown 'Dropdown' do |d|
+            d.link "Action 1", url: '#action'
+            d.link url: '#another-action' do
+              "Action 2"
+            end
+            d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+              "Action 3"
+            end
+          end
+          n.link 'Link', url: '#link'
+          n.link 'Another link', url: '#another-link'
+          n.link 'Disabled', url: '#disabled', status: :disabled
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: "Tabs" do
-  = example do |c|
-    - c.header do
-      = nav type: :tabs do |n|
-        - n.link 'Active', url: '#active', status: :active
-        - n.dropdown 'Dropdown' do |d|
-          - d.link "Action 1", url: '#action'
-          - d.link url: '#another-action' do
-            = "Action 2"
-          - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
-            = "Action 3"
-        - n.link 'Another link', url: '#another-link'
-        - n.link 'Disabled', url: '#disabled', status: :disabled
-    - c.code do
-      nav type: :tabs do |n|
-        n.link 'Active', url: '#active', status: :active
-        n.dropdown 'Dropdown' do |d|
-          d.link "Action 1", url: '#action'
-          d.link url: '#another-action' do
-            "Action 2"
-          end
-          d.link({ url: '#separate-link'}, { class: 'my-link'}) do
-            "Action 3"
-          end
-        end
-        n.link 'Link', url: '#link'
-        n.link 'Another link', url: '#another-link'
-        n.link 'Disabled', url: '#disabled', status: :disabled
-      end
-    - c.footer do
-      = documentation_link 'Documentation', '#'
-
-= section title: "Pills" do
-  = example do |c|
-    - c.header do
-      = nav type: :pills do |n|
-        - n.link 'Active', url: '#active', status: :active
-        - n.dropdown 'Dropdown' do |d|
-          - d.link "Action 1", url: '#action'
-          - d.link url: '#another-action' do
-            = "Action 2"
-          - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
-            = "Action 3"
-        - n.link 'Another link', url: '#another-link'
-        - n.link 'Disabled', url: '#disabled', status: :disabled
-    - c.code do
-      nav type: :pills do |n|
-        n.link 'Active', url: '#active', status: :active
-        n.dropdown 'Dropdown' do |d|
-          d.link "Action 1", url: '#action'
-          d.link url: '#another-action' do
-            "Action 2"
-          end
-          d.link({ url: '#separate-link'}, { class: 'my-link'}) do
-            "Action 3"
-          end
-        end
-        n.link 'Another link', url: '#another-link'
-        n.link 'Disabled', url: '#disabled', status: :disabled
-      end
-    - c.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "Pills" do
+    = example do |c|
+      - c.header do
+        = nav type: :pills do |n|
+          - n.link 'Active', url: '#active', status: :active
+          - n.dropdown 'Dropdown' do |d|
+            - d.link "Action 1", url: '#action'
+            - d.link url: '#another-action' do
+              = "Action 2"
+            - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+              = "Action 3"
+          - n.link 'Another link', url: '#another-link'
+          - n.link 'Disabled', url: '#disabled', status: :disabled
+      - c.code do
+        nav type: :pills do |n|
+          n.link 'Active', url: '#active', status: :active
+          n.dropdown 'Dropdown' do |d|
+            d.link "Action 1", url: '#action'
+            d.link url: '#another-action' do
+              "Action 2"
+            end
+            d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+              "Action 3"
+            end
+          end
+          n.link 'Another link', url: '#another-link'
+          n.link 'Disabled', url: '#disabled', status: :disabled
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
 
-= section title: "Stacked pills" do
-  = example do |c|
-    - c.header do
-      = nav type: :pills, stacked: true do |n|
-        - n.link 'Active', url: '#active', status: :active
-        - n.link 'Link', url: '#link'
-        - n.link 'Another link', url: '#another-link'
-        - n.link 'Disabled', url: '#disabled', status: :disabled
-    - c.code do
-      nav type: :pills, stacked: true do |n|
-        n.link 'Active', url: '#active', status: :active
-        n.link 'Link', url: '#link'
-        n.link 'Another link', url: '#another-link'
-        n.link 'Disabled', url: '#disabled', status: :disabled
-      end
-    - c.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "Stacked pills" do
+    = example do |c|
+      - c.header do
+        = nav type: :pills, stacked: true do |n|
+          - n.link 'Active', url: '#active', status: :active
+          - n.link 'Link', url: '#link'
+          - n.link 'Another link', url: '#another-link'
+          - n.link 'Disabled', url: '#disabled', status: :disabled
+      - c.code do
+        nav type: :pills, stacked: true do |n|
+          n.link 'Active', url: '#active', status: :active
+          n.link 'Link', url: '#link'
+          n.link 'Another link', url: '#another-link'
+          n.link 'Disabled', url: '#disabled', status: :disabled
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: "Connection" do
-  = example do |c|
-    - c.header do
-      = nav type: :tabs do |n|
-        - n.link 'Active', url: '#content1', status: :active
-        - n.link 'Link', url: '#content2'
-        - n.link 'Another link', url: '#content3'
-        - n.link 'Disabled', url: '#content4', status: :disabled
-      %br
-      .tab-content
-        = card 'Content 1', { tab: true, status: :active }, { id: 'content1' }
-        = card 'Content 2', { tab: true, effect: :fade }, { id: 'content2' }
-        = card 'Content 3', { tab: true, effect: :fade }, { id: 'content3' }
-        = card 'Content 4', { tab: true }, { id: 'content4' }
-    - c.code do
-      nav type: :tabs do |n|
-        n.link 'Active', url: '#content1', status: :active
-        n.link 'Link', url: '#content2'
-        n.link 'Another link', url: '#content3'
-        n.link 'Disabled', url: '#content4', status: :disabled
-      end
-       
-      <div class='tab-content'>
-        card 'Content 1', { tab: true, status: :active }, { id: 'content1' }
-        card 'Content 2', { tab: true, effect: :fade }, { id: 'content2' }
-        card 'Content 3', { tab: true, effect: :fade }, { id: 'content3' }
-        card 'Content 4', { tab: true }, { id: 'content4' }
-      </div>
-    - c.footer do
-      = documentation_link 'Documentation', '#'
+  - s.section title: "Connection" do
+    = example do |c|
+      - c.header do
+        = nav type: :tabs do |n|
+          - n.link 'Active', url: '#content1', status: :active
+          - n.link 'Link', url: '#content2'
+          - n.link 'Another link', url: '#content3'
+          - n.link 'Disabled', url: '#content4', status: :disabled
+        %br
+        .tab-content
+          = card 'Content 1', { tab: true, status: :active }, { id: 'content1' }
+          = card 'Content 2', { tab: true, effect: :fade }, { id: 'content2' }
+          = card 'Content 3', { tab: true, effect: :fade }, { id: 'content3' }
+          = card 'Content 4', { tab: true }, { id: 'content4' }
+      - c.code do
+        nav type: :tabs do |n|
+          n.link 'Active', url: '#content1', status: :active
+          n.link 'Link', url: '#content2'
+          n.link 'Another link', url: '#content3'
+          n.link 'Disabled', url: '#content4', status: :disabled
+        end
+         
+        <div class='tab-content'>
+          card 'Content 1', { tab: true, status: :active }, { id: 'content1' }
+          card 'Content 2', { tab: true, effect: :fade }, { id: 'content2' }
+          card 'Content 3', { tab: true, effect: :fade }, { id: 'content3' }
+          card 'Content 4', { tab: true }, { id: 'content4' }
+        </div>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
-
+= @sections.render

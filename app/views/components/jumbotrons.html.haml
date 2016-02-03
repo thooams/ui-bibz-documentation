@@ -1,46 +1,41 @@
 %h1 Jumbotrons
 
-= content_for :third_nav do
-  %h2 Content
-  = nav class: 'secondary-nav' do |n|
-    - n.link 'Jumbotron', url: '#jumbotron'
-    - n.nav do |na|
-      - na.link 'Fluid', url: '#fluid'
+- @sections = sections do |s|
+  - s.section title: "Jumbotron" do
+    = example do |c|
+      - c.header do
+        = jumbotron do
+          %h1.display-3 Hello, world!
+          %p.lead This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+          %hr.m-y-md
+          %p It uses utility classes for typography and spacing to space content out within the larger container.
+          %p.lead
+            = button_link 'Learn more', url: '#learn-more'
+      - c.code do
+        jumbotron do
+          <h1 class="display-3">Hello, world!</h1>
+          <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+          <hr class="m-y-md">
+          <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+          <p class="lead">
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+          </p>
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
+  - s.section title: "Fluid" do
+    = example do |c|
+      - c.header do
+        = jumbotron fluid: true do
+          %h1.display-3 Fluid jumbotron
+          %p.lead This is a modified jumbotron that occupies the entire horizontal space of it's parent.
+      - c.code do
+        jumbotron fluid: true do
+          <h1 class="display-3">Fluid jumbotron</h1>
+          <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of it's parent.</p>
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
-= section title: "Jumbotron" do
-  = example do |c|
-    - c.header do
-      = jumbotron do
-        %h1.display-3 Hello, world!
-        %p.lead This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-        %hr.m-y-md
-        %p It uses utility classes for typography and spacing to space content out within the larger container.
-        %p.lead
-          = button_link 'Learn more', url: '#learn-more'
-    - c.code do
-      jumbotron do
-        <h1 class="display-3">Hello, world!</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-        <hr class="m-y-md">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <p class="lead">
-          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-        </p>
-      end
-    - c.footer do
-      = documentation_link 'Documentation', '#'
-
-= section title: "Fluid" do
-  = example do |c|
-    - c.header do
-      = jumbotron fluid: true do
-        %h1.display-3 Fluid jumbotron
-        %p.lead This is a modified jumbotron that occupies the entire horizontal space of it's parent.
-    - c.code do
-      jumbotron fluid: true do
-        <h1 class="display-3">Fluid jumbotron</h1>
-        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of it's parent.</p>
-      end
-    - c.footer do
-      = documentation_link 'Documentation', '#'
+= @sections.render

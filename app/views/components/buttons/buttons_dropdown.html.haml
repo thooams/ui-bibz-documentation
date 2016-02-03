@@ -1,88 +1,79 @@
 %h1 Buttons dropdown
 %p= extend_of_component 'button_dropdown'
 
-= content_for :third_nav do
-  %h2 Content
-  = nav class: 'secondary-nav' do |n|
-    - n.link 'Button dropdown', url: '#button-dropdown'
-    - n.nav do |na|
-      - na.link 'Button dropdown options', url: '#button-dropdown-options'
+- @sections = sections do |s|
+  - s.section title: "Button dropdown" do
+    %p Le bouton dropdown accepte plusieurs type de block :
+    %ul
+      %li= link_to 'link', components_dropdowns_path(anchor: 'link')
+      %li= link_to 'divider', components_dropdowns_path(anchor: 'divider')
+      %li= link_to 'header', components_dropdowns_path(anchor: 'header')
+      %li= link_to 'html', components_dropdowns_path(anchor: 'html')
+
+    %p= short_extend_of_component 'link'
+    = example do |c|
+      - c.header do
+        - %i(primary secondary danger warning info success).each do |state|
+          = button_dropdown state.to_s.titleize, state: state do |bd|
+            - bd.link "Action", url: '#action'
+            - bd.link url: '#another-action' do
+              = "Another action"
+            - bd.divider
+            - bd.header 'Header'
+            - bd.link({ url: '#separate-link'}, { class: 'my-link'}) do
+              = "Separate link"
+      - c.code do
+        button_dropdown 'Primary' do |bd|
+          bd.link "Action", url: '#action'
+          bd.link "Another action", url: '#another-action'
+          bd.link url: '#another-action' do
+            "Another action"
+          end
+          bd.divider
+          bd.header 'Header'
+          bd.link "Separate link", url: '#separate-link'
+          bd.link({ url: '#separate-link'}, { class: 'my-link'}) do
+            "Separate link"
+          end
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
 
-= section title: "Button dropdown" do
-  %p Le bouton dropdown accepte plusieurs type de block :
-  %ul
-    %li= link_to 'link', components_dropdowns_path(anchor: 'link')
-    %li= link_to 'divider', components_dropdowns_path(anchor: 'divider')
-    %li= link_to 'header', components_dropdowns_path(anchor: 'header')
-    %li= link_to 'html', components_dropdowns_path(anchor: 'html')
-
-  %p= short_extend_of_component 'link'
-  = example do |c|
-    - c.header do
-      - %i(primary secondary danger warning info success).each do |state|
-        = button_dropdown state.to_s.titleize, state: state do |bd|
-          - bd.link "Action", url: '#action'
-          - bd.link url: '#another-action' do
-            = "Another action"
+  - s.section title: "Button dropdown options" do
+    = example do |c|
+      - c.header do
+        = button_dropdown "Dropdown right", state: :success, size: :lg, position: :right do |bd|
+          - bd.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
+          - bd.link "Another action", url: '#another-action'
           - bd.divider
           - bd.header 'Header'
-          - bd.link({ url: '#separate-link'}, { class: 'my-link'}) do
-            = "Separate link"
-    - c.code do
-      button_dropdown 'Primary' do |bd|
-        bd.link "Action", url: '#action'
-        bd.link "Another action", url: '#another-action'
-        bd.link url: '#another-action' do
-          "Another action"
-        end
-        bd.divider
-        bd.header 'Header'
-        bd.link "Separate link", url: '#separate-link'
-        bd.link({ url: '#separate-link'}, { class: 'my-link'}) do
-          "Separate link"
-        end
-      end
-    - c.footer do
-      = documentation_link 'Documentation', '#'
+          - bd.link "Separate link", url: '#separate-link'
 
+        = button_dropdown "Dropup", state: :danger, size: :sm, type: :dropup do |bd|
+          - bd.link "Action",  { url: '#action' }, { class: 'action' }
+          - bd.link "Another action", url: '#another-action'
+          - bd.divider
+          - bd.header 'Header'
+          - bd.link "Separate link", url: '#separate-link'
 
-= section title: "Button dropdown options" do
-  = example do |c|
-    - c.header do
-      = button_dropdown "Dropdown right", state: :success, size: :lg, position: :right do |bd|
-        - bd.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
-        - bd.link "Another action", url: '#another-action'
-        - bd.divider
-        - bd.header 'Header'
-        - bd.link "Separate link", url: '#separate-link'
+      - c.code do
+        button_dropdown "Dropdown right", state: :success, size: :lg, position: :right do |bd|
+          bd.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
+          bd.link "Another action", url: '#another-action'
+          bd.divider
+          bd.header 'Header'
+          bd.link "Separate link", url: '#separate-link'
+        end
+         
+        button_dropdown "Dropup", state: :danger, size: :sm, type: :dropup do |bd|
+          bd.link "Action",  { url: '#action' }, { class: 'action' }
+          bd.link "Another action", url: '#another-action'
+          bd.divider
+          bd.header 'Header'
+          bd.link "Separate link", url: '#separate-link'
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
-      = button_dropdown "Dropup", state: :danger, size: :sm, type: :dropup do |bd|
-        - bd.link "Action",  { url: '#action' }, { class: 'action' }
-        - bd.link "Another action", url: '#another-action'
-        - bd.divider
-        - bd.header 'Header'
-        - bd.link "Separate link", url: '#separate-link'
-
-    - c.code do
-      button_dropdown "Dropdown right", state: :success, size: :lg, position: :right do |bd|
-        bd.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
-        bd.link "Another action", url: '#another-action'
-        bd.divider
-        bd.header 'Header'
-        bd.link "Separate link", url: '#separate-link'
-      end
-       
-      button_dropdown "Dropup", state: :danger, size: :sm, type: :dropup do |bd|
-        bd.link "Action",  { url: '#action' }, { class: 'action' }
-        bd.link "Another action", url: '#another-action'
-        bd.divider
-        bd.header 'Header'
-        bd.link "Separate link", url: '#separate-link'
-      end
-    - c.footer do
-      = documentation_link 'Documentation', '#'
-
-
-
-
+= @sections.render
