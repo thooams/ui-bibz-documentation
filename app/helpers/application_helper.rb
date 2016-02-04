@@ -28,4 +28,8 @@ module ApplicationHelper
     @titles   = array.clone
   end
 
+  def getbootstrap_doc url
+    link_to('Bootstrap doc', "http://v4-alpha.getbootstrap.com/#{ url }")
+  end
+
 end

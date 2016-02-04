@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     get 'inputs/multi-column-fields'        => 'inputs#multi_column_fields'
     get 'cards/cards'                       => 'cards#index'
     get 'cards/cards-column-deck-and-group' => 'cards#cards_column_deck_and_group'
+    get 'layouts/grid'                      => 'layouts#grid'
+    get 'layouts/container'                 => 'layouts#container'
     get 'dropdowns'
     get 'jumbotrons'
     get 'labels_etiquettes'

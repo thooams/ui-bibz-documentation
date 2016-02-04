@@ -1,0 +1,36 @@
+%h1 Container
+
+Vous pouvez vous renseigner sur la doc via :
+= getbootstrap_doc("/layout/overview/")
+
+- @sections = sections do |s|
+  - s.section title: "Container" do
+    = example do |c|
+      - c.header do
+        = image_tag "itt"
+      - c.code do
+        container { class: 'test' } do
+          ...
+          content
+          ...
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Container options" do
+    = example do |c|
+      - c.header do
+        = image_tag "itt"
+      - c.code do
+        row { class: 'test' } do
+          container do
+            ...
+            content
+            ...
+          end
+          col content, { num: 2, pull: 4 }, { class: 'test-col2' }
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+= @sections.render

@@ -1,0 +1,65 @@
+%h1 Grid
+
+Vous pouvez vous renseigner sur la doc via :
+= getbootstrap_doc("/layout/grid/#example-column-ordering")
+
+- @sections = sections do |s|
+  - s.section title: "Row" do
+    = example do |c|
+      - c.code do
+        row { class: 'test' } do
+          ...
+          content
+          ...
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Cols" do
+    %p
+      Une colonne peut prendre plusieurs arguments :
+      %ul
+        %li num - Integer (obligatoire)
+        %li offset - Integer
+        %li pull - Integer
+        %li push - Integer
+      Par défaut, la taille de la grid sera
+      %code :md
+      \.
+    = example do |c|
+      - c.code do
+        row { class: 'test' } do
+          col({ num: 10, offset: 2 }, { class: 'test-col' }) do
+            ...
+            content
+            ...
+          end
+          col content, { num: 2, pull: 4 }, { class: 'test-col2' }
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Cols with differents sizes" do
+    %p
+      Pour ajouter plusieurs tailles de colonnes, vous devez
+      utiliser les arguments :
+      %ul
+        %li :xs
+        %li :sm
+        %li :md
+        %li :lg
+        %li :xl
+    = example do |c|
+      - c.code do
+        row { class: 'test' } do
+          col(md: { num: 5, offset: 2 }, xs: { num: 2 }) do
+            ...
+            content
+            ...
+          end
+          col content, { md: { num: 7, pull: 4 }, xs: { num: 10 }}, { class: 'test-col2' }
+        end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+= @sections.render

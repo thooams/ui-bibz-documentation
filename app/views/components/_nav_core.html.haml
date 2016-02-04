@@ -16,6 +16,10 @@
   - nc.link 'Components', url: components_path
   - nc.link 'Dropdowns', url: components_dropdowns_path
   - nc.link 'Glyphs', url: components_glyphs_path
+  - nc.link 'Layout & Grid', url: '#', status: :disabled
+  - nc.nav do |na|
+    - na.link 'Row, Cols', url: components_layouts_grid_path
+    - na.link 'Container', url: components_layouts_container_path
   - nc.link 'Inputs', url: '#', status: :disabled
   - nc.nav do |na|
     - na.link 'Date picker fields', url: components_inputs_date_picker_fields_path

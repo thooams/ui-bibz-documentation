@@ -39,4 +39,7 @@ class ComponentsController < ApplicationController
   def glyph
   end
 
+  def grid
+  end
+
 end
