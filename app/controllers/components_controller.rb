@@ -39,7 +39,8 @@ class ComponentsController < ApplicationController
   def glyph
   end
 
-  def grid
+  def breadcrumbs
+    @users = User.all.limit(3)
   end
 
 end

@@ -4,14 +4,14 @@
   - s.section title: "Breadcrumb" do
     = example do |c|
       - c.header do
-        = breadcrumb do |b|
+        = breadcrumb tap: true do |b|
           - b.link 'Home', status: :active
         %br
-        = breadcrumb do |b|
+        = breadcrumb tap: true do |b|
           - b.link 'Home', url: '#home'
           - b.link 'Library', status: :active
         %br
-        = breadcrumb do |b|
+        = breadcrumb tap: true do |b|
           - b.link 'Home', url: '#active'
           - b.link 'Library', url: '#library'
           - b.link 'Data', status: :active
@@ -30,6 +30,25 @@
           b.link 'Library', url: '#library'
           b.link 'Data', status: :active
         end
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Breadcrumb with store" do
+    Les options sont :
+    %ul
+      %li store
+      %li link_label (default: :name)
+      %li link_url (default: #)
+
+    Le link_url peut s'écrire:
+    %ul
+      %li "/user/:id"
+      %li user_path(:id)
+    = example do |c|
+      - c.header do
+        = breadcrumb store: @users, link_label: :email, link_url: "#/id/edit"
+      - c.code do
+        breadcrumb store: @users, link_label: :email, link_url: "\#/id/edit"
       - c.footer do
         = documentation_link 'Documentation', '#'
 
