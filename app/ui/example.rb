@@ -12,11 +12,11 @@ module UiBibz::Ui::Ux
       @items << content_tag(:div, code_html, class: "card-block highlight")
     end
 
-    def other_classes
-      "card-code"
-    end
+  private
 
-    private
+    def component_html_classes
+      %w(card-code card)
+    end
 
     def code_html
       formatter = Rouge::Formatters::HTML.new(css_class: 'highlight', wrap: false)

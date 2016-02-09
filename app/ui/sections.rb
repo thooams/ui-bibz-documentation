@@ -19,7 +19,7 @@ module UiBibz::Ui::Ux
     end
 
     def render
-      content_tag :div, @items.join.html_safe, class_and_html_options('')
+      content_tag :div, @items.join.html_safe, html_options
     end
 
   end

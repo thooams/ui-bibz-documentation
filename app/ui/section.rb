@@ -6,19 +6,25 @@ module UiBibz::Ui::Ux
     end
 
     def render
-      content_tag :section, class_and_html_options('section') do
+      content_tag :section, html_options do
         concat content_tag :a, nil, name: title.parameterize
         concat content_tag html_tag, title
         concat @content
       end
     end
 
-    def html_tag
-      @options[:tag] || :h2
-    end
-
     def title
       @options[:title]
+    end
+
+  private
+
+    def component_html_classes
+      'section'
+    end
+
+    def html_tag
+      @options[:tag] || :h2
     end
 
   end
