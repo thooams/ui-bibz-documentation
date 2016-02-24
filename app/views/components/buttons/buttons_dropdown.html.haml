@@ -1,14 +1,16 @@
-%h1 Buttons dropdown
-%p= extend_of_component 'button_dropdown'
+:markdown
+  # Buttons dropdown
+= extend_of_component 'button_dropdown'
 
 - @sections = sections do |s|
   - s.section title: "Button dropdown" do
-    %p Le bouton dropdown accepte plusieurs type de block :
-    %ul
-      %li= link_to 'link', components_dropdowns_path(anchor: 'link')
-      %li= link_to 'divider', components_dropdowns_path(anchor: 'divider')
-      %li= link_to 'header', components_dropdowns_path(anchor: 'header')
-      %li= link_to 'html', components_dropdowns_path(anchor: 'html')
+    :markdown
+      Le bouton dropdown accepte plusieurs type de block :
+
+      * [Link](../components/dropdowns#link)
+      * [Divider](../components/dropdowns#divider)
+      * [Header](../components/dropdowns#header)
+      * [Html](../components/dropdowns#html)
 
     %p= short_extend_of_component 'link'
     = example do |c|

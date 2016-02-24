@@ -45,6 +45,7 @@ Rails.application.routes.draw do
     get 'modals'
     get 'stars'
     get 'tables'
+    get 'tables_cards'
     get 'core'
     get 'ux'
     get 'glyphs'

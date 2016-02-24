@@ -1,4 +1,5 @@
-%h1 Breadcrumbs
+:markdown
+  # Breadcrumbs
 
 - @sections = sections do |s|
   - s.section title: "Breadcrumb" do
@@ -35,15 +36,15 @@
 
   - s.section title: "Breadcrumb with store" do
     Les options sont :
-    %ul
-      %li store
-      %li link_label (default: :name)
-      %li link_url (default: #)
+    :markdown
+      * store
+      * link_label (default: :name)
+      * link_url (default: #)
 
     Le link_url peut s'écrire:
-    %ul
-      %li "/user/:id"
-      %li user_path(:id)
+    :markdown
+      * "/user/:id"
+      * user_path(:id)
     = example do |c|
       - c.header do
         = breadcrumb store: @users, link_label: :email, link_url: "#/id/edit"

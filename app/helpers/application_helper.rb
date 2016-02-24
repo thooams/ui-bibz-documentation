@@ -6,7 +6,7 @@ module ApplicationHelper
 
   def extend_of_component name
     "#{ short_extend_of_component(name) }<br>
-    Tout comme ce dernier, le composant #{ content_tag :code, name } possède des #{ content_tag :code, 'options' } et des #{ content_tag :code, 'html_options' } présents sous forme de hash.<br/>
+    Tout comme ce dernier, le composant #{ content_tag :code, name } possède des #{ content_tag :code, 'options' } et des #{ content_tag :code, 'html_options' } présentes sous forme de hash.<br/>
     Il hérite d'ailleurs des options présentes dans l'élement component.".html_safe
   end
 

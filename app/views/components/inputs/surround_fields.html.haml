@@ -1,5 +1,6 @@
-%h1 Surround Fields
-%p Use Bootstrap’s custom button styles for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, states, and more.
+:markdown
+  # Surround Fields
+  Use Bootstrap’s custom button styles for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, states, and more.
 
 - @sections = sections do |s|
   - s.section title: "Surround Field" do
@@ -12,14 +13,10 @@
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Simple form" do
-    %p
-      Vous pouvez utiliser l'input surround avec la gem
-      = link_to 'simple form', "https://github.com/plataformatec/simple_form"
-      \.
-      %br
-      Vous devez ajouter cette ligne
-      dans le fichier
-      %code "config/initializers/simple_form.rb"
+    :markdown
+      Vous pouvez utiliser l'input surround avec la gem [simple_form](https://github.com/plataformatec/simple_form).
+
+      Vous devez ajouter cette ligne dans le fichier `"config/initializers/simple_form.rb"`
     = example do |e|
       - e.code do
         \...

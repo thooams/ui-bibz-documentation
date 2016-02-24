@@ -1,8 +1,7 @@
-%h1 Date Picker Fields
-%p
-  Ce composant est basé de la librairie
-  = link_to "Jquery multiselect", "http://eternicode.github.io/bootstrap-datepicker/?markup=input&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=2&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&keyboardNavigation=on&forceParse=on#sandbox"
-  \.
+:markdown
+  # Date Picker Fields
+
+  Ce composant est basé de la librairie [Jquery multiselect](http://eternicode.github.io/bootstrap-datepicker/?markup=input&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=2&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&keyboardNavigation=on&forceParse=on#sandbox).
 
 - @sections = sections do |s|
   - s.section title: "Date Picker Field" do
@@ -42,22 +41,18 @@
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Date Picker Field date options" do
-    %p
-      %ul
-        %li date_today_highlight - Boolean
-        %li calendar_weeks - Boolean
-        %li autoclose - Boolean
-        %li dates_disabled - String or Array
+    :markdown
+
+      * date_today_highlight - Boolean
+      * calendar_weeks - Boolean
+      * autoclose - Boolean
+      * dates_disabled - String or Array
 
   - s.section title: "Simple form" do
-    %p
-      Vous pouvez utiliser l'input date_picker avec la gem
-      = link_to 'simple form', "https://github.com/plataformatec/simple_form"
-      \.
-      %br
-      Vous devez ajouter cette ligne
-      dans le fichier
-      %code "config/initializers/simple_form.rb"
+    :markdown
+      Vous pouvez utiliser l'input date_picker avec la gem [simple form](https://github.com/plataformatec/simple_form).
+
+      Vous devez ajouter cette ligne dans le fichier `"config/initializers/simple_form.rb"`
     = example do |e|
       - e.code do
         \...

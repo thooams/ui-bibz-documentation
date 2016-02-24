@@ -1,32 +1,20 @@
-%h1 Tables
+:markdown
+  # Tables
 
-%p
-  Le composant
-  %code table
-  peut comporter:
-  %ul
-    %li une pagination
-    %li une recherche
-%p
-  La pagination est gérer grâce à la gem
-  %code will_paginate
-  \.
-%p
-  Les methodes de
-  %code will_paginate
-  fonctionnent avec le composant
-  %code table
-  comme par exemple
-  %code per_page
-  \.
+  Le composant `table` peut comporter:
+
+  * une pagination
+  * une recherche
+
+  La pagination est gérer grâce à la gem `will_paginate`.
+
+  Les methodes de `will_paginate` fonctionnent avec le composant `table` comme par exemple `per_page`.
 
 %important
-  %h4 Important
-  Pour ajouter, modifier, supprimer des colonnes et des actions dans le component
-  %code table
-  vous devez ajouter l'option
-  %code tap: true
-  \.
+  :markdown
+    #### Important
+    Pour ajouter, modifier, supprimer des colonnes et des actions dans le component
+    `table` vous devez ajouter l'option `tap: true`.
 
 
 - @sections = sections do |s|
@@ -40,14 +28,12 @@
         end
 
   - s.section title: "Controller" do
-    %p
-      Utiliser dans votre model la method
-      %code table_search_pagination
-      en passant les arguments:
-      %ul
-        %li params
-        %li session
-        %li opts (optional)
+    :markdown
+      Utiliser dans votre modèle la methode `table_search_pagination` en passant les arguments:
+
+      * params
+      * session
+      * opts (optional)
     = example do |c|
       - c.code do
         class MyController < ApplicationController
@@ -59,12 +45,12 @@
         end
 
   - s.section title: "View" do
-    %p
+    :markdown
       Les colonnes sont par défaut toutes affichées et les actions par défaut sont:
-      %ul
-        %li show
-        %li edit
-        %li delete
+
+      * show
+      * edit
+      * delete
     = example do |c|
       - c.header do
         = table({ store: @users, tap: true }) do |b|
@@ -85,21 +71,20 @@
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Table Columns" do
-    %p
+    :markdown
       L'ajout de colonnes à travers la méthode column contient plusieurs arguments et cette méthode est basée sur le component :
-      %ul
-        %li data_index (symbol)
-        %li options (hash)
-        %ul
-          %li name (le nom de la colonne)
-          %li count (utilise la méthode count sur l'élément)
-          %li date_format (formate l'affichage de la date en utilisant la méthode strftime ex: '%Y/%M/%D')
-          %li format (formate les élements de la colone en utilisant lambda)
-          %li link (ajoute un lien où l'expression :id est parsé et remplacé par l'entier correspondant)
-          %li sort (permet de trier sur des champs )
-          %li column_id (permet d'identifier la colonne : peut être utile pour le sort)
-          %li custom_sort (indique que le tableau sera triéé d'une manière personnalisée)
-        %li html_options (hash)
+
+      * data_index (symbol)
+      * options (hash)
+        * name (le nom de la colonne)
+        * count (utilise la méthode count sur l'élément)
+        * date_format (formate l'affichage de la date en utilisant la méthode strftime ex: '%Y/%M/%D')
+        * format (formate les élements de la colone en utilisant lambda)
+        * link (ajoute un lien où l'expression :id est parsé et remplacé par l'entier correspondant)
+        * sort (permet de trier sur des champs )
+        * column_id (permet d'identifier la colonne : peut être utile pour le sort)
+        * custom_sort (indique que le tableau sera triéé d'une manière personnalisée)
+      * html_options (hash)
     = example do |c|
       - c.header do
         = table({ store: @users, tap: true }) do |b|
@@ -130,27 +115,18 @@
 
 
   - s.section title: "Table Actions" do
-    %p
+    :markdown
       Les actions sont insérées dans un bouton dropdown.
-      Ces actions héritent du composant
-      %code DropdownLink
-      et propose les méthodes suivantes:
-      %ul
-        %li= link_to 'header', components_dropdowns_path(anchor: 'header')
-        %li= link_to 'divider', components_dropdowns_path(anchor: 'divider')
-        %li= link_to 'link', components_dropdowns_path(anchor: 'link')
-        %li= link_to 'html', components_dropdowns_path(anchor: 'html')
+      Ces actions héritent du composant `DropdownLink` et propose les méthodes suivantes:
 
-    %p
-      Si aucune actions n'est ajouter, les actions par défauts sont affichées.
-      Vous pouvez les activées à travers l'option
-      %code default_actions: false
-      \.
-      L'option
-      %code link
-      peut injecter l'id du record en écrivant dans votre lien
-      %code :id
-      \.
+      * [Header](../components/dropdowns#header)
+      * [Divider](../components/dropdowns#divider)
+      * [Link](../components/dropdowns#link)
+      * [Html](../components/dropdowns#html)
+
+      Si aucunes actions n'est ajoutées, les actions par défauts sont affichées.
+      Vous pouvez les activer à travers l'option `default_actions: false`.
+      L'option `link` peut injecter l'id du record en écrivant dans votre lien `:id`.
 
     = example do |c|
       - c.header do
@@ -177,11 +153,9 @@
       - c.footer do
         = documentation_link 'Documentation', '#'
 
-    %p
-      Les actions peuvent être formaté selon à chaque ligne.
-      Grâce à la méthode
-      %code format
-      vous avez accès au record afin de formater l'action désiré.
+    :markdown
+      Les actions peuvent être formatées selon à chaque ligne.
+      Grâce à la méthode `format` vous avez accès au record afin de formater l'action désirée.
 
     = example do |c|
       - c.header do
@@ -222,11 +196,9 @@
 
 
   - s.section title: "Controller arguments" do
-    %p
+    :markdown
       Si l'on souhaite, par exemple, dénombrer des utilisateurs qui ont un lien non direct avec les documents. Imaginons par exemple, un utilisateur à des produits et que ces produits contiennent plusieurs documents. On souhaite compter le nombre d'utilisateurs par documents.
-      On peut ajouter des arguments dans la méthode
-      %code table_search_pagination
-      qui vont permettre de faire des jointures.
+      On peut ajouter des arguments dans la méthode `table_search_pagination` qui vont permettre de faire des jointures.
     = example do |c|
       - c.code do
         Arguments  = { sortable: {
@@ -239,13 +211,13 @@
         } }
 
         @documents = Document.includes(:users).table_search_pagination(params, session, arguments)
-    %p
+    :markdown
       Ici l'argument sortable signifie que l'on souhaite s'interresser à la fonctionnalité de trie.
       Pour celà il faut :
-      %ul
-      %li définir le nom de la colonne triéé à travers l'argument column: (string)
-      %li définir si le traitement se fait sur le comptage avec l'argument count: (boolean)
-      %li définir la jointure avec l'argument joins: (string, array, hash)
+
+      * définir le nom de la colonne triéé à travers l'argument column: (string)
+      * définir si le traitement se fait sur le comptage avec l'argument count: (boolean)
+      * définir la jointure avec l'argument joins: (string, array, hash)
 
 
     = example do |c|

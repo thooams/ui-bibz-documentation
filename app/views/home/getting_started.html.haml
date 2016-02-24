@@ -1,39 +1,29 @@
-%h1 Getting Started
-%h2 Install
-%p
-  Add this line in your Gemfile:
-  %br
-  %code gem "ui_bibz", '~> #{ UiBibzApp::Application::VERSION }'
+:markdown
+  # Getting Started
+  ##Install
 
-%p
-  Run this command:
-  %br
-  %code  bundle install
+  Add this line in your Gemfile:  `gem "ui_bibz", '~> #{ UiBibzApp::Application::VERSION }'`
 
-%h2 Assets Install
-%p
-  Put this line in:
-  %code /app/assets/stylesheets/applications.css
+  Run this command: `bundle install`
 
-  %pre
-          ...
-    \*= require ui_bibz
-    \...
+  ##Assets Install
 
-%p
-  Put this line in:
-  %code /app/assets/javascripts/applications.js
-  %pre
-          ...
-    \//= require ui_bibz
-    \...
+  Put this line in: /app/assets/stylesheets/applications.css
+
+
+            ...
+            *= require ui_bibz
+            ...
+
+  Put this line in: `/app/assets/javascripts/applications.js`
+
+            ...
+            //= require ui_bibz
+            ...
 
   _Ps: You can use sass variables into Boostrap._
 
-%h2 Simple form
-%p
-  Gem is compatible with
-  = link_to "simple_form", "https://github.com/plataformatec/simple_form"
-  \. All inputs fields can be used with
-  %strong simple_form.
+  ##Simple form
 
+  Gem is compatible with  [simple_form](https://github.com/plataformatec/simple_form).
+  All inputs fields can be used with **simple_form**.
