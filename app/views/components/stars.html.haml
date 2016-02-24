@@ -1,4 +1,5 @@
-%h1 Stars
+:markdown
+  # Stars
 
 - @sections = sections do |s|
   - s.section title: "Stars" do
@@ -11,14 +12,8 @@
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Size" do
-    %p
-      Vous pouvez modifier la taille des stars ajoutant l'argument size qui à pour valeur soit un nombre, soit un symbol
-      %code :xs
-      ,
-      %code :md
-      ,
-      %code :lg
-      \.
+    :markdown
+      Vous pouvez modifier la taille des stars ajoutant l'argument size qui à pour valeur soit un nombre, soit un symbole `:xs`, `:md`, `:lg`.
 
     = example do |c|
       - c.header do

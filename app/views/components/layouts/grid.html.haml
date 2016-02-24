@@ -1,4 +1,5 @@
-%h1 Grid
+:markdown
+  # Grid
 
 Vous pouvez vous renseigner sur la doc via :
 = getbootstrap_doc("/layout/grid/#example-column-ordering")
@@ -16,16 +17,15 @@ Vous pouvez vous renseigner sur la doc via :
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Cols" do
-    %p
+    :markdown
       Une colonne peut prendre plusieurs arguments :
-      %ul
-        %li num - Integer (obligatoire)
-        %li offset - Integer
-        %li pull - Integer
-        %li push - Integer
-      Par défaut, la taille de la grid sera
-      %code :md
-      \.
+
+      * num - Integer (obligatoire)
+      * offset - Integer
+      * pull - Integer
+      * push - Integer
+
+      Par défaut, la taille de la grid sera `:md`.
     = example do |c|
       - c.code do
         row { class: 'test' } do
@@ -40,15 +40,14 @@ Vous pouvez vous renseigner sur la doc via :
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Cols with differents sizes" do
-    %p
-      Pour ajouter plusieurs tailles de colonnes, vous devez
-      utiliser les arguments :
-      %ul
-        %li :xs
-        %li :sm
-        %li :md
-        %li :lg
-        %li :xl
+    :markdown
+      Pour ajouter plusieurs tailles de colonnes, vous devez utiliser les arguments :
+
+      * :xs
+      * :sm
+      * :md
+      * :lg
+      * :xl
     = example do |c|
       - c.code do
         row { class: 'test' } do

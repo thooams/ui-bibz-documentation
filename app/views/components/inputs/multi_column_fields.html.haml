@@ -1,8 +1,7 @@
-%h1 Multi Column Fields
-%p
-  Ce composant est basé de la librairie
-  = link_to "Boostrap-multiselect", "http://davidstutz.github.io/bootstrap-multiselect/"
-  \.
+:markdown
+  # Multi Column Fields
+
+  Ce composant est basé de la librairie [Boostrap-multiselect](http://davidstutz.github.io/bootstrap-multiselect/).
 
 - @sections = sections do |s|
   - s.section title: "Multi Column Field" do
@@ -37,14 +36,10 @@
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Simple form" do
-    %p
-      Vous pouvez utiliser l'input multi_column avec la gem
-      = link_to 'simple form', "https://github.com/plataformatec/simple_form"
-      \.
-      %br
-      Vous devez ajouter cette ligne
-      dans le fichier
-      %code "config/initializers/simple_form.rb"
+    :markdown
+      Vous pouvez utiliser l'input multi_column avec la gem [simple form](https://github.com/plataformatec/simple_form).
+
+      Vous devez ajouter cette ligne dans le fichier `"config/initializers/simple_form.rb"`
     = example do |e|
       - e.code do
         \...

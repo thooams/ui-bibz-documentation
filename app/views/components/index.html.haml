@@ -1,17 +1,17 @@
-%h1 Components
+:markdown
+  # Components
 
 - @sections = sections do |s|
   - s.section title: "Component" do
-    %p
+    :markdown
       Le composant est au coeur de l'expérience Ui Bibz.
-      Chaque élément du framework hérite de l'élément
-      %code composant
-      \.
+      Chaque élément du framework hérite de l'élément `composant`.
       Ce dernier peut contenir 3 arguments:
-      %ul
-        %li content (variable ou block)
-        %li options
-        %li html_options
+
+      * content (variable ou block)
+      * options
+      * html_options
+
     = example do |c|
       - c.code do
         Component.new content, options = {}, html_options = {}
@@ -23,10 +23,8 @@
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Render method" do
-    %p
-      La méthode
-      %code render
-      permet de générer le code html du composant.
+    :markdown
+      La méthode `render` permet de générer le code html du composant.
     = example do |c|
       - c.code do
         Component.new('My content', { state: :primary }, { class: 'my-class' }).render
@@ -37,16 +35,18 @@
       - c.footer do
         = documentation_link 'Documentation', '#'
 
-  %h3 Component Options
+  :markdown
+    ##Component Options
 
   - s.section title: "Size" do
-    %p
+    :markdown
       Certain composant peuvent avoir l'option size dans leurs paramètres.
       L'argument size contient 3 valeurs distincts:
-      %ul
-        %li :xs
-        %li :md
-        %li :lg
+
+        * :xs
+        * :md
+        * :lg
+
     = example do |c|
       - c.code do
         Component.new content, size: :xs
@@ -66,22 +66,18 @@
         = itag "stars", components_stars_path
 
   - s.section title: "State" do
-    %p
-      Certain composant peuvent avoir l'option
-      %code state
-      dans leurs paramètres.
-      Cette option permet de changer la couleur de l'élément comme précisé dans
-      = link_to "la documentation Boostrap", "http://v4-alpha.getbootstrap.com/components/buttons/", target: '_blank'
-      \. L'argument
-      %code state
-      contient 7 valeurs distincts:
-      %ul
-        %li :primary
-        %li :secondary
-        %li :danger
-        %li :success
-        %li :info
-        %li :warning
+    :markdown
+      Certain composant peuvent avoir l'option `state` dans leurs paramètres.
+      Cette option permet de changer la couleur de l'élément comme précisé dans [la documentation de bootstrap](http://v4-alpha.getbootstrap.com/components/buttons/).
+      L'argument `state` contient 7 valeurs distincts:
+
+        * :primary
+        * :secondary
+        * :danger
+        * :success
+        * :info
+        * :warning
+
     = example do |c|
       - c.code do
         Component.new content, state: :primary
@@ -104,15 +100,10 @@
         = itag "stars", components_stars_path
 
   - s.section title: "Glyph" do
-    %p
-      Certain composant peuvent avoir l'option
-      %code glyph
-      dans leurs paramètres.
+    :markdown
+      Certain composant peuvent avoir l'option `glyph` dans leurs paramètres.
       Cette option permet d'ajouter un glyph à son composant.
-      Vous pouvez écrire la valeur de cet argument de plusieurs manières, pour celà, veuillez vous référer
-      au componsant
-      = link_to 'glyph', components_glyphs_path
-      \.
+      Vous pouvez écrire la valeur de cet argument de plusieurs manières, pour celà, veuillez vous référer au composant [glyph](../components/glyphs).
     = example do |c|
       - c.code do
         Component.new content, glyph: 'star'
@@ -141,7 +132,7 @@
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Html_options" do
-    %p
+    :markdown
       Vous avez la possibilité d'ajouter toutes les propriétés html.
     = example do |c|
       - c.code do
