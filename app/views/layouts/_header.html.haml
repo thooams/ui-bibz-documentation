@@ -1,0 +1,12 @@
+%header
+  = navbar title: UiBibzApp::Application::NAME, state: :secondary, type: :light do |nb|
+    - nb.nav do |n|
+      - opts = { url: getting_started_path }
+      - opts.merge!({ status: :active }) if params[:action] == 'getting_started'
+      - n.link 'Get started', opts
+      - opts = { url: components_path }
+      - opts.merge!({ status: :active }) if controller_name == 'components'
+      - n.link 'Components', opts
+      - opts = { url: about_path }
+      - opts.merge!({ status: :active}) if params[:action] == 'about'
+      - n.link 'About', opts
