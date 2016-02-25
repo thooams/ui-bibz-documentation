@@ -1,3 +1,39 @@
+.pageheader-blue
+  = container do
+    //= image_tag 'ui-bibz-logo-without-border.png'
+    = image_tag 'ui-bibz-logo', class: 'logo'
+    %br
+    //= image_tag 'ruby-white.png', width: 50, class: 'icon'
+    :markdown
+      # ![Icon](http://data.bloggif.com/distant/user/store/1/0/a/0/0d998a1a4600b113847fca3f0d0e0a01.png "Ui Bibz") #{ UiBibzApp::Application::NAME } v#{ UiBibz::VERSION }
+      Over a dozen reusable components built to provide iconography, dropdowns,
+      input groups, navigation, alerts, and much more.
+    = button_link "Get #{UiBibzApp::Application::NAME}", url: getting_started_path, state: :secondary
+    %p
+      %span.littlemsg For Bootstrap and Ruby lovers
+.pageheader-white
+  = container do
+    %h3.slogan Code less, do more, code better
+    %br
+    = row do
+      .columns-white
+        = col num: 4 do
+          = image_tag "https://upload.wikimedia.org/wikipedia/en/thumb/e/e9/Ruby_on_Rails.svg/791px-Ruby_on_Rails.svg.png", alt: "Ruby On Rails", class: "logo-rails", title: "Ruby On Rails"
+          %br
+          Ruby on Rails...is both revolutionary as a language as well as a framework
+        = col num: 4 do
+          = image_tag 'ui-bibz-logo.png', alt: "Ui-Bibz", class: "loco-uibibz", title: UiBibzApp::Application::NAME
+          %br
+          blabla on Ui Bibz
+        = col num: 4 do
+          = image_tag "https://sdz-upload.s3.amazonaws.com/prod/upload/bootstrap_responsive.jpeg", alt: "Bootstrap", class: "logo-bootstrap", title: "Bootstrap"
+          %br
+          One framework, every device
+    %hr.little-hr
+    = button_link 'View GitHub Project', url: 'https://github.com/thooams/Ui-Bibz', state: :secondary
+    %p
+      %span.littlemsg Ui Bibz Open Source Project available on GitHub
+
 -# navbar(type: :inverse, position: :bottom) do |nb|
   - nb.nav do |n|
     - n.link 'Link 1', url: '#link-1', glyph: 'eye'
@@ -11,127 +47,127 @@
       - d.list link_to('Link 2', '#test'), { glyph: 'eye' }
       - d.list(url: '#link-2', status: :active) do
         Link 3
+-# Decommenter cette ligne et retirer l'indentation sur les suivantes pour rétablir le fichier d'origine
+  = etiquette 'label'
+  = etiquette 'label 2', state: :success
+  = etiquette 'label 2', state: :success, size: :xs
 
-= etiquette 'label'
-= etiquette 'label 2', state: :success
-= etiquette 'label 2', state: :success, size: :xs
+  %br
+  %br
+  = progress 30
 
-%br
-%br
-= progress 30
+  = progress(state: :info, sr_only: true, type: :animated) do
+    = 70
 
-= progress(state: :info, sr_only: true, type: :animated) do
-  = 70
-
--# progress(tap: true) do |pb|
-  - pb.bar 10, { state: :success, sr_only: false, label: 'Loading...' },{ class: 'test' }
-  - pb.bar 30, state: :warning
-  - pb.bar(type: :striped) do
-    = 10
-
-
-
-= notify 'toto', glyph: 'eye', close: true
-
-%br
-%br
-
-= button_group position: :vertical, size: :xs do
-  = button 'toto', status: :active
-  = button 'momo'
-  = button 'lolo'
-
-= button_group do
-  = button 'toto', status: :active
-  = button 'momo'
-  = button 'lolo'
-  = button_dropdown 'Button Dropdown' do |bd|
-    - bd.header
-    - bd.link 'momo', url: '#'
-    - bd.divder
-    - bd.link 'lolo', url: '#'
-
-%br
-%br
-
-= dropdown 'Dropdown', state: :success do |d|
-  - d.list do
-    = link_to 'toto', "#"
-  - d.list 'header', type: :header
-  - d.list link_to 'momo', '#'
-  - d.list '---'
-  - d.list link_to 'lolo', '#'
+  -# progress(tap: true) do |pb|
+    - pb.bar 10, { state: :success, sr_only: false, label: 'Loading...' },{ class: 'test' }
+    - pb.bar 30, state: :warning
+    - pb.bar(type: :striped) do
+      = 10
 
 
-%br
-%br
 
-= button_split_dropdown 'Dropdown', state: :primary do |d|
-  - d.link 'toto', url: '#', glyph: 'eye'
-  - d.list 'header', type: :header
-  - d.link 'momo', url: '#'
-  - d.list '---'
-  - d.link 'lolo', url: '#'
+  = notify 'toto', glyph: 'eye', close: true
+
+  %br
+  %br
+
+  = button_group position: :vertical, size: :xs do
+    = button 'toto', status: :active
+    = button 'momo'
+    = button 'lolo'
+
+  = button_group do
+    = button 'toto', status: :active
+    = button 'momo'
+    = button 'lolo'
+    = button_dropdown 'Button Dropdown' do |bd|
+      - bd.header
+      - bd.link 'momo', url: '#'
+      - bd.divder
+      - bd.link 'lolo', url: '#'
+
+  %br
+  %br
+
+  = dropdown 'Dropdown', state: :success do |d|
+    - d.list do
+      = link_to 'toto', "#"
+    - d.list 'header', type: :header
+    - d.list link_to 'momo', '#'
+    - d.list '---'
+    - d.list link_to 'lolo', '#'
 
 
-%br
-%br
+  %br
+  %br
 
-= nav position: :justified do |n|
-  - n.link 'toto', { url: '#toto', status: :active, glyph: 'eye' }
-  - n.link 'momo', { url: '#mono' }
+  = button_split_dropdown 'Dropdown', state: :primary do |d|
+    - d.link 'toto', url: '#', glyph: 'eye'
+    - d.list 'header', type: :header
+    - d.link 'momo', url: '#'
+    - d.list '---'
+    - d.link 'lolo', url: '#'
 
-%br
-= nav type: :pills do |n|
-  - n.link 'toto', url: '#toto', status: :active, glyph: 'eye'
-  - n.link 'momo', url: '#mono', badge: 30
 
-%br
-= breadcrumb do |b|
-  - b.link 'toto', url: '#toto', glyph: 'home'
-  - b.link 'momo', url: '#momo'
-  - b.link 'nono', status: :active
+  %br
+  %br
 
-= list_group type: :link do |lg|
-  - lg.list 'Momo', { state: :success, glyph: 'home' }, { href: '#Momo' }
-  - lg.list({ tap: true, status: :active }, { href: '#Toto' }) do |l|
-    - l.header 'My title'
-    - l.body 'My title'
+  = nav position: :justified do |n|
+    - n.link 'toto', { url: '#toto', status: :active, glyph: 'eye' }
+    - n.link 'momo', { url: '#mono' }
 
-= list_group do |lg|
-  - lg.list 'Momo', glyph: 'home'
-  - lg.list 'Toto'
+  %br
+  = nav type: :pills do |n|
+    - n.link 'toto', url: '#toto', status: :active, glyph: 'eye'
+    - n.link 'momo', url: '#mono', badge: 30
 
-= panel(state: :danger, tap: true, class: 'toto') do |p|
-  - p.header 'toto', glyph: 'eye'
-  - p.body 'toto'
-  - p.footer 'toto'
+  %br
+  = breadcrumb do |b|
+    - b.link 'toto', url: '#toto', glyph: 'home'
+    - b.link 'momo', url: '#momo'
+    - b.link 'nono', status: :active
 
-= panel 'toto', state: :danger, glyph: 'home', class: 'toto'
+  = list_group type: :link do |lg|
+    - lg.list 'Momo', { state: :success, glyph: 'home' }, { href: '#Momo' }
+    - lg.list({ tap: true, status: :active }, { href: '#Toto' }) do |l|
+      - l.header 'My title'
+      - l.body 'My title'
 
-= panel class: 'uei' do
-  = "danger"
+  = list_group do |lg|
+    - lg.list 'Momo', glyph: 'home'
+    - lg.list 'Toto'
 
-= table_panel({ store: @users, tap: true, glyph: 'home', state: :danger }) do |g|
-  - g.columns do |cls|
-    - cls.column name: '#', data_index: 'id'
-    - cls.column name: 'Username', data_index: 'username', link: edit_user_path(:id)
-    - cls.column name: 'Name', data_index: 'name'
-    - cls.column name: 'Email', data_index: 'email'
-    - cls.column name: 'Role', data_index: 'role_name', sort: 'roles.name'
-  - g.actions do |acs|
-    - acs.action 'Toto', url: edit_user_path(:id), glyph: 'pencil'
-    - acs.action "---"
-    - acs.action 'momo', url: user_path(:id), glyph: 'eye'
+  = panel(state: :danger, tap: true, class: 'toto') do |p|
+    - p.header 'toto', glyph: 'eye'
+    - p.body 'toto'
+    - p.footer 'toto'
 
-= table_search_field store: @users
-%br
-= table store: @users, tap: true do |g|
-  - g.columns do |cls|
-    - cls.column name: '#', data_index: 'id'
-    - cls.column name: 'Username', data_index: 'username', link: edit_user_path(:id)
-    - cls.column name: 'Name', data_index: 'name'
-    - cls.column name: 'Email', data_index: 'email'
-    - cls.column name: 'Role', data_index: 'role_name', sort: 'roles.name'
-= table_pagination store: @users
-= table_pagination_per_page store: @users
+  = panel 'toto', state: :danger, glyph: 'home', class: 'toto'
+
+  = panel class: 'uei' do
+    = "danger"
+
+  = table_panel({ store: @users, tap: true, glyph: 'home', state: :danger }) do |g|
+    - g.columns do |cls|
+      - cls.column name: '#', data_index: 'id'
+      - cls.column name: 'Username', data_index: 'username', link: edit_user_path(:id)
+      - cls.column name: 'Name', data_index: 'name'
+      - cls.column name: 'Email', data_index: 'email'
+      - cls.column name: 'Role', data_index: 'role_name', sort: 'roles.name'
+    - g.actions do |acs|
+      - acs.action 'Toto', url: edit_user_path(:id), glyph: 'pencil'
+      - acs.action "---"
+      - acs.action 'momo', url: user_path(:id), glyph: 'eye'
+
+  = table_search_field store: @users
+  %br
+  = table store: @users, tap: true do |g|
+    - g.columns do |cls|
+      - cls.column name: '#', data_index: 'id'
+      - cls.column name: 'Username', data_index: 'username', link: edit_user_path(:id)
+      - cls.column name: 'Name', data_index: 'name'
+      - cls.column name: 'Email', data_index: 'email'
+      - cls.column name: 'Role', data_index: 'role_name', sort: 'roles.name'
+  = table_pagination store: @users
+  = table_pagination_per_page store: @users
