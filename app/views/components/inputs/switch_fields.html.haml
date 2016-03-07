@@ -1,0 +1,23 @@
+:markdown
+  # Switch Fields
+  Ce composant est basé sur la librairie [Bootstrap Switch](http://www.bootstrap-switch.org/).
+  Les paramètres spécifiques à ce composant sont :
+
+  * `animate` (**true**, false) : animation lors du changement d'état
+  * `readonly` (true, **false**)
+  * `on_state` | `off_state` (**primary** | info | success | warning | danger | default)
+  * `on_label` | `off_label` (String) : défaut **ON** et **OFF**
+  * `text-label` (String) : texte au centre du switch
+  * `label-icon` (String) : icone au centre du switch
+
+- @sections = sections do |s|
+  - s.section title: "Switch Field" do
+    = example do |e|
+      - e.header do
+        = switch_field status: :disable, on_color: :warning, size: :lg , checked: true, animate: false, readonly: false, on: :danger, off: :danger, on_label: "TEST", off_label: "TESTOFF"
+      - e.code do
+        switch_field size: "xs" , checked: true, animate: false, readonly: false, on: "primary", off: "primary", on_label: "TEST", off_label: "TESTOFF"
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+= @sections.render

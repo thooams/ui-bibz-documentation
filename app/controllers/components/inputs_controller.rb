@@ -12,4 +12,7 @@ class Components::InputsController < ApplicationController
   def date_picker_fields
   end
 
+  def switch_fields
+  end
+
 end
