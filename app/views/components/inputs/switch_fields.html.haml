@@ -72,19 +72,16 @@
     = example do |e|
       - e.header do
         = switch_field 'examplelabel', { label_text: "MyText" }
-        = switch_field 'examplelabel', { label_text: glyph('diamond').strip }
+        = switch_field 'examplelabel', { label_text: glyph('diamond') }
       - e.code do
         switch_field 'examplelabel', { label_text: 'MyText' }
-        switch_field 'examplelabel', { label_text: glyph('diamond').strip }
+        switch_field 'examplelabel', { label_text: glyph('diamond') }
       - e.footer do
         = documentation_link 'Documentation', '#'
         |
         = documentation_link 'Glyph', '/components/glyphs'
     :markdown
       Vous pouvez utiliser le composant [glyph](/components/glyphs) pour insérer une icone.
-
-      **Utilisez la méthode `.strip` sur le composant [glyph](/components/glyphs) pour formater le String contenu dans l'attribut HTML `data-label-text`.**
-
 
   - s.section title: "Readonly" do
     = example do |e|
