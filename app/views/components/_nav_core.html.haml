@@ -22,6 +22,7 @@
     - na.link 'Multi column fields', url: components_inputs_multi_column_fields_path
     - na.link 'Multi select fields', url: components_inputs_multi_select_fields_path
     - na.link 'Suround fields', url: components_inputs_surround_fields_path
+    - na.link 'Switch fields', url: components_inputs_switch_fields_path
   - nc.link 'Jumbotrons', url: components_jumbotrons_path
   - nc.link 'Labels, etiquettes', url: components_labels_etiquettes_path
   - nc.link 'Layout & Grid', url: '#', status: :disabled
@@ -30,8 +31,9 @@
     - na.link 'Container', url: components_layouts_container_path
   - nc.link 'Lists group', url: components_lists_group_path
   - nc.link 'Modals', url: components_modals_path
-  - nc.link 'Navs', url: components_navs_path
-  - nc.link 'Navbars', url: components_navbars_path
+  - nc.link 'Navs', url: '#', status: :disabled
+  - nc.nav do |na|
+    - na.link 'Navs', url: components_navs_path
+    - na.link 'Navbars', url: components_navbars_path
   - nc.link 'Progresses', url: components_progresses_path
   - nc.link 'Stars', url: components_stars_path
-

@@ -1,0 +1,107 @@
+:markdown
+  # Switch Fields
+  Ce composant est basé sur la librairie [Bootstrap Switch](http://www.bootstrap-switch.org/).
+
+  Les datas spécifiques à ce composant sont :
+
+  * `status` (**'active'**, 'disabled') : 'active' si non spécifié
+  * `animate` (**true**, false) : true si non spécifié
+  * `on_color` | `off_color` (**primary** | info | success | warning | danger | default)
+  * `on_text` | `off_text` (String) : respectivement **'ON'** et **'OFF'** si non spécifié
+  * `label_text` (String) : vide si non spécifié
+
+  Les options spécifiques à ce composant sont :
+
+  * `readonly` (true, **false**) : false si non spécifié
+  * `checked` (**true**, false) : true si non spécifié
+
+  La syntaxe est la suivante :
+  `switch_field 'name', { data: argument }, { option: argument }`
+
+- @sections = sections do |s|
+  - s.section title: "Switch Field" do
+    = example do |e|
+      - e.header do
+        = switch_field 'examplebasic'
+      - e.code do
+        switch_field 'examplebasic'
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Status" do
+    = example do |e|
+      - e.header do
+        = switch_field 'examplestatus', { status: 'active' }
+        = switch_field 'examplestatus', { status: 'disabled' }
+      - e.code do
+        switch_field 'examplestatus', { status: 'active' }
+        switch_field 'examplestatus', { status: 'disabled' }
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Animate" do
+    = example do |e|
+      - e.header do
+        = switch_field 'exampleanimate', { animate: true }
+        = switch_field 'exampleanimate', { animate: false }
+      - e.code do
+        switch_field 'exampleanimate', { animate: true }
+        switch_field 'exampleanimate', { animate: false }
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Color" do
+    = example do |e|
+      - e.header do
+        = switch_field 'examplecolor', { on_color: :success, off_color: :danger }
+      - e.code do
+        switch_field 'examplecolor', { on_color: :success, off_color: :danger }
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Text" do
+    = example do |e|
+      - e.header do
+        = switch_field 'exampletext', { on_text: "ExampleOn", off_text: "ExampleOff" }
+      - e.code do
+        switch_field 'exampletext', { on_text: "ExampleOn", off_text: "ExampleOff" }
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Label" do
+    = example do |e|
+      - e.header do
+        = switch_field 'examplelabel', { label_text: "MyText" }
+        = switch_field 'examplelabel', { label_text: glyph('diamond') }
+      - e.code do
+        switch_field 'examplelabel', { label_text: 'MyText' }
+        switch_field 'examplelabel', { label_text: glyph('diamond') }
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+        |
+        = documentation_link 'Glyph', '/components/glyphs'
+    :markdown
+      Vous pouvez utiliser le composant [glyph](/components/glyphs) pour insérer une icone.
+
+  - s.section title: "Readonly" do
+    = example do |e|
+      - e.header do
+        = switch_field 'examplereadonly', {}, { readonly: true }
+        = switch_field 'examplereadonly', {}, { readonly: false }
+      - e.code do
+        switch_field 'examplereadonly', {}, { readonly: true }
+        switch_field 'examplereadonly', {}, { readonly: false }
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Checked" do
+    = example do |e|
+      - e.header do
+        = switch_field 'examplechecked', {}, { checked: true }
+        = switch_field 'examplechecked', {}, { checked: false }
+      - e.code do
+        switch_field 'examplechecked', {}, { checked: true }
+        switch_field 'examplechecked', {}, { checked: false }
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+= @sections.render
