@@ -26,6 +26,6 @@
               - @sections.names.each do |s|
                 - n.link s
 
-      .scrollToTop
-        = button_link "", { url: "##{ @sections.names.first.parameterize }", glyph: "arrow-circle-up", size: :lg, state: :info, type: 'fw' }, { class: "backtop" }
+      .scroll-to-top
+        = button_link "", { url: "##{ @sections.names.first.parameterize }", glyph: "arrow-circle-up", size: :lg, state: :info, type: 'fw' }, { class: "back-top" }
     = render "layouts/footer"
