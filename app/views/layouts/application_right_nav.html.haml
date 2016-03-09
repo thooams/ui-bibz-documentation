@@ -15,5 +15,17 @@
           input groups, navigation, alerts, and much more.
     = container do
       = row do
-        = yield
+        = col num: 9 do
+          = yield
+        = col({ num: 3 }, { class: 'right-nav' }) do
+          = render "components/nav"
+          = yield :third_nav
+          - unless @sections.nil?
+            %h2 Contents
+            = subnav class: 'secondary-nav' do |n|
+              - @sections.names.each do |s|
+                - n.link s
+
+      .scroll-to-top
+        = button_link "", { url: "##{ @sections.names.first.parameterize }", glyph: "arrow-circle-up", size: :lg, state: :info, type: 'fw' }, { class: "back-top" }
     = render "layouts/footer"

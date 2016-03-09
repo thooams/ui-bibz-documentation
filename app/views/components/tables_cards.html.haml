@@ -1,10 +1,11 @@
+// WORK IN PROGRESS
 :markdown
   # Tables cards
 
   Le composant `table_card` peut comporter:
 
   * une pagination
-  * une recherche
+  * une url
 
   La pagination est gérée grâce à la gem `will_paginate`.
 
@@ -15,3 +16,32 @@
     #### Important
     Pour ajouter, modifier, supprimer des colonnes et des actions dans le component
     `table_card` vous devez ajouter l'option `tap: true`.
+
+- @sections = sections do |s|
+  - s.section title: "View" do
+    :markdown
+      Les colonnes sont par défaut toutes affichées et les actions par défaut sont:
+
+      * show
+      * edit
+      * delete
+    = example do |c|
+      - c.header do
+        = table_card({ store: @users, tap: true }) do |b|
+          - b.columns do |cls|
+            - cls.column :id
+            - cls.column :email
+            - cls.column :active
+            - cls.column :company
+            - cls.column :created_at
+            - cls.column :updated_at
+          - b.actions do |acs|
+            - acs.link 'Show', url: '#show', glyph: 'eye'
+            - acs.link 'Edit', url: '#show', glyph: 'pencil'
+            - acs.link 'Delete', url: '#show', glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
+      - c.code do
+        table_card({ store: @users, tap: true })
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+= @sections.render
