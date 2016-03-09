@@ -30,6 +30,10 @@ class ComponentsController < ApplicationController
     @users = User.all.limit(3).table_search_pagination(params, session)
   end
 
+  def tables_cards
+    @users = User.all.limit(3).table_search_pagination(params, session)
+  end
+
   def core
   end
 

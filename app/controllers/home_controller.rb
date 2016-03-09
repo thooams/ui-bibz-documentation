@@ -5,6 +5,7 @@ class HomeController < ApplicationController
   end
 
   def get_started
+    layout 'application'
   end
 
 end
