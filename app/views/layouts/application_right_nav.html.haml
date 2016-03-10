@@ -24,7 +24,7 @@
             %h2 Contents
             = subnav class: 'secondary-nav' do |n|
               - @sections.names.each do |s|
-                - n.link s, {}, status: nav_active_link(s)
+                - n.link s
 
       .scroll-to-top
         - anchor = @sections.try(:names).try(:first).nil? ? "#" : @sections.names.first.parameterize
