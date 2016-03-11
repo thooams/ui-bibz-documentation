@@ -32,4 +32,8 @@ module ApplicationHelper
     link_to('Bootstrap doc', "http://v4-alpha.getbootstrap.com/#{ url }")
   end
 
+  def nav_active_link path
+    url_for(controller: controller_name, action: action_name) == path ? :active : nil
+  end
+
 end

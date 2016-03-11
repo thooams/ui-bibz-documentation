@@ -12,3 +12,14 @@
 //
 //= require ui_bibz
 //= require turbolinks
+
+// Fonction pour fixer le menu de droite lors du scrolling
+$(window).scroll(function() {
+	if ($(this).scrollTop() > 370) {
+		$('.secondary-nav').addClass('fix-secondary-nav');
+		$('.content').addClass('fix-content');
+  } else {
+		$('.secondary-nav').removeClass('fix-secondary-nav');
+		$('.content').removeClass('fix-content');
+  }
+});
