@@ -7,7 +7,7 @@
 - @sections = sections do |s|
   - s.section title: "Button" do
     :markdown
-      L'option `state` a pour agument les symboles suivants :
+      The `state` option for agument the following symbols :
 
       * :primary
       * :secondary
@@ -39,7 +39,7 @@
 
   - s.section title: "Outline", tag: :h3 do
     :markdown
-      Le fond coloré des boutons peut être retiré grâce à l'option `outline` qui possède pour argument un booléan.
+      The background color of the buttons can be removed through the `outline` option that has for a Boolean argument.
     = example do |c|
       - c.header do
         = button 'Primary', state: :primary, outline: true
@@ -58,7 +58,7 @@
 
   - s.section title: "Size", tag: :h3 do
     :markdown
-      La taille peut être être définit â travers l'option `size` qui possède les 2 arguments suivants:
+      The size can be be defined through the `size` option that has the following two arguments :
 
       * :lg
       * :sm
@@ -77,7 +77,7 @@
 
   - s.section title: "Type", tag: :h3 do
     :markdown
-      Les boutons peuvent être présentés sous forme de block grâce à l'option `type` qui a pour argument le symbole `:block`.
+      Buttons can be presented as a block through the `type` option that argument for the symbol `:block`.
     = example do |c|
       - c.header do
         = button 'Block level button', state: :primary, type: :block
@@ -90,8 +90,8 @@
 
   - s.section title: "Status", tag: :h3 do
     :markdown
-      Les boutons hérite de l'option `status` présente dans l'élément [component](../components/)
-      Cette option permet de desactiver ou d'activer l'élément concernant à travers ces 2 arguments :
+      The buttons inherits the `status` option, this option is in element [component] (../components/)
+      This option lets you disable or enable the element about through these two arguments :
 
       * :active
       * :disabled
@@ -108,11 +108,11 @@
 
   - s.section title: "Options and html options" do
     :markdown
-      Tout comme le [component](../components/), l'élément `bouton` peut s'écrire de 2 différentes manières:
+      Like the [component] (../ components/), the `bouton` element can be written in two ways :
 
-      * en ligne
-      * par block
-      
+      * in line
+      * in block
+
     = example do |c|
       - c.header do
         = button 'Success', { state: :success }, { class: 'button' }
