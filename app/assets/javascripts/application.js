@@ -25,20 +25,17 @@ $(window).scroll(function() {
 });
 
 // Smooth Scroll //
-$(document).ready(function() {
-	$(document).on('page:change', function() {
-	  $('a[href*="#"]').on('click', (function() {
-	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-	      var target = $(this.hash);
-	      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-				//alert(JSON.stringify(target));
-	      if (target.length) {
-	        $('html, body').animate({
-	          scrollTop: target.offset().top
-	        }, 1000);
-	        return false;
-	      }
-	    }
-	  }));
-	});
+$(document).on('page:change', function() {
+  $('a[href*="#"]').on('click', (function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  }));
 });
