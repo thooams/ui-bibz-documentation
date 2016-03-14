@@ -26,7 +26,7 @@
             %h2 Contents
             = subnav do |n|
               - @sections.names.each do |s|
-                - n.link s
+                - n.link s, id: 'smoothScroll'
 
       .scroll-to-top
         = button_link "", { url: url_for(controller: controller_name, action: action_name, anchor: 'top'), glyph: "arrow-circle-up", size: :lg, state: :info, type: 'fw' }, { class: "back-top" }

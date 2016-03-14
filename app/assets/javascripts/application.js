@@ -13,7 +13,7 @@
 //= require ui_bibz
 //= require turbolinks
 
-// Fonction pour fixer le menu de droite lors du scrolling
+// Fonction pour fixer le menu de droite lors du scrolling //
 $(window).scroll(function() {
 	if ($(this).scrollTop() > 370) {
 		$('.secondary-nav').addClass('fix-secondary-nav');
@@ -22,4 +22,23 @@ $(window).scroll(function() {
 		$('.secondary-nav').removeClass('fix-secondary-nav');
 		$('.content').removeClass('fix-content');
   }
+});
+
+// Smooth Scroll //
+$(document).ready(function() {
+	$(document).on('page:change', function() {
+	  $('a[href*="#"]').on('click', (function() {
+	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+	      var target = $(this.hash);
+	      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+				//alert(JSON.stringify(target));
+	      if (target.length) {
+	        $('html, body').animate({
+	          scrollTop: target.offset().top
+	        }, 1000);
+	        return false;
+	      }
+	    }
+	  }));
+	});
 });
