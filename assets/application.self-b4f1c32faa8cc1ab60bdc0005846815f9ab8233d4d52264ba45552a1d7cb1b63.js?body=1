@@ -1,0 +1,28 @@
+(function() {
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 370) {
+      $('.secondary-nav').addClass('fix-secondary-nav');
+      $('.content').addClass('fix-content');
+    } else {
+      $('.secondary-nav').removeClass('fix-secondary-nav');
+      $('.content').removeClass('fix-content');
+    }
+  });
+
+  $(document).on('page:change', function() {
+    $('a[href*="#"]').on('click', function() {
+      var target;
+      if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
+        target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+        if (target.length) {
+          $('html, body').animate({
+            scrollTop: target.offset().top
+          }, 1000);
+          return false;
+        }
+      }
+    });
+  });
+
+}).call(this);

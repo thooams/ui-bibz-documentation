@@ -1,0 +1,25 @@
+(function() {
+  var Interface;
+
+  this.UiBibzInterface = Interface = (function() {
+    function Interface() {
+      this.nav();
+      this.tooltip();
+    }
+
+    Interface.prototype.nav = function() {
+      return $('.nav-tabs a').click(function(e) {
+        e.preventDefault();
+        return $(this).tab('show');
+      });
+    };
+
+    Interface.prototype.tooltip = function() {
+      return $('[data-toggle="tooltip"]').tooltip();
+    };
+
+    return Interface;
+
+  })();
+
+}).call(this);

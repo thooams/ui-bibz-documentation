@@ -1,0 +1,55 @@
+(function() {
+  var Table;
+
+  this.UiBibzTable = Table = (function() {
+    function Table() {
+      this.submitPerPageSelect();
+      this.clearSearch();
+      this.animeSearchInput();
+      this.focusSearchInput();
+      this.initializeSearchInput();
+    }
+
+    Table.prototype.submitPerPageSelect = function() {
+      return $('.table-pagination-per-page select').change(function() {
+        return $(this).parents('form').submit();
+      });
+    };
+
+    Table.prototype.clearSearch = function() {
+      return $('.table-search-field .clear-search-btn').click(function() {
+        $(this).prev().val('');
+        return $(this).parents('form').submit();
+      });
+    };
+
+    Table.prototype.animeSearchInput = function() {
+      return $('.table-card input[type=search]').blur(function() {
+        var $parent;
+        $parent = $(this).parent();
+        if ($(this).val() === '') {
+          $parent.removeClass('has-value');
+        }
+        return $parent.removeClass('is-focused');
+      });
+    };
+
+    Table.prototype.focusSearchInput = function() {
+      return $('.table-card input[type=search]').focus(function() {
+        return $(this).parent().addClass('is-focused has-value');
+      });
+    };
+
+    Table.prototype.initializeSearchInput = function() {
+      return $('.table-card input[type=search]').each(function() {
+        if ($(this).val() !== '') {
+          return $(this).parent().addClass('has-value');
+        }
+      });
+    };
+
+    return Table;
+
+  })();
+
+}).call(this);

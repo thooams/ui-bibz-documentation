@@ -1,0 +1,35 @@
+(function() {
+  var Form;
+
+  this.UiBibzForm = Form = (function() {
+    function Form() {
+      this.selectPicker();
+      this["switch"]();
+      this.multiSelect();
+    }
+
+    Form.prototype.selectPicker = function() {
+      return $('.selectpicker').selectpicker();
+    };
+
+    Form.prototype["switch"] = function() {
+      return $('.switch').bootstrapSwitch();
+    };
+
+    Form.prototype.multiSelect = function() {
+      return $('.multi-select').each(function() {
+        var data;
+        data = $(this).data();
+        delete data["multiselect"];
+        data = Object.assign({
+          inheritClass: true
+        }, data);
+        return $(this).multiselect(data);
+      });
+    };
+
+    return Form;
+
+  })();
+
+}).call(this);
