@@ -4,11 +4,11 @@
 - @sections = sections do |s|
   - s.section title: "Component" do
     :markdown
-      Le composant est au coeur de l'expérience Ui Bibz.
-      Chaque élément du framework hérite de l'élément `composant`.
-      Ce dernier peut contenir 3 arguments:
+      The component is in the heart of the experience Ui Bibz.
+      Each element of the framework inherits the `composant` element.
+      It may contain three arguments :
 
-      * content (variable ou block)
+      * content (variable or block)
       * options
       * html_options
 
@@ -24,7 +24,7 @@
 
   - s.section title: "Render method" do
     :markdown
-      La méthode `render` permet de générer le code html du composant.
+      The `render` method permit to generates the html code of the component.
     = example do |c|
       - c.code do
         Component.new('My content', { state: :primary }, { class: 'my-class' }).render
@@ -40,8 +40,8 @@
 
   - s.section title: "Size" do
     :markdown
-      Certain composant peuvent avoir l'option size dans leurs paramètres.
-      L'argument size contient 3 valeurs distincts:
+      Some component may have the size option in their settings.
+      The size argument contains three distinct values :
 
         * :xs
         * :md
@@ -67,9 +67,9 @@
 
   - s.section title: "State" do
     :markdown
-      Certain composant peuvent avoir l'option `state` dans leurs paramètres.
-      Cette option permet de changer la couleur de l'élément comme précisé dans [la documentation de bootstrap](http://v4-alpha.getbootstrap.com/components/buttons/).
-      L'argument `state` contient 7 valeurs distincts:
+      Some component may have the `state` option in their settings.
+      This option lets you change the color of the item as specified in [the bootstrap documentation](http://v4-alpha.getbootstrap.com/components/buttons/).
+      The `state` argument contains 7 distinct values :
 
         * :primary
         * :secondary
@@ -101,9 +101,10 @@
 
   - s.section title: "Glyph" do
     :markdown
-      Certain composant peuvent avoir l'option `glyph` dans leurs paramètres.
-      Cette option permet d'ajouter un glyph à son composant.
-      Vous pouvez écrire la valeur de cet argument de plusieurs manières, pour celà, veuillez vous référer au composant [glyph](../components/glyphs).
+      Some component may have the `glyph` option in their settings.
+      This option lets you add a glyph to its component.
+      You can write the value of this argument in many ways, for this, please refer to the component [glyph](../components/glyphs).
+
     = example do |c|
       - c.code do
         Component.new content, glyph: 'star'
@@ -133,7 +134,8 @@
 
   - s.section title: "Html_options" do
     :markdown
-      Vous avez la possibilité d'ajouter toutes les propriétés html.
+
+      You can add any html properties.
     = example do |c|
       - c.code do
         Component.new content, {}, { class: 'my-component', data: { target: 'first' }}

@@ -1,5 +1,6 @@
 :markdown
   # Surround Fields
+  
   Use Bootstrap’s custom button styles for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, states, and more.
 
 - @sections = sections do |s|
@@ -14,16 +15,16 @@
 
   - s.section title: "Simple form" do
     :markdown
-      Vous pouvez utiliser l'input surround avec la gem [simple_form](https://github.com/plataformatec/simple_form).
+      You can use the surround input with gem [simple form](https://github.com/plataformatec/simple_form).
 
-      Vous devez ajouter cette ligne dans le fichier `"config/initializers/simple_form.rb"`
+      You must add this line in the file `"config/initializers/simple_form.rb"`
+
     = example do |e|
       - e.code do
         \...
         config.custom_inputs_namespaces << "CustomInputs"
         \...
-
-    %p Ensuite dans votre vue, vous pouvez insérer votre champ input surround.
+    %p Then in your view, you can insert your input surround field.
     = example do |e|
       - e.code do
         simple_form(@search) do |f|
