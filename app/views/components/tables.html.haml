@@ -1,25 +1,24 @@
 :markdown
   # Tables
 
-  Le composant `table` peut comporter:
+  The `table_card` component may comprise :
 
-  * une pagination
-  * une recherche
+  * a pagination
+  * an url
 
-  La pagination est gérer grâce à la gem `will_paginate`.
+  The pagegination is managed through the gem `will_paginate` .
 
-  Les methodes de `will_paginate` fonctionnent avec le composant `table` comme par exemple `per_page`.
+  The methods of `will_paginate` work with the `table` component such as `per_page` .
 
 %important
   :markdown
     #### Important
-    Pour ajouter, modifier, supprimer des colonnes et des actions dans le component
-    `table` vous devez ajouter l'option `tap: true`.
-
+    To add, edit, delete columns and actions in the component `table_card` you must add the option `tap: true`.
 
 - @sections = sections do |s|
   - s.section title: "Model" do
-    %p Insérer dans le model la ligne suivante:
+
+    %p Insert in the model the following line :
     = example do |c|
       - c.code do
         class MyModel < ActiveRecord::Base
@@ -29,7 +28,7 @@
 
   - s.section title: "Controller" do
     :markdown
-      Utiliser dans votre modèle la methode `table_search_pagination` en passant les arguments:
+      Use the method in your model `table_search_pagination` passing arguments :
 
       * params
       * session
@@ -46,7 +45,7 @@
 
   - s.section title: "View" do
     :markdown
-      Les colonnes sont par défaut toutes affichées et les actions par défaut sont:
+      The columns are all displayed by default and the default actions are:
 
       * show
       * edit
@@ -72,18 +71,18 @@
 
   - s.section title: "Table Columns" do
     :markdown
-      L'ajout de colonnes à travers la méthode column contient plusieurs arguments et cette méthode est basée sur le component :
+      Adding columns through the column method contains several arguments and this method is based on the component :
 
       * data_index (symbol)
       * options (hash)
-        * name (le nom de la colonne)
-        * count (utilise la méthode count sur l'élément)
-        * date_format (formate l'affichage de la date en utilisant la méthode strftime ex: '%Y/%M/%D')
-        * format (formate les élements de la colone en utilisant lambda)
-        * link (ajoute un lien où l'expression :id est parsé et remplacé par l'entier correspondant)
-        * sort (permet de trier sur des champs )
-        * column_id (permet d'identifier la colonne : peut être utile pour le sort)
-        * custom_sort (indique que le tableau sera triéé d'une manière personnalisée)
+        * name (the name of the column)
+        * count (uses the count method on the element)
+        * date_format (formats the date display using the strftime method ex: `%Y/%M/%D`)
+        * format (formats the elements of colone using lambda)
+        * link (adds a link where the expression `:id` is parsed and replaced with the corresponding integer)
+        * sort (to sort on fields)
+        * column_id (identifies the column can be useful for the spell)
+        * custom_sort (indicates the table will be sorted in a customized way)
       * html_options (hash)
     = example do |c|
       - c.header do
@@ -116,17 +115,17 @@
 
   - s.section title: "Table Actions" do
     :markdown
-      Les actions sont insérées dans un bouton dropdown.
-      Ces actions héritent du composant `DropdownLink` et propose les méthodes suivantes:
+      The shares are included in a dropdown button.
+      These shares inherit the `DropdownLink` component and provides the following methods :
 
       * [Header](../components/dropdowns#header)
       * [Divider](../components/dropdowns#divider)
       * [Link](../components/dropdowns#link)
       * [Html](../components/dropdowns#html)
 
-      Si aucunes actions n'est ajoutées, les actions par défauts sont affichées.
-      Vous pouvez les activer à travers l'option `default_actions: false`.
-      L'option `link` peut injecter l'id du record en écrivant dans votre lien `:id`.
+      If no action is added, actions by faults are displayed.
+      You can activate them through the `default_actions option: false`.
+      The `link` option can inject the id of the record by writing in your `link id`.
 
     = example do |c|
       - c.header do
@@ -154,8 +153,8 @@
         = documentation_link 'Documentation', '#'
 
     :markdown
-      Les actions peuvent être formatées selon à chaque ligne.
-      Grâce à la méthode `format` vous avez accès au record afin de formater l'action désirée.
+      Actions can be formatted according to each line.
+      With the `format` method you have access to the record to format the desired action.
 
     = example do |c|
       - c.header do
@@ -197,8 +196,8 @@
 
   - s.section title: "Controller arguments" do
     :markdown
-      Si l'on souhaite, par exemple, dénombrer des utilisateurs qui ont un lien non direct avec les documents. Imaginons par exemple, un utilisateur à des produits et que ces produits contiennent plusieurs documents. On souhaite compter le nombre d'utilisateurs par documents.
-      On peut ajouter des arguments dans la méthode `table_search_pagination` qui vont permettre de faire des jointures.
+      If we wish, for example, count users who have no direct link with the documents. Imagine, for example, a user with products and that these products contain several documents. We wish to count the number of users by documents.
+      We can add arguments in the method `table_search_pagination` that will help to make joints.
     = example do |c|
       - c.code do
         Arguments  = { sortable: {
@@ -212,13 +211,12 @@
 
         @documents = Document.includes(:users).table_search_pagination(params, session, arguments)
     :markdown
-      Ici l'argument sortable signifie que l'on souhaite s'interresser à la fonctionnalité de trie.
-      Pour celà il faut :
+      Here the sortable argument means that one wishes to interresser the sorting functionality.
+      For that it is necessary :
 
-      * définir le nom de la colonne triéé à travers l'argument column: (string)
-      * définir si le traitement se fait sur le comptage avec l'argument count: (boolean)
-      * définir la jointure avec l'argument joins: (string, array, hash)
-
+      * define the name of the column sorted through the argument column: (string)
+      * determine whether the treatment is done on counting with the count argument : (boolean)
+      * define the join along with the argument : (string , array , hash)
 
     = example do |c|
       - c.code do

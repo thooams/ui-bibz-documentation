@@ -1,21 +1,22 @@
 :markdown
   # Switch Fields
-  Ce composant est basé sur la librairie [Bootstrap Switch](http://www.bootstrap-switch.org/).
 
-  Les datas spécifiques à ce composant sont :
+  This component is based on the library [Bootstrap Switch](http://www.bootstrap-switch.org/).
 
-  * `status` (**'active'**, 'disabled') : 'active' si non spécifié
-  * `animate` (**true**, false) : true si non spécifié
+  The specific datas for this component are :
+
+  * `status` (**'active'**, 'disabled') : 'active' if not specified
+  * `animate` (**true**, false) : true if not specified
   * `on_color` | `off_color` (**primary** | info | success | warning | danger | default)
-  * `on_text` | `off_text` (String) : respectivement **'ON'** et **'OFF'** si non spécifié
-  * `label_text` (String) : vide si non spécifié
+  * `on_text` | `off_text` (String) : respectively **'ON'** and **'OFF'** if not specified
+  * `label_text` (String) : empty if not specified
 
-  Les options spécifiques à ce composant sont :
+  Specific options for this component are :
 
-  * `readonly` (true, **false**) : false si non spécifié
-  * `checked` (**true**, false) : true si non spécifié
+  * `readonly` (true, **false**) : false if not specified
+  * `checked` (**true**, false) : true if not specified
 
-  La syntaxe est la suivante :
+  The syntax is :
   `switch_field 'name', { data: argument }, { option: argument }`
 
 - @sections = sections do |s|
@@ -81,7 +82,7 @@
         |
         = documentation_link 'Glyph', '/components/glyphs'
     :markdown
-      Vous pouvez utiliser le composant [glyph](/components/glyphs) pour insérer une icone.
+      You can use the component [glyph](/components/glyphs) to insert an icon .
 
   - s.section title: "Readonly" do
     = example do |e|
