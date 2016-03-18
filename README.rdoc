@@ -1,5 +1,5 @@
 ![Ui Bibz logo](https://camo.githubusercontent.com/4c0c0759bab0fc2ed9975da99f51a9fcf1a8fc78/687474703a2f2f68756d6d656c2e6c696e6b2f55692d4269627a2f312e322e352f696d616765732f75692d6269627a2d6c6f676f2d776974686f75742d626f726465722e676966)
-
+![Texte alternatif](http://google.fr "texte pour le titre, facultatif")
 [![Gem Version](https://badge.fury.io/rb/ui_bibz.svg)](http://badge.fury.io/rb/ui_bibz)
 [![Build Status](https://travis-ci.org/thooams/Ui-Bibz.svg)](https://travis-ci.org/thooams/Ui-Bibz)
 [![Code Climate](https://codeclimate.com/github/thooams/Ui-Bibz/badges/gpa.svg)](https://codeclimate.com/github/thooams/Ui-Bibz)
