@@ -1,4 +1,4 @@
-![Ui Bibz logo](http://hummel.link/Ui-Bibz/2.0.0/images/ui-bibz-logo-without-border.gif)
+![Ui Bibz logo](ui-bibz-logo.png)
 
 [![Gem Version](https://badge.fury.io/rb/ui_bibz.svg)](http://badge.fury.io/rb/ui_bibz)
 [![Build Status](https://travis-ci.org/thooams/Ui-Bibz.svg)](https://travis-ci.org/thooams/Ui-Bibz)
@@ -9,7 +9,7 @@
 [![Dependency Status](https://gemnasium.com/thooams/Ui-Bibz.svg)](https://gemnasium.com/thooams/Ui-Bibz)
 
 # Ui Bibz App
-> Ui Bibz App is a documentation for ![Ui Bibz](https://github.com/thooams/Ui-Bibz/)
+> Ui Bibz App is a documentation for [Ui Bibz](https://github.com/thooams/Ui-Bibz/)
 > to allow build an interface very quickly and simply
 > using [Ruby on Rails 4](http://rubyonrails.org/) and [Boostrap 4](http://getbootstrap.com/).
 
