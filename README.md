@@ -1,4 +1,4 @@
-![Ui Bibz logo](ui-bibz-logo.png)
+![Ui Bibz logo](http://img11.hostingpics.net/pics/781245uibibzlogo.png)
 
 [![Gem Version](https://badge.fury.io/rb/ui_bibz.svg)](http://badge.fury.io/rb/ui_bibz)
 [![Build Status](https://travis-ci.org/thooams/Ui-Bibz.svg)](https://travis-ci.org/thooams/Ui-Bibz)
