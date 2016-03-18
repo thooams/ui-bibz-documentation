@@ -62,16 +62,19 @@
 
       * :lg
       * :sm
+      * :xs
 
     = example do |c|
       - c.header do
         = button 'Large button', state: :primary, size: :lg
         = button 'Medium button', state: :primary
         = button 'Small button', state: :primary, size: :sm
+        = button 'Extra small button', state: :primary, size: :xs
       - c.code do
         button 'Large button', state: :primary, size: :lg
         button 'Medium button', state: :primary
         button 'Small button', state: :primary, size: :sm
+        button 'Extra small button', state: :primary, size: :xs
       - c.footer do
         = documentation_link 'Documentation', '#'
 
