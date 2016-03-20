@@ -31,6 +31,13 @@
         button 'Warning', state: :warning
         button 'Danger', state: :danger
         button 'Link', state: :link
+      - c.html do
+        <button class="btn-primary btn">Primary</button>
+        <button class="btn-secondary btn">Secondary</button>
+        <button class="btn-success btn">Success</button>
+        <button class="btn-warning btn">Warning</button>
+        <button class="btn-danger btn">Danger</button>
+        <button class="btn-link btn">Link</button>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -53,6 +60,12 @@
         button 'Success', state: :success, outline: true
         button 'Warning', state: :warning, outline: true
         button 'Danger', state: :danger, outline: true
+      - c.html do
+        <button class="btn-primary-outline btn">Primary</button>
+        <button class="btn-secondary-outline btn">Secondary</button>
+        <button class="btn-success-outline btn">Success</button>
+        <button class="btn-warning-outline btn">Warning</button>
+        <button class="btn-danger-outline btn">Danger</button>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -75,6 +88,11 @@
         button 'Medium button', state: :primary
         button 'Small button', state: :primary, size: :sm
         button 'Extra small button', state: :primary, size: :xs
+      - c.html do
+        <button class="btn-primary btn btn-lg">Large button</button>
+        <button class="btn-primary btn">Medium button</button>
+        <button class="btn-primary btn btn-sm">Small button</button>
+        <button class="btn-primary btn btn-xs">Extra small button</button>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -88,6 +106,9 @@
       - c.code do
         button 'Block level button', state: :primary, type: :block
         button 'Block level button', state: :secondary, type: :block
+      - c.html do
+        <button class="btn-primary btn btn-block">Block level button</button>
+        <button class="btn-secondary btn btn-block">Block level button</button>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -106,6 +127,9 @@
       - c.code do
         button 'Primary', state: :primary, status: :active
         button 'Primary', state: :primary, status: :disabled
+      - c.html do
+        <button class="active btn-primary btn">Primary</button>
+        <button class="disabled btn-primary btn">Primary</button>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -127,6 +151,9 @@
         button({ state: :success }, { class: 'button' }) do
           Info
         end
+      - c.html do
+        <button class="button btn-success btn">Success</button>
+        <button class="button btn-info btn">Info</button>
       - c.footer do
         = documentation_link 'Documentation', '#'
 

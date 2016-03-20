@@ -31,6 +31,19 @@
           b.link 'Library', url: '#library'
           b.link 'Data', status: :active
         end
+      - c.html do
+        <ol class="breadcrumb"><li class="active">Home</li></ol>
+          
+        <ol class="breadcrumb">
+          <li><a href="#home">Home</a></li>
+          <li class="active">Library</li>
+        </ol>
+          
+        <ol class="breadcrumb">
+          <li><a href="#active">Home</a></li>
+          <li><a href="#library">Library</a></li>
+          <li class="active">Data</li>
+        </ol>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -50,6 +63,12 @@
         = breadcrumb store: @users, link_label: :email, link_url: "#/id/edit"
       - c.code do
         breadcrumb store: @users, link_label: :email, link_url: "\#/id/edit"
+      - c.html do
+        <ol class="breadcrumb">
+          <li><a href="#/1/edit">test0@test.com</a></li>
+          <li><a href="#/2/edit">test1@test.com</a></li>
+          <li>test2@test.com</li>
+        </ol>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
