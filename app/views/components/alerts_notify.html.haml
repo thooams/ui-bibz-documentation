@@ -12,6 +12,11 @@
         notify 'Warning', state: :warning
         notify 'Info', state: :info
         notify 'Success', state: :success
+      - c.html do
+        <div class="card-header"><div class="alert-danger alert alert-dismissible" role="alert">Danger</div>
+        <div class="alert-warning alert alert-dismissible" role="alert">Warning</div>
+        <div class="alert-info alert alert-dismissible" role="alert">Info</div>
+        <div class="alert-success alert alert-dismissible" role="alert">Success</div>
       - c.footer do
         = documentation_link 'Documentation', '#'
 

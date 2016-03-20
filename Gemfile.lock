@@ -51,9 +51,8 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
-    autoprefixer-rails (6.3.1)
+    autoprefixer-rails (6.3.3.1)
       execjs
-      json
     awesome_print (1.6.1)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -218,6 +217,3 @@ DEPENDENCIES
   ui_bibz!
   unicorn
   web-console (~> 2.0)
-
-BUNDLED WITH
-   1.10.6
