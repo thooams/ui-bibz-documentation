@@ -1,7 +1,7 @@
 :markdown
   # Multi Select Fields
 
-  Ce composant est basé de la librairie [Jquery multiselect](http://loudev.com/).
+  This component is based on the library [Boostrap-multiselect](http://davidstutz.github.io/bootstrap-multiselect/).
 
 - @sections = sections do |s|
   - s.section title: "Multi Select Field" do
@@ -73,16 +73,16 @@
 
   - s.section title: "Simple form" do
     :markdown
-      Vous pouvez utiliser l'input multi_select avec la gem [simple form](https://github.com/plataformatec/simple_form).
+      You can use the multi_select input with gem [simple form](https://github.com/plataformatec/simple_form).
 
-      Vous devez ajouter cette ligne dans le fichier `"config/initializers/simple_form.rb"`
+      You must add this line in the file `"config/initializers/simple_form.rb"`
+
     = example do |e|
       - e.code do
         \...
         config.custom_inputs_namespaces << "CustomInputs"
         \...
-
-    %p Ensuite dans votre vue, vous pouvez insérer votre champ input multi_select.
+    %p Then in your view, you can insert your input multi_select field.
     = example do |e|
       - e.code do
         simple_form(@search) do |f|

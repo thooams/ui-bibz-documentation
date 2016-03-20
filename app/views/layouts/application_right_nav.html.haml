@@ -1,0 +1,33 @@
+%html
+  %head
+    = render "layouts/meta"
+  %body
+    = render "layouts/header"
+    .pageheader
+      = container do
+        // Note : The image without the edges is more beautiful than the current
+        //= image_tag 'ui-bibz-logo-without-border.png'
+        = image_tag 'ui-bibz-logo', class: 'logo'
+        = image_tag 'ruby-white.png', width: 50
+        %h1= "#{ UiBibzApp::Application::NAME } v#{ UiBibz::VERSION }"
+        %p
+          Over a dozen reusable components built to provide iconography, dropdowns, <br/>
+          input groups, navigation, alerts, and much more.
+    = container do
+      = row do
+        %a{ name: 'top' }
+        = col( lg: { num: 2 }, md: { num: 2 }, sm: { num: 1 }, xs: { num: 12 }, class: 'left-nav' ) do
+          = render "components/nav"
+          = yield :third_nav
+        = col( lg: { num: 8, offset:1 }, md: { num: 8, offset: 2 }, sm: { num: 7, offset: 3 }, xs: { num: 12 }, class: 'content' ) do
+          = yield
+        = col( lg: { num: 1 }, md: { num: 1 }, sm: { num: 1 }, xs: { num: 1 }, class: 'secondary-nav' ) do
+          - unless @sections.nil?
+            %h2 Contents
+            = subnav do |n|
+              - @sections.names.each do |s|
+                - n.link s
+
+      .scroll-to-top
+        = button_link "", { url: url_for(controller: controller_name, action: action_name, anchor: 'top'), glyph: "arrow-circle-up", size: :lg, state: :info, type: 'fw' }, { class: "back-top" }
+    = render "layouts/footer"

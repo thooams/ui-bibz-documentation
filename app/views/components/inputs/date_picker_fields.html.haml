@@ -1,7 +1,7 @@
 :markdown
   # Date Picker Fields
 
-  Ce composant est basé de la librairie [Jquery multiselect](http://eternicode.github.io/bootstrap-datepicker/?markup=input&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=2&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&keyboardNavigation=on&forceParse=on#sandbox).
+  This component is based on the library [Jquery multiselect](http://eternicode.github.io/bootstrap-datepicker/?markup=input&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=2&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&keyboardNavigation=on&forceParse=on#sandbox).
 
 - @sections = sections do |s|
   - s.section title: "Date Picker Field" do
@@ -50,16 +50,15 @@
 
   - s.section title: "Simple form" do
     :markdown
-      Vous pouvez utiliser l'input date_picker avec la gem [simple form](https://github.com/plataformatec/simple_form).
-
-      Vous devez ajouter cette ligne dans le fichier `"config/initializers/simple_form.rb"`
+      You can use the date_picker input gem with [simple form](https://github.com/plataformatec/simple_form).
+      You must add this line to the `"config/initializers/simple_form.rb"`
     = example do |e|
       - e.code do
         \...
         config.custom_inputs_namespaces << "CustomInputs"
         \...
 
-    %p Ensuite dans votre vue, vous pouvez insérer votre champ input date_picker.
+    %p Then in your view , you can insert your input field date_pickerm.
     = example do |e|
       - e.code do
         simple_form(@search) do |f|

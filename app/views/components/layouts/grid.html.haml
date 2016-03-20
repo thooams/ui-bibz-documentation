@@ -1,8 +1,8 @@
 :markdown
   # Grid
-
-Vous pouvez vous renseigner sur la doc via :
-= getbootstrap_doc("/layout/grid/#example-column-ordering")
+  Grid systems are used for creating page layouts through a series of rows and columns that house your content.
+You can read about the doc :
+= getbootstrap_doc("layout/grid/#example-column-ordering")
 
 - @sections = sections do |s|
   - s.section title: "Row" do
@@ -18,14 +18,14 @@ Vous pouvez vous renseigner sur la doc via :
 
   - s.section title: "Cols" do
     :markdown
-      Une colonne peut prendre plusieurs arguments :
+      A column can take several arguments :
 
-      * num - Integer (obligatoire)
+      * num - Integer (mandatory)
       * offset - Integer
       * pull - Integer
       * push - Integer
 
-      Par défaut, la taille de la grid sera `:md`.
+      By default, the size of the grid will be `:md`.
     = example do |c|
       - c.code do
         row { class: 'test' } do
@@ -41,7 +41,7 @@ Vous pouvez vous renseigner sur la doc via :
 
   - s.section title: "Cols with differents sizes" do
     :markdown
-      Pour ajouter plusieurs tailles de colonnes, vous devez utiliser les arguments :
+      To add multiple sizes of columns, you must use arguments :
 
       * :xs
       * :sm

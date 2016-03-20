@@ -1,0 +1,108 @@
+:markdown
+  # Switch Fields
+
+  This component is based on the library [Bootstrap Switch](http://www.bootstrap-switch.org/).
+
+  The specific datas for this component are :
+
+  * `status` (**'active'**, 'disabled') : 'active' if not specified
+  * `animate` (**true**, false) : true if not specified
+  * `on_color` | `off_color` (**primary** | info | success | warning | danger | default)
+  * `on_text` | `off_text` (String) : respectively **'ON'** and **'OFF'** if not specified
+  * `label_text` (String) : empty if not specified
+
+  Specific options for this component are :
+
+  * `readonly` (true, **false**) : false if not specified
+  * `checked` (**true**, false) : true if not specified
+
+  The syntax is :
+  `switch_field 'name', { data: argument }, { option: argument }`
+
+- @sections = sections do |s|
+  - s.section title: "Switch Field" do
+    = example do |e|
+      - e.header do
+        = switch_field 'examplebasic'
+      - e.code do
+        switch_field 'examplebasic'
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Status" do
+    = example do |e|
+      - e.header do
+        = switch_field 'examplestatus', { status: 'active' }
+        = switch_field 'examplestatus', { status: 'disabled' }
+      - e.code do
+        switch_field 'examplestatus', { status: 'active' }
+        switch_field 'examplestatus', { status: 'disabled' }
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Animate" do
+    = example do |e|
+      - e.header do
+        = switch_field 'exampleanimate', { animate: true }
+        = switch_field 'exampleanimate', { animate: false }
+      - e.code do
+        switch_field 'exampleanimate', { animate: true }
+        switch_field 'exampleanimate', { animate: false }
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Color" do
+    = example do |e|
+      - e.header do
+        = switch_field 'examplecolor', { on_color: :success, off_color: :danger }
+      - e.code do
+        switch_field 'examplecolor', { on_color: :success, off_color: :danger }
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Text" do
+    = example do |e|
+      - e.header do
+        = switch_field 'exampletext', { on_text: "ExampleOn", off_text: "ExampleOff" }
+      - e.code do
+        switch_field 'exampletext', { on_text: "ExampleOn", off_text: "ExampleOff" }
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Label" do
+    = example do |e|
+      - e.header do
+        = switch_field 'examplelabel', { label_text: "MyText" }
+        = switch_field 'examplelabel', { label_text: glyph('diamond') }
+      - e.code do
+        switch_field 'examplelabel', { label_text: 'MyText' }
+        switch_field 'examplelabel', { label_text: glyph('diamond') }
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+        |
+        = documentation_link 'Glyph', '/components/glyphs'
+    :markdown
+      You can use the component [glyph](/components/glyphs) to insert an icon .
+
+  - s.section title: "Readonly" do
+    = example do |e|
+      - e.header do
+        = switch_field 'examplereadonly', {}, { readonly: true }
+        = switch_field 'examplereadonly', {}, { readonly: false }
+      - e.code do
+        switch_field 'examplereadonly', {}, { readonly: true }
+        switch_field 'examplereadonly', {}, { readonly: false }
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Checked" do
+    = example do |e|
+      - e.header do
+        = switch_field 'examplechecked', {}, { checked: true }
+        = switch_field 'examplechecked', {}, { checked: false }
+      - e.code do
+        switch_field 'examplechecked', {}, { checked: true }
+        switch_field 'examplechecked', {}, { checked: false }
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+= @sections.render

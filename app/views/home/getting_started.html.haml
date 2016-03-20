@@ -1,29 +1,40 @@
-:markdown
-  # Getting Started
-  ##Install
+= col ({ num: 2, pull: 2 }) do
+  = image_tag "http://img11.hostingpics.net/pics/936928keepcalmandletsgodevelop.png", :class => "img-keep-calm"
+/ If you want delete the image, put 'offset: 2' in col (see example below the line) and remove the two lines above
+/= col ({ num: 6, offset: 2 }) do
+= col ({ num: 6 }) do
+  :markdown
+    # Getting Started
+    ##Install
 
-  Add this line in your Gemfile:  `gem "ui_bibz", '~> #{ UiBibzApp::Application::VERSION }'`
+    Add this line in your Gemfile:  `gem "ui_bibz", '~> #{ UiBibzApp::Application::VERSION }'`
 
-  Run this command: `bundle install`
+    Run this command: `bundle install`
 
-  ##Assets Install
+    ##Assets Install
 
-  Put this line in: /app/assets/stylesheets/applications.css
+    Put this line in: `/app/assets/stylesheets/applications.css`
 
+    `*= require ui_bibz`
 
-            ...
-            *= require ui_bibz
-            ...
+    Put this line in: `/app/assets/javascripts/applications.js`
 
-  Put this line in: `/app/assets/javascripts/applications.js`
+    `//= require ui_bibz`
 
-            ...
-            //= require ui_bibz
-            ...
+    _Ps: You can use sass variables into Boostrap._
 
-  _Ps: You can use sass variables into Boostrap._
+=col ({ num: 4 }) do
+  %div{ :style => "margin: 6rem 0 3rem 0;" }
+    :markdown
 
-  ##Simple form
+      ##Compatibility
 
-  Gem is compatible with  [simple_form](https://github.com/plataformatec/simple_form).
-  All inputs fields can be used with **simple_form**.
+      Gem is compatible with [**Ruby**](https://www.ruby-lang.org/ "Ruby") version 2.x.x and [**Ruby On Rails**](http://rubyonrails.org/ "Rails") 4.2.x.
+
+  %div
+    :markdown
+
+      ##Simple form
+
+      Gem is compatible with  [simple_form](https://github.com/plataformatec/simple_form).
+      All inputs fields can be used with **simple_form**.

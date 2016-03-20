@@ -1,14 +1,11 @@
 :markdown
   # Buttons split dropdown
-
+  Use any button to trigger a dropdown menu by providing the proper menu markup.
 = content_for :third_nav do
-  :markdown
-    # Content
   = nav class: 'secondary-nav' do |n|
     - n.link 'Button split dropdown', url: '#button-dropdown'
     - n.nav do |na|
       - na.link 'Button split dropdown options', url: '#button-dropdown-options'
-
 
 - @sections = sections do |s|
   - s.section title: "Button split dropdown" do
@@ -37,7 +34,6 @@
         end
       - c.footer do
         = documentation_link 'Documentation', '#'
-
 
   - s.section title: "Buttonsplit  dropdown options" do
     = example do |c|

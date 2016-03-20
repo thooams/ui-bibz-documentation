@@ -5,8 +5,14 @@
     - n.link glyph_and_text('diamond', 'Gem'), url: 'https://rubygems.org/gems/ui_bibz'
   :markdown
     Ui Bibz Framework is designed and created by Thomas HUMMEL ([@thooams](https://github.com/thooams))<br />
-    This theme is inspired by ["Bootstrap theme documentation"](http://getbootstrap.com)<br />
+    This theme is inspired by [Bootstrap theme documentation](http://getbootstrap.com)<br />
     Currently v#{ UiBibz::VERSION }. Code licensed MIT
+  %script{ src: "https://liberapay.com/Thomas/widgets/button.js" }
+    %noscript
+      = link_to "https://liberapay.com/Thomas/donate" do
+        = image_tag "https://liberapay.com/assets/widgets/donate.svg"
+  %br
+  %br
   %form{ action: "https://www.paypal.com/cgi-bin/webscr", method: "post", target: "_top" }
     %input{ type: "hidden", name: "cmd", value: "_s-xclick" }
     %input{ type: "hidden", name: "hosted_button_id", value: "DCLUVYM4A2HMY" }
