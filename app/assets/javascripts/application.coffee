@@ -26,7 +26,7 @@ $(window).scroll ->
 
 # Smooth Scroll
 $(document).on 'page:change', ->
-  $('a[href*="#"]').on 'click', ->
+  $('.secondary-nav>.nav>.nav-item>a[href*="#"]').on 'click', ->
     if location.pathname.replace(/^\//, '') == @pathname.replace(/^\//, '') and location.hostname == @hostname
       target = $(@hash)
       target = if target.length then target else $('[name=' + @hash.slice(1) + ']')
