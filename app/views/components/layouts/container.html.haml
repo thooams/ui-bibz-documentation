@@ -8,22 +8,26 @@ You can read about the doc :
   - s.section title: "Container" do
     = example do |c|
       - c.header do
-        = image_tag "container.png"
+        = image_tag "container.png", :style => "width: 40rem;"
       - c.code do
         container class: 'test' do
           ...
           content
           ...
         end
+      - c.html do
+        <img src="/assets/container-b8f0ffddfecc77b1b0ffbb0cb296b51544d8bbe311d413dc60c6f3649c313498.png" alt="Container b8f0ffddfecc77b1b0ffbb0cb296b51544d8bbe311d413dc60c6f3649c313498">
       - c.footer do
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Container options" do
     = example do |c|
       - c.header do
-        = image_tag "container-fluid.png"
+        = image_tag "container-fluid.png", :style => "width: 40rem;"
       - c.code do
         container content, { type: :fluid }, { class: 'test-2' }
+      - c.html do
+        <img src="/assets/container-fluid-f0448e483177969ae279fe7d06094382db24de271cee7141be89c8594022a442.png" alt="Container fluid f0448e483177969ae279fe7d06094382db24de271cee7141be89c8594022a442">
       - c.footer do
         = documentation_link 'Documentation', '#'
 

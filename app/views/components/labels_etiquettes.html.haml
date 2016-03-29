@@ -14,6 +14,13 @@
         etiquette 'Warning', state: :warning
         etiquette 'Info', state: :info
         etiquette 'Success', state: :success
+      - c.html do
+        <span class="label-primary label">Primary</span>
+        <span class="label-default label">Default</span>
+        <span class="label-danger label">Danger</span>
+        <span class="label-warning label">Warning</span>
+        <span class="label-info label">Info</span>
+        <span class="label-success label">Success</span>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -29,6 +36,13 @@
         etiquette 'Warning', state: :warning, type: :pill
         etiquette 'Info', state: :info, type: :pill
         etiquette 'Success', state: :success, type: :pill
+      - c.html do
+        <span class="label-primary label label-pill">Primary</span>
+        <span class="label-default label label-pill">Default</span>
+        <span class="label-danger label label-pill">Danger</span>
+        <span class="label-warning label label-pill">Warning</span>
+        <span class="label-info label label-pill">Info</span>
+        <span class="label-success label label-pill">Success</span>
       - c.footer do
         = documentation_link 'Documentation', '#'
 

@@ -1,6 +1,6 @@
 :markdown
   # Surround Fields
-  
+
   Use Bootstrap’s custom button styles for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, states, and more.
 
 - @sections = sections do |s|
@@ -10,6 +10,12 @@
         = surround_field 'search', { append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
       - e.code do
         surround_field 'search', { append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
+      - e.html do
+        <div class="input-group">
+        <span class="input-group-addon"><i class="glyph fa fa-pencil"></i></span>
+        <input type="text" name="search" id="search" placeholder="Type your search..." class="form-control">
+        <span class="input-group-addon"><i class="glyph fa fa-camera-retro"></i></span>
+        </div>
       - e.footer do
         = documentation_link 'Documentation', '#'
 

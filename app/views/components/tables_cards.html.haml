@@ -40,6 +40,96 @@
             - acs.link 'Delete', url: '#show', glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
       - c.code do
         table_card({ store: @users, tap: true })
+      - c.html do
+        <form action="/components/tables_cards" accept-charset="UTF-8" method="get">
+        <input name="utf8" type="hidden" value="✓">
+        <div class="card-header">
+        <div class="title">Components list</div>
+        <div class="input-group input-group-sm table-search-field">
+        <span class="input-group-addon"><i class="glyph fa fa-search"></i></span>
+        <input type="search" name="search" class="form-control" placeholder="Search by Name...">
+        <span class="clear-search-btn input-group-addon"><i class="glyph fa fa-times-circle"></i></span>
+        </div>
+        <br class="ui-bibz-clear">
+        </div>
+        <table class="table">
+        <thead>
+        <tr>
+        <th>
+        <a class="dropup" href="/components/tables_cards?action=tables_cards&amp;column_id=id&amp;direction=asc&amp;sort=users.id">Id</a>
+        </th>
+        <th>
+        <a class="dropup" href="/components/tables_cards?action=tables_cards&amp;column_id=email&amp;direction=asc&amp;sort=users.email">Email</a>
+        </th>
+        <th>
+        <a class="dropup" href="/components/tables_cards?action=tables_cards&amp;column_id=active&amp;direction=asc&amp;sort=users.active">Active</a>
+        </th>
+        <th>
+        <a class="dropup" href="/components/tables_cards?action=tables_cards&amp;column_id=company&amp;direction=asc&amp;sort=users.company">Company</a>
+        </th>
+        <th>
+        <a class="dropup" href="/components/tables_cards?action=tables_cards&amp;column_id=created_at&amp;direction=asc&amp;sort=users.created_at">Created At</a>
+        </th>
+        <th>
+        <a class="dropup" href="/components/tables_cards?action=tables_cards&amp;column_id=updated_at&amp;direction=asc&amp;sort=users.updated_at">Updated At</a>
+        </th>
+        <th class="action"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>1</td>
+        <td>test0@test.com</td>
+        <td>true</td>
+        <td>Company test 6646</td>
+        <td>2015-09-04 08:24:05 UTC</td>
+        <td>2015-09-04 08:24:05 UTC</td>
+        <td>
+        <div class="dropdown-action btn-group dropdown" role="group">
+        <button class="btn btn-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="glyph fa fa-ellipsis-v fa-fw"></i> Actions <span class="caret"></span></button>
+        <div class="dropdown-menu dropdown-menu-right">
+        <a class="dropdown-item" href="#show"><i class="glyph fa fa-eye"></i> Show</a>
+        <a class="dropdown-item" href="#show"><i class="glyph fa fa-pencil"></i> Edit</a>
+        <a class="dropdown-item" data-confirm="Are you sure?" href="#show"><i class="glyph fa fa-trash"></i> Delete</a>
+        </div>
+        </div>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+        <div class="card-footer">
+        <ul class="pagination pagination">
+        <li class="prev disabled"><span>← Previous</span></li>
+        <li class="active"><span>1</span></li>
+        <li><a rel="next" href="/components/tables_cards?page=2">2</a></li>
+        <li><a href="/components/tables_cards?page=3">3</a></li>
+        <li><a href="/components/tables_cards?page=4">4</a></li>
+        <li><a href="/components/tables_cards?page=5">5</a></li>
+        <li><a href="/components/tables_cards?page=6">6</a></li>
+        <li><a href="/components/tables_cards?page=7">7</a></li>
+        <li><a href="/components/tables_cards?page=8">8</a></li>
+        <li><a href="/components/tables_cards?page=9">9</a></li>
+        <li class="disabled"><span>…</span></li>
+        <li><a href="/components/tables_cards?page=29">29</a></li>
+        <li><a href="/components/tables_cards?page=30">30</a></li>
+        <li class="next"><a rel="next" href="/components/tables_cards?page=2">Next →</a></li>
+        </ul>
+        <input name="utf8" type="hidden" value="✓">
+        <div class="table-pagination-per-page">
+        Displaying User <b>1&nbsp;-&nbsp;5</b> of <b>150</b> in total | Per page: <select name="per_page" id="per_page" class="form-control">
+        <option selected="selected" value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+        <option value="200">200</option>
+        <option value="500">500</option>
+        </select>
+        </div>
+        <br class="ui-bibz-clear">
+        </div>
+        </form>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
