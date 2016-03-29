@@ -15,6 +15,7 @@ PATH
 
 GEM
   remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
     actionmailer (4.2.4)
       actionpack (= 4.2.4)
@@ -222,6 +223,3 @@ DEPENDENCIES
   ui_bibz!
   unicorn
   web-console (~> 2.0)
-
-BUNDLED WITH
-   1.11.2
