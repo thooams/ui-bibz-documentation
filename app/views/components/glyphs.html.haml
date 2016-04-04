@@ -8,6 +8,8 @@
         = glyph 'diamond'
       - c.code do
         glyph 'diamond'
+      - c.html do
+        <i class="glyph fa fa-diamond"></i>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -25,6 +27,11 @@
         glyph 'diamond', size: 2
         glyph 'diamond', size: :md
         glyph 'diamond', size: :lg
+      - c.html do
+        <i class="glyph fa fa-diamond fa-1x"></i>
+        <i class="glyph fa fa-diamond fa-2x"></i>
+        <i class="glyph fa fa-diamond fa-3x"></i>
+        <i class="glyph fa fa-diamond fa-5x"></i>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -36,6 +43,8 @@
         = glyph 'diamond', type: 'fw'
       - c.code do
         glyph 'diamond', type: 'fw'
+      - c.html do
+        <i class="glyph fa fa-diamond fa-fw"></i>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -51,6 +60,13 @@
         glyph 'diamond', state: :info
         glyph 'diamond', state: :success
         glyph 'diamond', state: :danger
+      - c.html do
+        <i class="glyph-primary glyph fa fa-diamond"></i>
+        <i class="glyph-secondary glyph fa fa-diamond"></i>
+        <i class="glyph-warning glyph fa fa-diamond"></i>
+        <i class="glyph-info glyph fa fa-diamond"></i>
+        <i class="glyph-success glyph fa fa-diamond"></i>
+        <i class="glyph-danger glyph fa fa-diamond"></i>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -64,6 +80,10 @@
         glyph 'diamond', rotate: 90
         glyph 'diamond', rotate: 180
         glyph 'diamond', rotate: 270
+      - c.html do
+        <i class="glyph fa fa-diamond fa-rotate-90"></i>
+        <i class="glyph fa fa-diamond fa-rotate-180"></i>
+        <i class="glyph fa fa-diamond fa-rotate-270"></i>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -75,6 +95,9 @@
       - c.code do
         glyph 'diamond', flip: :horizontal
         glyph 'diamond', flip: :vertical
+      - c.html do
+        <i class="glyph fa fa-diamond fa-flip-horizontal"></i>
+        <i class="glyph fa fa-diamond fa-flip-vertical"></i>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -86,6 +109,9 @@
       - c.code do
         glyph 'square', stack: 2
         glyph 'diamond', stack: 1, state: :danger
+      - c.html do
+        <i class="glyph fa fa-square fa-stack-2x"></i>
+        <i class="glyph-danger glyph fa fa-diamond fa-stack-1x"></i>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -95,6 +121,8 @@
         = glyph({ name: 'diamond', size: :md })
       - c.code do
         glyph { name: 'diamond', size: :md }
+      - c.html do
+        <i class="glyph fa fa-diamond fa-3x"></i>
       - c.footer do
         = documentation_link 'Documentation', '#'
 

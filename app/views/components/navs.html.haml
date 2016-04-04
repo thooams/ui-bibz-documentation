@@ -27,6 +27,19 @@
           n.link 'Another link 2', url: '#another-link2'
           n.link 'Another link 3', url: '#another-link3'
         end
+      - c.html do
+        <ul class="nav">
+        <li class="nav-item"><a class="active nav-link" href="#active">Active</a></li
+        ><li class="my-link nav-item"><a class="my-link nav-link" href="#link">Link</a></li>
+        <li class="nav-item">
+        <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="#another-link">Another link</a></li>
+        <li class="nav-item"><a class="disabled nav-link" href="#disabled">Disabled</a></li>
+        </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#another-link2">Another link 2</a></li>
+        <li class="nav-item"><a class="nav-link" href="#another-link3">Another link 3</a></li>
+        </ul>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -48,6 +61,13 @@
           n.link 'Another link', url: '#another-link'
           n.link 'Disabled', url: '#disabled', status: :disabled
         end
+      - c.html do
+        <nav class="nav nav-links">
+        <a class="active nav-link" href="#active">Active</a>
+        <a class="my-link nav-link" href="#link">Link</a>
+        <a class="nav-link" href="#another-link">Another link</a>
+        <a class="disabled nav-link" href="#disabled">Disabled</a>
+        </nav>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -80,6 +100,20 @@
           n.link 'Another link', url: '#another-link'
           n.link 'Disabled', url: '#disabled', status: :disabled
         end
+      - c.html do
+        <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="active nav-link" data-toggle="tab" role="tab" href="#active">Active</a></li>
+        <li class="dropdown nav-item">
+        <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown <span class="caret"></span></a>
+        <div class="dropdown-menu dropdown-menu-left">
+        <a class="dropdown-item" href="#action">Action 1</a>
+        <a class="dropdown-item" href="#another-action">Action 2</a>
+        <a class="my-link dropdown-item" href="#separate-link">Action 3</a>
+        </div>
+        </li>
+        <li class="nav-item"><a class="nav-link" data-toggle="tab" role="tab" href="#another-link">Another link</a></li>
+        <li class="nav-item"><a class="disabled nav-link" data-toggle="tab" role="tab" href="#disabled">Disabled</a></li>
+        </ul>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -111,6 +145,20 @@
           n.link 'Another link', url: '#another-link'
           n.link 'Disabled', url: '#disabled', status: :disabled
         end
+      - c.html do
+        <ul class="nav nav-pills">
+        <li class="nav-item"><a class="active nav-link" href="#active">Active</a></li>
+        <li class="dropdown nav-item">
+        <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown <span class="caret"></span></a>
+        <div class="dropdown-menu dropdown-menu-left">
+        <a class="dropdown-item" href="#action">Action 1</a>
+        <a class="dropdown-item" href="#another-action">Action 2</a>
+        <a class="my-link dropdown-item" href="#separate-link">Action 3</a>
+        </div>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#another-link">Another link</a></li>
+        <li class="nav-item"><a class="disabled nav-link" href="#disabled">Disabled</a></li>
+        </ul>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -130,6 +178,13 @@
           n.link 'Another link', url: '#another-link'
           n.link 'Disabled', url: '#disabled', status: :disabled
         end
+      - c.html do
+        <ul class="nav nav-pills nav-stacked">
+        <li class="nav-item"><a class="active nav-link" href="#active">Active</a></li>
+        <li class="nav-item"><a class="nav-link" href="#link">Link</a></li>
+        <li class="nav-item"><a class="nav-link" href="#another-link">Another link</a></li>
+        <li class="nav-item"><a class="disabled nav-link" href="#disabled">Disabled</a></li>
+        </ul>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -160,6 +215,20 @@
           card 'Content 2', { tab: true, effect: :fade }, { id: 'content2' }
           card 'Content 3', { tab: true, effect: :fade }, { id: 'content3' }
           card 'Content 4', { tab: true }, { id: 'content4' }
+        </div>
+      - c.html do
+        <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="active nav-link" data-toggle="tab" role="tab" href="#content1">Active</a></li>
+        <li class="nav-item"><a class="nav-link" data-toggle="tab" role="tab" href="#content2">Link</a></li>
+        <li class="nav-item"><a class="nav-link" data-toggle="tab" role="tab" href="#content3">Another link</a></li>
+        <li class="nav-item"><a class="disabled nav-link" data-toggle="tab" role="tab" href="#content4">Disabled</a></li>
+        </ul>
+        <br>
+        <div class="tab-content">
+        <div id="content1" class="active card card-block tab-pane">Content 1</div>
+        <div id="content2" class="fade card card-block tab-pane">Content 2</div>
+        <div id="content3" class="fade card card-block tab-pane">Content 3</div>
+        <div id="content4" class="card card-block tab-pane">Content 4</div>
         </div>
       - c.footer do
         = documentation_link 'Documentation', '#'

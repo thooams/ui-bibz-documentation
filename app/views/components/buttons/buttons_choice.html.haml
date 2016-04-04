@@ -15,6 +15,11 @@
           button_choice 'Checkbox 1', state: :primary
           button_choice 'Checkbox 2', state: :primary, status: :active
         end
+      - c.html do
+        <div data-toggle="buttons" class="btn-group" role="group">
+          <label class="btn-primary btn"><input type="checkbox" autocomplete="off">Checkbox 1</label>
+          <label class="active btn-primary btn"><input type="checkbox" autocomplete="off" checked="checked">Checkbox 2</label>
+        </div>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -30,6 +35,11 @@
           button_choice 'Checkbox 1', state: :primary, outline: true, size: :lg
           button_choice 'Checkbox 2', state: :primary, status: :active, outline: true, size: :lg
         end
+      - c.html do
+        <div data-toggle="buttons" class="btn-group" role="group">
+          <label class="btn-success-outline btn btn-lg"><input type="checkbox" autocomplete="off">Checkbox 1</label>
+          <label class="active btn-success-outline btn btn-lg"><input type="checkbox" autocomplete="off" checked="checked">Checkbox 2</label>
+        </div>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -44,6 +54,11 @@
           button_choice 'Radio 1', state: :primary, type: :radio
           button_choice 'Radio 2', state: :primary, status: :active, type: :radio
         end
+      - c.html do
+        <div data-toggle="buttons" class="btn-group" role="group">
+          <label class="btn-primary btn"><input type="radio" autocomplete="off">Radio 1</label>
+          <label class="active btn-primary btn"><input type="radio" autocomplete="off" checked="checked">Radio 2</label>
+        </div>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -59,6 +74,11 @@
           button_choice 'Radio 1', state: :danger, outline: true, size: :lg, type: :radio
           button_choice 'Radio 2', state: :danger, status: :active, outline: true, size: :lg, type: :radio
         end
+      - c.html do
+        <div data-toggle="buttons" class="btn-group" role="group">
+          <label class="btn-danger-outline btn btn-lg"><input type="radio" autocomplete="off">Radio 1</label>
+          <label class="active btn-danger-outline btn btn-lg"><input type="radio" autocomplete="off" checked="checked">Radio 2</label>
+        </div>
       - c.footer do
         = documentation_link 'Documentation', '#'
 

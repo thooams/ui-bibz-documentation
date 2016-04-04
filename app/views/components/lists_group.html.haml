@@ -19,6 +19,14 @@
           lg.list 'Porta ac consectetur ac'
           lg.list 'Vestibulum at eros'
         end
+      - c.html do
+        <ul class="list-group">
+        <li class="list-group-item">Cras justo odio</li>
+        <li class="list-group-item">Dapibus ac facilisis in</li>
+        <li class="list-group-item">Morbi leo risus</li>
+        <li class="list-group-item">Porta ac consectetur ac</li>
+        <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -35,6 +43,12 @@
           lg.list 'Dapibus ac facilisis in', label: 2
           lg.list 'Morbi leo risus', label: 1
         end
+      - c.html do
+        <ul class="list-group">
+        <li class="list-group-item">Cras justo odio<span class="label-default pull-right label label-pill">14</span></li>
+        <li class="list-group-item">Dapibus ac facilisis in<span class="label-default pull-right label label-pill">2</span></li>
+        <li class="list-group-item">Morbi leo risus<span class="label-default pull-right label label-pill">1</span></li>
+        </ul>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -75,6 +89,14 @@
           lg.list 'Porta ac consectetur ac'
           lg.list 'Vestibulum at eros'
         end
+      - c.html do
+        <div class="list-group">
+        <a class="active list-group-item">Cras justo odio</a>
+        <a class="list-group-item">Dapibus ac facilisis in</a>
+        <a class="list-group-item">Morbi leo risus</a>
+        <a class="list-group-item">Porta ac consectetur ac</a>
+        <a class="list-group-item">Vestibulum at eros</a>
+        </div>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -95,6 +117,14 @@
           lg.list 'Porta ac consectetur ac'
           lg.list 'Vestibulum at eros'
         end
+      - c.html do
+        <ul class="list-group">
+        <li class="disabled list-group-item">Cras justo odio</li>
+        <li class="list-group-item">Dapibus ac facilisis in</li>
+        <li class="list-group-item">Morbi leo risus</li>
+        <li class="list-group-item">Porta ac consectetur ac</li>
+        <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -116,6 +146,14 @@
           lg.list 'Porta ac consectetur ac', state: :success
           lg.list 'Vestibulum at eros', state: :primary
         end
+      - c.html do
+        <ul class="list-group">
+        <li class="list-group-item-danger list-group-item">Cras justo odio</li>
+        <li class="list-group-item-info list-group-item">Dapibus ac facilisis in</li>
+        <li class="list-group-item-warning list-group-item">Morbi leo risus</li>
+        <li class="list-group-item-success list-group-item">Porta ac consectetur ac</li>
+        <li class="list-group-item-primary list-group-item">Vestibulum at eros</li>
+        </ul>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -152,6 +190,21 @@
             l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
           end
         end
+      - c.html do
+        <ul class="list-group">
+        <li class="active list-group-item">
+        <h4 class="list-group-item-heading">List group item heading</h4>
+        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+        </li>
+        <li class="list-group-item">
+        <h4 class="my-header list-group-item-heading">List group item heading</h4>
+        <p class="my-body list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+        </li>
+        <li class="list-group-item">
+        <h4 class="list-group-item-heading">List group item heading</h4>
+        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+        </li>
+        </ul>
       - c.footer do
         = documentation_link 'Documentation', '#'
 

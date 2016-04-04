@@ -17,6 +17,11 @@
         progress({ state: :primary, value: 50 }, { class: 'my-progress'}) do
           50%
         end
+      - c.html do
+        <progress class="progress" max="100" value="0">0</progress>
+        <progress class="my-progress progress-primary progress" max="100" value="25">25%</progress>
+        <progress class="my-progress progress-primary progress" max="100" value="50">50
+        </progress>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -35,6 +40,12 @@
         progress 50, state: :warning
         progress 75, state: :danger
         progress 100, state: :info
+      - c.html do
+        <progress class="progress-primary progress" max="100" value="10">10</progress>
+        <progress class="progress-success progress" max="100" value="25">25</progress>
+        <progress class="progress-warning progress" max="100" value="50">50</progress>
+        <progress class="progress-danger progress" max="100" value="75">75</progress>
+        <progress class="progress-info progress" max="100" value="100">100</progress>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -52,6 +63,12 @@
         progress 50, state: :warning, striped: true
         progress 75, state: :danger, striped: true
         progress 100, state: :info, striped: true
+      - c.html do
+        <progress class="progress-primary progress progress-striped" max="100" value="10">10</progress>
+        <progress class="progress-success progress progress-striped" max="100" value="25">25</progress>
+        <progress class="progress-warning progress progress-striped" max="100" value="50">50</progress>
+        <progress class="progress-danger progress progress-striped" max="100" value="75">75</progress>
+        <progress class="progress-info progress progress-striped" max="100" value="100">100</progress>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -69,6 +86,12 @@
         progress 50, state: :warning, striped: true, animated: true
         progress 75, state: :danger, striped: true, animated: true
         progress 100, state: :info, striped: true, animated: true
+      - c.html do
+        <progress class="progress-primary progress progress-striped progress-animated" max="100" value="10">10</progress>
+        <progress class="progress-success progress progress-striped progress-animated" max="100" value="25">25</progress>
+        <progress class="progress-warning progress progress-striped progress-animated" max="100" value="50">50</progress>
+        <progress class="progress-danger progress progress-striped progress-animated" max="100" value="75">75</progress>
+        <progress class="progress-info progress progress-striped progress-animated" max="100" value="100">100</progress>
       - c.footer do
         = documentation_link 'Documentation', '#'
 

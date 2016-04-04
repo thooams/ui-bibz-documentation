@@ -18,6 +18,13 @@
         button_link 'Warning', url: '#warning', state: :warning
         button_link 'Danger', url: '#danger', state: :danger
         button_link 'Link', url: '#link', state: :link
+      - c.html do
+        <a class="btn-primary btn" href="#primary">Primary</a>
+        <a class="btn-secondary btn" href="#secondary">Secondary</a>
+        <a class="btn-success btn" href="#success">Success</a>
+        <a class="btn-warning btn" href="#warning">Warning</a>
+        <a class="btn-danger btn" href="#danger">Danger</a>
+        <a class="btn-link btn" href="#link">Link</a>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -35,6 +42,12 @@
         button_link 'Success', url: '#', state: :success, outline: true
         button_link 'Warning', url: '#', state: :warning, outline: true
         button_link 'Danger', url: '#', state: :danger, outline: true
+      - c.html do
+        <a class="btn-primary-outline btn" href="#primary">Primary</a>
+        <a class="btn-secondary-outline btn" href="#secondary">Secondary</a>
+        <a class="btn-success-outline btn" href="#success">Success</a>
+        <a class="btn-warning-outline btn" href="#warning">Warning</a>
+        <a class="btn-danger-outline btn" href="#danger">Danger</a>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -48,6 +61,10 @@
         button_link 'Large button link', url: '#large-button-link', size: :lg
         button_link 'Medium button link', url: '#medium-button-link'
         button_link 'Small button link', url: '#small-button-link', size: :sm
+      - c.html do
+        <a class="btn-primary btn btn-lg" href="large-button-link">Large button link</a>
+        <a class="btn-primary btn" href="#medium-button-link">Medium button link</a>
+        <a class="btn-primary btn btn-sm" href="#small-button-link">Small button link</a>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -59,6 +76,9 @@
       - c.code do
         button_link 'Block level button link', url: '#block-level-button-link', state: :primary, type: :block
         button_link 'Block level button link', url: '#block-level-button-link', state: :secondary, type: :block
+      - c.html do
+        <a class="btn-primary btn btn-block" href="#block-level-button-link">Block level button link</a>
+        <a class="btn-secondary btn btn-block" href="#block-level-button-link">Block level button link</a>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -70,6 +90,9 @@
       - c.code do
         button_link 'Primary', url: '#active', status: :active
         button_link 'Primary', url: '#disabled', status: :disabled
+      - c.html do
+        <a class="active btn-primary btn" href="#active">Primary</a>
+        <a class="disabled btn-primary btn" href="#disabled">Primary</a>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -79,6 +102,8 @@
         = button_link 'Success', { url: '#', state: :success }, { class: 'button_link' }
       - c.code do
         button_link 'Primary', { url: '#', state: :success }, { class: 'button_link' }
+      - c.html do
+        <a class="button_link btn-success btn" href="#">Success</a>
       - c.footer do
         = documentation_link 'Documentation', '#'
 

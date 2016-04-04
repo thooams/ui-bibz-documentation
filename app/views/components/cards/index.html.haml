@@ -21,6 +21,10 @@
         card({ state: :success }, { class: 'my-card2'})  do
           "Content"
         end
+      - e.html do
+        <div class="card card-block">Content</div>
+        <div class="my-card1 card-info card card-block">Content</div>
+        <div class="my-card2 card-success card card-block">Content</div>
       - e.footer do
         = documentation_link 'Documentation', '#'
 
@@ -67,6 +71,26 @@
             "Footer 3"
           end
         end
+      - e.html do
+        <div class="card-deck-wrapper">
+          <div class="card-deck">
+            <div class="card">
+              <div class="card-header">Header 1</div>
+              <div class="card-block">Content 1</div>
+              <div class="card-footer">Footer 1</div>
+            </div>
+            <div class="card">
+              <div class="my-header card-header"><i class="glyph fa fa-diamond"></i> Header 2</div>
+              <div class="my-content card-block">Content 2</div>
+              <div class="my-footer card-footer text-muted">Footer 2</div>
+            </div>
+            <div class="card">
+              <div class="my-header card-header"><i class="glyph fa fa-diamond"></i> Header 3</div>
+              <div class="my-content card-block">Content 3</div>
+              <div class="my-footer card-footer text-muted">Footer 3</div>
+            </div>
+          </div>
+        </div>
       - e.footer do
         = documentation_link 'Documentation', '#'
 
@@ -101,6 +125,23 @@
             b.link "Card link", url: '#', class: "card-link"
             b.link "Card link", url: '#', class: "card-link"
           end
+      - e.html do
+        <div class="card">
+          <img src="/assets/image.svg" alt="Image">
+          <div class="card-block">
+            <h4 class="card-title">Card title</h4>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+          <ul class="list-group-flush list-group">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibas ac facilisis in</li>
+            <li class="list-group-item">vestibulum at eros</li>
+          </ul>
+          <div class="card-block">
+            <a class="card-link card-title">Card link</a>
+            <a class="card-link card-title">Card link</a>
+          </div>
+        </div>
       - e.footer do
         = documentation_link 'Documentation', '#'
 
@@ -149,6 +190,32 @@
             b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
           end
         end
+      - e.html do
+        <div class="card-deck-wrapper">
+        <div class="card-deck">
+        <div class="card">
+        <div class="card-block">
+        <h4 class="card-title">Special title treatment</h4>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a class="btn btn-primary card-title">Go somewhere</a>
+        </div>
+        </div>
+        <div class="card text-center">
+        <div class="card-block">
+        <h4 class="card-title">Special title treatment</h4>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a class="btn btn-primary card-title">Go somewhere</a>
+        </div>
+        </div>
+        <div class="card text-right">
+        <div class="card-block">
+        <h4 class="card-title">Special title treatment</h4>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a class="btn btn-primary card-title">Go somewhere</a>
+        </div>
+        </div>
+        </div>
+        </div>
       - e.footer do
         = documentation_link 'Documentation', '#'
 
@@ -222,6 +289,45 @@
             b.text "With supporting text below as a natural lead-in to additional content."
           end
         end
+      - e.html do
+        <div class="card-columns">
+        <div style="background-color: #333; border-color: #333;" class="card card-inverse">
+        <div class="card-block">
+        <h4 class="card-title">Special title treatment</h4>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        </div>
+        </div>
+        <div class="card-primary card card-inverse">
+        <div class="card-block">
+        <h4 class="card-title">Special title treatment</h4>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        </div>
+        </div>
+        <div class="card-success card card-inverse">
+        <div class="card-block">
+        <h4 class="card-title">Special title treatment</h4>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        </div>
+        </div>
+        <div class="card-danger card card-inverse">
+        <div class="card-block">
+        <h4 class="card-title">Special title treatment</h4>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        </div>
+        </div>
+        <div class="card-info card card-inverse">
+        <div class="card-block">
+        <h4 class="card-title">Special title treatment</h4>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        </div>
+        </div>
+        <div class="card-warning card card-inverse">
+        <div class="card-block">
+        <h4 class="card-title">Special title treatment</h4>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        </div>
+        </div>
+        </div>
       - e.footer do
         = documentation_link 'Documentation', '#'
 

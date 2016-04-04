@@ -11,6 +11,34 @@
       - e.code do
         options = options_for_select(10.times.map{ |i| "option \#{i}" })
         multi_select_field 'example', option_tags: options
+      - e.html do
+        <select name="example1[]" id="example1" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
+        <option value="option 0">option 0</option>
+        <option value="option 1">option 1</option>
+        <option value="option 2">option 2</option>
+        <option value="option 3">option 3</option>
+        <option value="option 4">option 4</option>
+        <option value="option 5">option 5</option>
+        <option value="option 6">option 6</option>
+        <option value="option 7">option 7</option>
+        <option value="option 8">option 8</option>
+        <option value="option 9">option 9</option>
+        </select>
+        <div class="btn-group">
+        <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="None selected">None selected <b class="caret"></b></button>
+        <ul class="multiselect-container dropdown-menu">
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 0"> option 0</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 1"> option 1</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 2"> option 2</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 3"> option 3</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 4"> option 4</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 5"> option 5</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 6"> option 6</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 7"> option 7</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 8"> option 8</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 9"> option 9</label></a></li>
+        </ul>
+        </div>
       - e.footer do
         = documentation_link 'Documentation', '#'
 
@@ -22,6 +50,30 @@
       - e.code do
         grouped_options = { 'North America' => [['United States','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
         multi_select_field 'example', { clickable_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
+      - e.html do
+        <select name="example2[]" id="example2" data-enable-clickable-opt-groups="true" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
+        <optgroup label="North America">
+        <option value="US">United States</option>
+        <option value="Canada">Canada</option>
+        </optgroup>
+        <optgroup label="Europe">
+        <option value="Denmark">Denmark</option>
+        <option value="Germany">Germany</option>
+        <option value="France">France</option>
+        </optgroup>
+        </select>
+        <div class="btn-group">
+        <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="None selected">None selected <b class="caret"></b></button>
+        <ul class="multiselect-container dropdown-menu">
+        <li class="multiselect-item group"><label class="multiselect-group">North America</label></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="US"> United States</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="Canada"> Canada</label></a></li>
+        <li class="multiselect-item group"><label class="multiselect-group">Europe</label></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="Denmark"> Denmark</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="Germany"> Germany</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="France"> France</label></a></li>
+        </ul>
+        </div>
       - e.footer do
         = documentation_link 'Documentation', '#'
 
@@ -33,6 +85,30 @@
       - e.code do
         grouped_options = { 'North America' => [['United States','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
         multi_select_field 'example', { collapsible_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
+      - e.html do
+        <select name="example2[]" id="example2" data-enable-collapsible-opt-groups="true" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
+        <optgroup label="North America">
+        <option value="US">United States</option>
+        <option value="Canada">Canada</option>
+        </optgroup>
+        <optgroup label="Europe">
+        <option value="Denmark">Denmark</option>
+        <option value="Germany">Germany</option>
+        <option value="France">France</option>
+        </optgroup>
+        </select>
+        <div class="btn-group">
+        <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="None selected">None selected <b class="caret"></b></button>
+        <ul class="multiselect-container dropdown-menu">
+        <li class="multiselect-item group"><label class="multiselect-group">North America</label></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="US"> United States</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="Canada"> Canada</label></a></li>
+        <li class="multiselect-item group"><label class="multiselect-group">Europe</label></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="Denmark"> Denmark</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="Germany"> Germany</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="France"> France</label></a></li>
+        </ul>
+        </div>
       - e.footer do
         = documentation_link 'Documentation', '#'
 
@@ -43,6 +119,39 @@
       - e.code do
         options = options_for_select(10.times.map{ |i| "option \#{i}" })
         multi_select_field 'example', searchable: true, option_tags: options
+      - e.html do
+        <select name="example1[]" id="example1" data-enable-filtering="true" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
+        <option value="option 0">option 0</option>
+        <option value="option 1">option 1</option>
+        <option value="option 2">option 2</option>
+        <option value="option 3">option 3</option>
+        <option value="option 4">option 4</option>
+        <option value="option 5">option 5</option>
+        <option value="option 6">option 6</option>
+        <option value="option 7">option 7</option>
+        <option value="option 8">option 8</option>
+        <option value="option 9">option 9</option>
+        </select>
+        <div class="btn-group">
+        <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="None selected">None selected <b class="caret"></b></button>
+        <ul class="multiselect-container dropdown-menu">
+        <li class="multiselect-item filter" value="0">
+        <div class="">
+        <input class="form-control multiselect-search" type="text" placeholder="Search">
+        </div>
+        </li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 0"> option 0</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 1"> option 1</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 2"> option 2</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 3"> option 3</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 4"> option 4</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 5"> option 5</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 6"> option 6</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 7"> option 7</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 8"> option 8</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 9"> option 9</label></a></li>
+        </ul>
+        </div>
       - e.footer do
         = documentation_link 'Documentation', '#'
 
@@ -53,6 +162,35 @@
       - e.code do
         options = options_for_select(10.times.map{ |i| "option \#{i}" })
         multi_select_field 'example', select_all_option: true, option_tags: options
+      - e.html do
+        <select name="example1[]" id="example1" data-include-select-all-option="true" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
+        <option value="option 0">option 0</option>
+        <option value="option 1">option 1</option>
+        <option value="option 2">option 2</option>
+        <option value="option 3">option 3</option>
+        <option value="option 4">option 4</option>
+        <option value="option 5">option 5</option>
+        <option value="option 6">option 6</option>
+        <option value="option 7">option 7</option>
+        <option value="option 8">option 8</option>
+        <option value="option 9">option 9</option>
+        </select>
+        <div class="btn-group">
+        <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="None selected">None selected <b class="caret"></b></button>
+        <ul class="multiselect-container dropdown-menu">
+        <li class="multiselect-item multiselect-all"><a href="javascript:void(0);" class="multiselect-all"><label class="checkbox"><input type="checkbox" value="multiselect-all">  Select all</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 0"> option 0</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 1"> option 1</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 2"> option 2</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 3"> option 3</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 4"> option 4</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 5"> option 5</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 6"> option 6</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 7"> option 7</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 8"> option 8</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 9"> option 9</label></a></li>
+        </ul>
+        </div>
       - e.footer do
         = documentation_link 'Documentation', '#'
 
@@ -68,6 +206,142 @@
         multi_select_field 'success', state: :success, option_tags: options
         multi_select_field 'warning', state: :warning, option_tags: options
         multi_select_field 'link', state: :link, option_tags: options
+      - e.html do
+        <select name="primary[]" id="primary" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
+        <option value="option 0">option 0</option>
+        <option value="option 1">option 1</option>
+        <option value="option 2">option 2</option>
+        <option value="option 3">option 3</option>
+        <option value="option 4">option 4</option>
+        <option value="option 5">option 5</option>
+        <option value="option 6">option 6</option>
+        <option value="option 7">option 7</option>
+        <option value="option 8">option 8</option>
+        <option value="option 9">option 9</option>
+        </select>
+        <div class="btn-group">
+        <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="None selected">None selected <b class="caret"></b></button>
+        <ul class="multiselect-container dropdown-menu">
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 0"> option 0</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 1"> option 1</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 2"> option 2</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 3"> option 3</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 4"> option 4</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 5"> option 5</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 6"> option 6</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 7"> option 7</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 8"> option 8</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 9"> option 9</label></a></li>
+        </ul>
+        </div>
+        <select name="secondary[]" id="secondary" class="btn-secondary btn multi-select" multiple="multiple" style="display: none;">
+        <option value="option 0">option 0</option>
+        <option value="option 1">option 1</option>
+        <option value="option 2">option 2</option>
+        <option value="option 3">option 3</option>
+        <option value="option 4">option 4</option>
+        <option value="option 5">option 5</option>
+        <option value="option 6">option 6</option>
+        <option value="option 7">option 7</option>
+        <option value="option 8">option 8</option>
+        <option value="option 9">option 9</option>
+        </select>
+        <div class="btn-group">
+        <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="None selected">None selected <b class="caret"></b></button>
+        <ul class="multiselect-container dropdown-menu">
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 0"> option 0</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 1"> option 1</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 2"> option 2</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 3"> option 3</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 4"> option 4</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 5"> option 5</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 6"> option 6</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 7"> option 7</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 8"> option 8</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 9"> option 9</label></a></li>
+        </ul>
+        </div>
+        <select name="success[]" id="success" class="btn-success btn multi-select" multiple="multiple" style="display: none;">
+        <option value="option 0">option 0</option>
+        <option value="option 1">option 1</option>
+        <option value="option 2">option 2</option>
+        <option value="option 3">option 3</option>
+        <option value="option 4">option 4</option>
+        <option value="option 5">option 5</option>
+        <option value="option 6">option 6</option>
+        <option value="option 7">option 7</option>
+        <option value="option 8">option 8</option>
+        <option value="option 9">option 9</option>
+        </select>
+        <div class="btn-group">
+        <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="None selected">None selected <b class="caret"></b></button>
+        <ul class="multiselect-container dropdown-menu">
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 0"> option 0</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 1"> option 1</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 2"> option 2</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 3"> option 3</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 4"> option 4</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 5"> option 5</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 6"> option 6</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 7"> option 7</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 8"> option 8</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 9"> option 9</label></a></li>
+        </ul>
+        </div>
+        <select name="warning[]" id="warning" class="btn-warning btn multi-select" multiple="multiple" style="display: none;">
+        <option value="option 0">option 0</option>
+        <option value="option 1">option 1</option>
+        <option value="option 2">option 2</option>
+        <option value="option 3">option 3</option>
+        <option value="option 4">option 4</option>
+        <option value="option 5">option 5</option>
+        <option value="option 6">option 6</option>
+        <option value="option 7">option 7</option>
+        <option value="option 8">option 8</option>
+        <option value="option 9">option 9</option>
+        </select>
+        <div class="btn-group">
+        <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="None selected">None selected <b class="caret"></b></button>
+        <ul class="multiselect-container dropdown-menu">
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 0"> option 0</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 1"> option 1</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 2"> option 2</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 3"> option 3</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 4"> option 4</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 5"> option 5</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 6"> option 6</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 7"> option 7</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 8"> option 8</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 9"> option 9</label></a></li>
+        </ul>
+        </div>
+        <select name="link[]" id="link" class="btn-link btn multi-select" multiple="multiple" style="display: none;">
+        <option value="option 0">option 0</option>
+        <option value="option 1">option 1</option>
+        <option value="option 2">option 2</option>
+        <option value="option 3">option 3</option>
+        <option value="option 4">option 4</option>
+        <option value="option 5">option 5</option>
+        <option value="option 6">option 6</option>
+        <option value="option 7">option 7</option>
+        <option value="option 8">option 8</option>
+        <option value="option 9">option 9</option>
+        </select>
+        <div class="btn-group">
+        <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="None selected">None selected <b class="caret"></b></button>
+        <ul class="multiselect-container dropdown-menu">
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 0"> option 0</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 1"> option 1</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 2"> option 2</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 3"> option 3</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 4"> option 4</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 5"> option 5</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 6"> option 6</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 7"> option 7</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 8"> option 8</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 9"> option 9</label></a></li>
+        </ul>
+        </div>
       - e.footer do
         = documentation_link 'Documentation', '#'
 

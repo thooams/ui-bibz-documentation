@@ -20,6 +20,25 @@
             button 'Save changes'
           end
         end
+      - c.html do
+        <div class="modal-example modal">
+        <div class="modal-dialog " role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+        <button class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">×</span>
+        <span class="sr-only">Close</span>
+        </button>
+        <h4 class="modal-title">Modal title</h4>
+        </div>
+        <div class="modal-body">One fine body</div>
+        <div class="modal-footer">
+        <button class="btn-secondary btn">Close</button>
+        <button class="btn-primary btn">Save changes</button>
+        </div>
+        </div>
+        </div>
+        </div>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -41,6 +60,20 @@
             'One fine body'
           end
         end
+      - c.html do
+        <div class="modal-example modal">
+        <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content"><div class="modal-header">
+        <button class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">×</span>
+        <span class="sr-only">Close</span>
+        </button>
+        <h4 class="modal-title">Modal title</h4>
+        </div>
+        <div class="modal-body">One fine body</div>
+        </div>
+        </div>
+        </div>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
