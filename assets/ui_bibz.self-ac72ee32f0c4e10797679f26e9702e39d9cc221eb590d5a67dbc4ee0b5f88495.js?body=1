@@ -1,0 +1,21 @@
+(function() {
+  var UiBibz, ready;
+
+  this.UiBibz = UiBibz = (function() {
+    function UiBibz() {
+      this.table = new window.UiBibzTable();
+      this.form = new window.UiBibzForm();
+      this["interface"] = new window.UiBibzInterface();
+    }
+
+    return UiBibz;
+
+  })();
+
+  ready = function() {
+    return new UiBibz;
+  };
+
+  $(document).on('turbolinks:load page:change', ready);
+
+}).call(this);

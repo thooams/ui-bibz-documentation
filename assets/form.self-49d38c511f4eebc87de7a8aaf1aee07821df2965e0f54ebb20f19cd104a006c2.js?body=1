@@ -1,0 +1,82 @@
+(function() {
+  var Form;
+
+  this.UiBibzForm = Form = (function() {
+    function Form() {
+      this.selectPicker();
+      this["switch"]();
+      this.multiSelect();
+      this.multiColumn();
+    }
+
+    Form.prototype.selectPicker = function() {
+      return $('.selectpicker').selectpicker();
+    };
+
+    Form.prototype["switch"] = function() {
+      return $('.switch').bootstrapSwitch();
+    };
+
+    Form.prototype.multiSelect = function() {
+      return $('.multi-select').each(function() {
+        var data;
+        data = $(this).data();
+        delete data["multiselect"];
+        data = Object.assign({
+          inheritClass: true
+        }, data);
+        return $(this).multiselect(data);
+      });
+    };
+
+    Form.prototype.multiColumn = function() {
+      return $('.multi-column').each(function() {
+        var data;
+        data = $(this).data();
+        delete data["multiselect"];
+        if (data["searchable"]) {
+          return $(this).multiSelect({
+            selectableOptgroup: data["selectableOptgroup"] ? true : false,
+            selectableHeader: "<input type='text' class='search-input form-control' autocomplete='off' placeholder='Search in selectable items'><br/>",
+            selectionHeader: "<input type='text' class='search-input form-control' autocomplete='off' placeholder='Search in selected items'><br/>",
+            afterInit: function(ms) {
+              var $selectableSearch, $selectionSearch, selectableSearchString, selectionSearchString, that;
+              that = this;
+              $selectableSearch = that.$selectableUl.siblings('input');
+              $selectionSearch = that.$selectionUl.siblings('input');
+              $selectionSearch = that.$selectionUl.siblings('input');
+              selectableSearchString = "#" + that.$container.attr("id") + " .ms-elem-selectable:not(.ms-selected)";
+              selectionSearchString = "#" + that.$container.attr("id") + " .ms-elem-selection.ms-selected";
+              that.qs1 = $selectableSearch.quicksearch(selectableSearchString).on("keydown", function(e) {
+                if (e.which === 40) {
+                  that.$selectableUl.focus();
+                  return false;
+                }
+              });
+              that.qs2 = $selectionSearch.quicksearch(selectionSearchString).on("keydown", function(e) {
+                if (e.which === 40) {
+                  that.$selectionUl.focus();
+                  return false;
+                }
+              });
+            },
+            afterSelect: function() {
+              this.qs1.cache();
+              this.qs2.cache();
+            },
+            afterDeselect: function() {
+              this.qs1.cache();
+              this.qs2.cache();
+            }
+          });
+        } else {
+          return $(this).multiSelect(data);
+        }
+      });
+    };
+
+    return Form;
+
+  })();
+
+}).call(this);
