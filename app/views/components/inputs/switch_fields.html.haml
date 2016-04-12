@@ -7,9 +7,9 @@
 
   * `status` (**'active'**, 'disabled') : 'active' if not specified
   * `animate` (**true**, false) : true if not specified
-  * `on_color` | `off_color` (**primary** | info | success | warning | danger | default)
-  * `on_text` | `off_text` (String) : respectively **'ON'** and **'OFF'** if not specified
-  * `label_text` (String) : empty if not specified
+  * `left_color` | `right_color` (**primary** | info | success | warning | danger | default)
+  * `left_text` | `right_text` (String) : respectively **'ON'** and **'OFF'** if not specified
+  * `middle_text` (String) : empty if not specified
 
   Specific options for this component are :
 
@@ -97,9 +97,9 @@
   - s.section title: "Color" do
     = example do |e|
       - e.header do
-        = switch_field 'examplecolor', { on_color: :success, off_color: :danger }
+        = switch_field 'examplecolor', { left_color: :success, right_color: :danger }
       - e.code do
-        switch_field 'examplecolor', { on_color: :success, off_color: :danger }
+        switch_field 'examplecolor', { left_color: :success, right_color: :danger }
       - e.html do
         <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-examplecolor bootstrap-switch-animate" style="width: 106px;">
         <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
@@ -115,9 +115,9 @@
   - s.section title: "Text" do
     = example do |e|
       - e.header do
-        = switch_field 'exampletext', { on_text: "ExampleOn", off_text: "ExampleOff" }
+        = switch_field 'exampletext', { left_text: "ExampleOn", right_text: "ExampleOff" }
       - e.code do
-        switch_field 'exampletext', { on_text: "ExampleOn", off_text: "ExampleOff" }
+        switch_field 'exampletext', { left_text: "ExampleOn", right_text: "ExampleOff" }
       - e.html do
         <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-id-exampletext bootstrap-switch-off bootstrap-switch-animate" style="width: 196px;">
         <div class="bootstrap-switch-container" style="width: 291px; margin-left: -97px;">
@@ -133,11 +133,11 @@
   - s.section title: "Label" do
     = example do |e|
       - e.header do
-        = switch_field 'examplelabel', { label_text: "MyText" }
-        = switch_field 'examplelabel', { label_text: glyph('diamond') }
+        = switch_field 'examplelabel', { middle_text: "MyText" }
+        = switch_field 'examplelabel', { middle_text: glyph('diamond') }
       - e.code do
-        switch_field 'examplelabel', { label_text: 'MyText' }
-        switch_field 'examplelabel', { label_text: glyph('diamond') }
+        switch_field 'examplelabel', { middle_text: 'MyText' }
+        switch_field 'examplelabel', { middle_text: glyph('diamond') }
       - e.html do
         <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-examplelabel bootstrap-switch-animate" style="width: 124px;">
         <div class="bootstrap-switch-container" style="width: 174px; margin-left: -52px;">
