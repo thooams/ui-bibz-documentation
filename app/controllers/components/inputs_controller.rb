@@ -15,4 +15,7 @@ class Components::InputsController < ApplicationController
   def switch_fields
   end
 
+  def autocomplete_fields
+  end
+
 end
