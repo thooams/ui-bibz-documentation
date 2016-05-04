@@ -18,6 +18,8 @@
   - nc.link 'Glyphs', url: components_glyphs_path, status: nav_active_link(components_glyphs_path)
   - nc.link 'Inputs', url: '#', status: :disabled
   - nc.nav do |na|
+    - na.link 'Autocomplete fields', url: components_inputs_autocomplete_fields_path, status: nav_active_link(components_inputs_autocomplete_fields_path)
+    - na.link 'Dropdown select fields', url: components_inputs_dropdown_select_fields_path, status: nav_active_link(components_inputs_dropdown_select_fields_path)
     - na.link 'Date picker fields', url: components_inputs_date_picker_fields_path, status: nav_active_link(components_inputs_date_picker_fields_path)
     - na.link 'Multi column fields', url: components_inputs_multi_column_fields_path, status: nav_active_link(components_inputs_multi_column_fields_path)
     - na.link 'Multi select fields', url: components_inputs_multi_select_fields_path, status: nav_active_link(components_inputs_multi_select_fields_path)
