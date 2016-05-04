@@ -2,7 +2,7 @@
   # Autocomplete Fields
 
 - @sections = sections do |s|
-  - s.section title: "Switch Field" do
+  - s.section title: "Autocomplete Field" do
     = example do |e|
       - e.header do
         = autocomplete_field 'example1', option_tags: options_for_select(10.times.map{ |i| "option #{i}" })

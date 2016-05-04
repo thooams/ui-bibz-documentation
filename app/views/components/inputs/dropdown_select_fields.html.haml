@@ -1,5 +1,5 @@
 :markdown
-  # Dropdown_select Fields
+  # Dropdown select Fields
   This component is based on the library [Bootstrap select](http://silviomoreto.github.io/bootstrap-select/examples/)
 
 - @sections = sections do |s|
@@ -75,7 +75,6 @@
         = dropdown_select_field 'example1', searchable: true, option_tags: options_for_select(5.times.map{ |i| "option #{i}" })
       - e.code do
         dropdown_select_field 'example1', searchable: true, option_tags: options_for_select(5.times.map{ |i| "option \#{i}" })
-      - e.html do
       - e.footer do
         = documentation_link 'Documentation', '#'
 
@@ -85,23 +84,28 @@
         = dropdown_select_field 'example1', max_options: 3, option_tags: options_for_select(5.times.map{ |i| "option #{i}" })
       - e.code do
         dropdown_select_field 'example1', max_options: 3, option_tags: options_for_select(5.times.map{ |i| "option \#{i}" })
-      - e.html do
       - e.footer do
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Dropdown Select Field selected_text_format" do
     %p
-      values: A comma delimited list of selected values (default)
-      count: If one item is selected, then the option value is shown. If more than one is selected then the number of selected items is displayed, e.g. 2 of 6 selected
-      count > x: Where x is the number of items selected when the display format changes from values to count
-      static: Always show the select title (placeholder), regardless of selection
+      %strong values:
+      A comma delimited list of selected values (default)
+      %br
+      %strong count:
+      If one item is selected, then the option value is shown. If more than one is selected then the number of selected items is displayed, e.g. 2 of 6 selected
+      %br
+      %strong count > x:
+      Where x is the number of items selected when the display format changes from values to count
+      %br
+      %strong static:
+      Always show the select title (placeholder), regardless of selection
 
     = example do |e|
       - e.header do
         = dropdown_select_field 'example1', selected_text_format: "count", option_tags: options_for_select(5.times.map{ |i| "option #{i}" })
       - e.code do
         dropdown_select_field 'example1', selected_text_format: "count", option_tags: options_for_select(5.times.map{ |i| "option \#{i}" })
-      - e.html do
       - e.footer do
         = documentation_link 'Documentation', '#'
 
