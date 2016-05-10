@@ -132,7 +132,7 @@
       - c.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Html_options" do
+  - s.section title: "Html options" do
     :markdown
 
       You can add any html properties.
@@ -145,4 +145,12 @@
       - c.footer do
         = documentation_link 'Documentation', '#'
 
+ - s.section title: "Component Tricks" do
+  :markdown
+    Key `class:` of Option the component was added to simplify writing of the component
+  = example do |c|
+    - c.code do
+      Component.new content, class: 'my-component'
+    - c.footer do
+      = documentation_link 'Documentation', '#'
 = @sections.render
