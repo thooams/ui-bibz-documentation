@@ -115,7 +115,8 @@
       - c.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Options" do
+  - s.section title: "Hash" do
+    %p You can create a glyph with only one hash.
     = example do |c|
       - c.header do
         = glyph({ name: 'diamond', size: :md })

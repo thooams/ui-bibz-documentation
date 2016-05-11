@@ -3,6 +3,10 @@
 
 - @sections = sections do |s|
   - s.section title: "Autocomplete Field" do
+    %p
+      Autocomplete field is a text_field and use html datalist to autocomplete results.
+      %br
+      = link_to 'Datalist info', 'http://www.w3schools.com/tags/tag_datalist.asp'
     = example do |e|
       - e.header do
         = autocomplete_field 'example1', option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
@@ -24,5 +28,37 @@
         </datalist>
       - e.footer do
         = documentation_link 'Documentation', '#'
+
+
+  - s.section title: "Simple form" do
+    :markdown
+      You can use the surround input with gem [simple form](https://github.com/plataformatec/simple_form).
+
+      You must add this line in the file `"config/initializers/simple_form.rb"`
+
+    = example do |e|
+      - e.code do
+        \...
+        config.custom_inputs_namespaces << "CustomInputs"
+        \...
+    %p
+      Then in your view, you can insert your input autocomplete field.
+      This simple form component is based on simple_form
+      = link_to "grouped_select", "https://github.com/plataformatec/simple_form#collections"
+      %br
+      Collection inputs accept two other options beside collections:
+      %ul
+        %li label_method => the label method to be applied to the collection to retrieve the label (use this instead of the text_method option in collection_select)
+        %li value_method => the value method to be applied to the collection to retrieve the value
+      %i label_method and value_method are optional
+
+
+    = example do |e|
+      - e.code do
+        simple_form(@search) do |f|
+          ...
+          f.input :price, as: :autocomplete, collection: @collection, label_method: :name, value_method: :id
+          ...
+        end
 
 = @sections.render

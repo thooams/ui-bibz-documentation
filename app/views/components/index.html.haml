@@ -29,7 +29,7 @@
       - c.code do
         Component.new('My content', { state: :primary }, { class: 'my-class' }).render
         \# or
-        Component.new({ size: 3 }, { id: 'my-id' }) do
+        Component.new({ size: :xs }, { id: 'my-id' }) do
           My content
         end.render
       - c.footer do
@@ -150,7 +150,7 @@
       Key `class:` of option the component was added to simplify writing of the component
     = example do |c|
       - c.code do
-        Component.new content, class: 'my-component'
+        Component.new content, class: 'my-component', size: :xs
       - c.footer do
         = documentation_link 'Documentation', '#'
 = @sections.render
