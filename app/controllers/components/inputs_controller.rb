@@ -21,4 +21,7 @@ class Components::InputsController < ApplicationController
   def dropdown_select_fields
   end
 
+  def formula_fields
+  end
+
 end
