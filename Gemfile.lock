@@ -1,7 +1,7 @@
 PATH
   remote: ~/Apps/Ui-Bibz
   specs:
-    ui_bibz (2.0.0.alpha6)
+    ui_bibz (2.0.0.alpha10)
       bootstrap (< 4.0.0.alpha3)
       bundler (>= 1.8.4)
       font-awesome-sass
