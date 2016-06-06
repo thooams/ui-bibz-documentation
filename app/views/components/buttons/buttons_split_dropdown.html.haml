@@ -10,6 +10,14 @@
 
 - @sections = sections do |s|
   - s.section title: "Button split dropdown" do
+    :markdown
+      Dropdown button has several block type:
+
+      * [Link](#link)
+      * [Divider](#divider)
+      * [Header](#header)
+      * [Html](#html)
+
     = example do |c|
       - c.header do
         - %i(primary secondary danger warning info success).each do |state|
@@ -18,6 +26,7 @@
             - bd.link "Another action", url: '#another-action'
             - bd.divider
             - bd.header 'Header'
+            - bd.html "     Normal Text"
             - bd.link "Separate link", url: '#separate-link'
       - c.code do
         button_split_dropdown 'Primary' do |bd|
@@ -28,6 +37,7 @@
           end
           bd.divider
           bd.header 'Header'
+          bd.html '      Normal Text'
           bd.link "Separate link", url: '#separate-link'
           bd.link({ url: '#separate-link'}, { class: 'my-link'}) do
             "Separate link"
@@ -109,9 +119,19 @@
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Buttonsplit  dropdown options" do
+    :markdown
+      Dropdown split button has several options:
+
+      * #{ state_link }
+      * #{ glyph_link }
+      * #{ size_link }
+      * #{ status_link }
+      * position (`:right, :left`)
+      * type (`:dropup, :dropdown`)
+
     = example do |c|
       - c.header do
-        = button_split_dropdown "Dropdown right", state: :success, size: :lg, position: :right do |bd|
+        = button_split_dropdown "Dropdown right", glyph: 'diamond', state: :success, size: :lg, position: :right do |bd|
           - bd.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
           - bd.link "Another action", url: '#another-action'
           - bd.divider
@@ -126,7 +146,7 @@
           - bd.link "Separate link", url: '#separate-link'
 
       - c.code do
-        button_split_dropdown "Dropdown right", state: :success, size: :lg, position: :right do |bd|
+        button_split_dropdown "Dropdown right", glyph: 'diamond', state: :success, size: :lg, position: :right do |bd|
           bd.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
           bd.link "Another action", url: '#another-action'
           bd.divider
