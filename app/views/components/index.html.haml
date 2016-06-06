@@ -4,8 +4,8 @@
 - @sections = sections do |s|
   - s.section title: "Component" do
     :markdown
-      The component is in the heart of the experience Ui Bibz.
-      Each element of the framework inherits the `composant` element.
+      The component is the core of Ui Bibz.<br/>
+      Each element of the framework inherits from `component` element.<br/>
       It may contain three arguments :
 
       * content (variable or block)
@@ -24,7 +24,7 @@
 
   - s.section title: "Render method" do
     :markdown
-      The `render` method permit to generates the html code of the component.
+      The `render` method generates the html code of the component.
     = example do |c|
       - c.code do
         Component.new('My content', { state: :primary }, { class: 'my-class' }).render
@@ -44,6 +44,7 @@
       The size argument contains three distinct values :
 
         * :xs
+        * :sm
         * :md
         * :lg
 
@@ -147,9 +148,12 @@
 
   - s.section title: "Tricks" do
     :markdown
-      Key `class:` of option the component was added to simplify writing of the component
+      Key `class:` can be insert in `html_options` and in `options` too.<br/>
+      This solution was added to simplify writing of the component.
     = example do |c|
       - c.code do
+        Component.new content, { size: :xs }, { class: 'my-component' }
+        \# or
         Component.new content, class: 'my-component', size: :xs
       - c.footer do
         = documentation_link 'Documentation', '#'
