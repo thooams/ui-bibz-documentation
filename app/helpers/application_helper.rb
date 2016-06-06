@@ -5,13 +5,15 @@ module ApplicationHelper
   end
 
   def extend_of_component name
+    #Tout comme ce dernier, le composant #{ content_tag :code, name } possède des #{ content_tag :code, 'options' } et des #{ content_tag :code, 'html_options' } présentes sous forme de hash.<br/>
+    #Il hérite d'ailleurs des options présentes dans l'élement component.".html_safe
     "#{ short_extend_of_component(name) }<br>
-    Tout comme ce dernier, le composant #{ content_tag :code, name } possède des #{ content_tag :code, 'options' } et des #{ content_tag :code, 'html_options' } présentes sous forme de hash.<br/>
-    Il hérite d'ailleurs des options présentes dans l'élement component.".html_safe
+    Like this one, the #{ content_tag :code, name } component has #{ content_tag :code, 'options' } and #{ content_tag :code, 'html_options' } present as hash.<br/>
+    It inherits options of component element.".html_safe
   end
 
   def short_extend_of_component name
-    "Le composant #{ content_tag :code, name } est une extension de l'élément #{ link_to 'component', components_components_path }.".html_safe
+    "The #{ content_tag :code, name } component is an extension of #{ link_to 'component', components_components_path } element.".html_safe
   end
 
   def active_icon record
@@ -34,6 +36,22 @@ module ApplicationHelper
 
   def nav_active_link path
     url_for(controller: controller_name, action: action_name) == path ? :active : nil
+  end
+
+  def option_link opt
+    link_to opt, components_path(anchor: opt)
+  end
+
+  def state_link
+    "#{ option_link('state') } (<code>:danger, :success, :info, :warning, :primary, :secondary</code>)"
+  end
+
+  def glyph_link
+    "#{ option_link('glyph') } (<code>String || Hash</code>)"
+  end
+
+  def size_link
+    "#{ option_link('size') } (<code>:lg, :md, :sm, :xs</code>)"
   end
 
 end
