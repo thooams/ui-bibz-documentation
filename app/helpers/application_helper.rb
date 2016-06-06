@@ -4,16 +4,16 @@ module ApplicationHelper
     link_to "#{ glyph 'book' } #{ name }".html_safe, url
   end
 
-  def extend_of_component name
+  def extend_of_component name, component_link = nil
     #Tout comme ce dernier, le composant #{ content_tag :code, name } possède des #{ content_tag :code, 'options' } et des #{ content_tag :code, 'html_options' } présentes sous forme de hash.<br/>
     #Il hérite d'ailleurs des options présentes dans l'élement component.".html_safe
-    "#{ short_extend_of_component(name) }<br>
+    "#{ short_extend_of_component(name, component_link) }<br>
     Like this one, the #{ content_tag :code, name } component has #{ content_tag :code, 'options' } and #{ content_tag :code, 'html_options' } present as hash.<br/>
-    It inherits options of component element.".html_safe
+    It inherits options of #{ link_to('component', components_components_path) } element.".html_safe
   end
 
-  def short_extend_of_component name
-    "The #{ content_tag :code, name } component is an extension of #{ link_to 'component', components_components_path } element.".html_safe
+  def short_extend_of_component name, component_link = nil
+    "The #{ content_tag :code, name } component is an extension of #{ component_link || link_to('component', components_components_path) } element.".html_safe
   end
 
   def active_icon record
@@ -52,6 +52,10 @@ module ApplicationHelper
 
   def size_link
     "#{ option_link('size') } (<code>:lg, :md, :sm, :xs</code>)"
+  end
+
+  def status_link
+    "#{ option_link('status') } (<code>:disable, :active</code>)"
   end
 
 end

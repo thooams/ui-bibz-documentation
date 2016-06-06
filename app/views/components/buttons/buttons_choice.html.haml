@@ -1,10 +1,18 @@
-:markdown
-  # Buttons choice
-%p= extend_of_component 'button_choice'
+%h1 Buttons choice
+%p= extend_of_component 'button_choice', link_to('button', components_buttons_path)
 
 - @sections = sections do |s|
-  - s.section title: "Button checkbox" do
-    %p
+  - s.section title: "Checkbox buttons" do
+    :markdown
+      Checkbox button has several options:
+
+      * #{ state_link }
+      * #{ glyph_link }
+      * #{ size_link }
+      * #{ status_link }
+      * outline (`Boolean`)
+      * type (`:checkbox, :radio`)
+
     = example do |c|
       - c.header do
         = button_group do
@@ -24,11 +32,11 @@
         = documentation_link 'Documentation', '#'
 
 
-  - s.section title: "Button checkbox options" do
+  - s.section title: "Checkbox buttons options" do
     = example do |c|
       - c.header do
         = button_group do
-          = button_choice 'Checkbox 1', state: :success, outline: true, size: :lg
+          = button_choice 'Checkbox 1', state: :success, outline: true, glyph: 'diamond', size: :lg
           = button_choice 'Checkbox 2', state: :success, status: :active, outline: true, size: :lg
       - c.code do
         button_group do
@@ -43,7 +51,7 @@
       - c.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Button radio" do
+  - s.section title: "Radio button" do
     = example do |c|
       - c.header do
         = button_group do
@@ -63,7 +71,7 @@
         = documentation_link 'Documentation', '#'
 
 
-  - s.section title: "Button radio options" do
+  - s.section title: "Radio buttons options" do
     = example do |c|
       - c.header do
         = button_group do

@@ -1,6 +1,5 @@
-:markdown
-  # Buttons dropdown
-= extend_of_component 'button_dropdown'
+%h1 Buttons dropdown
+%p= extend_of_component 'button_dropdown', link_to('dropdown', components_dropdowns_path)
 
 - @sections = sections do |s|
   - s.section title: "Button dropdown" do
@@ -117,9 +116,9 @@
       * #{ state_link }
       * #{ glyph_link }
       * #{ size_link }
+      * #{ status_link }
       * position (`:right, :left`)
       * type (`:dropup, :dropdown`)
-      * status(`:disable, :active`)
 
     = example do |c|
       - c.header do
