@@ -58,4 +58,8 @@ module ApplicationHelper
     "#{ option_link('status') } (<code>:disable, :active</code>)"
   end
 
+  def inherit_component_link name
+    "#{ name} (inherit of #{ link_to 'component', components_path })"
+  end
+
 end

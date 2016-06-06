@@ -7,7 +7,9 @@
     = example do |e|
       - e.header do
         = card_column do |cc|
-          - cc.card "content 1"
+          - cc.card tap: true do |c|
+            - c.header 'Header
+            - c.block "content 1"
           - cc.card "content 2"
           - cc.card "Content 3 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
           - cc.card "Content 4 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."

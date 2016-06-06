@@ -6,12 +6,11 @@
     :markdown
       Dropdown button has several block type:
 
-      * [Link](#link)
-      * [Divider](#divider)
-      * [Header](#header)
-      * [Html](#html)
+      * #{ inherit_component_link 'link' }
+      * #{ inherit_component_link 'header' }
+      * #{ inherit_component_link 'html' }
+      * divider
 
-    %p= short_extend_of_component 'link'
     = example do |c|
       - c.header do
         - %i(primary secondary danger warning info success).each do |state|
