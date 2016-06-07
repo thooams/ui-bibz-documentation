@@ -42,7 +42,7 @@
       * #{ inherit_component_link 'block' }
       * #{ inherit_component_link 'footer' }
       * image
-      * list_group
+      * #{ link_to 'list_group', components_lists_group_path }
 
       To add a block type, you must add `tap: true` to the card options.
 
@@ -115,7 +115,7 @@
     :markdown
 
       * image (`String`)
-      * list_group
+      * #{ link_to 'list_group', components_lists_group_path }
         * #{ inherit_component_link 'list' }
 
     = example do |e|
@@ -167,6 +167,8 @@
         </div>
       - e.footer do
         = documentation_link 'Documentation', '#'
+        |
+        = itag "list_group", components_lists_group_path
 
   - s.section title: "Block and Position" do
 
