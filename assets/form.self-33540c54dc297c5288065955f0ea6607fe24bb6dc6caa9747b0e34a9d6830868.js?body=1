@@ -1,0 +1,139 @@
+(function() {
+  var Form;
+
+  this.UiBibzForm = Form = (function() {
+    function Form() {
+      if ($('input.switch').length > 0) {
+        this["switch"]();
+      }
+      if ($('select.selectpicker').length > 0) {
+        this.selectPicker();
+      }
+      if ($('.multi-select').length > 0) {
+        this.multiSelect();
+      }
+      if ($('.multi-column').length > 0) {
+        this.multiColumn();
+      }
+      if ($('.formula_field_input').length > 0) {
+        this.formula();
+      }
+    }
+
+    Form.prototype.selectPicker = function() {
+      return $('select.selectpicker').selectpicker({
+        iconBase: 'fa',
+        tickIcon: 'fa-check',
+        style: 'btn-secondary'
+      });
+    };
+
+    Form.prototype["switch"] = function() {
+      return $('input.switch').bootstrapSwitch({
+        size: 'large'
+      });
+    };
+
+    Form.prototype.multiSelect = function() {
+      return $('.multi-select').each(function() {
+        var data;
+        data = $(this).data();
+        delete data["multiselect"];
+        data = Object.assign({
+          inheritClass: true
+        }, data);
+        return $(this).multiselect(data);
+      });
+    };
+
+    Form.prototype.formula = function() {
+      var formula_input_field, me;
+      me = this;
+      formula_input_field = $('.formula_field_input');
+      me.updateFormulaField(formula_input_field);
+      return formula_input_field.on('keyup', function() {
+        return me.updateFormulaField($(this));
+      });
+    };
+
+    Form.prototype.updateFormulaField = function(field) {
+      var error, f, formulaAlert, formulaInputField, formulaResultField, formulaSignField, response, result;
+      formulaInputField = field;
+      formulaSignField = formulaInputField.siblings('.formula_field_sign');
+      formulaResultField = formulaInputField.siblings('.formula_field_result');
+      formulaAlert = formulaInputField.siblings('.formula_field_alert');
+      f = new window.UiBibzFormula();
+      result = f.go(formulaInputField.val());
+      error = result[0];
+      response = result[1];
+      if (!!error) {
+        formulaAlert.attr('data-original-title', error);
+        formulaAlert.attr('style', 'display: table-cell;');
+        formulaResultField.addClass('fix-border-right');
+      } else {
+        formulaAlert.hide();
+        formulaResultField.val(eval(response));
+        formulaResultField.removeClass('fix-border-right');
+      }
+      if (isNaN(response)) {
+        formulaSignField.attr('style', 'display: table-cell;');
+        formulaResultField.attr('style', 'display: table-cell; visible: visible');
+        return formulaInputField.addClass('fix-border-right');
+      } else {
+        formulaSignField.hide();
+        formulaResultField.attr('style', 'visible: hidden;');
+        return formulaInputField.removeClass('fix-border-right');
+      }
+    };
+
+    Form.prototype.multiColumn = function() {
+      return $('.multi-column').each(function() {
+        var data;
+        data = $(this).data();
+        delete data["multiselect"];
+        if (data["searchable"]) {
+          return $(this).multiSelect({
+            selectableOptgroup: data["selectableOptgroup"] ? true : false,
+            selectableHeader: "<input type='text' class='search-input form-control' autocomplete='off' placeholder='Search in selectable items'><br/>",
+            selectionHeader: "<input type='text' class='search-input form-control' autocomplete='off' placeholder='Search in selected items'><br/>",
+            afterInit: function(ms) {
+              var $selectableSearch, $selectionSearch, selectableSearchString, selectionSearchString, that;
+              that = this;
+              $selectableSearch = that.$selectableUl.siblings('input');
+              $selectionSearch = that.$selectionUl.siblings('input');
+              $selectionSearch = that.$selectionUl.siblings('input');
+              selectableSearchString = "#" + that.$container.attr("id") + " .ms-elem-selectable:not(.ms-selected)";
+              selectionSearchString = "#" + that.$container.attr("id") + " .ms-elem-selection.ms-selected";
+              that.qs1 = $selectableSearch.quicksearch(selectableSearchString).on("keydown", function(e) {
+                if (e.which === 40) {
+                  that.$selectableUl.focus();
+                  return false;
+                }
+              });
+              that.qs2 = $selectionSearch.quicksearch(selectionSearchString).on("keydown", function(e) {
+                if (e.which === 40) {
+                  that.$selectionUl.focus();
+                  return false;
+                }
+              });
+            },
+            afterSelect: function() {
+              this.qs1.cache();
+              this.qs2.cache();
+            },
+            afterDeselect: function() {
+              this.qs1.cache();
+              this.qs2.cache();
+            }
+          });
+        } else {
+          return $(this).multiSelect(data);
+        }
+      });
+    };
+
+    return Form;
+
+  })();
+
+}).call(this);
