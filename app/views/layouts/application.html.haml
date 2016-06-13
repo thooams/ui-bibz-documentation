@@ -9,10 +9,12 @@
         //= image_tag 'ui-bibz-logo-without-border.png'
         = image_tag 'ui-bibz-logo', class: 'logo'
         = image_tag 'ruby-white.png', width: 50
-        %h1= "#{ UiBibzApp::Application::NAME } v#{ UiBibz::VERSION }"
+        - @ui_bibz = UiBibzApp::Application::Gems::ui_bibz
+        %h1= "#{ UiBibzApp::Application::NAME  } v#{ UiBibzApp::Application::VERSION }"
         %p
-          Over a dozen reusable components built to provide iconography, dropdowns, <br/>
-          input groups, navigation, alerts, and much more.
+          = UiBibzApp::Application::DESCRIPTION
+          %br
+          = UiBibzApp::Application::SUMMARY
     = container do
       = row do
         = yield
