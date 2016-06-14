@@ -19,6 +19,30 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
+  - s.section title: "Surround Field Options" do
+    :markdown
+      Surround field has several options:
+
+      * append (`html`)
+      * prepend (`html`)
+      * #{ state_link }
+      * #{ status_link }
+
+    = example do |e|
+      - e.header do
+        = surround_field 'search', { status: :disable, state: :danger, append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
+      - e.code do
+        surround_field 'search', { status: :disable, state: :danger, append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
+      - e.html do
+        <div class="input-group has-danger">
+          <span class="input-group-addon"><i class="glyph fa fa-pencil"></i></span>
+          <input type="text" name="search" id="search" placeholder="Type your search..." class="disabled has-danger form-control" disabled="disabled">
+          <span class="input-group-addon"><i class="glyph fa fa-camera-retro"></i></span>
+        </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+
   - s.section title: "Simple form" do
     :markdown
       You can use the surround input with gem [simple form](https://github.com/plataformatec/simple_form).

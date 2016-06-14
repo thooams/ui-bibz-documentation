@@ -30,6 +30,36 @@
         = documentation_link 'Documentation', '#'
 
 
+  - s.section title: "Autocomplete Field Options" do
+    :markdown
+      Autocomplete field has several options:
+
+      * options\_tags (`options_for_select || html`)
+      * #{ state_link }
+      * #{ status_link }
+
+    = example do |e|
+      - e.header do
+        = autocomplete_field 'example1', state: :success, status: :disable, option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
+      - e.code do
+        autocomplete_field 'example1', option_tags: options_for_select(10.times.map{ |i| "option \#{i}" })
+      - e.html do
+        <input type="text" name="example1" id="example1" class="form-control" autocomplete="true" list="example1-datalist">
+        <datalist id="example1-datalist">
+          <option value="option 0">option 0</option>
+          <option value="option 1">option 1</option>
+          <option value="option 2">option 2</option>
+          <option value="option 3">option 3</option>
+          <option value="option 4">option 4</option>
+          <option value="option 5">option 5</option>
+          <option value="option 6">option 6</option>
+          <option value="option 7">option 7</option>
+          <option value="option 8">option 8</option>
+          <option value="option 9">option 9</option>
+        </datalist>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
   - s.section title: "Simple form" do
     :markdown
       You can use the autocomplete field input with gem [simple form](https://github.com/plataformatec/simple_form).
