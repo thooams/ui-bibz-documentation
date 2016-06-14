@@ -17,12 +17,16 @@
 
 # Fonction pour fixer le menu de droite lors du scrolling
 $(window).scroll ->
-  if $(this).scrollTop() > 370
+
+  header = $('header').outerHeight(true) # taille <header>
+  pageheader = $('body > .pageheader').outerHeight(true) # taille <div class="pageheader">
+
+  startContainer = header + pageheader # début du .container
+
+  if $(this).scrollTop() > startContainer
     $('.secondary-nav').addClass 'fix-secondary-nav'
-    $('.content').addClass 'fix-content'
   else
     $('.secondary-nav').removeClass 'fix-secondary-nav'
-    $('.content').removeClass 'fix-content'
   return
 
 # Smooth Scroll secondary nav
