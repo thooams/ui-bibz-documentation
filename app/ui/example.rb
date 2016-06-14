@@ -31,7 +31,7 @@ module UiBibz::Ui::Ux
     def code_nav
       UiBibz::Ui::Core::Nav.new(type: :tabs).tap do |n|
         n.link 'Ruby', url: "##{ @ruby_id }", status: :active
-        n.link 'Html', url: "##{ @html_id }"
+        n.link 'Html', url: "##{ @html_id }"  unless @html.nil?
       end.render
     end
 

@@ -1,8 +1,15 @@
-:markdown
-  # Buttons group
-  Group a series of buttons together on a single line with the button group.
+%h1 Buttons group
+%p= extend_of_component 'button_group'
+%p  Group a series of buttons together on a single line with the button group.
+
 - @sections = sections do |s|
   - s.section title: "Button group" do
+    :markdown
+      Button group has several options:
+
+      * #{ size_link }
+      * position (`:horizontal, :vertical`)
+
     = example do |c|
       - c.header do
         = button_group do
@@ -25,6 +32,13 @@
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Nesting" do
+    :markdown
+      Button group has several block type:
+
+      * [button](#{ components_buttons_path })
+      * [button_link](#{ components_buttons_buttons_link_path })
+      * [button_dropdown](#{ components_buttons_buttons_dropdown_path })
+
     = example do |c|
       - c.header do
         = button_group do

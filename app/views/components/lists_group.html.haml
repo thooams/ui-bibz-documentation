@@ -4,6 +4,12 @@
 - @sections = sections do |s|
   - s.section title: "List group" do
     = example do |c|
+
+      :markdown
+        List group has one block type:
+
+        * #{ inherit_component_link 'list' }
+
       - c.header do
         = list_group do |lg|
           - lg.list 'Cras justo odio'
@@ -29,6 +35,15 @@
         </ul>
       - c.footer do
         = documentation_link 'Documentation', '#'
+
+  - s.section title: "List group options" do
+    :markdown
+      List group has several options:
+
+        * #{ state_link }
+        * #{ glyph_link }
+        * #{ status_link }
+        * type (`:button, :link`)
 
   - s.section title: "Labels" do
     = example do |c|
@@ -158,6 +173,13 @@
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Custom content" do
+
+    :markdown
+      List group list has several block type:
+
+      * #{ inherit_component_link 'header' }
+      * #{ inherit_component_link 'body' }
+
     = example do |c|
       - c.header do
         = list_group  do |lg|

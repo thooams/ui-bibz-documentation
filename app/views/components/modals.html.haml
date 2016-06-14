@@ -3,6 +3,13 @@
   Modals are streamlined, but flexible, dialog prompts with the minimum required functionality and smart defaults.
 - @sections = sections do |s|
   - s.section title: "Modal" do
+    :markdown
+      Modal has several block type:
+
+      * #{ inherit_component_link 'header' }
+      * #{ inherit_component_link 'body' }
+      * #{ inherit_component_link 'footer' }
+
     = example do |c|
       - c.header do
         = modal class: 'modal-example' do |m|

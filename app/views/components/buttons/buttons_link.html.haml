@@ -1,8 +1,20 @@
-:markdown
-  # Buttons link
-  Make a button with a link (url).
+%h1 Buttons link
+%p= extend_of_component 'button_choice', link_to('button', components_buttons_path)
+%p  Make a button with a link (url).
+
 - @sections = sections do |s|
   - s.section title: "Button link" do
+
+    :markdown
+      Button link has several options:
+
+      * #{ state_link }
+      * #{ size_link }
+      * #{ status_link }
+      * #{ glyph_link }
+      * outline (`Boolean`)
+      * type (`:block`)
+
     = example do |c|
       - c.header do
         = button_link 'Primary', url: '#primary', state: :primary
@@ -99,11 +111,11 @@
   - s.section title: "Options and html options" do
     = example do |c|
       - c.header do
-        = button_link 'Success', { url: '#', state: :success }, { class: 'button_link' }
+        = button_link 'Success', { url: '#', state: :success, glyph: 'diamond' }, { class: 'button_link' }
       - c.code do
-        button_link 'Primary', { url: '#', state: :success }, { class: 'button_link' }
+        button_link 'Primary', { url: '#', state: :success, glyph: 'diamond' }, { class: 'button_link' }
       - c.html do
-        <a class="button_link btn-success btn" href="#">Success</a>
+        <a class="button_link btn-success btn" href="#"><i class="glyph fa fa-diamond"></i> Success</a>
       - c.footer do
         = documentation_link 'Documentation', '#'
 

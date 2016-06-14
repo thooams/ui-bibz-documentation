@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-source 'https://rails-assets.org'
+#source 'https://rails-assets.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
@@ -29,6 +29,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rouge'
 # Ui Bibz Framework
 gem 'ui_bibz', path: '~/Apps/Ui-Bibz'
+#gem 'ui_bibz', '~> 2.0.0.alpha2'
 
 gem 'foreman'
 

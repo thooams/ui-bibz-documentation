@@ -1,9 +1,15 @@
-:markdown
-  # Cards
-  Use Bootstrap’s custom button styles for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, states, and more.
+%h1 Cards
+%p= extend_of_component 'card'
 
 - @sections = sections do |s|
   - s.section title: "Card" do
+    :markdown
+      Card has several options:
+
+      * #{ state_link }
+      * text_position (`:left, :center, :right`)
+      * type (`:inverse`)
+
     = example do |e|
       - e.header do
         = card do
@@ -29,6 +35,17 @@
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Card with header, block and footer" do
+    :markdown
+      Card has several block type:
+
+      * #{ inherit_component_link 'header' }
+      * #{ inherit_component_link 'block' }
+      * #{ inherit_component_link 'footer' }
+      * image
+      * #{ link_to 'list_group', components_lists_group_path }
+
+      To add a block type, you must add `tap: true` to the card options.
+
     = example do |e|
       - e.header do
         = card_deck do |cd|
@@ -94,7 +111,13 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Image and block" do
+  - s.section title: "Image and list_group" do
+    :markdown
+
+      * image (`String`)
+      * #{ link_to 'list_group', components_lists_group_path }
+        * #{ inherit_component_link 'list' }
+
     = example do |e|
       - e.header do
         = card tap: true do |c|
@@ -144,8 +167,20 @@
         </div>
       - e.footer do
         = documentation_link 'Documentation', '#'
+        |
+        = itag "list_group", components_lists_group_path
 
-  - s.section title: "Position" do
+  - s.section title: "Block and Position" do
+
+    :markdown
+      Card block has several block type:
+
+      * #{ inherit_component_link 'title' }
+      * #{ inherit_component_link 'text' }
+      * #{ inherit_component_link 'link' }
+
+      To add a block type, you must add `tap: true` to the block options.
+
     = example do |e|
       - e.header do
         = card_deck do |cd|

@@ -1,6 +1,6 @@
 :markdown
   # Glyphs
-  Includes over 250 glyphs in font format from the Glyphicon Halflings set.
+  Includes over 634 glyphs in font format from the [fontawesome.io]( http://fontawesome.io/icons/) set (_version #{ UiBibzApp::Application::Gems::font_awesome.version }_).
 - @sections = sections do |s|
   - s.section title: "Glyph" do
     = example do |c|
@@ -115,7 +115,8 @@
       - c.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Options" do
+  - s.section title: "Hash" do
+    %p You can create a glyph with only one hash.
     = example do |c|
       - c.header do
         = glyph({ name: 'diamond', size: :md })

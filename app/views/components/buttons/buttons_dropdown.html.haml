@@ -1,38 +1,38 @@
-:markdown
-  # Buttons dropdown
-= extend_of_component 'button_dropdown'
+%h1 Buttons dropdown
+%p= extend_of_component 'button_dropdown', link_to('dropdown', components_dropdowns_path)
 
 - @sections = sections do |s|
   - s.section title: "Button dropdown" do
     :markdown
-      Le bouton dropdown accepte plusieurs type de block :
+      Dropdown button has several block type:
 
-      * [Link](../components/dropdowns#link)
-      * [Divider](../components/dropdowns#divider)
-      * [Header](../components/dropdowns#header)
-      * [Html](../components/dropdowns#html)
+      * #{ inherit_component_link 'link' }
+      * #{ inherit_component_link 'header' }
+      * #{ inherit_component_link 'html' }
+      * divider
 
-    %p= short_extend_of_component 'link'
     = example do |c|
       - c.header do
         - %i(primary secondary danger warning info success).each do |state|
           = button_dropdown state.to_s.titleize, state: state do |bd|
-            - bd.link "Action", url: '#action'
+            - bd.link "Action", url: '#action', glyph: 'diamond'
             - bd.link url: '#another-action' do
               = "Another action"
             - bd.divider
             - bd.header 'Header'
+            - bd.html "     Normal Text"
             - bd.link({ url: '#separate-link'}, { class: 'my-link'}) do
               = "Separate link"
       - c.code do
         button_dropdown 'Primary' do |bd|
-          bd.link "Action", url: '#action'
+          bd.link "Action", url: '#action', glyph: 'diamond'
           bd.link "Another action", url: '#another-action'
           bd.link url: '#another-action' do
             "Another action"
           end
           bd.divider
           bd.header 'Header'
+          bd.html "     Normal Text"
           bd.link "Separate link", url: '#separate-link'
           bd.link({ url: '#separate-link'}, { class: 'my-link'}) do
             "Separate link"
@@ -42,7 +42,7 @@
         <div class="btn-group dropdown" role="group">
           <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Primary <span class="caret"></span></button>
           <div class="dropdown-menu dropdown-menu-left">
-            <a class="dropdown-item" href="#action">Action</a>
+            <a class="dropdown-item" href="#action"><i class="glyph fa fa-diamond"></i> Action</a>
             <a class="dropdown-item" href="#another-action">Another action</a>
             <div class="dropdown-divider"></div>
             <h6 class="dropdown-header" role="presentation">Header</h6>
@@ -53,7 +53,7 @@
         <div class="btn-group dropdown" role="group">
           <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Secondary <span class="caret"></span></button>
           <div class="dropdown-menu dropdown-menu-left">
-            <a class="dropdown-item" href="#action">Action</a>
+            <a class="dropdown-item" href="#action"><i class="glyph fa fa-diamond"></i> Action</a>
             <a class="dropdown-item" href="#another-action">Another action</a>
             <div class="dropdown-divider"></div>
             <h6 class="dropdown-header" role="presentation">Header</h6>
@@ -64,7 +64,7 @@
         <div class="btn-group dropdown" role="group">
           <button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Danger <span class="caret"></span></button>
           <div class="dropdown-menu dropdown-menu-left">
-            <a class="dropdown-item" href="#action">Action</a>
+            <a class="dropdown-item" href="#action"><i class="glyph fa fa-diamond"></i> Action</a>
             <a class="dropdown-item" href="#another-action">Another action</a>
             <div class="dropdown-divider"></div>
             <h6 class="dropdown-header" role="presentation">Header</h6>
@@ -75,7 +75,7 @@
         <div class="btn-group dropdown" role="group">
           <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Warning <span class="caret"></span></button>
           <div class="dropdown-menu dropdown-menu-left">
-            <a class="dropdown-item" href="#action">Action</a>
+            <a class="dropdown-item" href="#action"><i class="glyph fa fa-diamond"></i> Action</a>
             <a class="dropdown-item" href="#another-action">Another action</a>
             <div class="dropdown-divider"></div>
             <h6 class="dropdown-header" role="presentation">Header</h6>
@@ -86,7 +86,7 @@
         <div class="btn-group dropdown" role="group">
           <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Info <span class="caret"></span></button>
           <div class="dropdown-menu dropdown-menu-left">
-            <a class="dropdown-item" href="#action">Action</a>
+            <a class="dropdown-item" href="#action"><i class="glyph fa fa-diamond"></i> Action</a>
             <a class="dropdown-item" href="#another-action">Another action</a>
             <div class="dropdown-divider"></div>
             <h6 class="dropdown-header" role="presentation">Header</h6>
@@ -97,7 +97,7 @@
         <div class="btn-group dropdown" role="group">
           <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Success <span class="caret"></span></button>
           <div class="dropdown-menu dropdown-menu-left">
-            <a class="dropdown-item" href="#action">Action</a>
+            <a class="dropdown-item" href="#action"><i class="glyph fa fa-diamond"></i> Action</a>
             <a class="dropdown-item" href="#another-action">Another action</a>
             <div class="dropdown-divider"></div>
             <h6 class="dropdown-header" role="presentation">Header</h6>
@@ -109,9 +109,19 @@
 
 
   - s.section title: "Button dropdown options" do
+    :markdown
+      Dropdown button has several options:
+
+      * #{ state_link }
+      * #{ glyph_link }
+      * #{ size_link }
+      * #{ status_link }
+      * position (`:right, :left`)
+      * type (`:dropup, :dropdown`)
+
     = example do |c|
       - c.header do
-        = button_dropdown "Dropdown right", state: :success, size: :lg, position: :right do |bd|
+        = button_dropdown "Dropdown right", state: :success, glyph: 'diamond', size: :lg, position: :right do |bd|
           - bd.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
           - bd.link "Another action", url: '#another-action'
           - bd.divider
@@ -126,7 +136,7 @@
           - bd.link "Separate link", url: '#separate-link'
 
       - c.code do
-        button_dropdown "Dropdown right", state: :success, size: :lg, position: :right do |bd|
+        button_dropdown "Dropdown right", state: :success, glyph: 'diamond', size: :lg, position: :right do |bd|
           bd.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
           bd.link "Another action", url: '#another-action'
           bd.divider
@@ -143,7 +153,7 @@
         end
       - c.html do
         <div class="btn-group dropdown" role="group">
-          <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown right <span class="caret"></span></button>
+          <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="glyph fa fa-diamond"></i> Dropdown right <span class="caret"></span></button>
           <div class="dropdown-menu dropdown-menu-right">
             <a class="dropdown-item" data-confirm="Are you sure?" href="#action">Confirm action</a>
             <a class="dropdown-item" href="#another-action">Another action</a>

@@ -142,14 +142,15 @@
 
       * data_index (symbol)
       * options (hash)
-        * name (the name of the column)
-        * count (uses the count method on the element)
-        * date_format (formats the date display using the strftime method ex: `%Y/%M/%D`)
-        * format (formats the elements of colone using lambda)
-        * link (adds a link where the expression `:id` is parsed and replaced with the corresponding integer)
-        * sort (to sort on fields)
-        * column_id (identifies the column can be useful for the spell)
-        * custom_sort (indicates the table will be sorted in a customized way)
+        * name - String (the name of the column)
+        * count  (uses the count method on the element)
+        * date_format - String (formats the date display using the strftime method ex: `%Y/%M/%D`)
+        * format - Lambda (formats the elements of colone using lambda)
+        * link - String (adds a link where the expression `:id` is parsed and replaced with the corresponding integer)
+        * sort - String (to sort on fields)
+        * column_id - Symbol (identifies the column can be useful for the spell)
+        * custom_sort - String (indicates the table will be sorted in a customized way)
+        * as - Symbol (to autoformat output) :boolean
       * html_options (hash)
     = example do |c|
       - c.header do

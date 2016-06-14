@@ -48,14 +48,15 @@
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Breadcrumb with store" do
-    Les options sont :
     :markdown
+      Options are :
+
       * store
       * link_label (default: :name)
       * link_url (default: #)
 
-    Le link_url peut s'écrire:
-    :markdown
+      Option `link_url` can be written:
+
       * "/user/:id"
       * user_path(:id)
     = example do |c|

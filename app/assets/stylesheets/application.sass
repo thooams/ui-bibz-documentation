@@ -113,7 +113,7 @@ h2, h3
   @media screen and (max-width: 1320px)
     display: none !important
 
-footer
+body > footer
   padding: 4rem 0
   margin-top: 4rem
   font-size: 85%
@@ -145,7 +145,6 @@ footer
   border-radius: 40%
 
 .back-top
-  border-radius: 40%
   display: none
 
 // Image de la page Get Started
@@ -157,8 +156,8 @@ footer
 // Fixer le menu de droite lors du scroll (voir application.js)
 .fix-secondary-nav
   position: fixed
-  top: -50
-  right: 91.6
+  top: -10
+  margin-left: 1040px
 
 // Arrangement responsive de la disposition du content
 .fix-content
@@ -179,3 +178,12 @@ footer
     margin-left: 10rem
   @media screen and (max-width: 543px)
     margin-left: 0
+
+.card
+  img
+    width: 100%
+    height: 200px
+
+.description
+  width: 70%
+  margin: 5px auto 10px auto
