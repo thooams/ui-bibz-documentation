@@ -45,15 +45,15 @@
   - s.section title: "Multi Select Field optgroup clickable" do
     = example do |e|
       - e.header do
-        - grouped_options = { 'North America' => [['United States','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+        - grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
         = multi_select_field 'example2', { clickable_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
       - e.code do
-        grouped_options = { 'North America' => [['United States','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+        grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
         multi_select_field 'example', { clickable_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
       - e.html do
         <select name="example2[]" id="example2" data-enable-clickable-opt-groups="true" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
         <optgroup label="North America">
-        <option value="US">United States</option>
+        <option value="US">United statuss</option>
         <option value="Canada">Canada</option>
         </optgroup>
         <optgroup label="Europe">
@@ -66,7 +66,7 @@
         <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="None selected">None selected <b class="caret"></b></button>
         <ul class="multiselect-container dropdown-menu">
         <li class="multiselect-item group"><label class="multiselect-group">North America</label></li>
-        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="US"> United States</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="US"> United statuss</label></a></li>
         <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="Canada"> Canada</label></a></li>
         <li class="multiselect-item group"><label class="multiselect-group">Europe</label></li>
         <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="Denmark"> Denmark</label></a></li>
@@ -80,15 +80,15 @@
   - s.section title: "Multi Select Field optgroup collapsible" do
     = example do |e|
       - e.header do
-        - grouped_options = { 'North America' => [['United States','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+        - grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
         = multi_select_field 'example2', { collapsible_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
       - e.code do
-        grouped_options = { 'North America' => [['United States','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+        grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
         multi_select_field 'example', { collapsible_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
       - e.html do
         <select name="example2[]" id="example2" data-enable-collapsible-opt-groups="true" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
         <optgroup label="North America">
-        <option value="US">United States</option>
+        <option value="US">United statuss</option>
         <option value="Canada">Canada</option>
         </optgroup>
         <optgroup label="Europe">
@@ -101,7 +101,7 @@
         <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="None selected">None selected <b class="caret"></b></button>
         <ul class="multiselect-container dropdown-menu">
         <li class="multiselect-item group"><label class="multiselect-group">North America</label></li>
-        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="US"> United States</label></a></li>
+        <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="US"> United statuss</label></a></li>
         <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="Canada"> Canada</label></a></li>
         <li class="multiselect-item group"><label class="multiselect-group">Europe</label></li>
         <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="Denmark"> Denmark</label></a></li>
@@ -194,18 +194,18 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Multi Select Field state" do
+  - s.section title: "Multi Select Field status" do
     = example do |e|
       - e.header do
         - %w(primary secondary success warning link).each do |s|
-          = multi_select_field s, state: s.to_sym, option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
+          = multi_select_field s, status: s.to_sym, option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
       - e.code do
         options = options_for_select(10.times.map{ |i| "option \#{i}" })
-        multi_select_field 'primary', state: :primary, option_tags: options
-        multi_select_field 'secondary', state: :secondary, option_tags: options
-        multi_select_field 'success', state: :success, option_tags: options
-        multi_select_field 'warning', state: :warning, option_tags: options
-        multi_select_field 'link', state: :link, option_tags: options
+        multi_select_field 'primary', status: :primary, option_tags: options
+        multi_select_field 'secondary', status: :secondary, option_tags: options
+        multi_select_field 'success', status: :success, option_tags: options
+        multi_select_field 'warning', status: :warning, option_tags: options
+        multi_select_field 'link', status: :link, option_tags: options
       - e.html do
         <select name="primary[]" id="primary" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
         <option value="option 0">option 0</option>

@@ -47,22 +47,22 @@
       :markdown
         Dropdown button has several options:
 
-        * #{ state_link }
+        * #{ status_link }
         * #{ glyph_link }
         * #{ size_link }
-        * #{ status_link }
+        * #{ state_link }
         * position (`:right, :left`)
         * type (`:dropup, :dropdown`)
 
       - c.header do
-        = dropdown('Dropdown', { state: :secondary, glyph: 'diamond', open: true }, { class: 'open-dropdown-example' }) do |d|
+        = dropdown('Dropdown', { status: :secondary, glyph: 'diamond', open: true }, { class: 'open-dropdown-example' }) do |d|
           - d.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
           - d.link url: '#another-action' do
             = "Action 2"
           - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
             = "Action 3"
       - c.code do
-        dropdown('Dropdown', { state: :secondary, glyph: 'diamond' }, { class: 'my-dropdown'}) do |d|
+        dropdown('Dropdown', { status: :secondary, glyph: 'diamond' }, { class: 'my-dropdown'}) do |d|
           d.link "Action 1", url: '#action'
           d.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
           d.link url: '#another-action' do
@@ -213,7 +213,7 @@
       - c.header do
         = dropdown "Dropdown", open: true, class: 'open-dropdown-example' do |d|
           - d.link "Action 1", url: '#action-1'
-          - d.link "Action 2", url: '#action-2', status: :disabled
+          - d.link "Action 2", url: '#action-2', state: :disabled
           - d.link "Action 3", url: '#action-3'
       - c.code do
         dropdown "Dropdown" do |d|

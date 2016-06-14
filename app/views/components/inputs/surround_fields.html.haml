@@ -1,7 +1,7 @@
 :markdown
   # Surround Fields
 
-  Use Bootstrap’s custom button styles for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, states, and more.
+  Use Bootstrap’s custom button styles for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, statuss, and more.
 
 - @sections = sections do |s|
   - s.section title: "Surround Field" do
@@ -25,14 +25,14 @@
 
       * append (`html`)
       * prepend (`html`)
-      * #{ state_link }
       * #{ status_link }
+      * #{ state_link }
 
     = example do |e|
       - e.header do
-        = surround_field 'search', { status: :disable, state: :danger, append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
+        = surround_field 'search', { state: :disable, status: :danger, append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
       - e.code do
-        surround_field 'search', { status: :disable, state: :danger, append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
+        surround_field 'search', { state: :disable, status: :danger, append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
       - e.html do
         <div class="input-group has-danger">
           <span class="input-group-addon"><i class="glyph fa fa-pencil"></i></span>

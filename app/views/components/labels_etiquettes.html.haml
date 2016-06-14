@@ -6,21 +6,21 @@
     :markdown
       Etiquette has several options:
 
-      * #{ state_link }
+      * #{ status_link }
       * #{ glyph_link }
       * type (`:pill`)
 
     = example do |c|
       - c.header do
-        - %i(primary default danger warning info success).each do |state|
-          = etiquette state.to_s.titleize, state: state
+        - %i(primary default danger warning info success).each do |status|
+          = etiquette status.to_s.titleize, status: status
       - c.code do
-        etiquette 'Primary', state: :primary
-        etiquette 'Default', state: :default
-        etiquette 'Danger', state: :danger
-        etiquette 'Warning', state: :warning
-        etiquette 'Info', state: :info
-        etiquette 'Success', state: :success
+        etiquette 'Primary', status: :primary
+        etiquette 'Default', status: :default
+        etiquette 'Danger', status: :danger
+        etiquette 'Warning', status: :warning
+        etiquette 'Info', status: :info
+        etiquette 'Success', status: :success
       - c.html do
         <span class="label-primary label">Primary</span>
         <span class="label-default label">Default</span>
@@ -34,15 +34,15 @@
   - s.section title: "Etiquette Options" do
     = example do |c|
       - c.header do
-        - %i(primary default danger warning info success).each do |state|
-          = etiquette state.to_s.titleize, state: state, type: :pill, glyph: 'diamond'
+        - %i(primary default danger warning info success).each do |status|
+          = etiquette status.to_s.titleize, status: status, type: :pill, glyph: 'diamond'
       - c.code do
-        etiquette 'Primary', state: :primary, type: :pill, glyph: 'diamond'
-        etiquette 'Default', state: :default, type: :pill, glyph: 'diamond'
-        etiquette 'Danger', state: :danger, type: :pill, glyph: 'diamond'
-        etiquette 'Warning', state: :warning, type: :pill, glyph: 'diamond'
-        etiquette 'Info', state: :info, type: :pill, glyph: 'diamond'
-        etiquette 'Success', state: :success, type: :pill, glyph: 'diamond'
+        etiquette 'Primary', status: :primary, type: :pill, glyph: 'diamond'
+        etiquette 'Default', status: :default, type: :pill, glyph: 'diamond'
+        etiquette 'Danger', status: :danger, type: :pill, glyph: 'diamond'
+        etiquette 'Warning', status: :warning, type: :pill, glyph: 'diamond'
+        etiquette 'Info', status: :info, type: :pill, glyph: 'diamond'
+        etiquette 'Success', status: :success, type: :pill, glyph: 'diamond'
       - c.html do
         <span class="label-primary label label-pill"><i class="glyph fa fa-diamond"></i> Primary</span>
         <span class="label-default label label-pill"><i class="glyph fa fa-diamond"></i> Default</span>

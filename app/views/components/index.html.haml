@@ -27,7 +27,7 @@
       The `render` method generates the html code of the component.
     = example do |c|
       - c.code do
-        Component.new('My content', { state: :primary }, { class: 'my-class' }).render
+        Component.new('My content', { status: :primary }, { class: 'my-class' }).render
         \# or
         Component.new({ size: :xs }, { id: 'my-id' }) do
           My content
@@ -66,11 +66,11 @@
         ,
         = itag "stars", components_stars_path
 
-  - s.section title: "State" do
+  - s.section title: "status" do
     :markdown
-      Some component may have the `state` option in their settings.
+      Some component may have the `status` option in their settings.
       This option lets you change the color of the item as specified in [the bootstrap documentation](http://v4-alpha.getbootstrap.com/components/buttons/).
-      The `state` argument contains 7 distinct values :
+      The `status` argument contains 7 distinct values :
 
         * :primary
         * :secondary
@@ -81,12 +81,12 @@
 
     = example do |c|
       - c.code do
-        Component.new content, state: :primary
-        Component.new content, state: :secondary
-        Component.new content, state: :danger
-        Component.new content, state: :success
-        Component.new content, state: :info
-        Component.new content, state: :warning
+        Component.new content, status: :primary
+        Component.new content, status: :secondary
+        Component.new content, status: :danger
+        Component.new content, status: :success
+        Component.new content, status: :info
+        Component.new content, status: :warning
       - c.footer do
         = documentation_link 'Documentation', '#'
         |
@@ -125,11 +125,11 @@
         ,
         = itag "cards", components_cards_cards_path
 
-  - s.section title: "Status" do
+  - s.section title: "state" do
     = example do |c|
       - c.code do
-        Component.new content, status: :active
-        Component.new content, status: :disable
+        Component.new content, state: :active
+        Component.new content, state: :disable
       - c.footer do
         = documentation_link 'Documentation', '#'
 

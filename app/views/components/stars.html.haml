@@ -58,18 +58,18 @@
         = documentation_link 'Documentation', '#'
 
 
-  - s.section title: "State" do
+  - s.section title: "status" do
     = example do |c|
       - c.header do
-        - %w(secondary danger warning primary success).each_with_index do |state, i|
-          = stars i , state: state.to_sym
+        - %w(secondary danger warning primary success).each_with_index do |status, i|
+          = stars i , status: status.to_sym
           %br
       - c.code do
         stars 0
-        stars 1, state: :danger
-        stars 2, state: :warning
-        stars 3, state: :primary
-        stars 4, state: :success
+        stars 1, status: :danger
+        stars 2, status: :warning
+        stars 3, status: :primary
+        stars 4, status: :success
       - c.html do
         <span class="stars-notation">
         <i class="glyph-secondary glyph fa fa-star-o"></i>

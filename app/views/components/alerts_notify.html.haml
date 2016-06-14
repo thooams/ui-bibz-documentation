@@ -5,13 +5,13 @@
   - s.section title: "Notify" do
     = example do |c|
       - c.header do
-        - %i(danger warning info success).each do |state|
-          = notify state.to_s.titleize, state: state
+        - %i(danger warning info success).each do |status|
+          = notify status.to_s.titleize, status: status
       - c.code do
-        notify 'Danger', state: :danger
-        notify 'Warning', state: :warning
-        notify 'Info', state: :info
-        notify 'Success', state: :success
+        notify 'Danger', status: :danger
+        notify 'Warning', status: :warning
+        notify 'Info', status: :info
+        notify 'Success', status: :success
       - c.html do
         <div class="alert-danger alert alert-dismissible" role="alert">Danger</div>
         <div class="alert-warning alert alert-dismissible" role="alert">Warning</div>
@@ -23,13 +23,13 @@
   - s.section title: "Notify options" do
     = example do |c|
       - c.header do
-        = notify 'Success', state: :success, closable: true, class: 'my-alert'
-        = notify state: :danger, closable: true, class: 'my-alert' do
+        = notify 'Success', status: :success, closable: true, class: 'my-alert'
+        = notify status: :danger, closable: true, class: 'my-alert' do
           = "Danger notification with #{ link_to('link', '#', class: 'alert-link') }.".html_safe
       - c.code do
-        notify 'Success', { state: :success, closable: true }, { class: 'my-alert' }
+        notify 'Success', { status: :success, closable: true }, { class: 'my-alert' }
          
-        notify({ state: :danger, closable: true }, { class: 'my-alert' }) do
+        notify({ status: :danger, closable: true }, { class: 'my-alert' }) do
           "Danger notification with #{ link_to('link', '#', class: 'alert-link') }"
         end
       - c.html do

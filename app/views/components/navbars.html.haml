@@ -7,7 +7,7 @@
       - c.header do
         = navbar title: 'Navbar' do |nb|
           - nb.nav do |n|
-            - n.link 'Home', url: '#active', status: :active
+            - n.link 'Home', url: '#active', state: :active
             - n.link url: '#link', class: 'my-link' do
               Features
             - n.link 'Pricing', url: '#another-link'
@@ -19,11 +19,11 @@
                 = "Action 3"
           - nb.form '/search', { type: :form_tag, position: :right } do
             = text_field_tag 'Search'
-            = button 'Search', state: :success, outline: true
+            = button 'Search', status: :success, outline: true
       - c.code do
         navbar title: 'Navbar' do |nb|
           nb.nav do |n|
-            n.link 'Home', url: '#active', status: :active
+            n.link 'Home', url: '#active', state: :active
             n.link url: '#link', class: 'my-link' do
               Features
             end
@@ -40,7 +40,7 @@
           end
           nb.form '/search', { type: :form_tag, position: :right } do
             text_field_tag 'Search'
-            button 'Search', state: :success, outline: true
+            button 'Search', status: :success, outline: true
           end
         end
       - c.html do
@@ -78,11 +78,11 @@
   - s.section title: "Color" do
     = example do |c|
       - c.header do
-        = navbar title: 'Navbar', state: :primary, type: :dark do |nb|
+        = navbar title: 'Navbar', status: :primary, type: :dark do |nb|
           - nb.nav do |n|
             - n.link 'Home', url: '#home'
         %br
-        = navbar title: 'Navbar', state: :inverse, type: :dark do |nb|
+        = navbar title: 'Navbar', status: :inverse, type: :dark do |nb|
           - nb.nav do |n|
             - n.link 'Home', url: '#home'
         %br
@@ -90,13 +90,13 @@
           - nb.nav do |n|
             - n.link 'Home', url: '#home'
       - c.code do
-        navbar title: 'Navbar', state: :primary, type: :dark do |nb|
+        navbar title: 'Navbar', status: :primary, type: :dark do |nb|
           nb.nav do |n|
             n.link 'Home', url: '#home'
           end
         end
          
-        navbar title: 'Navbar', state: :inverse, type: :dark do |nb|
+        navbar title: 'Navbar', status: :inverse, type: :dark do |nb|
           nb.nav do |n|
             n.link 'Home', url: '#home'
           end

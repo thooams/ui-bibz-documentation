@@ -1,6 +1,6 @@
 = container do
 
-  = navbar(state: :danger, title: 'Toto', type: :dark, position: :bottom) do |nb|
+  = navbar(status: :danger, title: 'state', type: :dark, position: :bottom) do |nb|
     - nb.nav do |n|
       - n.link 'Link 1', url: '#link-1', glyph: 'diamond'
       - n.link 'Link 2', url: '#link-2', glyph: 'diamond'
@@ -11,46 +11,46 @@
     - nb.nav({ position: :right }, { class: 'nav2'}) do |n|
       - n.dropdown 'Dropdown' do |d|
         - d.link 'Link 2', { url: '#test', glyph: 'diamond' }
-        - d.link(url: '#link-2', status: :active) do
+        - d.link(url: '#link-2', state: :active) do
           Link 3
   .bd-example-modal
     = modal do |m|
       - m.header 'My title'
       - m.body 'My body'
       - m.footer do
-        = button_link 'Close', url: '#', state: :link
-        = button_link 'Save', url: '#', state: :primary
+        = button_link 'Close', url: '#', status: :link
+        = button_link 'Save', url: '#', status: :primary
 
 
   = etiquette 'label'
-  = etiquette 'label 2', state: :success, type: :pill
-  = etiquette 'label 2', state: :success, size: :xs
+  = etiquette 'label 2', status: :success, type: :pill
+  = etiquette 'label 2', status: :success, size: :xs
 
   %br
   %br
   = progress_bar 30
 
-  = progress_bar(state: :info, sr_only: true, type: :animated) do
+  = progress_bar(status: :info, sr_only: true, type: :animated) do
     = 70
 
   = progress_bar(tap: true) do |pb|
-    - pb.bar 10, { state: :success, sr_only: false, label: 'Loading...' },{ class: 'test' }
-    - pb.bar 30, state: :warning
+    - pb.bar 10, { status: :success, sr_only: false, label: 'Loading...' },{ class: 'test' }
+    - pb.bar 30, status: :warning
     - pb.bar(type: :striped) do
       = 10
 
-  = notify 'toto', glyph: 'diamond', close: true
+  = notify 'state', glyph: 'diamond', close: true
 
   %br
   %br
 
   = button_group position: :vertical, size: :xs do
-    = button 'toto', status: :active
+    = button 'state', state: :active
     = button 'momo'
     = button 'lolo'
 
   = button_group do
-    = button 'toto', status: :active
+    = button 'state', state: :active
     = button 'momo'
     = button 'lolo'
     = button_dropdown 'Button Dropdown', type: :dropup do |bd|
@@ -62,9 +62,9 @@
   %br
   %br
 
-  = dropdown 'Dropdown', state: :success, open: true do |d|
+  = dropdown 'Dropdown', status: :success, open: true do |d|
     - d.link(url: "#") do
-      = 'toto'
+      = 'state'
     - d.header 'header'
     - d.link 'momo', url: '#'
     - d.divider
@@ -74,8 +74,8 @@
   %br
   %br
 
-  = button_split_dropdown 'Dropdown', state: :primary do |d|
-    - d.link 'toto', url: '#', glyph: 'diamond'
+  = button_split_dropdown 'Dropdown', status: :primary do |d|
+    - d.link 'state', url: '#', glyph: 'diamond'
     - d.header 'header'
     - d.link 'momo', url: '#'
     - d.divider
@@ -85,29 +85,29 @@
 
   %br
   %br
-  = button_link 'test 1', url: '#', state: :success, outline: true
+  = button_link 'test 1', url: '#', status: :success, outline: true
 
   %br
   %br
   = button_group do
-    = button_choice 'toto', type: :radio
+    = button_choice 'state', type: :radio
     = button_choice 'tata', type: :radio
 
   = nav position: :justified do |n|
-    - n.link 'toto', { url: '#toto', status: :active, glyph: 'diamond' }
+    - n.link 'state', { url: '#state', state: :active, glyph: 'diamond' }
     - n.link 'momo', { url: '#mono' }
 
   %br
   = nav type: :tabs do |n|
-    - n.link 'toto', { url: '#toto', status: :active, glyph: 'diamond' }
+    - n.link 'state', { url: '#state', state: :active, glyph: 'diamond' }
     - n.link 'momo', { url: '#mono' }
 
   %br
   = nav type: :pills do |n|
-    - n.link 'toto', url: '#toto', status: :active, glyph: 'diamond'
+    - n.link 'state', url: '#state', state: :active, glyph: 'diamond'
     - n.link 'momo', url: '#mono', badge: 30
-    - n.dropdown('Dropdown', state: :primary) do |d|
-      - d.link 'toto', url: '#', glyph: 'diamond'
+    - n.dropdown('Dropdown', status: :primary) do |d|
+      - d.link 'state', url: '#', glyph: 'diamond'
       - d.header 'header'
       - d.link 'momo', url: '#'
       - d.divider
@@ -117,19 +117,19 @@
   %br
   %br
   = breadcrumb do |b|
-    - b.link 'toto', url: '#toto', glyph: 'home'
+    - b.link 'state', url: '#state', glyph: 'home'
     - b.link 'momo', url: '#momo'
-    - b.link 'nono', status: :active
+    - b.link 'nono', state: :active
 
   = list_group type: :link do |lg|
-    - lg.list 'Momo', { state: :success, glyph: 'home' }, { href: '#Momo' }
-    - lg.list({ tap: true, status: :active }, { href: '#Toto' }) do |l|
+    - lg.list 'Momo', { status: :success, glyph: 'home' }, { href: '#Momo' }
+    - lg.list({ tap: true, state: :active }, { href: '#state' }) do |l|
       - l.header 'My title'
       - l.body 'My title'
 
   = list_group do |lg|
     - lg.list 'Momo', glyph: 'home'
-    - lg.list 'Toto'
+    - lg.list 'state'
 
   %h1 Cards
 
@@ -146,12 +146,12 @@
       = link_to "Card link", '#', class: "card-link"
       = link_to "Card link", '#', class: "card-link"
 
-  = card(state: :danger, tap: true, class: 'toto') do |p|
-    - p.header 'toto', glyph: 'diamond'
-    - p.block 'toto'
-    - p.footer 'toto'
+  = card(status: :danger, tap: true, class: 'state') do |p|
+    - p.header 'state', glyph: 'diamond'
+    - p.block 'state'
+    - p.footer 'state'
 
-  = card 'toto', block: true, state: :danger, glyph: 'home', class: 'toto'
+  = card 'state', block: true, status: :danger, glyph: 'home', class: 'state'
 
   = card block: true, class: 'uei' do
     = "danger"
@@ -184,7 +184,7 @@
       - cls.column :email
       - cls.column :company
     - g.actions do |acs|
-      - acs.link 'Toto', url: edit_user_path(:id), glyph: 'pencil'
+      - acs.link 'state', url: edit_user_path(:id), glyph: 'pencil'
       - acs.divider
       - acs.link 'momo', url: user_path(:id), glyph: 'diamond'
 

@@ -5,7 +5,7 @@
 
   The specific datas for this component are :
 
-  * `status` (**'active'**, 'disabled') : 'active' if not specified
+  * `state` (**'active'**, 'disabled') : 'active' if not specified
   * `animate` (**true**, false) : true if not specified
   * `left_color` | `right_color` (**primary** | info | success | warning | danger | default)
   * `left_text` | `right_text` (String) : respectively **'ON'** and **'OFF'** if not specified
@@ -38,29 +38,29 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Status" do
+  - s.section title: "state" do
     = example do |e|
       - e.header do
-        = switch_field 'examplestatus', { status: 'active' }
-        = switch_field 'examplestatus', { status: 'disabled' }
+        = switch_field 'examplestate', { state: 'active' }
+        = switch_field 'examplestate', { state: 'disabled' }
       - e.code do
-        switch_field 'examplestatus', { status: 'active' }
-        switch_field 'examplestatus', { status: 'disabled' }
+        switch_field 'examplestate', { state: 'active' }
+        switch_field 'examplestate', { state: 'disabled' }
       - e.html do
-        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-examplestatus bootstrap-switch-animate" style="width: 106px;">
+        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-examplestate bootstrap-switch-animate" style="width: 106px;">
         <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
         <span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 52px;">ON</span>
         <span class="bootstrap-switch-label" style="width: 52px;">&nbsp;</span>
         <span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 52px;">OFF</span>
-        <input type="checkbox" name="examplestatus" id="examplestatus" class="switch">
+        <input type="checkbox" name="examplestate" id="examplestate" class="switch">
         </div>
         </div>
-        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-disabled bootstrap-switch-id-examplestatus bootstrap-switch-animate" style="width: 106px;">
+        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-disabled bootstrap-switch-id-examplestate bootstrap-switch-animate" style="width: 106px;">
         <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
         <span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 52px;">ON</span>
         <span class="bootstrap-switch-label" style="width: 52px;">&nbsp;</span>
         <span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 52px;">OFF</span>
-        <input type="checkbox" name="examplestatus" id="examplestatus" disabled="disabled" class="true switch">
+        <input type="checkbox" name="examplestate" id="examplestate" disabled="disabled" class="true switch">
         </div>
         </div>
       - e.footer do

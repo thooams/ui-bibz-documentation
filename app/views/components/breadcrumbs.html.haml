@@ -6,30 +6,30 @@
     = example do |c|
       - c.header do
         = breadcrumb tap: true do |b|
-          - b.link 'Home', status: :active
+          - b.link 'Home', state: :active
         %br
         = breadcrumb tap: true do |b|
           - b.link 'Home', url: '#home'
-          - b.link 'Library', status: :active
+          - b.link 'Library', state: :active
         %br
         = breadcrumb tap: true do |b|
           - b.link 'Home', url: '#active'
           - b.link 'Library', url: '#library'
-          - b.link 'Data', status: :active
+          - b.link 'Data', state: :active
       - c.code do
         breadcrumb do |b|
-          b.link 'Home', status: :active
+          b.link 'Home', state: :active
         end
          
         breadcrumb do |b|
           b.link 'Home', url: '#home'
-          b.link 'Library', status: :active
+          b.link 'Library', state: :active
         end
          
         breadcrumb do |b|
           b.link 'Home', url: '#home'
           b.link 'Library', url: '#library'
-          b.link 'Data', status: :active
+          b.link 'Data', state: :active
         end
       - c.html do
         <ol class="breadcrumb"><li class="active">Home</li></ol>

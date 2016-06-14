@@ -48,18 +48,18 @@
       - c.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "State" do
+  - s.section title: "status" do
     = example do |c|
       - c.header do
-        - %i(primary secondary warning info success danger).each do |state|
-          = glyph 'diamond', state: state
+        - %i(primary secondary warning info success danger).each do |status|
+          = glyph 'diamond', status: status
       - c.code do
-        glyph 'diamond', state: :primary
-        glyph 'diamond', state: :secondary
-        glyph 'diamond', state: :warning
-        glyph 'diamond', state: :info
-        glyph 'diamond', state: :success
-        glyph 'diamond', state: :danger
+        glyph 'diamond', status: :primary
+        glyph 'diamond', status: :secondary
+        glyph 'diamond', status: :warning
+        glyph 'diamond', status: :info
+        glyph 'diamond', status: :success
+        glyph 'diamond', status: :danger
       - c.html do
         <i class="glyph-primary glyph fa fa-diamond"></i>
         <i class="glyph-secondary glyph fa fa-diamond"></i>
@@ -105,10 +105,10 @@
     = example do |c|
       - c.header do
         = glyph 'square', stack: 2
-        = glyph 'diamond', stack: 1, state: :danger
+        = glyph 'diamond', stack: 1, status: :danger
       - c.code do
         glyph 'square', stack: 2
-        glyph 'diamond', stack: 1, state: :danger
+        glyph 'diamond', stack: 1, status: :danger
       - c.html do
         <i class="glyph fa fa-square fa-stack-2x"></i>
         <i class="glyph-danger glyph fa fa-diamond fa-stack-1x"></i>

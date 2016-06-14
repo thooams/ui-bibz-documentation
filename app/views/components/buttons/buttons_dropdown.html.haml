@@ -13,8 +13,8 @@
 
     = example do |c|
       - c.header do
-        - %i(primary secondary danger warning info success).each do |state|
-          = button_dropdown state.to_s.titleize, state: state do |bd|
+        - %i(primary secondary danger warning info success).each do |status|
+          = button_dropdown status.to_s.titleize, status: status do |bd|
             - bd.link "Action", url: '#action', glyph: 'diamond'
             - bd.link url: '#another-action' do
               = "Another action"
@@ -112,23 +112,23 @@
     :markdown
       Dropdown button has several options:
 
-      * #{ state_link }
+      * #{ status_link }
       * #{ glyph_link }
       * #{ size_link }
-      * #{ status_link }
+      * #{ state_link }
       * position (`:right, :left`)
       * type (`:dropup, :dropdown`)
 
     = example do |c|
       - c.header do
-        = button_dropdown "Dropdown right", state: :success, glyph: 'diamond', size: :lg, position: :right do |bd|
+        = button_dropdown "Dropdown right", status: :success, glyph: 'diamond', size: :lg, position: :right do |bd|
           - bd.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
           - bd.link "Another action", url: '#another-action'
           - bd.divider
           - bd.header 'Header'
           - bd.link "Separate link", url: '#separate-link'
 
-        = button_dropdown "Dropup", state: :danger, size: :sm, type: :dropup do |bd|
+        = button_dropdown "Dropup", status: :danger, size: :sm, type: :dropup do |bd|
           - bd.link "Action",  { url: '#action' }, { class: 'action' }
           - bd.link "Another action", url: '#another-action'
           - bd.divider
@@ -136,7 +136,7 @@
           - bd.link "Separate link", url: '#separate-link'
 
       - c.code do
-        button_dropdown "Dropdown right", state: :success, glyph: 'diamond', size: :lg, position: :right do |bd|
+        button_dropdown "Dropdown right", status: :success, glyph: 'diamond', size: :lg, position: :right do |bd|
           bd.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
           bd.link "Another action", url: '#another-action'
           bd.divider
@@ -144,7 +144,7 @@
           bd.link "Separate link", url: '#separate-link'
         end
          
-        button_dropdown "Dropup", state: :danger, size: :sm, type: :dropup do |bd|
+        button_dropdown "Dropup", status: :danger, size: :sm, type: :dropup do |bd|
           bd.link "Action",  { url: '#action' }, { class: 'action' }
           bd.link "Another action", url: '#another-action'
           bd.divider

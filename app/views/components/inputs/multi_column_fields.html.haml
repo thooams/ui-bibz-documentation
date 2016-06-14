@@ -60,15 +60,15 @@
   - s.section title: "Multi Column Field selectable optgroup" do
     = example do |e|
       - e.header do
-        - grouped_options = { 'North America' => [['United States','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+        - grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
         = multi_column_field 'example2', { option_tags: grouped_options_for_select(grouped_options), selectable_opt_group: true }
       - e.code do
-        grouped_options = { 'North America' => [['United States','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+        grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
         multi_column_field 'example', { option_tags: grouped_options_for_select(grouped_options), selectable_opt_group: true }
       - e.html do
         <select name="example2[]" id="example2" data-selectable-optgroup="true" class="multi-column" multiple="multiple" style="position: absolute; left: -9999px;">
         <optgroup label="North America">
-        <option value="US">United States</option>
+        <option value="US">United statuss</option>
         <option value="Canada">Canada</option>
         </optgroup>
         <optgroup label="Europe">
@@ -83,7 +83,7 @@
         <li class="ms-optgroup-container" id="optgroup-selectable-1732130227">
         <ul class="ms-optgroup">
         <li class="ms-optgroup-label"><span>North America</span></li>
-        <li class="ms-elem-selectable" id="2718-selectable"><span>United States</span></li>
+        <li class="ms-elem-selectable" id="2718-selectable"><span>United statuss</span></li>
         <li class="ms-elem-selectable" id="2011108078-selectable"><span>Canada</span></li>
         </ul>
         </li>
@@ -102,7 +102,7 @@
         <li class="ms-optgroup-container" id="optgroup-selection-1732130227">
         <ul class="ms-optgroup">
         <li class="ms-optgroup-label" style="display: none;"><span>North America</span></li>
-        <li class="ms-elem-selection" id="2718-selection" style="display: none;"><span>United States</span></li>
+        <li class="ms-elem-selection" id="2718-selection" style="display: none;"><span>United statuss</span></li>
         <li class="ms-elem-selection" id="2011108078-selection" style="display: none;"><span>Canada</span></li>
         </ul>
         </li>

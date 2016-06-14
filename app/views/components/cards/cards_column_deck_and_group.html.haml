@@ -1,6 +1,6 @@
 %h1 Cards column, deck and group
 %p= extend_of_component 'card_column'
-%p Use Bootstrap’s custom button styles for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, states, and more.
+%p Use Bootstrap’s custom button styles for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, statuss, and more.
 %p Card column, card deck and card group contains #{ link_to 'cards', components_cards_cards_path }.
 
 
@@ -22,12 +22,12 @@
           - cc.card tap: true do |c|
             - c.list_group do |lg|
               - lg.list "Cras justo odio"
-              - lg.list "Dapibas ac facilisis in", status: :active
+              - lg.list "Dapibas ac facilisis in", state: :active
               - lg.list tap: true do |l|
                 - l.header 'Header list'
                 - l.body "vestibulum at eros"
           - cc.card "Content 4 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
-          - cc.card state: :primary, type: :inverse, text_position: :center do
+          - cc.card status: :primary, type: :inverse, text_position: :center do
             = '<blockquote class="card-blockquote"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p><footer>Someone famous in <cite title="Source Title">Source Title</cite></footer></blockquote>'.html_safe
       - e.code do
         card_column do |cc|
@@ -47,7 +47,7 @@
           cc.card tap: true do |c|
             c.list_group do |lg|
               lg.list "Cras justo odio"
-              lg.list "Dapibas ac facilisis in", status: :active
+              lg.list "Dapibas ac facilisis in", state: :active
               lg.list tap: true do |l|
                 l.header 'Header list'
                 l.body "vestibulum at eros"
@@ -55,7 +55,7 @@
             end
           end
           cc.card "Content 4 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
-          cc.card state: :primary, type: :inverse, text_position: :center do
+          cc.card status: :primary, type: :inverse, text_position: :center do
             '<blockquote class="card-blockquote"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p><footer>Someone famous in <cite title="Source Title">Source Title</cite></footer></blockquote>'.html_safe
           end
         end
@@ -113,12 +113,12 @@
           - cd.card tap: true do |c|
             - c.list_group do |lg|
               - lg.list "Cras justo odio"
-              - lg.list "Dapibas ac facilisis in", status: :active
+              - lg.list "Dapibas ac facilisis in", state: :active
               - lg.list tap: true do |l|
                 - l.header 'Header list'
                 - l.body "vestibulum at eros"
           - cd.card "Content 4 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
-          - cd.card state: :primary, type: :inverse, text_position: :center do
+          - cd.card status: :primary, type: :inverse, text_position: :center do
             = '<blockquote class="card-blockquote"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p><footer>Someone famous in <cite title="Source Title">Source Title</cite></footer></blockquote>'.html_safe
       - e.code do
         card_deck do |cd|
@@ -138,7 +138,7 @@
           cd.card tap: true do |c|
             c.list_group do |lg|
               lg.list "Cras justo odio"
-              lg.list "Dapibas ac facilisis in", status: :active
+              lg.list "Dapibas ac facilisis in", state: :active
               lg.list tap: true do |l|
                 l.header 'Header list'
                 l.body "vestibulum at eros"
@@ -146,7 +146,7 @@
             end
           end
           cd.card "Content 4 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
-          cd.card state: :primary, type: :inverse, text_position: :center do
+          cd.card status: :primary, type: :inverse, text_position: :center do
             '<blockquote class="card-blockquote"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p><footer>Someone famous in <cite title="Source Title">Source Title</cite></footer></blockquote>'.html_safe
           end
         end
@@ -204,12 +204,12 @@
           - cg.card tap: true do |c|
             - c.list_group do |lg|
               - lg.list "cras justo odio"
-              - lg.list "Dapibas ac facilisis in", status: :active
+              - lg.list "Dapibas ac facilisis in", state: :active
               - lg.list tap: true do |l|
                 - l.header 'Header list'
                 - l.body "vestibulum at eros"
           - cg.card "content 4 <br/> some quick example text to build on the card title and make up the bulk of the card's content."
-          - cg.card state: :primary, type: :inverse, text_position: :center do
+          - cg.card status: :primary, type: :inverse, text_position: :center do
             = '<blockquote class="card-blockquote"><p>lorem ipsum dolor sit amet, consectetur adipiscing elit. integer posuere erat a ante.</p><footer>someone famous in <cite title="source title">source title</cite></footer></blockquote>'.html_safe
       - e.code do
         card_group do |cg|
@@ -229,7 +229,7 @@
           cg.card tap: true do |c|
             c.list_group do |lg|
               lg.list "Cras justo odio"
-              lg.list "Dapibas ac facilisis in", status: :active
+              lg.list "Dapibas ac facilisis in", state: :active
               lg.list tap: true do |l|
                 l.header 'Header list'
                 l.body "vestibulum at eros"
@@ -237,7 +237,7 @@
             end
           end
           cg.card "Content 4 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
-          cg.card state: :primary, type: :inverse, text_position: :center do
+          cg.card status: :primary, type: :inverse, text_position: :center do
             '<blockquote class="card-blockquote"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p><footer>Someone famous in <cite title="Source Title">Source Title</cite></footer></blockquote>'.html_safe
           end
         end

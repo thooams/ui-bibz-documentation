@@ -1,42 +1,42 @@
 - n.nav do |nc|
-  - nc.link 'Alerts, notify', url: components_alerts_notify_path, status: nav_active_link(components_alerts_notify_path)
-  - nc.link 'Breadcrumbs', url: components_breadcrumbs_path, status: nav_active_link(components_breadcrumbs_path)
-  - nc.link 'Buttons', url: '#', status: :disabled
+  - nc.link 'Alerts, notify', url: components_alerts_notify_path, state: nav_active_link(components_alerts_notify_path)
+  - nc.link 'Breadcrumbs', url: components_breadcrumbs_path, state: nav_active_link(components_breadcrumbs_path)
+  - nc.link 'Buttons', url: '#', state: :disabled
   - nc.nav do |na|
-    - na.link 'Buttons', url: components_buttons_path, status: nav_active_link(components_buttons_path)
-    - na.link 'Buttons choice', url: components_buttons_buttons_choice_path, status: nav_active_link(components_buttons_buttons_choice_path)
-    - na.link 'Buttons dropdown', url: components_buttons_buttons_dropdown_path, status: nav_active_link(components_buttons_buttons_dropdown_path)
-    - na.link 'Buttons group', url: components_buttons_buttons_group_path, status: nav_active_link(components_buttons_buttons_group_path)
-    - na.link 'Buttons link', url: components_buttons_buttons_link_path, status: nav_active_link(components_buttons_buttons_link_path)
-    - na.link 'Buttons split dropdown', url: components_buttons_buttons_split_dropdown_path, status: nav_active_link(components_buttons_buttons_split_dropdown_path)
-  - nc.link 'Cards', url: '#', status: :disabled
+    - na.link 'Buttons', url: components_buttons_path, state: nav_active_link(components_buttons_path)
+    - na.link 'Buttons choice', url: components_buttons_buttons_choice_path, state: nav_active_link(components_buttons_buttons_choice_path)
+    - na.link 'Buttons dropdown', url: components_buttons_buttons_dropdown_path, state: nav_active_link(components_buttons_buttons_dropdown_path)
+    - na.link 'Buttons group', url: components_buttons_buttons_group_path, state: nav_active_link(components_buttons_buttons_group_path)
+    - na.link 'Buttons link', url: components_buttons_buttons_link_path, state: nav_active_link(components_buttons_buttons_link_path)
+    - na.link 'Buttons split dropdown', url: components_buttons_buttons_split_dropdown_path, state: nav_active_link(components_buttons_buttons_split_dropdown_path)
+  - nc.link 'Cards', url: '#', state: :disabled
   - nc.nav do |na|
-    - na.link 'Cards', url: components_cards_cards_path, status: nav_active_link(components_cards_cards_path)
-    - na.link 'Cards column deck and group', url: components_cards_cards_column_deck_and_group_path, status: nav_active_link(components_cards_cards_column_deck_and_group_path)
-  - nc.link 'Components', url: components_path, status: nav_active_link(components_path)
-  - nc.link 'Dropdowns', url: components_dropdowns_path, status: nav_active_link(components_dropdowns_path)
-  - nc.link 'Glyphs', url: components_glyphs_path, status: nav_active_link(components_glyphs_path)
-  - nc.link 'Inputs', url: '#', status: :disabled
+    - na.link 'Cards', url: components_cards_cards_path, state: nav_active_link(components_cards_cards_path)
+    - na.link 'Cards column deck and group', url: components_cards_cards_column_deck_and_group_path, state: nav_active_link(components_cards_cards_column_deck_and_group_path)
+  - nc.link 'Components', url: components_path, state: nav_active_link(components_path)
+  - nc.link 'Dropdowns', url: components_dropdowns_path, state: nav_active_link(components_dropdowns_path)
+  - nc.link 'Glyphs', url: components_glyphs_path, state: nav_active_link(components_glyphs_path)
+  - nc.link 'Inputs', url: '#', state: :disabled
   - nc.nav do |na|
-    - na.link 'Autocomplete fields', url: components_inputs_autocomplete_fields_path, status: nav_active_link(components_inputs_autocomplete_fields_path)
-    - na.link 'Dropdown select fields', url: components_inputs_dropdown_select_fields_path, status: nav_active_link(components_inputs_dropdown_select_fields_path)
-    - na.link 'Date picker fields', url: components_inputs_date_picker_fields_path, status: nav_active_link(components_inputs_date_picker_fields_path)
-    - na.link 'Formula fields', url: components_inputs_formula_fields_path, status: nav_active_link(components_inputs_formula_fields_path)
-    - na.link 'Multi column fields', url: components_inputs_multi_column_fields_path, status: nav_active_link(components_inputs_multi_column_fields_path)
-    - na.link 'Multi select fields', url: components_inputs_multi_select_fields_path, status: nav_active_link(components_inputs_multi_select_fields_path)
-    - na.link 'Suround fields', url: components_inputs_surround_fields_path, status: nav_active_link(components_inputs_surround_fields_path)
-    - na.link 'Switch fields', url: components_inputs_switch_fields_path, status: nav_active_link(components_inputs_switch_fields_path)
-  - nc.link 'Jumbotrons', url: components_jumbotrons_path, status: nav_active_link(components_jumbotrons_path)
-  - nc.link 'Labels, etiquettes', url: components_labels_etiquettes_path, status: nav_active_link(components_labels_etiquettes_path)
-  - nc.link 'Layout & Grid', url: '#', status: :disabled
+    - na.link 'Autocomplete fields', url: components_inputs_autocomplete_fields_path, state: nav_active_link(components_inputs_autocomplete_fields_path)
+    - na.link 'Dropdown select fields', url: components_inputs_dropdown_select_fields_path, state: nav_active_link(components_inputs_dropdown_select_fields_path)
+    - na.link 'Date picker fields', url: components_inputs_date_picker_fields_path, state: nav_active_link(components_inputs_date_picker_fields_path)
+    - na.link 'Formula fields', url: components_inputs_formula_fields_path, state: nav_active_link(components_inputs_formula_fields_path)
+    - na.link 'Multi column fields', url: components_inputs_multi_column_fields_path, state: nav_active_link(components_inputs_multi_column_fields_path)
+    - na.link 'Multi select fields', url: components_inputs_multi_select_fields_path, state: nav_active_link(components_inputs_multi_select_fields_path)
+    - na.link 'Suround fields', url: components_inputs_surround_fields_path, state: nav_active_link(components_inputs_surround_fields_path)
+    - na.link 'Switch fields', url: components_inputs_switch_fields_path, state: nav_active_link(components_inputs_switch_fields_path)
+  - nc.link 'Jumbotrons', url: components_jumbotrons_path, state: nav_active_link(components_jumbotrons_path)
+  - nc.link 'Labels, etiquettes', url: components_labels_etiquettes_path, state: nav_active_link(components_labels_etiquettes_path)
+  - nc.link 'Layout & Grid', url: '#', state: :disabled
   - nc.nav do |na|
-    - na.link 'Row, Cols', url: components_layouts_grid_path, status: nav_active_link(components_layouts_grid_path)
-    - na.link 'Container', url: components_layouts_container_path, status: nav_active_link(components_layouts_container_path)
-  - nc.link 'Lists group', url: components_lists_group_path, status: nav_active_link(components_lists_group_path)
-  - nc.link 'Modals', url: components_modals_path, status: nav_active_link(components_modals_path)
-  - nc.link 'Navs', url: '#', status: :disabled
+    - na.link 'Row, Cols', url: components_layouts_grid_path, state: nav_active_link(components_layouts_grid_path)
+    - na.link 'Container', url: components_layouts_container_path, state: nav_active_link(components_layouts_container_path)
+  - nc.link 'Lists group', url: components_lists_group_path, state: nav_active_link(components_lists_group_path)
+  - nc.link 'Modals', url: components_modals_path, state: nav_active_link(components_modals_path)
+  - nc.link 'Navs', url: '#', state: :disabled
   - nc.nav do |na|
-    - na.link 'Navs', url: components_navs_path, status: nav_active_link(components_navs_path)
-    - na.link 'Navbars', url: components_navbars_path, status: nav_active_link(components_navbars_path)
-  - nc.link 'Progresses', url: components_progresses_path, status: nav_active_link(components_progresses_path)
-  - nc.link 'Stars', url: components_stars_path, status: nav_active_link(components_stars_path)
+    - na.link 'Navs', url: components_navs_path, state: nav_active_link(components_navs_path)
+    - na.link 'Navbars', url: components_navbars_path, state: nav_active_link(components_navbars_path)
+  - nc.link 'Progresses', url: components_progresses_path, state: nav_active_link(components_progresses_path)
+  - nc.link 'Stars', url: components_stars_path, state: nav_active_link(components_stars_path)

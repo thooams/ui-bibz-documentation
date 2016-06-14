@@ -6,7 +6,7 @@
     :markdown
       Card has several options:
 
-      * #{ state_link }
+      * #{ status_link }
       * text_position (`:left, :center, :right`)
       * type (`:inverse`)
 
@@ -14,17 +14,17 @@
       - e.header do
         = card do
           = "Content"
-        = card "Content", { state: :info }, { class: 'my-card1'}
-        = card({ state: :success }, { class: 'my-card2'})  do
+        = card "Content", { status: :info }, { class: 'my-card1'}
+        = card({ status: :success }, { class: 'my-card2'})  do
           = "Content"
       - e.code do
         card do
           Content
         end
          
-        card "Content", { state: :info }, { class: 'my-card1'}
+        card "Content", { status: :info }, { class: 'my-card1'}
          
-        card({ state: :success }, { class: 'my-card2'})  do
+        card({ status: :success }, { class: 'my-card2'})  do
           "Content"
         end
       - e.html do
@@ -262,23 +262,23 @@
             - c.block tap: true do |b|
               - b.title "Special title treatment"
               - b.text "With supporting text below as a natural lead-in to additional content."
-          - cd.card tap: true, type: :inverse, state: :primary do |c|
+          - cd.card tap: true, type: :inverse, status: :primary do |c|
             - c.block tap: true do |b|
               - b.title "Special title treatment"
               - b.text "With supporting text below as a natural lead-in to additional content."
-          - cd.card tap: true, type: :inverse, state: :success do |c|
+          - cd.card tap: true, type: :inverse, status: :success do |c|
             - c.block tap: true do |b|
               - b.title "Special title treatment"
               - b.text "With supporting text below as a natural lead-in to additional content."
-          - cd.card tap: true, type: :inverse, state: :danger do |c|
+          - cd.card tap: true, type: :inverse, status: :danger do |c|
             - c.block tap: true do |b|
               - b.title "Special title treatment"
               - b.text "With supporting text below as a natural lead-in to additional content."
-          - cd.card tap: true, type: :inverse, state: :info do |c|
+          - cd.card tap: true, type: :inverse, status: :info do |c|
             - c.block tap: true do |b|
               - b.title "Special title treatment"
               - b.text "With supporting text below as a natural lead-in to additional content."
-          - cd.card tap: true, type: :inverse, state: :warning do |c|
+          - cd.card tap: true, type: :inverse, status: :warning do |c|
             - c.block tap: true do |b|
               - b.title "Special title treatment"
               - b.text "With supporting text below as a natural lead-in to additional content."
@@ -290,35 +290,35 @@
           end
         end
          
-        card tap: true, type: :inverse, state: :primary do |c|
+        card tap: true, type: :inverse, status: :primary do |c|
           c.block tap: true do |b|
             b.title "Special title treatment"
             b.text "With supporting text below as a natural lead-in to additional content."
           end
         end
          
-        card tap: true, type: :inverse, state: :success do |c|
+        card tap: true, type: :inverse, status: :success do |c|
           c.block tap: true do |b|
             b.title "Special title treatment"
             b.text "With supporting text below as a natural lead-in to additional content."
           end
         end
          
-        card tap: true, type: :inverse, state: :danger do |c|
+        card tap: true, type: :inverse, status: :danger do |c|
           c.block tap: true do |b|
             b.title "Special title treatment"
             b.text "With supporting text below as a natural lead-in to additional content."
           end
         end
          
-        card tap: true, type: :inverse, state: :info do |c|
+        card tap: true, type: :inverse, status: :info do |c|
           c.block tap: true do |b|
             b.title "Special title treatment"
             b.text "With supporting text below as a natural lead-in to additional content."
           end
         end
          
-        card tap: true, type: :inverse, state: :warning do |c|
+        card tap: true, type: :inverse, status: :warning do |c|
           c.block tap: true do |b|
             b.title "Special title treatment"
             b.text "With supporting text below as a natural lead-in to additional content."

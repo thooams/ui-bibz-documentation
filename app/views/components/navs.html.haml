@@ -1,28 +1,28 @@
 :markdown
   #Navs
-  Navs available in Bootstrap have shared markup, starting with the base .nav class, as well as shared states. Swap modifier classes to switch between each style.
+  Navs available in Bootstrap have shared markup, starting with the base .nav class, as well as shared statuss. Swap modifier classes to switch between each style.
 - @sections = sections do |s|
   - s.section title: "Nav" do
     = example do |c|
       - c.header do
         = nav do |n|
-          - n.link 'Active', url: '#active', status: :active
+          - n.link 'Active', url: '#active', state: :active
           - n.link url: '#link', class: 'my-link' do
             Link
           - n.nav do |na|
             - na.link 'Another link', url: '#another-link'
-            - na.link 'Disabled', url: '#disabled', status: :disabled
+            - na.link 'Disabled', url: '#disabled', state: :disabled
           - n.link 'Another link 2', url: '#another-link2'
           - n.link 'Another link 3', url: '#another-link3'
       - c.code do
         nav do |n|
-          n.link 'Active', url: '#active', status: :active
+          n.link 'Active', url: '#active', state: :active
           n.link({ url: '#link' }, { class: 'my-link'}) do
             "Link"
           end
           n.nav do |na|
             na.link 'Another link', url: '#another-link'
-            na.link 'Disabled', url: '#disabled', status: :disabled
+            na.link 'Disabled', url: '#disabled', state: :disabled
           end
           n.link 'Another link 2', url: '#another-link2'
           n.link 'Another link 3', url: '#another-link3'
@@ -47,19 +47,19 @@
     = example do |c|
       - c.header do
         = nav type: :links do |n|
-          - n.link 'Active', url: '#active', status: :active
+          - n.link 'Active', url: '#active', state: :active
           - n.link url: '#link', class: 'my-link' do
             Link
           - n.link 'Another link', url: '#another-link'
-          - n.link 'Disabled', url: '#disabled', status: :disabled
+          - n.link 'Disabled', url: '#disabled', state: :disabled
       - c.code do
         nav type: :links do |n|
-          n.link 'Active', url: '#active', status: :active
+          n.link 'Active', url: '#active', state: :active
           n.link({ url: '#link' }, { class: 'my-link'}) do
             "Link"
           end
           n.link 'Another link', url: '#another-link'
-          n.link 'Disabled', url: '#disabled', status: :disabled
+          n.link 'Disabled', url: '#disabled', state: :disabled
         end
       - c.html do
         <nav class="nav nav-links">
@@ -75,7 +75,7 @@
     = example do |c|
       - c.header do
         = nav type: :tabs do |n|
-          - n.link 'Active', url: '#active', status: :active
+          - n.link 'Active', url: '#active', state: :active
           - n.dropdown 'Dropdown' do |d|
             - d.link "Action 1", url: '#action'
             - d.link url: '#another-action' do
@@ -83,10 +83,10 @@
             - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
               = "Action 3"
           - n.link 'Another link', url: '#another-link'
-          - n.link 'Disabled', url: '#disabled', status: :disabled
+          - n.link 'Disabled', url: '#disabled', state: :disabled
       - c.code do
         nav type: :tabs do |n|
-          n.link 'Active', url: '#active', status: :active
+          n.link 'Active', url: '#active', state: :active
           n.dropdown 'Dropdown' do |d|
             d.link "Action 1", url: '#action'
             d.link url: '#another-action' do
@@ -98,7 +98,7 @@
           end
           n.link 'Link', url: '#link'
           n.link 'Another link', url: '#another-link'
-          n.link 'Disabled', url: '#disabled', status: :disabled
+          n.link 'Disabled', url: '#disabled', state: :disabled
         end
       - c.html do
         <ul class="nav nav-tabs">
@@ -121,7 +121,7 @@
     = example do |c|
       - c.header do
         = nav type: :pills do |n|
-          - n.link 'Active', url: '#active', status: :active
+          - n.link 'Active', url: '#active', state: :active
           - n.dropdown 'Dropdown' do |d|
             - d.link "Action 1", url: '#action'
             - d.link url: '#another-action' do
@@ -129,10 +129,10 @@
             - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
               = "Action 3"
           - n.link 'Another link', url: '#another-link'
-          - n.link 'Disabled', url: '#disabled', status: :disabled
+          - n.link 'Disabled', url: '#disabled', state: :disabled
       - c.code do
         nav type: :pills do |n|
-          n.link 'Active', url: '#active', status: :active
+          n.link 'Active', url: '#active', state: :active
           n.dropdown 'Dropdown' do |d|
             d.link "Action 1", url: '#action'
             d.link url: '#another-action' do
@@ -143,7 +143,7 @@
             end
           end
           n.link 'Another link', url: '#another-link'
-          n.link 'Disabled', url: '#disabled', status: :disabled
+          n.link 'Disabled', url: '#disabled', state: :disabled
         end
       - c.html do
         <ul class="nav nav-pills">
@@ -167,16 +167,16 @@
     = example do |c|
       - c.header do
         = nav type: :pills, stacked: true do |n|
-          - n.link 'Active', url: '#active', status: :active
+          - n.link 'Active', url: '#active', state: :active
           - n.link 'Link', url: '#link'
           - n.link 'Another link', url: '#another-link'
-          - n.link 'Disabled', url: '#disabled', status: :disabled
+          - n.link 'Disabled', url: '#disabled', state: :disabled
       - c.code do
         nav type: :pills, stacked: true do |n|
-          n.link 'Active', url: '#active', status: :active
+          n.link 'Active', url: '#active', state: :active
           n.link 'Link', url: '#link'
           n.link 'Another link', url: '#another-link'
-          n.link 'Disabled', url: '#disabled', status: :disabled
+          n.link 'Disabled', url: '#disabled', state: :disabled
         end
       - c.html do
         <ul class="nav nav-pills nav-stacked">
@@ -192,26 +192,26 @@
     = example do |c|
       - c.header do
         = nav type: :tabs do |n|
-          - n.link 'Active', url: '#content1', status: :active
+          - n.link 'Active', url: '#content1', state: :active
           - n.link 'Link', url: '#content2'
           - n.link 'Another link', url: '#content3'
-          - n.link 'Disabled', url: '#content4', status: :disabled
+          - n.link 'Disabled', url: '#content4', state: :disabled
         %br
         .tab-content
-          = card 'Content 1', { tab: true, status: :active }, { id: 'content1' }
+          = card 'Content 1', { tab: true, state: :active }, { id: 'content1' }
           = card 'Content 2', { tab: true, effect: :fade }, { id: 'content2' }
           = card 'Content 3', { tab: true, effect: :fade }, { id: 'content3' }
           = card 'Content 4', { tab: true }, { id: 'content4' }
       - c.code do
         nav type: :tabs do |n|
-          n.link 'Active', url: '#content1', status: :active
+          n.link 'Active', url: '#content1', state: :active
           n.link 'Link', url: '#content2'
           n.link 'Another link', url: '#content3'
-          n.link 'Disabled', url: '#content4', status: :disabled
+          n.link 'Disabled', url: '#content4', state: :disabled
         end
          
         <div class='tab-content'>
-          card 'Content 1', { tab: true, status: :active }, { id: 'content1' }
+          card 'Content 1', { tab: true, state: :active }, { id: 'content1' }
           card 'Content 2', { tab: true, effect: :fade }, { id: 'content2' }
           card 'Content 3', { tab: true, effect: :fade }, { id: 'content3' }
           card 'Content 4', { tab: true }, { id: 'content4' }
