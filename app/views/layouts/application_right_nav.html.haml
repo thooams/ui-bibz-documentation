@@ -15,14 +15,14 @@
           %br
           = UiBibzApp::Application::SUMMARY
     = container do
-      = row do
+      = row( class: 'row-fluid' ) do
         %a{ name: 'top' }
-        = col( lg: { num: 2 }, md: { num: 2 }, sm: { num: 1 }, xs: { num: 12 }, class: 'left-nav' ) do
+        = col( lg: { num: 2 }, md: { num: 4 }, sm: { num: 12 }, xs: { num: 12 }, class: 'left-nav' ) do
           = render "components/nav"
           = yield :third_nav
-        = col( lg: { num: 8, offset:1 }, md: { num: 8, offset: 2 }, sm: { num: 7, offset: 3 }, xs: { num: 12 }, class: 'content' ) do
+        = col( lg: { num: 8 }, md: { num: 8, }, sm: { num: 12 }, xs: { num: 12 } ) do
           = yield
-        = col( lg: { num: 1 }, md: { num: 1 }, sm: { num: 1 }, xs: { num: 1 }, class: 'secondary-nav' ) do
+        = col( lg: { num: 2 }, class: 'secondary-nav' ) do
           - unless @sections.nil?
             %h2 Contents
             = subnav do |n|

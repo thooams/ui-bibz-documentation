@@ -101,18 +101,6 @@ h2, h3
   .littlemsg
     line-height: 2rem
 
-// Menu de droite
-.secondary-nav
-  position: relative
-  bottom: 48
-  ul.nav
-    li.nav-item
-      a
-        font-size: 0.85rem
-  // On cache le menu de droite lorsque la fenêtre est plus petite que 1320px
-  @media screen and (max-width: 1320px)
-    display: none !important
-
 body > footer
   padding: 4rem 0
   margin-top: 4rem
@@ -153,32 +141,6 @@ body > footer
   border-radius: 3rem
   margin-left: 5rem
 
-// Fixer le menu de droite lors du scroll (voir application.js)
-.fix-secondary-nav
-  position: fixed
-  top: -10
-  margin-left: 1040px
-
-// Arrangement responsive de la disposition du content
-.fix-content
-  margin-left: 5.9rem
-  @media screen and (max-width: 991px)
-    margin-left: 5rem
-
-// Menu de gauche
-.left-nav
-  h2:first-child
-    margin-top: 0rem
-  @media screen and (max-width: 543px)
-    margin-bottom: 1rem
-
-// Contenu central de la page
-.content
-  @media screen and (max-width: 767px)
-    margin-left: 10rem
-  @media screen and (max-width: 543px)
-    margin-left: 0
-
 .card
   img
     width: 100%
@@ -187,3 +149,32 @@ body > footer
 .description
   width: 70%
   margin: 5px auto 10px auto
+
+// Menu de droite
+.secondary-nav
+  display: none
+  h2:first-child
+    margin-top: 0rem
+
+// Fixer le menu de droite lors du scroll (voir application.coffee)
+.fix-secondary-nav
+  display: block
+  position: fixed
+  top: 1%
+  right: 0
+  // margin-top: 1rem
+  h2:first-child
+    margin-bottom: 1rem
+
+// Menu de gauche
+.left-nav
+  h2:first-child
+    margin-top: 0rem
+  margin-right: 2rem
+  margin-left: -2rem
+
+@media all and (max-width: 992px)
+  .secondary-nav
+    display: none
+  .left-nav
+    margin: 0 0 1rem 0
