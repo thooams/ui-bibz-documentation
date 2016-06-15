@@ -42,8 +42,8 @@ module ApplicationHelper
     link_to opt, components_path(anchor: opt)
   end
 
-  def state_link
-    "#{ option_link('state') } (<code>:danger, :success, :info, :warning, :primary, :secondary</code>)"
+  def status_link
+    "#{ option_link('status') } (<code>:danger, :success, :info, :warning, :primary, :secondary</code>)"
   end
 
   def glyph_link
@@ -54,8 +54,8 @@ module ApplicationHelper
     "#{ option_link('size') } (<code>:lg, :md, :sm, :xs</code>)"
   end
 
-  def status_link
-    "#{ option_link('status') } (<code>:disable, :active</code>)"
+  def state_link
+    "#{ option_link('state') } (<code>:disable, :active</code>)"
   end
 
   def inherit_component_link name

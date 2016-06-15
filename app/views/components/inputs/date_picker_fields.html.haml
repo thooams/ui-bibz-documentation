@@ -15,6 +15,16 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
+  - s.section title: "Date Picker Field date options" do
+    :markdown
+
+      * #{ status_link }
+      * #{ state_link }
+      * date\_today\_highlight (`Boolean`)
+      * calendar_weeks (`Boolean`)
+      * autoclose (`Boolean`)
+      * dates_disabled (`String || Array`)
+
   - s.section title: "Date Picker Field with glyph" do
     = example do |e|
       - e.header do
@@ -54,14 +64,6 @@
         </div>
       - e.footer do
         = documentation_link 'Documentation', '#'
-
-  - s.section title: "Date Picker Field date options" do
-    :markdown
-
-      * date_today_highlight - Boolean
-      * calendar_weeks - Boolean
-      * autoclose - Boolean
-      * dates_disabled - String or Array
 
   - s.section title: "Simple form" do
     :markdown

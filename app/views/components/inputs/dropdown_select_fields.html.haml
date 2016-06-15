@@ -1,5 +1,5 @@
 :markdown
-  # Dropdown select Fields
+  # Dropdown select Fields #{ etiquette 'Beta', status: :danger }
   This component is based on the library [Bootstrap select](http://silviomoreto.github.io/bootstrap-select/examples/)
 
 - @sections = sections do |s|
@@ -68,6 +68,20 @@
         </div>
       - e.footer do
         = documentation_link 'Documentation', '#'
+
+
+  - s.section title: "Dropdown Select Field date options" do
+    :markdown
+
+      * #{ status_link }
+      * #{ state_link }
+      * searchable (`Boolean`)
+      * max_options (`Boolean`)
+      * selected\_text\_format (`Boolean`)
+      * show_tick (`Boolean`)
+      * show\_menu\_arrow (`Boolean`)
+      * dropup (`Boolean`)
+      * actions_box(`Boolean`)
 
   - s.section title: "Dropdown Select Field searchable" do
     = example do |e|
