@@ -8,7 +8,7 @@
     %p
       By default, the second input name will take the first input name + "_formula".
       %br
-      If there is an error in your formula, a warning will be diplay with an explain into a title.
+      If there is an error in your formula, a warning will be diplay with an explain through attribute title in addon warning.
     = example do |e|
       - e.header do
         = formula_field 'value', {}, { placeholder: 'Type your formula...' }
@@ -27,6 +27,12 @@
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Formula Field Options" do
+    :markdown
+
+      * #{ status_link }
+      * #{ state_link }
+      * formula\_field\_name (`Symbol`)
+
     = example do |e|
       - e.header do
         = formula_field 'value', formula_field_name: :another_value_formula
