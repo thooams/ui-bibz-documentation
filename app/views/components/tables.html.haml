@@ -4,11 +4,11 @@
   The `table` component is a html table with a store.
   An pagination and/or a search can be added before or after the component with these methods:
 
-  * table_pagination_pagination
-  * table_pagination_per_page
-  * table_search_field
+  * table\_pagination\_pagination
+  * table\_pagination\_per_page
+  * table\_search\_field
 
-  The pagination is managed through the gem [will_paginate](https://github.com/mislav/will_paginate) .
+  The pagination is managed through the gem [will_paginate](https://github.com/mislav/will_paginate).<br/>
   The methods of `will_paginate` work with the `table` component such as `per_page` .
 
 
@@ -23,7 +23,7 @@
     %p Insert in the model the following line :
     = example do |c|
       - c.code do
-        class MyModel < ActiveRecord::Base
+        class User < ActiveRecord::Base
           include UiBibz::Concerns::Models::Searchable
           ...
         end
@@ -37,9 +37,9 @@
       * opts (optional)
     = example do |c|
       - c.code do
-        class MyController < ApplicationController
+        class UserController < ApplicationController
           def index
-            @users = MyModel.all.table_search_pagination(params, session)
+            @users = User.table_search_pagination(params, session, opts)
             ...
           end
           ...
@@ -52,6 +52,7 @@
       * show
       * edit
       * delete
+
     = example do |c|
       - c.header do
         = table({ store: @users, tap: true }) do |b|
@@ -138,30 +139,45 @@
       - c.footer do
         = documentation_link 'Documentation', '#'
 
+  - s.section title: "Table Options" do
+    :markdown
+      Table has several options:
+
+      * store
+      * form
+
+  - s.section title: "Table Blocks" do
+    :markdown
+      Table has several blocks:
+
+      * columns
+      * actions
+
   - s.section title: "Table Columns" do
     :markdown
       Adding columns through the column method contains several arguments and this method is based on the component :
 
-      * data_index (symbol)
-      * options (hash)
-        * name - String (the name of the column)
-        * count  (uses the count method on the element)
-        * date_format - String (formats the date display using the strftime method ex: `%Y/%M/%D`)
-        * format - Lambda (formats the elements of colone using lambda)
-        * link - String (adds a link where the expression `:id` is parsed and replaced with the corresponding integer)
-        * sort - String (to sort on fields)
-        * column_id - Symbol (identifies the column can be useful for the spell)
-        * custom_sort - String (indicates the table will be sorted in a customized way)
-        * as - Symbol (to autoformat output) :boolean
-      * html_options (hash)
+      * data_index (`Symbol`)
+      * html_options (`Hash`)
+      * options (`Hash`)
+        * name (`String`) [the name of the column]
+        * count (`Boolean`) [uses the count method on the element]
+        * date_format (`String`) [formats the date display using the strftime method ex: `%Y/%M/%D`]
+        * format (`Lambda`) [formats the elements of colone using lambda **records** and **record** will be arguments]
+        * link (`String`) [add a link where the expression `:id` is parsed and replaced with the corresponding integer]
+        * sort (`String`) [to sort on fields]
+        * column_id (`Symbol`) [identify the column can be useful for the spell]
+        * custom_sort (`String`) [indicates the table will be sorted in a customized way]
+        * as (`:boolean, :progress, :input`)
+
     = example do |c|
       - c.header do
         = table({ store: @users, tap: true }) do |b|
           - b.columns do |cls|
             - cls.column :id, name: '#'
             - cls.column :email, link: '#email'
-            - cls.column :active, format: lambda { |records, record| active_icon(record) }
-            - cls.column :company
+            - cls.column :active, as: :boolean
+            - cls.column :company, format: lambda { |records, record| "company #{ record.id }" }
             - cls.column :created_at, date_format: '%d/%M/%Y'
             - cls.column :updated_at
           - b.actions do |acs|
@@ -173,8 +189,8 @@
           b.columns do |cls|
             cls.column :id, name: '#'
             cls.column :email, link: '#email'
-            cls.column :active, format: lambda { |records, record| active_icon(record) }
-            cls.column :company
+            cls.column :active, as: :boolean
+            cls.column :company, format: lambda { |records, record| "company \#{ record.id }" }
             cls.column :created_at, date_format: '%d/%M/%Y'
             cls.column :updated_at
           end
@@ -241,9 +257,9 @@
       * [Link](../components/dropdowns#link)
       * [Html](../components/dropdowns#html)
 
-      If no action is added, actions by faults are displayed.
-      You can activate them through the `default_actions option: false`.
-      The `link` option can inject the id of the record by writing in your `link id`.
+      If no action is added, actions by defaults are displayed.
+      You can activate them through the `default_actions: false`.<br/>
+      The `link` option can inject the id of the record by writing in your `url: user_path(:id)`.
 
     = example do |c|
       - c.header do
@@ -319,7 +335,7 @@
         = documentation_link 'Documentation', '#'
 
     :markdown
-      Actions can be formatted according to each line.
+      Actions can be formatted according to each line.<br/>
       With the `format` method you have access to the record to format the desired action.
 
     = example do |c|
@@ -429,9 +445,9 @@
       Here the sortable argument means that one wishes to interresser the sorting functionality.
       For that it is necessary :
 
-      * define the name of the column sorted through the argument column: (string)
-      * determine whether the treatment is done on counting with the count argument : (boolean)
-      * define the join along with the argument : (string , array , hash)
+      * define the name of the column sorted through the argument column (`String`)
+      * determine whether the treatment is done on counting with the count argument (`Boolean`)
+      * define the join along with the argument (`String , Array , Hash`)
 
     = example do |c|
       - c.code do
