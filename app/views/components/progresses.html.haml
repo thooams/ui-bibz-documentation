@@ -25,6 +25,14 @@
       - c.footer do
         = documentation_link 'Documentation', '#'
 
+  - s.section title: "Progress Options" do
+    :markdown
+      Progress has several options:
+
+      * #{ status_link }
+      * value (`Float`) [required]
+      * striped (`Boolean`)
+      * animated (`Boolean`)
 
   - s.section title: "status" do
     = example do |c|

@@ -8,7 +8,7 @@ You can read about the doc :
   - s.section title: "Row" do
     = example do |c|
       - c.code do
-        row { class: 'test' } do
+        row class: 'test' do
           ...
           content
           ...
@@ -28,7 +28,7 @@ You can read about the doc :
       By default, the size of the grid will be `:md`.
     = example do |c|
       - c.code do
-        row { class: 'test' } do
+        row class: 'test' do
           col({ num: 10, offset: 2 }, { class: 'test-col' }) do
             ...
             content

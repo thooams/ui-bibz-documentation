@@ -43,7 +43,24 @@
       - c.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Links" do
+  - s.section title: "Nav blocks" do
+    :markdown
+      Nav has on block type:
+
+      * #{ inherit_component_link 'link' } [options `url:` is required]
+      * #{ inherit_specific_component_link 'dropdown', components_dropdowns_path }
+      * #{ inherit_specific_component_link 'nav', components_navs_path }
+
+  - s.section title: "Nav Options" do
+    :markdown
+      Nav has several options:
+
+      * #{ status_link }
+      * type (`:tabs, :pills, :links`)
+      * stacked (`Boolean`)
+      * position (`:left, :right`)
+
+  - s.section title: "Link" do
     = example do |c|
       - c.header do
         = nav type: :links do |n|
@@ -63,15 +80,15 @@
         end
       - c.html do
         <nav class="nav nav-links">
-        <a class="active nav-link" href="#active">Active</a>
-        <a class="my-link nav-link" href="#link">Link</a>
-        <a class="nav-link" href="#another-link">Another link</a>
-        <a class="disabled nav-link" href="#disabled">Disabled</a>
+          <a class="active nav-link" href="#active">Active</a>
+          <a class="my-link nav-link" href="#link">Link</a>
+          <a class="nav-link" href="#another-link">Another link</a>
+          <a class="disabled nav-link" href="#disabled">Disabled</a>
         </nav>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Tabs" do
+  - s.section title: "Tab" do
     = example do |c|
       - c.header do
         = nav type: :tabs do |n|
@@ -102,22 +119,22 @@
         end
       - c.html do
         <ul class="nav nav-tabs">
-        <li class="nav-item"><a class="active nav-link" data-toggle="tab" role="tab" href="#active">Active</a></li>
-        <li class="dropdown nav-item">
-        <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown <span class="caret"></span></a>
-        <div class="dropdown-menu dropdown-menu-left">
-        <a class="dropdown-item" href="#action">Action 1</a>
-        <a class="dropdown-item" href="#another-action">Action 2</a>
-        <a class="my-link dropdown-item" href="#separate-link">Action 3</a>
-        </div>
-        </li>
-        <li class="nav-item"><a class="nav-link" data-toggle="tab" role="tab" href="#another-link">Another link</a></li>
-        <li class="nav-item"><a class="disabled nav-link" data-toggle="tab" role="tab" href="#disabled">Disabled</a></li>
+          <li class="nav-item"><a class="active nav-link" data-toggle="tab" role="tab" href="#active">Active</a></li>
+          <li class="dropdown nav-item">
+            <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown <span class="caret"></span></a>
+            <div class="dropdown-menu dropdown-menu-left">
+              <a class="dropdown-item" href="#action">Action 1</a>
+              <a class="dropdown-item" href="#another-action">Action 2</a>
+              <a class="my-link dropdown-item" href="#separate-link">Action 3</a>
+            </div>
+          </li>
+          <li class="nav-item"><a class="nav-link" data-toggle="tab" role="tab" href="#another-link">Another link</a></li>
+          <li class="nav-item"><a class="disabled nav-link" data-toggle="tab" role="tab" href="#disabled">Disabled</a></li>
         </ul>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Pills" do
+  - s.section title: "Pill" do
     = example do |c|
       - c.header do
         = nav type: :pills do |n|
@@ -147,23 +164,23 @@
         end
       - c.html do
         <ul class="nav nav-pills">
-        <li class="nav-item"><a class="active nav-link" href="#active">Active</a></li>
-        <li class="dropdown nav-item">
-        <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown <span class="caret"></span></a>
-        <div class="dropdown-menu dropdown-menu-left">
-        <a class="dropdown-item" href="#action">Action 1</a>
-        <a class="dropdown-item" href="#another-action">Action 2</a>
-        <a class="my-link dropdown-item" href="#separate-link">Action 3</a>
-        </div>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="#another-link">Another link</a></li>
-        <li class="nav-item"><a class="disabled nav-link" href="#disabled">Disabled</a></li>
+          <li class="nav-item"><a class="active nav-link" href="#active">Active</a></li>
+          <li class="dropdown nav-item">
+            <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown <span class="caret"></span></a>
+            <div class="dropdown-menu dropdown-menu-left">
+              <a class="dropdown-item" href="#action">Action 1</a>
+              <a class="dropdown-item" href="#another-action">Action 2</a>
+              <a class="my-link dropdown-item" href="#separate-link">Action 3</a>
+            </div>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#another-link">Another link</a></li>
+          <li class="nav-item"><a class="disabled nav-link" href="#disabled">Disabled</a></li>
         </ul>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
 
-  - s.section title: "Stacked pills" do
+  - s.section title: "Stacked pill" do
     = example do |c|
       - c.header do
         = nav type: :pills, stacked: true do |n|
@@ -180,15 +197,16 @@
         end
       - c.html do
         <ul class="nav nav-pills nav-stacked">
-        <li class="nav-item"><a class="active nav-link" href="#active">Active</a></li>
-        <li class="nav-item"><a class="nav-link" href="#link">Link</a></li>
-        <li class="nav-item"><a class="nav-link" href="#another-link">Another link</a></li>
-        <li class="nav-item"><a class="disabled nav-link" href="#disabled">Disabled</a></li>
+          <li class="nav-item"><a class="active nav-link" href="#active">Active</a></li>
+          <li class="nav-item"><a class="nav-link" href="#link">Link</a></li>
+          <li class="nav-item"><a class="nav-link" href="#another-link">Another link</a></li>
+          <li class="nav-item"><a class="disabled nav-link" href="#disabled">Disabled</a></li>
         </ul>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Connection" do
+    %p For more information see: #{ link_to 'Boostrap nav', 'http://v4-alpha.getbootstrap.com/components/navs/#javascript-behavior' }
     = example do |c|
       - c.header do
         = nav type: :tabs do |n|
@@ -218,17 +236,17 @@
         </div>
       - c.html do
         <ul class="nav nav-tabs">
-        <li class="nav-item"><a class="active nav-link" data-toggle="tab" role="tab" href="#content1">Active</a></li>
-        <li class="nav-item"><a class="nav-link" data-toggle="tab" role="tab" href="#content2">Link</a></li>
-        <li class="nav-item"><a class="nav-link" data-toggle="tab" role="tab" href="#content3">Another link</a></li>
-        <li class="nav-item"><a class="disabled nav-link" data-toggle="tab" role="tab" href="#content4">Disabled</a></li>
+          <li class="nav-item"><a class="active nav-link" data-toggle="tab" role="tab" href="#content1">Active</a></li>
+          <li class="nav-item"><a class="nav-link" data-toggle="tab" role="tab" href="#content2">Link</a></li>
+          <li class="nav-item"><a class="nav-link" data-toggle="tab" role="tab" href="#content3">Another link</a></li>
+          <li class="nav-item"><a class="disabled nav-link" data-toggle="tab" role="tab" href="#content4">Disabled</a></li>
         </ul>
         <br>
         <div class="tab-content">
-        <div id="content1" class="active card card-block tab-pane">Content 1</div>
-        <div id="content2" class="fade card card-block tab-pane">Content 2</div>
-        <div id="content3" class="fade card card-block tab-pane">Content 3</div>
-        <div id="content4" class="card card-block tab-pane">Content 4</div>
+          <div id="content1" class="active card card-block tab-pane">Content 1</div>
+          <div id="content2" class="fade card card-block tab-pane">Content 2</div>
+          <div id="content3" class="fade card card-block tab-pane">Content 3</div>
+          <div id="content4" class="card card-block tab-pane">Content 4</div>
         </div>
       - c.footer do
         = documentation_link 'Documentation', '#'
