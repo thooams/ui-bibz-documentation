@@ -1,19 +1,21 @@
 :markdown
   # Tables
 
-  The `table_card` component may comprise :
+  The `table` component is a html table with a store.
+  An pagination and/or a search can be added before or after the component with these methods:
 
-  * a pagination
-  * an url
+  * table_pagination_pagination
+  * table_pagination_per_page
+  * table_search_field
 
-  The pagegination is managed through the gem `will_paginate` .
-
+  The pagination is managed through the gem [will_paginate](https://github.com/mislav/will_paginate) .
   The methods of `will_paginate` work with the `table` component such as `per_page` .
 
-%important
-  :markdown
-    #### Important
-    To add, edit, delete columns and actions in the component `table_card` you must add the option `tap: true`.
+
+= card tap: true do |c|
+  - c.header 'Important'
+  - c.block do
+    To add, update, remove columns or actions in the component <code>table</code> you must add the option <code>tap: true</code>.
 
 - @sections = sections do |s|
   - s.section title: "Model" do

@@ -6,11 +6,11 @@
   :markdown
     Ui Bibz Framework is designed and created by Thomas HUMMEL ([@thooams](https://github.com/thooams))<br />
     This theme is inspired by [Bootstrap theme documentation](http://getbootstrap.com)<br />
-    Currently v#{ UiBibzApp::Application::VERSION }. Code licensed #{ UiBibzApp::Application::LICENSE } MIT
-  %script{ src: "https://liberapay.com/Thomas/widgets/button.js" }
-    %noscript
-      = link_to "https://liberapay.com/Thomas/donate" do
-        = image_tag "https://liberapay.com/assets/widgets/donate.svg"
+    Currently v#{ UiBibzApp::Application::VERSION }. Code licensed #{ UiBibzApp::Application::LICENSE }
+  //%script{ src: "https://liberapay.com/Thomas/widgets/button.js" }
+  //%noscript
+  = link_to "https://liberapay.com/Thomas/donate" do
+    = image_tag "https://liberapay.com/assets/widgets/donate.svg"
   %br
   %br
   %form{ action: "https://www.paypal.com/cgi-bin/webscr", method: "post", target: "_top" }
