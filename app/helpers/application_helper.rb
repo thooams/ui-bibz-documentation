@@ -55,7 +55,7 @@ module ApplicationHelper
   end
 
   def state_link
-    "#{ option_link('state') } (<code>:disable, :active</code>)"
+    "#{ option_link('state') } (<code>:disabled, :active</code>)"
   end
 
   def inherit_component_link name

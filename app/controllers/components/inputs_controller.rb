@@ -24,4 +24,7 @@ class Components::InputsController < ApplicationController
   def formula_fields
   end
 
+  def markdown_editor_fields
+  end
+
 end

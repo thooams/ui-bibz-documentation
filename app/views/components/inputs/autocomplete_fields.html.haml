@@ -40,7 +40,7 @@
 
     = example do |e|
       - e.header do
-        = autocomplete_field 'example1', status: :success, state: :disable, option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
+        = autocomplete_field 'example1', status: :success, state: :disabled, option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
       - e.code do
         autocomplete_field 'example1', option_tags: options_for_select(10.times.map{ |i| "option \#{i}" })
       - e.html do

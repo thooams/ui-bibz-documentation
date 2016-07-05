@@ -30,9 +30,9 @@
 
     = example do |e|
       - e.header do
-        = surround_field 'search', { state: :disable, status: :danger, append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
+        = surround_field 'search', { state: :disabled, status: :danger, append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
       - e.code do
-        surround_field 'search', { state: :disable, status: :danger, append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
+        surround_field 'search', { state: :disabled, status: :danger, append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
       - e.html do
         <div class="input-group has-danger">
           <span class="input-group-addon"><i class="glyph fa fa-pencil"></i></span>

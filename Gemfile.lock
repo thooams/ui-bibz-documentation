@@ -1,7 +1,7 @@
 PATH
   remote: ~/Apps/Ui-Bibz
   specs:
-    ui_bibz (2.0.0.alpha11)
+    ui_bibz (2.0.0.alpha12)
       bootstrap (< 4.0.0.alpha3)
       bundler (>= 1.8.4)
       font-awesome-sass
@@ -52,7 +52,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
-    autoprefixer-rails (6.3.6.2)
+    autoprefixer-rails (6.3.7)
       execjs
     awesome_print (1.7.0)
     better_errors (2.1.1)

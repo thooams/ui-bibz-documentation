@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     get 'buttons/buttons-link'              => 'buttons#buttons_link'
     get 'buttons/buttons-split-dropdown'    => 'buttons#buttons_split_dropdown'
     get 'inputs/surround-fields'            => 'inputs#surround_fields'
+    get 'inputs/markdown-editor-fields'     => 'inputs#markdown_editor_fields'
     get 'inputs/formula-fields'             => 'inputs#formula_field'
     get 'inputs/switch-fields'              => 'inputs#switch_fields'
     get 'inputs/autocomplete-fields'        => 'inputs#autocomplete_fields'
