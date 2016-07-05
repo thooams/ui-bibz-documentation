@@ -1,10 +1,12 @@
 :markdown
-  # Mardown Editor Fields
-
-  This component is based on the library [Boostrap Markdown](http://www.codingdrama.com/bootstrap-markdown/)
+  # Markdown Editor Fields
 
 - @sections = sections do |s|
-  - s.section title: "Date Picker Field" do
+  - s.section title: "Markdown Editor Field" do
+    %p
+      :markdown
+        This component is based on the library [Boostrap Markdown](http://www.codingdrama.com/bootstrap-markdown/).<br/>
+        You can use [Redcarpet](https://github.com/vmg/redcarpet) or [HAML](https://github.com/indirect/haml-rails) gem to render markdown content.
     = example do |e|
       - e.header do
         = markdown_editor_field 'comments'
@@ -91,4 +93,5 @@
           f.input :comments, as: :markdown_editor
           ...
         end
+
 = @sections.render
