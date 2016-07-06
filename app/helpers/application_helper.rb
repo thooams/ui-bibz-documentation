@@ -66,4 +66,8 @@ module ApplicationHelper
     "#{ name} (inherit of #{ link_to name, url })"
   end
 
+  def based_on link
+    "This component is based on the library #{ link }.".html_safe
+  end
+
 end
