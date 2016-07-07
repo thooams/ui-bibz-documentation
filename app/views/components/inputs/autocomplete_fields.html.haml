@@ -1,13 +1,14 @@
-%h1 Autocomplete Fields
+%h2 Autocomplete Fields
 %blockquote UiBibz::Ui::Core::Inputs::AutocompleteField
+%p.bd-callout
+  Autocomplete field is a text_field and use html datalist to autocomplete results.
+  %br
+  = link_to 'Datalist info', 'http://www.w3schools.com/tags/tag_datalist.asp'
+  %br
+  eq.: Tap "<em>option</em>"
+
 - @sections = sections do |s|
   - s.section title: "Autocomplete Field" do
-    %p
-      Autocomplete field is a text_field and use html datalist to autocomplete results.
-      %br
-      = link_to 'Datalist info', 'http://www.w3schools.com/tags/tag_datalist.asp'
-      %br
-      eq.: Tap "<em>option</em>"
     = example do |e|
       - e.header do
         = autocomplete_field 'example1', option_tags: options_for_select(10.times.map{ |i| "option #{i}" })

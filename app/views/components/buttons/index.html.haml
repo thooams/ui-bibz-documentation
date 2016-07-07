@@ -1,7 +1,7 @@
-%h1 Buttons
+%h2 Buttons
 %blockquote UiBibz::Ui::Core::Buttons::Button
-%p= extend_of_component 'button'
-%p Use Bootstrap’s custom button styles for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, statuss, and more.
+%p.bd-callout
+  = extend_of_component 'button'
 
 - @sections = sections do |s|
   - s.section title: "Button" do
@@ -39,9 +39,6 @@
         <button class="btn-link btn">Link</button>
       - c.footer do
         = documentation_link 'Documentation', '#'
-
-  :markdown
-    ##Button options
 
   - s.section title: "Outline", tag: :h3 do
     :markdown

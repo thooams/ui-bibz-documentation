@@ -1,14 +1,22 @@
+%h2 Components
+%blockquote UiBibz::Ui::Core::Component
+.bd-callout
+  %p
+    The component is the core of Ui Bibz.
+    %br
+    Each element of the framework inherits from
+    %code component
+    element.
+    %br
+    It may contain three arguments :
+
+  %ul
+    %li content (variable or block)
+    %li options
+    %li html_options
+
 - @sections = sections do |s|
   - s.section title: "Component" do
-    :markdown
-      The component is the core of Ui Bibz.<br/>
-      Each element of the framework inherits from `component` element.<br/>
-      It may contain three arguments :
-
-      * content (variable or block)
-      * options
-      * html_options
-
     = example do |c|
       - c.code do
         Component.new content, options = {}, html_options = {}

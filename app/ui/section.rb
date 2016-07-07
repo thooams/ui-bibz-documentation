@@ -24,7 +24,7 @@ module UiBibz::Ui::Ux
     end
 
     def html_tag
-      @options[:tag] || :h2
+      @options[:tag] || :h3
     end
 
   end

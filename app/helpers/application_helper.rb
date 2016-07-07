@@ -31,7 +31,7 @@ module ApplicationHelper
   end
 
   def getbootstrap_doc url
-    link_to('Bootstrap doc', "http://v4-alpha.getbootstrap.com/#{ url }")
+    link_to('Bootstrap doc', "http://v4-alpha.getbootstrap.com/#{ url }", target: '_blank')
   end
 
   def nav_active_link path

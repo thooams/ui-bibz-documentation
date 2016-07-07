@@ -1,12 +1,13 @@
-%h1 Markdown Editor Fields
+%h2 Markdown Editor Fields
 %blockquote UiBibz::Ui::Core::Inputs::MarkdownEditorField
+%p.bd-callout
+  This component is based on the library #{ link_to 'Boostrap Markdown', 'http://www.codingdrama.com/bootstrap-markdown/', target: '_blank' }.
+  %br
+  You can use #{ link_to 'Redcarpet', 'https://github.com/vmg/redcarpet', target: '_blank' } or #{ link_to 'HAML', 'https://github.com/indirect/haml-rails', target: '_blank' } gem to render markdown content.
+
 
 - @sections = sections do |s|
   - s.section title: "Markdown Editor Field" do
-    %p
-      :markdown
-        This component is based on the library [Boostrap Markdown](http://www.codingdrama.com/bootstrap-markdown/).<br/>
-        You can use [Redcarpet](https://github.com/vmg/redcarpet) or [HAML](https://github.com/indirect/haml-rails) gem to render markdown content.
     = example do |e|
       - e.header do
         = markdown_editor_field 'comments'

@@ -1,11 +1,21 @@
-:markdown
-  # Tables Cards
+%h2 Table Cards
+%blockquote UiBibz::Ui::Ux::Tables::TableCard
+.bd-callout
+  %p
+    The
+    %code table_card
+    component is a mix between a #{ link_to 'table', components_tables_path } and a #{ link_to 'card', components_cards_cards_path } component.<br/>
+    %br
+    Pagination and search are integrated to the component
 
-  The `table_card` component is a mix between a [table](#{ components_tables_path }) and a [card](#{ components_cards_cards_path }) component.<br/>
-  Pagination and search are integrated to the component
-
-  The pagination is managed through the gem [will_paginate](https://github.com/mislav/will_paginate).<br/>
-  The methods of `will_paginate` work with the `table` component such as `per_page` .
+  %p
+    The pagination is managed through the gem #{ link_to 'will_paginate', 'https://github.com/mislav/will_paginate', target: '_blank' }.
+    %br
+    The methods of `will_paginate` work with the
+    %code table
+    component such as
+    %code per_page
+    \.
 
 = card tap: true do |c|
   - c.header 'Important'

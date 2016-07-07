@@ -24,7 +24,7 @@
           = yield
         = col( lg: { num: 2 }, class: 'secondary-nav' ) do
           - unless @sections.nil?
-            %h2 Contents
+            %h3 Contents
             = subnav do |n|
               - @sections.names.each do |s|
                 - n.link s

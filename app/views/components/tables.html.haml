@@ -1,15 +1,28 @@
-:markdown
-  # Tables
+%h2 Tables
+%blockquote UiBibz::Ui::Ux::Tables::Table
+.bd-callout
+  %p
+    The
+    %code table
+    component is a html table with a store.
+    %br
+    An pagination and/or a search can be added before or after the component with these methods:
 
-  The `table` component is a html table with a store.
-  An pagination and/or a search can be added before or after the component with these methods:
+    %ul
+      %li table_pagination_pagination
+      %li table_pagination_per_page
+      %li table_search_field
 
-  * table\_pagination\_pagination
-  * table\_pagination\_per_page
-  * table\_search\_field
-
-  The pagination is managed through the gem [will_paginate](https://github.com/mislav/will_paginate).<br/>
-  The methods of `will_paginate` work with the `table` component such as `per_page` .
+    %p
+      The pagination is managed through the gem #{ link_to 'will_paginate', 'https://github.com/mislav/will_paginate', target: '_blank' }.
+      %br
+      The methods of
+      %code will_paginate
+      work with the
+      %code table
+      component such as
+      %code per_page
+      \.
 
 
 = card tap: true do |c|

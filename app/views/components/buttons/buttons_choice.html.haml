@@ -1,8 +1,6 @@
-%h1 Buttons choice
-
+%h2 Buttons choice
 %blockquote UiBibz::Ui::Core::Buttons::ButtonChoice
-
-%p= extend_of_component 'button_choice', link_to('button', components_buttons_path)
+%p.bd-callout= extend_of_component 'button_choice', link_to('button', components_buttons_path)
 
 - @sections = sections do |s|
   - s.section title: "Checkbox buttons" do

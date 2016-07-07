@@ -1,14 +1,12 @@
-%h1 Formula Fields
+%h2 Formula Fields
 %blockquote UiBibz::Ui::Core::Inputs::FormulaField
-%p
-  Use Bootstrap’s custom button styles for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, statuss, and more.
+%p.bd-callout
+  By default, the second input name will take the first input name + "_formula".
+  %br
+  If there is an error in your formula, a warning will be diplay with an explain through attribute title in addon warning.
 
 - @sections = sections do |s|
   - s.section title: "Formula Field" do
-    %p
-      By default, the second input name will take the first input name + "_formula".
-      %br
-      If there is an error in your formula, a warning will be diplay with an explain through attribute title in addon warning.
     = example do |e|
       - e.header do
         = formula_field 'value', {}, { placeholder: 'Type your formula...' }

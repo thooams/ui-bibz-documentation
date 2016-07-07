@@ -1,7 +1,9 @@
-%h1 Buttons split dropdown
+%h2 Buttons split dropdown
 %blockquote UiBibz::Ui::Core::Buttons::ButtonSplitDropdown
-%p= extend_of_component 'button_dropdown', link_to('dropdown', components_dropdowns_path)
-%p  Use any button to trigger a dropdown menu by providing the proper menu markup.
+%p.bd-callout
+  = extend_of_component 'button_dropdown', link_to('dropdown', components_dropdowns_path)
+  %br
+  Use any button to trigger a dropdown menu by providing the proper menu markup.
 
 = content_for :third_nav do
   = nav class: 'secondary-nav' do |n|
