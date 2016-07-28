@@ -14,6 +14,12 @@
           content
           ...
         end
+      - c.html do
+        <div class="test row">
+          ...
+          content
+          ...
+        </div>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -37,9 +43,19 @@
           end
           col content, { num: 2, pull: 4 }, { class: 'test-col2' }
         end
+      - c.html do
+        <div class="test row">
+          <div class="test-col col-md-10 col-md-offset-2">
+            ...
+            content
+            ...
+          </div>
+          <div class="test-col2 col-md-2 col-md-pull-4">
+            content
+          </div>
+        </div>
       - c.footer do
         = documentation_link 'Documentation', '#'
-
   - s.section title: "Cols with differents sizes" do
     :markdown
       To add multiple sizes of columns, you must use arguments :
@@ -51,7 +67,7 @@
       * :xl
     = example do |c|
       - c.code do
-        row { class: 'test' } do
+        row class: 'test' do
           col(md: { num: 5, offset: 2 }, xs: { num: 2 }) do
             ...
             content
@@ -59,7 +75,17 @@
           end
           col content, { md: { num: 7, pull: 4 }, xs: { num: 10 }}, { class: 'test-col2' }
         end
+      - c.html do
+        <div class="test row">
+          <div class="col-md-5 col-md-offset-2 col-xs-2">
+            ...
+            content
+            ...
+          </div>
+          <div class="test-col2 col-md-7 col-md-pull-4 col-xs-10">
+            content
+          </div>
+        </div>
       - c.footer do
         = documentation_link 'Documentation', '#'
-
 = @sections.render

@@ -16,7 +16,11 @@
           ...
         end
       - c.html do
-        <img src="/assets/container-b8f0ffddfecc77b1b0ffbb0cb296b51544d8bbe311d413dc60c6f3649c313498.png" alt="Container b8f0ffddfecc77b1b0ffbb0cb296b51544d8bbe311d413dc60c6f3649c313498">
+        <div class="test container">
+          ...
+          content
+          ...
+        </div>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -27,8 +31,9 @@
       - c.code do
         container content, { type: :fluid }, { class: 'test-2' }
       - c.html do
-        <img src="/assets/container-fluid-f0448e483177969ae279fe7d06094382db24de271cee7141be89c8594022a442.png" alt="Container fluid f0448e483177969ae279fe7d06094382db24de271cee7141be89c8594022a442">
+        <div class="test-2 container-fluid">
+          content
+        </div>
       - c.footer do
         = documentation_link 'Documentation', '#'
-
 = @sections.render
