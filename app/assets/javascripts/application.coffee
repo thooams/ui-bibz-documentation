@@ -12,8 +12,8 @@
 ##
 
 #= require ui_bibz
-#= require turbolinks
 #= require jquery
+#= require turbolinks
 
 # Fonction pour fixer le menu de droite lors du scrolling
 $(window).scroll ->
@@ -30,7 +30,7 @@ $(window).scroll ->
   return
 
 # Smooth Scroll secondary nav
-$(document).on 'page:change', ->
+$(document).on 'ready page:change', ->
   $('.secondary-nav>.nav>.nav-item>a[href*="#"]').on 'click', ->
     if location.pathname.replace(/^\//, '') == @pathname.replace(/^\//, '') and location.hostname == @hostname
       target = $(@hash)
@@ -41,7 +41,7 @@ $(document).on 'page:change', ->
     return
   return
 
-jQuery(document).on 'ready page:change', ->
+jQuery(document).on 'ready page:change page:load turbolinks:load', ->
   offset = 220
   duration = 500
   jQuery(window).scroll ->
