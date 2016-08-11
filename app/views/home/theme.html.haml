@@ -181,6 +181,7 @@
       - %w(primary default success warning danger info).each do |s|
         = etiquette s.titleize, glyph: 'diamond', status: s.to_sym, type: :pill
 
+  // List group component
   - cc.card tap: true do |c|
     - c.header "List group"
     - c.block do
@@ -204,6 +205,7 @@
           - l.header 'List group item heading'
           - l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
 
+  // Modal component
   - cc.card tap: true do |c|
     - c.header "Modal"
     - c.block do
@@ -224,6 +226,106 @@
           = 'Modal title'
         - m.body do
           = 'One fine body'
+
+  // Nav component
+  - cc.card tap: true do |c|
+    - c.header "Nav"
+    - c.block do
+      = nav do |n|
+        - n.link 'Active', url: '#active', state: :active
+        - n.link url: '#link', class: 'my-link' do
+          Link
+        - n.nav do |na|
+          - na.link 'Another link', url: '#another-link'
+          - na.link 'Disabled', url: '#disabled', state: :disabled
+        - n.link 'Another link 2', url: '#another-link2'
+        - n.link 'Another link 3', url: '#another-link3'
+
+    - c.block do
+      = nav type: :links do |n|
+        - n.link 'Active', url: '#active', state: :active
+        - n.link url: '#link', class: 'my-link' do
+          Link
+        - n.link 'Another link', url: '#another-link'
+        - n.link 'Disabled', url: '#disabled', state: :disabled
+
+    - c.block do
+      = nav type: :tabs do |n|
+        - n.link 'Active', url: '#active', state: :active
+        - n.dropdown 'Dropdown' do |d|
+          - d.link "Action 1", url: '#action'
+          - d.link url: '#another-action' do
+            = "Action 2"
+          - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+            = "Action 3"
+        - n.link 'Another link', url: '#another-link'
+        - n.link 'Disabled', url: '#disabled', state: :disabled
+    - c.block do
+      = nav type: :pills do |n|
+        - n.link 'Active', url: '#active', state: :active
+        - n.dropdown 'Dropdown' do |d|
+          - d.link "Action 1", url: '#action'
+          - d.link url: '#another-action' do
+            = "Action 2"
+          - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+            = "Action 3"
+        - n.link 'Another link', url: '#another-link'
+        - n.link 'Disabled', url: '#disabled', state: :disabled
+    - c.block do
+      = nav type: :pills, stacked: true do |n|
+        - n.link 'Active', url: '#active', state: :active
+        - n.link 'Link', url: '#link'
+        - n.link 'Another link', url: '#another-link'
+        - n.link 'Disabled', url: '#disabled', state: :disabled
+    - c.block do
+      = nav type: :tabs do |n|
+        - n.link 'Active', url: '#content1', state: :active
+        - n.link 'Link', url: '#content2'
+        - n.link 'Another link', url: '#content3'
+        - n.link 'Disabled', url: '#content4', state: :disabled
+      %br
+      .tab-content
+        = card 'Content 1', { tab: true, state: :active }, { id: 'content1' }
+        = card 'Content 2', { tab: true, effect: :fade }, { id: 'content2' }
+        = card 'Content 3', { tab: true, effect: :fade }, { id: 'content3' }
+        = card 'Content 4', { tab: true }, { id: 'content4' }
+
+  // Nav component
+  - cc.card tap: true do |c|
+    - c.header "Nav"
+    - c.block do
+      = navbar title: 'Navbar' do |nb|
+        - nb.nav do |n|
+          - n.link 'Home', url: '#active', state: :active
+        - nb.form '/search', { type: :form_tag, position: :right } do
+          = text_field_tag 'Search'
+          = button 'Search', status: :success, outline: true
+    - c.block do
+      = navbar title: 'Navbar' do |nb|
+        - nb.nav do |n|
+          - n.link 'Home', url: '#active', state: :active
+          - n.link url: '#link', class: 'my-link' do
+            Features
+          - n.link 'Pricing', url: '#another-link'
+          - n.dropdown 'Dropdown' do |d|
+            - d.link "Action 1", url: '#action'
+            - d.link url: '#another-action' do
+              = "Action 2"
+            - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+              = "Action 3"
+    - c.block do
+      = col num: 6 do
+        - %w(primary inverse success warning danger info).each do |s|
+          = navbar title: 'Navbar', status: s.to_sym do |nb|
+            - nb.nav do |n|
+              - n.link 'Home', url: '#active', state: :active
+          %br
+      = col num: 6 do
+        - %w(primary inverse success warning danger info).each do |s|
+          = navbar title: 'Navbar', status: s.to_sym, type: :dark do |nb|
+            - nb.nav do |n|
+              - n.link 'Home', url: '#active', state: :active
+          %br
 
 = card_deck do |cd|
 
