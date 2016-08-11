@@ -1,7 +1,7 @@
-%h2 Labels, etiquettes
-%blockquote UiBibz::Ui::Core::Label
+%h2 Labels, Tags, etiquettes
+%blockquote UiBibz::Ui::Core::tag
 %p.bd-callout
-  Add any of the below mentioned modifier classes to change the appearance of a label.
+  Add any of the below mentioned modifier classes to change the appearance of a tag.
   %br
   %b NB:
   The helper use 'etiquette' method name to avoid conflict with Rails.
@@ -27,12 +27,12 @@
         etiquette 'Info', status: :info
         etiquette 'Success', status: :success
       - c.html do
-        <span class="label-primary label">Primary</span>
-        <span class="label-default label">Default</span>
-        <span class="label-danger label">Danger</span>
-        <span class="label-warning label">Warning</span>
-        <span class="label-info label">Info</span>
-        <span class="label-success label">Success</span>
+        <span class="tag-primary tag">Primary</span>
+        <span class="tag-default tag">Default</span>
+        <span class="tag-danger tag">Danger</span>
+        <span class="tag-warning tag">Warning</span>
+        <span class="tag-info tag">Info</span>
+        <span class="tag-success tag">Success</span>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -49,12 +49,12 @@
         etiquette 'Info', status: :info, type: :pill, glyph: 'diamond'
         etiquette 'Success', status: :success, type: :pill, glyph: 'diamond'
       - c.html do
-        <span class="label-primary label label-pill"><i class="glyph fa fa-diamond"></i> Primary</span>
-        <span class="label-default label label-pill"><i class="glyph fa fa-diamond"></i> Default</span>
-        <span class="label-danger label label-pill"><i class="glyph fa fa-diamond"></i> Danger</span>
-        <span class="label-warning label label-pill"><i class="glyph fa fa-diamond"></i> Warning</span>
-        <span class="label-info label label-pill"><i class="glyph fa fa-diamond"></i> Info</span>
-        <span class="label-success label label-pill"><i class="glyph fa fa-diamond"></i> Success</span>
+        <span class="tag-primary tag tag-pill"><i class="glyph fa fa-diamond"></i> Primary</span>
+        <span class="tag-default tag tag-pill"><i class="glyph fa fa-diamond"></i> Default</span>
+        <span class="tag-danger tag tag-pill"><i class="glyph fa fa-diamond"></i> Danger</span>
+        <span class="tag-warning tag tag-pill"><i class="glyph fa fa-diamond"></i> Warning</span>
+        <span class="tag-info tag tag-pill"><i class="glyph fa fa-diamond"></i> Info</span>
+        <span class="tag-success tag tag-pill"><i class="glyph fa fa-diamond"></i> Success</span>
       - c.footer do
         = documentation_link 'Documentation', '#'
 

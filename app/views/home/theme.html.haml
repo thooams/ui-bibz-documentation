@@ -3,55 +3,320 @@
   %p A quick preview of everything Bootstrap has to offer.
   = button_link "GET Bootstrap 3.0. NOW!" , url: "#"
 
-= col num: 6 do
-  = card_column do |cc|
+= card_column do |cc|
 
-    // Alert component
-    - cc.card tap: true do |c|
-      - c.header "Alerts"
-      - c.block do
-        - %w(success warning danger info).each do |s|
-          = notify s.titleize, status: s.to_sym, glyph: 'diamond', closable: true
+  // Alert component
+  - cc.card tap: true do |c|
+    - c.header "Alerts"
+    - c.block do
+      - %w(success warning danger info).each do |s|
+        = notify s.titleize, status: s.to_sym, glyph: 'diamond', closable: true
 
-    // Breadcrumb component
-    - cc.card tap: true do |c|
-      - c.header "Breadcrumb"
-      - c.block do
-        = breadcrumb store: User.all.limit(3), link_label: :email, link_url: "#/id/edit"
+  // Breadcrumb component
+  - cc.card tap: true do |c|
+    - c.header "Breadcrumb"
+    - c.block do
+      = breadcrumb store: User.all.limit(3), link_label: :email, link_url: "#/id/edit"
 
-    // Button component
-    - cc.card tap: true do |c|
-      - c.header "Buttons"
-      - c.block do
-        - %w(primary secondary success warning danger link).each do |s|
-          = button s.titleize, status: s.to_sym
-      - c.block do
-        - %w(primary secondary success warning danger).each do |s|
-          = button s.titleize, status: s.to_sym, outline: true
-      - c.block do
-        - %w(lg md sm xs).each do |s|
-          = button "Button #{ s }", status: :primary, size: s.to_sym
-      - c.block do
-        = button 'Block level button', status: :primary, type: :block
-        = button 'Block level button', status: :secondary, type: :block
-      - c.block do
-        = button 'Primary', status: :primary, state: :active
-        = button 'Primary', status: :primary, state: :disabled
-
+  // Button component
+  - cc.card tap: true do |c|
+    - c.header "Button"
+    - c.block do
+      - %w(primary secondary success warning danger info link).each do |s|
+        = button s.titleize, status: s.to_sym, glyph: 'diamond'
+    - c.block do
+      - %w(primary secondary success warning info danger).each do |s|
+        = button s.titleize, status: s.to_sym, outline: true, glyph: 'diamond'
+    - c.block do
+      - %w(lg md sm xs).each do |s|
+        = button "Button #{ s }", status: :primary, size: s.to_sym
+    - c.block do
+      = button 'Block level button', status: :primary, type: :block
+      = button 'Block level button', status: :secondary, type: :block
+    - c.block do
+      = button 'Primary', status: :primary, state: :active
+      = button 'Primary', status: :primary, state: :disabled
 
 
-    // Button component
-    - cc.card tap: true do |c|
-      - c.header "Button Choice"
-      - c.block do
-        = button_group do
-          = button_choice 'Checkbox 1', status: :primary, state: :active
-          = button_choice 'Checkbox 2', status: :primary
-      - c.block do
-        = button_group do
-          = button_choice 'Radio 1', type: :radio, status: :success, state: :active
-          = button_choice 'Radio 2', type: :radio, status: :success
-      - c.block do
-        = button_group do
-          = button_choice 'Radio 1', type: :radio, size: :lg, outline: true, status: :danger, state: :active
-          = button_choice 'Radio 2', type: :radio, size: :lg, outline: true, status: :danger
+
+  // Button component
+  - cc.card tap: true do |c|
+    - c.header "Button Choice"
+    - c.block do
+      = button_group do
+        = button_choice 'Checkbox 1', status: :primary, state: :active
+        = button_choice 'Checkbox 2', status: :primary
+    - c.block do
+      = button_group do
+        = button_choice 'Radio 1', type: :radio, status: :success, state: :active
+        = button_choice 'Radio 2', type: :radio, status: :success
+    - c.block do
+      = button_group do
+        = button_choice 'Radio 1', type: :radio, size: :lg, outline: true, status: :danger, state: :active
+        = button_choice 'Radio 2', type: :radio, size: :lg, outline: true, status: :danger
+
+  // Button Dropdown component
+  - cc.card tap: true do |c|
+    - c.header "Button Dropdown"
+    - c.block do
+      - %w(primary secondary success warning danger info).each do |s|
+        = button_dropdown s.titleize, glyph: 'diamond', status: s.to_sym do |d|
+          - d.link "Action", url: '#action', glyph: 'diamond'
+          - d.link "Another action", url: '#another-action'
+          - d.divider
+          - d.header 'Header'
+          - d.html "     Normal Text"
+          - d.link "Separate link", url: '#separate-link'
+    - c.block do
+      = button_dropdown "Dropdown Right", size: :lg, position: :right, status: :success do |d|
+        - d.link "Action", url: '#action', glyph: 'diamond'
+        - d.link "Another action", url: '#another-action'
+        - d.divider
+        - d.header 'Header'
+        - d.html "     Normal Text"
+        - d.link "Separate link", url: '#separate-link'
+      = button_dropdown "Dropdown Up", size: :sm, type: :dropup, status: :danger do |d|
+        - d.link "Action", url: '#action', glyph: 'diamond'
+        - d.link "Another action", url: '#another-action'
+        - d.divider
+        - d.header 'Header'
+        - d.html "     Normal Text"
+        - d.link "Separate link", url: '#separate-link'
+
+  // Button Group component
+  - cc.card tap: true do |c|
+    - c.header "Button Group"
+    - c.block do
+      = button_group do
+        = button 'Button'
+        = button_link 'Button link', url: '#button-link'
+        = button_dropdown "Dropdown" do |bd|
+          - bd.link "Action", url: '#action'
+          - bd.link "Another action", url: '#another-action'
+          - bd.divider
+          - bd.header 'Header'
+          - bd.link "Separate link", url: '#separate-link'
+    - c.block do
+      = button_group size: :sm do
+        = button 'Left', outline: true
+        = button 'Middle', outline: true
+        = button 'Right', outline: true
+    - c.block do
+      = button_group position: :vertical do
+        = button 'Left'
+        = button 'Middle'
+        = button 'Right'
+
+  // Button link component
+  - cc.card tap: true do |c|
+    - c.header "Button link"
+    - c.block do
+      - %w(primary secondary success warning danger info link).each do |s|
+        = button_link s.titleize, url: "##{ s }", status: s.to_sym, glyph: 'diamond'
+    - c.block do
+      - %w(primary secondary success warning info danger).each do |s|
+        = button s.titleize, url: "##{ s }", status: s.to_sym, outline: true, glyph: 'diamond'
+    - c.block do
+      - %w(lg md sm xs).each do |s|
+        = button "Button #{ s }", url: "##{ s }", status: :primary, size: s.to_sym
+    - c.block do
+      = button 'Block level button', url: '#', status: :primary, type: :block
+      = button 'Block level button', url: '#', status: :secondary, type: :block
+    - c.block do
+      = button 'Primary', url: '#active', status: :primary, state: :active
+      = button 'Primary', url: '#disabled', status: :primary, state: :disabled
+
+  // Button split dropdown component
+  - cc.card tap: true do |c|
+    - c.header "Button Split Dropdown"
+    - c.block do
+      - %w(primary secondary success warning danger info).each do |s|
+        = button_split_dropdown s.titleize, glyph: 'diamond', status: s.to_sym do |d|
+          - d.link "Action", url: '#action', glyph: 'diamond'
+          - d.link "Another action", url: '#another-action'
+          - d.divider
+          - d.header 'Header'
+          - d.html "     Normal Text"
+          - d.link "Separate link", url: '#separate-link'
+    - c.block do
+      = button_split_dropdown "Split Dropdown Right", size: :lg, position: :right, status: :success do |d|
+        - d.link "Action", url: '#action', glyph: 'diamond'
+        - d.link "Another action", url: '#another-action'
+        - d.divider
+        - d.header 'Header'
+        - d.html "     Normal Text"
+        - d.link "Separate link", url: '#separate-link'
+      = button_split_dropdown "Split Dropdown Up", size: :sm, type: :dropup, status: :danger do |d|
+        - d.link "Action", url: '#action', glyph: 'diamond'
+        - d.link "Another action", url: '#another-action'
+        - d.divider
+        - d.header 'Header'
+        - d.html "     Normal Text"
+
+  // Glyph component
+  - cc.card tap: true do |c|
+    - c.header "Glyph"
+    - c.block do
+      - %w(primary secondary success warning danger info).each do |s|
+        = glyph 'diamond', status: s.to_sym
+    - c.block do
+      - 4.times do |i|
+        = glyph 'diamond', size: i
+    - c.block do
+      = glyph 'square', stack: 2
+      = glyph 'diamond', stack: 1, status: :danger
+    - c.block do
+      = glyph 'diamond', rotate: 90
+      = glyph 'diamond', rotate: 180
+      = glyph 'diamond', rotate: 270
+
+
+  // Etiquette component
+  - cc.card tap: true do |c|
+    - c.header "Etiquette"
+    - c.block do
+      - %w(primary default success warning danger info).each do |s|
+        = etiquette s.titleize, status: s.to_sym
+    - c.block do
+      - %w(primary default success warning danger info).each do |s|
+        = etiquette s.titleize, glyph: 'diamond', status: s.to_sym, type: :pill
+
+  - cc.card tap: true do |c|
+    - c.header "List group"
+    - c.block do
+      = list_group do |lg|
+        - lg.list 'Cras justo odio', tag: 14
+        - lg.list 'Dapibus ac facilisis in', glyph: 'diamond'
+        - lg.list 'Morbi leo risus', state: :active
+        - lg.list 'Porta ac consectetur ac', state: :disabled
+        - lg.list 'Vestibulum at eros', status: :success
+      %br
+      = list_group  do |lg|
+        - lg.list tap: true, state: :active do |l|
+          - l.header 'List group item heading'
+          - l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
+        - lg.list tap: true do |l|
+          - l.header class: 'my-header' do
+            = 'List group item heading'
+          - l.body class: 'my-body' do
+            = 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
+        - lg.list tap: true do |l|
+          - l.header 'List group item heading'
+          - l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
+
+  - cc.card tap: true do |c|
+    - c.header "Modal"
+    - c.block do
+      = modal class: 'modal-example' do |m|
+        - m.header 'Modal title'
+        - m.body 'One fine body'
+        - m.footer do
+          = button 'Close', status: :secondary
+          = button 'Save changes'
+      = modal class: 'modal-example', size: :sm do |m|
+        - m.header do
+          = 'Modal title'
+        - m.body do
+          = 'One fine body'
+      = button_link 'click here to open modal', { url: '#' }, { data: { toggle: 'modal', target: '#modal-test' }}
+      = modal({ effect: :fade }, { id: 'modal-test' }) do |m|
+        - m.header do
+          = 'Modal title'
+        - m.body do
+          = 'One fine body'
+
+= card_deck do |cd|
+
+  // Card component
+  - cd.card do
+    = card tap: true do |c|
+      - c.header 'Card', glyph: 'diamond'
+      - c.block  'Content 2'
+      - c.footer 'Footer 2', muted: true
+
+    = card status: :success do
+      Content
+
+  - cd.card tap: true do |c|
+    - c.image 'image.svg'
+    - c.block tap: true do |b|
+      - b.title "Card title"
+      - b.text "Some quick example text to build on the card title and make up the bulk of the card's content."
+    - c.list_group do |lg|
+      - lg.list "Cras justo odio"
+      - lg.list "Dapibas ac facilisis in"
+      - lg.list "vestibulum at eros"
+    - c.block tap: true do |b|
+      - b.link "Card link", url: '#', class: "card-link"
+      - b.link "Card link", url: '#', class: "card-link"
+
+= card_group do |cg|
+  - cg.card(tap: true) do |c|
+    - c.header 'header 1'
+    - c.block 'content 1'
+    - c.footer 'footer 1'
+  - cg.card tap: true do |c|
+    - c.image 'image.svg'
+    - c.block tap: true do |b|
+      - b.title 'card title'
+      - b.text 'this is a wider card with supporting text below as a natural lead-in to additional content. this content is a little bit longer.'
+      - b.text "<small class='text-muted'>last updated 3 mins ago</small>"
+  - cg.card tap: true do |c|
+    - c.list_group do |lg|
+      - lg.list "cras justo odio"
+      - lg.list "Dapibas ac facilisis in", state: :active
+      - lg.list tap: true do |l|
+        - l.header 'Header list'
+        - l.body "vestibulum at eros"
+  - cg.card "content 4 <br/> some quick example text to build on the card title and make up the bulk of the card's content."
+  - cg.card status: :primary, type: :inverse, text_position: :center do
+    = '<blockquote class="card-blockquote"><p>lorem ipsum dolor sit amet, consectetur adipiscing elit. integer posuere erat a ante.</p><footer>someone famous in <cite title="source title">source title</cite></footer></blockquote>'.html_safe
+
+%br
+= card_deck do |cd|
+  - cd.card tap: true do |c|
+    - c.block tap: true do |b|
+      - b.title "Special title treatment"
+      - b.text "With supporting text below as a natural lead-in to additional content."
+      - b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
+  - cd.card tap: true, text_position: :center do |c|
+    - c.block tap: true do |b|
+      - b.title "Special title treatment"
+      - b.text "With supporting text below as a natural lead-in to additional content."
+      - b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
+  - cd.card tap: true, text_position: :right do |c|
+    - c.block tap: true do |b|
+      - b.title "Special title treatment"
+      - b.text "With supporting text below as a natural lead-in to additional content."
+      - b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
+
+= card_deck do |cd|
+  - cd.card({ tap: true, type: :inverse }, { style: "background-color: #333; border-color: #333;" }) do |c|
+    - c.block tap: true do |b|
+      - b.title "Special title treatment"
+      - b.text "With supporting text below as a natural lead-in to additional content."
+
+  - cd.card tap: true, type: :inverse, status: :primary do |c|
+    - c.block tap: true do |b|
+      - b.title "Special title treatment"
+      - b.text "With supporting text below as a natural lead-in to additional content."
+
+  - cd.card tap: true, type: :inverse, status: :success do |c|
+    - c.block tap: true do |b|
+      - b.title "Special title treatment"
+      - b.text "With supporting text below as a natural lead-in to additional content."
+
+  - cd.card tap: true, type: :inverse, status: :danger do |c|
+    - c.block tap: true do |b|
+      - b.title "Special title treatment"
+      - b.text "With supporting text below as a natural lead-in to additional content."
+
+  - cd.card tap: true, type: :inverse, status: :info do |c|
+    - c.block tap: true do |b|
+      - b.title "Special title treatment"
+      - b.text "With supporting text below as a natural lead-in to additional content."
+
+  - cd.card tap: true, type: :inverse, status: :warning do |c|
+    - c.block tap: true do |b|
+      - b.title "Special title treatment"
+      - b.text "With supporting text below as a natural lead-in to additional content."

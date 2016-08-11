@@ -45,24 +45,24 @@
         * #{ state_link }
         * type (`:button, :link`)
 
-  - s.section title: "Labels" do
+  - s.section title: "Tags" do
     = example do |c|
       - c.header do
         = list_group do |lg|
-          - lg.list 'Cras justo odio', label: 14
-          - lg.list 'Dapibus ac facilisis in', label: 2
-          - lg.list 'Morbi leo risus', label: 1
+          - lg.list 'Cras justo odio', tag: 14
+          - lg.list 'Dapibus ac facilisis in', tag: 2
+          - lg.list 'Morbi leo risus', tag: 1
       - c.code do
         list_group do |lg|
-          lg.list 'Cras justo odio', label: 14
-          lg.list 'Dapibus ac facilisis in', label: 2
-          lg.list 'Morbi leo risus', label: 1
+          lg.list 'Cras justo odio', tag: 14
+          lg.list 'Dapibus ac facilisis in', tag: 2
+          lg.list 'Morbi leo risus', tag: 1
         end
       - c.html do
         <ul class="list-group">
-          <li class="list-group-item">Cras justo odio<span class="label-default pull-right label label-pill">14</span></li>
-          <li class="list-group-item">Dapibus ac facilisis in<span class="label-default pull-right label label-pill">2</span></li>
-          <li class="list-group-item">Morbi leo risus<span class="label-default pull-right label label-pill">1</span></li>
+          <li class="list-group-item">Cras justo odio<span class="tag-default pull-right tag tag-pill">14</span></li>
+          <li class="list-group-item">Dapibus ac facilisis in<span class="tag-default pull-right tag tag-pill">2</span></li>
+          <li class="list-group-item">Morbi leo risus<span class="tag-default pull-right tag tag-pill">1</span></li>
         </ul>
       - c.footer do
         = documentation_link 'Documentation', '#'
