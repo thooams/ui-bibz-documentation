@@ -57,11 +57,11 @@
         button 'Warning', status: :warning, outline: true
         button 'Danger', status: :danger, outline: true
       - c.html do
-        <button class="btn-primary-outline btn">Primary</button>
-        <button class="btn-secondary-outline btn">Secondary</button>
-        <button class="btn-success-outline btn">Success</button>
-        <button class="btn-warning-outline btn">Warning</button>
-        <button class="btn-danger-outline btn">Danger</button>
+        <button class="btn-outline-primary btn">Primary</button>
+        <button class="btn-outline-secondary btn">Secondary</button>
+        <button class="btn-outline-success btn">Success</button>
+        <button class="btn-outline-warning btn">Warning</button>
+        <button class="btn-outline-danger btn">Danger</button>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
@@ -70,18 +70,19 @@
       The size can be be defined through the `size` option that has the following two arguments :
 
       * :lg
+      * :md
       * :sm
       * :xs
 
     = example do |c|
       - c.header do
         = button 'Large button', status: :primary, size: :lg
-        = button 'Medium button', status: :primary
+        = button 'Medium button', status: :primary, size: :md
         = button 'Small button', status: :primary, size: :sm
         = button 'Extra small button', status: :primary, size: :xs
       - c.code do
         button 'Large button', status: :primary, size: :lg
-        button 'Medium button', status: :primary
+        button 'Medium button', status: :primary, size: :md
         button 'Small button', status: :primary, size: :sm
         button 'Extra small button', status: :primary, size: :xs
       - c.html do

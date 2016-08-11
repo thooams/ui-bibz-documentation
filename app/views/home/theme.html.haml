@@ -1,0 +1,57 @@
+= jumbotron do
+  %h1 Bootstrap #{ UiBibzApp::Application::Gems.bootstrap.version } elements page example template
+  %p A quick preview of everything Bootstrap has to offer.
+  = button_link "GET Bootstrap 3.0. NOW!" , url: "#"
+
+= col num: 6 do
+  = card_column do |cc|
+
+    // Alert component
+    - cc.card tap: true do |c|
+      - c.header "Alerts"
+      - c.block do
+        - %w(success warning danger info).each do |s|
+          = notify s.titleize, status: s.to_sym, glyph: 'diamond', closable: true
+
+    // Breadcrumb component
+    - cc.card tap: true do |c|
+      - c.header "Breadcrumb"
+      - c.block do
+        = breadcrumb store: User.all.limit(3), link_label: :email, link_url: "#/id/edit"
+
+    // Button component
+    - cc.card tap: true do |c|
+      - c.header "Buttons"
+      - c.block do
+        - %w(primary secondary success warning danger link).each do |s|
+          = button s.titleize, status: s.to_sym
+      - c.block do
+        - %w(primary secondary success warning danger).each do |s|
+          = button s.titleize, status: s.to_sym, outline: true
+      - c.block do
+        - %w(lg md sm xs).each do |s|
+          = button "Button #{ s }", status: :primary, size: s.to_sym
+      - c.block do
+        = button 'Block level button', status: :primary, type: :block
+        = button 'Block level button', status: :secondary, type: :block
+      - c.block do
+        = button 'Primary', status: :primary, state: :active
+        = button 'Primary', status: :primary, state: :disabled
+
+
+
+    // Button component
+    - cc.card tap: true do |c|
+      - c.header "Button Choice"
+      - c.block do
+        = button_group do
+          = button_choice 'Checkbox 1', status: :primary, state: :active
+          = button_choice 'Checkbox 2', status: :primary
+      - c.block do
+        = button_group do
+          = button_choice 'Radio 1', type: :radio, status: :success, state: :active
+          = button_choice 'Radio 2', type: :radio, status: :success
+      - c.block do
+        = button_group do
+          = button_choice 'Radio 1', type: :radio, size: :lg, outline: true, status: :danger, state: :active
+          = button_choice 'Radio 2', type: :radio, size: :lg, outline: true, status: :danger

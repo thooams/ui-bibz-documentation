@@ -24,3 +24,9 @@
   color: #959595
   letter-spacing: 1px
   content: "EXEMPLE"
+
+.card-columns
+  @include media-breakpoint-only(lg)
+    column-count: 2
+  @include media-breakpoint-only(xl)
+    column-count: 1

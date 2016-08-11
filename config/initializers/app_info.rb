@@ -18,6 +18,10 @@ module UiBibzApp
         self.ui_bibz.dependent_specs.find{ |u| u.name == 'font-awesome-sass' }
       end
 
+      def self.bootstrap
+        self.ui_bibz.dependent_specs.find{ |u| u.name == 'bootstrap' }
+      end
+
     end
   end
 

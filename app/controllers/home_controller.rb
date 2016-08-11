@@ -8,4 +8,8 @@ class HomeController < ApplicationController
     layout 'application'
   end
 
+  def theme
+    @users = User.all.table_search_pagination(params, session)
+  end
+
 end
