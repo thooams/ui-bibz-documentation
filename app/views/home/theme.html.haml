@@ -290,7 +290,7 @@
         = card 'Content 3', { tab: true, effect: :fade }, { id: 'content3' }
         = card 'Content 4', { tab: true }, { id: 'content4' }
 
-  // Nav component
+  // Navbar component
   - cc.card tap: true do |c|
     - c.header "Nav"
     - c.block do
@@ -326,6 +326,70 @@
             - nb.nav do |n|
               - n.link 'Home', url: '#active', state: :active
           %br
+
+  // Progress component
+  - cc.card tap: true do |c|
+    - c.header "Progress"
+    - c.block do
+      - [[:secondary, 0], [:success, 20], [:primary, 40], [:info, 60], [:warning, 80], [:danger, 100]].each do |i|
+        = progress i[1], status: i[0].to_sym
+    - c.block do
+      - [[:secondary, 0], [:success, 20], [:primary, 40], [:info, 60], [:warning, 80], [:danger, 100]].each do |i|
+        = progress i[1], status: i[0].to_sym, striped: true, animated: true
+
+  // Stars component
+  - cc.card tap: true do |c|
+    - c.header "Stars"
+    - c.block do
+      - %i(xs sm md lg).each do |i|
+        = stars 4, size: i
+        %br
+    - c.block do
+      - [[:secondary, 0], [:success, 1], [:primary, 2], [:info, 3], [:warning, 4], [:danger, 5]].each do |i|
+        = stars i[1], status: i[0].to_sym
+        %br
+    - c.block do
+      = stars 3.5
+      %br
+      = stars 6, num: 8
+
+  // Autocomplete field component
+  - cc.card tap: true do |c|
+    - c.header "Inputs"
+    - c.block do
+      %label autocomplete_field
+      = autocomplete_field 'example1', { option_tags: options_for_select(10.times.map{ |i| "option #{i}" }) }, { placeholder: 'Type option..' }
+    - c.block do
+      %label dropdown_select_field
+      = dropdown_select_field 'example1', searchable: true, option_tags: options_for_select(5.times.map{ |i| "option #{i}" })
+    - c.block do
+      %label date_picker_field
+      = date_picker_field 'range', range: glyph('calendar-minus-o'), append: glyph('car'), prepend: glyph('pencil')
+    - c.block do
+      %label formula_field
+      = formula_field 'value', {}, { placeholder: 'Type your formula...(2+3/2)'}
+    - c.block do
+      %label markdown_editor_field
+      = markdown_editor_field 'comments'
+    - c.block do
+      %label multi_column_field
+      - grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+      = multi_column_field 'example', { option_tags: grouped_options_for_select(grouped_options), searchable: true, selectable_opt_group: true }
+    - c.block do
+      %label multi_select_field
+      %br
+      - grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+      = multi_select_field 'example', select_all_option: true, searchable: true, collapsible_opt_group: true, option_tags: grouped_options_for_select(grouped_options)
+    - c.block do
+      %label surround_field
+      = surround_field 'search', { append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
+    - c.block do
+      %label switch_field
+      %br
+      = switch_field 'examplecolor'
+
+
+
 
 = card_deck do |cd|
 
