@@ -353,7 +353,7 @@
       %br
       = stars 6, num: 8
 
-  // Autocomplete field component
+  // Inputs component
   - cc.card tap: true do |c|
     - c.header "Inputs"
     - c.block do
@@ -387,9 +387,6 @@
       %label switch_field
       %br
       = switch_field 'examplecolor'
-
-
-
 
 = card_deck do |cd|
 
@@ -486,3 +483,43 @@
     - c.block tap: true do |b|
       - b.title "Special title treatment"
       - b.text "With supporting text below as a natural lead-in to additional content."
+
+// Table component
+= card tap: true do |c|
+  - c.header "Table"
+  - c.block do
+    = col num: 6 do
+      = ""
+    = col num: 6 do
+      = table_search_field store: @users
+    = table({ store: @users, tap: true }) do |b|
+      - b.columns do |cls|
+        - cls.column :id
+        - cls.column :email
+        - cls.column :active
+        - cls.column :company
+        - cls.column :created_at
+        - cls.column :updated_at
+      - b.actions do |acs|
+        - acs.link 'Show', url: '#show', glyph: 'eye'
+        - acs.link 'Edit', url: '#show', glyph: 'pencil'
+        - acs.link 'Delete', url: '#show', glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
+
+    = col num: 8 do
+      = table_pagination store: @users
+    = col num: 4 do
+      = table_pagination_per_page store: @users
+
+
+= table_card store: @users, title: 'Table card', tap: true do |b|
+  - b.columns do |cls|
+    - cls.column :id
+    - cls.column :email
+    - cls.column :active
+    - cls.column :company
+    - cls.column :created_at
+    - cls.column :updated_at
+  - b.actions do |acs|
+    - acs.link 'Show', url: '#show', glyph: 'eye'
+    - acs.link 'Edit', url: '#show', glyph: 'pencil'
+    - acs.link 'Delete', url: '#show', glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}

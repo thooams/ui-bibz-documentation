@@ -158,6 +158,17 @@
 
       * store
       * form
+      * type (`Symbol`)
+      * status
+      * striped (`Boolean`)
+      * bordered (`Boolean`)
+      * hoverable (`Boolean`)
+      * responsive (`Boolean`)
+      * reflow (`Boolean`)
+      * #{ size_link }
+      * #{ status_link }
+      * thead
+        * status (`Symbol`)
 
   - s.section title: "Table Blocks" do
     :markdown
@@ -182,6 +193,7 @@
         * column_id (`Symbol`) [identify the column can be useful for the spell]
         * custom_sort (`String`) [indicates the table will be sorted in a customized way]
         * as (`:boolean, :progress, :input`)
+        * hidden (`Boolean`) [hide column]
 
     = example do |c|
       - c.header do
@@ -437,6 +449,80 @@
       - c.footer do
         = documentation_link 'Documentation', '#'
 
+  - s.section title: "Table Search component" do
+    %p This component is linked with table component.
+    = example do |c|
+      - c.header do
+        %br
+        = table_search_field store: @users
+      - c.code do
+        table_search_field store: @users
+      - c.html do
+        <form class="form-table-search-field" action="/components/tables" accept-charset="UTF-8" method="get">
+          <input name="utf8" type="hidden" value="✓">
+          <div class="input-group input-group-sm table-search-field">
+            <span class="input-group-addon"><i class="glyph fa fa-search"></i></span>
+            <input type="hidden" name="only_path" value="true">
+            <input type="search" name="search" class="form-control" placeholder="Search by Name...">
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-secondary"><i class="glyph fa fa-times-circle"></i></button>
+            </span>
+          </div>
+        </form>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Table Pagination component" do
+    %p This component is linked with table component.
+    = example do |c|
+      - c.header do
+        = table_pagination store: @users
+      - c.code do
+        table_pagination store: @users
+      - c.html do
+        <ul class="pagination pagination">
+          <li class="prev disabled"><span>← Previous</span></li>
+          <li class="active"><span>1</span></li>
+          <li><a rel="next" href="/components/tables?page=2">2</a></li>
+          <li><a href="/components/tables?page=3">3</a></li>
+          <li><a href="/components/tables?page=4">4</a></li>
+          <li><a href="/components/tables?page=5">5</a></li>
+          <li><a href="/components/tables?page=6">6</a></li>
+          <li><a href="/components/tables?page=7">7</a></li>
+          <li><a href="/components/tables?page=8">8</a></li>
+          <li><a href="/components/tables?page=9">9</a></li> <li class="disabled"><span>…</span></li>
+          <li><a href="/components/tables?page=49">49</a></li>
+          <li><a href="/components/tables?page=50">50</a></li>
+          <li class="next"><a rel="next" href="/components/tables?page=2">Next →</a></li>
+        </ul>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Table Pagination per page component" do
+    %p This component is linked with table component.
+    = example do |c|
+      - c.header do
+        = table_pagination_per_page store: @users
+      - c.code do
+        table_pagination_per_page store: @users
+      - c.html do
+        <form action="/components/tables" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+          <div class="table-pagination-per-page">Displaying User <b>1&nbsp;-&nbsp;3</b> of <b>150</b> in total | Per page:
+            <input type="hidden" name="only_path" value="true">
+            <select name="per_page" id="per_page" class="form-control">
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="30">30</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+              <option value="200">200</option>
+              <option value="500">500</option>
+           </select>
+          </div>
+        </form>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
 
   - s.section title: "Controller arguments" do
     :markdown

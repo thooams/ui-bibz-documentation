@@ -1,4 +1,3 @@
-require 'sections'
 module UiBibz::Ui::Ux
   class Sections < UiBibz::Ui::Core::Component
 
