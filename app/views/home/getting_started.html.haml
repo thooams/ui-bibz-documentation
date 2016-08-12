@@ -1,8 +1,4 @@
-= col ({ num: 2, pull: 2 }) do
-  = image_tag "http://img11.hostingpics.net/pics/936928keepcalmandletsgodevelop.png", :class => "img-keep-calm"
-/ If you want delete the image, put 'offset: 2' in col (see example below the line) and remove the two lines above
-/= col ({ num: 6, offset: 2 }) do
-= col ({ num: 6 }) do
+= col num: 8  do
   :markdown
     # Getting Started
     ##Install
@@ -31,8 +27,8 @@
 
     _Ps: You can use sass variables into Boostrap._
 
-=col ({ num: 4 }) do
-  %div{ :style => "margin: 6rem 0 3rem 0;" }
+= col num: 4 do
+  %div
     :markdown
 
       ##Compatibility
