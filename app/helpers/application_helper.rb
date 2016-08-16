@@ -70,4 +70,8 @@ module ApplicationHelper
     "This component is based on the library #{ link }.".html_safe
   end
 
+  def see_component url
+    link_to "#{ glyph 'eye' } See component".html_safe, url
+  end
+
 end

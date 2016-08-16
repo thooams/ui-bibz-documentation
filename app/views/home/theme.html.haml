@@ -1,7 +1,7 @@
 = jumbotron do
   %h1 Bootstrap #{ UiBibzApp::Application::Gems.bootstrap.version } elements page example template
   %p A quick preview of everything Bootstrap has to offer.
-  = button_link "GET Bootstrap 3.0. NOW!" , url: "#"
+  = button_link "See Boostrap 4!" , { url: "http://v4-alpha.getbootstrap.com/" }, { target: '_blank' }
 
 = card_column do |cc|
 
@@ -11,6 +11,7 @@
     - c.block do
       - %w(success warning danger info).each do |s|
         = notify s.titleize, status: s.to_sym, glyph: 'diamond', closable: true
+    - c.footer see_component components_alerts_notify_path
 
   // Breadcrumb component
   - cc.card tap: true do |c|
@@ -36,6 +37,7 @@
     - c.block do
       = button 'Primary', status: :primary, state: :active
       = button 'Primary', status: :primary, state: :disabled
+    - c.footer see_component components_buttons_path
 
 
 
@@ -54,6 +56,7 @@
       = button_group do
         = button_choice 'Radio 1', type: :radio, size: :lg, outline: true, status: :danger, state: :active
         = button_choice 'Radio 2', type: :radio, size: :lg, outline: true, status: :danger
+    - c.footer see_component components_buttons_buttons_choice_path
 
   // Button Dropdown component
   - cc.card tap: true do |c|
@@ -82,6 +85,7 @@
         - d.header 'Header'
         - d.html "     Normal Text"
         - d.link "Separate link", url: '#separate-link'
+    - c.footer see_component components_buttons_buttons_dropdown_path
 
   // Button Group component
   - cc.card tap: true do |c|
@@ -106,6 +110,7 @@
         = button 'Left'
         = button 'Middle'
         = button 'Right'
+    - c.footer see_component components_buttons_buttons_group_path
 
   // Button link component
   - cc.card tap: true do |c|
@@ -125,6 +130,7 @@
     - c.block do
       = button 'Primary', url: '#active', status: :primary, state: :active
       = button 'Primary', url: '#disabled', status: :primary, state: :disabled
+    - c.footer see_component components_buttons_buttons_link_path
 
   // Button split dropdown component
   - cc.card tap: true do |c|
@@ -152,6 +158,7 @@
         - d.divider
         - d.header 'Header'
         - d.html "     Normal Text"
+    - c.footer see_component components_buttons_buttons_split_dropdown_path
 
   // Glyph component
   - cc.card tap: true do |c|
@@ -169,6 +176,7 @@
       = glyph 'diamond', rotate: 90
       = glyph 'diamond', rotate: 180
       = glyph 'diamond', rotate: 270
+    - c.footer see_component components_glyphs_path
 
 
   // Etiquette component
@@ -180,6 +188,7 @@
     - c.block do
       - %w(primary default success warning danger info).each do |s|
         = etiquette s.titleize, glyph: 'diamond', status: s.to_sym, type: :pill
+    - c.footer see_component components_labels_etiquettes_path
 
   // List group component
   - cc.card tap: true do |c|
@@ -204,6 +213,7 @@
         - lg.list tap: true do |l|
           - l.header 'List group item heading'
           - l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
+    - c.footer see_component components_lists_group_path
 
   // Modal component
   - cc.card tap: true do |c|
@@ -226,6 +236,7 @@
           = 'Modal title'
         - m.body do
           = 'One fine body'
+    - c.footer see_component components_modals_path
 
   // Nav component
   - cc.card tap: true do |c|
@@ -289,6 +300,7 @@
         = card 'Content 2', { tab: true, effect: :fade }, { id: 'content2' }
         = card 'Content 3', { tab: true, effect: :fade }, { id: 'content3' }
         = card 'Content 4', { tab: true }, { id: 'content4' }
+    - c.footer see_component components_navs_path
 
   // Navbar component
   - cc.card tap: true do |c|
@@ -326,6 +338,7 @@
             - nb.nav do |n|
               - n.link 'Home', url: '#active', state: :active
           %br
+    - c.footer see_component components_navbars_path
 
   // Progress component
   - cc.card tap: true do |c|
@@ -336,6 +349,7 @@
     - c.block do
       - [[:secondary, 0], [:success, 20], [:primary, 40], [:info, 60], [:warning, 80], [:danger, 100]].each do |i|
         = progress i[1], status: i[0].to_sym, striped: true, animated: true
+    - c.footer see_component components_progresses_path
 
   // Stars component
   - cc.card tap: true do |c|
@@ -352,6 +366,7 @@
       = stars 3.5
       %br
       = stars 6, num: 8
+    - c.footer see_component components_stars_path
 
   // Inputs component
   - cc.card tap: true do |c|
@@ -401,6 +416,7 @@
       Content
 
   - cd.card tap: true do |c|
+    - c.header 'Card'
     - c.image 'image.svg'
     - c.block tap: true do |b|
       - b.title "Card title"
@@ -412,6 +428,7 @@
     - c.block tap: true do |b|
       - b.link "Card link", url: '#', class: "card-link"
       - b.link "Card link", url: '#', class: "card-link"
+    - c.footer see_component components_cards_cards_path
 
 = card_group do |cg|
   - cg.card(tap: true) do |c|
@@ -442,12 +459,12 @@
       - b.title "Special title treatment"
       - b.text "With supporting text below as a natural lead-in to additional content."
       - b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
-  - cd.card tap: true, text_position: :center do |c|
+  - cd.card tap: true, text: { position: :center } do |c|
     - c.block tap: true do |b|
       - b.title "Special title treatment"
       - b.text "With supporting text below as a natural lead-in to additional content."
       - b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
-  - cd.card tap: true, text_position: :right do |c|
+  - cd.card tap: true, text: { position: :right } do |c|
     - c.block tap: true do |b|
       - b.title "Special title treatment"
       - b.text "With supporting text below as a natural lead-in to additional content."
@@ -509,6 +526,7 @@
       = table_pagination store: @users
     = col num: 4 do
       = table_pagination_per_page store: @users
+  - c.footer see_component components_tables_path
 
 
 = table_card store: @users, title: 'Table card', tap: true do |b|
