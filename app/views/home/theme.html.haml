@@ -402,6 +402,11 @@
       %label switch_field
       %br
       = switch_field 'examplecolor'
+    - c.block do
+      %label input file
+      %label.custom-file
+        = file_field_tag :file, class: 'custom-file-input'
+        %span.custom-file-control
 
 = card_deck do |cd|
 
