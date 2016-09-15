@@ -1,0 +1,14 @@
+(function() {
+  $(document).on('turbolinks:load page:change ready', function() {
+    return $('.btn-group > a.btn, .dropdown-item').click(function() {
+      var error, exception;
+      try {
+        return Turbolinks.visit($(this).attr('href'));
+      } catch (error) {
+        exception = error;
+        return window.location = $(this).attr('href');
+      }
+    });
+  });
+
+}).call(this);

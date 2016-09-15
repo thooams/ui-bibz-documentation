@@ -1,0 +1,23 @@
+(function() {
+  var UiBibz, ready;
+
+  this.UiBibz = UiBibz = (function() {
+    function UiBibz() {
+      this.table = new window.UiBibzTable();
+      this.form = new window.UiBibzForm();
+      this["interface"] = new window.UiBibzInterface();
+      this.formula = new window.UiBibzFormula();
+    }
+
+    return UiBibz;
+
+  })();
+
+  ready = function() {
+    new UiBibz;
+    return $("textarea[data-provide*='markdown']").markdown();
+  };
+
+  $(document).on('ready turbolinks:load page:change', ready);
+
+}).call(this);
