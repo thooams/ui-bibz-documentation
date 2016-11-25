@@ -1,75 +1,49 @@
 %h2 Checkbox Fields
 %blockquote UiBibz::Ui::Core::Inputs::Choices::CheckboxField
-%p.bd-callout= based_on link_to "Bootstrap Switch", "http://www.bootstrap-switch.org/", target: '_blank'
+%p.bd-callout= based_on link_to "Awesome Bootstrap Checkbox", "https://github.com/flatlogic/awesome-bootstrap-checkbox", target: '_blank'
 
 :markdown
 
   The specific datas for this component are :
 
   * `state` (**'active'**, 'disabled') : 'active' if not specified
-  * `animate` (**true**, false) : true if not specified
-  * `left_color` | `right_color` (**primary** | info | success | warning | danger | default)
-  * `left_text` | `right_text` (String) : respectively **'ON'** and **'OFF'** if not specified
-  * `middle_text` (String) : empty if not specified
-
-  Specific options for this component are :
-
-  * `readonly` (true, **false**) : false if not specified
-  * `checked` (**true**, false) : true if not specified
-
+  * `value` (Boolean, String) : required
 
 - @sections = sections do |s|
-  - s.section title: "Switch Field" do
+  - s.section title: "Checkbox Field" do
     = example do |e|
       - e.header do
-        = switch_field 'examplebasic'
+        - %w(primary secondary success info warning danger).each do |status|
+          = checkbox_field status, { value: status, status: status.to_sym, checked: true }
       - e.code do
-        switch_field 'examplebasic'
+        checkbox_field :primary, { value: 'primary', status: :primary, checked: true }
       - e.html do
-        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-examplebasic bootstrap-switch-animate" style="width: 106px;">
-          <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
-            <span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 52px;">ON</span>
-            <span class="bootstrap-switch-label" style="width: 52px;">&nbsp;</span>
-            <span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 52px;">OFF</span>
-            <input type="checkbox" name="examplebasic" id="examplebasic" class="switch">
-          </div>
+        <div class="abc-checkbox-primary checkbox abc-checkbox">
+          <input type="checkbox" name="primary" id="primary" value="primary" class="styled" checked="checked" />
+          <label for="primary">primary</label>
         </div>
       - e.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "State" do
+  - s.section title: "Circle" do
     = example do |e|
       - e.header do
-        = switch_field 'examplestate', { state: 'active' }
-        = switch_field 'examplestate', { state: 'disabled' }
+        - %w(primary secondary success info warning danger).each do |status|
+          = checkbox_field "#{status}-circle", { value: status, label: status, status: status.to_sym, type: :circle, checked: true }
       - e.code do
-        switch_field 'examplestate', { state: 'active' }
-        switch_field 'examplestate', { state: 'disabled' }
+        checkbox_field "success-circle", { type: :circle, value: 'success', status: :success, checked: true }
       - e.html do
-        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-examplestate bootstrap-switch-animate" style="width: 106px;">
-          <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
-            <span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 52px;">ON</span>
-            <span class="bootstrap-switch-label" style="width: 52px;">&nbsp;</span>
-            <span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 52px;">OFF</span>
-            <input type="checkbox" name="examplestate" id="examplestate" class="switch">
-          </div>
-        </div>
-        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-disabled bootstrap-switch-id-examplestate bootstrap-switch-animate" style="width: 106px;">
-          <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
-            <span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 52px;">ON</span>
-            <span class="bootstrap-switch-label" style="width: 52px;">&nbsp;</span>
-            <span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 52px;">OFF</span>
-            <input type="checkbox" name="examplestate" id="examplestate" disabled="disabled" class="true switch">
-          </div>
+        <div class="abc-checkbox-primary checkbox abc-checkbox abc-checkbox-circle">
+          <input type="checkbox" name="primary" id="primary" value="primary" class="styled" checked="checked" />
+          <label for="primary">primary</label>
         </div>
       - e.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Animate" do
+  - s.section title: "Intermediate" do
     = example do |e|
       - e.header do
-        = switch_field 'exampleanimate', { animate: true }
-        = switch_field 'exampleanimate', { animate: false }
+        = checkbox_field "intermediate", { intermediate: true }
       - e.code do
         switch_field 'exampleanimate', { animate: true }
         switch_field 'exampleanimate', { animate: false }
