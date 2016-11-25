@@ -19,21 +19,39 @@ Rails.application.routes.draw do
     #resource :buttons
   #end
   namespace :components do
-    get 'buttons'                           => 'buttons#index'
-    get 'buttons/buttons-choice'            => 'buttons#buttons_choice'
-    get 'buttons/buttons-dropdown'          => 'buttons#buttons_dropdown'
-    get 'buttons/buttons-group'             => 'buttons#buttons_group'
-    get 'buttons/buttons-link'              => 'buttons#buttons_link'
-    get 'buttons/buttons-split-dropdown'    => 'buttons#buttons_split_dropdown'
-    get 'inputs/surround-fields'            => 'inputs#surround_fields'
-    get 'inputs/markdown-editor-fields'     => 'inputs#markdown_editor_fields'
-    get 'inputs/formula-fields'             => 'inputs#formula_field'
-    get 'inputs/switch-fields'              => 'inputs#switch_fields'
-    get 'inputs/autocomplete-fields'        => 'inputs#autocomplete_fields'
-    get 'inputs/dropdown-select-fields'     => 'inputs#dropdown_select_fields'
-    get 'inputs/date-picker-fields'         => 'inputs#date_picker_fields'
-    get 'inputs/multi-select-fields'        => 'inputs#multi_select_fields'
-    get 'inputs/multi-column-fields'        => 'inputs#multi_column_fields'
+    namespace :inputs do
+      # buttons
+      get 'buttons'                        => 'buttons#index'
+      get 'buttons/buttons-choice'         => 'buttons#buttons_choice'
+      get 'buttons/buttons-dropdown'       => 'buttons#buttons_dropdown'
+      get 'buttons/buttons-group'          => 'buttons#buttons_group'
+      get 'buttons/buttons-link'           => 'buttons#buttons_link'
+      get 'buttons/buttons-split-dropdown' => 'buttons#buttons_split_dropdown'
+
+      # texts
+      get 'texts/surround-fields'     => 'texts#surround_fields'
+      get 'texts/autocomplete-fields' => 'texts#autocomplete_fields'
+
+      # textareas
+      get 'textareas/markdown-editor-fields' => 'textareas#markdown_editor_fields'
+
+      # number
+      get 'numbers/formula-fields' => 'numbers#formula_field'
+
+
+      # selects
+      get 'selects/dropdown-select-fields' => 'selects#dropdown_select_fields'
+      get 'selects/multi-select-fields'    => 'selects#multi_select_fields'
+      get 'selects/multi-column-fields'    => 'selects#multi_column_fields'
+
+      # dates
+      get 'dates/date-picker-fields' => 'dates#date_picker_fields'
+
+      # choices
+      get 'choices/switch-fields'   => 'choices#switch_fields'
+      get 'choices/checkbox-fields' => 'choices#checkbox_fields'
+    end
+
     get 'cards/cards'                       => 'cards#index'
     get 'cards/cards-column-deck-and-group' => 'cards#cards_column_deck_and_group'
     get 'layouts/grid'                      => 'layouts#grid'

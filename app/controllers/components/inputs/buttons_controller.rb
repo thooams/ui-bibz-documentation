@@ -1,4 +1,4 @@
-class Components::ButtonsController < ApplicationController
+class Components::Inputs::ButtonsController < ApplicationController
   def index
   end
 

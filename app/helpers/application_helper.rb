@@ -38,6 +38,10 @@ module ApplicationHelper
     url_for(controller: controller_name, action: action_name) == path ? :active : nil
   end
 
+  def nav_options path
+    { url: path, state: nav_active_link(path) }
+  end
+
   def option_link opt
     link_to opt, components_path(anchor: opt)
   end
