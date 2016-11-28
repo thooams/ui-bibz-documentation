@@ -50,6 +50,7 @@ Rails.application.routes.draw do
       # choices
       get 'choices/switch-fields'   => 'choices#switch_fields'
       get 'choices/checkbox-fields' => 'choices#checkbox_fields'
+      get 'choices/radio-fields'    => 'choices#radio_fields'
     end
 
     get 'cards/cards'                       => 'cards#index'

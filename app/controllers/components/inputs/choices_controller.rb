@@ -6,4 +6,7 @@ class Components::Inputs::ChoicesController < ApplicationController
   def checkbox_fields
   end
 
+  def radio_fields
+  end
+
 end
