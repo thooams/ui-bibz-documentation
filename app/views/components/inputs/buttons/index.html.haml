@@ -3,6 +3,16 @@
 %p.bd-callout
   = extend_of_component 'button'
 
+= code "button"
+
+= component_options do |co|
+  - co.status_link
+  - co.glyph_link
+  - co.state_link
+  - co.size_link
+  - co.list 'outline', 'boolean'
+  - co.list 'type', 'symbol', ':block'
+
 - @sections = sections do |s|
   - s.section title: "Button" do
     :markdown

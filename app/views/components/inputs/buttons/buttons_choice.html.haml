@@ -2,18 +2,26 @@
 %blockquote UiBibz::Ui::Core::Inputs::Buttons::ButtonChoice
 %p.bd-callout= extend_of_component 'button_choice', link_to('button', components_inputs_buttons_path)
 
+= code do
+  :plain
+    button_group do
+      button_choice content, options = {}, html_options = {}
+      # or
+      button_choice options = {}, html_options = {} do
+        content
+      end
+    end
+
+= component_options do |co|
+  - co.status_link
+  - co.glyph_link
+  - co.state_link
+  - co.size_link
+  - co.list 'type', 'symbol', %w(:radio, :checkbox)
+  - co.list 'outline', 'boolean'
+
 - @sections = sections do |s|
   - s.section title: "Checkbox buttons" do
-    :markdown
-      Checkbox button has several options:
-
-      * #{ status_link }
-      * #{ glyph_link }
-      * #{ size_link }
-      * #{ state_link }
-      * outline (`Boolean`)
-      * type (`:checkbox, :radio`)
-
     = example do |c|
       - c.header do
         = button_group do

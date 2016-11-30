@@ -10,6 +10,20 @@
       d.link options = {}, html_options = {} do
         content
       end
+
+      d.divider
+
+      d.header content, options = {}, html_options = {}
+      # or
+      d.header options = {}, html_options = {} do
+        content
+      end
+
+      d.html content
+      # or
+      d.html do
+        content
+      end
     end
 
 = component_options do |co|
