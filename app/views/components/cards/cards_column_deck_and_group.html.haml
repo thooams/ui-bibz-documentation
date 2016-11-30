@@ -4,6 +4,29 @@
   %p= extend_of_component 'card_column'
   %p Card column, card deck and card group contains #{ link_to 'cards', components_cards_cards_path }.
 
+= code do
+  :plain
+    card_column options = { tap: true }, html_options = {} do |cc|
+      cc.card do
+        content
+      end
+    end
+    # or
+    card_deck options = { tap: true }, html_options = {} do |cd|
+      cd.card do
+        content
+      end
+    end
+    card_group options = { tap: true }, html_options = {} do |cg|
+      cg.card do
+        content
+      end
+    end
+
+
+= component_options do |co|
+  - co.tap_link
+
 - @sections = sections do |s|
   - s.section title: "Card column" do
     = example do |e|

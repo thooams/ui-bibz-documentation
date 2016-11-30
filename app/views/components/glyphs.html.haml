@@ -1,6 +1,26 @@
 %h2 Glyphs
 %blockquote UiBibz::Ui::Core::Glyph
 %p.bd-callout Includes over 634 glyphs in font format from the #{ link_to 'fontawesome.io', 'http://fontawesome.io/icons/'} set (<em>version #{ UiBibzApp::Application::Gems::font_awesome.version }</em>).
+
+= code do
+  :plain
+    glyph name, options = {}, html_options = {}
+    # or
+    glyph options = {}, html_options = {} do
+      content
+    end
+    # or
+    glyph options = {}
+
+= component_options do |co|
+  - co.status_link
+  - co.state_link
+  - co.size_link
+  - co.list 'flip', 'symbol', %w(:horizontal :vertical)
+  - co.list 'name', 'string'
+  - co.list 'rotate', 'number'
+  - co.list 'stack', 'integer'
+
 - @sections = sections do |s|
   - s.section title: "Glyph" do
     = example do |c|
