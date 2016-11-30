@@ -2,12 +2,15 @@
 %blockquote UiBibz::Ui::Core::Inputs::Choices::RadioField
 %p.bd-callout= based_on link_to "Awesome Bootstrap Checkbox", "https://github.com/flatlogic/awesome-bootstrap-checkbox", target: '_blank'
 
-:markdown
+= code "radio_field", component_name: "name"
 
-  The specific datas for this component are :
-
-  * `state` (**'active'**, 'disabled') : 'active' if not specified
-  * `value` (Boolean, String)
+= component_options do |co|
+  - co.status_link
+  - co.state_link
+  - co.list 'value', %w(boolean string integer)
+  - co.list 'label', 'string'
+  - co.list 'inline', 'boolean'
+  - co.list 'type', 'symbol', ':square'
 
 - @sections = sections do |s|
   - s.section title: "Radio Field" do

@@ -2,12 +2,16 @@
 %blockquote UiBibz::Ui::Core::Inputs::Choices::CheckboxField
 %p.bd-callout= based_on link_to "Awesome Bootstrap Checkbox", "https://github.com/flatlogic/awesome-bootstrap-checkbox", target: '_blank'
 
-:markdown
+= code "checkbox_field", component_name: "name"
 
-  The specific datas for this component are :
-
-  * `state` (**'active'**, 'disabled') : 'active' if not specified
-  * `value` (Boolean, String)
+= component_options do |co|
+  - co.status_link
+  - co.state_link
+  - co.list 'value', %w(boolean string integer)
+  - co.list 'label', 'string'
+  - co.list 'intermediate', 'boolean'
+  - co.list 'inline', 'boolean'
+  - co.list 'type', 'symbol', ':circle'
 
 - @sections = sections do |s|
   - s.section title: "Checkbox Field" do
@@ -75,8 +79,8 @@
         = checkbox_field :state_1, value: true, state: :disabled, label: 'choice 1'
         = checkbox_field :state_2, value: false, state: :disabled, label: 'choice 2', checked: true
       - e.code do
-        checkbox_field :state, value: true, state: :disabled, label: 'active'
-        checkbox_field :state, value: false, state: :disabled, label: 'disabled', checked: true
+        checkbox_field :state, { value: true, state: :disabled, label: 'active' }
+        checkbox_field :state, { value: false, state: :disabled, label: 'disabled', checked: true }
       - e.html do
         <div class="disabled abc-radio-default radio abc-radio">
           <input type="radio" name="state" id="state_true" value="true" disabled="disabled">
@@ -96,9 +100,9 @@
       - e.code do
         checkbox_field :check, { label: 'My label' }
       - e.html do
-        <div class="abc-checkbox-primary checkbox abc-checkbox checkbox-inline">
-          <input type="checkbox" name="primary" id="primary" value="primary" class="styled" checked="checked" />
-          <label for="primary">primary</label>
+        <div class="abc-checkbox-default checkbox abc-checkbox">
+          <input type="checkbox" name="check" id="check" class="styled">
+          <label for="check">My label</label>
         </div>
       - e.footer do
         = documentation_link 'Documentation', '#'

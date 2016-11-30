@@ -2,6 +2,57 @@
 %blockquote UiBibz::Ui::Core::Cards::Card
 %p.bd-callout= extend_of_component 'card'
 
+= code do
+  :plain
+    card content, options = {}, html_options = {}
+    # or
+    card options = {}, html_options = {} do
+      content
+    end
+    # or
+    card options = { tap: true }, html_options = {} do |c|
+      c.header content, options = {}, html_options = {}
+      # or
+      c.header options = {}, html_options = {} do
+        content
+      end
+
+      c.block content, options = {}, html_options = {}
+      # or
+      c.block options = {}, html_options = {} do
+        content
+      end
+      # or
+      c.block options = { tap: true }, html_options = {} do |b|
+        b.link content, options = {}, html_options = {}
+        b.link options = {}, html_options = {} do
+          content
+        end
+      end
+
+      c.footer content, options = {}, html_options = {}
+      # or
+      c.footer options = {}, html_options = {} do
+        content
+      end
+
+      c.image ''
+
+      c.list_group do |lg|
+        lg.list content, options = {}, html_options = {}
+        # or
+        lg.list options = {}, html_options = {} do
+          content
+        end
+      end
+    end
+
+= component_options do |co|
+  - co.status_link
+  - co.list 'text_position', 'sumbol', %w(:left :center :right)
+  - co.list 'type', 'symbol', ':inverse'
+  - co.tap_link
+
 - @sections = sections do |s|
   - s.section title: "Card" do
     :markdown

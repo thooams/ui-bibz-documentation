@@ -47,7 +47,7 @@ module ApplicationHelper
   end
 
   def status_link
-    "#{ option_link('status') } (<code>:danger, :success, :info, :warning, :primary, :secondary</code>)"
+    "#{ option_link('status') } (Symbol) [<code>:danger, :success, :info, :warning, :primary, :secondary</code>]"
   end
 
   def glyph_link
@@ -55,11 +55,11 @@ module ApplicationHelper
   end
 
   def size_link
-    "#{ option_link('size') } (<code>:lg, :md, :sm, :xs</code>)"
+    "#{ option_link('size') } (Symbol) [<code>:lg, :md, :sm, :xs</code>]"
   end
 
   def state_link
-    "#{ option_link('state') } (<code>:disabled, :active</code>)"
+    "#{ option_link('state') } (Symbol) [<code>:disabled, :active</code>]"
   end
 
   def inherit_component_link name

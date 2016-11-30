@@ -18,7 +18,10 @@ module UiBibz::Ui::Ux
     end
 
     def render
-      content_tag :div, @items.join.html_safe, html_options
+      content_tag :div, html_options do
+        concat content_tag :h2, 'Examples'
+        concat @items.join.html_safe
+      end
     end
 
   end

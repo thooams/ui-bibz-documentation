@@ -1,6 +1,21 @@
 %h2 Breadcrumbs
 %blockquote UiBibz::Ui::Core::Breadcrumb
 %p.bd-callout Indicate the current page's location within a navigational hierarchy.
+
+= code do
+  :plain
+    breadcrumb options = {}, html_options = {} do |b|
+      b.link content, options = {}, html_options = {}
+      b.link options = {}, html_options = {} do
+        content
+      end
+    end
+
+= component_options do |co|
+  - co.list 'store', 'object'
+  - co.list 'link_label', 'symbol', ':name'
+  - co.list 'link_url', 'string', '#'
+
 - @sections = sections do |s|
   - s.section title: "Breadcrumb" do
     = example do |c|

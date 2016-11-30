@@ -1,6 +1,13 @@
 %h2 Alerts, Notify
 %blockquote UiBibz::Ui::Core::Notify
 %p.bd-callout Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
+
+= code "notify"
+
+= component_options do |co|
+  - co.status_link
+  - co.list 'closable', 'boolean'
+
 - @sections = sections do |s|
   - s.section title: "Notify" do
     = example do |c|
