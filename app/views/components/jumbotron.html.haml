@@ -1,6 +1,12 @@
 = title 'Jumbotron'
 %blockquote UiBibz::Ui::Core::Jumbotron
 %p.bd-callout A lightweight, flexible component that can optionally extend the entire viewport to showcase key content on your site.
+
+= code 'jumbotron'
+
+= component_options do |co|
+  - co.list 'fluid', 'boolean'
+
 - @sections = sections do |s|
   - s.section title: "Jumbotron" do
     = example do |c|

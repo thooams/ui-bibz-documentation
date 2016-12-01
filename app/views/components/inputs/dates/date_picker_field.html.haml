@@ -2,6 +2,16 @@
 %blockquote UiBibz::Ui::Core::Inputs::Dates::DatePickerField
 %p.bd-callout= based_on link_to "Jquery multiselect", "http://eternicode.github.io/bootstrap-datepicker/?markup=input&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=2&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&keyboardNavigation=on&forceParse=on#sandbox", target: '_blank'
 
+= code "date_picker_field", component_name: "name"
+
+= component_options do |co|
+  - co.status_link
+  - co.state_link
+  - co.list 'today_highlight', 'boolean'
+  - co.list 'calendar_weeks', 'boolean'
+  - co.list 'autoclose', 'boolean'
+  - co.list 'dates_disabled', %w(string array)
+
 - @sections = sections do |s|
   - s.section title: "Date Picker Field" do
     = example do |e|
@@ -13,16 +23,6 @@
         <input type="text" name="search" id="search" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" class="date_picker form-control">
       - e.footer do
         = documentation_link 'Documentation', '#'
-
-  - s.section title: "Date Picker Field date options" do
-    :markdown
-
-      * #{ status_link }
-      * #{ state_link }
-      * today\_highlight (`Boolean`)
-      * calendar_weeks (`Boolean`)
-      * autoclose (`Boolean`)
-      * dates_disabled (`String || Array`)
 
   - s.section title: "Date Picker Field with glyph" do
     = example do |e|

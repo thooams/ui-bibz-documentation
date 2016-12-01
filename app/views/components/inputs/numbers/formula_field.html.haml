@@ -5,6 +5,13 @@
   %br
   If there is an error in your formula, a warning will be diplay with an explain through attribute title in addon warning.
 
+= code "formula_field", component_name: "name"
+
+= component_options do |co|
+  - co.status_link
+  - co.state_link
+  - co.list 'formula_field_name', 'symbole'
+
 - @sections = sections do |s|
   - s.section title: "Formula Field" do
     = example do |e|
@@ -25,12 +32,6 @@
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Formula Field Options" do
-    :markdown
-
-      * #{ status_link }
-      * #{ state_link }
-      * formula\_field\_name (`Symbol`)
-
     = example do |e|
       - e.header do
         = formula_field 'value', formula_field_name: :another_value_formula

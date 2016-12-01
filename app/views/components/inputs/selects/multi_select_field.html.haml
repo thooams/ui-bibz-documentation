@@ -2,6 +2,17 @@
 %blockquote UiBibz::Ui::Core::Inputs::Selects::MultiSelectField
 %p.bd-callout= based_on link_to "oostrap-multiselect", "http://davidstutz.github.io/bootstrap-multiselect/", target: '_blank'
 
+= code "multi_select_field", component_name: "name"
+
+= component_options do |co|
+  - co.status_link
+  - co.state_link
+  - co.list 'option_tags', %w(array object)
+  - co.list 'clickable_opt_group', 'boolean'
+  - co.list 'collapsible_opt_group', 'boolean'
+  - co.list 'searchable', 'boolean'
+  - co.list 'select_all_option', 'boolean'
+
 - @sections = sections do |s|
   - s.section title: "Multi Select Field" do
     = example do |e|

@@ -7,6 +7,12 @@
   %br
   eq.: Tap "<em>option</em>"
 
+= code "autocomplete_field", component_name: "name"
+
+= component_options do |co|
+  - co.state_link
+  - co.list 'option_tags', 'html'
+
 - @sections = sections do |s|
   - s.section title: "Autocomplete Field" do
     = example do |e|
@@ -30,15 +36,6 @@
         </datalist>
       - e.footer do
         = documentation_link 'Documentation', '#'
-
-
-  - s.section title: "Autocomplete Field Options" do
-    :markdown
-      Autocomplete field has several options:
-
-      * options\_tags (`options_for_select || html`)
-      * #{ status_link }
-      * #{ state_link }
 
     = example do |e|
       - e.header do

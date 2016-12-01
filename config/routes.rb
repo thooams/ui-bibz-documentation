@@ -72,7 +72,8 @@ Rails.application.routes.draw do
     end
 
     namespace :layouts do
-      get 'grid'
+      get 'col'
+      get 'row'
       get 'container'
     end
 

@@ -1,6 +1,31 @@
 class ComponentsController < ApplicationController
 
-  controllers = %w(index dropdown jumbotron label_etiquette alert_notify nav navbar progress modal core ux glyph)
+  def index
+  end
+
+  def dropdown
+  end
+
+  def jumbotron
+  end
+
+  def label_etiquette
+  end
+
+  def alert_notify
+  end
+
+  def nav
+  end
+
+  def navbar
+  end
+
+  def progress
+  end
+
+  def modal
+  end
 
   def table
     @users = User.all.limit(3).table_search_pagination(params, session)
@@ -8,6 +33,15 @@ class ComponentsController < ApplicationController
 
   def table_card
     @users = User.all.limit(10).table_search_pagination(params, session)
+  end
+
+  def core
+  end
+
+  def ux
+  end
+
+  def glyph
   end
 
   def breadcrumb

@@ -51,9 +51,10 @@
 
   - nc.link 'Jumbotron', nav_options(components_jumbotron_path)
   - nc.link 'Label, tag, etiquette', nav_options(components_label_etiquette_path)
-  - nc.link 'Layout & Grid', url: '#', state: :disabled
+  - nc.link 'Layouts', url: '#', state: :disabled
   - nc.nav do |na|
-    - na.link 'Row, Col', nav_options(components_layouts_grid_path)
+    - na.link 'Col', nav_options(components_layouts_col_path)
+    - na.link 'Row', nav_options(components_layouts_row_path)
     - na.link 'Container', nav_options(components_layouts_container_path)
   - nc.link 'List group', nav_options(components_list_group_path)
   - nc.link 'Modal', nav_options(components_modal_path)

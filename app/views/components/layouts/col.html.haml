@@ -1,29 +1,25 @@
-= title 'Grid'
-%blockquote UiBibz::Ui::Core::Layouts::Row, UiBibz::Ui::Core::Layouts::Col
+= title 'Col'
+%blockquote UiBibz::Ui::Core::Layouts::Col
 %p.bd-callout
   Grid systems are used for creating page layouts through a series of rows and columns that house your content.
   You can read about the doc :
   = getbootstrap_doc("layout/grid/#example-column-ordering")
 
-- @sections = sections do |s|
-  - s.section title: "Row" do
-    = example do |c|
-      - c.code do
-        row class: 'test' do
-          ...
-          content
-          ...
-        end
-      - c.html do
-        <div class="test row">
-          ...
-          content
-          ...
-        </div>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
+= code 'col'
 
-  - s.section title: "Cols" do
+= component_options do |co|
+  - co.list 'num', 'integer'
+  - co.list 'offset', 'integer'
+  - co.list 'pull', 'integer'
+  - co.list 'push', 'integer'
+  - co.list 'xs', 'hash'
+  - co.list 'sm', 'hash'
+  - co.list 'md', 'hash'
+  - co.list 'lg', 'hash'
+  - co.list 'xl', 'hash'
+
+- @sections = sections do |s|
+  - s.section title: "Col" do
     :markdown
       A column can take several arguments :
 
@@ -56,7 +52,7 @@
         </div>
       - c.footer do
         = documentation_link 'Documentation', '#'
-  - s.section title: "Cols with differents sizes" do
+  - s.section title: "Col with differents sizes" do
     :markdown
       To add multiple sizes of columns, you must use arguments :
 

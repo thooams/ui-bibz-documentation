@@ -1,7 +1,9 @@
 class Components::CardsController < ApplicationController
 
-  def controllers
-    %w(card card_column_deck_and_group)
+  def index
+  end
+
+  def card_column_deck_and_group
   end
 
 end

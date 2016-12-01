@@ -1,6 +1,35 @@
 = title 'List group'
 %blockquote UiBibz::Ui::Core::ListGroup
 %p.bd-callout List groups are a flexible and powerful component for displaying not only simple lists of elements, but complex ones with custom content.
+
+
+= code do
+  :plain
+    list_group options = {}, html_options = {} do |lg|
+      lg.list content, options = {}, html_options = {}
+      # or
+      lg.list options = {}, html_options = {} do
+        content
+      end
+      # or
+      lg.list options = { tap: true }, html_options = {} do |l|
+        l.header content, options = {}, html_options = {}
+        # or
+        l.header options = {}, html_options = {} do
+          content
+        end
+
+        l.block content, options = {}, html_options = {}
+        # or
+        l.block options = {}, html_options = {} do
+          content
+        end
+      end
+    end
+
+= component_options do |co|
+  - co.list 'type', 'symbol', %w(:link :button)
+
 - @sections = sections do |s|
   - s.section title: "List group" do
     = example do |c|

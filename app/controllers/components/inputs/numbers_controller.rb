@@ -1,7 +1,6 @@
 class Components::Inputs::NumbersController < ApplicationController
 
-  def controllers
-    %w(formula_fields)
+  def formula_field
   end
 
 end

@@ -6,15 +6,15 @@
   %b NB:
   The helper use 'etiquette' method name to avoid conflict with Rails.
 
+= code 'etiquette'
+
+= component_options do |co|
+  - co.status_link
+  - co.glyph_link
+  - co.list 'type', 'symbol', ':pill'
+
 - @sections = sections do |s|
   - s.section title: "Etiquette" do
-    :markdown
-      Etiquette has several options:
-
-      * #{ status_link }
-      * #{ glyph_link }
-      * type (`:pill`)
-
     = example do |c|
       - c.header do
         - %i(primary default danger warning info success).each do |status|

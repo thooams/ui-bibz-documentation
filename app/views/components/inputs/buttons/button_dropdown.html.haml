@@ -2,6 +2,37 @@
 %blockquote UiBibz::Ui::Core::Inputs::Buttons::ButtonDropdown
 %p.bd-callout= extend_of_component 'button_dropdown', link_to('dropdown', components_dropdown_path)
 
+= code do
+  :plain
+    button_dropdown name, options = {}, html_options = {} do |d|
+      d.link content, options = {}, html_options = {}
+      # or
+      d.link options = {}, html_options = {} do
+        content
+      end
+
+      d.divider
+
+      d.header content, options = {}, html_options = {}
+      # or
+      d.header options = {}, html_options = {} do
+        content
+      end
+
+      d.html content
+      # or
+      d.html do
+        content
+      end
+    end
+
+= component_options do |co|
+  - co.status_link
+  - co.glyph_link
+  - co.state_link
+  - co.size_link
+  - co.list 'position', 'symbol', %w(:right :left)
+  - co.list 'type', 'symbol', %w(:dropup :dropdown)
 
 - @sections = sections do |s|
   - s.section title: "Button dropdown" do

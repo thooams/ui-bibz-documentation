@@ -1,0 +1,28 @@
+= title 'Row'
+%blockquote UiBibz::Ui::Core::Layouts::Row
+%p.bd-callout
+  Grid systems are used for creating page layouts through a series of rows and columns that house your content.
+  You can read about the doc :
+  = getbootstrap_doc("layout/grid/#example-column-ordering")
+
+= code 'row'
+
+- @sections = sections do |s|
+  - s.section title: "Row" do
+    = example do |c|
+      - c.code do
+        row class: 'test' do
+          ...
+          content
+          ...
+        end
+      - c.html do
+        <div class="test row">
+          ...
+          content
+          ...
+        </div>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+= @sections.render

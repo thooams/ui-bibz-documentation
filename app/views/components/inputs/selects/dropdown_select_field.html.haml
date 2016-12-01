@@ -2,6 +2,22 @@
 %blockquote UiBibz::Ui::Core::Inputs::Selects::DropdownSelectField
 %p.bd-callout= based_on link_to "Bootstrap select", "http://silviomoreto.github.io/bootstrap-select/examples/", target: '_blank'
 
+= code "dropdown_select_field", component_name: "name"
+
+= component_options do |co|
+  - co.status_link
+  - co.state_link
+  - co.list 'option_tags', %w(array object)
+  - co.list 'searchable', 'boolean'
+  - co.list 'max_options', 'integer'
+  - co.list 'select_text_format', 'string'
+  - co.list 'menu_size', 'integer'
+  - co.list 'header', 'string'
+  - co.list 'actions_box', 'boolean'
+  - co.list 'show_tick', 'boolean'
+  - co.list 'show_menu_arrow', 'boolean'
+  - co.list 'dropup', 'boolean'
+
 - @sections = sections do |s|
   - s.section title: "Dropdown Select Field" do
     = example do |e|
@@ -69,19 +85,6 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
-
-  - s.section title: "Dropdown Select Field date options" do
-    :markdown
-
-      * #{ status_link }
-      * #{ state_link }
-      * searchable (`Boolean`)
-      * max_options (`Boolean`)
-      * selected\_text\_format (`Boolean`)
-      * show_tick (`Boolean`)
-      * show\_menu\_arrow (`Boolean`)
-      * dropup (`Boolean`)
-      * actions_box(`Boolean`)
 
   - s.section title: "Dropdown Select Field searchable" do
     = example do |e|

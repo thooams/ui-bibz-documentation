@@ -1,5 +1,5 @@
 module UiBibz::Ui::Ux
-  class ComponentHtmlOption < ComponentOption
+  class ComponentHtmlOption < ComponentListOption
 
     def initialize content = nil, options = nil, html_options = nil, &block
       super

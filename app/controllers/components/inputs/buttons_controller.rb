@@ -1,7 +1,18 @@
-class Components::Inputs::ButtonsController < ApplicationController
+class Components::Inputs::buttonController < ApplicationController
 
-  def controllers
-    %w(button button_choice button_dropdown button_group button_link)
+  def button
+  end
+
+  def button_choice
+  end
+
+  def button_dropdown
+  end
+
+  def button_group
+  end
+
+  def button_link
   end
 
 end

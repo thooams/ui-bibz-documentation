@@ -5,6 +5,16 @@
   %br
   You can use #{ link_to 'Redcarpet', 'https://github.com/vmg/redcarpet', target: '_blank' } or #{ link_to 'HAML', 'https://github.com/indirect/haml-rails', target: '_blank' } gem to render markdown content.
 
+= code "markdown_editor_field", component_name: "name"
+
+= component_options do |co|
+  - co.state_link
+  - co.list 'autofocus', 'boolean'
+  - co.list 'savable', 'boolean'
+  - co.list 'hideable', 'boolean'
+  - co.list 'hidden_buttons', 'boolean'
+  - co.list 'disabled_buttons', 'boolean'
+
 - @sections = sections do |s|
   - s.section title: "Markdown Editor Field" do
     = example do |e|
@@ -64,16 +74,6 @@
         </div>
       - e.footer do
         = documentation_link 'Documentation', '#'
-
-  - s.section title: "Date Picker Field date options" do
-    :markdown
-
-      * #{ state_link }
-      * autofocus (`Boolean`)
-      * savable (`Boolean`)
-      * hideable (`Boolean`)
-      * hidden_buttons (`Array || String`)
-      * disabled_buttons (`Array || String`)
 
   - s.section title: "Simple form" do
     :markdown

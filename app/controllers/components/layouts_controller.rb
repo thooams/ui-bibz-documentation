@@ -1,7 +1,12 @@
 class Components::LayoutsController < ApplicationController
 
-  def controllers
-    %w(grid container)
+  def col
+  end
+
+  def row
+  end
+
+  def container
   end
 
 end

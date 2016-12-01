@@ -1,6 +1,14 @@
 = title 'Surround Field'
 %blockquote UiBibz::Ui::Core::Inputs::Texts::SurroundField
 
+= code "surround_field", component_name: "name"
+
+= component_options do |co|
+  - co.status_link
+  - co.state_link
+  - co.list 'append', 'html'
+  - co.list 'prepend', 'html'
+
 - @sections = sections do |s|
   - s.section title: "Surround Field" do
     = example do |e|
@@ -18,14 +26,6 @@
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Surround Field Options" do
-    :markdown
-      Surround field has several options:
-
-      * append (`html`)
-      * prepend (`html`)
-      * #{ status_link }
-      * #{ state_link }
-
     = example do |e|
       - e.header do
         = surround_field 'search', { state: :disabled, status: :danger, append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
