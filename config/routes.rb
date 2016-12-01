@@ -21,59 +21,78 @@ Rails.application.routes.draw do
   namespace :components do
     namespace :inputs do
       # buttons
-      get 'buttons'                        => 'buttons#index'
-      get 'buttons/buttons-choice'         => 'buttons#buttons_choice'
-      get 'buttons/buttons-dropdown'       => 'buttons#buttons_dropdown'
-      get 'buttons/buttons-group'          => 'buttons#buttons_group'
-      get 'buttons/buttons-link'           => 'buttons#buttons_link'
-      get 'buttons/buttons-split-dropdown' => 'buttons#buttons_split_dropdown'
+      namespace :buttons do
+        get 'button'
+        get 'button-choice'
+        get 'button-dropdown'
+        get 'button-group'
+        get 'button-link'
+        get 'button-split-dropdown'
+      end
 
       # texts
-      get 'texts/surround-fields'     => 'texts#surround_fields'
-      get 'texts/autocomplete-fields' => 'texts#autocomplete_fields'
+      namespace :texts do
+        get 'surround-field'
+        get 'autocomplete-field'
+      end
 
       # textareas
-      get 'textareas/markdown-editor-fields' => 'textareas#markdown_editor_fields'
+      namespace :textareas do
+        get 'markdown-editor-field'
+      end
 
       # number
-      get 'numbers/formula-fields' => 'numbers#formula_field'
-
+      namespace :numbers do
+        get 'formula-field'
+      end
 
       # selects
-      get 'selects/dropdown-select-fields' => 'selects#dropdown_select_fields'
-      get 'selects/multi-select-fields'    => 'selects#multi_select_fields'
-      get 'selects/multi-column-fields'    => 'selects#multi_column_fields'
+      namespace :selects do
+        get 'dropdown-select-field'
+        get 'multi-select-field'
+        get 'multi-column-field'
+      end
 
       # dates
-      get 'dates/date-picker-fields' => 'dates#date_picker_fields'
+      namespace :dates do
+        get 'date-picker-field'
+      end
 
       # choices
-      get 'choices/switch-fields'   => 'choices#switch_fields'
-      get 'choices/checkbox-fields' => 'choices#checkbox_fields'
-      get 'choices/radio-fields'    => 'choices#radio_fields'
+      namespace :choices do
+        get 'switch-field'
+        get 'checkbox-field'
+        get 'radio-field'
+      end
     end
 
-    get 'cards/cards'                       => 'cards#index'
-    get 'cards/cards-column-deck-and-group' => 'cards#cards_column_deck_and_group'
-    get 'layouts/grid'                      => 'layouts#grid'
-    get 'layouts/container'                 => 'layouts#container'
-    get 'dropdowns'
-    get 'jumbotrons'
-    get 'labels_etiquettes'
-    get 'alerts_notify'
-    get 'navs'
-    get 'navbars'
-    get 'components'
-    get 'breadcrumbs'
-    get 'progresses'
-    get 'lists_group'
-    get 'modals'
-    get 'stars'
-    get 'tables'
-    get 'tables_cards'
+    namespace :cards do
+      get 'card'
+      get 'card-column-deck-and-group'
+    end
+
+    namespace :layouts do
+      get 'grid'
+      get 'container'
+    end
+
+    get 'dropdown'
+    get 'jumbotron'
+    get 'label_etiquette'
+    get 'alert_notify'
+    get 'nav'
+    get 'navbar'
+    get 'component'
+    get 'breadcrumb'
+    get 'progress'
+    get 'list_group'
+    get 'modal'
+    get 'star'
+    get 'table'
+    get 'table_card'
     get 'core'
     get 'ux'
-    get 'glyphs'
+    get 'glyph'
   end
 
   # Example of regular route:

@@ -8,4 +8,12 @@ class ApplicationController < ActionController::Base
   def ui_bibz
     @ui_bibz = UiBibzApp::Application::Gems::ui_bibz
   end
+
+  controllers = []
+
+  controllers.each do |ctr_name|
+    define_method ctr_name do
+    end
+  end
+
 end

@@ -1,0 +1,124 @@
+= title 'Button link'
+%blockquote UiBibz::Ui::Core::Inputs::Buttons::ButtonLink
+%p.bd-callout
+  = extend_of_component 'button_choice', link_to('button', components_inputs_buttons_button_path)
+  %br
+  Make a button with a link (url).
+
+= code "button_link"
+
+= component_options do |co|
+  - co.status_link
+  - co.glyph_link
+  - co.state_link
+  - co.size_link
+  - co.list 'outline', 'boolean'
+  - co.list 'type', 'symbol', ':block'
+
+- @sections = sections do |s|
+  - s.section title: "Button link" do
+    = example do |c|
+      - c.header do
+        = button_link 'Primary', url: '#primary', status: :primary
+        = button_link 'Secondary', url: '#secondary', status: :secondary
+        = button_link 'Success', url: '#success', status: :success
+        = button_link 'Warning', url: '#warning', status: :warning
+        = button_link 'Danger', url: '#danger', status: :danger
+        = button_link 'Link', url: '#link', status: :link
+      - c.code do
+        button_link 'Primary', url: '#primary', status: :primary
+        button_link 'Secondary', url: '#secondary', status: :secondary
+        button_link 'Success', url: '#success', status: :success
+        button_link 'Warning', url: '#warning', status: :warning
+        button_link 'Danger', url: '#danger', status: :danger
+        button_link 'Link', url: '#link', status: :link
+      - c.html do
+        <a class="btn-primary btn" href="#primary">Primary</a>
+        <a class="btn-secondary btn" href="#secondary">Secondary</a>
+        <a class="btn-success btn" href="#success">Success</a>
+        <a class="btn-warning btn" href="#warning">Warning</a>
+        <a class="btn-danger btn" href="#danger">Danger</a>
+        <a class="btn-link btn" href="#link">Link</a>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Outline", tag: :h3 do
+    = example do |c|
+      - c.header do
+        = button_link 'Primary', url: '#', status: :primary, outline: true
+        = button_link 'Secondary', url: '#', status: :secondary, outline: true
+        = button_link 'Success', url: '#', status: :success, outline: true
+        = button_link 'Warning', url: '#', status: :warning, outline: true
+        = button_link 'Danger', url: '#', status: :danger, outline: true
+      - c.code do
+        button_link 'Primary', url: '#', status: :primary, outline: true
+        button_link 'Secondary', url: '#', status: :secondary, outline: true
+        button_link 'Success', url: '#', status: :success, outline: true
+        button_link 'Warning', url: '#', status: :warning, outline: true
+        button_link 'Danger', url: '#', status: :danger, outline: true
+      - c.html do
+        <a class="btn-primary-outline btn" href="#primary">Primary</a>
+        <a class="btn-secondary-outline btn" href="#secondary">Secondary</a>
+        <a class="btn-success-outline btn" href="#success">Success</a>
+        <a class="btn-warning-outline btn" href="#warning">Warning</a>
+        <a class="btn-danger-outline btn" href="#danger">Danger</a>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Size", tag: :h3 do
+    = example do |c|
+      - c.header do
+        = button_link 'Large button link', url: 'large-button-link', size: :lg
+        = button_link 'Medium button link', url: '#medium-button-link'
+        = button_link 'Small button link', url: '#small-button-link', size: :sm
+      - c.code do
+        button_link 'Large button link', url: '#large-button-link', size: :lg
+        button_link 'Medium button link', url: '#medium-button-link'
+        button_link 'Small button link', url: '#small-button-link', size: :sm
+      - c.html do
+        <a class="btn-primary btn btn-lg" href="large-button-link">Large button link</a>
+        <a class="btn-primary btn" href="#medium-button-link">Medium button link</a>
+        <a class="btn-primary btn btn-sm" href="#small-button-link">Small button link</a>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Type", tag: :h3 do
+    = example do |c|
+      - c.header do
+        = button_link 'Block level button link', url: '#block-level-button-link', status: :primary, type: :block
+        = button_link 'Block level button link', url: '#block-level-button-link', status: :secondary, type: :block
+      - c.code do
+        button_link 'Block level button link', url: '#block-level-button-link', status: :primary, type: :block
+        button_link 'Block level button link', url: '#block-level-button-link', status: :secondary, type: :block
+      - c.html do
+        <a class="btn-primary btn btn-block" href="#block-level-button-link">Block level button link</a>
+        <a class="btn-secondary btn btn-block" href="#block-level-button-link">Block level button link</a>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "state", tag: :h3 do
+    = example do |c|
+      - c.header do
+        = button_link 'Primary', url: '#active', state: :active
+        = button_link 'Primary', url: '#disabled', state: :disabled
+      - c.code do
+        button_link 'Primary', url: '#active', state: :active
+        button_link 'Primary', url: '#disabled', state: :disabled
+      - c.html do
+        <a class="active btn-primary btn" href="#active">Primary</a>
+        <a class="disabled btn-primary btn" href="#disabled">Primary</a>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Options and html options" do
+    = example do |c|
+      - c.header do
+        = button_link 'Success', { url: '#', status: :success, glyph: 'diamond' }, { class: 'button_link' }
+      - c.code do
+        button_link 'Primary', { url: '#', status: :success, glyph: 'diamond' }, { class: 'button_link' }
+      - c.html do
+        <a class="button_link btn-success btn" href="#"><i class="glyph fa fa-diamond"></i> Success</a>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+= @sections.render

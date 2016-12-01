@@ -1,0 +1,85 @@
+= title 'Date Picker Field'
+%blockquote UiBibz::Ui::Core::Inputs::Dates::DatePickerField
+%p.bd-callout= based_on link_to "Jquery multiselect", "http://eternicode.github.io/bootstrap-datepicker/?markup=input&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=2&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&keyboardNavigation=on&forceParse=on#sandbox", target: '_blank'
+
+- @sections = sections do |s|
+  - s.section title: "Date Picker Field" do
+    = example do |e|
+      - e.header do
+        = date_picker_field 'search'
+      - e.code do
+        date_picker_field 'search'
+      - e.html do
+        <input type="text" name="search" id="search" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" class="date_picker form-control">
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Date Picker Field date options" do
+    :markdown
+
+      * #{ status_link }
+      * #{ state_link }
+      * today\_highlight (`Boolean`)
+      * calendar_weeks (`Boolean`)
+      * autoclose (`Boolean`)
+      * dates_disabled (`String || Array`)
+
+  - s.section title: "Date Picker Field with glyph" do
+    = example do |e|
+      - e.header do
+        = date_picker_field 'date_at', append: glyph('calendar'), prepend: glyph('pencil')
+      - e.code do
+        date_picker_field 'date_at', append: glyph('calendar'), prepend: glyph('pencil')
+      - e.html do
+        <input type="text" name="date_at" id="date_at" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" class="date_picker form-control">
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Date Picker Field range" do
+    = example do |e|
+      - e.header do
+        = date_picker_field 'range', range: 'to'
+      - e.code do
+        date_picker_field 'range', range: 'to'
+      - e.html do
+        <div class="input-group input-daterange">
+          <input type="text" name="r" id="r" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" class="date_picker form-control"><span class="input-group-addon input-group-range">to</span>
+          <input type="text" name="a" id="a" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" class="date_picker form-control">
+        </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Date Picker Field range with glyph" do
+    = example do |e|
+      - e.header do
+        = date_picker_field 'range', range: glyph('calendar-minus-o'), append: glyph('car'), prepend: glyph('pencil')
+      - e.code do
+        date_picker_field 'range', range: glyph('calendar-minus-o'), append: glyph('car'), prepend: glyph('pencil')
+      - e.html do
+        <div class="input-group input-daterange">
+          <span class="input-group-addon"><i class="glyph fa fa-car"></i></span>
+          <input type="text" name="r" id="r" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" class="date_picker form-control"><span class="input-group-addon input-group-range"><i class="glyph fa fa-calendar-minus-o"></i></span>
+          <input type="text" name="a" id="a" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" class="date_picker form-control"><span class="input-group-addon"><i class="glyph fa fa-pencil"></i></span>
+        </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Simple form" do
+    :markdown
+      You can use the `date_picker` input gem with [simple form](https://github.com/plataformatec/simple_form).
+      You must add this line to the `"config/initializers/simple_form.rb"`
+    = example do |e|
+      - e.code do
+        \...
+        config.custom_inputs_namespaces << "CustomInputs"
+        \...
+
+    %p Then in your view , you can insert your input field date_pickerm.
+    = example do |e|
+      - e.code do
+        simple_form(@search) do |f|
+          ...
+          f.input :date, as: :date_picker, append: 'Date'
+          ...
+        end
+= @sections.render

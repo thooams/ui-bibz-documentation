@@ -19,7 +19,7 @@ module UiBibz::Ui::Ux
 
     def render
       content_tag :div, html_options do
-        concat content_tag :h2, 'Examples'
+        concat content_tag :h2, UiBibz::Ui::Core::Glyph.new('indent', text: 'Examples').render
         concat @items.join.html_safe
       end
     end

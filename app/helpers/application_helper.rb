@@ -9,11 +9,11 @@ module ApplicationHelper
     #Il hérite d'ailleurs des options présentes dans l'élement component.".html_safe
     "#{ short_extend_of_component(name, component_link) }<br>
     Like this one, the #{ content_tag :code, name } component has #{ content_tag :code, 'options' } and #{ content_tag :code, 'html_options' } present as hash.<br/>
-    It inherits options of #{ link_to('component', components_components_path) } element.".html_safe
+    It inherits options of #{ link_to('component', components_component_path) } element.".html_safe
   end
 
   def short_extend_of_component name, component_link = nil
-    "The #{ content_tag :code, name } component is an extension of #{ component_link || link_to('component', components_components_path) } element.".html_safe
+    "The #{ content_tag :code, name } component is an extension of #{ component_link || link_to('component', components_component_path) } element.".html_safe
   end
 
   def active_icon record
@@ -76,6 +76,10 @@ module ApplicationHelper
 
   def see_component url
     link_to "#{ glyph 'eye' } See component".html_safe, url
+  end
+
+  def title name
+    content_tag :h2, glyph('diamond', text: name)
   end
 
 end

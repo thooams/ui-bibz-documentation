@@ -1,9 +1,7 @@
-class Components::Inputs::TextareasController < ApplicationController
+class Components::Inputs::TextsController < ApplicationController
 
-  def surround_fields
-  end
-
-  def autocomplete_fields
+  def controllers
+    %w(surround_field autocomplete_field)
   end
 
 end

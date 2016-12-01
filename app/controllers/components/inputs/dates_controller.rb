@@ -1,6 +1,7 @@
 class Components::Inputs::DatesController < ApplicationController
 
-  def date_picker_fields
+  def controllers
+    %w(date_picker_fields)
   end
 
 end

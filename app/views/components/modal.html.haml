@@ -1,0 +1,125 @@
+= title 'Modal'
+%blockquote UiBibz::Ui::Core::Modal
+%p.bd-callout Modals are streamlined, but flexible, dialog prompts with the minimum required functionality and smart defaults.
+- @sections = sections do |s|
+  - s.section title: "Modal" do
+    :markdown
+      Modal has several block type:
+
+      * #{ inherit_component_link 'header' }
+      * #{ inherit_component_link 'body' }
+      * #{ inherit_component_link 'footer' }
+
+    = example do |c|
+      - c.header do
+        = modal class: 'modal-example' do |m|
+          - m.header 'Modal title'
+          - m.body 'One fine body'
+          - m.footer do
+            = button 'Close', status: :secondary
+            = button 'Save changes'
+      - c.code do
+        modal class: 'modal-example' do |m|
+          m.header 'Modal itle'
+          m.body 'One fine body'
+          m.footer do
+            button 'Close', status: :secondary
+            button 'Save changes'
+          end
+        end
+      - c.html do
+        <div class="modal-example modal">
+          <div class="modal-dialog " role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                  <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">Modal title</h4>
+              </div>
+              <div class="modal-body">One fine body</div>
+              <div class="modal-footer">
+                <button class="btn-secondary btn">Close</button>
+                <button class="btn-primary btn">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+
+  - s.section title: "Size" do
+    = example do |c|
+      - c.header do
+        = modal class: 'modal-example', size: :sm do |m|
+          - m.header do
+            = 'Modal title'
+          - m.body do
+            = 'One fine body'
+      - c.code do
+        modal class: 'modal-example' do |m|
+          m.header do
+            'Modal itle'
+          end
+          m.body do
+            'One fine body'
+          end
+        end
+      - c.html do
+        <div class="modal-example modal">
+          <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content"><div class="modal-header">
+              <button class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+                <span class="sr-only">Close</span>
+              </button>
+              <h4 class="modal-title">Modal title</h4>
+            </div>
+            <div class="modal-body">One fine body</div>
+            </div>
+          </div>
+        </div>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Effect" do
+    = example do |c|
+      - c.header do
+        = button_link 'click here', { url: '#' }, { data: { toggle: 'modal', target: '#modal-test' }}
+        = modal({ effect: :fade }, { id: 'modal-test' }) do |m|
+          - m.header do
+            = 'Modal title'
+          - m.body do
+            = 'One fine body'
+      - c.code do
+        button_link 'click here', { url: '#' }, { data: { toggle: 'modal', target: '#modal-test' }}
+        modal({ effect: :fade }, { id: 'modal-test' }) do |m|
+          m.header do
+            'Modal itle'
+          end
+          m.body do
+            'One fine body'
+          end
+        end
+      - c.html do
+        <a data-toggle="modal" data-target="#modal-test" class="btn-primary btn" href="#">click here</a>
+        <div id="modal-test" class="fade modal" style="display: none;">
+          <div class="modal-dialog " role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                  <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">Modal title</h4>
+              </div>
+              <div class="modal-body">One fine body</div>
+            </div>
+          </div>
+        </div>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+= @sections.render

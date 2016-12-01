@@ -1,0 +1,240 @@
+= title 'List group'
+%blockquote UiBibz::Ui::Core::ListGroup
+%p.bd-callout List groups are a flexible and powerful component for displaying not only simple lists of elements, but complex ones with custom content.
+- @sections = sections do |s|
+  - s.section title: "List group" do
+    = example do |c|
+
+      :markdown
+        List group has one block type:
+
+        * #{ inherit_component_link 'list' }
+
+      - c.header do
+        = list_group do |lg|
+          - lg.list 'Cras justo odio'
+          - lg.list 'Dapibus ac facilisis in'
+          - lg.list 'Morbi leo risus'
+          - lg.list 'Porta ac consectetur ac'
+          - lg.list 'Vestibulum at eros'
+      - c.code do
+        list_group do |lg|
+          lg.list 'Cras justo odio'
+          lg.list 'Dapibus ac facilisis in'
+          lg.list 'Morbi leo risus'
+          lg.list 'Porta ac consectetur ac'
+          lg.list 'Vestibulum at eros'
+        end
+      - c.html do
+        <ul class="list-group">
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Morbi leo risus</li>
+          <li class="list-group-item">Porta ac consectetur ac</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "List group options" do
+    :markdown
+      List group has several options:
+
+        * #{ status_link }
+        * #{ glyph_link }
+        * #{ state_link }
+        * type (`:button, :link`)
+
+  - s.section title: "Tags" do
+    = example do |c|
+      - c.header do
+        = list_group do |lg|
+          - lg.list 'Cras justo odio', tag: 14
+          - lg.list 'Dapibus ac facilisis in', tag: 2
+          - lg.list 'Morbi leo risus', tag: 1
+      - c.code do
+        list_group do |lg|
+          lg.list 'Cras justo odio', tag: 14
+          lg.list 'Dapibus ac facilisis in', tag: 2
+          lg.list 'Morbi leo risus', tag: 1
+        end
+      - c.html do
+        <ul class="list-group">
+          <li class="list-group-item">Cras justo odio<span class="tag-default pull-right tag tag-pill">14</span></li>
+          <li class="list-group-item">Dapibus ac facilisis in<span class="tag-default pull-right tag tag-pill">2</span></li>
+          <li class="list-group-item">Morbi leo risus<span class="tag-default pull-right tag tag-pill">1</span></li>
+        </ul>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Linked items" do
+    = example do |c|
+      - c.header do
+        = list_group type: :link do |lg|
+          - lg.list 'Cras justo odio', state: :active
+          - lg.list 'Dapibus ac facilisis in'
+          - lg.list 'Morbi leo risus'
+          - lg.list 'Porta ac consectetur ac'
+          - lg.list 'Vestibulum at eros'
+      - c.code do
+        list_group type: :link do |lg|
+          lg.list 'Cras justo odio', state: :active
+          lg.list 'Dapibus ac facilisis in'
+          lg.list 'Morbi leo risus'
+          lg.list 'Porta ac consectetur ac'
+          lg.list 'Vestibulum at eros'
+        end
+      - c.html do
+        <div class="list-group">
+          <a class="active list-group-item">Cras justo odio</a>
+          <a class="list-group-item">Dapibus ac facilisis in</a>
+          <a class="list-group-item">Morbi leo risus</a>
+          <a class="list-group-item">Porta ac consectetur ac</a>
+          <a class="list-group-item">Vestibulum at eros</a>
+        </div>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Button items" do
+    = example do |c|
+      - c.header do
+        = list_group type: :button do |lg|
+          - lg.list 'Cras justo odio'
+          - lg.list 'Dapibus ac facilisis in'
+          - lg.list 'Morbi leo risus'
+          - lg.list 'Porta ac consectetur ac'
+          - lg.list 'Vestibulum at eros'
+      - c.code do
+        list_group type: :button do |lg|
+          lg.list 'Cras justo odio'
+          lg.list 'Dapibus ac facilisis in'
+          lg.list 'Morbi leo risus'
+          lg.list 'Porta ac consectetur ac'
+          lg.list 'Vestibulum at eros'
+        end
+      - c.html do
+        <div class="list-group">
+          <a class="active list-group-item">Cras justo odio</a>
+          <a class="list-group-item">Dapibus ac facilisis in</a>
+          <a class="list-group-item">Morbi leo risus</a>
+          <a class="list-group-item">Porta ac consectetur ac</a>
+          <a class="list-group-item">Vestibulum at eros</a>
+        </div>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Disabled items" do
+    = example do |c|
+      - c.header do
+        = list_group  do |lg|
+          - lg.list 'Cras justo odio', state: :disabled
+          - lg.list 'Dapibus ac facilisis in'
+          - lg.list 'Morbi leo risus'
+          - lg.list 'Porta ac consectetur ac'
+          - lg.list 'Vestibulum at eros'
+      - c.code do
+        list_group do |lg|
+          lg.list 'Cras justo odio', state: :disabled
+          lg.list 'Dapibus ac facilisis in'
+          lg.list 'Morbi leo risus'
+          lg.list 'Porta ac consectetur ac'
+          lg.list 'Vestibulum at eros'
+        end
+      - c.html do
+        <ul class="list-group">
+          <li class="disabled list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Morbi leo risus</li>
+          <li class="list-group-item">Porta ac consectetur ac</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+
+  - s.section title: "Status" do
+    = example do |c|
+      - c.header do
+        = list_group  do |lg|
+          - lg.list 'Cras justo odio', status: :danger
+          - lg.list 'Dapibus ac facilisis in', status: :info
+          - lg.list 'Morbi leo risus', status: :warning
+          - lg.list 'Porta ac consectetur ac', status: :success
+          - lg.list 'Vestibulum at eros', status: :primary
+      - c.code do
+        list_group do |lg|
+          lg.list 'Cras justo odio', status: :danger
+          lg.list 'Dapibus ac facilisis in', status: :info
+          lg.list 'Morbi leo risus', status: :warning
+          lg.list 'Porta ac consectetur ac', status: :success
+          lg.list 'Vestibulum at eros', status: :primary
+        end
+      - c.html do
+        <ul class="list-group">
+          <li class="list-group-item-danger list-group-item">Cras justo odio</li>
+          <li class="list-group-item-info list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item-warning list-group-item">Morbi leo risus</li>
+          <li class="list-group-item-success list-group-item">Porta ac consectetur ac</li>
+          <li class="list-group-item-primary list-group-item">Vestibulum at eros</li>
+        </ul>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Custom content" do
+
+    :markdown
+      List group list has several block type:
+
+      * #{ inherit_component_link 'header' }
+      * #{ inherit_component_link 'body' }
+
+    = example do |c|
+      - c.header do
+        = list_group  do |lg|
+          - lg.list tap: true, state: :active do |l|
+            - l.header 'List group item heading'
+            - l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
+          - lg.list tap: true do |l|
+            - l.header class: 'my-header' do
+              = 'List group item heading'
+            - l.body class: 'my-body' do
+              = 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
+          - lg.list tap: true do |l|
+            - l.header 'List group item heading'
+            - l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
+      - c.code do
+        list_group do |lg|
+          lg.list tap: true, state: :active do |l|
+            l.header 'List group item heading'
+            l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
+          end
+          lg.list tap: true do |l|
+            l.header class: 'my-header' do
+              'List group item heading'
+            end
+            l.body class: 'my-body' do
+              'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
+            end
+          lg.list tap: true do |l|
+            l.header 'List group item heading'
+            l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
+          end
+        end
+      - c.html do
+        <ul class="list-group">
+          <li class="active list-group-item">
+            <h4 class="list-group-item-heading">List group item heading</h4>
+            <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+          </li>
+          <li class="list-group-item">
+            <h4 class="my-header list-group-item-heading">List group item heading</h4>
+            <p class="my-body list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+          </li>
+          <li class="list-group-item">
+            <h4 class="list-group-item-heading">List group item heading</h4>
+            <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+          </li>
+        </ul>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+= @sections.render

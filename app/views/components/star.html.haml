@@ -1,0 +1,163 @@
+= title 'Star'
+%blockquote UiBibz::Ui::Core::Star
+%p.bd-callout Stars is a component for displaying stars of different sizes and pre-built styles.
+- @sections = sections do |s|
+  - s.section title: "Stars" do
+    = example do |c|
+      - c.header do
+        = stars 2
+      - c.code do
+        stars 2
+      - c.html do
+        <span class="stars-notation">
+          <i class="glyph fa fa-star"></i>
+          <i class="glyph fa fa-star"></i>
+          <i class="glyph fa fa-star-o"></i>
+          <i class="glyph fa fa-star-o"></i>
+          <i class="glyph fa fa-star-o"></i>
+        </span>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Star Options" do
+    :markdown
+      Progress has several options:
+
+      * #{ status_link }
+      * #{ size_link }
+      * num (`Integer`) Number of stars
+
+  - s.section title: "Size" do
+    :markdown
+      You can change the size of the stars by adding the size argument to that value for either a number or a symbol `:xs`, `:md`, `:lg`.
+
+    = example do |c|
+      - c.header do
+        = stars 4, size: 1
+        = stars 4, size: :md
+        = stars 4, size: :lg
+      - c.code do
+        stars 4, size: :1
+        stars 4, size: :md
+        stars 4, size: :lg
+      - c.html do
+        <span class="stars-notation">
+          <i class="glyph fa fa-star fa-1x"></i>
+          <i class="glyph fa fa-star fa-1x"></i>
+          <i class="glyph fa fa-star fa-1x"></i>
+          <i class="glyph fa fa-star fa-1x"></i>
+        <i class="glyph fa fa-star-o fa-1x"></i>
+        </span>
+        <span class="stars-notation">
+          <i class="glyph fa fa-star fa-3x"></i>
+          <i class="glyph fa fa-star fa-3x"></i>
+          <i class="glyph fa fa-star fa-3x"></i>
+          <i class="glyph fa fa-star fa-3x"></i>
+        <i class="glyph fa fa-star-o fa-3x"></i>
+        </span>
+        <span class="stars-notation">
+          <i class="glyph fa fa-star fa-5x"></i>
+          <i class="glyph fa fa-star fa-5x"></i>
+          <i class="glyph fa fa-star fa-5x"></i>
+          <i class="glyph fa fa-star fa-5x"></i>
+        <i class="glyph fa fa-star-o fa-5x"></i>
+        </span>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+
+  - s.section title: "status" do
+    = example do |c|
+      - c.header do
+        - %w(secondary danger warning primary success).each_with_index do |status, i|
+          = stars i , status: status.to_sym
+          %br
+      - c.code do
+        stars 0
+        stars 1, status: :danger
+        stars 2, status: :warning
+        stars 3, status: :primary
+        stars 4, status: :success
+      - c.html do
+        <span class="stars-notation">
+          <i class="glyph-secondary glyph fa fa-star-o"></i>
+          <i class="glyph-secondary glyph fa fa-star-o"></i>
+          <i class="glyph-secondary glyph fa fa-star-o"></i>
+          <i class="glyph-secondary glyph fa fa-star-o"></i>
+          <i class="glyph-secondary glyph fa fa-star-o"></i>
+        </span>
+        <br>
+        <span class="stars-notation">
+          <i class="glyph-danger glyph fa fa-star"></i>
+          <i class="glyph-danger glyph fa fa-star-o"></i>
+          <i class="glyph-danger glyph fa fa-star-o"></i>
+          <i class="glyph-danger glyph fa fa-star-o"></i>
+          <i class="glyph-danger glyph fa fa-star-o"></i>
+        </span>
+        <br>
+        <span class="stars-notation">
+          <i class="glyph-warning glyph fa fa-star"></i>
+          <i class="glyph-warning glyph fa fa-star"></i>
+          <i class="glyph-warning glyph fa fa-star-o"></i>
+          <i class="glyph-warning glyph fa fa-star-o"></i>
+          <i class="glyph-warning glyph fa fa-star-o"></i>
+        </span>
+        <br>
+        <span class="stars-notation">
+          <i class="glyph-primary glyph fa fa-star"></i>
+          <i class="glyph-primary glyph fa fa-star"></i>
+          <i class="glyph-primary glyph fa fa-star"></i>
+          <i class="glyph-primary glyph fa fa-star-o"></i>
+          <i class="glyph-primary glyph fa fa-star-o"></i>
+        </span>
+        <br>
+        <span class="stars-notation">
+          <i class="glyph-success glyph fa fa-star"></i>
+          <i class="glyph-success glyph fa fa-star"></i>
+          <i class="glyph-success glyph fa fa-star"></i>
+          <i class="glyph-success glyph fa fa-star"></i>
+          <i class="glyph-success glyph fa fa-star-o"></i>
+        </span>
+        <br>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+
+  - s.section title: "Float" do
+    = example do |c|
+      - c.header do
+        = stars 3.5
+      - c.code do
+        stars 3.5
+      - c.html do
+        <span class="stars-notation">
+          <i class="glyph fa fa-star"></i>
+          <i class="glyph fa fa-star"></i>
+          <i class="glyph fa fa-star"></i>
+          <i class="glyph fa fa-star-half-o"></i>
+          <i class="glyph fa fa-star-o"></i>
+        </span>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Other range" do
+    = example do |c|
+      - c.header do
+        = stars 6, num: 8
+      - c.code do
+        stars 6, num: 8
+      - c.html do
+        <span class="stars-notation">
+          <i class="glyph fa fa-star"></i>
+          <i class="glyph fa fa-star"></i>
+          <i class="glyph fa fa-star"></i>
+          <i class="glyph fa fa-star"></i>
+          <i class="glyph fa fa-star"></i>
+          <i class="glyph fa fa-star"></i>
+          <i class="glyph fa fa-star-o"></i>
+          <i class="glyph fa fa-star-o"></i>
+        </span>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+= @sections.render

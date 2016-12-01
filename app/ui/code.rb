@@ -7,10 +7,14 @@ module UiBibz::Ui::Ux
     end
 
     def render
-      ("<h2>Usage</h2>" + UiBibz::Ui::Core::Cards::Card.new(code_html, nil, class: 'highlight code').render).html_safe
+      (title + UiBibz::Ui::Core::Cards::Card.new(code_html, nil, class: 'highlight code').render).html_safe
     end
 
   private
+
+    def title
+      content_tag :h2, UiBibz::Ui::Core::Glyph.new('book', { text: 'Usage' }).render
+    end
 
     def formatter
       Rouge::Formatters::HTML.new

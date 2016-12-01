@@ -11,7 +11,7 @@ module UiBibz::Ui::Ux
     end
 
     def status_link
-      @items << list_format(option_link('status'), "symbol", %w(:danger :success :info :warning :primary :secondary))
+      @items << list_format(option_link('status'), "symbol", UiBibzApp::Application::STATUSES)
     end
 
     def glyph_link
@@ -32,7 +32,7 @@ module UiBibz::Ui::Ux
 
     def render
       content_tag :div, class: 'component-options' do
-        concat content_tag :h2, 'Options'
+        concat content_tag :h2, UiBibz::Ui::Core::Glyph.new('sliders', text: 'Options').render
         concat "The specific options for this component are:"
         concat content_tag :ul, @items.join.html_safe
       end

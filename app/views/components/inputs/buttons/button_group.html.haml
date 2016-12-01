@@ -1,0 +1,145 @@
+= title 'Button group'
+%blockquote UiBibz::Ui::Core::Inputs::Buttons::ButtonGroup
+%p.bd-callout
+  = extend_of_component 'button_group'
+  %br
+  Group a series of buttons together on a single line with the button group.
+
+= code do
+  :plain
+    button_group options = {}, html_options = {} do
+      button content, options = {}, html_options = {}
+      button options = {}, html_options = {} do
+        content
+      end
+    end
+
+= component_options do |co|
+  - co.size_link
+  - co.list 'positions', 'symbol', %w(:horizontal :vertical)
+
+- @sections = sections do |s|
+  - s.section title: "Button group" do
+    :markdown
+      Button group has several options:
+
+      * #{ size_link }
+      * position (`:horizontal, :vertical`)
+
+    = example do |c|
+      - c.header do
+        = button_group do
+          = button 'Left'
+          = button 'Middle'
+          = button 'Right'
+      - c.code do
+        button_group do
+          button 'Left'
+          button 'Middle'
+          button 'Right'
+        end
+      - c.html do
+        <div data-toggle="buttons" class="btn-group" role="group">
+          <button class="btn-primary btn">Left</button>
+          <button class="btn-primary btn">Middle</button>
+          <button class="btn-primary btn">Right</button>
+        </div>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Nesting" do
+    :markdown
+      Button group has several block type:
+
+      * [button](#{ components_inputs_buttons_button_path })
+      * [button_link](#{ components_inputs_buttons_button_link_path })
+      * [button_dropdown](#{ components_inputs_buttons_button_dropdown_path })
+
+    = example do |c|
+      - c.header do
+        = button_group do
+          = button 'Button'
+          = button_link 'Button link', url: '#button-link'
+          = button_dropdown "Dropdown" do |bd|
+            - bd.link "Action", url: '#action'
+            - bd.link "Another action", url: '#another-action'
+            - bd.divider
+            - bd.header 'Header'
+            - bd.link "Separate link", url: '#separate-link'
+      - c.code do
+        button_group do
+          button 'Button'
+          button_link 'Button link', url: '#button-link'
+          button_dropdown "Dropdown" do |bd|
+            bd.link "Action", url: '#action'
+            bd.link "Another action", url: '#another-action'
+            bd.divider
+            bd.header 'Header'
+            bd.link "Separate link", url: '#separate-link'
+          end
+        end
+      - c.html do
+        <div data-toggle="buttons" class="btn-group" role="group">
+          <button class="btn-primary btn">Button</button>
+          <a class="btn-primary btn" href="#button-link">Button link</a>
+          <div class="btn-group dropdown" role="group">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></button>
+            <div class="dropdown-menu dropdown-menu-left">
+              <a class="dropdown-item" href="#action">Action</a>
+              <a class="dropdown-item" href="#another-action">Another action</a>
+              <div class="dropdown-divider"></div>
+              <h6 class="dropdown-header" role="presentation">Header</h6>
+              <a class="dropdown-item" href="#separate-link">Separate link</a>
+            </div>
+          </div>
+        </div>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+
+  - s.section title: "Size" do
+    = example do |c|
+      - c.header do
+        = button_group size: :sm do
+          = button 'Left'
+          = button 'Middle'
+          = button 'Right'
+      - c.code do
+        button_group size: :sm do
+          button 'Left'
+          button 'Middle'
+          button 'Right'
+        end
+      - c.html do
+        <div data-toggle="buttons" class="btn-group btn-group-sm" role="group">
+          <button class="btn-primary btn">Left</button>
+          <button class="btn-primary btn">Middle</button>
+          <button class="btn-primary btn">Right</button>
+        </div>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+
+  - s.section title: "Position" do
+    = example do |c|
+      - c.header do
+        = button_group position: :vertical do
+          = button 'Left'
+          = button 'Middle'
+          = button 'Right'
+      - c.code do
+        button_group position: :vertical do
+          button 'Left'
+          button 'Middle'
+          button 'Right'
+        end
+      - c.html do
+        <div data-toggle="buttons" class="btn-group btn-group-vertical" role="group">
+          <button class="btn-primary btn">Left</button>
+          <button class="btn-primary btn">Middle</button>
+          <button class="btn-primary btn">Right</button>
+        </div>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+= @sections.render

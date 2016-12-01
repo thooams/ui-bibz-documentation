@@ -1,0 +1,110 @@
+= title 'Checkbox Field'
+%blockquote UiBibz::Ui::Core::Inputs::Choices::CheckboxField
+%p.bd-callout= based_on link_to "Awesome Bootstrap Checkbox", "https://github.com/flatlogic/awesome-bootstrap-checkbox", target: '_blank'
+
+= code "checkbox_field", component_name: "name"
+
+= component_options do |co|
+  - co.status_link
+  - co.state_link
+  - co.list 'value', %w(boolean string integer)
+  - co.list 'label', 'string'
+  - co.list 'intermediate', 'boolean'
+  - co.list 'inline', 'boolean'
+  - co.list 'type', 'symbol', ':circle'
+
+- @sections = sections do |s|
+  - s.section title: "Checkbox Field" do
+    = example do |e|
+      - e.header do
+        - %w(primary secondary success info warning danger).each do |status|
+          = checkbox_field status, { value: status, status: status.to_sym, checked: true }
+      - e.code do
+        checkbox_field :primary, { value: 'primary', status: :primary, checked: true }
+      - e.html do
+        <div class="abc-checkbox-primary checkbox abc-checkbox">
+          <input type="checkbox" name="primary" id="primary" value="primary" class="styled" checked="checked" />
+          <label for="primary">primary</label>
+        </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Circle" do
+    = example do |e|
+      - e.header do
+        - %w(primary secondary success info warning danger).each do |status|
+          = checkbox_field "#{status}-circle", { value: status, label: status, status: status.to_sym, type: :circle, checked: true }
+      - e.code do
+        checkbox_field "success-circle", { type: :circle, value: 'success', status: :success, checked: true }
+      - e.html do
+        <div class="abc-checkbox-primary checkbox abc-checkbox abc-checkbox-circle">
+          <input type="checkbox" name="primary" id="primary" value="primary" class="styled" checked="checked" />
+          <label for="primary">primary</label>
+        </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Indeterminate" do
+    = example do |e|
+      - e.header do
+        = checkbox_field "select", indeterminate: true
+      - e.code do
+        checkbox_field "select", { indeterminate: true }
+      - e.html do
+        <div class="abc-checkbox-default checkbox abc-checkbox indeterminate">
+          <input type="checkbox" name="select" id="select" class="styled">
+          <label for="select">Select</label>
+        </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Inline" do
+    = example do |e|
+      - e.header do
+        - %w(primary secondary success info warning danger).each do |status|
+          = checkbox_field "inline-#{status}", value: status, inline: true, label: status, status: status.to_sym, checked: true
+      - e.code do
+        checkbox_field :primary, { value: 'primary', inline: true, status: :primary, checked: true }
+      - e.html do
+        <div class="abc-checkbox-primary checkbox abc-checkbox checkbox-inline">
+          <input type="checkbox" name="primary" id="primary" value="primary" class="styled" checked="checked" />
+          <label for="primary">primary</label>
+        </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "State" do
+    = example do |e|
+      - e.header do
+        = checkbox_field :state_1, value: true, state: :disabled, label: 'choice 1'
+        = checkbox_field :state_2, value: false, state: :disabled, label: 'choice 2', checked: true
+      - e.code do
+        checkbox_field :state, { value: true, state: :disabled, label: 'active' }
+        checkbox_field :state, { value: false, state: :disabled, label: 'disabled', checked: true }
+      - e.html do
+        <div class="disabled abc-radio-default radio abc-radio">
+          <input type="radio" name="state" id="state_true" value="true" disabled="disabled">
+          <label for="state_true">choice 1</label>
+        </div>
+        <div class="disabled abc-radio-default radio abc-radio">
+          <input type="radio" name="state" id="state_false" value="false" disabled="disabled" checked="checked">
+          <label for="state_false">choice 2</label>
+        </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Label" do
+    = example do |e|
+      - e.header do
+        = checkbox_field :check, label: 'My label'
+      - e.code do
+        checkbox_field :check, { label: 'My label' }
+      - e.html do
+        <div class="abc-checkbox-default checkbox abc-checkbox">
+          <input type="checkbox" name="check" id="check" class="styled">
+          <label for="check">My label</label>
+        </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+= @sections.render

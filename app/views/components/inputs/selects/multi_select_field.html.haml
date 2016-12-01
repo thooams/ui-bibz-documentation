@@ -1,0 +1,270 @@
+= title 'Multi Select Field'
+%blockquote UiBibz::Ui::Core::Inputs::Selects::MultiSelectField
+%p.bd-callout= based_on link_to "oostrap-multiselect", "http://davidstutz.github.io/bootstrap-multiselect/", target: '_blank'
+
+- @sections = sections do |s|
+  - s.section title: "Multi Select Field" do
+    = example do |e|
+      - e.header do
+        = multi_select_field 'example1', option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
+      - e.code do
+        options = options_for_select(10.times.map{ |i| "option \#{i}" })
+        multi_select_field 'example', option_tags: options
+      - e.html do
+        <select name="example1[]" id="example1" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
+          <option value="option 0">option 0</option>
+          <option value="option 1">option 1</option>
+          <option value="option 2">option 2</option>
+          <option value="option 3">option 3</option>
+          <option value="option 4">option 4</option>
+          <option value="option 5">option 5</option>
+          <option value="option 6">option 6</option>
+          <option value="option 7">option 7</option>
+          <option value="option 8">option 8</option>
+          <option value="option 9">option 9</option>
+        </select>
+        <div class="btn-group">
+          <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="None selected">None selected <b class="caret"></b></button>
+          <ul class="multiselect-container dropdown-menu">
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 0"> option 0</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 1"> option 1</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 2"> option 2</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 3"> option 3</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 4"> option 4</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 5"> option 5</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 6"> option 6</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 7"> option 7</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 8"> option 8</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 9"> option 9</label></a></li>
+          </ul>
+        </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Multi Select Field Options" do
+    :markdown
+
+      * #{ status_link }
+      * #{ state_link }
+      * searchable (`Boolean`)
+      * clickable\_opt\_group (`Boolean`)
+      * collapsible\_opt\_group (`Boolean`)
+      * select_all_option (`Boolean`)
+
+  - s.section title: "Multi Select Field optgroup clickable" do
+    = example do |e|
+      - e.header do
+        - grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+        = multi_select_field 'example2', { clickable_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
+      - e.code do
+        grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+        multi_select_field 'example', { clickable_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
+      - e.html do
+        <select name="example2[]" id="example2" data-enable-clickable-opt-groups="true" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
+          <optgroup label="North America">
+            <option value="US">United statuss</option>
+            <option value="Canada">Canada</option>
+          </optgroup>
+          <optgroup label="Europe">
+            <option value="Denmark">Denmark</option>
+            <option value="Germany">Germany</option>
+            <option value="France">France</option>
+          </optgroup>
+        </select>
+        <div class="btn-group">
+          <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="None selected">None selected <b class="caret"></b></button>
+          <ul class="multiselect-container dropdown-menu">
+            <li class="multiselect-item group"><label class="multiselect-group">North America</label></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="US"> United statuss</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="Canada"> Canada</label></a></li>
+            <li class="multiselect-item group"><label class="multiselect-group">Europe</label></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="Denmark"> Denmark</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="Germany"> Germany</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="France"> France</label></a></li>
+          </ul>
+        </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Multi Select Field optgroup collapsible" do
+    = example do |e|
+      - e.header do
+        - grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+        = multi_select_field 'example2', { collapsible_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
+      - e.code do
+        grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+        multi_select_field 'example', { collapsible_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
+      - e.html do
+        <select name="example2[]" id="example2" data-enable-collapsible-opt-groups="true" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
+          <optgroup label="North America">
+            <option value="US">United statuss</option>
+            <option value="Canada">Canada</option>
+          </optgroup>
+          <optgroup label="Europe">
+            <option value="Denmark">Denmark</option>
+            <option value="Germany">Germany</option>
+            <option value="France">France</option>
+          </optgroup>
+        </select>
+        <div class="btn-group">
+          <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="None selected">None selected <b class="caret"></b></button>
+          <ul class="multiselect-container dropdown-menu">
+            <li class="multiselect-item group"><label class="multiselect-group">North America</label></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="US"> United statuss</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="Canada"> Canada</label></a></li>
+            <li class="multiselect-item group"><label class="multiselect-group">Europe</label></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="Denmark"> Denmark</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="Germany"> Germany</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="France"> France</label></a></li>
+          </ul>
+        </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Multi Select Field searchable" do
+    = example do |e|
+      - e.header do
+        = multi_select_field 'example1', searchable: true, option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
+      - e.code do
+        options = options_for_select(10.times.map{ |i| "option \#{i}" })
+        multi_select_field 'example', searchable: true, option_tags: options
+      - e.html do
+        <select name="example1[]" id="example1" data-enable-filtering="true" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
+          <option value="option 0">option 0</option>
+          <option value="option 1">option 1</option>
+          <option value="option 2">option 2</option>
+          <option value="option 3">option 3</option>
+          <option value="option 4">option 4</option>
+          <option value="option 5">option 5</option>
+          <option value="option 6">option 6</option>
+          <option value="option 7">option 7</option>
+          <option value="option 8">option 8</option>
+          <option value="option 9">option 9</option>
+        </select>
+        <div class="btn-group">
+          <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="None selected">None selected <b class="caret"></b></button>
+          <ul class="multiselect-container dropdown-menu">
+            <li class="multiselect-item filter" value="0">
+              <div class="">
+                <input class="form-control multiselect-search" type="text" placeholder="Search">
+              </div>
+            </li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 0"> option 0</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 1"> option 1</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 2"> option 2</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 3"> option 3</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 4"> option 4</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 5"> option 5</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 6"> option 6</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 7"> option 7</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 8"> option 8</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 9"> option 9</label></a></li>
+          </ul>
+        </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Multi Select Field select_all_option" do
+    = example do |e|
+      - e.header do
+        = multi_select_field 'example1', select_all_option: true, option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
+      - e.code do
+        options = options_for_select(10.times.map{ |i| "option \#{i}" })
+        multi_select_field 'example', select_all_option: true, option_tags: options
+      - e.html do
+        <select name="example1[]" id="example1" data-include-select-all-option="true" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
+          <option value="option 0">option 0</option>
+          <option value="option 1">option 1</option>
+          <option value="option 2">option 2</option>
+          <option value="option 3">option 3</option>
+          <option value="option 4">option 4</option>
+          <option value="option 5">option 5</option>
+          <option value="option 6">option 6</option>
+          <option value="option 7">option 7</option>
+          <option value="option 8">option 8</option>
+          <option value="option 9">option 9</option>
+        </select>
+        <div class="btn-group">
+          <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="None selected">None selected <b class="caret"></b></button>
+          <ul class="multiselect-container dropdown-menu">
+            <li class="multiselect-item multiselect-all"><a href="javascript:void(0);" class="multiselect-all"><label class="checkbox"><input type="checkbox" value="multiselect-all">  Select all</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 0"> option 0</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 1"> option 1</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 2"> option 2</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 3"> option 3</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 4"> option 4</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 5"> option 5</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 6"> option 6</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 7"> option 7</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 8"> option 8</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 9"> option 9</label></a></li>
+          </ul>
+        </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Multi Select Field status" do
+    = example do |e|
+      - e.header do
+        - %w(primary secondary success warning link).each do |s|
+          = multi_select_field s, status: s.to_sym, option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
+      - e.code do
+        options = options_for_select(10.times.map{ |i| "option \#{i}" })
+        multi_select_field 'primary', status: :primary, option_tags: options
+        multi_select_field 'secondary', status: :secondary, option_tags: options
+        multi_select_field 'success', status: :success, option_tags: options
+        multi_select_field 'warning', status: :warning, option_tags: options
+        multi_select_field 'link', status: :link, option_tags: options
+      - e.html do
+        <select name="primary[]" id="primary" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
+          <option value="option 0">option 0</option>
+          <option value="option 1">option 1</option>
+          <option value="option 2">option 2</option>
+          <option value="option 3">option 3</option>
+          <option value="option 4">option 4</option>
+          <option value="option 5">option 5</option>
+          <option value="option 6">option 6</option>
+          <option value="option 7">option 7</option>
+          <option value="option 8">option 8</option>
+          <option value="option 9">option 9</option>
+        </select>
+        <div class="btn-group">
+          <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="None selected">None selected <b class="caret"></b></button>
+          <ul class="multiselect-container dropdown-menu">
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 0"> option 0</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 1"> option 1</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 2"> option 2</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 3"> option 3</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 4"> option 4</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 5"> option 5</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 6"> option 6</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 7"> option 7</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 8"> option 8</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 9"> option 9</label></a></li>
+          </ul>
+        </div>
+        …
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Simple form" do
+    :markdown
+      You can use the multi_select input with gem [simple form](https://github.com/plataformatec/simple_form).
+
+      You must add this line in the file `"config/initializers/simple_form.rb"`
+
+    = example do |e|
+      - e.code do
+        \...
+        config.custom_inputs_namespaces << "CustomInputs"
+        \...
+    %p Then in your view, you can insert your input multi_select field.
+    = example do |e|
+      - e.code do
+        simple_form(@search) do |f|
+          ...
+          f.input :company, as: :multi_select, searchable: true
+          ...
+        end
+
+= @sections.render

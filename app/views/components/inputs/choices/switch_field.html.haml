@@ -1,0 +1,237 @@
+= title 'Switch Field'
+%blockquote UiBibz::Ui::Core::Inputs::SwitchField
+%p.bd-callout= based_on link_to "Bootstrap Switch", "http://www.bootstrap-switch.org/", target: '_blank'
+
+= code "switch_field", component_name: "name"
+
+= component_options do |co|
+  - co.state_link
+  - co.list 'value', %w(boolean string integer)
+  - co.list 'label', 'string'
+  - co.list 'intermediate', 'boolean'
+  - co.list 'animate', 'boolean'
+  - co.list 'left_text', 'string'
+  - co.list 'right_text', 'string'
+  - co.list 'middle_text', 'string'
+  - co.list 'left_color', 'symbol', UiBibzApp::Application::STATUSES
+  - co.list 'right_color', 'symbol', UiBibzApp::Application::STATUSES
+
+= component_html_options do |cho|
+  - cho.list 'readonly', 'boolean'
+  - cho.list 'checked', 'boolean'
+
+:markdown
+
+  The specific datas for this component are :
+
+  * `state` (**'active'**, 'disabled') : 'active' if not specified
+  * `animate` (**true**, false) : true if not specified
+  * `left_color` | `right_color` (**primary** | info | success | warning | danger | default)
+  * `left_text` | `right_text` (String) : respectively **'ON'** and **'OFF'** if not specified
+  * `middle_text` (String) : empty if not specified
+
+  Specific options for this component are :
+
+  * `readonly` (true, **false**) : false if not specified
+  * `checked` (**true**, false) : true if not specified
+
+
+- @sections = sections do |s|
+  - s.section title: "Switch Field" do
+    = example do |e|
+      - e.header do
+        = switch_field 'examplebasic'
+      - e.code do
+        switch_field 'examplebasic'
+      - e.html do
+        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-examplebasic bootstrap-switch-animate" style="width: 106px;">
+          <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
+            <span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 52px;">ON</span>
+            <span class="bootstrap-switch-label" style="width: 52px;">&nbsp;</span>
+            <span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 52px;">OFF</span>
+            <input type="checkbox" name="examplebasic" id="examplebasic" class="switch">
+          </div>
+        </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "State" do
+    = example do |e|
+      - e.header do
+        = switch_field 'examplestate', { state: 'active' }
+        = switch_field 'examplestate', { state: 'disabled' }
+      - e.code do
+        switch_field 'examplestate', { state: 'active' }
+        switch_field 'examplestate', { state: 'disabled' }
+      - e.html do
+        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-examplestate bootstrap-switch-animate" style="width: 106px;">
+          <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
+            <span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 52px;">ON</span>
+            <span class="bootstrap-switch-label" style="width: 52px;">&nbsp;</span>
+            <span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 52px;">OFF</span>
+            <input type="checkbox" name="examplestate" id="examplestate" class="switch">
+          </div>
+        </div>
+        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-disabled bootstrap-switch-id-examplestate bootstrap-switch-animate" style="width: 106px;">
+          <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
+            <span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 52px;">ON</span>
+            <span class="bootstrap-switch-label" style="width: 52px;">&nbsp;</span>
+            <span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 52px;">OFF</span>
+            <input type="checkbox" name="examplestate" id="examplestate" disabled="disabled" class="true switch">
+          </div>
+        </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Animate" do
+    = example do |e|
+      - e.header do
+        = switch_field 'exampleanimate', { animate: true }
+        = switch_field 'exampleanimate', { animate: false }
+      - e.code do
+        switch_field 'exampleanimate', { animate: true }
+        switch_field 'exampleanimate', { animate: false }
+      - e.html do
+        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-exampleanimate bootstrap-switch-animate" style="width: 106px;">
+          <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
+            <span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 52px;">ON</span>
+            <span class="bootstrap-switch-label" style="width: 52px;">&nbsp;</span>
+            <span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 52px;">OFF</span>
+            <input type="checkbox" name="exampleanimate" id="exampleanimate" data-animate="true" class="switch">
+          </div>
+        </div>
+        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-exampleanimate" style="width: 106px;">
+          <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
+            <span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 52px;">ON</span>
+            <span class="bootstrap-switch-label" style="width: 52px;">&nbsp;</span>
+            <span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 52px;">OFF</span>
+            <input type="checkbox" name="exampleanimate" id="exampleanimate" data-animate="false" class="switch">
+          </div>
+        </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Color" do
+    = example do |e|
+      - e.header do
+        = switch_field 'examplecolor', { left_color: :success, right_color: :danger }
+      - e.code do
+        switch_field 'examplecolor', { left_color: :success, right_color: :danger }
+      - e.html do
+        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-examplecolor bootstrap-switch-animate" style="width: 106px;">
+          <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
+            <span class="bootstrap-switch-handle-on bootstrap-switch-success" style="width: 52px;">ON</span>
+            <span class="bootstrap-switch-label" style="width: 52px;">&nbsp;</span>
+            <span class="bootstrap-switch-handle-off bootstrap-switch-danger" style="width: 52px;">OFF</span>
+            <input type="checkbox" name="examplecolor" id="examplecolor" data-on-color="success" data-off-color="danger" class="switch">
+          </div>
+        </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Text" do
+    = example do |e|
+      - e.header do
+        = switch_field 'exampletext', { left_text: "ExampleOn", right_text: "ExampleOff" }
+      - e.code do
+        switch_field 'exampletext', { left_text: "ExampleOn", right_text: "ExampleOff" }
+      - e.html do
+        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-id-exampletext bootstrap-switch-off bootstrap-switch-animate" style="width: 196px;">
+          <div class="bootstrap-switch-container" style="width: 291px; margin-left: -97px;">
+            <span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 97px;">ExampleOn</span>
+            <span class="bootstrap-switch-label" style="width: 97px;">&nbsp;</span>
+            <span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 97px;">ExampleOff</span>
+            <input type="checkbox" name="exampletext" id="exampletext" data-on-text="ExampleOn" data-off-text="ExampleOff" class="switch">
+          </div>
+        </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Label" do
+    = example do |e|
+      - e.header do
+        = switch_field 'examplelabel', { middle_text: "MyText" }
+        = switch_field 'examplelabel', { middle_text: glyph('diamond') }
+      - e.code do
+        switch_field 'examplelabel', { middle_text: 'MyText' }
+        switch_field 'examplelabel', { middle_text: glyph('diamond') }
+      - e.html do
+        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-examplelabel bootstrap-switch-animate" style="width: 124px;">
+          <div class="bootstrap-switch-container" style="width: 174px; margin-left: -52px;">
+            <span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 52px;">ON</span>
+            <span class="bootstrap-switch-label" style="width: 70px;">MyText</span>
+            <span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 52px;">OFF</span>
+            <input type="checkbox" name="examplelabel" id="examplelabel" data-label-text="MyText" class="switch">
+          </div>
+        </div>
+        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-examplelabel bootstrap-switch-animate" style="width: 106px;">
+          <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
+            <span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 52px;">ON</span>
+            <span class="bootstrap-switch-label" style="width: 52px;"><i class="glyph fa fa-diamond"></i></span>
+            <span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 52px;">OFF</span>
+            <input type="checkbox" name="examplelabel" id="examplelabel" data-label-text="<i class=&quot;glyph fa fa-diamond&quot;></i>" class="switch">
+          </div>
+        </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+        |
+        = documentation_link 'Glyph', '/components/glyphs'
+    :markdown
+      You can use the component [glyph](/components/glyphs) to insert an icon .
+
+  - s.section title: "Readonly" do
+    = example do |e|
+      - e.header do
+        = switch_field 'examplereadonly', {}, { readonly: true }
+        = switch_field 'examplereadonly', {}, { readonly: false }
+      - e.code do
+        switch_field 'examplereadonly', {}, { readonly: true }
+        switch_field 'examplereadonly', {}, { readonly: false }
+      - e.html do
+        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-readonly bootstrap-switch-id-examplereadonly bootstrap-switch-animate" style="width: 106px;">
+          <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
+            <span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 52px;">ON</span>
+            <span class="bootstrap-switch-label" style="width: 52px;">&nbsp;</span>
+            <span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 52px;">OFF</span>
+            <input type="checkbox" name="examplereadonly" id="examplereadonly" readonly="readonly" class="switch">
+          </div>
+        </div>
+        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-examplereadonly bootstrap-switch-animate" style="width: 106px;">
+          <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
+            <span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 52px;">ON</span>
+            <span class="bootstrap-switch-label" style="width: 52px;">&nbsp;</span>
+            <span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 52px;">OFF</span>
+            <input type="checkbox" name="examplereadonly" id="examplereadonly" class="switch">
+          </div>
+        </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Checked" do
+    = example do |e|
+      - e.header do
+        = switch_field 'examplechecked', {}, { checked: true }
+        = switch_field 'examplechecked', {}, { checked: false }
+      - e.code do
+        switch_field 'examplechecked', {}, { checked: true }
+        switch_field 'examplechecked', {}, { checked: false }
+      - e.html do
+        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-id-examplechecked bootstrap-switch-animate bootstrap-switch-off" style="width: 106px;">
+          <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
+            <span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 52px;">ON</span>
+            <span class="bootstrap-switch-label" style="width: 52px;">&nbsp;</span>
+            <span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 52px;">OFF</span>
+            <input type="checkbox" name="examplechecked" id="examplechecked" checked="checked" class="switch">
+          </div>
+        </div>
+        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-examplechecked bootstrap-switch-animate" style="width: 106px;">
+          <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
+            <span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 52px;">ON</span>
+            <span class="bootstrap-switch-label" style="width: 52px;">&nbsp;</span>
+            <span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 52px;">OFF</span>
+            <input type="checkbox" name="examplechecked" id="examplechecked" class="switch">
+          </div>
+        </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+= @sections.render

@@ -1,12 +1,7 @@
 class Components::Inputs::ChoicesController < ApplicationController
 
-  def switch_fields
-  end
-
-  def checkbox_fields
-  end
-
-  def radio_fields
+  def controllers
+    %w(switch_field checkbox_field radio_field)
   end
 
 end

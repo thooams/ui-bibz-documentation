@@ -1,8 +1,7 @@
 class Components::LayoutsController < ApplicationController
-  def grid
-  end
 
-  def container
+  def controllers
+    %w(grid container)
   end
 
 end
