@@ -1,3 +1,4 @@
+require File.join(Rails.root,'app', 'ui', 'component_list_option')
 module UiBibz::Ui::Ux
   class ComponentOption < ComponentListOption
 
@@ -9,7 +10,7 @@ module UiBibz::Ui::Ux
       content_tag :div, class: 'component-options' do
         concat content_tag :h2, UiBibz::Ui::Core::Glyph.new('sliders', text: 'Options').render
         concat "The specific options for this component are:"
-        concat content_tag :ul, @items.join.html_safe
+        concat content_tag :ul, @items.join.html_safe, class: 'list-options'
       end
     end
 

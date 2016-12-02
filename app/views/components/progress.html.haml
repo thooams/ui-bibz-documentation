@@ -1,6 +1,15 @@
 = title 'Progress'
 %blockquote UiBibz::Ui::Core::Progress
 %p.bd-callout Provide up-to-date feedback on the progress of a workflow or action with simple yet flexible progress bars.
+
+= code 'progress'
+
+= component_options do |co|
+  - co.state_link
+  - co.list 'value', 'number'
+  - co.list 'striped', 'boolean'
+  - co.list 'animated', 'boolean'
+
 - @sections = sections do |s|
   - s.section title: "Progress" do
     = example do |c|

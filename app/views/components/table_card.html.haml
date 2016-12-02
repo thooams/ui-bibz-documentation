@@ -25,6 +25,29 @@
 %p
   %strong Table card operate like #{ link_to 'table', components_table_path } component.
 
+= code do
+  :plain
+    table_card options = {}, html_options = {}
+    # or
+    table_card options = { tap: true }, html_options = {} do |t|
+      t.columns do |cls|
+        cls.column data_index, options = {}, html_options = {}
+      end
+      t.actions do |acs|
+        acs.link content, options = {}, html_options = {}
+      end
+    end
+
+= component_options do |co|
+  - co.glyph_link
+  - co.table_link
+  - co.tap_link
+  - co.list 'store', 'object'
+  - co.list 'searchable', 'boolean'
+  - co.list 'paginable', 'boolean'
+  - co.list 'title', 'string'
+  - co.list 'table_html_options', 'hash'
+
 - @sections = sections do |s|
   - s.section title: "View" do
     :markdown

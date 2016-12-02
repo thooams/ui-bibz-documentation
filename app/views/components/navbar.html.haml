@@ -1,6 +1,35 @@
 = title 'Navbar'
 %blockquote UiBibz::Ui::Core::Navs::Navbar
 %p.bd-callout Navbars are responsive meta components that serve as navigation headers for your application or site. They begin collapsed (and are toggleable) in mobile views and become horizontal as the available viewport width increases.
+
+= code do
+  :plain
+    navbar options = {}, html_options = {} do |nb|
+      n.brand content, options = {}, html_options = {}
+      # or
+      n.brand options = {}, html_options = {} do
+        content
+      end
+
+      nb.nav do |n|
+        n.link content, options = {}, html_options = {}
+      end
+
+      n.form url, options = {}, html_options = {} do
+        content
+      end
+
+      nb.dropdown name, options = {}, html_options = {} do |d|
+        d.link content, options = {}, html_options = {}
+      end
+    end
+
+= component_options do |co|
+  - co.status_link
+  - co.state_link
+  - co.list 'type', 'symbol', %w(:light :dark)
+  - co.list 'position', 'symbol', %w(:top :bottom)
+
 - @sections = sections do |s|
   - s.section title: "Navbar" do
     = example do |c|

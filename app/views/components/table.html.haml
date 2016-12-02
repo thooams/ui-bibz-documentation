@@ -30,14 +30,43 @@
   - c.block do
     To add, update, remove columns or actions in the component <code>table</code> you must add the option <code>tap: true</code>.
 
+
+= code do
+  :plain
+    table options = {}, html_options = {}
+    # or
+    table options = { tap: true }, html_options = {} do |t|
+      t.columns do |cls|
+        cls.column data_index, options = {}, html_options = {}
+      end
+      t.actions do |acs|
+        acs.link content, options = {}, html_options = {}
+      end
+    end
+
+= component_options do |co|
+  - co.size_link
+  - co.tap_link
+  - co.list 'store', 'object', [], required: true
+  - co.list 'actionable', 'boolean'
+  - co.list 'sortable', 'boolean'
+  - co.list 'default_actions', 'boolean'
+  - co.list 'thead', 'hash', 'status: [:inverse || :default]'
+  - co.list 'bordered', 'boolean'
+  - co.list 'hoverable', 'boolean'
+  - co.list 'responsive', 'boolean'
+  - co.list 'reflow', 'boolean'
+
 - @sections = sections do |s|
   - s.section title: "Model" do
 
-    %p Insert in the model the following line :
+    %p You must include UiBibz Searchable Concern and list searchable fields through <code>searchable_attributes</code> method. Insert in the model the following line :
     = example do |c|
       - c.code do
         class User < ActiveRecord::Base
           include UiBibz::Concerns::Models::Searchable
+          ...
+          searchable_attributes :email, :name
           ...
         end
 
@@ -151,24 +180,6 @@
         </table>
       - c.footer do
         = documentation_link 'Documentation', '#'
-
-  - s.section title: "Table Options" do
-    :markdown
-      Table has several options:
-
-      * store
-      * form
-      * type (`Symbol`)
-      * status
-      * striped (`Boolean`)
-      * bordered (`Boolean`)
-      * hoverable (`Boolean`)
-      * responsive (`Boolean`)
-      * reflow (`Boolean`)
-      * #{ size_link }
-      * #{ status_link }
-      * thead
-        * status (`Symbol`)
 
   - s.section title: "Table Blocks" do
     :markdown
@@ -299,6 +310,7 @@
           - b.actions do |acs|
             - acs.link 'Open', url: "#open", glyph: 'folder-open'
             - acs.link 'Close', url: "#close", glyph: 'folder'
+            - acs.divider
             - acs.link 'Delete', url: "#delete", glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
       - c.code do
         table({ store: @users, tap: true }) do |b|

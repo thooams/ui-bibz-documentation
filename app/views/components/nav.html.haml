@@ -1,6 +1,31 @@
 = title 'Nav'
 %blockquote UiBibz::Ui::Core::Navs::Nav
 %p.bd-callout Navs available in Bootstrap have shared markup, starting with the base .nav class, as well as shared statuss. Swap modifier classes to switch between each style.
+
+= code do
+  :plain
+    nav options = {}, html_options = {} do |n|
+      n.link content, options = {}, html_options = {}
+      # or
+      n.link options = {}, html_options = {} do
+        content
+      end
+
+      n.nav do |na|
+        na.link content, options = {}, html_options = {}
+      end
+
+      n.dropdown name, options = {}, html_options = {} do |d|
+        d.link content, options = {}, html_options = {}
+      end
+    end
+
+= component_options do |co|
+  - co.state_link
+  - co.list 'type', 'symbol', %w(:tabs :pills :links)
+  - co.list 'position', 'symbol', %w(:left right)
+  - co.list 'stacked', 'boolean'
+
 - @sections = sections do |s|
   - s.section title: "Nav" do
     = example do |c|
@@ -50,15 +75,6 @@
       * #{ inherit_component_link 'link' } [options `url:` is required]
       * #{ inherit_specific_component_link 'dropdown', components_dropdown_path }
       * #{ inherit_specific_component_link 'nav', components_nav_path }
-
-  - s.section title: "Nav Options" do
-    :markdown
-      Nav has several options:
-
-      * #{ status_link }
-      * type (`:tabs, :pills, :links`)
-      * stacked (`Boolean`)
-      * position (`:left, :right`)
 
   - s.section title: "Link" do
     = example do |c|

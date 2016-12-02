@@ -66,13 +66,12 @@
         = documentation_link 'Documentation', '#'
 
   - s.section title: "List group options" do
-    :markdown
-      List group has several options:
-
-        * #{ status_link }
-        * #{ glyph_link }
-        * #{ state_link }
-        * type (`:button, :link`)
+    %p List group has several options:
+    = component_list_options do |clo|
+      - clo.status_link
+      - clo.glyph_link
+      - clo.state_link
+      - clo.list 'type', 'symbol', %w(:button :link)
 
   - s.section title: "Tags" do
     = example do |c|

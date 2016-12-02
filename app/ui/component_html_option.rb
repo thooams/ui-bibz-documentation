@@ -1,3 +1,4 @@
+require File.join(Rails.root,'app', 'ui', 'component_list_option')
 module UiBibz::Ui::Ux
   class ComponentHtmlOption < ComponentListOption
 
@@ -6,10 +7,10 @@ module UiBibz::Ui::Ux
     end
 
     def render
-      content_tag :div, class: 'component-options' do
+      content_tag :div, class: 'component-html-options' do
         concat content_tag :h2, UiBibz::Ui::Core::Glyph.new('code', text: 'Html Options').render
         concat "The specific html options for this component are:"
-        concat content_tag :ul, @items.join.html_safe
+        concat content_tag :ul, @items.join.html_safe, class: 'list-options'
       end
     end
 

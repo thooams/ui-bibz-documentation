@@ -7,13 +7,32 @@ module UiBibz::Ui::Ux
     end
 
     def render
-      (title + UiBibz::Ui::Core::Cards::Card.new(code_html, nil, class: 'highlight code').render).html_safe
+      content_tag :div, class: 'usage' do
+        concat title
+        concat sentence
+        concat UiBibz::Ui::Core::Cards::Card.new(code_html, nil, class: 'highlight code').render
+      end
     end
 
   private
 
     def title
       content_tag :h2, UiBibz::Ui::Core::Glyph.new('book', { text: 'Usage' }).render
+    end
+
+    def sentence
+      content_tag :div do
+        concat "A Ui Bibz component consists of 3 arguments:"
+        concat component_elements_list
+      end
+    end
+
+    def component_elements_list
+      UiBibz::Ui::Ux::ComponentListOption.new.tap do |clo|
+        clo.list 'content', %w(value block)
+        clo.list 'options', 'hash'
+        clo.list 'html_options', 'hash'
+      end.render
     end
 
     def formatter

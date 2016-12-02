@@ -1,6 +1,32 @@
 = title 'Modal'
 %blockquote UiBibz::Ui::Core::Modal
 %p.bd-callout Modals are streamlined, but flexible, dialog prompts with the minimum required functionality and smart defaults.
+
+= code do
+  :plain
+    modal options = {}, html_options = {} do |m|
+      m.header content, options = {}, html_options = {}
+      # or
+      m.header options = {}, html_options = {} do
+        content
+      end
+
+      m.body content, options = {}, html_options = {}
+      # or
+      m.body options = {}, html_options = {} do
+        content
+      end
+
+      m.footer content, options = {}, html_options = {}
+      # or
+      m.footer options = {}, html_options = {} do
+        content
+      end
+    end
+
+= component_options do |co|
+  - co.list 'effect', 'symbol', %w(:fade)
+
 - @sections = sections do |s|
   - s.section title: "Modal" do
     :markdown
