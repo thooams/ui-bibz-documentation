@@ -6,19 +6,19 @@
 
 = component_options do |co|
   - co.state_link
-  - co.list 'value', %w(boolean string integer)
-  - co.list 'label', 'string'
-  - co.list 'intermediate', 'boolean'
-  - co.list 'animate', 'boolean'
-  - co.list 'left_text', 'string'
-  - co.list 'right_text', 'string'
-  - co.list 'middle_text', 'string'
-  - co.list 'left_color', 'symbol', UiBibzApp::Application::STATUSES
-  - co.list 'right_color', 'symbol', UiBibzApp::Application::STATUSES
+  - co.list 'value', types: %w(boolean string integer)
+  - co.list 'label', types: 'string'
+  - co.list 'intermediate', types: 'boolean'
+  - co.list 'animate', types: 'boolean'
+  - co.list 'left_text', types: 'string'
+  - co.list 'right_text', types: 'string'
+  - co.list 'middle_text', types: 'string'
+  - co.list 'left_color', types: 'symbol', values: UiBibzApp::Application::STATUSES
+  - co.list 'right_color', types: 'symbol', values: UiBibzApp::Application::STATUSES
 
 = component_html_options do |cho|
-  - cho.list 'readonly', 'boolean'
-  - cho.list 'checked', 'boolean'
+  - cho.list 'readonly', types: 'boolean'
+  - cho.list 'checked', types: 'boolean'
 
 - @sections = sections do |s|
   - s.section title: "Switch Field" do

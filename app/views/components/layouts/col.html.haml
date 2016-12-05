@@ -8,15 +8,15 @@
 = code 'col'
 
 = component_options do |co|
-  - co.list 'num', 'integer'
-  - co.list 'offset', 'integer'
-  - co.list 'pull', 'integer'
-  - co.list 'push', 'integer'
-  - co.list 'xs', 'hash'
-  - co.list 'sm', 'hash'
-  - co.list 'md', 'hash'
-  - co.list 'lg', 'hash'
-  - co.list 'xl', 'hash'
+  - co.list 'num', types: 'integer'
+  - co.list 'offset', types: 'integer'
+  - co.list 'pull', types: 'integer'
+  - co.list 'push', types: 'integer'
+  - co.list 'xs', types: 'hash'
+  - co.list 'sm', types: 'hash'
+  - co.list 'md', types: 'hash'
+  - co.list 'lg', types: 'hash'
+  - co.list 'xl', types: 'hash'
 
 - @sections = sections do |s|
   - s.section title: "Col" do

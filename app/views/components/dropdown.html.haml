@@ -31,8 +31,8 @@
   - co.glyph_link
   - co.state_link
   - co.size_link
-  - co.list 'position', 'symbol', %w(:right :left)
-  - co.list 'type', 'symbol', %w(:dropup :dropdown)
+  - co.list 'position', types: 'symbol', values: %w(:right :left)
+  - co.list 'type', types: 'symbol', values: %w(:dropup :dropdown)
 
 - @sections = sections do |s|
   - s.section title: "Dropdown" do

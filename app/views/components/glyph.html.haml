@@ -16,11 +16,11 @@
   - co.status_link
   - co.state_link
   - co.size_link
-  - co.list 'flip', 'symbol', %w(:horizontal :vertical)
-  - co.list 'name', 'string'
-  - co.list 'rotate', 'number'
-  - co.list 'stack', 'integer'
-  - co.list 'text', 'string'
+  - co.list 'flip', types: 'symbol', values: %w(:horizontal :vertical)
+  - co.list 'name', types: 'string'
+  - co.list 'rotate', types: 'number'
+  - co.list 'stack', types: 'integer'
+  - co.list 'text', types: 'string'
 
 - @sections = sections do |s|
   - s.section title: "Glyph" do

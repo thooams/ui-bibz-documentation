@@ -29,9 +29,9 @@ module UiBibz::Ui::Ux
 
     def component_elements_list
       UiBibz::Ui::Ux::ComponentListOption.new.tap do |clo|
-        clo.list 'content', %w(value block)
-        clo.list 'options', 'hash'
-        clo.list 'html_options', 'hash'
+        clo.list 'content', { types: %w(value block) }
+        clo.list 'options', types: :hash
+        clo.list 'html_options', types: :hash
       end.render
     end
 

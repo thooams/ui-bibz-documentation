@@ -6,8 +6,8 @@
 = component_options do |co|
   - co.status_link
   - co.state_link
-  - co.list 'append', 'html'
-  - co.list 'prepend', 'html'
+  - co.list 'append', types: 'html'
+  - co.list 'prepend', types: 'html'
 
 - @sections = sections do |s|
   - s.section title: "Surround Field" do

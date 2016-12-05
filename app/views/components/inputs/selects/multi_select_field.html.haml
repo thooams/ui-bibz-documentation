@@ -7,11 +7,11 @@
 = component_options do |co|
   - co.status_link
   - co.state_link
-  - co.list 'option_tags', %w(array object)
-  - co.list 'clickable_opt_group', 'boolean'
-  - co.list 'collapsible_opt_group', 'boolean'
-  - co.list 'searchable', 'boolean'
-  - co.list 'select_all_option', 'boolean'
+  - co.list 'option_tags', types: %w(array object)
+  - co.list 'clickable_opt_group', types: 'boolean'
+  - co.list 'collapsible_opt_group', types: 'boolean'
+  - co.list 'searchable', types: 'boolean'
+  - co.list 'select_all_option', types: 'boolean'
 
 - @sections = sections do |s|
   - s.section title: "Multi Select Field" do

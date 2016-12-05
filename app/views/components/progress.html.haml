@@ -6,9 +6,9 @@
 
 = component_options do |co|
   - co.state_link
-  - co.list 'value', 'number'
-  - co.list 'striped', 'boolean'
-  - co.list 'animated', 'boolean'
+  - co.list 'value', types: 'number'
+  - co.list 'striped', types: 'boolean'
+  - co.list 'animated', types: 'boolean'
 
 - @sections = sections do |s|
   - s.section title: "Progress" do

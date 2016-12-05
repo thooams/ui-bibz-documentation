@@ -12,9 +12,9 @@
     end
 
 = component_options do |co|
-  - co.list 'store', 'object'
-  - co.list 'link_label', 'symbol', ':name'
-  - co.list 'link_url', 'string', '#'
+  - co.list 'store', types: 'object'
+  - co.list 'link_label', types: 'symbol', values: ':name'
+  - co.list 'link_url', types: 'string', values: '#'
 
 - @sections = sections do |s|
   - s.section title: "Breadcrumb" do

@@ -28,7 +28,7 @@
     end
 
 = component_options do |co|
-  - co.list 'type', 'symbol', %w(:link :button)
+  - co.list 'type', types: 'symbol', values: %w(:link :button)
 
 - @sections = sections do |s|
   - s.section title: "List group" do
@@ -71,7 +71,7 @@
       - clo.status_link
       - clo.glyph_link
       - clo.state_link
-      - clo.list 'type', 'symbol', %w(:button :link)
+      - clo.list 'type', types: 'symbol', values: %w(:button :link)
 
   - s.section title: "Tags" do
     = example do |c|

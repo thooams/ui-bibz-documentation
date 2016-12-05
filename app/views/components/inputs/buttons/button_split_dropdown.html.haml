@@ -35,8 +35,8 @@
   - co.glyph_link
   - co.state_link
   - co.size_link
-  - co.list 'position', 'symbol', %w(:right :left)
-  - co.list 'type', 'symbol', %w(:dropup :dropdown)
+  - co.list 'position', types: 'symbol', values: %w(:right :left)
+  - co.list 'type', types: 'symbol', values: %w(:dropup :dropdown)
 
 = content_for :third_nav do
   = nav class: 'secondary-nav' do |n|

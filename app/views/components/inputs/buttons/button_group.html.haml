@@ -16,7 +16,7 @@
 
 = component_options do |co|
   - co.size_link
-  - co.list 'positions', 'symbol', %w(:horizontal :vertical)
+  - co.list 'positions', types: 'symbol', values: %w(:horizontal :vertical)
 
 - @sections = sections do |s|
   - s.section title: "Button group" do

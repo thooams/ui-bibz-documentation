@@ -49,8 +49,8 @@
 
 = component_options do |co|
   - co.status_link
-  - co.list 'text_position', 'sumbol', %w(:left :center :right)
-  - co.list 'type', 'symbol', ':inverse'
+  - co.list 'text_position', types: 'symbol', values: %w(:left :center :right)
+  - co.list 'type', types: 'symbol', values: ':inverse'
   - co.tap_link
 
 - @sections = sections do |s|

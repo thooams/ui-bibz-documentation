@@ -25,7 +25,7 @@
     end
 
 = component_options do |co|
-  - co.list 'effect', 'symbol', %w(:fade)
+  - co.list 'effect', types: 'symbol', values: %w(:fade)
 
 - @sections = sections do |s|
   - s.section title: "Modal" do

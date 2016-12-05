@@ -27,8 +27,8 @@
 = component_options do |co|
   - co.status_link
   - co.state_link
-  - co.list 'type', 'symbol', %w(:light :dark)
-  - co.list 'position', 'symbol', %w(:top :bottom)
+  - co.list 'type', types: 'symbol', values: %w(:light :dark)
+  - co.list 'position', types: 'symbol', values: %w(:top :bottom)
 
 - @sections = sections do |s|
   - s.section title: "Navbar" do

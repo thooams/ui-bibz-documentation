@@ -7,11 +7,11 @@
 = component_options do |co|
   - co.status_link
   - co.state_link
-  - co.list 'value', %w(boolean string integer)
-  - co.list 'label', 'string'
-  - co.list 'intermediate', 'boolean'
-  - co.list 'inline', 'boolean'
-  - co.list 'type', 'symbol', ':circle'
+  - co.list 'value', types: %w(boolean string integer)
+  - co.list 'label', types: 'string'
+  - co.list 'intermediate', types: 'boolean'
+  - co.list 'inline', types: 'boolean'
+  - co.list 'type', types: 'symbol', values: ':circle'
 
 - @sections = sections do |s|
   - s.section title: "Checkbox Field" do

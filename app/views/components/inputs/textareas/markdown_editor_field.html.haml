@@ -9,11 +9,11 @@
 
 = component_options do |co|
   - co.state_link
-  - co.list 'autofocus', 'boolean'
-  - co.list 'savable', 'boolean'
-  - co.list 'hideable', 'boolean'
-  - co.list 'hidden_buttons', 'boolean'
-  - co.list 'disabled_buttons', 'boolean'
+  - co.list 'autofocus', types: 'boolean'
+  - co.list 'savable', types: 'boolean'
+  - co.list 'hideable', types: 'boolean'
+  - co.list 'hidden_buttons', types: 'boolean'
+  - co.list 'disabled_buttons', types: 'boolean'
 
 - @sections = sections do |s|
   - s.section title: "Markdown Editor Field" do

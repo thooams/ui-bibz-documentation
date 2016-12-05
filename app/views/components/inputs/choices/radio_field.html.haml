@@ -7,10 +7,10 @@
 = component_options do |co|
   - co.status_link
   - co.state_link
-  - co.list 'value', %w(boolean string integer)
-  - co.list 'label', 'string'
-  - co.list 'inline', 'boolean'
-  - co.list 'type', 'symbol', ':square'
+  - co.list 'value', types: %w(boolean string integer)
+  - co.list 'label', types: 'string'
+  - co.list 'inline', types: 'boolean'
+  - co.list 'type', types: 'symbol', values: ':square'
 
 - @sections = sections do |s|
   - s.section title: "Radio Field" do

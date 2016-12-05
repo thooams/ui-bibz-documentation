@@ -7,10 +7,10 @@
 = component_options do |co|
   - co.status_link
   - co.state_link
-  - co.list 'today_highlight', 'boolean'
-  - co.list 'calendar_weeks', 'boolean'
-  - co.list 'autoclose', 'boolean'
-  - co.list 'dates_disabled', %w(string array)
+  - co.list 'today_highlight', types: 'boolean'
+  - co.list 'calendar_weeks', types: 'boolean'
+  - co.list 'autoclose', types: 'boolean'
+  - co.list 'dates_disabled', types: %w(string array)
 
 - @sections = sections do |s|
   - s.section title: "Date Picker Field" do
