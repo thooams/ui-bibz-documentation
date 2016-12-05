@@ -63,17 +63,17 @@
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Breadcrumb with store" do
-    :markdown
-      Options are :
+    %p Options are :
+    = component_list_options do |clo|
+      - clo.list 'store', types: :object, required: true
+      - clo.list 'link_label', types: %w(symbol string), default: ':name'
+      - clo.list 'link_url', types: :string, default: '#'
 
-      * store
-      * link_label (default: :name)
-      * link_url (default: #)
+    %p Option <code>link_url</code> can be written:
+    %ul
+      %li "/user/:id"
+      %li user_path(:id)
 
-      Option `link_url` can be written:
-
-      * "/user/:id"
-      * user_path(:id)
     = example do |c|
       - c.header do
         = breadcrumb store: @users, link_label: :email, link_url: "#/id/edit"

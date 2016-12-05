@@ -257,9 +257,15 @@
          
         card tap: true, text_position: :center do |c|
           c.block tap: true do |b|
-            b.title "Special title treatment"
-            b.text "With supporting text below as a natural lead-in to additional content."
-            b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
+            b.title class: 'title' do
+              "Special title treatment"
+            end
+            b.text class: 'text' do
+              "With supporting text below as a natural lead-in to additional content."
+            end
+            b.link url: '#go-somewhere', class: 'btn btn-primary' do
+              "Go somewhere"
+            end
           end
         end
          
@@ -282,8 +288,8 @@
             </div>
             <div class="card text-center">
               <div class="card-block">
-                <h4 class="card-title">Special title treatment</h4>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <h4 class="card-title title">Special title treatment</h4>
+                <p class="card-text text">With supporting text below as a natural lead-in to additional content.</p>
                 <a class="btn btn-primary card-title">Go somewhere</a>
               </div>
             </div>

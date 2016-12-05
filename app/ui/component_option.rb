@@ -7,7 +7,6 @@ module UiBibz::Ui::Ux
     end
 
     def render
-      puts @items.inspect
       content_tag :div, class: 'component-options', id: 'component-options' do
         concat content_tag :h2, UiBibz::Ui::Core::Glyph.new('sliders', label: 'Options').render
         concat "The specific options for this component are:"

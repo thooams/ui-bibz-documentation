@@ -310,7 +310,7 @@
         - nb.nav do |n|
           - n.link 'Home', url: '#active', state: :active
         - nb.form '/search', { type: :form_tag, position: :right } do
-          = text_field_tag 'Search'
+          = surround_field 'Search'
           = button 'Search', status: :success, outline: true
     - c.block do
       = navbar title: 'Navbar' do |nb|

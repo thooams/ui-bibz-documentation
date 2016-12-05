@@ -47,8 +47,8 @@
               - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
                 = "Action 3"
           - nb.form '/search', { type: :form_tag, position: :right } do
-            = text_field_tag 'Search'
-            = button 'Search', status: :success, outline: true
+            = surround_field 'Search'
+            = button('Search', status: :success, outline: true)
       - c.code do
         navbar title: 'Navbar' do |nb|
           nb.nav do |n|
@@ -113,12 +113,6 @@
       * #{ inherit_component_link 'brand' }
       * form
 
-      Navbar has several options:
-
-      * #{ status_link }
-      * #{ state_link }
-      * type (`:ligth, :dark`)
-      * position (`:top, :bottom`)
 
   - s.section title: "Color" do
     = example do |c|

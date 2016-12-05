@@ -37,7 +37,7 @@ module UiBibz::Ui::Ux
     end
 
     def tap_link
-      list('tap', { types: :boolean })
+      list('tap', { types: :boolean, description: 'Required if you want use :header, block or footer inside' })
     end
 
     def render
@@ -48,18 +48,6 @@ module UiBibz::Ui::Ux
 
     def option_link opt
       link_to opt, components_path(anchor: opt)
-    end
-
-    def examples_list examples
-      "(<code>#{ [examples].flatten.join(', ') }</code>)".html_safe
-    end
-
-    def types_list types
-      "[#{ [types].flatten.join('/') }]"
-    end
-
-    def required_field
-      UiBibz::Ui::Core::Tag.new('Required', status: :danger).render
     end
 
     def is_tap content, options

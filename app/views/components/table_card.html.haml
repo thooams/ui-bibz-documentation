@@ -42,7 +42,7 @@
   - co.glyph_link
   - co.table_link
   - co.tap_link
-  - co.list 'store', types: 'object'
+  - co.list 'store', types: 'object', required: true
   - co.list 'searchable', types: 'boolean'
   - co.list 'paginable', types: 'boolean'
   - co.list 'title', types: 'string'
@@ -170,7 +170,7 @@
     %p Table has several options:
     = component_list_options do |clo|
       - clo.glyph_link
-      - clo.list link_to('store', components_table_path(anchor: 'controller')), types: 'object'
+      - clo.list link_to('store', components_table_path(anchor: 'controller')), types: 'object', required: true
       - clo.list link_to('table_options', components_table_path(anchor: 'component-options')), types: :hash
       - clo.list 'searchable', types: :boolean
       - clo.list 'paginable', types: :boolean
