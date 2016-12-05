@@ -167,16 +167,15 @@
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Table Card Options" do
-    :markdown
-      Table has several options:
-
-      * #{ link_to 'store', components_table_path(anchor: 'controller') }
-      * searchable (`Boolean`)
-      * paginable (`Boolean`)
-      * title (`String`)
-      * #{ glyph_link }
-      * table\_html\_options (`Hash`)
-      * #{ link_to 'table_options', components_table_path(anchor: 'table-options') } (`Hash`)
+    %p Table has several options:
+    = component_list_options do |clo|
+      - clo.glyph_link
+      - clo.list link_to('store', components_table_path(anchor: 'controller')), types: 'object'
+      - clo.list link_to('table_options', components_table_path(anchor: 'component-options')), types: :hash
+      - clo.list 'searchable', types: :boolean
+      - clo.list 'paginable', types: :boolean
+      - clo.list 'title', types: :string
+      - clo.list 'table_html_options', types: :hash
 
   - s.section title: "Table Card Blocks" do
     :markdown

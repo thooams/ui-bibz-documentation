@@ -17,7 +17,7 @@ module UiBibz::Ui::Ux
   private
 
     def title
-      content_tag :h2, UiBibz::Ui::Core::Glyph.new('book', { text: 'Usage' }).render
+      content_tag :h2, UiBibz::Ui::Core::Glyph.new('book', { label: 'Usage' }).render
     end
 
     def sentence

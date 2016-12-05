@@ -189,22 +189,21 @@
       * actions
 
   - s.section title: "Table Columns" do
-    :markdown
-      Adding columns through the column method contains several arguments and this method is based on the component :
+    %p Adding columns through the column method contains several arguments and this method is based on the component :
 
-      * data_index (`Symbol`)
-      * html_options (`Hash`)
-      * options (`Hash`)
-        * name (`String`) [the name of the column]
-        * count (`Boolean`) [uses the count method on the element]
-        * date_format (`String`) [formats the date display using the strftime method ex: `%Y/%M/%D`]
-        * format (`Lambda`) [formats the elements of colone using lambda **records** and **record** will be arguments]
-        * link (`String`) [add a link where the expression `:id` is parsed and replaced with the corresponding integer]
-        * sort (`String`) [to sort on fields]
-        * column_id (`Symbol`) [identify the column can be useful for the spell]
-        * custom_sort (`String`) [indicates the table will be sorted in a customized way]
-        * as (`:boolean, :progress, :input`)
-        * hidden (`Boolean`) [hide column]
+    = component_list_options do |clo|
+      - clo.list 'data_index', types: :symbol
+      - clo.list 'html_options', types: :hash
+      - clo.list 'options', types: :hash, tap: true do |cl|
+        - cl.list 'name', types: 'string', description: 'The name of the column'
+        - cl.list 'count', types: 'boolean', description: 'Use the count method on the element'
+        - cl.list 'date_format', types: 'string', description: "Format the date display using the strftime method ex: `%Y/%M/%D`"
+        - cl.list 'link', types: 'string', description: "add a link where the expression `:id` is parsed and replaced with the corresponding integer"
+        - cl.list 'sort', types: 'string'
+        - cl.list 'column_id', types: 'symbol', description: 'Identify column'
+        - cl.list 'costum_sort', types: 'string', description: 'Identify column'
+        - cl.list 'as', types: 'symbol', values: %w(:boolean :progress :input)
+        - cl.list 'hidden', types: 'boolean'
 
     = example do |c|
       - c.header do

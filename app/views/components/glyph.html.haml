@@ -140,11 +140,11 @@
     %p You can create a glyph with only one hash.
     = example do |c|
       - c.header do
-        = glyph({ name: 'diamond', size: :md })
+        = glyph({ name: 'diamond', size: :xs, label: 'Diamond' })
       - c.code do
-        glyph { name: 'diamond', size: :md }
+        glyph { name: 'diamond', size: :xs, label: 'Diamond' }
       - c.html do
-        <i class="glyph fa fa-diamond fa-3x"></i>
+        <i class="glyph fa fa-diamond fa-1x"></i> Diamond
       - c.footer do
         = documentation_link 'Documentation', '#'
 

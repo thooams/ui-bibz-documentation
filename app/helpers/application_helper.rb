@@ -42,26 +42,6 @@ module ApplicationHelper
     { url: path, state: nav_active_link(path) }
   end
 
-  def option_link opt
-    link_to opt, components_path(anchor: opt)
-  end
-
-  def status_link
-    "#{ option_link('status') } (Symbol) [<code>:danger, :success, :info, :warning, :primary, :secondary</code>]"
-  end
-
-  def glyph_link
-    "#{ option_link('glyph') } (<code>String || Hash</code>)"
-  end
-
-  def size_link
-    "#{ option_link('size') } (Symbol) [<code>:lg, :md, :sm, :xs</code>]"
-  end
-
-  def state_link
-    "#{ option_link('state') } (Symbol) [<code>:disabled, :active</code>]"
-  end
-
   def inherit_component_link name
     "#{ name} (inherit of #{ link_to 'component', components_path })"
   end
@@ -79,7 +59,7 @@ module ApplicationHelper
   end
 
   def title name
-    content_tag :h2, glyph('diamond', text: name)
+    content_tag :h2, glyph('diamond', label: name)
   end
 
 end
