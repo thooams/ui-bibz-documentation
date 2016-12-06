@@ -6,7 +6,10 @@
     - na.link 'Card', nav_options(components_cards_card_path)
     - na.link 'Card column deck and group', nav_options(components_cards_card_column_deck_and_group_path)
   - nc.link 'Component', nav_options(components_path)
-  - nc.link 'Dropdown', nav_options(components_dropdown_path)
+  - nc.link 'Dropdowns', url: '#', state: :disabled
+  - nc.nav do |no|
+    - no.link 'Dropdown', nav_options(components_dropdowns_dropdown_path)
+    - no.link 'Split Dropdown', nav_options(components_dropdowns_split_dropdown_path)
   - nc.link 'Glyph', nav_options(components_glyph_path)
   - nc.link 'Inputs', url: '#', state: :disabled
   - nc.nav do |no|
@@ -15,10 +18,8 @@
     - no.nav do |na|
       - na.link 'Button', nav_options(components_inputs_buttons_button_path)
       - na.link 'Button choice', nav_options(components_inputs_buttons_button_choice_path)
-      - na.link 'Button dropdown', nav_options(components_inputs_buttons_button_dropdown_path)
       - na.link 'Button group', nav_options(components_inputs_buttons_button_group_path)
       - na.link 'Button link', nav_options(components_inputs_buttons_button_link_path)
-      - na.link 'Button split dropdown', nav_options(components_inputs_buttons_button_split_dropdown_path)
 
     - no.link 'Choices', url: '#', state: :disabled
     - no.nav do |na|

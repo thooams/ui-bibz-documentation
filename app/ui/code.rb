@@ -22,6 +22,7 @@ module UiBibz::Ui::Ux
 
     def sentence
       content_tag :div do
+        concat "This component is an extension of #{ link_to('component', components_path) } element. ".html_safe
         concat "A Ui Bibz component consists of 3 arguments:"
         concat component_elements_list
       end

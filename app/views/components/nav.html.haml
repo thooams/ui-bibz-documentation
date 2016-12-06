@@ -1,6 +1,6 @@
 = title 'Nav'
 %blockquote UiBibz::Ui::Core::Navs::Nav
-%p.bd-callout Navs available in Bootstrap have shared markup, starting with the base .nav class, as well as shared statuss. Swap modifier classes to switch between each style.
+%p.bd-callout Navs available in Bootstrap have shared markup, starting with the base .nav class, as well as shared status.
 
 = code do
   :plain
@@ -73,7 +73,7 @@
       Nav has on block type:
 
       * #{ inherit_component_link 'link' } [options `url:` is required]
-      * #{ inherit_specific_component_link 'dropdown', components_dropdown_path }
+      * #{ inherit_specific_component_link 'dropdown', components_dropdowns_dropdown_path }
       * #{ inherit_specific_component_link 'nav', components_nav_path }
 
   - s.section title: "Link" do

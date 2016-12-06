@@ -5,7 +5,7 @@
 = code 'progress'
 
 = component_options do |co|
-  - co.state_link
+  - co.status_link
   - co.list 'value', types: 'number'
   - co.list 'striped', types: 'boolean'
   - co.list 'animated', types: 'boolean'
@@ -33,15 +33,6 @@
         </progress>
       - c.footer do
         = documentation_link 'Documentation', '#'
-
-  - s.section title: "Progress Options" do
-    :markdown
-      Progress has several options:
-
-      * #{ status_link }
-      * value (`Float`) [required]
-      * striped (`Boolean`)
-      * animated (`Boolean`)
 
   - s.section title: "status" do
     = example do |c|

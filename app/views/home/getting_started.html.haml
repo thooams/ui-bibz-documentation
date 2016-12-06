@@ -1,31 +1,47 @@
 = col num: 8  do
-  :markdown
-    # Getting Started
-    ##Install
+  %h1 Getting Started
+  %h2 Install
 
-    Add these lines in your Gemfile:
+  %p Add these lines in your Gemfile:
 
-    <pre>
-      source 'https://rubygems.org'
+  = card class: 'highlight code' do
+    %pre.codehilite
+      %code
+        %span
+          :plain
+            source 'https://rubygems.org'
 
-      ...
-      gem "ui_bibz", '~> #{ @ui_bibz.version }'
-      ...
-    </pre>
+            ...
+            gem "ui_bibz", '~> #{ @ui_bibz.version }'
+            ...
 
-    Run this command: `bundle install`
+  %p Run this command:
+  = card class: 'highlight code' do
+    %pre.codehilite
+      %code
+        %span
+          :plain
+            bundle install
 
-    ##Assets Install
+  %h2 Assets Install
 
-    Put this line in: `/app/assets/stylesheets/applications.css`
+  %p Put this line in: <code>/app/assets/stylesheets/applications.css</code>
+  = card class: 'highlight code' do
+    %pre.codehilite
+      %code
+        %span
+          :plain
+            *= require ui_bibz
 
-    `*= require ui_bibz`
+  %p Put this line in: <code>/app/assets/javascripts/applications.js</code>
+  = card class: 'highlight code' do
+    %pre.codehilite
+      %code
+        %span
+          :plain
+            //= require ui_bibz
 
-    Put this line in: `/app/assets/javascripts/applications.js`
-
-    `//= require ui_bibz`
-
-    _Ps: You can use sass variables into Boostrap._
+  <em>Ps: You can use sass variables into Boostrap.</em>
 
 = col num: 4 do
   %div

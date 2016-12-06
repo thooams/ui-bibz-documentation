@@ -18,159 +18,20 @@
   = container do
     %h3.slogan Code less, do more, code better
     %br
-    = row do
-      .columns-white
-        = col num: 4 do
-          = image_tag "https://upload.wikimedia.org/wikipedia/en/thumb/e/e9/Ruby_on_Rails.svg/791px-Ruby_on_Rails.svg.png", alt: "Ruby On Rails", class: "logo-rails", title: "Ruby On Rails"
-          %br
-          Ruby on Rails...is both revolutionary as a language as well as a framework
-        = col num: 4 do
-          = image_tag 'ui-bibz-logo.png', alt: "Ui-Bibz", class: "loco-uibibz", title: @ui_bibz.name
-          %br
-          Ui Bibz easily to understand, respect the logic of ruby development to allow quick to use bootstrap components without HTML.
-        = col num: 4 do
-          = image_tag "https://sdz-upload.s3.amazonaws.com/prod/upload/bootstrap_responsive.jpeg", alt: "Bootstrap", class: "logo-bootstrap", title: "Bootstrap"
-          %br
-          One framework, every device
+    = row class: 'columns-white' do
+      = col num: 4 do
+        = image_tag "https://upload.wikimedia.org/wikipedia/en/thumb/e/e9/Ruby_on_Rails.svg/791px-Ruby_on_Rails.svg.png", alt: "Ruby On Rails", class: "logo-rails", title: "Ruby On Rails"
+        %br
+        Ruby on Rails...is both revolutionary as a language as well as a framework
+      = col num: 4 do
+        = image_tag 'ui-bibz-logo.png', alt: "Ui-Bibz", class: "loco-uibibz", title: @ui_bibz.name
+        %br
+        Ui Bibz easily to understand, respect the logic of ruby development to allow quick to use bootstrap components without HTML.
+      = col num: 4 do
+        = image_tag "https://sdz-upload.s3.amazonaws.com/prod/upload/bootstrap_responsive.jpeg", alt: "Bootstrap", class: "logo-bootstrap", title: "Bootstrap"
+        %br
+        One framework, every device
     %hr.little-hr
     = button_link 'View GitHub Project', url: 'https://github.com/thooams/Ui-Bibz', status: :secondary
     %p
       %span.littlemsg Ui Bibz Open Source Project available on GitHub
-
--# navbar(type: :inverse, position: :bottom) do |nb|
-  - nb.nav do |n|
-    - n.link 'Link 1', url: '#link-1', glyph: 'eye'
-  - nb.text 'My text'
-  = nb.form({ url: '/search', type: :form_tag }) do
-    .form-group
-      = text_field_tag 'search', nil, { class: 'form-control', placeholder: 'Search' }
-    = button 'Submit', type: :submit
-  - nb.nav({ position: :right }, { class: 'nav2'}) do |n|
-    - n.dropdown 'Dropdown' do |d|
-      - d.list link_to('Link 2', '#test'), { glyph: 'eye' }
-      - d.list(url: '#link-2', state: :active) do
-        Link 3
--# Decommenter cette ligne et retirer l'indentation sur les suivantes pour rétablir le fichier d'origine
-  = etiquette 'label'
-  = etiquette 'label 2', status: :success
-  = etiquette 'label 2', status: :success, size: :xs
-
-  %br
-  %br
-  = progress 30
-
-  = progress(status: :info, sr_only: true, type: :animated) do
-    = 70
-
-  -# progress(tap: true) do |pb|
-    - pb.bar 10, { status: :success, sr_only: false, label: 'Loading...' },{ class: 'test' }
-    - pb.bar 30, status: :warning
-    - pb.bar(type: :striped) do
-      = 10
-
-
-
-  = notify 'state', glyph: 'eye', close: true
-
-  %br
-  %br
-
-  = button_group position: :vertical, size: :xs do
-    = button 'state', state: :active
-    = button 'momo'
-    = button 'lolo'
-
-  = button_group do
-    = button 'state', state: :active
-    = button 'momo'
-    = button 'lolo'
-    = button_dropdown 'Button Dropdown' do |bd|
-      - bd.header
-      - bd.link 'momo', url: '#'
-      - bd.divder
-      - bd.link 'lolo', url: '#'
-
-  %br
-  %br
-
-  = dropdown 'Dropdown', status: :success do |d|
-    - d.list do
-      = link_to 'state', "#"
-    - d.list 'header', type: :header
-    - d.list link_to 'momo', '#'
-    - d.list '---'
-    - d.list link_to 'lolo', '#'
-
-
-  %br
-  %br
-
-  = button_split_dropdown 'Dropdown', status: :primary do |d|
-    - d.link 'state', url: '#', glyph: 'eye'
-    - d.list 'header', type: :header
-    - d.link 'momo', url: '#'
-    - d.list '---'
-    - d.link 'lolo', url: '#'
-
-
-  %br
-  %br
-
-  = nav position: :justified do |n|
-    - n.link 'state', { url: '#state', state: :active, glyph: 'eye' }
-    - n.link 'momo', { url: '#mono' }
-
-  %br
-  = nav type: :pills do |n|
-    - n.link 'state', url: '#state', state: :active, glyph: 'eye'
-    - n.link 'momo', url: '#mono', badge: 30
-
-  %br
-  = breadcrumb do |b|
-    - b.link 'state', url: '#state', glyph: 'home'
-    - b.link 'momo', url: '#momo'
-    - b.link 'nono', state: :active
-
-  = list_group type: :link do |lg|
-    - lg.list 'Momo', { status: :success, glyph: 'home' }, { href: '#Momo' }
-    - lg.list({ tap: true, state: :active }, { href: '#state' }) do |l|
-      - l.header 'My title'
-      - l.body 'My title'
-
-  = list_group do |lg|
-    - lg.list 'Momo', glyph: 'home'
-    - lg.list 'state'
-
-  = panel(status: :danger, tap: true, class: 'state') do |p|
-    - p.header 'state', glyph: 'eye'
-    - p.body 'state'
-    - p.footer 'state'
-
-  = panel 'state', status: :danger, glyph: 'home', class: 'state'
-
-  = panel class: 'uei' do
-    = "danger"
-
-  = table_panel({ store: @users, tap: true, glyph: 'home', status: :danger }) do |g|
-    - g.columns do |cls|
-      - cls.column name: '#', data_index: 'id'
-      - cls.column name: 'Username', data_index: 'username', link: edit_user_path(:id)
-      - cls.column name: 'Name', data_index: 'name'
-      - cls.column name: 'Email', data_index: 'email'
-      - cls.column name: 'Role', data_index: 'role_name', sort: 'roles.name'
-    - g.actions do |acs|
-      - acs.action 'state', url: edit_user_path(:id), glyph: 'pencil'
-      - acs.action "---"
-      - acs.action 'momo', url: user_path(:id), glyph: 'eye'
-
-  = table_search_field store: @users
-  %br
-  = table store: @users, tap: true do |g|
-    - g.columns do |cls|
-      - cls.column name: '#', data_index: 'id'
-      - cls.column name: 'Username', data_index: 'username', link: edit_user_path(:id)
-      - cls.column name: 'Name', data_index: 'name'
-      - cls.column name: 'Email', data_index: 'email'
-      - cls.column name: 'Role', data_index: 'role_name', sort: 'roles.name'
-  = table_pagination store: @users
-  = table_pagination_per_page store: @users

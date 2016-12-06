@@ -1,10 +1,10 @@
-= title 'Button dropdown'
-%blockquote UiBibz::Ui::Core::Inputs::Buttons::ButtonDropdown
-%p.bd-callout= extend_of_component 'button_dropdown', link_to('dropdown', components_dropdown_path)
+= title 'Split Dropdown'
+%blockquote UiBibz::Ui::Core::Dropdowns::SplitDropdown
+%p.bd-callout Use any button to trigger a dropdown menu by providing the proper menu markup.
 
 = code do
   :plain
-    button_dropdown name, options = {}, html_options = {} do |d|
+    split_dropdown name, options = {}, html_options = {} do |d|
       d.link content, options = {}, html_options = {}
       # or
       d.link options = {}, html_options = {} do
@@ -34,38 +34,42 @@
   - co.list 'position', types: 'symbol', values: %w(:right :left)
   - co.list 'type', types: 'symbol', values: %w(:dropup :dropdown)
 
-- @sections = sections do |s|
-  - s.section title: "Button dropdown" do
-    :markdown
-      Dropdown button has several block type:
+= content_for :third_nav do
+  = nav class: 'secondary-nav' do |n|
+    - n.link 'Split dropdown', url: '#split-dropdown'
+    - n.nav do |na|
+      - na.link 'Split dropdown options', url: '#button-dropdown-options'
 
-      * #{ inherit_component_link 'link' }
-      * #{ inherit_component_link 'header' }
-      * #{ inherit_component_link 'html' }
-      * divider
+- @sections = sections do |s|
+  - s.section title: "Split dropdown" do
+    :markdown
+      Split Dropdown has several block type:
+
+      * Link
+      * Divider
+      * Header
+      * Html
 
     = example do |c|
       - c.header do
         - %i(primary secondary danger warning info success).each do |status|
-          = button_dropdown status.to_s.titleize, status: status do |bd|
-            - bd.link "Action", url: '#action', glyph: 'diamond'
-            - bd.link url: '#another-action' do
-              = "Another action"
+          = split_dropdown status.to_s.titleize, status: status do |bd|
+            - bd.link "Action", url: '#action'
+            - bd.link "Another action", url: '#another-action'
             - bd.divider
             - bd.header 'Header'
             - bd.html "     Normal Text"
-            - bd.link({ url: '#separate-link'}, { class: 'my-link'}) do
-              = "Separate link"
+            - bd.link "Separate link", url: '#separate-link'
       - c.code do
-        button_dropdown 'Primary' do |bd|
-          bd.link "Action", url: '#action', glyph: 'diamond'
+        split_dropdown 'Primary' do |bd|
+          bd.link "Action", url: '#action'
           bd.link "Another action", url: '#another-action'
           bd.link url: '#another-action' do
             "Another action"
           end
           bd.divider
           bd.header 'Header'
-          bd.html "     Normal Text"
+          bd.html '      Normal Text'
           bd.link "Separate link", url: '#separate-link'
           bd.link({ url: '#separate-link'}, { class: 'my-link'}) do
             "Separate link"
@@ -73,85 +77,90 @@
         end
       - c.html do
         <div class="btn-group dropdown" role="group">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Primary <span class="caret"></span></button>
+          <button class="btn btn-primary">Primary</button>
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button>
           <div class="dropdown-menu dropdown-menu-left">
-            <a class="dropdown-item" href="#action"><i class="glyph fa fa-diamond"></i> Action</a>
+            <a class="dropdown-item" href="#action">Action</a>
             <a class="dropdown-item" href="#another-action">Another action</a>
             <div class="dropdown-divider"></div>
             <h6 class="dropdown-header" role="presentation">Header</h6>
-            <a class="my-link dropdown-item" href="#separate-link">Separate link</a>
+            <a class="dropdown-item" href="#separate-link">Separate link</a>
           </div>
         </div>
           
         <div class="btn-group dropdown" role="group">
-          <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Secondary <span class="caret"></span></button>
+          <button class="btn btn-secondary">Secondary</button>
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button>
           <div class="dropdown-menu dropdown-menu-left">
-            <a class="dropdown-item" href="#action"><i class="glyph fa fa-diamond"></i> Action</a>
+            <a class="dropdown-item" href="#action">Action</a>
             <a class="dropdown-item" href="#another-action">Another action</a>
             <div class="dropdown-divider"></div>
             <h6 class="dropdown-header" role="presentation">Header</h6>
-            <a class="my-link dropdown-item" href="#separate-link">Separate link</a>
+            <a class="dropdown-item" href="#separate-link">Separate link</a>
           </div>
         </div>
           
         <div class="btn-group dropdown" role="group">
-          <button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Danger <span class="caret"></span></button>
+          <button class="btn btn-danger">Danger</button>
+          <button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button>
           <div class="dropdown-menu dropdown-menu-left">
-            <a class="dropdown-item" href="#action"><i class="glyph fa fa-diamond"></i> Action</a>
+            <a class="dropdown-item" href="#action">Action</a>
             <a class="dropdown-item" href="#another-action">Another action</a>
             <div class="dropdown-divider"></div>
             <h6 class="dropdown-header" role="presentation">Header</h6>
-            <a class="my-link dropdown-item" href="#separate-link">Separate link</a>
+            <a class="dropdown-item" href="#separate-link">Separate link</a>
           </div>
         </div>
           
         <div class="btn-group dropdown" role="group">
-          <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Warning <span class="caret"></span></button>
+          <button class="btn btn-warning">Warning</button>
+          <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button>
           <div class="dropdown-menu dropdown-menu-left">
-            <a class="dropdown-item" href="#action"><i class="glyph fa fa-diamond"></i> Action</a>
+            <a class="dropdown-item" href="#action">Action</a>
             <a class="dropdown-item" href="#another-action">Another action</a>
             <div class="dropdown-divider"></div>
             <h6 class="dropdown-header" role="presentation">Header</h6>
-            <a class="my-link dropdown-item" href="#separate-link">Separate link</a>
+            <a class="dropdown-item" href="#separate-link">Separate link</a>
           </div>
         </div>
           
         <div class="btn-group dropdown" role="group">
-          <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Info <span class="caret"></span></button>
+          <button class="btn btn-info">Info</button>
+          <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button>
           <div class="dropdown-menu dropdown-menu-left">
-            <a class="dropdown-item" href="#action"><i class="glyph fa fa-diamond"></i> Action</a>
+            <a class="dropdown-item" href="#action">Action</a>
             <a class="dropdown-item" href="#another-action">Another action</a>
             <div class="dropdown-divider"></div>
             <h6 class="dropdown-header" role="presentation">Header</h6>
-            <a class="my-link dropdown-item" href="#separate-link">Separate link</a>
+            <a class="dropdown-item" href="#separate-link">Separate link</a>
           </div>
         </div>
           
         <div class="btn-group dropdown" role="group">
-          <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Success <span class="caret"></span></button>
+          <button class="btn btn-success">Success</button>
+          <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button>
           <div class="dropdown-menu dropdown-menu-left">
-            <a class="dropdown-item" href="#action"><i class="glyph fa fa-diamond"></i> Action</a>
+            <a class="dropdown-item" href="#action">Action</a>
             <a class="dropdown-item" href="#another-action">Another action</a>
             <div class="dropdown-divider"></div>
             <h6 class="dropdown-header" role="presentation">Header</h6>
-            <a class="my-link dropdown-item" href="#separate-link">Separate link</a>
+            <a class="dropdown-item" href="#separate-link">Separate link</a>
           </div>
         </div>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
-
-  - s.section title: "Button dropdown options" do
+  - s.section title: "Buttonsplit  dropdown options" do
     = example do |c|
       - c.header do
-        = button_dropdown "Dropdown right", status: :success, glyph: 'diamond', size: :lg, position: :right do |bd|
+        = split_dropdown "Dropdown right", glyph: 'diamond', status: :success, size: :lg, position: :right do |bd|
           - bd.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
           - bd.link "Another action", url: '#another-action'
           - bd.divider
           - bd.header 'Header'
           - bd.link "Separate link", url: '#separate-link'
 
-        = button_dropdown "Dropup", status: :danger, size: :sm, type: :dropup do |bd|
+        = split_dropdown "Dropup", status: :danger, size: :sm, type: :dropup do |bd|
           - bd.link "Action",  { url: '#action' }, { class: 'action' }
           - bd.link "Another action", url: '#another-action'
           - bd.divider
@@ -159,7 +168,7 @@
           - bd.link "Separate link", url: '#separate-link'
 
       - c.code do
-        button_dropdown "Dropdown right", status: :success, glyph: 'diamond', size: :lg, position: :right do |bd|
+        split_dropdown "Dropdown right", glyph: 'diamond', status: :success, size: :lg, position: :right do |bd|
           bd.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
           bd.link "Another action", url: '#another-action'
           bd.divider
@@ -167,7 +176,7 @@
           bd.link "Separate link", url: '#separate-link'
         end
          
-        button_dropdown "Dropup", status: :danger, size: :sm, type: :dropup do |bd|
+        split_dropdown "Dropup", status: :danger, size: :sm, type: :dropup do |bd|
           bd.link "Action",  { url: '#action' }, { class: 'action' }
           bd.link "Another action", url: '#another-action'
           bd.divider
@@ -176,7 +185,8 @@
         end
       - c.html do
         <div class="btn-group dropdown" role="group">
-          <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="glyph fa fa-diamond"></i> Dropdown right <span class="caret"></span></button>
+          <button class="btn btn-success btn-lg">Dropdown right</button>
+          <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button>
           <div class="dropdown-menu dropdown-menu-right">
             <a class="dropdown-item" data-confirm="Are you sure?" href="#action">Confirm action</a>
             <a class="dropdown-item" href="#another-action">Another action</a>
@@ -187,7 +197,8 @@
         </div>
           
         <div class="btn-group dropup" role="group">
-          <button class="btn btn-danger btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropup <span class="caret"></span></button>
+          <button class="btn btn-danger btn-sm">Dropup</button>
+          <button class="btn btn-danger btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button>
           <div class="dropdown-menu dropdown-menu-left">
             <a class="action dropdown-item" href="#action">Action</a>
             <a class="dropdown-item" href="#another-action">Another action</a>
@@ -196,6 +207,7 @@
             <a class="dropdown-item" href="#separate-link">Separate link</a>
           </div>
         </div>
+
       - c.footer do
         = documentation_link 'Documentation', '#'
 

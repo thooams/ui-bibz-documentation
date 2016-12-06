@@ -1,9 +1,6 @@
 = title 'Button group'
 %blockquote UiBibz::Ui::Core::Inputs::Buttons::ButtonGroup
-%p.bd-callout
-  = extend_of_component 'button_group'
-  %br
-  Group a series of buttons together on a single line with the button group.
+%p.bd-callout Group a series of buttons together on a single line with the button group.
 
 = code do
   :plain
@@ -47,14 +44,14 @@
 
       * [button](#{ components_inputs_buttons_button_path })
       * [button_link](#{ components_inputs_buttons_button_link_path })
-      * [button_dropdown](#{ components_inputs_buttons_button_dropdown_path })
+      * [dropdown](#{ components_dropdowns_dropdown_path })
 
     = example do |c|
       - c.header do
         = button_group do
           = button 'Button'
           = button_link 'Button link', url: '#button-link'
-          = button_dropdown "Dropdown" do |bd|
+          = dropdown "Dropdown" do |bd|
             - bd.link "Action", url: '#action'
             - bd.link "Another action", url: '#another-action'
             - bd.divider
@@ -64,7 +61,7 @@
         button_group do
           button 'Button'
           button_link 'Button link', url: '#button-link'
-          button_dropdown "Dropdown" do |bd|
+          dropdown "Dropdown" do |bd|
             bd.link "Action", url: '#action'
             bd.link "Another action", url: '#another-action'
             bd.divider

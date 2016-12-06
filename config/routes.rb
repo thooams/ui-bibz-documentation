@@ -24,7 +24,6 @@ Rails.application.routes.draw do
       namespace :buttons do
         get 'button'
         get 'button-choice'
-        get 'button-dropdown'
         get 'button-group'
         get 'button-link'
         get 'button-split-dropdown'
@@ -77,7 +76,11 @@ Rails.application.routes.draw do
       get 'container'
     end
 
-    get 'dropdown'
+    namespace :dropdowns do
+      get 'dropdown'
+      get 'split_dropdown'
+    end
+
     get 'jumbotron'
     get 'label_etiquette'
     get 'alert_notify'
