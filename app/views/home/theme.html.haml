@@ -236,7 +236,7 @@
           = 'Modal title'
         - m.body do
           = 'One fine body'
-    - c.footer see_component components_modal_path
+    - c.footer see_component components_windows_modal_path
 
   // Nav component
   - cc.card tap: true do |c|
@@ -300,7 +300,7 @@
         = card 'Content 2', { tab: true, effect: :fade }, { id: 'content2' }
         = card 'Content 3', { tab: true, effect: :fade }, { id: 'content3' }
         = card 'Content 4', { tab: true }, { id: 'content4' }
-    - c.footer see_component components_nav_path
+    - c.footer see_component components_navs_nav_path
 
   // Navbar component
   - cc.card tap: true do |c|
@@ -338,7 +338,7 @@
             - nb.nav do |n|
               - n.link 'Home', url: '#active', state: :active
           %br
-    - c.footer see_component components_navbar_path
+    - c.footer see_component components_navs_navbar_path
 
   // Progress component
   - cc.card tap: true do |c|
@@ -353,24 +353,24 @@
 
   // Stars component
   - cc.card tap: true do |c|
-    - c.header "Stars"
+    - c.header "Star"
     - c.block do
       - %i(xs sm md lg).each do |i|
-        = stars 4, size: i
+        = star 4, size: i
         %br
     - c.block do
       - [[:secondary, 0], [:success, 1], [:primary, 2], [:info, 3], [:warning, 4], [:danger, 5]].each do |i|
-        = stars i[1], status: i[0].to_sym
+        = star i[1], status: i[0].to_sym
         %br
     - c.block do
-      = stars 3.5
+      = star 3.5
       %br
-      = stars 6, num: 8
+      = star 6, num: 8
     - c.footer see_component components_star_path
 
-  // Inputs component
+  // Forms components
   - cc.card tap: true do |c|
-    - c.header "Inputs"
+    - c.header "Forms"
     - c.block do
       %label autocomplete_field
       = autocomplete_field 'example1', { option_tags: options_for_select(10.times.map{ |i| "option #{i}" }) }, { placeholder: 'Type option..' }
