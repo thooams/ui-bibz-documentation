@@ -1,0 +1,91 @@
+= title 'Breadcrumb'
+%blockquote UiBibz::Ui::Core::Paths::Breadcrumb
+%p.bd-callout Indicate the current page's location within a navigational hierarchy.
+
+= code do
+  :plain
+    breadcrumb options = {}, html_options = {} do |b|
+      b.link content, options = {}, html_options = {}
+      b.link options = {}, html_options = {} do
+        content
+      end
+    end
+
+= component_options do |co|
+  - co.list 'store', types: 'object'
+  - co.list 'link_label', types: 'symbol', values: ':name'
+  - co.list 'link_url', types: 'string', values: '#'
+
+- @sections = sections do |s|
+  - s.section title: "Breadcrumb" do
+    = example do |c|
+      - c.header do
+        = breadcrumb tap: true do |b|
+          - b.link 'Home', state: :active
+        %br
+        = breadcrumb tap: true do |b|
+          - b.link 'Home', url: '#home'
+          - b.link 'Library', state: :active
+        %br
+        = breadcrumb tap: true do |b|
+          - b.link 'Home', url: '#active'
+          - b.link 'Library', url: '#library'
+          - b.link 'Data', state: :active
+      - c.code do
+        breadcrumb do |b|
+          b.link 'Home', state: :active
+        end
+         
+        breadcrumb do |b|
+          b.link 'Home', url: '#home'
+          b.link 'Library', state: :active
+        end
+         
+        breadcrumb do |b|
+          b.link 'Home', url: '#home'
+          b.link 'Library', url: '#library'
+          b.link 'Data', state: :active
+        end
+      - c.html do
+        <ol class="breadcrumb"><li class="active">Home</li></ol>
+          
+        <ol class="breadcrumb">
+          <li><a href="#home">Home</a></li>
+          <li class="active">Library</li>
+        </ol>
+          
+        <ol class="breadcrumb">
+          <li><a href="#active">Home</a></li>
+          <li><a href="#library">Library</a></li>
+          <li class="active">Data</li>
+        </ol>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Breadcrumb with store" do
+    %p Options are :
+    = component_list_options do |clo|
+      - clo.list 'store', types: :object, required: true
+      - clo.list 'link_label', types: %w(symbol string), default: ':name'
+      - clo.list 'link_url', types: :string, default: '#'
+
+    %p Option <code>link_url</code> can be written:
+    %ul
+      %li "/user/:id"
+      %li user_path(:id)
+
+    = example do |c|
+      - c.header do
+        = breadcrumb store: @users, link_label: :email, link_url: "#/id/edit"
+      - c.code do
+        breadcrumb store: @users, link_label: :email, link_url: "\#/id/edit"
+      - c.html do
+        <ol class="breadcrumb">
+          <li><a href="#/1/edit">test0@test.com</a></li>
+          <li><a href="#/2/edit">test1@test.com</a></li>
+          <li>test2@test.com</li>
+        </ol>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+= @sections.render

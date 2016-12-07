@@ -15,16 +15,7 @@ class ComponentsController < ApplicationController
   def alert_notify
   end
 
-  def nav
-  end
-
-  def navbar
-  end
-
   def progress
-  end
-
-  def modal
   end
 
   def table

@@ -1,6 +1,5 @@
 - n.nav do |nc|
   - nc.link 'Alert, notify', nav_options(components_alert_notify_path)
-  - nc.link 'Breadcrumb', nav_options(components_breadcrumb_path)
   - nc.link 'Cards', url: '#', state: :disabled
   - nc.nav do |na|
     - na.link 'Card', nav_options(components_cards_card_path)
@@ -10,46 +9,46 @@
   - nc.nav do |no|
     - no.link 'Dropdown', nav_options(components_dropdowns_dropdown_path)
     - no.link 'Split Dropdown', nav_options(components_dropdowns_split_dropdown_path)
-  - nc.link 'Glyph', nav_options(components_glyph_path)
-  - nc.link 'Inputs', url: '#', state: :disabled
+  - nc.link 'Forms', url: '#', state: :disabled
   - nc.nav do |no|
 
     - no.link 'Buttons', url: '#', state: :disabled
     - no.nav do |na|
-      - na.link 'Button', nav_options(components_inputs_buttons_button_path)
-      - na.link 'Button choice', nav_options(components_inputs_buttons_button_choice_path)
-      - na.link 'Button group', nav_options(components_inputs_buttons_button_group_path)
-      - na.link 'Button link', nav_options(components_inputs_buttons_button_link_path)
+      - na.link 'Button', nav_options(components_forms_buttons_button_path)
+      - na.link 'Button choice', nav_options(components_forms_buttons_button_choice_path)
+      - na.link 'Button group', nav_options(components_forms_buttons_button_group_path)
+      - na.link 'Button link', nav_options(components_forms_buttons_button_link_path)
 
     - no.link 'Choices', url: '#', state: :disabled
     - no.nav do |na|
-      - na.link 'Switch field', nav_options(components_inputs_choices_switch_field_path)
-      - na.link 'Checkbox field', nav_options(components_inputs_choices_checkbox_field_path)
-      - na.link 'Radio field', nav_options(components_inputs_choices_radio_field_path)
+      - na.link 'Switch field', nav_options(components_forms_choices_switch_field_path)
+      - na.link 'Checkbox field', nav_options(components_forms_choices_checkbox_field_path)
+      - na.link 'Radio field', nav_options(components_forms_choices_radio_field_path)
 
     - no.link 'Dates', url: '#', state: :disabled
     - no.nav do |na|
-      - na.link 'Date picker field', nav_options(components_inputs_dates_date_picker_field_path)
+      - na.link 'Date picker field', nav_options(components_forms_dates_date_picker_field_path)
 
     - no.link 'Numbers', url: '#', state: :disabled
     - no.nav do |na|
-      - na.link 'Formula field', nav_options(components_inputs_numbers_formula_field_path)
+      - na.link 'Formula field', nav_options(components_forms_numbers_formula_field_path)
 
     - no.link 'Selects', url: '#', state: :disabled
     - no.nav do |na|
-      - na.link 'Dropdown select field', nav_options(components_inputs_selects_dropdown_select_field_path)
-      - na.link 'Multi column field', nav_options(components_inputs_selects_multi_column_field_path)
-      - na.link 'Multi select field', nav_options(components_inputs_selects_multi_select_field_path)
+      - na.link 'Dropdown select field', nav_options(components_forms_selects_dropdown_select_field_path)
+      - na.link 'Multi column field', nav_options(components_forms_selects_multi_column_field_path)
+      - na.link 'Multi select field', nav_options(components_forms_selects_multi_select_field_path)
 
     - no.link 'Textareas', url: '#', state: :disabled
     - no.nav do |na|
-      - na.link 'Markdown editor field', nav_options(components_inputs_textareas_markdown_editor_field_path)
+      - na.link 'Markdown editor field', nav_options(components_forms_textareas_markdown_editor_field_path)
 
     - no.link 'Texts', url: '#', state: :disabled
     - no.nav do |na|
-      - na.link 'Autocomplete field', nav_options(components_inputs_texts_autocomplete_field_path)
-      - na.link 'Suround field', nav_options(components_inputs_texts_surround_field_path)
+      - na.link 'Autocomplete field', nav_options(components_forms_texts_autocomplete_field_path)
+      - na.link 'Suround field', nav_options(components_forms_texts_surround_field_path)
 
+  - nc.link 'Glyph', nav_options(components_glyph_path)
   - nc.link 'Jumbotron', nav_options(components_jumbotron_path)
   - nc.link 'Label, tag, etiquette', nav_options(components_label_etiquette_path)
   - nc.link 'Layouts', url: '#', state: :disabled
@@ -58,10 +57,15 @@
     - na.link 'Row', nav_options(components_layouts_row_path)
     - na.link 'Container', nav_options(components_layouts_container_path)
   - nc.link 'List group', nav_options(components_list_group_path)
-  - nc.link 'Modal', nav_options(components_modal_path)
-  - nc.link 'Nav', url: '#', state: :disabled
+  - nc.link 'Paths', url: '#', state: :disabled
+  - nc.nav do |no|
+    - no.link 'Breadcrumb', nav_options(components_paths_breadcrumb_path)
+  - nc.link 'Windows', url: '#', state: :disabled
   - nc.nav do |na|
-    - na.link 'Nav', nav_options(components_nav_path)
-    - na.link 'Navbar', nav_options(components_navbar_path)
+    - na.link 'Modal', nav_options(components_windows_modal_path)
+  - nc.link 'Navs', url: '#', state: :disabled
+  - nc.nav do |na|
+    - na.link 'Nav', nav_options(components_navs_nav_path)
+    - na.link 'Navbar', nav_options(components_navs_navbar_path)
   - nc.link 'Progress', nav_options(components_progress_path)
   - nc.link 'Star', nav_options(components_star_path)

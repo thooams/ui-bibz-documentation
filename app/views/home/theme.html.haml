@@ -37,7 +37,7 @@
     - c.block do
       = button 'Primary', status: :primary, state: :active
       = button 'Primary', status: :primary, state: :disabled
-    - c.footer see_component components_inputs_buttons_button_path
+    - c.footer see_component components_forms_buttons_button_path
 
 
 
@@ -56,7 +56,7 @@
       = button_group do
         = button_choice 'Radio 1', type: :radio, size: :lg, outline: true, status: :danger, state: :active
         = button_choice 'Radio 2', type: :radio, size: :lg, outline: true, status: :danger
-    - c.footer see_component components_inputs_buttons_button_choice_path
+    - c.footer see_component components_forms_buttons_button_choice_path
 
   // Dropdown component
   - cc.card tap: true do |c|
@@ -110,7 +110,7 @@
         = button 'Left'
         = button 'Middle'
         = button 'Right'
-    - c.footer see_component components_inputs_buttons_button_group_path
+    - c.footer see_component components_forms_buttons_button_group_path
 
   // Button link component
   - cc.card tap: true do |c|
@@ -130,7 +130,7 @@
     - c.block do
       = button 'Primary', url: '#active', status: :primary, state: :active
       = button 'Primary', url: '#disabled', status: :primary, state: :disabled
-    - c.footer see_component components_inputs_buttons_button_link_path
+    - c.footer see_component components_forms_buttons_button_link_path
 
   // Button split dropdown component
   - cc.card tap: true do |c|

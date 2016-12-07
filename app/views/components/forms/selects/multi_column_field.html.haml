@@ -1,0 +1,208 @@
+= title 'Multi Column Field'
+%blockquote UiBibz::Ui::Core::Forms::Selects::MultiColumnField
+%p.bd-callout= based_on link_to "Jquery multiselect", "http://loudev.com/", target: '_blank'
+
+= code "multi_column_field", component_name: "name"
+
+= component_options do |co|
+  - co.state_link
+  - co.list 'option_tags', types: %w(array object)
+  - co.list 'selectable_opts_group', types: 'boolean'
+  - co.list 'searchable', types: 'boolean'
+
+- @sections = sections do |s|
+  - s.section title: "Multi Column Field" do
+    = example do |e|
+      - e.header do
+        = multi_column_field 'example1', option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
+      - e.code do
+        options = options_for_select(10.times.map{ |i| "option \#{i}" })
+        multi_column_field 'example', option_tags: options
+      - e.html do
+        <select name="example1[]" id="example1" class="multi-column" multiple="multiple" style="position: absolute; left: -9999px;">
+          <option value="option 0">option 0</option>
+          <option value="option 1">option 1</option>
+          <option value="option 2">option 2</option>
+          <option value="option 3">option 3</option>
+          <option value="option 4">option 4</option>
+          <option value="option 5">option 5</option>
+          <option value="option 6">option 6</option>
+          <option value="option 7">option 7</option>
+          <option value="option 8">option 8</option>
+          <option value="option 9">option 9</option>
+        </select>
+        <div class="ms-container" id="ms-example1">
+          <div class="ms-selectable">
+            <ul class="ms-list" tabindex="-1">
+              <li class="ms-elem-selectable" id="-79019195-selectable"><span>option 0</span></li>
+              <li class="ms-elem-selectable" id="-79019194-selectable"><span>option 1</span></li>
+              <li class="ms-elem-selectable" id="-79019193-selectable"><span>option 2</span></li>
+              <li class="ms-elem-selectable" id="-79019192-selectable"><span>option 3</span></li>
+              <li class="ms-elem-selectable" id="-79019191-selectable"><span>option 4</span></li>
+              <li class="ms-elem-selectable" id="-79019190-selectable"><span>option 5</span></li>
+              <li class="ms-elem-selectable" id="-79019189-selectable"><span>option 6</span></li>
+              <li class="ms-elem-selectable" id="-79019188-selectable"><span>option 7</span></li>
+              <li class="ms-elem-selectable" id="-79019187-selectable"><span>option 8</span></li>
+              <li class="ms-elem-selectable" id="-79019186-selectable"><span>option 9</span></li>
+            </ul>
+          </div>
+          <div class="ms-selection">
+            <ul class="ms-list" tabindex="-1">
+              <li class="ms-elem-selection" id="-79019195-selection" style="display: none;"><span>option 0</span></li>
+              <li class="ms-elem-selection" id="-79019194-selection" style="display: none;"><span>option 1</span></li>
+              <li class="ms-elem-selection" id="-79019193-selection" style="display: none;"><span>option 2</span></li>
+              <li class="ms-elem-selection" id="-79019192-selection" style="display: none;"><span>option 3</span></li>
+              <li class="ms-elem-selection" id="-79019191-selection" style="display: none;"><span>option 4</span></li>
+              <li class="ms-elem-selection" id="-79019190-selection" style="display: none;"><span>option 5</span></li>
+              <li class="ms-elem-selection" id="-79019189-selection" style="display: none;"><span>option 6</span></li>
+              <li class="ms-elem-selection" id="-79019188-selection" style="display: none;"><span>option 7</span></li>
+              <li class="ms-elem-selection" id="-79019187-selection" style="display: none;"><span>option 8</span></li>
+              <li class="ms-elem-selection" id="-79019186-selection" style="display: none;"><span>option 9</span></li>
+            </ul>
+          </div>
+        </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Multi Column Field selectable optgroup" do
+    = example do |e|
+      - e.header do
+        - grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+        = multi_column_field 'example2', { option_tags: grouped_options_for_select(grouped_options), selectable_opt_group: true }
+      - e.code do
+        grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+        multi_column_field 'example', { option_tags: grouped_options_for_select(grouped_options), selectable_opt_group: true }
+      - e.html do
+        <select name="example2[]" id="example2" data-selectable-optgroup="true" class="multi-column" multiple="multiple" style="position: absolute; left: -9999px;">
+          <optgroup label="North America">
+            <option value="US">United statuss</option>
+            <option value="Canada">Canada</option>
+          </optgroup>
+          <optgroup label="Europe">
+            <option value="Denmark">Denmark</option>
+            <option value="Germany">Germany</option>
+            <option value="France">France</option>
+          </optgroup>
+        </select>
+        <div class="ms-container" id="ms-example2">
+          <div class="ms-selectable">
+            <ul class="ms-list" tabindex="-1">
+              <li class="ms-optgroup-container" id="optgroup-selectable-1732130227">
+                <ul class="ms-optgroup">
+                  <li class="ms-optgroup-label"><span>North America</span></li>
+                  <li class="ms-elem-selectable" id="2718-selectable"><span>United statuss</span></li>
+                  <li class="ms-elem-selectable" id="2011108078-selectable"><span>Canada</span></li>
+                </ul>
+              </li>
+              <li class="ms-optgroup-container" id="optgroup-selectable-2086969794">
+                <ul class="ms-optgroup">
+                  <li class="ms-optgroup-label"><span>Europe</span></li>
+                  <li class="ms-elem-selectable" id="-1077783494-selectable"><span>Denmark</span></li>
+                  <li class="ms-elem-selectable" id="1588421523-selectable"><span>Germany</span></li>
+                  <li class="ms-elem-selectable" id="2112320571-selectable"><span>France</span></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="ms-selection">
+            <ul class="ms-list" tabindex="-1">
+              <li class="ms-optgroup-container" id="optgroup-selection-1732130227">
+                <ul class="ms-optgroup">
+                  <li class="ms-optgroup-label" style="display: none;"><span>North America</span></li>
+                  <li class="ms-elem-selection" id="2718-selection" style="display: none;"><span>United statuss</span></li>
+                  <li class="ms-elem-selection" id="2011108078-selection" style="display: none;"><span>Canada</span></li>
+                </ul>
+              </li>
+              <li class="ms-optgroup-container" id="optgroup-selection-2086969794">
+                <ul class="ms-optgroup">
+                  <li class="ms-optgroup-label" style="display: none;"><span>Europe</span></li>
+                  <li class="ms-elem-selection" id="-1077783494-selection" style="display: none;"><span>Denmark</span></li>
+                  <li class="ms-elem-selection" id="1588421523-selection" style="display: none;"><span>Germany</span></li>
+                  <li class="ms-elem-selection" id="2112320571-selection" style="display: none;"><span>France</span></li>
+               </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Multi Column Field with search" do
+    = example do |e|
+      - e.header do
+        = multi_column_field 'example3', { option_tags: options_for_select(10.times.map{ |i| "option #{i}" }), searchable: true }
+      - e.code do
+        options = options_for_select(10.times.map{ |i| "option \#{i}" })
+        multi_column_field 'example', { option_tags: options, searchable: true }
+      - e.html do
+        <select name="example3[]" id="example3" data-searchable="true" class="multi-column" multiple="multiple" style="position: absolute; left: -9999px;">
+          <option value="option 0">option 0</option>
+          <option value="option 1">option 1</option>
+          <option value="option 2">option 2</option>
+          <option value="option 3">option 3</option>
+          <option value="option 4">option 4</option>
+          <option value="option 5">option 5</option>
+          <option value="option 6">option 6</option>
+          <option value="option 7">option 7</option>
+          <option value="option 8">option 8</option>
+          <option value="option 9">option 9</option>
+        </select>
+        <div class="ms-container" id="ms-example3">
+          <div class="ms-selectable">
+            <input type="text" class="search-input form-control" autocomplete="off" placeholder="Search in selectable items">
+            <br>
+            <ul class="ms-list" tabindex="-1">
+              <li class="ms-elem-selectable" id="-79019195-selectable"><span>option 0</span></li>
+              <li class="ms-elem-selectable" id="-79019194-selectable"><span>option 1</span></li>
+              <li class="ms-elem-selectable" id="-79019193-selectable"><span>option 2</span></li>
+              <li class="ms-elem-selectable" id="-79019192-selectable"><span>option 3</span></li>
+              <li class="ms-elem-selectable" id="-79019191-selectable"><span>option 4</span></li>
+              <li class="ms-elem-selectable" id="-79019190-selectable"><span>option 5</span></li>
+              <li class="ms-elem-selectable" id="-79019189-selectable"><span>option 6</span></li>
+              <li class="ms-elem-selectable" id="-79019188-selectable"><span>option 7</span></li>
+              <li class="ms-elem-selectable" id="-79019187-selectable"><span>option 8</span></li>
+              <li class="ms-elem-selectable" id="-79019186-selectable"><span>option 9</span></li>
+            </ul>
+          </div>
+          <div class="ms-selection">
+            <input type="text" class="search-input form-control" autocomplete="off" placeholder="Search in selected items">
+            <br>
+            <ul class="ms-list" tabindex="-1">
+              <li class="ms-elem-selection" id="-79019195-selection" style="display: none;"><span>option 0</span></li>
+              <li class="ms-elem-selection" id="-79019194-selection" style="display: none;"><span>option 1</span></li>
+              <li class="ms-elem-selection" id="-79019193-selection" style="display: none;"><span>option 2</span></li>
+              <li class="ms-elem-selection" id="-79019192-selection" style="display: none;"><span>option 3</span></li>
+              <li class="ms-elem-selection" id="-79019191-selection" style="display: none;"><span>option 4</span></li>
+              <li class="ms-elem-selection" id="-79019190-selection" style="display: none;"><span>option 5</span></li>
+              <li class="ms-elem-selection" id="-79019189-selection" style="display: none;"><span>option 6</span></li>
+              <li class="ms-elem-selection" id="-79019188-selection" style="display: none;"><span>option 7</span></li>
+              <li class="ms-elem-selection" id="-79019187-selection" style="display: none;"><span>option 8</span></li>
+              <li class="ms-elem-selection" id="-79019186-selection" style="display: none;"><span>option 9</span></li>
+            </ul>
+          </div>
+        </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Simple form" do
+    :markdown
+      You can use the multi_column input with gem [simple form](https://github.com/plataformatec/simple_form).
+
+      You must add this line in the file `"config/initializers/simple_form.rb"`
+
+    = example do |e|
+      - e.code do
+        \...
+        config.custom_inputs_namespaces << "CustomInputs"
+        \...
+
+    %p Then in your view, you can insert your input multi_column field.
+    = example do |e|
+      - e.code do
+        simple_form(@search) do |f|
+          ...
+          f.input :company, as: :multi_column, searchable: true
+          ...
+        end
+
+= @sections.render

@@ -1,6 +1,6 @@
 = title 'Star'
 %blockquote UiBibz::Ui::Core::Star
-%p.bd-callout Stars are components to displaying stars grade with different sizes and pre-built styles.
+%p.bd-callout Stars are components to displaying star grade with different sizes and pre-built styles.
 
 = code 'star', component_name: 'number'
 
@@ -11,12 +11,12 @@
   - co.list 'num', types: 'number'
 
 - @sections = sections do |s|
-  - s.section title: "Stars" do
+  - s.section title: "Star" do
     = example do |c|
       - c.header do
-        = stars 2
+        = star 2
       - c.code do
-        stars 2
+        star 2
       - c.html do
         <span class="stars-notation">
           <i class="glyph fa fa-star"></i>
@@ -30,17 +30,17 @@
 
   - s.section title: "Size" do
     :markdown
-      You can change the size of the stars by adding the size argument to that value for either a number or a symbol `:xs`, `:md`, `:lg`.
+      You can change the size of the star by adding the size argument to that value for either a number or a symbol `:xs`, `:md`, `:lg`.
 
     = example do |c|
       - c.header do
-        = stars 4, size: 1
-        = stars 4, size: :md
-        = stars 4, size: :lg
+        = star 4, size: 1
+        = star 4, size: :md
+        = star 4, size: :lg
       - c.code do
-        stars 4, size: :1
-        stars 4, size: :md
-        stars 4, size: :lg
+        star 4, size: :1
+        star 4, size: :md
+        star 4, size: :lg
       - c.html do
         <span class="stars-notation">
           <i class="glyph fa fa-star fa-1x"></i>
@@ -67,18 +67,18 @@
         = documentation_link 'Documentation', '#'
 
 
-  - s.section title: "status" do
+  - s.section title: "Status" do
     = example do |c|
       - c.header do
         - %w(secondary danger warning primary success).each_with_index do |status, i|
-          = stars i , status: status.to_sym
+          = star i , status: status.to_sym
           %br
       - c.code do
-        stars 0
-        stars 1, status: :danger
-        stars 2, status: :warning
-        stars 3, status: :primary
-        stars 4, status: :success
+        star 0
+        star 1, status: :danger
+        star 2, status: :warning
+        star 3, status: :primary
+        star 4, status: :success
       - c.html do
         <span class="stars-notation">
           <i class="glyph-secondary glyph fa fa-star-o"></i>
@@ -127,9 +127,9 @@
   - s.section title: "Float" do
     = example do |c|
       - c.header do
-        = stars 3.5
+        = star 3.5
       - c.code do
-        stars 3.5
+        star 3.5
       - c.html do
         <span class="stars-notation">
           <i class="glyph fa fa-star"></i>
@@ -144,9 +144,9 @@
   - s.section title: "Other range" do
     = example do |c|
       - c.header do
-        = stars 6, num: 8
+        = star 6, num: 8
       - c.code do
-        stars 6, num: 8
+        star 6, num: 8
       - c.html do
         <span class="stars-notation">
           <i class="glyph fa fa-star"></i>

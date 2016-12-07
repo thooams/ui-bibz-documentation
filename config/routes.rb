@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     #resource :buttons
   #end
   namespace :components do
-    namespace :inputs do
+    namespace :forms do
       # buttons
       namespace :buttons do
         get 'button'
@@ -81,16 +81,25 @@ Rails.application.routes.draw do
       get 'split_dropdown'
     end
 
+    namespace :windows do
+      get 'modal'
+    end
+
+    namespace :navs do
+      get 'nav'
+      get 'navbar'
+    end
+
+    namespace :paths do
+      get 'breadcrumb'
+    end
+
     get 'jumbotron'
     get 'label_etiquette'
     get 'alert_notify'
-    get 'nav'
-    get 'navbar'
     get 'component'
-    get 'breadcrumb'
     get 'progress'
     get 'list_group'
-    get 'modal'
     get 'star'
     get 'table'
     get 'table_card'

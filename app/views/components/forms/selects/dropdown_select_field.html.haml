@@ -1,0 +1,177 @@
+= title "Dropdown select Field #{ etiquette 'Beta', status: :danger }"
+%blockquote UiBibz::Ui::Core::Forms::Selects::DropdownSelectField
+%p.bd-callout= based_on link_to "Bootstrap select", "http://silviomoreto.github.io/bootstrap-select/examples/", target: '_blank'
+
+= code "dropdown_select_field", component_name: "name"
+
+= component_options do |co|
+  - co.status_link
+  - co.state_link
+  - co.list 'option_tags', types: %w(array object)
+  - co.list 'searchable', types: 'boolean'
+  - co.list 'max_options', types: 'integer'
+  - co.list 'select_text_format', types: 'string'
+  - co.list 'menu_size', types: 'integer'
+  - co.list 'header', types: 'string'
+  - co.list 'actions_box', types: 'boolean'
+  - co.list 'show_tick', types: 'boolean'
+  - co.list 'show_menu_arrow', types: 'boolean'
+  - co.list 'dropup', types: 'boolean'
+
+- @sections = sections do |s|
+  - s.section title: "Dropdown Select Field" do
+    = example do |e|
+      - e.header do
+        = dropdown_select_field 'example1', option_tags: options_for_select(5.times.map{ |i| "option #{i}" })
+      - e.code do
+        dropdown_select_field 'example1', option_tags: options_for_select(5.times.map{ |i| "option \#{i}" })
+      - e.html do
+        <div class="btn-group bootstrap-select">
+          <button type="button" class="btn dropdown-toggle btn-secondary" data-toggle="dropdown" data-id="example1" title="option 0">
+            <span class="filter-option pull-left">option 0</span>&nbsp;
+            <span class="bs-caret">
+              <span class="caret"></span>
+            </span>
+          </button>
+          <div class="dropdown-menu open">
+            <ul class="dropdown-menu inner" role="menu">
+              <li data-original-index="0" class="selected">
+                <a tabindex="0" class="" style="" data-tokens="null">
+                  <span class="text">option 0</span>
+                  <span class="fa fa-check check-mark"></span>
+                </a>
+              </li>
+              <li data-original-index="1">
+                <a tabindex="0" class="" style="" data-tokens="null">
+                  <span class="text">option 1</span>
+                  <span class="fa fa-check check-mark"></span>
+                </a>
+              </li>
+              <li data-original-index="2">
+                <a tabindex="0" class="" style="" data-tokens="null">
+                  <span class="text">option 2</span>
+                  <span class="fa fa-check check-mark"></span>
+                </a>
+              </li>
+              <li data-original-index="3">
+                <a tabindex="0" class="" style="" data-tokens="null">
+                  <span class="text">option 3</span>
+                  <span class="fa fa-check check-mark"></span>
+                </a>
+              </li>
+              <li data-original-index="4">
+                <a tabindex="0" class="" style="" data-tokens="null">
+                  <span class="text">option 4</span>
+                  <span class="fa fa-check check-mark"></span>
+                </a>
+              </li>
+              <li data-original-index="5">
+                <a tabindex="0" class="" style="" data-tokens="null">
+                  <span class="text">option 5</span>
+                  <span class="fa fa-check check-mark"></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <select name="example1" id="example1" class="selectpicker" tabindex="-98">
+            <option value="option 0">option 0</option>
+            <option value="option 1">option 1</option>
+            <option value="option 2">option 2</option>
+            <option value="option 3">option 3</option>
+            <option value="option 4">option 4</option>
+            <option value="option 5">option 5</option>
+          </select>
+        </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+
+  - s.section title: "Dropdown Select Field searchable" do
+    = example do |e|
+      - e.header do
+        = dropdown_select_field 'example1', searchable: true, option_tags: options_for_select(5.times.map{ |i| "option #{i}" })
+      - e.code do
+        dropdown_select_field 'example1', searchable: true, option_tags: options_for_select(5.times.map{ |i| "option \#{i}" })
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Dropdown Select Field max_options" do
+    = example do |e|
+      - e.header do
+        = dropdown_select_field 'example1', max_options: 3, option_tags: options_for_select(5.times.map{ |i| "option #{i}" })
+      - e.code do
+        dropdown_select_field 'example1', max_options: 3, option_tags: options_for_select(5.times.map{ |i| "option \#{i}" })
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Dropdown Select Field selected_text_format" do
+    %p
+      %strong values:
+      A comma delimited list of selected values (default)
+      %br
+      %strong count:
+      If one item is selected, then the option value is shown. If more than one is selected then the number of selected items is displayed, e.g. 2 of 6 selected
+      %br
+      %strong count > x:
+      Where x is the number of items selected when the display format changes from values to count
+      %br
+      %strong static:
+      Always show the select title (placeholder), regardless of selection
+
+    = example do |e|
+      - e.header do
+        = dropdown_select_field 'example1', selected_text_format: "count", option_tags: options_for_select(5.times.map{ |i| "option #{i}" })
+      - e.code do
+        dropdown_select_field 'example1', selected_text_format: "count", option_tags: options_for_select(5.times.map{ |i| "option \#{i}" })
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Simple form" do
+    :markdown
+      You can use the dropdown select field input with gem [simple form](https://github.com/plataformatec/simple_form).
+
+      You must add this line in the file `"config/initializers/simple_form.rb"`
+
+    = example do |e|
+      - e.code do
+        \...
+        config.custom_inputs_namespaces << "CustomInputs"
+        \...
+    %p
+      Then in your view, you can insert your input dropdown select field.
+      This simple form component is based on simple_form
+      = link_to "collection", "https://github.com/plataformatec/simple_form#collections"
+      %br
+      Collection inputs accept two other options beside collections:
+      %ul
+        %li label_method => the label method to be applied to the collection to retrieve the label (use this instead of the text_method option in collection_select)
+        %li value_method => the value method to be applied to the collection to retrieve the value
+      %i label_method and value_method are optional
+
+    = example do |e|
+      - e.code do
+        simple_form(@search) do |f|
+          ...
+          f.input :price, as: :dropdown_select, collection: @collection, label_method: :name, value_method: :value
+          ...
+        end
+
+    %p
+      You can use `grouped: true` option to group collection
+      %br
+      Grouped collection inputs accept the same :label_method and :value_method options, which will be used to retrieve label/value attributes for the option tags. Besides that, you can give:
+      %ul
+        %li group_method => the method to be called on the given collection to generate the options for each group (required)
+        %li group_label_method => the label method to be applied on the given collection to retrieve the label for the optgroup (Simple Form will attempt to guess the best one the same way it does with :label_method)
+
+
+    = example do |e|
+      - e.code do
+        simple_form(@search) do |f|
+          ...
+          f.input :country, as: :dropdown_select, grouped: true, collection: @collection,  group_method: :last, label_method: :name, value_method: :value
+          ...
+        end
+
+
+= @sections.render
