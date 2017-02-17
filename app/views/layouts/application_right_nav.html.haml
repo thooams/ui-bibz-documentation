@@ -20,7 +20,7 @@
         = col( lg: { num: 2 }, md: { num: 4 }, sm: { num: 12 }, xs: { num: 12 }, class: 'left-nav' ) do
           = render "components/nav"
           = yield :third_nav
-        = col( lg: { num: 8 }, md: { num: 8, }, sm: { num: 12 }, xs: { num: 12 } ) do
+        = col( lg: { num: 8 }, md: { num: 8, }, sm: { num: 12 }, xs: { num: 12 }, class: 'content') do
           = yield
         = col( lg: { num: 2 }, class: 'secondary-nav' ) do
           - unless @sections.nil?
