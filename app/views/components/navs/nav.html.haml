@@ -4,19 +4,19 @@
 
 = code do
   :plain
-    nav options = {}, html_options = {} do |n|
-      n.link content, options = {}, html_options = {}
+    nav options, html_options do |n|
+      n.link content, options, html_options
       # or
-      n.link options = {}, html_options = {} do
+      n.link options, html_options do
         content
       end
 
       n.nav do |na|
-        na.link content, options = {}, html_options = {}
+        na.link content, options, html_options
       end
 
-      n.dropdown name, options = {}, html_options = {} do |d|
-        d.link content, options = {}, html_options = {}
+      n.dropdown name, options, html_options do |d|
+        d.link content, options, html_options
       end
     end
 

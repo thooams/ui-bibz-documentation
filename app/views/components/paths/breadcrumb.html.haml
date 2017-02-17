@@ -4,9 +4,9 @@
 
 = code do
   :plain
-    breadcrumb options = {}, html_options = {} do |b|
-      b.link content, options = {}, html_options = {}
-      b.link options = {}, html_options = {} do
+    breadcrumb options, html_options do |b|
+      b.link content, options, html_options
+      b.link options, html_options do
         content
       end
     end

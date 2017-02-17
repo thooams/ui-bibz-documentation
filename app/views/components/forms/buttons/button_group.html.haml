@@ -4,9 +4,9 @@
 
 = code do
   :plain
-    button_group options = {}, html_options = {} do
-      button content, options = {}, html_options = {}
-      button options = {}, html_options = {} do
+    button_group options, html_options do
+      button content, options, html_options
+      button options, html_options do
         content
       end
     end

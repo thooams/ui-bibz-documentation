@@ -12,16 +12,16 @@
 
   %ul
     %li content (variable or block)
-    %li options
-    %li html_options
+    %li= "options (hash <default: {}>)"
+    %li= "html_options (hash <default: {}>)"
 
 - @sections = sections do |s|
   - s.section title: "Component" do
     = example do |c|
       - c.code do
-        Component.new content, options = {}, html_options = {}
+        Component.new content, options, html_options
         \# or
-        Component.new(options = {}, html_options = {}) do
+        Component.new(options, html_options) do
           content
         end
       - c.footer do

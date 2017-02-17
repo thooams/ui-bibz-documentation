@@ -62,4 +62,11 @@ module ApplicationHelper
     content_tag :h2, glyph('diamond', label: name)
   end
 
+  def tap_warning
+    content_tag :p, class: "bd-callout bd-callout-warning" do
+      concat content_tag :span, "Tap option: "
+      concat "To add a block type, you must add <code>tap: true</code> to the card options.".html_safe
+    end
+  end
+
 end

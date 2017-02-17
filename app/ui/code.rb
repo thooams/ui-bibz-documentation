@@ -31,8 +31,8 @@ module UiBibz::Ui::Ux
     def component_elements_list
       UiBibz::Ui::Ux::ComponentListOption.new.tap do |clo|
         clo.list 'content', { types: %w(value block) }
-        clo.list 'options', types: :hash
-        clo.list 'html_options', types: :hash
+        clo.list 'options', { types: :hash, default: '{}' }
+        clo.list 'html_options', { types: :hash, default: '{}' }
       end.render
     end
 
@@ -51,7 +51,7 @@ module UiBibz::Ui::Ux
     def template
       if @is_not_block
         component_name = options[:component_name] || "content"
-        "\n #{ content } #{ component_name }, options = {}, html_options = {} \n # or \n #{ content } options = {}, html_options = {} do \n   #{ component_name } \n end"
+        "\n #{ content } #{ component_name }, options, html_options \n # or \n #{ content } options, html_options do \n   #{ component_name } \n end"
       else
         "\n#{ content }"
       end

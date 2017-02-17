@@ -5,23 +5,23 @@
 
 = code do
   :plain
-    list_group options = {}, html_options = {} do |lg|
-      lg.list content, options = {}, html_options = {}
+    list_group options, html_options do |lg|
+      lg.list content, options, html_options
       # or
-      lg.list options = {}, html_options = {} do
+      lg.list options, html_options do
         content
       end
       # or
-      lg.list options = { tap: true }, html_options = {} do |l|
-        l.header content, options = {}, html_options = {}
+      lg.list options = { tap: true }, html_options do |l|
+        l.header content, options, html_options
         # or
-        l.header options = {}, html_options = {} do
+        l.header options, html_options do
           content
         end
 
-        l.block content, options = {}, html_options = {}
+        l.block content, options, html_options
         # or
-        l.block options = {}, html_options = {} do
+        l.block options, html_options do
           content
         end
       end

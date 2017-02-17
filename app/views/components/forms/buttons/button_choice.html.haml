@@ -5,9 +5,9 @@
 = code do
   :plain
     button_group do
-      button_choice content, options = {}, html_options = {}
+      button_choice content, options, html_options
       # or
-      button_choice options = {}, html_options = {} do
+      button_choice options, html_options do
         content
       end
     end

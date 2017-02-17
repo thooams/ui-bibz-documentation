@@ -4,23 +4,23 @@
 
 = code do
   :plain
-    navbar options = {}, html_options = {} do |nb|
-      n.brand content, options = {}, html_options = {}
+    navbar options, html_options do |nb|
+      n.brand content, options, html_options
       # or
-      n.brand options = {}, html_options = {} do
+      n.brand options, html_options do
         content
       end
 
       nb.nav do |n|
-        n.link content, options = {}, html_options = {}
+        n.link content, options, html_options
       end
 
-      n.form url, options = {}, html_options = {} do
+      n.form url, options, html_options do
         content
       end
 
-      nb.dropdown name, options = {}, html_options = {} do |d|
-        d.link content, options = {}, html_options = {}
+      nb.dropdown name, options, html_options do |d|
+        d.link content, options, html_options
       end
     end
 

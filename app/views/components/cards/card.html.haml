@@ -4,44 +4,44 @@
 
 = code do
   :plain
-    card content, options = {}, html_options = {}
+    card content, options, html_options
     # or
-    card options = {}, html_options = {} do
+    card options, html_options do
       content
     end
     # or
-    card options = { tap: true }, html_options = {} do |c|
-      c.header content, options = {}, html_options = {}
+    card options, html_options do |c|
+      c.header content, options, html_options
       # or
-      c.header options = {}, html_options = {} do
+      c.header options, html_options do
         content
       end
 
-      c.block content, options = {}, html_options = {}
+      c.block content, options, html_options
       # or
-      c.block options = {}, html_options = {} do
+      c.block options, html_options do
         content
       end
       # or
-      c.block options = { tap: true }, html_options = {} do |b|
-        b.link content, options = {}, html_options = {}
-        b.link options = {}, html_options = {} do
+      c.block options, html_options do |b|
+        b.link content, options, html_options
+        b.link options, html_options do
           content
         end
       end
 
-      c.footer content, options = {}, html_options = {}
+      c.footer content, options, html_options
       # or
-      c.footer options = {}, html_options = {} do
+      c.footer options, html_options do
         content
       end
 
       c.image ''
 
       c.list_group do |lg|
-        lg.list content, options = {}, html_options = {}
+        lg.list content, options, html_options
         # or
-        lg.list options = {}, html_options = {} do
+        lg.list options, html_options do
           content
         end
       end
@@ -89,7 +89,7 @@
       * image (`String`)
       * #{ link_to 'list_group', components_list_group_path }
 
-      To add a block type, you must add `tap: true` to the card options.
+    = tap_warning
 
     = example do |e|
       - e.header do

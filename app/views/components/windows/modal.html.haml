@@ -4,22 +4,22 @@
 
 = code do
   :plain
-    modal options = {}, html_options = {} do |m|
-      m.header content, options = {}, html_options = {}
+    modal options, html_options do |m|
+      m.header content, options, html_options
       # or
-      m.header options = {}, html_options = {} do
+      m.header options, html_options do
         content
       end
 
-      m.body content, options = {}, html_options = {}
+      m.body content, options, html_options
       # or
-      m.body options = {}, html_options = {} do
+      m.body options, html_options do
         content
       end
 
-      m.footer content, options = {}, html_options = {}
+      m.footer content, options, html_options
       # or
-      m.footer options = {}, html_options = {} do
+      m.footer options, html_options do
         content
       end
     end

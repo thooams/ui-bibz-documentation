@@ -4,18 +4,18 @@
 
 = code do
   :plain
-    dropdown name, options = {}, html_options = {} do |d|
-      d.link content, options = {}, html_options = {}
+    dropdown name, options, html_options do |d|
+      d.link content, options, html_options
       # or
-      d.link options = {}, html_options = {} do
+      d.link options, html_options do
         content
       end
 
       d.divider
 
-      d.header content, options = {}, html_options = {}
+      d.header content, options, html_options
       # or
-      d.header options = {}, html_options = {} do
+      d.header options, html_options do
         content
       end
 
@@ -32,7 +32,7 @@
   - co.state_link
   - co.size_link
   - co.list 'position', types: 'symbol', values: %w(:right :left)
-  - co.list 'type', types: 'symbol', values: %w(:dropup :dropdown)
+  - co.list 'type', types: 'symbol', values: %w(:dropup :dropdown), default: ':dropdown'
 
 - @sections = sections do |s|
   - s.section title: "Dropdown" do

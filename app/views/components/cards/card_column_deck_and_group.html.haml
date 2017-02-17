@@ -4,27 +4,23 @@
 
 = code do
   :plain
-    card_column options = { tap: true }, html_options = {} do |cc|
+    card_column options, html_options do |cc|
       cc.card do
         content
       end
     end
 
-    card_deck options = { tap: true }, html_options = {} do |cd|
+    card_deck options, html_options do |cd|
       cd.card do
         content
       end
     end
 
-    card_group options = { tap: true }, html_options = {} do |cg|
+    card_group options, html_options do |cg|
       cg.card do
         content
       end
     end
-
-
-= component_options do |co|
-  - co.tap_link
 
 - @sections = sections do |s|
   - s.section title: "Card column" do
