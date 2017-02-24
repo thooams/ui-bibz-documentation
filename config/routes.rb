@@ -47,6 +47,7 @@ Rails.application.routes.draw do
 
       # selects
       namespace :selects do
+        get 'select-field'
         get 'dropdown-select-field'
         get 'multi-select-field'
         get 'multi-column-field'
