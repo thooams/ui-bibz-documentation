@@ -1,0 +1,67 @@
+%p
+  You can connect several components together using option <code>connect</code>.
+  With this option, you can determine the target, the trigger event, and the connection mode.
+
+%p
+  Vous pouvez choisir le mode de connection: locale ou distante.
+  %ul
+    %li You can choose the connection mode: local or remote. If you choose <strong>local mode</strong>, you will need to populate the data with an <strong>array</strong>.
+    %li If you choose the <strong>remote mode</strong>, you must fill in the <strong>url</strong> so that the component can retrieve the information in Ajax.
+%p
+  Output data, whether local or remote, must be written in this way:
+  <code> [{ id: integer, value: integer, connect_option_id: integer }, {...}] </code>.
+
+= example do |e|
+  - e.code do
+    :plain
+      connect: {
+        event: String, # change|click|change click|...'
+        type:  String, # local|remote
+        target: {
+          selector:  String, # .my-target|#my-target
+          data:      Array,  # [{ text: 'option', value: 1, connect_option_id: 2}]
+          url:       String, # url_data.html',
+          component: String, # select|dropdown_select|...
+        }
+      }
+
+%p You can connect an input to any other input:
+
+%table.table.table-bordered.connected-input-table
+  %tr
+    %th
+    %th Select field
+    %th Dropdown select field
+    %th Multi column field
+    %th Multi select field
+  %tr
+    %td= link_to('Select field', components_forms_selects_select_field_path)
+    %td= glyph('check-circle', status: :success)
+    %td= glyph('check-circle')
+    %td= glyph('check-circle')
+    %td= glyph('check-circle')
+  %tr
+    %td= link_to('Dropdown select field', components_forms_selects_dropdown_select_field_path)
+    %td= glyph('check-circle')
+    %td= glyph('check-circle')
+    %td= glyph('check-circle')
+    %td= glyph('check-circle')
+  %tr
+    %td= link_to('Multi column field', components_forms_selects_multi_column_field_path)
+    %td= glyph('check-circle')
+    %td= glyph('check-circle')
+    %td= glyph('check-circle')
+    %td= glyph('check-circle')
+  %tr
+    %td= link_to('Multi select field', components_forms_selects_multi_select_field_path)
+    %td= glyph('check-circle')
+    %td= glyph('check-circle')
+    %td= glyph('check-circle')
+    %td= glyph('check-circle')
+
+= "#{ glyph('check-circle', status: :success) } = Valid, #{ glyph('check-circle') } = In progress".html_safe
+
+
+
+
+

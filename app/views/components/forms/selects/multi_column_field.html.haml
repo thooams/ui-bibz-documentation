@@ -184,6 +184,98 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
+  - s.section title: "Field Connected" do
+    = render partial: '/components/connect_option'
+
+  - s.section title: "Select Field Connected (remote)" do
+    = example do |e|
+      - e.header do
+        - connect = { type: 'remote', target: { selector: '#example_1_target', url: components_forms_selects_select_field_path }}
+        = select_field 'example 1', { option_tags: options_for_select(5.times.map{ |i| "option #{i}" }), connect: connect }
+        %br
+        = select_field 'example 1 target', option_tags: options_for_select(5.times.map{ |i| "option #{i}" })
+      - e.code do
+        \# First select input
+        connect = { type: 'remote', target: { selector: '#example_1_target', url: components_forms_selects_select_field_path }}
+        select_field 'example 1', { option_tags: options_for_select(5.times.map{ |i| "option \#{i}" }), connect: connect }
+        \# Second select input
+        select_field 'example 1 target', option_tags: options_for_select(5.times.map{ |i| "option \#{i}" })
+      - e.html do
+        :plain
+          <select name="example 0" id="example_0" class="select-field form-control">
+            <option value="option 0">option 0</option>
+            <option value="option 1">option 1</option>
+            <option value="option 2">option 2</option>
+            <option value="option 3">option 3</option>
+            <option value="option 4">option 4</option>
+          </select>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Select Field Connected (local)" do
+    = example do |e|
+      - e.header do
+        - options_html = options_for_select(5.times.map{ |i| ["option #{i}", i] })
+        - options_data = 5.times.map{ |o| 5.times.map{ |i| { text: "New option #{ o }.#{ i }", value: i, connect_option_id: o }}}.flatten
+        = select_field 'example 2', { option_tags: options_html, connect: { type: 'local', target: { selector: '#example_2_target', data: options_data }}}
+        %br
+        - options_html = options_for_select(5.times.map{ |i| "option #{i}" })
+        = select_field 'example 2 target', option_tags: options_html
+      - e.code do
+        \# First Select input
+        options_html = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
+        options_data = 5.times.map{ |o| 5.times.map{ |i| { text: "New option \#{ o }.\#{ i }", value: i, connect_option_id: o }}}.flatten
+        connect      = { type: 'local', target: { selector: '#example_2_target', data: options_data }}}
+        select_field 'example 2', { option_tags: options_html, connect: connect }
+
+        \# Second Select input
+        options_html = options_for_select(5.times.map{ |i| "option \#{i}" })
+        select_field 'example 2 target', option_tags: options_html
+      - e.html do
+        :plain
+          <select name='example 1' id='example_1' data-connect="{'type':'remote','target':{'selector':'#example_1_target','url':'/components/forms/selects/select-field'}}" class="ui-bibz-connect select-field form-control">
+            <option value="option 0">option 0</option>
+            <option value="option 1">option 1</option>
+            <option value="option 2">option 2</option>
+            <option value="option 3">option 3</option>
+            <option value="option 4">option 4</option></select>
+          <select name="example 1 target" id="example_1_target" class="select-field form-control">
+            <option value="option 0">option 0</option>
+            <option value="option 1">option 1</option>
+            <option value="option 2">option 2</option>
+            <option value="option 3">option 3</option>
+            <option value="option 4">option 4</option>
+          </select>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Select Field with Refresh Connected" do
+    = example do |e|
+      - e.header do
+        - refresh = { target: { url: components_forms_selects_select_field_path }}
+        = select_field 'example 3 target', option_tags: options_for_select(5.times.map{ |i| "option #{i}" }), refresh: refresh
+      - e.code do
+        refresh = { target: { url: components_forms_selects_select_field_path }}
+        select_field 'example 3', option_tags: options_for_select(5.times.map{ |i| "option \#{i}" }), refresh: refresh
+      - e.html do
+        :plain
+          <div class="input-group select-field-refresh">
+            <select name="example 3" id="example_3" class="select-field form-control">
+              <option value="option 0">option 0</option>
+              <option value="option 1">option 1</option>
+              <option value="option 2">option 2</option>
+              <option value="option 3">option 3</option>
+              <option value="option 4">option 4</option>
+            </select>
+            <span class="input-group-btn">
+              <button class='input-refresh-button btn-primary ui-bibz-connect btn' data-connect="{'events':'click','type':'remote','target':{'selector':'#example_3','url':'/components/forms/selects/select-field','data':[]}}">
+                <i class="glyph fa fa-refresh"></i>
+              </button>
+            </span>
+          </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
   - s.section title: "Simple form" do
     :markdown
       You can use the multi_column input with gem [simple form](https://github.com/plataformatec/simple_form).
