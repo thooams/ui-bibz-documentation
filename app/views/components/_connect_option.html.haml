@@ -16,7 +16,7 @@
     :plain
       connect: {
         event: String, # change|click|change click|...'
-        type:  String, # local|remote
+        mode:  String, # local|remote
         target: {
           selector:  String, # .my-target|#my-target
           data:      Array,  # [{ text: 'option', value: 1, connect_option_id: 2}]
@@ -38,7 +38,7 @@
     %td= link_to('Select field', components_forms_selects_select_field_path)
     %td= glyph('check-circle', status: :success)
     %td= glyph('check-circle')
-    %td= glyph('check-circle')
+    %td= glyph('check-circle', status: :success)
     %td= glyph('check-circle')
   %tr
     %td= link_to('Dropdown select field', components_forms_selects_dropdown_select_field_path)
@@ -48,9 +48,9 @@
     %td= glyph('check-circle')
   %tr
     %td= link_to('Multi column field', components_forms_selects_multi_column_field_path)
+    %td= glyph('check-circle', status: :success)
     %td= glyph('check-circle')
-    %td= glyph('check-circle')
-    %td= glyph('check-circle')
+    %td= glyph('check-circle', status: :success)
     %td= glyph('check-circle')
   %tr
     %td= link_to('Multi select field', components_forms_selects_multi_select_field_path)
@@ -59,7 +59,7 @@
     %td= glyph('check-circle')
     %td= glyph('check-circle')
 
-= "#{ glyph('check-circle', status: :success) } = Valid, #{ glyph('check-circle') } = In progress".html_safe
+= "#{ glyph('check-circle', status: :success) } = Done, #{ glyph('check-circle') } = In progress".html_safe
 
 
 

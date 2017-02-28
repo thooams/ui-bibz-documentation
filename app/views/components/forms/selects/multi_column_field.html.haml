@@ -187,45 +187,104 @@
   - s.section title: "Field Connected" do
     = render partial: '/components/connect_option'
 
-  - s.section title: "Select Field Connected (remote)" do
+  - s.section title: "Multi Column Field Connected (remote)" do
     = example do |e|
       - e.header do
-        - connect = { type: 'remote', target: { selector: '#example_1_target', url: components_forms_selects_select_field_path }}
-        = select_field 'example 1', { option_tags: options_for_select(5.times.map{ |i| "option #{i}" }), connect: connect }
+        - connect = { mode: 'remote', target: { selector: '#example_1_target', component: 'multi_column_field', url: components_forms_selects_multi_column_field_path }}
+        = multi_column_field 'example 1', option_tags: options_for_select(5.times.map{ |i| ["option #{i}", i] }), connect: connect
         %br
-        = select_field 'example 1 target', option_tags: options_for_select(5.times.map{ |i| "option #{i}" })
+        = multi_column_field 'example 1 target', option_tags: options_for_select(5.times.map{ |i| ["option #{i}", i] })
       - e.code do
-        \# First select input
-        connect = { type: 'remote', target: { selector: '#example_1_target', url: components_forms_selects_select_field_path }}
-        select_field 'example 1', { option_tags: options_for_select(5.times.map{ |i| "option \#{i}" }), connect: connect }
+        \# First multi column input
+        connect = { mode: 'remote', target: { selector: '#example_1_target', component: 'multi_column_field', url: components_forms_selects_multi_column_field_path }}
+        multi_column_field 'example 1', option_tags: options_for_select(5.times.map{ |i| ["option \#{i}", i] }), connect: connect
         \# Second select input
-        select_field 'example 1 target', option_tags: options_for_select(5.times.map{ |i| "option \#{i}" })
+        multi_column_field 'example 1 target', option_tags: options_for_select(5.times.map{ |i| ["option \#{i}", i] })
       - e.html do
         :plain
-          <select name="example 0" id="example_0" class="select-field form-control">
-            <option value="option 0">option 0</option>
-            <option value="option 1">option 1</option>
-            <option value="option 2">option 2</option>
-            <option value="option 3">option 3</option>
-            <option value="option 4">option 4</option>
+          <select name="example 1[]" id="example_1" data-connect="{'type':'remote','target':{'selector':'#example_1_target','component':'multi_column_field','url':'/components/forms/selects/multi-column-field'}}" class="ui-bibz-connect multi-column" multiple="multiple" style="position: absolute; left: -9999px;">
+            <option value="0">option 0</option>
+            <option value="1">option 1</option>
+            <option value="2">option 2</option>
+            <option value="3">option 3</option>
+            <option value="4">option 4</option>
+            <option value="5">option 5</option>
           </select>
+          <div class="ms-container" id="ms-example_1">
+            <div class="ms-selectable">
+              <ul class="ms-list" tabindex="-1">
+                <li class="ms-elem-selectable" id="48-selectable">
+                  <span>option 0</span>
+                </li>
+                <li class="ms-elem-selectable" id="49-selectable">
+                  <span>option 1</span>
+                </li>
+                <li class="ms-elem-selectable" id="50-selectable" style="display: list-item;">
+                  <span>option 2</span>
+                </li>
+                <li class="ms-elem-selectable" id="51-selectable">
+                  <span>option 3</span>
+                </li>
+                <li class="ms-elem-selectable" id="52-selectable" style="display: list-item;">
+                  <span>option 4</span>
+                </li>
+                <li class="ms-elem-selectable" id="53-selectable">
+                  <span>option 5</span>
+                </li>
+              </ul>
+            </div>
+            <div class="ms-selection">
+              <ul class="ms-list" tabindex="-1">
+                <li class="ms-elem-selection" id="48-selection" style="display: none;">
+                  <span>option 0</span>
+                </li>
+                <li class="ms-elem-selection" id="49-selection" style="display: none;">
+                  <span>option 1</span>
+                </li>
+                <li class="ms-elem-selection ms-hover" id="50-selection" style="display: none;">
+                  <span>option 2</span>
+                </li>
+                <li class="ms-elem-selection" id="51-selection" style="display: none;">
+                  <span>option 3</span>
+                </li>
+                <li class="ms-elem-selection ms-hover" id="52-selection" style="display: none;">
+                  <span>option 4</span>
+                </li>
+                <li class="ms-elem-selection" id="53-selection" style="display: none;">
+                  <span>option 5</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <br>
+          <select name="example 1 target[]" id="example_1_target" class="multi-column" multiple="multiple" style="position: absolute; left: -9999px;">
+          </select>
+          <div class="ms-container" id="ms-example_1_target">
+            <div class="ms-selectable">
+              <ul class="ms-list" tabindex="-1">
+              </ul>
+            </div>
+            <div class="ms-selection">
+              <ul class="ms-list" tabindex="-1">
+              </ul>
+            </div>
+          </div>
       - e.footer do
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Select Field Connected (local)" do
     = example do |e|
       - e.header do
-        - options_html = options_for_select(5.times.map{ |i| ["option #{i}", i] })
-        - options_data = 5.times.map{ |o| 5.times.map{ |i| { text: "New option #{ o }.#{ i }", value: i, connect_option_id: o }}}.flatten
-        = select_field 'example 2', { option_tags: options_html, connect: { type: 'local', target: { selector: '#example_2_target', data: options_data }}}
+        - data = 5.times.map{ |i| [{ connect_option_id: i, value: 1+i.to_i, text: "New option 1.#{ i }"}, { connect_option_id: i, value: 6+i.to_i, text: "New option 2.#{ i }"}] }.flatten
+        - connect = { mode: 'local', target: { selector: '#example_2_target', component: 'multi_column_field', data: data }}
+        = multi_column_field 'example 2', searchable: true, option_tags: options_for_select(5.times.map{ |i| ["option #{i}", i] }), connect: connect
         %br
-        - options_html = options_for_select(5.times.map{ |i| "option #{i}" })
-        = select_field 'example 2 target', option_tags: options_html
+        = multi_column_field 'example 2 target', option_tags: options_for_select(5.times.map{ |i| ["option #{i}", i] })
       - e.code do
         \# First Select input
         options_html = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
         options_data = 5.times.map{ |o| 5.times.map{ |i| { text: "New option \#{ o }.\#{ i }", value: i, connect_option_id: o }}}.flatten
-        connect      = { type: 'local', target: { selector: '#example_2_target', data: options_data }}}
+        connect      = { mode: 'local', target: { selector: '#example_2_target', data: options_data }}}
         select_field 'example 2', { option_tags: options_html, connect: connect }
 
         \# Second Select input
