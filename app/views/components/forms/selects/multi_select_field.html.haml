@@ -17,10 +17,10 @@
   - s.section title: "Multi Select Field" do
     = example do |e|
       - e.header do
-        = multi_select_field 'example1', option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
+        = multi_select_field 'example1', option_tags: select_options_tags
       - e.code do
-        options = options_for_select(10.times.map{ |i| "option \#{i}" })
-        multi_select_field 'example', option_tags: options
+        option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
+        multi_select_field 'example', option_tags: option_tags
       - e.html do
         <select name="example1[]" id="example1" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
           <option value="option 0">option 0</option>
@@ -28,11 +28,6 @@
           <option value="option 2">option 2</option>
           <option value="option 3">option 3</option>
           <option value="option 4">option 4</option>
-          <option value="option 5">option 5</option>
-          <option value="option 6">option 6</option>
-          <option value="option 7">option 7</option>
-          <option value="option 8">option 8</option>
-          <option value="option 9">option 9</option>
         </select>
         <div class="btn-group">
           <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="None selected">None selected <b class="caret"></b></button>
@@ -42,11 +37,6 @@
             <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 2"> option 2</label></a></li>
             <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 3"> option 3</label></a></li>
             <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 4"> option 4</label></a></li>
-            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 5"> option 5</label></a></li>
-            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 6"> option 6</label></a></li>
-            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 7"> option 7</label></a></li>
-            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 8"> option 8</label></a></li>
-            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 9"> option 9</label></a></li>
           </ul>
         </div>
       - e.footer do
@@ -125,10 +115,10 @@
   - s.section title: "Multi Select Field searchable" do
     = example do |e|
       - e.header do
-        = multi_select_field 'example1', searchable: true, option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
+        = multi_select_field 'example1', searchable: true, option_tags: select_options_tags
       - e.code do
-        options = options_for_select(10.times.map{ |i| "option \#{i}" })
-        multi_select_field 'example', searchable: true, option_tags: options
+        option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
+        multi_select_field 'example', searchable: true, option_tags: option_tags
       - e.html do
         <select name="example1[]" id="example1" data-enable-filtering="true" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
           <option value="option 0">option 0</option>
@@ -136,11 +126,6 @@
           <option value="option 2">option 2</option>
           <option value="option 3">option 3</option>
           <option value="option 4">option 4</option>
-          <option value="option 5">option 5</option>
-          <option value="option 6">option 6</option>
-          <option value="option 7">option 7</option>
-          <option value="option 8">option 8</option>
-          <option value="option 9">option 9</option>
         </select>
         <div class="btn-group">
           <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="None selected">None selected <b class="caret"></b></button>
@@ -155,11 +140,6 @@
             <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 2"> option 2</label></a></li>
             <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 3"> option 3</label></a></li>
             <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 4"> option 4</label></a></li>
-            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 5"> option 5</label></a></li>
-            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 6"> option 6</label></a></li>
-            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 7"> option 7</label></a></li>
-            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 8"> option 8</label></a></li>
-            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 9"> option 9</label></a></li>
           </ul>
         </div>
       - e.footer do
@@ -168,10 +148,10 @@
   - s.section title: "Multi Select Field select_all_option" do
     = example do |e|
       - e.header do
-        = multi_select_field 'example1', select_all_option: true, option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
+        = multi_select_field 'example1', select_all_option: true, option_tags: select_options_tags
       - e.code do
-        options = options_for_select(10.times.map{ |i| "option \#{i}" })
-        multi_select_field 'example', select_all_option: true, option_tags: options
+        option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
+        multi_select_field 'example', select_all_option: true, option_tags: option_tags
       - e.html do
         <select name="example1[]" id="example1" data-include-select-all-option="true" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
           <option value="option 0">option 0</option>
@@ -179,11 +159,6 @@
           <option value="option 2">option 2</option>
           <option value="option 3">option 3</option>
           <option value="option 4">option 4</option>
-          <option value="option 5">option 5</option>
-          <option value="option 6">option 6</option>
-          <option value="option 7">option 7</option>
-          <option value="option 8">option 8</option>
-          <option value="option 9">option 9</option>
         </select>
         <div class="btn-group">
           <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="None selected">None selected <b class="caret"></b></button>
@@ -194,11 +169,6 @@
             <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 2"> option 2</label></a></li>
             <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 3"> option 3</label></a></li>
             <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 4"> option 4</label></a></li>
-            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 5"> option 5</label></a></li>
-            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 6"> option 6</label></a></li>
-            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 7"> option 7</label></a></li>
-            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 8"> option 8</label></a></li>
-            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 9"> option 9</label></a></li>
           </ul>
         </div>
       - e.footer do
@@ -208,14 +178,14 @@
     = example do |e|
       - e.header do
         - %w(primary secondary success warning link).each do |s|
-          = multi_select_field s, status: s.to_sym, option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
+          = multi_select_field s, status: s.to_sym, option_tags: select_options_tags
       - e.code do
-        options = options_for_select(10.times.map{ |i| "option \#{i}" })
-        multi_select_field 'primary', status: :primary, option_tags: options
-        multi_select_field 'secondary', status: :secondary, option_tags: options
-        multi_select_field 'success', status: :success, option_tags: options
-        multi_select_field 'warning', status: :warning, option_tags: options
-        multi_select_field 'link', status: :link, option_tags: options
+        option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
+        multi_select_field 'primary', status: :primary, option_tags: option_tags
+        multi_select_field 'secondary', status: :secondary, option_tags: option_tags
+        multi_select_field 'success', status: :success, option_tags: option_tags
+        multi_select_field 'warning', status: :warning, option_tags: option_tags
+        multi_select_field 'link', status: :link, option_tags: option_tags
       - e.html do
         <select name="primary[]" id="primary" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
           <option value="option 0">option 0</option>
@@ -223,11 +193,6 @@
           <option value="option 2">option 2</option>
           <option value="option 3">option 3</option>
           <option value="option 4">option 4</option>
-          <option value="option 5">option 5</option>
-          <option value="option 6">option 6</option>
-          <option value="option 7">option 7</option>
-          <option value="option 8">option 8</option>
-          <option value="option 9">option 9</option>
         </select>
         <div class="btn-group">
           <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="None selected">None selected <b class="caret"></b></button>
@@ -237,14 +202,57 @@
             <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 2"> option 2</label></a></li>
             <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 3"> option 3</label></a></li>
             <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 4"> option 4</label></a></li>
-            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 5"> option 5</label></a></li>
-            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 6"> option 6</label></a></li>
-            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 7"> option 7</label></a></li>
-            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 8"> option 8</label></a></li>
-            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 9"> option 9</label></a></li>
           </ul>
         </div>
         …
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Field Connected" do
+    = render partial: '/components/connect_option'
+
+  - s.section title: "Multi Column Field Connected (remote)" do
+    = example do |e|
+      - e.header do
+        - connect = { mode: 'remote', target: { selector: '#example_1_target', url: components_forms_selects_multi_column_field_path }}
+        = multi_select_field 'example 1', option_tags: select_options_tags, connect: connect
+        %br
+        %br
+        = multi_select_field 'example 1 target', option_tags: select_options_tags
+      - e.code do
+        option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
+        \# First multi column input
+        connect = { mode: 'remote', target: { selector: '#example_1_target', url: components_forms_selects_multi_column_field_path }}
+        multi_select_field 'example 1', option_tags: option_tags, connect: connect
+        \# Second select input
+        multi_select_field 'example 1 target', option_tags: option_tags
+      - e.html do
+        :plain
+          ""
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Multi Select Field Connected (local)" do
+    = example do |e|
+      - e.header do
+        - data = 5.times.map{ |i| [{ connect_option_id: i, value: 1+i.to_i, text: "New option 1.#{ i }"}, { connect_option_id: i, value: 6+i.to_i, text: "New option 2.#{ i }"}] }.flatten
+        - connect = { mode: 'local', target: { selector: '#example_2_target', data: data }}
+        = multi_select_field 'example 2', searchable: true, option_tags: select_options_tags, connect: connect
+        %br
+        %br
+        = multi_select_field 'example 2 target', option_tags: select_options_tags
+      - e.code do
+        option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
+        \# First Select input
+        options_data = 5.times.map{ |o| 5.times.map{ |i| { text: "New option \#{ o }.\#{ i }", value: i, connect_option_id: o }}}.flatten
+        connect      = { mode: 'local', target: { selector: '#example_2_target', data: options_data }}}
+        multi_select_field 'example 2', { option_tags: option_tags, connect: connect }
+
+        \# Second Select input
+        multi_select_field 'example 2 target', option_tags: options_html
+      - e.html do
+        :plain
+          ""
       - e.footer do
         = documentation_link 'Documentation', '#'
 

@@ -14,9 +14,10 @@
   - s.section title: "Select Field" do
     = example do |e|
       - e.header do
-        = select_field 'example 0', option_tags: options_for_select(5.times.map{ |i| "option #{i}" })
+        = select_field 'example 0', option_tags: select_options_tags
       - e.code do
-        select_field 'example 0', option_tags: options_for_select(5.times.map{ |i| "option \#{i}" })
+        option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
+        select_field 'example 0', option_tags: option_tags
       - e.html do
         :plain
           <select name="example 0" id="example_0" class="select-field form-control">
@@ -35,16 +36,17 @@
   - s.section title: "Select Field Connected (remote)" do
     = example do |e|
       - e.header do
-        - connect = { type: 'remote', target: { selector: '#example_1_target', url: components_forms_selects_select_field_path }}
-        = select_field 'example 1', { option_tags: options_for_select(5.times.map{ |i| "option #{i}" }), connect: connect }
+        - connect = { mode: 'remote', target: { selector: '#example_1_target', url: components_forms_selects_select_field_path }}
+        = select_field 'example 1', { option_tags: select_options_tags, connect: connect }
         %br
-        = select_field 'example 1 target', option_tags: options_for_select(5.times.map{ |i| "option #{i}" })
+        = select_field 'example 1 target', option_tags: select_options_tags
       - e.code do
+        option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
         \# First select input
-        connect = { type: 'remote', target: { selector: '#example_1_target', url: components_forms_selects_select_field_path }}
-        select_field 'example 1', { option_tags: options_for_select(5.times.map{ |i| "option \#{i}" }), connect: connect }
+        connect = { mode: 'remote', target: { selector: '#example_1_target', url: components_forms_selects_select_field_path }}
+        select_field 'example 1', { option_tags: options_tags, connect: connect }
         \# Second select input
-        select_field 'example 1 target', option_tags: options_for_select(5.times.map{ |i| "option \#{i}" })
+        select_field 'example 1 target', option_tags: option_tags
       - e.html do
         :plain
           <select name="example 0" id="example_0" class="select-field form-control">
@@ -60,17 +62,15 @@
   - s.section title: "Select Field Connected (local)" do
     = example do |e|
       - e.header do
-        - options_html = options_for_select(5.times.map{ |i| ["option #{i}", i] })
         - options_data = 5.times.map{ |o| 5.times.map{ |i| { text: "New option #{ o }.#{ i }", value: i, connect_option_id: o }}}.flatten
-        = select_field 'example 2', { option_tags: options_html, connect: { type: 'local', target: { selector: '#example_2_target', data: options_data }}}
+        = select_field 'example 2', { option_tags: select_options_tags, connect: { mode: 'local', target: { selector: '#example_2_target', data: options_data }}}
         %br
-        - options_html = options_for_select(5.times.map{ |i| "option #{i}" })
-        = select_field 'example 2 target', option_tags: options_html
+        = select_field 'example 2 target', option_tags: select_options_tags
       - e.code do
+        option_tags  = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
         \# First Select input
-        options_html = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
         options_data = 5.times.map{ |o| 5.times.map{ |i| { text: "New option \#{ o }.\#{ i }", value: i, connect_option_id: o }}}.flatten
-        connect      = { type: 'local', target: { selector: '#example_2_target', data: options_data }}}
+        connect      = { mode: 'local', target: { selector: '#example_2_target', data: option_tags }}}
         select_field 'example 2', { option_tags: options_html, connect: connect }
 
         \# Second Select input
@@ -95,13 +95,15 @@
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Select Field with Refresh Connected" do
+    %p Option <code>refresh</code> take same arguments than <code>connect</code> option.
     = example do |e|
       - e.header do
         - refresh = { target: { url: components_forms_selects_select_field_path }}
-        = select_field 'example 3 target', option_tags: options_for_select(5.times.map{ |i| "option #{i}" }), refresh: refresh
+        = select_field 'example 3 target', option_tags: select_options_tags, refresh: refresh
       - e.code do
-        refresh = { target: { url: components_forms_selects_select_field_path }}
-        select_field 'example 3', option_tags: options_for_select(5.times.map{ |i| "option \#{i}" }), refresh: refresh
+        option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
+        connect     = { target: { url: components_forms_selects_select_field_path }}
+        select_field 'example 3', option_tags: option_tags, refresh: connect
       - e.html do
         :plain
           <div class="input-group select-field-refresh">

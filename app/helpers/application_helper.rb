@@ -69,4 +69,7 @@ module ApplicationHelper
     end
   end
 
+  def select_options_tags
+    options_for_select(5.times.map{ |i| ["option #{i}", i] })
+  end
 end

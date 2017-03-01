@@ -22,9 +22,10 @@
   - s.section title: "Dropdown Select Field" do
     = example do |e|
       - e.header do
-        = dropdown_select_field 'example1', option_tags: options_for_select(5.times.map{ |i| "option #{i}" })
+        = dropdown_select_field 'example1', option_tags: select_options_tags
       - e.code do
-        dropdown_select_field 'example1', option_tags: options_for_select(5.times.map{ |i| "option \#{i}" })
+        options_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
+        dropdown_select_field 'example1', option_tags: option_tags
       - e.html do
         <div class="btn-group bootstrap-select">
           <button type="button" class="btn dropdown-toggle btn-secondary" data-toggle="dropdown" data-id="example1" title="option 0">
@@ -89,18 +90,20 @@
   - s.section title: "Dropdown Select Field searchable" do
     = example do |e|
       - e.header do
-        = dropdown_select_field 'example1', searchable: true, option_tags: options_for_select(5.times.map{ |i| "option #{i}" })
+        = dropdown_select_field 'example1', searchable: true, option_tags: select_options_tags
       - e.code do
-        dropdown_select_field 'example1', searchable: true, option_tags: options_for_select(5.times.map{ |i| "option \#{i}" })
+        options_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
+        dropdown_select_field 'example1', searchable: true, option_tags: option_tags
       - e.footer do
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Dropdown Select Field max_options" do
     = example do |e|
       - e.header do
-        = dropdown_select_field 'example1', max_options: 3, option_tags: options_for_select(5.times.map{ |i| "option #{i}" })
+        = dropdown_select_field 'example1', max_options: 3, option_tags: select_options_tags
       - e.code do
-        dropdown_select_field 'example1', max_options: 3, option_tags: options_for_select(5.times.map{ |i| "option \#{i}" })
+        option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
+        dropdown_select_field 'example1', max_options: 3, option_tags: option_tags
       - e.footer do
         = documentation_link 'Documentation', '#'
 
@@ -120,9 +123,67 @@
 
     = example do |e|
       - e.header do
-        = dropdown_select_field 'example1', selected_text_format: "count", option_tags: options_for_select(5.times.map{ |i| "option #{i}" })
+        = dropdown_select_field 'example1', selected_text_format: "count", option_tags: select_options_tags
       - e.code do
-        dropdown_select_field 'example1', selected_text_format: "count", option_tags: options_for_select(5.times.map{ |i| "option \#{i}" })
+        option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
+        dropdown_select_field 'example1', selected_text_format: "count", option_tags: option_tags
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Field Connected" do
+    = render partial: '/components/connect_option'
+
+  - s.section title: "Dropdown Select Field connected (remote)" do
+    = example do |e|
+      - e.header do
+        - connect = { mode: 'remote', target: { selector: '#example_1_target', url: components_forms_selects_select_field_path }}
+        = dropdown_select_field 'example 1', { option_tags: select_options_tags, connect: connect }
+        %br
+        %br
+        = dropdown_select_field 'example 1 target', option_tags: select_options_tags
+      - e.code do
+        options_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
+        \# First Dropdown Field
+        connect = { mode: 'remote', target: { selector: '#example_1_target', url: components_forms_selects_select_field_path }}
+        dropdown_select_field 'example 1', { option_tags: select_options_tags, connect: connect }
+        \# Second Dropdown Field
+        dropdown_select_field 'example 1 target', option_tags: select_options_tags
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Dropdown Select Field Connected (local)" do
+    = example do |e|
+      - e.header do
+        - options_data = 5.times.map{ |o| 5.times.map{ |i| { text: "New option #{ o }.#{ i }", value: i, connect_option_id: o }}}.flatten
+        = dropdown_select_field 'example 2', { option_tags: select_options_tags, connect: { mode: 'local', target: { selector: '#example_2_target', data: options_data }}}
+        %br
+        %br
+        = dropdown_select_field 'example 2 target', option_tags: select_options_tags
+      - e.code do
+        option_tags  = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
+        \# First Select input
+        options_data = 5.times.map{ |o| 5.times.map{ |i| { text: "New option \#{ o }.\#{ i }", value: i, connect_option_id: o }}}.flatten
+        connect      = { mode: 'local', target: { selector: '#example_2_target', data: option_tags }}}
+        dropdown_select_field 'example 2', { option_tags: options_html, connect: connect }
+
+        \# Second Select input
+        options_html = options_for_select(5.times.map{ |i| "option \#{i}" })
+        dropdown_select_field 'example 2 target', option_tags: options_html
+      - e.html do
+        :plain
+          <select name='example 1' id='example_1' data-connect="{'type':'remote','target':{'selector':'#example_1_target','url':'/components/forms/selects/select-field'}}" class="ui-bibz-connect select-field form-control">
+            <option value="option 0">option 0</option>
+            <option value="option 1">option 1</option>
+            <option value="option 2">option 2</option>
+            <option value="option 3">option 3</option>
+            <option value="option 4">option 4</option></select>
+          <select name="example 1 target" id="example_1_target" class="select-field form-control">
+            <option value="option 0">option 0</option>
+            <option value="option 1">option 1</option>
+            <option value="option 2">option 2</option>
+            <option value="option 3">option 3</option>
+            <option value="option 4">option 4</option>
+          </select>
       - e.footer do
         = documentation_link 'Documentation', '#'
 
