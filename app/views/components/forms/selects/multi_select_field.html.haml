@@ -12,6 +12,7 @@
   - co.list 'collapsible_opt_group', types: 'boolean'
   - co.list 'searchable', types: 'boolean'
   - co.list 'select_all_option', types: 'boolean'
+  - co.list 'connect', types: 'hash'
 
 - @sections = sections do |s|
   - s.section title: "Multi Select Field" do
@@ -255,6 +256,69 @@
           ""
       - e.footer do
         = documentation_link 'Documentation', '#'
+
+  - s.section title: "Multi Select Field with Refresh Connected" do
+    %p Option <code>refresh</code> take same arguments than <code>connect</code> option.
+    = example do |e|
+      - e.header do
+        - refresh = { target: { url: components_forms_selects_select_field_path }}
+        = multi_select_field 'example 3 target', option_tags: select_options_tags, refresh: refresh
+      - e.code do
+        option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
+        connect     = { target: { url: components_forms_selects_select_field_path }}
+        multi_select_field 'example 3', option_tags: option_tags, refresh: connect
+      - e.html do
+        :plain
+          <div class="input-group select-field-refresh">
+            <select name="example 3 target[]" id="example_3_target" class="btn-secondary btn multi-select" multiple="multiple" style="display: none;">
+            <option value="0">option 0</option>
+                <option value="1">option 1</option>
+                <option value="2">option 2</option>
+                <option value="3">option 3</option>
+                <option value="4">option 4</option>
+            </select>
+            <div class="btn-group">
+              <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="None selected">
+                None selected <b class="caret"></b>
+              </button>
+              <ul class="multiselect-container dropdown-menu">
+                <li>
+                  <a href="javascript:void(0);">
+                    <label class="checkbox"><input type="checkbox" value="0"> option 0</label>
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">
+                    <label class="checkbox"><input type="checkbox" value="1"> option 1</label>
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">
+                    <label class="checkbox"><input type="checkbox" value="2"> option 2</label>
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);">
+                    <label class="checkbox"><input type="checkbox" value="3"> option 3</label>
+                  </a>
+                  </li>
+                <li>
+                  <a href="javascript:void(0);">
+                    <label class="checkbox"><input type="checkbox" value="4"> option 4</label>
+                  </a>
+                </li>
+              </ul>
+          </div>
+          <span class="input-group-btn">
+            <button data-connect='{"events":"click","mode":"remote","target":{"selector":"#example_3_target","url":"/components/forms/selects/select-field","data":[]}}' class="btn-primary ui-bibz-connect input-refresh-button btn">
+              <i class="glyph fa fa-refresh"></i>
+            </button>
+          </span>
+        </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+
 
   - s.section title: "Simple form" do
     :markdown
