@@ -33,7 +33,7 @@
   - s.section title: "Field Connected" do
     = render partial: '/components/connect_option'
 
-  - s.section title: "Select Field Connected (remote)" do
+  - s.section title: "Connected (remote)" do
     = example do |e|
       - e.header do
         - connect = { mode: 'remote', target: { selector: '#example_1_target', url: components_forms_selects_select_field_path }}
@@ -59,7 +59,7 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Select Field Connected (local)" do
+  - s.section title: "Connected (local)" do
     = example do |e|
       - e.header do
         - options_data = 5.times.map{ |o| 5.times.map{ |i| { text: "New option #{ o }.#{ i }", value: i, connect_option_id: o }}}.flatten
@@ -94,7 +94,7 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Select Field with Refresh Connected" do
+  - s.section title: "Refresh Connected" do
     %p Option <code>refresh</code> take same arguments than <code>connect</code> option.
     = example do |e|
       - e.header do

@@ -66,7 +66,7 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Multi Column Field selectable optgroup" do
+  - s.section title: "Selectable optgroup option" do
     = example do |e|
       - e.header do
         - grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
@@ -129,7 +129,7 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Multi Column Field with search" do
+  - s.section title: "Searchable option" do
     = example do |e|
       - e.header do
         = multi_column_field 'example3', { option_tags: select_options_tags, searchable: true }
@@ -189,7 +189,7 @@
   - s.section title: "Field Connected" do
     = render partial: '/components/connect_option'
 
-  - s.section title: "Multi Column Field Connected (remote)" do
+  - s.section title: "Connected (remote)" do
     = example do |e|
       - e.header do
         - connect = { mode: 'remote', target: { selector: '#example_1_target', url: components_forms_selects_multi_column_field_path }}
@@ -275,7 +275,7 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Multi Column Field Connected (local)" do
+  - s.section title: "Connected (local)" do
     = example do |e|
       - e.header do
         - data = 5.times.map{ |i| [{ connect_option_id: i, value: 1+i.to_i, text: "New option 1.#{ i }"}, { connect_option_id: i, value: 6+i.to_i, text: "New option 2.#{ i }"}] }.flatten
@@ -363,7 +363,7 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Multi Select Field with Refresh Connected" do
+  - s.section title: "Refresh Connected" do
     %p Option <code>refresh</code> take same arguments than <code>connect</code> option.
     = example do |e|
       - e.header do
@@ -423,6 +423,7 @@
         </div>
       - e.footer do
         = documentation_link 'Documentation', '#'
+
   - s.section title: "Simple form" do
     :markdown
       You can use the multi_column input with gem [simple form](https://github.com/plataformatec/simple_form).

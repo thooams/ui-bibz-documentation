@@ -89,7 +89,7 @@
         = documentation_link 'Documentation', '#'
 
 
-  - s.section title: "Dropdown Select Field searchable" do
+  - s.section title: "Searchable option" do
     = example do |e|
       - e.header do
         = dropdown_select_field 'example1', searchable: true, option_tags: select_options_tags
@@ -99,7 +99,7 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Dropdown Select Field max_options" do
+  - s.section title: "Max_options option" do
     = example do |e|
       - e.header do
         = dropdown_select_field 'example1', max_options: 3, option_tags: select_options_tags
@@ -109,7 +109,7 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Dropdown Select Field selected_text_format" do
+  - s.section title: "Selected_text_format option" do
     %p
       %strong values:
       A comma delimited list of selected values (default)
@@ -135,7 +135,7 @@
   - s.section title: "Field Connected" do
     = render partial: '/components/connect_option'
 
-  - s.section title: "Dropdown Select Field connected (remote)" do
+  - s.section title: "Connected (remote)" do
     = example do |e|
       - e.header do
         - connect = { mode: 'remote', target: { selector: '#example_1_target', url: components_forms_selects_select_field_path }}
@@ -153,7 +153,7 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Dropdown Select Field Connected (local)" do
+  - s.section title: "Connected (local)" do
     = example do |e|
       - e.header do
         - options_data = 5.times.map{ |o| 5.times.map{ |i| { text: "New option #{ o }.#{ i }", value: i, connect_option_id: o }}}.flatten
@@ -189,7 +189,7 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Dropdown Select Field with Refresh Connected" do
+  - s.section title: "Refresh Connected" do
     %p Option <code>refresh</code> take same arguments than <code>connect</code> option.
     = example do |e|
       - e.header do

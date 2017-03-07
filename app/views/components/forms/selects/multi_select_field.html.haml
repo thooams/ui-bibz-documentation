@@ -43,7 +43,7 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Multi Select Field optgroup clickable" do
+  - s.section title: "Clickable_opt_group option" do
     = example do |e|
       - e.header do
         - grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
@@ -78,7 +78,7 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Multi Select Field optgroup collapsible" do
+  - s.section title: "Collapsible_opt_group option" do
     = example do |e|
       - e.header do
         - grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
@@ -113,7 +113,7 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Multi Select Field searchable" do
+  - s.section title: "Searchable option" do
     = example do |e|
       - e.header do
         = multi_select_field 'example1', searchable: true, option_tags: select_options_tags
@@ -146,7 +146,7 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Multi Select Field select_all_option" do
+  - s.section title: "Select_all_option option" do
     = example do |e|
       - e.header do
         = multi_select_field 'example1', select_all_option: true, option_tags: select_options_tags
@@ -175,7 +175,7 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Multi Select Field status" do
+  - s.section title: "Status option" do
     = example do |e|
       - e.header do
         - %w(primary secondary success warning link).each do |s|
@@ -212,7 +212,7 @@
   - s.section title: "Field Connected" do
     = render partial: '/components/connect_option'
 
-  - s.section title: "Multi Column Field Connected (remote)" do
+  - s.section title: "Connected (remote)" do
     = example do |e|
       - e.header do
         - connect = { mode: 'remote', target: { selector: '#example_1_target', url: components_forms_selects_multi_column_field_path }}
@@ -233,7 +233,7 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Multi Select Field Connected (local)" do
+  - s.section title: "Connected (local)" do
     = example do |e|
       - e.header do
         - data = 5.times.map{ |i| [{ connect_option_id: i, value: 1+i.to_i, text: "New option 1.#{ i }"}, { connect_option_id: i, value: 6+i.to_i, text: "New option 2.#{ i }"}] }.flatten
@@ -257,7 +257,7 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Multi Select Field with Refresh Connected" do
+  - s.section title: "Refresh Connected" do
     %p Option <code>refresh</code> take same arguments than <code>connect</code> option.
     = example do |e|
       - e.header do
