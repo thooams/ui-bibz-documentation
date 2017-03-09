@@ -1,27 +1,27 @@
-= title 'Autocomplete Field'
-%blockquote UiBibz::Ui::Core::Forms::Texts::AutocompleteField
+= title 'auto_complete Field'
+%blockquote UiBibz::Ui::Core::Forms::Texts::auto_completeField
 %p.bd-callout
-  Autocomplete field is a text_field and use html datalist to autocomplete results.
+  auto_complete field is a text_field and use html datalist to auto_complete results.
   %br
   = link_to 'Datalist info', 'http://www.w3schools.com/tags/tag_datalist.asp'
   %br
   eq.: Tap "<em>option</em>"
 
-= code "autocomplete_field", component_name: "name"
+= code "auto_complete_field", component_name: "name"
 
 = component_options do |co|
   - co.state_link
   - co.list 'option_tags', types: 'html'
 
 - @sections = sections do |s|
-  - s.section title: "Autocomplete Field" do
+  - s.section title: "auto_complete Field" do
     = example do |e|
       - e.header do
-        = autocomplete_field 'example1', option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
+        = auto_complete_field 'example1', option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
       - e.code do
-        autocomplete_field 'example1', option_tags: options_for_select(10.times.map{ |i| "option \#{i}" })
+        auto_complete_field 'example1', option_tags: options_for_select(10.times.map{ |i| "option \#{i}" })
       - e.html do
-        <input type="text" name="example1" id="example1" class="form-control" autocomplete="true" list="example1-datalist">
+        <input type="text" name="example1" id="example1" class="form-control" auto_complete="true" list="example1-datalist">
         <datalist id="example1-datalist">
           <option value="option 0">option 0</option>
           <option value="option 1">option 1</option>
@@ -39,11 +39,11 @@
 
     = example do |e|
       - e.header do
-        = autocomplete_field 'example1', status: :success, state: :disabled, option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
+        = auto_complete_field 'example1', status: :success, state: :disabled, option_tags: options_for_select(10.times.map{ |i| "option #{i}" })
       - e.code do
-        autocomplete_field 'example1', option_tags: options_for_select(10.times.map{ |i| "option \#{i}" })
+        auto_complete_field 'example1', option_tags: options_for_select(10.times.map{ |i| "option \#{i}" })
       - e.html do
-        <input type="text" name="example1" id="example1" class="form-control" autocomplete="true" list="example1-datalist">
+        <input type="text" name="example1" id="example1" class="form-control" auto_complete="true" list="example1-datalist">
         <datalist id="example1-datalist">
           <option value="option 0">option 0</option>
           <option value="option 1">option 1</option>
@@ -56,12 +56,29 @@
           <option value="option 8">option 8</option>
           <option value="option 9">option 9</option>
         </datalist>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Refresh Connected" do
+    %p Option <code>refresh</code> take same arguments than <code>connect</code> option.
+    = example do |e|
+      - e.header do
+        - option_tags = options_for_select(5.times.map{ |i| "option #{i}" })
+        - refresh     = { mode: 'local', target: { data: 5.times.map{ |i| { value: "New option #{i}", text: "New option #{ i }" } }}}
+        = auto_complete_field 'example 3 target', option_tags: option_tags, refresh: refresh
+      - e.code do
+        option_tags = options_for_select(5.times.map{ |i| "option \#{i}" })
+        connect     = { target: { url: components_forms_selects_select_field_path }}
+        auto_complete_field 'example 3', option_tags: option_tags, refresh: connect
+      - e.html do
+        :plain
+          <>
       - e.footer do
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Simple form" do
     :markdown
-      You can use the autocomplete field input with gem [simple form](https://github.com/plataformatec/simple_form).
+      You can use the auto_complete field input with gem [simple form](https://github.com/plataformatec/simple_form).
 
       You must add this line in the file `"config/initializers/simple_form.rb"`
 
@@ -71,7 +88,7 @@
         config.custom_inputs_namespaces << "CustomInputs"
         \...
     %p
-      Then in your view, you can insert your input autocomplete field.
+      Then in your view, you can insert your input auto_complete field.
       This simple form component is based on simple_form
       = link_to "collection", "https://github.com/plataformatec/simple_form#collections"
       %br
@@ -86,7 +103,7 @@
       - e.code do
         simple_form(@search) do |f|
           ...
-          f.input :price, as: :autocomplete, collection: @collection, label_method: :name, value_method: :id
+          f.input :price, as: :auto_complete_field, collection: @collection, label_method: :name, value_method: :id
           ...
         end
 
@@ -104,7 +121,7 @@
       - e.code do
         simple_form(@search) do |f|
           ...
-          f.input :country, as: :autocomplete, grouped: true, collection: @collection,  group_method: :last, label_method: :name, value_method: :value
+          f.input :country, as: :auto_complete_field, grouped: true, collection: @collection,  group_method: :last, label_method: :name, value_method: :value
           ...
         end
 

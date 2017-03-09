@@ -5,10 +5,11 @@ class User < ApplicationRecord
   GLYPH = 'user'
 
   # Attr_accessor
-  searchable_attributes :name
+  searchable_attributes :email
   self.per_page = 3
 
   # Associations
+  belongs_to :country
 
   # Validations
 

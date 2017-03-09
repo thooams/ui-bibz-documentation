@@ -99,26 +99,26 @@
     = example do |c|
       - c.header do
         = list_group type: :link do |lg|
-          - lg.list 'Cras justo odio', state: :active
-          - lg.list 'Dapibus ac facilisis in'
-          - lg.list 'Morbi leo risus'
-          - lg.list 'Porta ac consectetur ac'
-          - lg.list 'Vestibulum at eros'
+          - lg.list 'Cras justo odio', url: "#1", state: :active
+          - lg.list 'Dapibus ac facilisis in', url: "#2"
+          - lg.list 'Morbi leo risus', url: "#3"
+          - lg.list 'Porta ac consectetur ac', url: "#4"
+          - lg.list 'Vestibulum at eros', url: "#5"
       - c.code do
         list_group type: :link do |lg|
-          lg.list 'Cras justo odio', state: :active
-          lg.list 'Dapibus ac facilisis in'
-          lg.list 'Morbi leo risus'
-          lg.list 'Porta ac consectetur ac'
-          lg.list 'Vestibulum at eros'
+          lg.list 'Cras justo odio', url: "#1",state: :active
+          lg.list 'Dapibus ac facilisis in', url: "#2"
+          lg.list 'Morbi leo risus', url: "#3"
+          lg.list 'Porta ac consectetur ac', url: "#4"
+          lg.list 'Vestibulum at eros', url: "#5"
         end
       - c.html do
         <div class="list-group">
-          <a class="active list-group-item">Cras justo odio</a>
-          <a class="list-group-item">Dapibus ac facilisis in</a>
-          <a class="list-group-item">Morbi leo risus</a>
-          <a class="list-group-item">Porta ac consectetur ac</a>
-          <a class="list-group-item">Vestibulum at eros</a>
+          <a class="active list-group-item" href="#1">Cras justo odio</a>
+          <a class="list-group-item" href="#2">Dapibus ac facilisis in</a>
+          <a class="list-group-item" href="#3">Morbi leo risus</a>
+          <a class="list-group-item" href="#4">Porta ac consectetur ac</a>
+          <a class="list-group-item" href="#5">Vestibulum at eros</a>
         </div>
       - c.footer do
         = documentation_link 'Documentation', '#'

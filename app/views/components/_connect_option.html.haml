@@ -9,7 +9,9 @@
     %li If you choose the <strong>remote mode</strong>, you must fill in the <strong>url</strong> so that the component can retrieve the information in Ajax.
 %p
   Output data, whether local or remote, must be written in this way:
-  <code> [{ id: integer, value: integer, connect_option_id: integer }, {...}] </code>.
+  <code> [{ value: Integer||String, text: String||Integer, connect_option_id: Integer||String }, {...}] </code>.
+%p
+  To have <strong>optgroup</strong>, format must be like that: <code> { label1: [{ text: String||Integer, value: String||Integer, connect_option_id: Integer||String }, {...}], label2: [...]}</code>
 
 = example do |e|
   - e.code do

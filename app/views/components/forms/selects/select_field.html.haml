@@ -70,7 +70,7 @@
         option_tags  = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
         \# First Select input
         options_data = 5.times.map{ |o| 5.times.map{ |i| { text: "New option \#{ o }.\#{ i }", value: i, connect_option_id: o }}}.flatten
-        connect      = { mode: 'local', target: { selector: '#example_2_target', data: option_tags }}}
+        connect      = { mode: 'local', target: { selector: '#example_2_target', data: options_data }}}
         select_field 'example 2', { option_tags: options_html, connect: connect }
 
         \# Second Select input
@@ -142,7 +142,7 @@
       - e.code do
         simple_form(@search) do |f|
           ...
-          f.input :price, as: :select, collection: @collection, label_method: :name, value_method: :value
+          f.input :price, as: :select_field, collection: @collection, label_method: :name, value_method: :value
           ...
         end
 

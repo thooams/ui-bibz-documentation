@@ -165,7 +165,7 @@
         option_tags  = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
         \# First Select input
         options_data = 5.times.map{ |o| 5.times.map{ |i| { text: "New option \#{ o }.\#{ i }", value: i, connect_option_id: o }}}.flatten
-        connect      = { mode: 'local', target: { selector: '#example_2_target', data: option_tags }}}
+        connect      = { mode: 'local', target: { selector: '#example_2_target', data: options_data }}}
         dropdown_select_field 'example 2', { option_tags: options_html, connect: connect }
 
         \# Second Select input
@@ -263,12 +263,17 @@
       %i label_method and value_method are optional
 
     = example do |e|
+      - e.header do
+        = simple_form_for(@user) do |f|
+          - f.association :country, as: :dropdown_select_field, collection: @countries, label_method: :name, value_method: :id
       - e.code do
-        simple_form(@search) do |f|
+        simple_form_for(@user) do |f|
           ...
-          f.input :price, as: :dropdown_select, collection: @collection, label_method: :name, value_method: :value
+          f.association :country, as: :dropdown_select_field, collection: @countries, label_method: :name, value_method: :id
           ...
         end
+      - e.footer do
+        = documentation_link 'Documentation', '#'
 
     %p
       You can use `grouped: true` option to group collection
@@ -280,12 +285,30 @@
 
 
     = example do |e|
+      - e.header do
+        = simple_form_for(@user) do |f|
+          - f.association :country, as: :dropdown_select_field, collection: @continents, grouped: true, group_method: :countries, label_method: :name, value_method: :id
       - e.code do
         simple_form(@search) do |f|
           ...
-          f.input :country, as: :dropdown_select, grouped: true, collection: @collection,  group_method: :last, label_method: :name, value_method: :value
+          f.input :country, as: :dropdown_select_field, grouped: true, collection: @collection,  group_method: :last, label_method: :name, value_method: :value
           ...
         end
+      - e.footer do
+        = documentation_link 'Documentation', '#'
 
+    %p You can add option <code>refresh</code> in your association.
+    = example do |e|
+      - e.header do
+        = simple_form_for(@user) do |f|
+          - f.association :country, as: :dropdown_select_field, refresh: { target: { selector: 'form:last select[name=country_id]', url: components_forms_selects_select_field_path }}, collection: @countries, label_method: :name, value_method: :id
+      - e.code do
+        simple_form_for(@user) do |f|
+          ...
+          f.association :country, as: :dropdown_select_field, refresh: { target: { url: components_forms_selects_select_field_path }}, collection: @countries, label_method: :name, value_method: :id
+          ...
+        end
+      - e.footer do
+        = documentation_link 'Documentation', '#'
 
 = @sections.render

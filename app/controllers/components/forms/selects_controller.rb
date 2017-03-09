@@ -1,5 +1,8 @@
 class Components::Forms::SelectsController < ApplicationController
 
+  before_action :get_countries
+  before_action :get_new_user
+
   def multi_select_field
   end
 
@@ -16,7 +19,19 @@ class Components::Forms::SelectsController < ApplicationController
   end
 
   def select_field
+    #render json: { "Europe" => [{ value: 1, text: 'New option 1'}, { value: 3, text: 'New option 3'}], "America" => [{ value: 2, text: 'New option 2'}]} if request.xhr?
     render json: [{ value: 1, text: 'New option 1'}, { value: 2, text: 'New option 2'}] if request.xhr?
+  end
+
+  private
+
+  def get_countries
+    @countries  = Country.all
+    @continents = Continent.all
+  end
+
+  def get_new_user
+    @user = User.new
   end
 
 end
