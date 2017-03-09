@@ -69,10 +69,10 @@
   - s.section title: "Selectable optgroup option" do
     = example do |e|
       - e.header do
-        - grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+        - grouped_options = { 'North America' => [['United states','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
         = multi_column_field 'example2', { option_tags: grouped_options_for_select(grouped_options), selectable_opt_group: true }
       - e.code do
-        grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+        grouped_options = { 'North America' => [['United states','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
         multi_column_field 'example', { option_tags: grouped_options_for_select(grouped_options), selectable_opt_group: true }
       - e.html do
         <select name="example2[]" id="example2" data-selectable-optgroup="true" class="multi-column" multiple="multiple" style="position: absolute; left: -9999px;">

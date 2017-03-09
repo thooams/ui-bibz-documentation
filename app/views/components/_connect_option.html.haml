@@ -6,7 +6,9 @@
   Vous pouvez choisir le mode de connection: locale ou distante.
   %ul
     %li You can choose the connection mode: local or remote. If you choose <strong>local mode</strong>, you will need to populate the data with an <strong>array</strong>.
-    %li If you choose the <strong>remote mode</strong>, you must fill in the <strong>url</strong> so that the component can retrieve the information in Ajax.
+    %li
+      If you choose the <strong>remote mode</strong>, you must fill in the <strong>url</strong> so that the component can retrieve the information in Ajax. The input name will be send in parameter.
+
 %p
   Output data, whether local or remote, must be written in this way:
   <code> [{ value: Integer||String, text: String||Integer, connect_option_id: Integer||String }, {...}] </code>.

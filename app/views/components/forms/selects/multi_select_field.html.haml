@@ -46,15 +46,15 @@
   - s.section title: "Clickable_opt_group option" do
     = example do |e|
       - e.header do
-        - grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+        - grouped_options = { 'North America' => [['United states','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
         = multi_select_field 'example2', { clickable_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
       - e.code do
-        grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+        grouped_options = { 'North America' => [['United states','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
         multi_select_field 'example', { clickable_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
       - e.html do
         <select name="example2[]" id="example2" data-enable-clickable-opt-groups="true" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
           <optgroup label="North America">
-            <option value="US">United statuss</option>
+            <option value="US">United states</option>
             <option value="Canada">Canada</option>
           </optgroup>
           <optgroup label="Europe">
@@ -67,7 +67,7 @@
           <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="None selected">None selected <b class="caret"></b></button>
           <ul class="multiselect-container dropdown-menu">
             <li class="multiselect-item group"><label class="multiselect-group">North America</label></li>
-            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="US"> United statuss</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="US"> United states</label></a></li>
             <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="Canada"> Canada</label></a></li>
             <li class="multiselect-item group"><label class="multiselect-group">Europe</label></li>
             <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="Denmark"> Denmark</label></a></li>
@@ -81,15 +81,15 @@
   - s.section title: "Collapsible_opt_group option" do
     = example do |e|
       - e.header do
-        - grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+        - grouped_options = { 'North America' => [['United states','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
         = multi_select_field 'example2', { collapsible_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
       - e.code do
-        grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+        grouped_options = { 'North America' => [['United states','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
         multi_select_field 'example', { collapsible_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
       - e.html do
         <select name="example2[]" id="example2" data-enable-collapsible-opt-groups="true" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
           <optgroup label="North America">
-            <option value="US">United statuss</option>
+            <option value="US">United states</option>
             <option value="Canada">Canada</option>
           </optgroup>
           <optgroup label="Europe">
@@ -102,7 +102,7 @@
           <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="None selected">None selected <b class="caret"></b></button>
           <ul class="multiselect-container dropdown-menu">
             <li class="multiselect-item group"><label class="multiselect-group">North America</label></li>
-            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="US"> United statuss</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="US"> United states</label></a></li>
             <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="Canada"> Canada</label></a></li>
             <li class="multiselect-item group"><label class="multiselect-group">Europe</label></li>
             <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="Denmark"> Denmark</label></a></li>
@@ -320,9 +320,10 @@
 
 
 
+
   - s.section title: "Simple form" do
     :markdown
-      You can use the multi_select input with gem [simple form](https://github.com/plataformatec/simple_form).
+      You can use the dropdown select field input with gem [simple form](https://github.com/plataformatec/simple_form).
 
       You must add this line in the file `"config/initializers/simple_form.rb"`
 
@@ -331,13 +332,64 @@
         \...
         config.custom_inputs_namespaces << "CustomInputs"
         \...
-    %p Then in your view, you can insert your input multi_select field.
+    %p
+      Then in your view, you can insert your input dropdown select field.
+      This simple form component is based on simple_form
+      = link_to "collection", "https://github.com/plataformatec/simple_form#collections"
+      %br
+      Collection inputs accept two other options beside collections:
+      %ul
+        %li label_method => the label method to be applied to the collection to retrieve the label (use this instead of the text_method option in collection_select)
+        %li value_method => the value method to be applied to the collection to retrieve the value
+      %i label_method and value_method are optional
+
     = example do |e|
+      - e.header do
+        = simple_form_for(@user) do |f|
+          - f.association :country, as: :multi_select_field, collection: @countries, label_method: :name, value_method: :id
+      - e.code do
+        simple_form_for(@user) do |f|
+          ...
+          f.association :country, as: :multi_select_field, collection: @countries, label_method: :name, value_method: :id
+          ...
+        end
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+    %p
+      You can use `grouped: true` option to group collection
+      %br
+      Grouped collection inputs accept the same :label_method and :value_method options, which will be used to retrieve label/value attributes for the option tags. Besides that, you can give:
+      %ul
+        %li group_method => the method to be called on the given collection to generate the options for each group (required)
+        %li group_label_method => the label method to be applied on the given collection to retrieve the label for the optgroup (Simple Form will attempt to guess the best one the same way it does with :label_method)
+
+
+    = example do |e|
+      - e.header do
+        = simple_form_for(@user) do |f|
+          - f.association :country, as: :multi_select_field, collection: @continents, grouped: true, group_method: :countries, label_method: :name, value_method: :id
       - e.code do
         simple_form(@search) do |f|
           ...
-          f.input :company, as: :multi_select_field, searchable: true
+          f.input :country, as: :multi_select_field, grouped: true, collection: @collection,  group_method: :last, label_method: :name, value_method: :value
           ...
         end
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+    %p You can add option <code>refresh</code> in your association.
+    = example do |e|
+      - e.header do
+        = simple_form_for(@user) do |f|
+          - f.association :country, as: :multi_select_field, refresh: { target: { selector: 'form:last select[id=country_id]', url: components_forms_selects_select_field_path }}, collection: @countries, label_method: :name, value_method: :id
+      - e.code do
+        simple_form_for(@user) do |f|
+          ...
+          f.association :country, as: :multi_select_field, refresh: { target: { url: components_forms_selects_select_field_path }}, collection: @countries, label_method: :name, value_method: :id
+          ...
+        end
+      - e.footer do
+        = documentation_link 'Documentation', '#'
 
 = @sections.render
