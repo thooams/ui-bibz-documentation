@@ -88,6 +88,28 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
+  - s.section title: "Optgroup options" do
+    = example do |e|
+      - e.header do
+        - grouped_options = { 'North America' => [['United states','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+        =  dropdown_select_field 'example 1', option_tags: grouped_options_for_select(grouped_options)
+      - e.code do
+        grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+        dropdown_select_field 'example 1', option_tags: grouped_options_for_select(grouped_options)
+      - e.html do
+        :plain
+          <select name="example 1" id="example_1" class="select-field form-control">
+            <optgroup label="North America">
+              <option value="US">United states</option>
+              <option value="Canada">Canada</option></optgroup>
+            <optgroup label="Europe">
+              <option value="Denmark">Denmark</option>
+              <option value="Germany">Germany</option>
+              <option value="France">France</option>
+            </optgroup>
+          </select>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
 
   - s.section title: "Searchable option" do
     = example do |e|
