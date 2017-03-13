@@ -342,7 +342,7 @@
           - refresh = { target: { selector: 'form:last select[name=name]', url: components_forms_selects_select_field_path }}
           - connect = { target: { selector: '#company', url: components_forms_selects_select_field_path }}
           = f.input :name, prompt: 'select tatatat', include_blank: true, as: :dropdown_select_field, refresh: refresh, connect: connect, collection: @countries, label_method: :name, value_method: :id
-          = f.input :company, as: :dropdown_select_field, collection: @countries, label_method: :name, value_method: :id
+          = f.input :company, as: :dropdown_select_field, refresh: { target: { url: components_forms_selects_select_field_path }}, collection: @countries, label_method: :name, value_method: :id
       - e.code do
         simple_form_for(@user) do |f|
           ...
