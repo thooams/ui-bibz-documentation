@@ -8,7 +8,7 @@ class Components::Forms::SelectsController < ApplicationController
 
   def multi_column_field
     if request.xhr?
-      data = (params[:ids] || []).map do |i|
+      data = [params["example_1s"], params["example_2s"]].flatten.compact.map do |i|
         [{ value: 1+i.to_i, text: "New option 1.#{ i }"}, { value: 6+i.to_i, text: "New option 2.#{ i }"}]
       end.flatten
       render json: data

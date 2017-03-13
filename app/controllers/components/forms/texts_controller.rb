@@ -3,7 +3,7 @@ class Components::Forms::TextsController < ApplicationController
   def surround_field
   end
 
-  def autocomplete_field
+  def auto_complete_field
   end
 
 end

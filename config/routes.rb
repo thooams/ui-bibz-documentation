@@ -32,7 +32,7 @@ Rails.application.routes.draw do
       # texts
       namespace :texts do
         get 'surround-field'
-        get 'autocomplete-field'
+        get 'auto-complete-field'
       end
 
       # textareas
