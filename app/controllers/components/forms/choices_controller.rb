@@ -1,4 +1,4 @@
-class Components::Forms::ChoicesController < ApplicationController
+class Components::Forms::ChoicesController < Components::FormsController
 
   def switch_field
   end

@@ -1,4 +1,4 @@
-class Components::Forms::TextsController < ApplicationController
+class Components::Forms::TextsController < Components::FormsController
 
   def surround_field
   end

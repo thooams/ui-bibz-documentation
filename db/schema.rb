@@ -31,8 +31,10 @@ ActiveRecord::Schema.define(version: 20170309084453) do
     t.boolean  "active"
     t.integer  "country_id"
     t.string   "company"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.float    "price"
+    t.string   "price_formula"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
 end

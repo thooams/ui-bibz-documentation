@@ -40,25 +40,30 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
-
   - s.section title: "Simple form" do
     :markdown
-      You can use the surround input with gem [simple form](https://github.com/plataformatec/simple_form).
-
-      You must add this line in the file `"config/initializers/simple_form.rb"`
-
+      You can use the `surround_field` input gem with [simple form](https://github.com/plataformatec/simple_form).
+      You must add this line to the `"config/initializers/simple_form.rb"`
     = example do |e|
       - e.code do
         \...
         config.custom_inputs_namespaces << "CustomInputs"
         \...
-    %p Then in your view, you can insert your input surround field.
+
+    %p Then in your view , you can insert your input.
     = example do |e|
+      - e.header do
+        = simple_form_for(@user) do |f|
+          - f.input :email, as: :surround_field, append: glyph('envelope')
       - e.code do
         simple_form(@search) do |f|
           ...
-          f.input :price, as: :surround_field, append: '$'
+          f.input :email, as: :surround_field, append: glyph('envelope')
           ...
         end
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+
 
 = @sections.render

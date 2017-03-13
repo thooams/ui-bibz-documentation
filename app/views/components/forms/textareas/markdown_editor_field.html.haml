@@ -77,7 +77,7 @@
 
   - s.section title: "Simple form" do
     :markdown
-      You can use the `markdown_editor` input gem with [simple form](https://github.com/plataformatec/simple_form).
+      You can use the `markdown_editor` with gem [simple form](https://github.com/plataformatec/simple_form).
       You must add this line to the `"config/initializers/simple_form.rb"`
     = example do |e|
       - e.code do
@@ -85,13 +85,18 @@
         config.custom_inputs_namespaces << "CustomInputs"
         \...
 
-    %p Then in your view , you can insert your input field date_pickerm.
+    %p Then in your view , you can insert your input.
     = example do |e|
+      - e.header do
+        = simple_form_for(@user) do |f|
+          = f.input :name, as: :markdown_editor_field
       - e.code do
-        simple_form(@search) do |f|
+        simple_form(@user) do |f|
           ...
-          f.input :comments, as: :markdown_editor_field
+          f.input :name, as: :markdown_editor_field
           ...
         end
+      - e.footer do
+        = documentation_link 'Documentation', '#'
 
 = @sections.render

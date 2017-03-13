@@ -1,4 +1,4 @@
-class Components::Forms::NumbersController < ApplicationController
+class Components::Forms::NumbersController < Components::FormsController
 
   def formula_field
   end

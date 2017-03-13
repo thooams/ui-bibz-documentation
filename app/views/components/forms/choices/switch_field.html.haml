@@ -218,4 +218,30 @@
         </div>
       - e.footer do
         = documentation_link 'Documentation', '#'
+
+  - s.section title: "Simple form" do
+    :markdown
+      You can use the <code>switch field</code> with gem [simple form](https://github.com/plataformatec/simple_form).
+
+      You must add this line in the file `"config/initializers/simple_form.rb"`
+
+    = example do |e|
+      - e.code do
+        \...
+        config.custom_inputs_namespaces << "CustomInputs"
+        \...
+    %p Then in your view, you can insert your input.
+    = example do |e|
+      - e.header do
+        = simple_form_for(@user) do |f|
+          - f.input :active, as: :switch_field
+      - e.code do
+        simple_form(@user) do |f|
+          ...
+          f.input :active, as: :switch_field
+          ...
+        end
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
 = @sections.render

@@ -363,7 +363,7 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Refresh Connected" do
+  -# s.section title: "Refresh Connected" do
     %p Option <code>refresh</code> take same arguments than <code>connect</code> option.
     = example do |e|
       - e.header do
@@ -438,11 +438,16 @@
 
     %p Then in your view, you can insert your input multi_column field.
     = example do |e|
+      - e.header do
+        = simple_form_for(@user) do |f|
+          - f.input :country, as: :multi_column_field, collection: @countries
       - e.code do
         simple_form(@search) do |f|
           ...
-          f.input :company, as: :multi_column_field, searchable: true
+          f.input :country, as: :multi_column_field, collection: @countries
           ...
         end
+      - e.footer do
+        = documentation_link 'Documentation', '#'
 
 = @sections.render

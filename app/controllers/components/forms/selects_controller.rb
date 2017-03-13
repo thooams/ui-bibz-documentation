@@ -1,7 +1,6 @@
-class Components::Forms::SelectsController < ApplicationController
+class Components::Forms::SelectsController < Components::FormsController
 
   before_action :get_countries
-  before_action :get_new_user
 
   def multi_select_field
   end
@@ -28,10 +27,6 @@ class Components::Forms::SelectsController < ApplicationController
   def get_countries
     @countries  = Country.all
     @continents = Continent.all
-  end
-
-  def get_new_user
-    @user = User.new
   end
 
 end

@@ -1,4 +1,4 @@
-class Components::Forms::ButtonsController < ApplicationController
+class Components::Forms::ButtonsController < Components::FormsController
 
   def button
   end

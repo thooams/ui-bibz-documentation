@@ -6,6 +6,8 @@ class CreateUsers < ActiveRecord::Migration
       t.boolean :active
       t.integer :country_id
       t.string :company
+      t.float :price
+      t.string :price_formula
 
       t.timestamps null: false
     end
