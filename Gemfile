@@ -33,6 +33,8 @@ gem 'rouge'
 gem 'ui_bibz', path: '~/Apps/Ui-Bibz'
 #gem 'ui_bibz', '~> 2.0.0.alpha2'
 
+gem 'awesome_print', group: :development
+
 gem 'foreman'
 
 # Use ActiveModel has_secure_password

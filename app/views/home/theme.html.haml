@@ -309,7 +309,7 @@
       = navbar title: 'Navbar' do |nb|
         - nb.nav do |n|
           - n.link 'Home', url: '#active', state: :active
-        - nb.form '/search', { type: :form_tag, position: :right } do
+        - nb.form '#', { method: :get, type: :form_tag, position: :right } do
           = surround_field 'Search'
           = button 'Search', status: :success, outline: true
     - c.block do
@@ -326,18 +326,34 @@
             - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
               = "Action 3"
     - c.block do
-      = col num: 6 do
-        - %w(primary inverse success warning danger info).each do |s|
-          = navbar title: 'Navbar', status: s.to_sym do |nb|
-            - nb.nav do |n|
-              - n.link 'Home', url: '#active', state: :active
-          %br
-      = col num: 6 do
-        - %w(primary inverse success warning danger info).each do |s|
-          = navbar title: 'Navbar', status: s.to_sym, type: :dark do |nb|
-            - nb.nav do |n|
-              - n.link 'Home', url: '#active', state: :active
-          %br
+      - %w(primary inverse success warning danger info).each do |s|
+        = navbar title: 'Navbar', status: s.to_sym do |nb|
+          - nb.nav do |n|
+            - n.link 'Home', url: '#active', state: :active
+            - n.link url: '#link', class: 'my-link' do
+              Features
+            - n.link 'Pricing', url: '#another-link'
+            - n.dropdown 'Dropdown' do |d|
+              - d.link "Action 1", url: '#action'
+              - d.link url: '#another-action' do
+                = "Action 2"
+              - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+                = "Action 3"
+        %br
+      - %w(primary inverse success warning danger info).each do |s|
+        = navbar title: 'Navbar', status: s.to_sym, type: :dark do |nb|
+          - nb.nav do |n|
+            - n.link 'Home', url: '#active', state: :active
+            - n.link url: '#link', class: 'my-link' do
+              Features
+            - n.link 'Pricing', url: '#another-link'
+            - n.dropdown 'Dropdown' do |d|
+              - d.link "Action 1", url: '#action'
+              - d.link url: '#another-action' do
+                = "Action 2"
+              - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+                = "Action 3"
+        %br
     - c.footer see_component components_navs_navbar_path
 
   // Progress component
@@ -372,8 +388,8 @@
   - cc.card tap: true do |c|
     - c.header "Forms"
     - c.block do
-      %label autocomplete_field
-      = autocomplete_field 'example1', { option_tags: options_for_select(10.times.map{ |i| "option #{i}" }) }, { placeholder: 'Type option..' }
+      %label auto_complete_field
+      = auto_complete_field 'example1', { option_tags: options_for_select(5.times.map{ |i| "option #{i}" }) }, { placeholder: 'Type option..' }
     - c.block do
       %label dropdown_select_field
       = dropdown_select_field 'example1', searchable: true, option_tags: options_for_select(5.times.map{ |i| "option #{i}" })
@@ -408,13 +424,15 @@
         = file_field_tag :file, class: 'custom-file-input'
         %span.custom-file-control
     - c.block do
-      %label checkbox_field
-      - UiBibzApp::Application::STATUSES.each do |status|
-        = checkbox_field eval(status), { status: eval(status), checked: true, inline: true }
-    - c.block do
-      %label radio_field
-      - UiBibzApp::Application::STATUSES.each_with_index do |status, i|
-        = radio_field :status, { value: status, label: eval(status), status: eval(status), inline: true, checked: i == 0 }
+      = row do
+        = col num: 6 do
+          %label checkbox_field
+          - UiBibzApp::Application::STATUSES.each do |status|
+            = checkbox_field eval(status), { status: eval(status), checked: true, inline: true }
+        = col num: 6 do
+          %label radio_field
+          - UiBibzApp::Application::STATUSES.each_with_index do |status, i|
+            = radio_field :status, { value: status, label: eval(status), status: eval(status), inline: true, checked: i == 0 }
 
 = card_deck do |cd|
 

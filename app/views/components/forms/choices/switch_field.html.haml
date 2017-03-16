@@ -1,6 +1,6 @@
 = title 'Switch Field'
 %blockquote UiBibz::Ui::Core::Forms::Choices::SwitchField
-%p.bd-callout= based_on link_to "Bootstrap Switch", "http://www.bootstrap-switch.org/", target: '_blank'
+%p.bd-callout= based_on link_to "Bootstrap Switch", "http://bootstrapswitch.com/", target: '_blank'
 
 = code "switch_field", component_name: "name"
 
@@ -233,8 +233,9 @@
     %p Then in your view, you can insert your input.
     = example do |e|
       - e.header do
+        - @user.active = true
         = simple_form_for(@user) do |f|
-          - f.input :active, as: :switch_field
+          = f.input :active, as: :switch_field
       - e.code do
         simple_form(@user) do |f|
           ...

@@ -93,9 +93,9 @@
         = simple_form_for(@user) do |f|
           - f.input :name, as: :auto_complete_field, collection: 5.times.map{|i| "name #{i}"}
       - e.code do
-        simple_form(@search) do |f|
+        simple_form(@user) do |f|
           ...
-          f.input :price, as: :auto_complete_field, collection: 5.times.map{|i| "name \#{i}"}
+          f.input :name, as: :auto_complete_field, collection: 5.times.map{|i| "name \#{i}"}
           ...
         end
       - e.footer do
