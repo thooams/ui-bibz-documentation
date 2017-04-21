@@ -47,7 +47,7 @@
               - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
                 = "Action 3"
           - nb.form '/search', { type: :form_tag, position: :right } do
-            = surround_field 'Search'
+            = text_field 'Search'
             = button('Search', status: :success, outline: true)
       - c.code do
         navbar title: 'Navbar' do |nb|

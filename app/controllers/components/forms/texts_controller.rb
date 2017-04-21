@@ -1,6 +1,6 @@
 class Components::Forms::TextsController < Components::FormsController
 
-  def surround_field
+  def text_field
   end
 
   def auto_complete_field

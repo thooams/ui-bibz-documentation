@@ -1,0 +1,35 @@
+= title 'Surround Field'
+%blockquote UiBibz::Ui::Core::Forms::Surrounds::SurroundField
+
+= code "surround_field", component_name: "name"
+
+= component_options do |co|
+  - co.status_link
+  - co.state_link
+  - co.list 'append', types: 'html'
+  - co.list 'prepend', types: 'html'
+
+- @sections = sections do |s|
+  - s.section title: "Surround Field" do
+    = example do |e|
+      - e.header do
+        = surround_field do |sf|
+          - sf.button 'button'
+          - sf.addon  '€'
+          - sf.dropdown 'dropdown' do |d|
+            - d.link 'test', url: '#test'
+          - sf.glyph 'pencil'
+          - sf.button_group do
+            = button_choice 'choice 1'
+            = button_choice 'choice 2'
+          - sf.button_link 'link', url: '#link'
+          - sf.checkbox_field 'check', label: false
+          - sf.radio_field 'check', label: false
+      - e.code do
+        surround_field 'search'
+      - e.html do
+        <input type="text" name="search" id="search" placeholder="Type your search..." class="form-control">
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+= @sections.render

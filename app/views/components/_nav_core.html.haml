@@ -40,6 +40,10 @@
       - na.link 'Multi column field', nav_options(components_forms_selects_multi_column_field_path)
       - na.link 'Multi select field', nav_options(components_forms_selects_multi_select_field_path)
 
+    - no.link 'Surrounds', url: '#', state: :disabled
+    - no.nav do |na|
+      - na.link 'Surround field', nav_options(components_forms_surrounds_surround_field_path)
+
     - no.link 'Textareas', url: '#', state: :disabled
     - no.nav do |na|
       - na.link 'Markdown editor field', nav_options(components_forms_textareas_markdown_editor_field_path)
@@ -47,7 +51,7 @@
     - no.link 'Texts', url: '#', state: :disabled
     - no.nav do |na|
       - na.link 'Auto complete field', nav_options(components_forms_texts_auto_complete_field_path)
-      - na.link 'Suround field', nav_options(components_forms_texts_surround_field_path)
+      - na.link 'Text field', nav_options(components_forms_texts_text_field_path)
 
   - nc.link 'Glyph', nav_options(components_glyph_path)
   - nc.link 'Jumbotron', nav_options(components_jumbotron_path)

@@ -310,7 +310,7 @@
         - nb.nav do |n|
           - n.link 'Home', url: '#active', state: :active
         - nb.form '#', { method: :get, type: :form_tag, position: :right } do
-          = surround_field 'Search'
+          = text_field 'Search'
           = button 'Search', status: :success, outline: true
     - c.block do
       = navbar title: 'Navbar' do |nb|
@@ -412,8 +412,8 @@
       - grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
       = multi_select_field 'example', select_all_option: true, searchable: true, collapsible_opt_group: true, option_tags: grouped_options_for_select(grouped_options)
     - c.block do
-      %label surround_field
-      = surround_field 'search', { append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
+      %label text_field
+      = text_field 'search', { append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
     - c.block do
       %label switch_field
       %br

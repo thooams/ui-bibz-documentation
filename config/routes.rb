@@ -29,9 +29,14 @@ Rails.application.routes.draw do
         get 'button-split-dropdown'
       end
 
+      # surrounds
+      namespace :surrounds do
+        get 'surround-field'
+      end
+
       # texts
       namespace :texts do
-        get 'surround-field'
+        get 'text-field'
         get 'auto-complete-field'
       end
 

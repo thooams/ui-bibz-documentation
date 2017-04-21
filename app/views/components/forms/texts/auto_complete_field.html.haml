@@ -12,6 +12,8 @@
 = component_options do |co|
   - co.state_link
   - co.list 'option_tags', types: 'html'
+  - co.list 'append', types: 'html'
+  - co.list 'prepend', types: 'html'
 
 - @sections = sections do |s|
   - s.section title: "Auto Complete Field" do
@@ -29,6 +31,29 @@
           <option value="option 3">option 3</option>
           <option value="option 4">option 4</option>
         </datalist>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Auto Complete Field surrounded" do
+    = example do |e|
+      - e.header do
+        = auto_complete_field 'example1', option_tags: options_for_select(5.times.map{ |i| "option #{i}" }), append: glyph('pencil'), prepend: glyph('camera-retro')
+      - e.code do
+        auto_complete_field 'example1', option_tags: options_for_select(5.times.map{ |i| "option \#{i}" }), append: glyph('pencil'), prepend: glyph('camera-retro')
+      - e.html do
+        :plain
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyph fa fa-pencil"></i></span>
+            <input type="text" name="example1" id="example1" class="form-control" autocomplete="true" list="example1-datalist">
+            <datalist id="example1-datalist">
+              <option value="option 0">option 0</option>
+              <option value="option 1">option 1</option>
+              <option value="option 2">option 2</option>
+              <option value="option 3">option 3</option>
+              <option value="option 4">option 4</option>
+            </datalist>
+            <span class="input-group-addon"><i class="glyph fa fa-camera-retro"></i></span>
+          </div>
       - e.footer do
         = documentation_link 'Documentation', '#'
 

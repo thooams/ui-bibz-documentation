@@ -199,7 +199,7 @@
       - e.code do
         simple_form(@search) do |f|
           ...
-          f.input :country, as: :select_field, grouped: true, collection: @collection,  group_method: :last, label_method: :name, value_method: :value
+          f.input :country, as: :select_field, grouped: true, collection: @continents,  group_method: :countries, label_method: :name, value_method: :id
           ...
         end
       - e.footer do

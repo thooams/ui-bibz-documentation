@@ -1,7 +1,7 @@
-= title 'Surround Field'
-%blockquote UiBibz::Ui::Core::Forms::Texts::SurroundField
+= title 'Text Field'
+%blockquote UiBibz::Ui::Core::Forms::Texts::TextField
 
-= code "surround_field", component_name: "name"
+= code "text_field", component_name: "name"
 
 = component_options do |co|
   - co.status_link
@@ -10,12 +10,23 @@
   - co.list 'prepend', types: 'html'
 
 - @sections = sections do |s|
-  - s.section title: "Surround Field" do
+  - s.section title: "Text Field" do
     = example do |e|
       - e.header do
-        = surround_field 'search', { append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
+        = text_field 'search'
       - e.code do
-        surround_field 'search', { append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
+        text_field 'search'
+      - e.html do
+        <input type="text" name="search" id="search" placeholder="Type your search..." class="form-control">
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Text Field surrounded" do
+    = example do |e|
+      - e.header do
+        = text_field 'search', { append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
+      - e.code do
+        text_field 'search', { append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
       - e.html do
         <div class="input-group">
           <span class="input-group-addon"><i class="glyph fa fa-pencil"></i></span>
@@ -25,12 +36,12 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Surround Field Options" do
+  - s.section title: "Text Field Options" do
     = example do |e|
       - e.header do
-        = surround_field 'search', { state: :disabled, status: :danger, append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
+        = text_field 'search', { state: :disabled, status: :danger, append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
       - e.code do
-        surround_field 'search', { state: :disabled, status: :danger, append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
+        text_field 'search', { state: :disabled, status: :danger, append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
       - e.html do
         <div class="input-group has-danger">
           <span class="input-group-addon"><i class="glyph fa fa-pencil"></i></span>
@@ -42,7 +53,7 @@
 
   - s.section title: "Simple form" do
     :markdown
-      You can use the `surround_field` input gem with [simple form](https://github.com/plataformatec/simple_form).
+      You can use the `text_field` input gem with [simple form](https://github.com/plataformatec/simple_form).
       You must add this line to the `"config/initializers/simple_form.rb"`
     = example do |e|
       - e.code do
@@ -54,11 +65,11 @@
     = example do |e|
       - e.header do
         = simple_form_for(@user) do |f|
-          - f.input :email, as: :surround_field, append: glyph('envelope')
+          - f.input :email, as: :text_field, append: glyph('envelope')
       - e.code do
         simple_form(@search) do |f|
           ...
-          f.input :email, as: :surround_field, append: glyph('envelope')
+          f.input :email, as: :text_field, append: glyph('envelope')
           ...
         end
       - e.footer do
