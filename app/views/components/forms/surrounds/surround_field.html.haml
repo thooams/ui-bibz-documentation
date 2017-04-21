@@ -14,15 +14,21 @@
     = example do |e|
       - e.header do
         = surround_field do |sf|
+          - sf.auto_complete_field 'name', option_tags: select_options_tags
           - sf.button 'button'
+          - sf.dropdown_select_field 'select', option_tags: select_options_tags
           - sf.addon  '€'
+          - sf.select_field 'select', option_tags: select_options_tags
           - sf.dropdown 'dropdown' do |d|
             - d.link 'test', url: '#test'
           - sf.glyph 'pencil'
+          - sf.date_picker_field 'date'
+          - sf.button_refresh
           - sf.button_group do
             = button_choice 'choice 1'
             = button_choice 'choice 2'
           - sf.button_link 'link', url: '#link'
+          - sf.multi_select_field 'select', option_tags: select_options_tags
           - sf.checkbox_field 'check', label: false
           - sf.radio_field 'check', label: false
       - e.code do
