@@ -8,6 +8,8 @@
   - co.list 'option_tags', types: %w(array object)
   - co.list 'connect', types: "hash"
   - co.list 'refresh', types: "hash"
+  - co.list 'append', types: %w(string html)
+  - co.list 'prepend', types: %w(string html)
 
 - @sections = sections do |s|
 
@@ -50,6 +52,16 @@
               <option value="France">France</option>
             </optgroup>
           </select>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Surround options" do
+    = example do |e|
+      - e.header do
+        = select_field 'example1', option_tags: select_options_tags, append: glyph('pencil'), prepend: glyph('diamond')
+      - e.code do
+        option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
+        select_field 'example1', option_tags: select_options_tags, append: glyph('pencil'), prepend: glyph('diamond')
       - e.footer do
         = documentation_link 'Documentation', '#'
 

@@ -13,6 +13,8 @@
   - co.list 'searchable', types: 'boolean'
   - co.list 'select_all_option', types: 'boolean'
   - co.list 'connect', types: 'hash'
+  - co.list 'append', types: %w(string html)
+  - co.list 'prepend', types: %w(string html)
 
 - @sections = sections do |s|
   - s.section title: "Multi Select Field" do

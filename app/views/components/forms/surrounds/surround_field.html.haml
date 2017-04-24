@@ -8,33 +8,278 @@
   - co.state_link
   - co.list 'append', types: 'html'
   - co.list 'prepend', types: 'html'
+  - co.list 'addon', types: 'component'
+  - co.list link_to('button', components_forms_buttons_button_path), types: 'component'
+  - co.list link_to('button_group', components_forms_buttons_button_group_path), types: 'component'
+  - co.list link_to('button_link', components_forms_buttons_button_link_path), types: 'component'
+  - co.list link_to('checkbox_field', components_forms_choices_checkbox_field_path), types: 'component'
+  - co.list link_to('radio_field', components_forms_choices_radio_field_path), types: 'component'
+  - co.list link_to('date_picker_field', components_forms_dates_date_picker_field_path), types: 'component'
+  - co.list link_to('dropdown_select_field', components_forms_selects_dropdown_select_field_path), types: 'component'
+  - co.list link_to('multi_select_field', components_forms_selects_multi_select_field_path), types: 'component'
+  - co.list link_to('select_field', components_forms_selects_select_field_path), types: 'component'
+  - co.list link_to('auto_complete_field', components_forms_texts_auto_complete_field_path), types: 'component'
+  - co.list link_to('text_field', components_forms_texts_text_field_path), types: 'component'
 
 - @sections = sections do |s|
   - s.section title: "Surround Field" do
     = example do |e|
       - e.header do
         = surround_field do |sf|
+          - sf.checkbox_field 'check', label: false
           - sf.auto_complete_field 'name', option_tags: select_options_tags
           - sf.button 'button'
-          - sf.dropdown_select_field 'select', option_tags: select_options_tags
           - sf.addon  '€'
+        %br
+        = surround_field do |sf|
+          - sf.radio_field 'check', label: false
           - sf.select_field 'select', option_tags: select_options_tags
           - sf.dropdown 'dropdown' do |d|
             - d.link 'test', url: '#test'
           - sf.glyph 'pencil'
           - sf.date_picker_field 'date'
+
+        %br
+        = surround_field do |sf|
           - sf.button_refresh
+          - sf.dropdown_select_field 'select', option_tags: select_options_tags
           - sf.button_group do
             = button_choice 'choice 1'
             = button_choice 'choice 2'
-          - sf.button_link 'link', url: '#link'
           - sf.multi_select_field 'select', option_tags: select_options_tags
-          - sf.checkbox_field 'check', label: false
-          - sf.radio_field 'check', label: false
+          - sf.button_link 'link', url: '#link'
       - e.code do
-        surround_field 'search'
+        :plain
+          surround_field do |sf|
+            sf.checkbox_field 'check', label: false
+            sf.auto_complete_field 'name', option_tags: select_options_tags
+            sf.button 'button'
+            sf.addon  '€'
+          end
+          surround_field do |sf|
+            sf.radio_field 'check', label: false
+            sf.select_field 'select', option_tags: select_options_tags
+            sf.dropdown 'dropdown' do |d|
+              d.link 'test', url: '#test'
+            sf.glyph 'pencil'
+            sf.date_picker_field 'date'
+          end
+          surround_field do |sf|
+            sf.button_refresh
+            sf.dropdown_select_field 'select', option_tags: select_options_tags
+            sf.button_group do
+              = button_choice 'choice 1'
+              = button_choice 'choice 2'
+            end
+            sf.multi_select_field 'select', option_tags: select_options_tags
+            sf.button_link 'link', url: '#link'
+          end
       - e.html do
-        <input type="text" name="search" id="search" placeholder="Type your search..." class="form-control">
+        :plain
+          <div class="card-header">
+            <div class="input-group">
+              <div class="abc-checkbox-default checkbox abc-checkbox input-group-addon">
+                <input type="checkbox" name="check" id="check" class="styled">
+                <label class="fix-label" for="check">&nbsp;</label>
+              </div>
+              <input type="text" name="name" id="name" class="form-control auto-complete-field" autocomplete="true" list="name-datalist">
+              <datalist id="name-datalist">
+                <option value="0">option 0</option>
+                <option value="1">option 1</option>
+                <option value="2">option 2</option>
+                <option value="3">option 3</option>
+                <option value="4">option 4</option>
+              </datalist>
+              <div class="input-group-btn">
+                <button class="btn-primary btn">button</button>
+              </div>
+              <span class="input-group-addon">€</span>
+            </div>
+            <br>
+            <div class="input-group">
+              <div class="abc-radio-default radio abc-radio input-group-addon">
+                <input type="radio" name="check" id="check_">
+                <label class="fix-label" for="check_">&nbsp;</label>
+              </div>
+              <select name="select" id="select" class="select-field form-control">
+                <option value="0">option 0</option>
+                <option value="1">option 1</option>
+                <option value="2">option 2</option>
+                <option value="3">option 3</option>
+                <option value="4">option 4</option>
+              </select>
+              <div class="dropdown btn-group input-group-btn">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">dropdown <span class="caret">
+                  </span>
+                </button>
+                <div class="dropdown-menu dropdown-menu-left">
+                  <a class="dropdown-item" href="#test">test</a>
+                </div>
+              </div>
+              <span class="input-group-addon">
+                <i class="glyph fa fa-pencil">
+                </i>
+              </span>
+              <input type="text" name="date" id="date" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" class="date_picker form-control">
+            </div>
+            <br>
+            <div class="input-group">
+              <div class="input-group-btn">
+                <span data-connect="{&quot;events&quot;:&quot;click&quot;,&quot;mode&quot;:&quot;remote&quot;,&quot;target&quot;:{&quot;selector&quot;:&quot;&quot;,&quot;url&quot;:&quot;&quot;,&quot;data&quot;:[]}}" class="btn-primary ui-bibz-connect btn input-refresh-button">
+                  <i class="glyph fa fa-refresh">
+                  </i> </span>
+              </div>
+              <div class="btn-group bootstrap-select input-group-btn dropdown-select-field">
+                <button type="button" class="btn dropdown-toggle btn-secondary" data-toggle="dropdown" data-id="select" title="option 0">
+                  <span class="filter-option pull-left">option 0</span>&nbsp;<span class="bs-caret">
+                    <span class="caret">
+                    </span>
+                  </span>
+                </button>
+                <div class="dropdown-menu open">
+                  <ul class="dropdown-menu inner" role="menu">
+                    <li data-original-index="0" class="selected">
+                      <a tabindex="0" class="" style="" data-tokens="null">
+                        <span class="text">option 0</span>
+                        <span class="fa fa-check check-mark">
+                        </span>
+                      </a>
+                    </li>
+                    <li data-original-index="1">
+                      <a tabindex="0" class="" style="" data-tokens="null">
+                        <span class="text">option 1</span>
+                        <span class="fa fa-check check-mark">
+                        </span>
+                      </a>
+                    </li>
+                    <li data-original-index="2">
+                      <a tabindex="0" class="" style="" data-tokens="null">
+                        <span class="text">option 2</span>
+                        <span class="fa fa-check check-mark">
+                        </span>
+                      </a>
+                    </li>
+                    <li data-original-index="3">
+                      <a tabindex="0" class="" style="" data-tokens="null">
+                        <span class="text">option 3</span>
+                        <span class="fa fa-check check-mark">
+                        </span>
+                      </a>
+                    </li>
+                    <li data-original-index="4">
+                      <a tabindex="0" class="" style="" data-tokens="null">
+                        <span class="text">option 4</span>
+                        <span class="fa fa-check check-mark">
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <select name="select" id="select" class="dropdown-select-field" tabindex="-98">
+                  <option value="0">option 0</option>
+                  <option value="1">option 1</option>
+                  <option value="2">option 2</option>
+                  <option value="3">option 3</option>
+                  <option value="4">option 4</option>
+                </select>
+              </div>
+              <div data-toggle="buttons" class="input-group-btn" role="group">
+                <label class="btn-primary btn">
+                  <input type="checkbox" autocomplete="off">choice 1</label>
+                <label class="btn-primary btn">
+                  <input type="checkbox" autocomplete="off">choice 2</label>
+              </div>
+              <select name="select[]" id="select" class="btn-secondary multi-select-field" multiple="multiple" style="display: none;">
+                <option value="0">option 0</option>
+                <option value="1">option 1</option>
+                <option value="2">option 2</option>
+                <option value="3">option 3</option>
+                <option value="4">option 4</option>
+              </select>
+              <div class="btn-group input-group-btn">
+                <button type="button" class="multiselect dropdown-toggle btn btn-secondary multi-select-field" data-toggle="dropdown" title="None selected">None selected <b class="caret">
+                  </b>
+                </button>
+                <ul class="multiselect-container dropdown-menu">
+                  <li>
+                    <a href="javascript:void(0);">
+                      <label class="checkbox">
+                        <input type="checkbox" value="0"> option 0</label>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="javascript:void(0);">
+                      <label class="checkbox">
+                        <input type="checkbox" value="1"> option 1</label>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="javascript:void(0);">
+                      <label class="checkbox">
+                        <input type="checkbox" value="2"> option 2</label>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="javascript:void(0);">
+                      <label class="checkbox">
+                        <input type="checkbox" value="3"> option 3</label>
+                    </a>
+                  </li>
+                  <li>
+          <a href="javascript:void(0);">
+            <label class="checkbox">
+              <input type="checkbox" value="4"> option 4</label>
+          </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="input-group-btn">
+                <a class="btn-primary btn" href="#link">link</a>
+              </div>
+            </div>
+          </div>
+
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
+
+  - s.section title: "Simple form" do
+    :markdown
+      You can use the <code>surround field</code> with gem [simple form](https://github.com/plataformatec/simple_form).
+
+      You must add this line in the file `"config/initializers/simple_form.rb"`
+
+    = example do |e|
+      - e.code do
+        \...
+        config.custom_inputs_namespaces << "CustomInputs"
+        \...
+    %p
+      Then in your view, you can insert your input auto_complete field.
+      This simple form component is based on simple_form
+      = link_to "collection", "https://github.com/plataformatec/simple_form#collections"
+      %br
+      Collection inputs accept two other options beside collections:
+      %ul
+        %li label_method => the label method to be applied to the collection to retrieve the label (use this instead of the text_method option in collection_select)
+        %li value_method => the value method to be applied to the collection to retrieve the value
+      %i label_method and value_method are optional
+
+
+    = example do |e|
+      - e.header do
+        = simple_form_for(@user) do |f|
+          - f.input(:name, as: :surround_field).tap do |sf|
+            - sf.checkbox_field 'check', label: false
+            - sf.auto_complete_field 'name', option_tags: select_options_tags
+            - sf.button 'button'
+            - sf.addon  '€'
+      - e.code do
+        simple_form(@user) do |f|
+          ...
+          f.input :name, as: :auto_complete_field, collection: 5.times.map{|i| "name \#{i}"}
+          ...
+        end
       - e.footer do
         = documentation_link 'Documentation', '#'
 
