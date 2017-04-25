@@ -161,16 +161,7 @@
 
 
   - s.section title: "Simple form" do
-    :markdown
-      You can use the <code>select field</code> input with gem [simple form](https://github.com/plataformatec/simple_form).
-
-      You must add this line in the file `"config/initializers/simple_form.rb"`
-
-    = example do |e|
-      - e.code do
-        \...
-        config.custom_inputs_namespaces << "CustomInputs"
-        \...
+    %p= simple_form_text_with_input "select_field"
     %p
       Then in your view, you can insert your input dropdown select field.
       This simple form component is based on simple_form
@@ -184,10 +175,10 @@
 
     = example do |e|
       - e.header do
-        = simple_form_for(@user) do |f|
+        = ui_bibz_form_for(@user) do |f|
           - f.association :country, as: :select_field, collection: @countries, label_method: :name, value_method: :id
       - e.code do
-        simple_form_for(@user) do |f|
+        ui_bibz_form_for(@user) do |f|
           ...
           f.association :country, as: :select_field, collection: @countries, label_method: :name, value_method: :id
           ...
@@ -206,10 +197,10 @@
 
     = example do |e|
       - e.header do
-        = simple_form_for(@user) do |f|
+        = ui_bibz_form_for(@user) do |f|
           - f.association :country, as: :select_field, collection: @continents, grouped: true, group_method: :countries, label_method: :name, value_method: :id
       - e.code do
-        simple_form(@search) do |f|
+        ui_bibz_form_for(@search) do |f|
           ...
           f.input :country, as: :select_field, grouped: true, collection: @continents,  group_method: :countries, label_method: :name, value_method: :id
           ...
@@ -220,10 +211,10 @@
     %p You can add option <code>refresh</code> in your association.
     = example do |e|
       - e.header do
-        = simple_form_for(@user) do |f|
+        = ui_bibz_form_for(@user) do |f|
           - f.association :country, as: :select_field, refresh: { target: { selector: 'form:last select[name=country_id]', url: components_forms_selects_select_field_path }}, collection: @countries, label_method: :name, value_method: :id
       - e.code do
-        simple_form_for(@user) do |f|
+        ui_bibz_form_for(@user) do |f|
           ...
           f.association :country, as: :select_field, refresh: { target: { url: components_forms_selects_select_field_path }}, collection: @countries, label_method: :name, value_method: :id
           ...

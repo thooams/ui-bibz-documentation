@@ -65,22 +65,13 @@
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Simple form" do
-    :markdown
-      You can use the `date_picker_field` input gem with [simple form](https://github.com/plataformatec/simple_form).
-      You must add this line to the `"config/initializers/simple_form.rb"`
-    = example do |e|
-      - e.code do
-        \...
-        config.custom_inputs_namespaces << "CustomInputs"
-        \...
-
-    %p Then in your view , you can insert your input.
+    %p= simple_form_text_with_input "date_picker_field"
     = example do |e|
       - e.header do
-        = simple_form_for(@user) do |f|
+        = ui_bibz_form_for(@user) do |f|
           - f.input :updated_at, as: :date_picker_field, append: glyph('calendar')
       - e.code do
-        simple_form(@search) do |f|
+        ui_bibz_form_for(@search) do |f|
           ...
           f.input :date, as: :date_picker_field, append: glyph('calendar')
           ...

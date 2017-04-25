@@ -91,16 +91,7 @@
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Simple form" do
-    :markdown
-      You can use the <code>auto complete field</code> with gem [simple form](https://github.com/plataformatec/simple_form).
-
-      You must add this line in the file `"config/initializers/simple_form.rb"`
-
-    = example do |e|
-      - e.code do
-        \...
-        config.custom_inputs_namespaces << "CustomInputs"
-        \...
+    %p= simple_form_text_with_input "auto_complete_field"
     %p
       Then in your view, you can insert your input auto_complete field.
       This simple form component is based on simple_form
@@ -115,10 +106,10 @@
 
     = example do |e|
       - e.header do
-        = simple_form_for(@user) do |f|
+        = ui_bibz_form_for(@user) do |f|
           - f.input :name, as: :auto_complete_field, collection: 5.times.map{|i| "name #{i}"}
       - e.code do
-        simple_form(@user) do |f|
+        ui_bibz_form_for(@user) do |f|
           ...
           f.input :name, as: :auto_complete_field, collection: 5.times.map{|i| "name \#{i}"}
           ...
