@@ -12,8 +12,8 @@
 = component_options do |co|
   - co.state_link
   - co.list 'option_tags', types: 'html'
-  - co.list 'append', types: 'html'
-  - co.list 'prepend', types: 'html'
+  - co.list 'value', types: 'string', description: "Input's value"
+  - co.append_and_prepend_list
 
 - @sections = sections do |s|
   - s.section title: "Auto Complete Field" do
@@ -23,14 +23,15 @@
       - e.code do
         auto_complete_field 'example1', option_tags: options_for_select(5.times.map{ |i| "option \#{i}" })
       - e.html do
-        <input type="text" name="example1" id="example1" class="form-control" auto_complete="true" list="example1-datalist">
-        <datalist id="example1-datalist">
-          <option value="option 0">option 0</option>
-          <option value="option 1">option 1</option>
-          <option value="option 2">option 2</option>
-          <option value="option 3">option 3</option>
-          <option value="option 4">option 4</option>
-        </datalist>
+        :plain
+          <input type="text" name="example1" id="example1" class="form-control" auto_complete="true" list="example1-datalist">
+          <datalist id="example1-datalist">
+            <option value="option 0">option 0</option>
+            <option value="option 1">option 1</option>
+            <option value="option 2">option 2</option>
+            <option value="option 3">option 3</option>
+            <option value="option 4">option 4</option>
+          </datalist>
       - e.footer do
         = documentation_link 'Documentation', '#'
 
@@ -63,14 +64,15 @@
       - e.code do
         auto_complete_field 'example1', option_tags: options_for_select(5.times.map{ |i| "option \#{i}" })
       - e.html do
-        <input type="text" name="example1" id="example1" class="form-control" auto_complete="true" list="example1-datalist">
-        <datalist id="example1-datalist">
-          <option value="option 0">option 0</option>
-          <option value="option 1">option 1</option>
-          <option value="option 2">option 2</option>
-          <option value="option 3">option 3</option>
-          <option value="option 4">option 4</option>
-        </datalist>
+        :plain
+          <input type="text" name="example1" id="example1" class="form-control" auto_complete="true" list="example1-datalist">
+          <datalist id="example1-datalist">
+            <option value="option 0">option 0</option>
+            <option value="option 1">option 1</option>
+            <option value="option 2">option 2</option>
+            <option value="option 3">option 3</option>
+            <option value="option 4">option 4</option>
+          </datalist>
       - e.footer do
         = documentation_link 'Documentation', '#'
 
@@ -86,7 +88,21 @@
         auto_complete_field 'example 3', option_tags: option_tags, refresh: refresh
       - e.html do
         :plain
-          <>
+          <div class="field-refresh input-group">
+            <input type="text" name="example 3 target" id="example_3_target" class="form-control auto-complete-field" autocomplete="true" list="example_3_target-datalist">
+            <datalist id="example_3_target-datalist">
+              <option value="0">option 0</option>
+              <option value="1">option 1</option>
+              <option value="2">option 2</option>
+              <option value="3">option 3</option>
+              <option value="4">option 4</option>
+            </datalist>
+            <div class="input-group-btn">
+              <span data-connect="{&quot;events&quot;:&quot;click&quot;,&quot;mode&quot;:&quot;remote&quot;,&quot;target&quot;:{&quot;selector&quot;:&quot;#example_3_target-datalist&quot;,&quot;url&quot;:&quot;/components/forms/selects/select-field&quot;,&quot;data&quot;:[]}}" class="btn-primary ui-bibz-connect btn input-refresh-button">
+                <i class="glyph fa fa-refresh">
+                </i> </span>
+            </div>
+          </div>
       - e.footer do
         = documentation_link 'Documentation', '#'
 
@@ -107,13 +123,14 @@
     = example do |e|
       - e.header do
         = ui_bibz_form_for(@user) do |f|
-          - f.input :name, as: :auto_complete_field, collection: 5.times.map{|i| "name #{i}"}
+          - f.input :email, append: glyph('envelope'), as: :auto_complete_field, collection: 5.times.map{|i| "test#{i}@test.com"}
       - e.code do
-        ui_bibz_form_for(@user) do |f|
-          ...
-          f.input :name, as: :auto_complete_field, collection: 5.times.map{|i| "name \#{i}"}
-          ...
-        end
+        :plain
+          ui_bibz_form_for(@user) do |f|
+            ...
+            f.input :email, append: glyph('envelope'), as: :auto_complete_field, collection: 5.times.map{|i| "test\#{i}@test.com"}
+            ...
+          end
       - e.footer do
         = documentation_link 'Documentation', '#'
 

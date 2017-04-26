@@ -245,27 +245,24 @@
 
   - s.section title: "Simple form" do
     %p= simple_form_text_with_input "surround_field"
-
-    = User.first.attributes
-
     = example do |e|
       - e.header do
         = ui_bibz_form_for(User.first) do |f|
-          - f.surround_field do |sf|
+          = f.surround_field label: 'Email' do |sf|
             - sf.addon glyph: 'envelope'
-            - sf.text_field :email
-            - sf.button 'button'
-            - sf.date_picker_field :created_at
+            - sf.input :email, as: :text_field
+            - sf.button_link 'button', url: "#button_link"
+            - sf.input :created_at, as: :date_picker_field
             - sf.addon glyph: 'calendar'
       - e.code do
         :plain
           ui_bibz_form_for(@user) do |f|
             ...
-            f.surround_field do |sf|
+            f.surround_field label: 'Email' do |sf|
               sf.addon glyph: 'envelope'
-              sf.text_field :email
-              sf.button 'button'
-              sf.date_picker_field :created_at
+              sf.input :email, as: :text_field
+              sf.button_link 'button', url: "#button_link"
+              sf.input :created_at, as: :date_picker_field
               sf.addon glyph: 'calendar'
             end
             ...

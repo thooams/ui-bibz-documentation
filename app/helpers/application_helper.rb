@@ -75,6 +75,6 @@ module ApplicationHelper
 
   def simple_form_text_with_input input_name
     "Ui Bibz is compatible with #{ link_to "simple form", "https://github.com/plataformatec/simple_form", target: '_blank' }.
-    You can use defaults inputs of <strong>Simple Form</strong> and defaults inputs of <strong>Ui Bibz</strong> like <code>#{ input_name }</code>.".html_safe
+    You can use defaults inputs of <strong>Simple Form</strong> and defaults inputs of <strong>Ui Bibz</strong> like <code>#{ input_name }</code>. You can use Simple Form input options and Ui Bibz #{ input_name } options.".html_safe
   end
 end

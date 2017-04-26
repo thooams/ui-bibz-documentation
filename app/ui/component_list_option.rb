@@ -36,6 +36,11 @@ module UiBibz::Ui::Ux
       list(option_link('state'), { types: :symbol, values: %w(:disabled :active) })
     end
 
+    def append_and_prepend_list
+      list('append', types: 'html', description: "Add a content before the field")
+      list('prepend', types: 'html', description: "Add a content after the field")
+    end
+
     def tap_link
       list('tap', { types: :boolean, description: '*Required if you want use :header, block or footer inside' })
     end

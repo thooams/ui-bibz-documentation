@@ -6,8 +6,8 @@
 = component_options do |co|
   - co.status_link
   - co.state_link
-  - co.list 'append', types: 'html'
-  - co.list 'prepend', types: 'html'
+  - co.list 'value', types: 'string', description: "Input's value"
+  - co.append_and_prepend_list
 
 - @sections = sections do |s|
   - s.section title: "Text Field" do
