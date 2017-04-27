@@ -1,11 +1,7 @@
 = title 'Auto Complete Field'
 %blockquote UiBibz::Ui::Core::Forms::Texts::autoCompleteField
 %p.bd-callout
-  auto_complete_field is a text_field and use html datalist to auto complete results.
-  %br
-  = link_to 'Datalist info', 'http://www.w3schools.com/tags/tag_datalist.asp'
-  %br
-  eq.: Tap "<em>option</em>"
+  auto_complete_field is a text_field which uses html #{ link_to('datalist', 'https://www.w3.org/wiki/HTML/Elements/datalist', target: "_blank") } to auto complete results.
 
 = code "auto_complete_field", component_name: "name"
 
@@ -58,11 +54,12 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
+  - s.section title: "Auto Complete Field options" do
     = example do |e|
       - e.header do
         = auto_complete_field 'example1', status: :success, state: :disabled, option_tags: options_for_select(5.times.map{ |i| "option #{i}" })
       - e.code do
-        auto_complete_field 'example1', option_tags: options_for_select(5.times.map{ |i| "option \#{i}" })
+        auto_complete_field 'example1', status: :success, state: :disabled option_tags: options_for_select(5.times.map{ |i| "option \#{i}" })
       - e.html do
         :plain
           <input type="text" name="example1" id="example1" class="form-control" auto_complete="true" list="example1-datalist">

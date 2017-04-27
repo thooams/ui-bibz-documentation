@@ -31,6 +31,24 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
+  - s.section title: "Formula Field Status" do
+    = example do |e|
+      - e.header do
+        = formula_field 'value', status: :success
+      - e.code do
+        formula_field 'value', status: :success
+      - e.html do
+        <div class="input-group has-success formula_field">
+          <input type="text" name="value" id="value" value="" placeholder="Type your formula..." class="formula_field_input form-control">
+          <span class="formula_field_sign input-group-addon">=</span>
+          <input type="text" name="value_formula" id="another_value_formula" value="" readonly="readonly" class="formula_field_result form-control">
+          <span class="formula_field_alert input-group-addon" data-toggle="tooltip">
+            <i class="glyph-danger glyph fa fa-exclamation-triangle"></i>
+          </span>
+        </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
   - s.section title: "Formula Field Options" do
     = example do |e|
       - e.header do

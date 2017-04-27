@@ -55,6 +55,16 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
+  - s.section title: "Status options" do
+    = example do |e|
+      - e.header do
+        = select_field 'example1', status: :success, option_tags: select_options_tags
+      - e.code do
+        option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
+        select_field 'example1', status: :success, option_tags: select_options_tags
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
   - s.section title: "Surround options" do
     = example do |e|
       - e.header do

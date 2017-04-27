@@ -130,6 +130,20 @@
       - e.footer do
         = documentation_link 'Documentation', '#'
 
+  - s.section title: "Date Picker Field status" do
+    = example do |e|
+      - e.header do
+        = date_picker_field 'date_at', status: :success
+      - e.code do
+        date_picker_field 'date_at', status: :success
+      - e.html do
+        <div class="input-group has-success input-daterange">
+          <input type="text" name="r" id="r" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" class="date_picker form-control"><span class="input-group-addon input-group-range">to</span>
+          <input type="text" name="a" id="a" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" class="date_picker form-control">
+        </div>
+      - e.footer do
+        = documentation_link 'Documentation', '#'
+
   - s.section title: "Date Picker Field range with glyph" do
     = example do |e|
       - e.header do
