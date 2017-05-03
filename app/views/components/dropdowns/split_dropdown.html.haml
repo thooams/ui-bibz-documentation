@@ -4,7 +4,7 @@
 
 = code do
   :plain
-    split_dropdown name, options, html_options do |d|
+    ui_split_dropdown name, options, html_options do |d|
       d.link content, options, html_options
       # or
       d.link options, html_options do
@@ -35,7 +35,7 @@
   - co.list 'type', types: 'symbol', values: %w(:dropup :dropdown), default: ':dropdown'
 
 = content_for :third_nav do
-  = nav class: 'secondary-nav' do |n|
+  = ui_nav class: 'secondary-nav' do |n|
     - n.link 'Split dropdown', url: '#split-dropdown'
     - n.nav do |na|
       - na.link 'Split dropdown options', url: '#button-dropdown-options'
@@ -53,7 +53,7 @@
     = example do |c|
       - c.header do
         - %i(primary secondary danger warning info success).each do |status|
-          = split_dropdown status.to_s.titleize, status: status do |bd|
+          = ui_split_dropdown status.to_s.titleize, status: status do |bd|
             - bd.link "Action", url: '#action'
             - bd.link "Another action", url: '#another-action'
             - bd.divider
@@ -61,7 +61,7 @@
             - bd.html "     Normal Text"
             - bd.link "Separate link", url: '#separate-link'
       - c.code do
-        split_dropdown 'Primary' do |bd|
+        ui_split_dropdown 'Primary' do |bd|
           bd.link "Action", url: '#action'
           bd.link "Another action", url: '#another-action'
           bd.link url: '#another-action' do
@@ -153,14 +153,14 @@
   - s.section title: "Buttonsplit  dropdown options" do
     = example do |c|
       - c.header do
-        = split_dropdown "Dropdown right", glyph: 'diamond', status: :success, size: :lg, position: :right do |bd|
+        = ui_split_dropdown "Dropdown right", glyph: 'diamond', status: :success, size: :lg, position: :right do |bd|
           - bd.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
           - bd.link "Another action", url: '#another-action'
           - bd.divider
           - bd.header 'Header'
           - bd.link "Separate link", url: '#separate-link'
 
-        = split_dropdown "Dropup", status: :danger, size: :sm, type: :dropup do |bd|
+        = ui_split_dropdown "Dropup", status: :danger, size: :sm, type: :dropup do |bd|
           - bd.link "Action",  { url: '#action' }, { class: 'action' }
           - bd.link "Another action", url: '#another-action'
           - bd.divider
@@ -168,7 +168,7 @@
           - bd.link "Separate link", url: '#separate-link'
 
       - c.code do
-        split_dropdown "Dropdown right", glyph: 'diamond', status: :success, size: :lg, position: :right do |bd|
+        ui_split_dropdown "Dropdown right", glyph: 'diamond', status: :success, size: :lg, position: :right do |bd|
           bd.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
           bd.link "Another action", url: '#another-action'
           bd.divider
@@ -176,7 +176,7 @@
           bd.link "Separate link", url: '#separate-link'
         end
          
-        split_dropdown "Dropup", status: :danger, size: :sm, type: :dropup do |bd|
+        ui_split_dropdown "Dropup", status: :danger, size: :sm, type: :dropup do |bd|
           bd.link "Action",  { url: '#action' }, { class: 'action' }
           bd.link "Another action", url: '#another-action'
           bd.divider

@@ -4,7 +4,7 @@
   %body
     = render "layouts/header"
     .pageheader
-      = container do
+      = ui_container do
         // Note : The image without the edges is more beautiful than the current
         //= image_tag 'ui-bibz-logo-without-border.png'
         = image_tag 'ui-bibz-logo', class: 'logo'
@@ -15,7 +15,7 @@
           = UiBibzApp::Application::DESCRIPTION
           %br
           = UiBibzApp::Application::SUMMARY
-    = container do
-      = row class: 'content' do
+    = ui_container do
+      = ui_row class: 'content' do
         = yield
     = render "layouts/footer"

@@ -1,10 +1,10 @@
 = title 'Navbar'
 %blockquote UiBibz::Ui::Core::Navs::Navbar
-%p.bd-callout Navbars are responsive meta components that serve as navigation headers for your application or site. They begin collapsed (and are toggleable) in mobile views and become horizontal as the available viewport width increases.
+%p.bd-callout ui_navbars are responsive meta components that serve as navigation headers for your application or site. They begin collapsed (and are toggleable) in mobile views and become horizontal as the available viewport width increases.
 
 = code do
   :plain
-    navbar options, html_options do |nb|
+    ui_navbar options, html_options do |nb|
       n.brand content, options, html_options
       # or
       n.brand options, html_options do
@@ -34,7 +34,7 @@
   - s.section title: "Navbar" do
     = example do |c|
       - c.header do
-        = navbar title: 'Navbar' do |nb|
+        = ui_navbar title: 'Navbar' do |nb|
           - nb.nav do |n|
             - n.link 'Home', url: '#active', state: :active
             - n.link url: '#link', class: 'my-link' do
@@ -47,10 +47,10 @@
               - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
                 = "Action 3"
           - nb.form '/search', { type: :form_tag, position: :right } do
-            = text_field 'Search'
-            = button('Search', status: :success, outline: true)
+            = ui_text_field 'Search'
+            = ui_button('Search', status: :success, outline: true)
       - c.code do
-        navbar title: 'Navbar' do |nb|
+        ui_navbar title: 'Navbar' do |nb|
           nb.nav do |n|
             n.link 'Home', url: '#active', state: :active
             n.link url: '#link', class: 'my-link' do
@@ -68,8 +68,8 @@
             end
           end
           nb.form '/search', { type: :form_tag, position: :right } do
-            text_field_tag 'Search'
-            button 'Search', status: :success, outline: true
+            ui_text_field 'Search'
+            ui_button 'Search', status: :success, outline: true
           end
         end
       - c.html do
@@ -106,7 +106,7 @@
 
   - s.section title: "Navbar Options" do
     :markdown
-      Navbar has several block type:
+      ui_navbar has several block type:
 
       * #{ inherit_specific_component_link 'nav', components_navs_nav_path }
       * #{ inherit_specific_component_link 'dropdown', components_dropdowns_dropdown_path }
@@ -117,31 +117,31 @@
   - s.section title: "Color" do
     = example do |c|
       - c.header do
-        = navbar title: 'Navbar', status: :primary, type: :dark do |nb|
+        = ui_navbar title: 'Navbar', status: :primary, type: :dark do |nb|
           - nb.nav do |n|
             - n.link 'Home', url: '#home'
         %br
-        = navbar title: 'Navbar', status: :inverse, type: :dark do |nb|
+        = ui_navbar title: 'Navbar', status: :inverse, type: :dark do |nb|
           - nb.nav do |n|
             - n.link 'Home', url: '#home'
         %br
-        = navbar({ title: 'Navbar' }, { style: "background-color: #e3f2fd;"}) do |nb|
+        = ui_navbar({ title: 'Navbar' }, { style: "background-color: #e3f2fd;"}) do |nb|
           - nb.nav do |n|
             - n.link 'Home', url: '#home'
       - c.code do
-        navbar title: 'Navbar', status: :primary, type: :dark do |nb|
+        ui_navbar title: 'Navbar', status: :primary, type: :dark do |nb|
           nb.nav do |n|
             n.link 'Home', url: '#home'
           end
         end
          
-        navbar title: 'Navbar', status: :inverse, type: :dark do |nb|
+        ui_navbar title: 'Navbar', status: :inverse, type: :dark do |nb|
           nb.nav do |n|
             n.link 'Home', url: '#home'
           end
         end
          
-        navbar({ title: 'Navbar' }, { style: "background-color: #e3f2fd;"}) do |nb|
+        ui_navbar({ title: 'Navbar' }, { style: "background-color: #e3f2fd;"}) do |nb|
           nb.nav do |n|
             n.link 'Home', url: '#home'
           end

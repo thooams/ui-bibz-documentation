@@ -5,26 +5,26 @@
   %br
   If there is an error in your formula, a warning will be diplay with an explain through attribute title in addon warning.
 
-= code "formula_field", component_name: "name"
+= code "ui_formula_field", component_name: "name"
 
 = component_options do |co|
   - co.status_link
   - co.state_link
-  - co.list 'formula_field_name', types: 'symbole'
+  - co.list 'ui_formula_field_name', types: 'symbole'
 
 - @sections = sections do |s|
   - s.section title: "Formula Field" do
     = example do |e|
       - e.header do
-        = formula_field 'value', {}, { placeholder: 'Type your formula...' }
+        = ui_formula_field 'value', {}, { placeholder: 'Type your formula...' }
       - e.code do
-        formula_field 'value', {}, { placeholder: 'Type your formula...'}
+        ui_formula_field 'value', {}, { placeholder: 'Type your formula...'}
       - e.html do
-        <div class="input-group formula_field">
-          <input type="text" name="value" id="value" value="" placeholder="Type your formula..." class="formula_field_input form-control">
-          <span class="formula_field_sign input-group-addon">=</span>
-          <input type="text" name="value_formula" id="value_formula" value="" readonly="readonly" class="formula_field_result form-control">
-          <span class="formula_field_alert input-group-addon" data-toggle="tooltip">
+        <div class="input-group ui_formula_field">
+          <input type="text" name="value" id="value" value="" placeholder="Type your formula..." class="ui_formula_field_input form-control">
+          <span class="ui_formula_field_sign input-group-addon">=</span>
+          <input type="text" name="value_formula" id="value_formula" value="" readonly="readonly" class="ui_formula_field_result form-control">
+          <span class="ui_formula_field_alert input-group-addon" data-toggle="tooltip">
             <i class="glyph-danger glyph fa fa-exclamation-triangle"></i>
           </span>
         </div>
@@ -34,15 +34,15 @@
   - s.section title: "Formula Field Status" do
     = example do |e|
       - e.header do
-        = formula_field 'value', status: :success
+        = ui_formula_field 'value', status: :success
       - e.code do
-        formula_field 'value', status: :success
+        ui_formula_field 'value', status: :success
       - e.html do
-        <div class="input-group has-success formula_field">
-          <input type="text" name="value" id="value" value="" placeholder="Type your formula..." class="formula_field_input form-control">
-          <span class="formula_field_sign input-group-addon">=</span>
-          <input type="text" name="value_formula" id="another_value_formula" value="" readonly="readonly" class="formula_field_result form-control">
-          <span class="formula_field_alert input-group-addon" data-toggle="tooltip">
+        <div class="input-group has-success ui_formula_field">
+          <input type="text" name="value" id="value" value="" placeholder="Type your formula..." class="ui_formula_field_input form-control">
+          <span class="ui_formula_field_sign input-group-addon">=</span>
+          <input type="text" name="value_formula" id="another_value_formula" value="" readonly="readonly" class="ui_formula_field_result form-control">
+          <span class="ui_formula_field_alert input-group-addon" data-toggle="tooltip">
             <i class="glyph-danger glyph fa fa-exclamation-triangle"></i>
           </span>
         </div>
@@ -52,15 +52,15 @@
   - s.section title: "Formula Field Options" do
     = example do |e|
       - e.header do
-        = formula_field 'value', formula_field_name: :another_value_formula
+        = ui_formula_field 'value', ui_formula_field_name: :another_value_formula
       - e.code do
-        formula_field 'value', formula_field_name: :another_value_formula
+        ui_formula_field 'value', ui_formula_field_name: :another_value_formula
       - e.html do
-        <div class="input-group formula_field">
-          <input type="text" name="value" id="value" value="" placeholder="Type your formula..." class="formula_field_input form-control">
-          <span class="formula_field_sign input-group-addon">=</span>
-          <input type="text" name="value_formula" id="another_value_formula" value="" readonly="readonly" class="formula_field_result form-control">
-          <span class="formula_field_alert input-group-addon" data-toggle="tooltip">
+        <div class="input-group ui_formula_field">
+          <input type="text" name="value" id="value" value="" placeholder="Type your formula..." class="ui_formula_field_input form-control">
+          <span class="ui_formula_field_sign input-group-addon">=</span>
+          <input type="text" name="value_formula" id="another_value_formula" value="" readonly="readonly" class="ui_formula_field_result form-control">
+          <span class="ui_formula_field_alert input-group-addon" data-toggle="tooltip">
             <i class="glyph-danger glyph fa fa-exclamation-triangle"></i>
           </span>
         </div>
@@ -68,18 +68,18 @@
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Simple form" do
-    %p= simple_form_text_with_input "formula_field"
+    %p= simple_form_text_with_input "ui_formula_field"
 
     - @user.price = 3
     - @user.price_formula = "1+2"
     = example do |e|
       - e.header do
-        = ui_bibz_form_for(@user) do |f|
-          = f.input :price, as: :formula_field
+        = ui_form_for(@user) do |f|
+          = f.input :price, as: :ui_formula_field
       - e.code do
-        ui_bibz_form_for(@search) do |f|
+        ui_form_for(@search) do |f|
           ...
-          f.input :price, as: :formula_field
+          f.input :price, as: :ui_formula_field
           ...
         end
       - e.footer do

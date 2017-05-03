@@ -3,15 +3,15 @@
 .bd-callout
   %p
     The
-    %code table
-    component is a html table with a store.
+    %code ui_table
+    component is a html ui_table with a store.
     %br
     An pagination and/or a search can be added before or after the component with these methods:
 
     %ul
-      %li table_pagination_pagination
-      %li table_pagination_per_page
-      %li table_search_field
+      %li ui_table_pagination_pagination
+      %li ui_table_pagination_per_page
+      %li ui_table_search_field
 
     %p
       The pagination is managed through the gem #{ link_to 'will_paginate', 'https://github.com/mislav/will_paginate', target: '_blank' }.
@@ -19,13 +19,13 @@
       The methods of
       %code will_paginate
       work with the
-      %code table
+      %code ui_table
       component such as
       %code per_page
       \.
 
 
-= card tap: true do |c|
+= ui_card tap: true do |c|
   - c.header 'Important'
   - c.block do
     To add, update, remove columns or actions in the component <code>table</code> you must add the option <code>tap: true</code>.
@@ -33,9 +33,9 @@
 
 = code do
   :plain
-    table options, html_options
+    ui_table options, html_options
     # or
-    table options, html_options do |t|
+    ui_table options, html_options do |t|
       t.columns do |cls|
         cls.column data_index, options, html_options
       end
@@ -97,7 +97,7 @@
 
     = example do |c|
       - c.header do
-        = table({ store: @users, tap: true }) do |b|
+        = ui_table({ store: @users, tap: true }) do |b|
           - b.columns do |cls|
             - cls.column :id
             - cls.column :email
@@ -110,7 +110,7 @@
             - acs.link 'Edit', url: '#show', glyph: 'pencil'
             - acs.link 'Delete', url: '#show', glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
       - c.code do
-        table store: @users
+        ui_table store: @users
       - c.html do
         <table class="table">
           <thead>
@@ -183,7 +183,7 @@
 
   - s.section title: "Table Blocks" do
     :markdown
-      Table has several blocks:
+      ui_table has several blocks:
 
       * columns
       * actions
@@ -207,7 +207,7 @@
 
     = example do |c|
       - c.header do
-        = table({ store: @users, tap: true }) do |b|
+        = ui_table({ store: @users, tap: true }) do |b|
           - b.columns do |cls|
             - cls.column :id, name: '#'
             - cls.column :email, link: '#email'
@@ -220,7 +220,7 @@
             - acs.link 'Edit', url: '#show', glyph: 'pencil'
             - acs.link 'Delete', url: '#show', glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
       - c.code do
-        table({ store: @users, tap: true }) do |b|
+        ui_table({ store: @users, tap: true }) do |b|
           b.columns do |cls|
             cls.column :id, name: '#'
             cls.column :email, link: '#email'
@@ -298,7 +298,7 @@
 
     = example do |c|
       - c.header do
-        = table({ store: @users, tap: true }) do |b|
+        = ui_table({ store: @users, tap: true }) do |b|
           - b.columns do |cls|
             - cls.column :id
             - cls.column :email
@@ -312,7 +312,7 @@
             - acs.divider
             - acs.link 'Delete', url: "#delete", glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
       - c.code do
-        table({ store: @users, tap: true }) do |b|
+        ui_table({ store: @users, tap: true }) do |b|
           b.actions do |acs|
             acs.link 'Open', url: open_user_path(:id), glyph: 'folder-open'
             acs.link 'Close', url: close_user_path(:id), glyph: 'folder'
@@ -376,7 +376,7 @@
 
     = example do |c|
       - c.header do
-        = table({ store: @users, tap: true }) do |b|
+        = ui_table({ store: @users, tap: true }) do |b|
           - b.columns do |cls|
             - cls.column :id
             - cls.column :email
@@ -394,7 +394,7 @@
               - else
                 - acs.link 'Disabled', url: '#disabled'
       - c.code do
-        table({ store: @users, tap: true }) do |b|
+        ui_table({ store: @users, tap: true }) do |b|
           b.actions do |acs|
             acs.format do |record|
               acs.link 'Show', url: user_path(:id), glyph: 'eye'
@@ -461,17 +461,17 @@
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Table Search component" do
-    %p This component is linked with table component.
+    %p This component is linked with ui_table component.
     = example do |c|
       - c.header do
         %br
-        = table_search_field store: @users
+        = ui_table_search_field store: @users
       - c.code do
-        table_search_field store: @users
+        ui_table_search_field store: @users
       - c.html do
         <form class="form-table-search-field" action="/components/tables" accept-charset="UTF-8" method="get">
           <input name="utf8" type="hidden" value="✓">
-          <div class="input-group input-group-sm table-search-field">
+          <div class="input-group input-group-sm ui_table-search-field">
             <span class="input-group-addon"><i class="glyph fa fa-search"></i></span>
             <input type="hidden" name="only_path" value="true">
             <input type="search" name="search" class="form-control" placeholder="Search by Name...">
@@ -484,12 +484,12 @@
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Table Pagination component" do
-    %p This component is linked with table component.
+    %p This component is linked with ui_table component.
     = example do |c|
       - c.header do
-        = table_pagination store: @users
+        = ui_table_pagination store: @users
       - c.code do
-        table_pagination store: @users
+        ui_table_pagination store: @users
       - c.html do
         <ul class="pagination pagination">
           <li class="prev disabled"><span>← Previous</span></li>
@@ -510,12 +510,12 @@
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Table Pagination per page component" do
-    %p This component is linked with table component.
+    %p This component is linked with ui_table component.
     = example do |c|
       - c.header do
-        = table_pagination_per_page store: @users
+        = ui_table_pagination_per_page store: @users
       - c.code do
-        table_pagination_per_page store: @users
+        ui_table_pagination_per_page store: @users
       - c.html do
         <form action="/components/tables" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
           <div class="table-pagination-per-page">Displaying User <b>1&nbsp;-&nbsp;3</b> of <b>150</b> in total | Per page:
@@ -561,7 +561,7 @@
 
     = example do |c|
       - c.code do
-        table store: @documents do |g|
+        ui_table store: @documents do |g|
           g.columns do |c|
             c.column :users, { name: 'Users count', count: true, custom_sort: true }
           end

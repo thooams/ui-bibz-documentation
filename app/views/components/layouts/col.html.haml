@@ -37,11 +37,11 @@
             content
             ...
           end
-          col content, { num: 2, pull: 4 }, { class: 'test-col2' }
+          ui_col content, { num: 2, pull: 4 }, { class: 'test-col2' }
         end
       - c.html do
         <div class="test row">
-          <div class="test-col col-md-10 col-md-offset-2">
+          <div class="test-ui_col col-md-10 col-md-offset-2">
             ...
             content
             ...
@@ -52,7 +52,7 @@
         </div>
       - c.footer do
         = documentation_link 'Documentation', '#'
-  - s.section title: "Col with differents sizes" do
+  - s.section title: "ui_col with differents sizes" do
     :markdown
       To add multiple sizes of columns, you must use arguments :
 
@@ -69,7 +69,7 @@
             content
             ...
           end
-          col content, { md: { num: 7, pull: 4 }, xs: { num: 10 }}, { class: 'test-col2' }
+          ui_col content, { md: { num: 7, pull: 4 }, xs: { num: 10 }}, { class: 'test-col2' }
         end
       - c.html do
         <div class="test row">

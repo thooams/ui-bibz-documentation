@@ -28,7 +28,7 @@ module UiBibz::Ui::Ux
     end
 
     def required_field
-      UiBibz::Ui::Core::Tag.new('Required', status: :danger).render
+      UiBibz::Ui::Core::Badge.new('Required', status: :danger).render
     end
 
     def default

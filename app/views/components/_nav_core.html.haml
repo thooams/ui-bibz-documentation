@@ -1,5 +1,6 @@
 - n.nav do |nc|
-  - nc.link 'Alert, notify', nav_options(components_alert_notify_path)
+  - nc.link 'Alert', nav_options(components_alert_path)
+  - nc.link 'Badge', nav_options(components_badge_path)
   - nc.link 'Cards', url: '#', state: :disabled
   - nc.nav do |na|
     - na.link 'Card', nav_options(components_cards_card_path)
@@ -55,7 +56,6 @@
 
   - nc.link 'Glyph', nav_options(components_glyph_path)
   - nc.link 'Jumbotron', nav_options(components_jumbotron_path)
-  - nc.link 'Label, tag, etiquette', nav_options(components_label_etiquette_path)
   - nc.link 'Layouts', url: '#', state: :disabled
   - nc.nav do |na|
     - na.link 'Col', nav_options(components_layouts_col_path)

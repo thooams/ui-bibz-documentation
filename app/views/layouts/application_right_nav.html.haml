@@ -4,7 +4,7 @@
   %body
     = render "layouts/header"
     .pageheader
-      = container do
+      = ui_container do
         // Note : The image without the edges is more beautiful than the current
         //= image_tag 'ui-bibz-logo-without-border.png'
         = image_tag 'ui-bibz-logo', class: 'logo'
@@ -14,15 +14,15 @@
           = UiBibzApp::Application::DESCRIPTION
           %br
           = UiBibzApp::Application::SUMMARY
-    = container do
-      = row( class: 'row-fluid' ) do
+    = ui_container do
+      = ui_row( class: 'row-fluid' ) do
         %a{ name: 'top' }
-        = col( lg: { num: 2 }, md: { num: 4 }, sm: { num: 12 }, xs: { num: 12 }, class: 'left-nav' ) do
+        = ui_col( lg: { num: 2 }, md: { num: 4 }, sm: { num: 12 }, xs: { num: 12 }, class: 'left-nav' ) do
           = render "components/nav"
           = yield :third_nav
-        = col( lg: { num: 8 }, md: { num: 8, }, sm: { num: 12 }, xs: { num: 12 }, class: 'content') do
+        = ui_col( lg: { num: 8 }, md: { num: 8, }, sm: { num: 12 }, xs: { num: 12 }, class: 'content') do
           = yield
-        = col( lg: { num: 2 }, class: 'secondary-nav' ) do
+        = ui_col( lg: { num: 2 }, class: 'secondary-nav' ) do
           - unless @sections.nil?
             %h3 Contents
             = subnav do |n|
@@ -30,5 +30,5 @@
                 - n.link s
 
       .scroll-to-top
-        = button_link "", { url: url_for(controller: controller_name, action: action_name, anchor: 'top'), glyph: "arrow-circle-up", size: :lg, status: :primary, type: 'fw' }, { class: "back-top" }
+        = ui_button_link "", { url: url_for(controller: controller_name, action: action_name, anchor: 'top'), glyph: "arrow-circle-up", size: :lg, status: :primary, type: 'fw' }, { class: "back-top" }
     = render "layouts/footer"

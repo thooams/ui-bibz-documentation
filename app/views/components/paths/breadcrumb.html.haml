@@ -4,7 +4,7 @@
 
 = code do
   :plain
-    breadcrumb options, html_options do |b|
+    ui_breadcrumb options, html_options do |b|
       b.link content, options, html_options
       b.link options, html_options do
         content
@@ -20,28 +20,28 @@
   - s.section title: "Breadcrumb" do
     = example do |c|
       - c.header do
-        = breadcrumb tap: true do |b|
+        = ui_breadcrumb tap: true do |b|
           - b.link 'Home', state: :active
         %br
-        = breadcrumb tap: true do |b|
+        = ui_breadcrumb tap: true do |b|
           - b.link 'Home', url: '#home'
           - b.link 'Library', state: :active
         %br
-        = breadcrumb tap: true do |b|
+        = ui_breadcrumb tap: true do |b|
           - b.link 'Home', url: '#active'
           - b.link 'Library', url: '#library'
           - b.link 'Data', state: :active
       - c.code do
-        breadcrumb do |b|
+        ui_breadcrumb do |b|
           b.link 'Home', state: :active
         end
          
-        breadcrumb do |b|
+        ui_breadcrumb do |b|
           b.link 'Home', url: '#home'
           b.link 'Library', state: :active
         end
          
-        breadcrumb do |b|
+        ui_breadcrumb do |b|
           b.link 'Home', url: '#home'
           b.link 'Library', url: '#library'
           b.link 'Data', state: :active
@@ -76,9 +76,9 @@
 
     = example do |c|
       - c.header do
-        = breadcrumb store: @users, link_label: :email, link_url: "#/id/edit"
+        = ui_breadcrumb store: @users, link_label: :email, link_url: "#/id/edit"
       - c.code do
-        breadcrumb store: @users, link_label: :email, link_url: "\#/id/edit"
+        ui_breadcrumb store: @users, link_label: :email, link_url: "\#/id/edit"
       - c.html do
         <ol class="breadcrumb">
           <li><a href="#/1/edit">test0@test.com</a></li>

@@ -1,7 +1,7 @@
 = title "Select Field"
 %blockquote UiBibz::Ui::Core::Forms::Selects::SelectField
 
-= code "select_field", component_name: "name"
+= code "ui_select_field", component_name: "name"
 
 = component_options do |co|
   - co.state_link
@@ -16,10 +16,10 @@
   - s.section title: "Select Field" do
     = example do |e|
       - e.header do
-        = select_field 'example 0', option_tags: select_options_tags
+        = ui_select_field 'example 0', option_tags: select_options_tags
       - e.code do
         option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
-        select_field 'example 0', option_tags: option_tags
+        ui_select_field 'example 0', option_tags: option_tags
       - e.html do
         :plain
           <select name="example 0" id="example_0" class="select-field form-control">
@@ -36,10 +36,10 @@
     = example do |e|
       - e.header do
         - grouped_options = { 'North America' => [['United states','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
-        =  select_field 'example 1', option_tags: grouped_options_for_select(grouped_options)
+        =  ui_select_field 'example 1', option_tags: grouped_options_for_select(grouped_options)
       - e.code do
         grouped_options = { 'North America' => [['United states','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
-        select_field 'example 1', option_tags: grouped_options_for_select(grouped_options)
+        ui_select_field 'example 1', option_tags: grouped_options_for_select(grouped_options)
       - e.html do
         :plain
           <select name="example 1" id="example_1" class="select-field form-control">
@@ -58,20 +58,20 @@
   - s.section title: "Status options" do
     = example do |e|
       - e.header do
-        = select_field 'example1', status: :success, option_tags: select_options_tags
+        = ui_select_field 'example1', status: :success, option_tags: select_options_tags
       - e.code do
         option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
-        select_field 'example1', status: :success, option_tags: select_options_tags
+        ui_select_field 'example1', status: :success, option_tags: select_options_tags
       - e.footer do
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Surround options" do
     = example do |e|
       - e.header do
-        = select_field 'example1', option_tags: select_options_tags, append: glyph('pencil'), prepend: glyph('diamond')
+        = ui_select_field 'example1', option_tags: select_options_tags, append: ui_glyph('pencil'), prepend: ui_glyph('diamond')
       - e.code do
         option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
-        select_field 'example1', option_tags: select_options_tags, append: glyph('pencil'), prepend: glyph('diamond')
+        ui_select_field 'example1', option_tags: select_options_tags, append: ui_glyph('pencil'), prepend: ui_glyph('diamond')
       - e.footer do
         = documentation_link 'Documentation', '#'
 
@@ -82,16 +82,16 @@
     = example do |e|
       - e.header do
         - connect = { mode: 'remote', target: { selector: '#example_1_target', url: components_forms_selects_select_field_path }}
-        = select_field 'example 1', { option_tags: select_options_tags, connect: connect }
+        = ui_select_field 'example 1', { option_tags: select_options_tags, connect: connect }
         %br
-        = select_field 'example 1 target', option_tags: select_options_tags
+        = ui_select_field 'example 1 target', option_tags: select_options_tags
       - e.code do
         option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
         \# First select input
         connect = { mode: 'remote', target: { selector: '#example_1_target', url: components_forms_selects_select_field_path }}
-        select_field 'example 1', { option_tags: options_tags, connect: connect }
+        ui_select_field 'example 1', { option_tags: options_tags, connect: connect }
         \# Second select input
-        select_field 'example 1 target', option_tags: option_tags
+        ui_select_field 'example 1 target', option_tags: option_tags
       - e.html do
         :plain
           <select name="example 0" id="example_0" class="select-field form-control">
@@ -108,19 +108,19 @@
     = example do |e|
       - e.header do
         - options_data = 5.times.map{ |o| 5.times.map{ |i| { text: "New option #{ o }.#{ i }", value: i, connect_option_id: o }}}.flatten
-        = select_field 'example 2', { option_tags: select_options_tags, connect: { mode: 'local', target: { selector: '#example_2_target', data: options_data }}}
+        = ui_select_field 'example 2', { option_tags: select_options_tags, connect: { mode: 'local', target: { selector: '#example_2_target', data: options_data }}}
         %br
-        = select_field 'example 2 target', option_tags: select_options_tags
+        = ui_select_field 'example 2 target', option_tags: select_options_tags
       - e.code do
         option_tags  = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
         \# First Select input
         options_data = 5.times.map{ |o| 5.times.map{ |i| { text: "New option \#{ o }.\#{ i }", value: i, connect_option_id: o }}}.flatten
         connect      = { mode: 'local', target: { selector: '#example_2_target', data: options_data }}}
-        select_field 'example 2', { option_tags: options_html, connect: connect }
+        ui_select_field 'example 2', { option_tags: options_html, connect: connect }
 
         \# Second Select input
         options_html = options_for_select(5.times.map{ |i| "option \#{i}" })
-        select_field 'example 2 target', option_tags: options_html
+        ui_select_field 'example 2 target', option_tags: options_html
       - e.html do
         :plain
           <select name='example 1' id='example_1' data-connect="{'type':'remote','target':{'selector':'#example_1_target','url':'/components/forms/selects/select-field'}}" class="ui-bibz-connect select-field form-control">
@@ -144,11 +144,11 @@
     = example do |e|
       - e.header do
         - refresh = { target: { url: components_forms_selects_select_field_path }}
-        = select_field 'example 3 target', option_tags: select_options_tags, refresh: refresh
+        = ui_select_field 'example 3 target', option_tags: select_options_tags, refresh: refresh
       - e.code do
         option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
         connect     = { target: { url: components_forms_selects_select_field_path }}
-        select_field 'example 3', option_tags: option_tags, refresh: connect
+        ui_select_field 'example 3', option_tags: option_tags, refresh: connect
       - e.html do
         :plain
           <div class="input-group select-field-refresh">
@@ -171,7 +171,7 @@
 
 
   - s.section title: "Simple form" do
-    %p= simple_form_text_with_input "select_field"
+    %p= simple_form_text_with_input "ui_select_field"
     %p
       Then in your view, you can insert your input dropdown select field.
       This simple form component is based on simple_form
@@ -185,12 +185,12 @@
 
     = example do |e|
       - e.header do
-        = ui_bibz_form_for(@user) do |f|
-          - f.association :country, as: :select_field, collection: @countries, label_method: :name, value_method: :id
+        = ui_form_for(@user) do |f|
+          - f.association :country, as: :ui_select_field, collection: @countries, label_method: :name, value_method: :id
       - e.code do
-        ui_bibz_form_for(@user) do |f|
+        ui_form_for(@user) do |f|
           ...
-          f.association :country, as: :select_field, collection: @countries, label_method: :name, value_method: :id
+          f.association :country, as: :ui_select_field, collection: @countries, label_method: :name, value_method: :id
           ...
         end
       - e.footer do
@@ -207,12 +207,12 @@
 
     = example do |e|
       - e.header do
-        = ui_bibz_form_for(@user) do |f|
-          - f.association :country, as: :select_field, collection: @continents, grouped: true, group_method: :countries, label_method: :name, value_method: :id
+        = ui_form_for(@user) do |f|
+          - f.association :country, as: :ui_select_field, collection: @continents, grouped: true, group_method: :countries, label_method: :name, value_method: :id
       - e.code do
-        ui_bibz_form_for(@search) do |f|
+        ui_form_for(@search) do |f|
           ...
-          f.input :country, as: :select_field, grouped: true, collection: @continents,  group_method: :countries, label_method: :name, value_method: :id
+          f.input :country, as: :ui_select_field, grouped: true, collection: @continents,  group_method: :countries, label_method: :name, value_method: :id
           ...
         end
       - e.footer do
@@ -221,12 +221,13 @@
     %p You can add option <code>refresh</code> in your association.
     = example do |e|
       - e.header do
-        = ui_bibz_form_for(@user) do |f|
-          - f.association :country, as: :select_field, refresh: { target: { selector: 'form:last select[name=country_id]', url: components_forms_selects_select_field_path }}, collection: @countries, label_method: :name, value_method: :id
+        = ui_form_for(@user) do |f|
+          - f.input :email
+          - f.association :country, as: :ui_select_field, refresh: { target: { selector: 'form:last select[name=country_id]', url: components_forms_selects_select_field_path }}, collection: @countries, label_method: :name, value_method: :id
       - e.code do
-        ui_bibz_form_for(@user) do |f|
+        ui_form_for(@user) do |f|
           ...
-          f.association :country, as: :select_field, refresh: { target: { url: components_forms_selects_select_field_path }}, collection: @countries, label_method: :name, value_method: :id
+          f.association :country, as: :ui_select_field, refresh: { target: { url: components_forms_selects_select_field_path }}, collection: @countries, label_method: :name, value_method: :id
           ...
         end
       - e.footer do

@@ -4,7 +4,7 @@
 
 = code do
   :plain
-    dropdown name, options, html_options do |d|
+    ui_dropdown name, options, html_options do |d|
       d.link content, options, html_options
       # or
       d.link options, html_options do
@@ -46,14 +46,14 @@
         * divider
 
       - c.header do
-        = dropdown('Dropdown', { open: true }, { class: 'open-dropdown-example' }) do |d|
+        = ui_dropdown('Dropdown', { open: true }, { class: 'open-dropdown-example' }) do |d|
           - d.link "Action 1", url: '#action'
           - d.link url: '#another-action' do
             = "Action 2"
           - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
             = "Action 3"
       - c.code do
-        dropdown 'Dropdown' do |d|
+        ui_dropdown 'Dropdown' do |d|
           d.link "Action 1", url: '#action'
           d.link url: '#another-action' do
             "Action 2"
@@ -77,14 +77,14 @@
   - s.section title: "Dropdown options" do
     = example do |c|
       - c.header do
-        = dropdown('Dropdown', { status: :secondary, glyph: 'diamond', open: true }, { class: 'open-dropdown-example' }) do |d|
+        = ui_dropdown('Dropdown', { status: :secondary, glyph: 'diamond', open: true }, { class: 'open-dropdown-example' }) do |d|
           - d.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
           - d.link url: '#another-action' do
             = "Action 2"
           - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
             = "Action 3"
       - c.code do
-        dropdown('Dropdown', { status: :secondary, glyph: 'diamond' }, { class: 'my-dropdown'}) do |d|
+        ui_dropdown('Dropdown', { status: :secondary, glyph: 'diamond' }, { class: 'my-dropdown'}) do |d|
           d.link "Action 1", url: '#action'
           d.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
           d.link url: '#another-action' do
@@ -110,12 +110,12 @@
   - s.section title: "Position" do
     = example do |c|
       - c.header do
-        = dropdown "Dropdown with right menu", position: :right, open: true, class: 'open-dropdown-example' do |d|
+        = ui_dropdown "Dropdown with right menu", position: :right, open: true, class: 'open-dropdown-example' do |d|
           - d.link "Action 1", url: '#action-1'
           - d.link "Action 2", url: '#action-2'
           - d.link "Action 3", url: '#action-3'
       - c.code do
-        dropdown "Dropdown with right menu", position: :right do |d|
+        ui_dropdown "Dropdown with right menu", position: :right do |d|
           d.link "Action 1", url: '#action-1'
           d.link "Action 2", url: '#action-2'
           d.link "Action 3", url: '#action-3'
@@ -136,7 +136,7 @@
   - s.section title: "Header" do
     = example do |c|
       - c.header do
-        = dropdown "Dropdown", open: true, class: 'open-dropdown-example' do |d|
+        = ui_dropdown "Dropdown", open: true, class: 'open-dropdown-example' do |d|
           - d.header "Header 1"
           - d.link "Action 1", url: '#action-1'
           - d.header class: 'my-header' do
@@ -148,7 +148,7 @@
         %br
         %br
       - c.code do
-        dropdown "Dropdown" do |d|
+        ui_dropdown "Dropdown" do |d|
           d.header "Header 1"
           d.link "Action 1", url: '#action-1'
           d.header class: 'my-header' do
@@ -175,7 +175,7 @@
   - s.section title: "Divider" do
     = example do |c|
       - c.header do
-        = dropdown "Dropdown", open: true, class: 'open-dropdown-example' do |d|
+        = ui_dropdown "Dropdown", open: true, class: 'open-dropdown-example' do |d|
           - d.link "Action 1", url: '#action-1'
           - d.divider
           - d.link "Separate action 1", url: '#separate-action-1'
@@ -183,7 +183,7 @@
         %br
         %br
       - c.code do
-        dropdown "Dropdown" do |d|
+        ui_dropdown "Dropdown" do |d|
           d.link "Action 1", url: '#action-1'
           d.divider
           d.link "Separate action 1", url: '#separate-action-1'
@@ -205,14 +205,14 @@
   - s.section title: "Html" do
     = example do |c|
       - c.header do
-        = dropdown "Dropdown", open: true, class: 'open-dropdown-example' do |d|
+        = ui_dropdown "Dropdown", open: true, class: 'open-dropdown-example' do |d|
           - d.html link_to("Action 1", '#action-1', class:'dropdown-item')
           - d.html link_to("Action 2", '#action-2', class:'dropdown-item')
           - d.html link_to("Action 3", '#action-3', class:'dropdown-item')
         %br
         %br
       - c.code do
-        dropdown "Dropdown" do |d|
+        ui_dropdown "Dropdown" do |d|
           d.html link_to("Action 1", url: '#action-1', class: 'dropdown-item')
           d.html link_to("Action 2", url: '#action-2', class: 'dropdown-item')
           d.html link_to("Action 3", url: '#action-3', class: 'dropdown-item')
@@ -233,12 +233,12 @@
   - s.section title: "Disabled" do
     = example do |c|
       - c.header do
-        = dropdown "Dropdown", open: true, class: 'open-dropdown-example' do |d|
+        = ui_dropdown "Dropdown", open: true, class: 'open-dropdown-example' do |d|
           - d.link "Action 1", url: '#action-1'
           - d.link "Action 2", url: '#action-2', state: :disabled
           - d.link "Action 3", url: '#action-3'
       - c.code do
-        dropdown "Dropdown" do |d|
+        ui_dropdown "Dropdown" do |d|
           d.link "Action 1", url: '#action-1'
           d.link "Action 2", url: '#action-2'
           d.link "Action 3", url: '#action-3'
@@ -259,7 +259,7 @@
     = example do |c|
       - c.header do
         - %i(primary secondary danger warning info success).each do |status|
-          = dropdown status.to_s.titleize, status: status do |bd|
+          = ui_dropdown status.to_s.titleize, status: status do |bd|
             - bd.link "Action", url: '#action', glyph: 'diamond'
             - bd.link url: '#another-action' do
               = "Another action"
@@ -269,7 +269,7 @@
             - bd.link({ url: '#separate-link'}, { class: 'my-link'}) do
               = "Separate link"
       - c.code do
-        dropdown 'Primary' do |bd|
+        ui_dropdown 'Primary' do |bd|
           bd.link "Action", url: '#action', glyph: 'diamond'
           bd.link "Another action", url: '#another-action'
           bd.link url: '#another-action' do

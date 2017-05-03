@@ -1,9 +1,9 @@
-= title 'Table Card'
+= title 'Table ui_card'
 %blockquote UiBibz::Ui::Ux::Tables::TableCard
 .bd-callout
   %p
     The
-    %code table_card
+    %code ui_table_card
     component is a mix between a #{ link_to 'table', components_table_path } and a #{ link_to 'card', components_cards_card_path } component.<br/>
     %br
     Pagination and search are integrated to the component
@@ -17,19 +17,19 @@
     %code per_page
     \.
 
-= card tap: true do |c|
+= ui_card tap: true do |c|
   - c.header 'Important'
   - c.block do
     To add, update, remove columns or actions in the component <code>table</code> you must add the option <code>tap: true</code>.
 
 %p
-  %strong Table card operate like #{ link_to 'table', components_table_path } component.
+  %strong Table ui_card operate like #{ link_to 'table', components_table_path } component.
 
 = code do
   :plain
-    table_card options, html_options
+    ui_table_card options, html_options
     # or
-    table_card options, html_options do |t|
+    ui_table_card options, html_options do |t|
       t.columns do |cls|
         cls.column data_index, options, html_options
       end
@@ -59,7 +59,7 @@
 
     = example do |c|
       - c.header do
-        = table_card({ store: @users, tap: true }) do |b|
+        = ui_table_card({ store: @users, tap: true }) do |b|
           - b.columns do |cls|
             - cls.column :id
             - cls.column :email
@@ -72,7 +72,7 @@
             - acs.link 'Edit', url: '#show', glyph: 'pencil'
             - acs.link 'Delete', url: '#show', glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
       - c.code do
-        table_card({ store: @users, tap: true })
+        ui_table_card({ store: @users, tap: true })
       - c.html do
         <form action="/components/tables_cards" accept-charset="UTF-8" method="get">
           <input name="utf8" type="hidden" value="✓">
@@ -166,7 +166,7 @@
       - c.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Table Card Options" do
+  - s.section title: "Table ui_card Options" do
     %p Table has several options:
     = component_list_options do |clo|
       - clo.glyph_link
@@ -177,7 +177,7 @@
       - clo.list 'title', types: :string
       - clo.list 'table_html_options', types: :hash
 
-  - s.section title: "Table Card Blocks" do
+  - s.section title: "Table ui_card Blocks" do
     :markdown
       Table has several blocks:
 

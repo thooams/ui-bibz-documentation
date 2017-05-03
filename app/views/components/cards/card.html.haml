@@ -4,13 +4,13 @@
 
 = code do
   :plain
-    card content, options, html_options
+    ui_card content, options, html_options
     # or
-    card options, html_options do
+    ui_card options, html_options do
       content
     end
     # or
-    card options, html_options do |c|
+    ui_card options, html_options do |c|
       c.header content, options, html_options
       # or
       c.header options, html_options do
@@ -57,19 +57,19 @@
   - s.section title: "Card" do
     = example do |e|
       - e.header do
-        = card do
+        = ui_card do
           = "Content"
-        = card "Content", { status: :info }, { class: 'my-card1'}
-        = card({ status: :success }, { class: 'my-card2'})  do
+        = ui_card "Content", { status: :info }, { class: 'my-card1'}
+        = ui_card({ status: :success }, { class: 'my-card2'})  do
           = "Content"
       - e.code do
-        card do
+        ui_card do
           Content
         end
          
-        card "Content", { status: :info }, { class: 'my-card1'}
+        ui_card "Content", { status: :info }, { class: 'my-card1'}
          
-        card({ status: :success }, { class: 'my-card2'})  do
+        ui_card({ status: :success }, { class: 'my-card2'})  do
           "Content"
         end
       - e.html do
@@ -93,7 +93,7 @@
 
     = example do |e|
       - e.header do
-        = card_deck do |cd|
+        = ui_card_deck do |cd|
           - cd.card tap: true do |c|
             - c.header 'Header 1'
             - c.block 'Content 1'
@@ -110,19 +110,19 @@
             - c.footer({ muted: true }, { class: 'my-footer'}) do
               = "Footer 3"
       - e.code do
-        card tap: true do |c|
+        ui_card tap: true do |c|
           c.header 'Header 1'
           c.block 'Content 1'
           c.footer 'Footer 1'
         end
          
-        card tap: true do |c|
+        ui_card tap: true do |c|
           c.header 'Header 2', { glyph: 'diamond' }, { class: 'my-header' }
           c.block 'Content 2', { glyph: 'diamond' }, { class: 'my-content' }
           c.footer 'Footer 2', { muted: true }, { class: 'my-footer'}
         end
          
-        card tap: true do |c|
+        ui_card tap: true do |c|
           c.header({ glyph: 'diamond' }, { class: 'my-header' }) do
             'Header 3'
           end
@@ -165,7 +165,7 @@
 
     = example do |e|
       - e.header do
-        = card tap: true do |c|
+        = ui_card tap: true do |c|
           - c.image 'image.svg'
           - c.block tap: true do |b|
             - b.title "Card title"
@@ -178,7 +178,7 @@
             - b.link "Card link", url: '#', class: "card-link"
             - b.link "Card link", url: '#', class: "card-link"
       - e.code do
-        card tap: true do |c|
+        ui_card tap: true do |c|
           c.image 'image.svg'
           c.block tap: true do |b|
             b.title "Card title"
@@ -228,7 +228,7 @@
 
     = example do |e|
       - e.header do
-        = card_deck do |cd|
+        = ui_card_deck do |cd|
           - cd.card tap: true do |c|
             - c.block tap: true do |b|
               - b.title "Special title treatment"
@@ -247,7 +247,7 @@
               - b.text "With supporting text below as a natural lead-in to additional content."
               - b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
       - e.code do
-        card tap: true do |c|
+        ui_card tap: true do |c|
           c.block tap: true do |b|
             b.title "Special title treatment"
             b.text "With supporting text below as a natural lead-in to additional content."
@@ -255,7 +255,7 @@
           end
         end
          
-        card tap: true, text_position: :center do |c|
+        ui_card tap: true, text_position: :center do |c|
           c.block tap: true do |b|
             b.title class: 'title' do
               "Special title treatment"
@@ -269,7 +269,7 @@
           end
         end
          
-        card tap: true, text_position: :right do |c|
+        ui_card tap: true, text_position: :right do |c|
           c.block tap: true do |b|
             b.title "Special title treatment"
             b.text "With supporting text below as a natural lead-in to additional content."
@@ -308,7 +308,7 @@
   - s.section title: "Inverse and colors" do
     = example do |e|
       - e.header do
-        = card_column do |cd|
+        = ui_card_column do |cd|
           - cd.card({ tap: true, type: :inverse }, { style: "background-color: #333; border-color: #333;" }) do |c|
             - c.block tap: true do |b|
               - b.title "Special title treatment"
@@ -334,42 +334,42 @@
               - b.title "Special title treatment"
               - b.text "With supporting text below as a natural lead-in to additional content."
       - e.code do
-        card({ tap: true, type: :inverse }, { style: "background-color: #333; border-color: #333;" }) do |c|
+        ui_card({ tap: true, type: :inverse }, { style: "background-color: #333; border-color: #333;" }) do |c|
           c.block tap: true do |b|
             b.title "Special title treatment"
             b.text "With supporting text below as a natural lead-in to additional content."
           end
         end
          
-        card tap: true, type: :inverse, status: :primary do |c|
+        ui_card tap: true, type: :inverse, status: :primary do |c|
           c.block tap: true do |b|
             b.title "Special title treatment"
             b.text "With supporting text below as a natural lead-in to additional content."
           end
         end
          
-        card tap: true, type: :inverse, status: :success do |c|
+        ui_card tap: true, type: :inverse, status: :success do |c|
           c.block tap: true do |b|
             b.title "Special title treatment"
             b.text "With supporting text below as a natural lead-in to additional content."
           end
         end
          
-        card tap: true, type: :inverse, status: :danger do |c|
+        ui_card tap: true, type: :inverse, status: :danger do |c|
           c.block tap: true do |b|
             b.title "Special title treatment"
             b.text "With supporting text below as a natural lead-in to additional content."
           end
         end
          
-        card tap: true, type: :inverse, status: :info do |c|
+        ui_card tap: true, type: :inverse, status: :info do |c|
           c.block tap: true do |b|
             b.title "Special title treatment"
             b.text "With supporting text below as a natural lead-in to additional content."
           end
         end
          
-        card tap: true, type: :inverse, status: :warning do |c|
+        ui_card tap: true, type: :inverse, status: :warning do |c|
           c.block tap: true do |b|
             b.title "Special title treatment"
             b.text "With supporting text below as a natural lead-in to additional content."

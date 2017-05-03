@@ -2,7 +2,7 @@
 %blockquote UiBibz::Ui::Core::Forms::Selects::MultiSelectField
 %p.bd-callout= based_on link_to "bootstrap-multiselect", "http://davidstutz.github.io/bootstrap-multiselect/", target: '_blank'
 
-= code "multi_select_field", component_name: "name"
+= code "ui_multi_select_field", component_name: "name"
 
 = component_options do |co|
   - co.status_link
@@ -20,10 +20,10 @@
   - s.section title: "Multi Select Field" do
     = example do |e|
       - e.header do
-        = multi_select_field 'example1', option_tags: select_options_tags
+        = ui_multi_select_field 'example1', option_tags: select_options_tags
       - e.code do
         option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
-        multi_select_field 'example', option_tags: option_tags
+        ui_multi_select_field 'example', option_tags: option_tags
       - e.html do
         <select name="example1[]" id="example1" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
           <option value="option 0">option 0</option>
@@ -49,10 +49,10 @@
     = example do |e|
       - e.header do
         - grouped_options = { 'North America' => [['United states','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
-        = multi_select_field 'example2', { clickable_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
+        = ui_multi_select_field 'example2', { clickable_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
       - e.code do
         grouped_options = { 'North America' => [['United states','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
-        multi_select_field 'example', { clickable_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
+        ui_multi_select_field 'example', { clickable_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
       - e.html do
         <select name="example2[]" id="example2" data-enable-clickable-opt-groups="true" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
           <optgroup label="North America">
@@ -84,10 +84,10 @@
     = example do |e|
       - e.header do
         - grouped_options = { 'North America' => [['United states','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
-        = multi_select_field 'example2', { collapsible_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
+        = ui_multi_select_field 'example2', { collapsible_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
       - e.code do
         grouped_options = { 'North America' => [['United states','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
-        multi_select_field 'example', { collapsible_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
+        ui_multi_select_field 'example', { collapsible_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
       - e.html do
         <select name="example2[]" id="example2" data-enable-collapsible-opt-groups="true" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
           <optgroup label="North America">
@@ -118,10 +118,10 @@
   - s.section title: "Searchable option" do
     = example do |e|
       - e.header do
-        = multi_select_field 'example1', searchable: true, option_tags: select_options_tags
+        = ui_multi_select_field 'example1', searchable: true, option_tags: select_options_tags
       - e.code do
         option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
-        multi_select_field 'example', searchable: true, option_tags: option_tags
+        ui_multi_select_field 'example', searchable: true, option_tags: option_tags
       - e.html do
         <select name="example1[]" id="example1" data-enable-filtering="true" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
           <option value="option 0">option 0</option>
@@ -151,10 +151,10 @@
   - s.section title: "Select_all_option option" do
     = example do |e|
       - e.header do
-        = multi_select_field 'example1', select_all_option: true, option_tags: select_options_tags
+        = ui_multi_select_field 'example1', select_all_option: true, option_tags: select_options_tags
       - e.code do
         option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
-        multi_select_field 'example', select_all_option: true, option_tags: option_tags
+        ui_multi_select_field 'example', select_all_option: true, option_tags: option_tags
       - e.html do
         <select name="example1[]" id="example1" data-include-select-all-option="true" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
           <option value="option 0">option 0</option>
@@ -181,15 +181,15 @@
     = example do |e|
       - e.header do
         - %w(primary secondary success warning danger link).each do |s|
-          = multi_select_field s, status: s.to_sym, option_tags: select_options_tags
+          = ui_multi_select_field s, status: s.to_sym, option_tags: select_options_tags
       - e.code do
         option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
-        multi_select_field 'primary', status: :primary, option_tags: option_tags
-        multi_select_field 'secondary', status: :secondary, option_tags: option_tags
-        multi_select_field 'success', status: :success, option_tags: option_tags
-        multi_select_field 'warning', status: :warning, option_tags: option_tags
-        multi_select_field 'danger', status: :danger, option_tags: option_tags
-        multi_select_field 'link', status: :link, option_tags: option_tags
+        ui_multi_select_field 'primary', status: :primary, option_tags: option_tags
+        ui_multi_select_field 'secondary', status: :secondary, option_tags: option_tags
+        ui_multi_select_field 'success', status: :success, option_tags: option_tags
+        ui_multi_select_field 'warning', status: :warning, option_tags: option_tags
+        ui_multi_select_field 'danger', status: :danger, option_tags: option_tags
+        ui_multi_select_field 'link', status: :link, option_tags: option_tags
       - e.html do
         <select name="primary[]" id="primary" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
           <option value="option 0">option 0</option>
@@ -219,17 +219,17 @@
     = example do |e|
       - e.header do
         - connect = { mode: 'remote', target: { selector: '#example_1_target', url: components_forms_selects_multi_column_field_path }}
-        = multi_select_field 'example 1', option_tags: select_options_tags, connect: connect
+        = ui_multi_select_field 'example 1', option_tags: select_options_tags, connect: connect
         %br
         %br
-        = multi_select_field 'example 1 target', option_tags: select_options_tags
+        = ui_multi_select_field 'example 1 target', option_tags: select_options_tags
       - e.code do
         option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
         \# First multi column input
         connect = { mode: 'remote', target: { selector: '#example_1_target', url: components_forms_selects_multi_column_field_path }}
-        multi_select_field 'example 1', option_tags: option_tags, connect: connect
+        ui_multi_select_field 'example 1', option_tags: option_tags, connect: connect
         \# Second select input
-        multi_select_field 'example 1 target', option_tags: option_tags
+        ui_multi_select_field 'example 1 target', option_tags: option_tags
       - e.html do
         :plain
           ""
@@ -241,19 +241,19 @@
       - e.header do
         - data = 5.times.map{ |i| [{ connect_option_id: i, value: 1+i.to_i, text: "New option 1.#{ i }"}, { connect_option_id: i, value: 6+i.to_i, text: "New option 2.#{ i }"}] }.flatten
         - connect = { mode: 'local', target: { selector: '#example_2_target', data: data }}
-        = multi_select_field 'example 2', searchable: true, option_tags: select_options_tags, connect: connect
+        = ui_multi_select_field 'example 2', searchable: true, option_tags: select_options_tags, connect: connect
         %br
         %br
-        = multi_select_field 'example 2 target', option_tags: select_options_tags
+        = ui_multi_select_field 'example 2 target', option_tags: select_options_tags
       - e.code do
         option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
         \# First Select input
         options_data = 5.times.map{ |o| 5.times.map{ |i| { text: "New option \#{ o }.\#{ i }", value: i, connect_option_id: o }}}.flatten
         connect      = { mode: 'local', target: { selector: '#example_2_target', data: options_data }}}
-        multi_select_field 'example 2', { option_tags: option_tags, connect: connect }
+        ui_multi_select_field 'example 2', { option_tags: option_tags, connect: connect }
 
         \# Second Select input
-        multi_select_field 'example 2 target', option_tags: options_html
+        ui_multi_select_field 'example 2 target', option_tags: options_html
       - e.html do
         :plain
           ""
@@ -265,11 +265,11 @@
     = example do |e|
       - e.header do
         - refresh = { target: { url: components_forms_selects_select_field_path }}
-        = multi_select_field 'example 3 target', option_tags: select_options_tags, refresh: refresh
+        = ui_multi_select_field 'example 3 target', option_tags: select_options_tags, refresh: refresh
       - e.code do
         option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
         connect     = { target: { url: components_forms_selects_select_field_path }}
-        multi_select_field 'example 3', option_tags: option_tags, refresh: connect
+        ui_multi_select_field 'example 3', option_tags: option_tags, refresh: connect
       - e.html do
         :plain
           <div class="input-group select-field-refresh">
@@ -325,7 +325,7 @@
 
 
   - s.section title: "Simple form" do
-    %p= simple_form_text_with_input "multi_select_field"
+    %p= simple_form_text_with_input "ui_multi_select_field"
     %p
       Then in your view, you can insert your input dropdown select field.
       This simple form component is based on simple_form
@@ -339,12 +339,12 @@
 
     = example do |e|
       - e.header do
-        = ui_bibz_form_for(@user) do |f|
-          - f.association :country, as: :multi_select_field, collection: @countries, label_method: :name, value_method: :id
+        = ui_form_for(@user) do |f|
+          - f.association :country, as: :ui_multi_select_field, collection: @countries, label_method: :name, value_method: :id
       - e.code do
-        ui_bibz_form_for(@user) do |f|
+        ui_form_for(@user) do |f|
           ...
-          f.association :country, as: :multi_select_field, collection: @countries, label_method: :name, value_method: :id
+          f.association :country, as: :ui_multi_select_field, collection: @countries, label_method: :name, value_method: :id
           ...
         end
       - e.footer do
@@ -361,12 +361,12 @@
 
     = example do |e|
       - e.header do
-        = ui_bibz_form_for(@user) do |f|
-          - f.association :country, as: :multi_select_field, collection: @continents, grouped: true, group_method: :countries, label_method: :name, value_method: :id
+        = ui_form_for(@user) do |f|
+          - f.association :country, as: :ui_multi_select_field, collection: @continents, grouped: true, group_method: :countries, label_method: :name, value_method: :id
       - e.code do
-        ui_bibz_form_for(@search) do |f|
+        ui_form_for(@search) do |f|
           ...
-          f.input :country, as: :multi_select_field, grouped: true, collection: @collection,  group_method: :last, label_method: :name, value_method: :value
+          f.input :country, as: :ui_multi_select_field, grouped: true, collection: @collection,  group_method: :last, label_method: :name, value_method: :value
           ...
         end
       - e.footer do
@@ -375,12 +375,12 @@
     %p You can add option <code>refresh</code> in your association.
     = example do |e|
       - e.header do
-        = ui_bibz_form_for(@user) do |f|
-          - f.association :country, as: :multi_select_field, refresh: { target: { selector: 'form:last select[id=country_id]', url: components_forms_selects_select_field_path }}, collection: @countries, label_method: :name, value_method: :id
+        = ui_form_for(@user) do |f|
+          - f.association :country, as: :ui_multi_select_field, refresh: { target: { selector: 'form:last select[id=country_id]', url: components_forms_selects_select_field_path }}, collection: @countries, label_method: :name, value_method: :id
       - e.code do
-        ui_bibz_form_for(@user) do |f|
+        ui_form_for(@user) do |f|
           ...
-          f.association :country, as: :multi_select_field, refresh: { target: { url: components_forms_selects_select_field_path }}, collection: @countries, label_method: :name, value_method: :id
+          f.association :country, as: :ui_multi_select_field, refresh: { target: { url: components_forms_selects_select_field_path }}, collection: @countries, label_method: :name, value_method: :id
           ...
         end
       - e.footer do

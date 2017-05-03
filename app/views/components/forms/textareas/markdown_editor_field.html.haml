@@ -5,7 +5,7 @@
   %br
   You can use #{ link_to 'Redcarpet', 'https://github.com/vmg/redcarpet', target: '_blank' } or #{ link_to 'HAML', 'https://github.com/indirect/haml-rails', target: '_blank' } gem to render markdown content.
 
-= code "markdown_editor_field", component_name: "name"
+= code "ui_markdown_editor_field", component_name: "name"
 
 = component_options do |co|
   - co.state_link
@@ -19,9 +19,9 @@
   - s.section title: "Markdown Editor Field" do
     = example do |e|
       - e.header do
-        = markdown_editor_field 'comments'
+        = ui_markdown_editor_field 'comments'
       - e.code do
-        markdown_editor_field 'comments'
+        ui_markdown_editor_field 'comments'
       - e.html do
         <div class="md-editor active" id="1467708687712">
           <div class="md-header btn-toolbar">
@@ -76,15 +76,15 @@
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Simple form" do
-    %p= simple_form_text_with_input "markdown_editor_field"
+    %p= simple_form_text_with_input "ui_markdown_editor_field"
     = example do |e|
       - e.header do
-        = ui_bibz_form_for(@user) do |f|
-          = f.input :name, as: :markdown_editor_field
+        = ui_form_for(@user) do |f|
+          = f.input :name, as: :ui_markdown_editor_field
       - e.code do
-        ui_bibz_form_for(@user) do |f|
+        ui_form_for(@user) do |f|
           ...
-          f.input :name, as: :markdown_editor_field
+          f.input :name, as: :ui_markdown_editor_field
           ...
         end
       - e.footer do

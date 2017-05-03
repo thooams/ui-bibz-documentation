@@ -1,0 +1,58 @@
+= title 'Badge'
+%blockquote UiBibz::Ui::Core::Badge
+%p.bd-callout
+  Add any of the below mentioned modifier classes to change the appearance of a badge.
+
+= code 'badge'
+
+= component_options do |co|
+  - co.status_link
+  - co.glyph_link
+  - co.list 'type', types: 'symbol', values: ':pill'
+
+- @sections = sections do |s|
+  - s.section title: "badge" do
+    = example do |c|
+      - c.header do
+        - %i(primary default danger warning info success).each do |status|
+          = ui_badge status.to_s.titleize, status: status
+      - c.code do
+        ui_badge 'Primary', status: :primary
+        ui_badge 'Default', status: :default
+        ui_badge 'Danger', status: :danger
+        ui_badge 'Warning', status: :warning
+        ui_badge 'Info', status: :info
+        ui_badge 'Success', status: :success
+      - c.html do
+        <span class="badge-primary tag">Primary</span>
+        <span class="badge-default tag">Default</span>
+        <span class="badge-danger tag">Danger</span>
+        <span class="badge-warning tag">Warning</span>
+        <span class="badge-info tag">Info</span>
+        <span class="badge-success tag">Success</span>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+  - s.section title: "badge Options" do
+    = example do |c|
+      - c.header do
+        - %i(primary default danger warning info success).each do |status|
+          = ui_badge status.to_s.titleize, status: status, type: :pill, glyph: 'diamond'
+      - c.code do
+        ui_badge 'Primary', status: :primary, type: :pill, glyph: 'diamond'
+        ui_badge 'Default', status: :default, type: :pill, glyph: 'diamond'
+        ui_badge 'Danger', status: :danger, type: :pill, glyph: 'diamond'
+        ui_badge 'Warning', status: :warning, type: :pill, glyph: 'diamond'
+        ui_badge 'Info', status: :info, type: :pill, glyph: 'diamond'
+        ui_badge 'Success', status: :success, type: :pill, glyph: 'diamond'
+      - c.html do
+        <span class="badge-primary tag tag-pill"><i class="glyph fa fa-diamond"></i> Primary</span>
+        <span class="badge-default tag tag-pill"><i class="glyph fa fa-diamond"></i> Default</span>
+        <span class="badge-danger tag tag-pill"><i class="glyph fa fa-diamond"></i> Danger</span>
+        <span class="badge-warning tag tag-pill"><i class="glyph fa fa-diamond"></i> Warning</span>
+        <span class="badge-info tag tag-pill"><i class="glyph fa fa-diamond"></i> Info</span>
+        <span class="badge-success tag tag-pill"><i class="glyph fa fa-diamond"></i> Success</span>
+      - c.footer do
+        = documentation_link 'Documentation', '#'
+
+= @sections.render

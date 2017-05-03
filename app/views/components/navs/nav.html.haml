@@ -1,10 +1,10 @@
 = title 'Nav'
 %blockquote UiBibz::Ui::Core::Navs::Nav
-%p.bd-callout Navs available in Bootstrap have shared markup, starting with the base .nav class, as well as shared status.
+%p.bd-callout ui_navs available in Bootstrap have shared markup, starting with the base .nav class, as well as shared status.
 
 = code do
   :plain
-    nav options, html_options do |n|
+    ui_nav options, html_options do |n|
       n.link content, options, html_options
       # or
       n.link options, html_options do
@@ -30,7 +30,7 @@
   - s.section title: "Nav" do
     = example do |c|
       - c.header do
-        = nav do |n|
+        = ui_nav do |n|
           - n.link 'Active', url: '#active', state: :active
           - n.link url: '#link', class: 'my-link' do
             Link
@@ -40,7 +40,7 @@
           - n.link 'Another link 2', url: '#another-link2'
           - n.link 'Another link 3', url: '#another-link3'
       - c.code do
-        nav do |n|
+        ui_nav do |n|
           n.link 'Active', url: '#active', state: :active
           n.link({ url: '#link' }, { class: 'my-link'}) do
             "Link"
@@ -70,7 +70,7 @@
 
   - s.section title: "Nav blocks" do
     :markdown
-      Nav has on block type:
+      ui_nav has on block type:
 
       * #{ inherit_component_link 'link' } [options `url:` is required]
       * #{ inherit_specific_component_link 'dropdown', components_dropdowns_dropdown_path }
@@ -79,14 +79,14 @@
   - s.section title: "Link" do
     = example do |c|
       - c.header do
-        = nav type: :links do |n|
+        = ui_nav type: :links do |n|
           - n.link 'Active', url: '#active', state: :active
           - n.link url: '#link', class: 'my-link' do
             Link
           - n.link 'Another link', url: '#another-link'
           - n.link 'Disabled', url: '#disabled', state: :disabled
       - c.code do
-        nav type: :links do |n|
+        ui_nav type: :links do |n|
           n.link 'Active', url: '#active', state: :active
           n.link({ url: '#link' }, { class: 'my-link'}) do
             "Link"
@@ -107,7 +107,7 @@
   - s.section title: "Tab" do
     = example do |c|
       - c.header do
-        = nav type: :tabs do |n|
+        = ui_nav type: :tabs do |n|
           - n.link 'Active', url: '#active', state: :active
           - n.dropdown 'Dropdown' do |d|
             - d.link "Action 1", url: '#action'
@@ -118,7 +118,7 @@
           - n.link 'Another link', url: '#another-link'
           - n.link 'Disabled', url: '#disabled', state: :disabled
       - c.code do
-        nav type: :tabs do |n|
+        ui_nav type: :tabs do |n|
           n.link 'Active', url: '#active', state: :active
           n.dropdown 'Dropdown' do |d|
             d.link "Action 1", url: '#action'
@@ -153,7 +153,7 @@
   - s.section title: "Pill" do
     = example do |c|
       - c.header do
-        = nav type: :pills do |n|
+        = ui_nav type: :pills do |n|
           - n.link 'Active', url: '#active', state: :active
           - n.dropdown 'Dropdown' do |d|
             - d.link "Action 1", url: '#action'
@@ -164,7 +164,7 @@
           - n.link 'Another link', url: '#another-link'
           - n.link 'Disabled', url: '#disabled', state: :disabled
       - c.code do
-        nav type: :pills do |n|
+        ui_nav type: :pills do |n|
           n.link 'Active', url: '#active', state: :active
           n.dropdown 'Dropdown' do |d|
             d.link "Action 1", url: '#action'
@@ -199,13 +199,13 @@
   - s.section title: "Stacked pill" do
     = example do |c|
       - c.header do
-        = nav type: :pills, stacked: true do |n|
+        = ui_nav type: :pills, stacked: true do |n|
           - n.link 'Active', url: '#active', state: :active
           - n.link 'Link', url: '#link'
           - n.link 'Another link', url: '#another-link'
           - n.link 'Disabled', url: '#disabled', state: :disabled
       - c.code do
-        nav type: :pills, stacked: true do |n|
+        ui_nav type: :pills, stacked: true do |n|
           n.link 'Active', url: '#active', state: :active
           n.link 'Link', url: '#link'
           n.link 'Another link', url: '#another-link'
@@ -213,7 +213,7 @@
         end
       - c.html do
         <ul class="nav nav-pills nav-stacked">
-          <li class="nav-item"><a class="active nav-link" href="#active">Active</a></li>
+          <li class="nav-item"><a class="active ui_nav-link" href="#active">Active</a></li>
           <li class="nav-item"><a class="nav-link" href="#link">Link</a></li>
           <li class="nav-item"><a class="nav-link" href="#another-link">Another link</a></li>
           <li class="nav-item"><a class="disabled nav-link" href="#disabled">Disabled</a></li>
@@ -222,22 +222,22 @@
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Connection" do
-    %p For more information see: #{ link_to 'Boostrap nav', 'http://v4-alpha.getbootstrap.com/components/navs/#javascript-behavior' }
+    %p For more information see: #{ link_to 'Boostrap ui_nav', 'http://v4-alpha.getbootstrap.com/components/navs/#javascript-behavior' }
     = example do |c|
       - c.header do
-        = nav type: :tabs do |n|
+        = ui_nav type: :tabs do |n|
           - n.link 'Active', url: '#content1', state: :active
           - n.link 'Link', url: '#content2'
           - n.link 'Another link', url: '#content3'
           - n.link 'Disabled', url: '#content4', state: :disabled
         %br
         .tab-content
-          = card 'Content 1', { tab: true, state: :active }, { id: 'content1' }
-          = card 'Content 2', { tab: true, effect: :fade }, { id: 'content2' }
-          = card 'Content 3', { tab: true, effect: :fade }, { id: 'content3' }
-          = card 'Content 4', { tab: true }, { id: 'content4' }
+          = ui_card 'Content 1', { tab: true, state: :active }, { id: 'content1' }
+          = ui_card 'Content 2', { tab: true, effect: :fade }, { id: 'content2' }
+          = ui_card 'Content 3', { tab: true, effect: :fade }, { id: 'content3' }
+          = ui_card 'Content 4', { tab: true }, { id: 'content4' }
       - c.code do
-        nav type: :tabs do |n|
+        ui_nav type: :tabs do |n|
           n.link 'Active', url: '#content1', state: :active
           n.link 'Link', url: '#content2'
           n.link 'Another link', url: '#content3'

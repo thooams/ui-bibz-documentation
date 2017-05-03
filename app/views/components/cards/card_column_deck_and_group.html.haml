@@ -4,19 +4,19 @@
 
 = code do
   :plain
-    card_column options, html_options do |cc|
+    ui_card_column options, html_options do |cc|
       cc.card do
         content
       end
     end
 
-    card_deck options, html_options do |cd|
+    ui_card_deck options, html_options do |cd|
       cd.card do
         content
       end
     end
 
-    card_group options, html_options do |cg|
+    ui_card_group options, html_options do |cg|
       cg.card do
         content
       end
@@ -26,7 +26,7 @@
   - s.section title: "Card column" do
     = example do |e|
       - e.header do
-        = card_column do |cc|
+        = ui_card_column do |cc|
           - cc.card tap: true do |c|
             - c.header 'header 1'
             - c.block "content 1"
@@ -48,7 +48,7 @@
           - cc.card status: :primary, type: :inverse, text_position: :center do
             = '<blockquote class="card-blockquote"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p><footer>Someone famous in <cite title="Source Title">Source Title</cite></footer></blockquote>'.html_safe
       - e.code do
-        card_column do |cc|
+        ui_card_column do |cc|
           cc.card tap: true do |c|
             c.header "header 1"
             c.block "content 1"
@@ -117,7 +117,7 @@
 
     = example do |e|
       - e.header do
-        = card_deck do |cd|
+        = ui_card_deck do |cd|
           - cd.card(tap: true) do |c|
             - c.header 'header 1'
             - c.block 'content 1'
@@ -139,7 +139,7 @@
           - cd.card status: :primary, type: :inverse, text_position: :center do
             = '<blockquote class="card-blockquote"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p><footer>Someone famous in <cite title="Source Title">Source Title</cite></footer></blockquote>'.html_safe
       - e.code do
-        card_deck do |cd|
+        ui_card_deck do |cd|
           cd.card tap: true do |c|
             c.header "header 1"
             c.block "content 1"
@@ -208,7 +208,7 @@
     %p= extend_of_component 'card_group'
     = example do |e|
       - e.header do
-        = card_group do |cg|
+        = ui_card_group do |cg|
           - cg.card(tap: true) do |c|
             - c.header 'header 1'
             - c.block 'content 1'
@@ -230,7 +230,7 @@
           - cg.card status: :primary, type: :inverse, text_position: :center do
             = '<blockquote class="card-blockquote"><p>lorem ipsum dolor sit amet, consectetur adipiscing elit. integer posuere erat a ante.</p><footer>someone famous in <cite title="source title">source title</cite></footer></blockquote>'.html_safe
       - e.code do
-        card_group do |cg|
+        ui_card_group do |cg|
           cg.card tap: true do |c|
             c.header "header 1"
             c.block "content 1"

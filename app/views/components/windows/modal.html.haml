@@ -1,10 +1,10 @@
 = title 'Modal'
 %blockquote UiBibz::Ui::Core::Windows::Modal
-%p.bd-callout Modals are streamlined, but flexible, dialog prompts with the minimum required functionality and smart defaults.
+%p.bd-callout ui_modals are streamlined, but flexible, dialog prompts with the minimum required functionality and smart defaults.
 
 = code do
   :plain
-    modal options, html_options do |m|
+    ui_modal options, html_options do |m|
       m.header content, options, html_options
       # or
       m.header options, html_options do
@@ -30,7 +30,7 @@
 - @sections = sections do |s|
   - s.section title: "Modal" do
     :markdown
-      Modal has several block type:
+      ui_modal has several block type:
 
       * #{ inherit_component_link 'header' }
       * #{ inherit_component_link 'body' }
@@ -38,14 +38,14 @@
 
     = example do |c|
       - c.header do
-        = modal class: 'modal-example' do |m|
+        = ui_modal class: 'modal-example' do |m|
           - m.header 'Modal title'
           - m.body 'One fine body'
           - m.footer do
-            = button 'Close', status: :secondary
-            = button 'Save changes'
+            = ui_button 'Close', status: :secondary
+            = ui_button 'Save changes'
       - c.code do
-        modal class: 'modal-example' do |m|
+        ui_modal class: 'modal-example' do |m|
           m.header 'Modal itle'
           m.body 'One fine body'
           m.footer do
@@ -54,7 +54,7 @@
           end
         end
       - c.html do
-        <div class="modal-example modal">
+        <div class="modal-example ui_modal">
           <div class="modal-dialog " role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -79,13 +79,13 @@
   - s.section title: "Size" do
     = example do |c|
       - c.header do
-        = modal class: 'modal-example', size: :sm do |m|
+        = ui_modal class: 'modal-example', size: :sm do |m|
           - m.header do
             = 'Modal title'
           - m.body do
             = 'One fine body'
       - c.code do
-        modal class: 'modal-example' do |m|
+        ui_modal class: 'modal-example' do |m|
           m.header do
             'Modal itle'
           end
@@ -94,8 +94,8 @@
           end
         end
       - c.html do
-        <div class="modal-example modal">
-          <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-example ui_modal">
+          <div class="modal-dialog ui_modal-sm" role="document">
             <div class="modal-content"><div class="modal-header">
               <button class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">×</span>
@@ -113,15 +113,15 @@
   - s.section title: "Effect" do
     = example do |c|
       - c.header do
-        = button_link 'click here', { url: '#' }, { data: { toggle: 'modal', target: '#modal-test' }}
-        = modal({ effect: :fade }, { id: 'modal-test' }) do |m|
+        = ui_button_link 'click here', { url: '#' }, { data: { toggle: 'modal', target: '#modal-test' }}
+        = ui_modal({ effect: :fade }, { id: 'modal-test' }) do |m|
           - m.header do
             = 'Modal title'
           - m.body do
             = 'One fine body'
       - c.code do
-        button_link 'click here', { url: '#' }, { data: { toggle: 'modal', target: '#modal-test' }}
-        modal({ effect: :fade }, { id: 'modal-test' }) do |m|
+        ui_button_link 'click here', { url: '#' }, { data: { toggle: 'modal', target: '#modal-test' }}
+        ui_modal({ effect: :fade }, { id: 'modal-test' }) do |m|
           m.header do
             'Modal itle'
           end
@@ -131,7 +131,7 @@
         end
       - c.html do
         <a data-toggle="modal" data-target="#modal-test" class="btn-primary btn" href="#">click here</a>
-        <div id="modal-test" class="fade modal" style="display: none;">
+        <div id="modal-test" class="fade ui_modal" style="display: none;">
           <div class="modal-dialog " role="document">
             <div class="modal-content">
               <div class="modal-header">

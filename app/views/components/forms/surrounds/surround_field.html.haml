@@ -1,7 +1,7 @@
 = title 'Surround Field'
 %blockquote UiBibz::Ui::Core::Forms::Surrounds::SurroundField
 
-= code "surround_field", component_name: "name"
+= code "ui_surround_field", component_name: "name"
 
 = component_options do |co|
   - co.status_link
@@ -25,13 +25,13 @@
   - s.section title: "Surround Field" do
     = example do |e|
       - e.header do
-        = surround_field do |sf|
+        = ui_surround_field do |sf|
           - sf.checkbox_field 'check', label: false
           - sf.auto_complete_field 'name', option_tags: select_options_tags
           - sf.button 'button'
           - sf.addon  '€'
         %br
-        = surround_field do |sf|
+        = ui_surround_field do |sf|
           - sf.radio_field 'check', label: false
           - sf.select_field 'select', option_tags: select_options_tags
           - sf.dropdown 'dropdown' do |d|
@@ -40,23 +40,23 @@
           - sf.date_picker_field 'date'
 
         %br
-        = surround_field do |sf|
+        = ui_surround_field do |sf|
           - sf.button_refresh
           - sf.dropdown_select_field 'select', option_tags: select_options_tags
           - sf.button_group do
-            = button_choice 'choice 1'
-            = button_choice 'choice 2'
+            = ui_button_choice 'choice 1'
+            = ui_button_choice 'choice 2'
           - sf.multi_select_field 'select', option_tags: select_options_tags
           - sf.button_link 'link', url: '#link'
       - e.code do
         :plain
-          surround_field do |sf|
+          ui_surround_field do |sf|
             sf.checkbox_field 'check', label: false
             sf.auto_complete_field 'name', option_tags: select_options_tags
             sf.button 'button'
             sf.addon  '€'
           end
-          surround_field do |sf|
+          ui_surround_field do |sf|
             sf.radio_field 'check', label: false
             sf.select_field 'select', option_tags: select_options_tags
             sf.dropdown 'dropdown' do |d|
@@ -64,12 +64,12 @@
             sf.glyph 'pencil'
             sf.date_picker_field 'date'
           end
-          surround_field do |sf|
+          ui_surround_field do |sf|
             sf.button_refresh
             sf.dropdown_select_field 'select', option_tags: select_options_tags
             sf.button_group do
-              = button_choice 'choice 1'
-              = button_choice 'choice 2'
+              = ui_button_choice 'choice 1'
+              = ui_button_choice 'choice 2'
             end
             sf.multi_select_field 'select', option_tags: select_options_tags
             sf.button_link 'link', url: '#link'
@@ -244,23 +244,24 @@
 
 
   - s.section title: "Simple form" do
-    %p= simple_form_text_with_input "surround_field"
+    %p= simple_form_text_with_input "ui_surround_field"
     = example do |e|
       - e.header do
-        = ui_bibz_form_for(User.first) do |f|
-          = f.surround_field label: 'Email' do |sf|
+        = ui_form_for(User.first) do |f|
+          - f.input :email
+          -#= f.ui_surround_field label: 'Email' do |sf|
             - sf.addon glyph: 'envelope'
-            - sf.input :email, as: :text_field
+            - sf.input :email#, as: :ui_bibz_text_field
             - sf.button_link 'button', url: "#button_link"
             - sf.input :created_at, as: :date_picker_field
             - sf.addon glyph: 'calendar'
       - e.code do
         :plain
-          ui_bibz_form_for(@user) do |f|
+          ui_form_for(@user) do |f|
             ...
-            f.surround_field label: 'Email' do |sf|
+            f.ui_surround_field label: 'Email' do |sf|
               sf.addon glyph: 'envelope'
-              sf.input :email, as: :text_field
+              sf.input :email
               sf.button_link 'button', url: "#button_link"
               sf.input :created_at, as: :date_picker_field
               sf.addon glyph: 'calendar'

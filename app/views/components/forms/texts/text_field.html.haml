@@ -1,7 +1,7 @@
 = title 'Text Field'
 %blockquote UiBibz::Ui::Core::Forms::Texts::TextField
 
-= code "text_field", component_name: "name"
+= code "ui_text_field", component_name: "name"
 
 = component_options do |co|
   - co.status_link
@@ -13,9 +13,9 @@
   - s.section title: "Text Field" do
     = example do |e|
       - e.header do
-        = text_field 'search'
+        = ui_text_field 'search'
       - e.code do
-        text_field 'search'
+        ui_text_field 'search'
       - e.html do
         <input type="text" name="search" id="search" placeholder="Type your search..." class="form-control">
       - e.footer do
@@ -24,9 +24,9 @@
   - s.section title: "Text Field surrounded" do
     = example do |e|
       - e.header do
-        = text_field 'search', { append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
+        = ui_text_field 'search', { append: ui_glyph('pencil'), prepend: ui_glyph('camera-retro') }, { placeholder: 'Type your search...' }
       - e.code do
-        text_field 'search', { append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
+        ui_text_field 'search', { append: ui_glyph('pencil'), prepend: ui_glyph('camera-retro') }, { placeholder: 'Type your search...' }
       - e.html do
         <div class="input-group">
           <span class="input-group-addon"><i class="glyph fa fa-pencil"></i></span>
@@ -39,9 +39,9 @@
   - s.section title: "Text Field Options" do
     = example do |e|
       - e.header do
-        = text_field 'search', { state: :disabled, status: :danger, append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
+        = ui_text_field 'search', { state: :disabled, status: :danger, append: ui_glyph('pencil'), prepend: ui_glyph('camera-retro') }, { placeholder: 'Type your search...' }
       - e.code do
-        text_field 'search', { state: :disabled, status: :danger, append: glyph('pencil'), prepend: glyph('camera-retro') }, { placeholder: 'Type your search...' }
+        ui_text_field 'search', { state: :disabled, status: :danger, append: ui_glyph('pencil'), prepend: ui_glyph('camera-retro') }, { placeholder: 'Type your search...' }
       - e.html do
         <div class="input-group has-danger">
           <span class="input-group-addon"><i class="glyph fa fa-pencil"></i></span>
@@ -52,15 +52,15 @@
         = documentation_link 'Documentation', '#'
 
   - s.section title: "Simple form" do
-    %p= simple_form_text_with_input "text_field"
+    %p= simple_form_text_with_input "ui_text_field"
     = example do |e|
       - e.header do
-        = ui_bibz_form_for(@user) do |f|
-          - f.input :email, as: :text_field, append: glyph('envelope')
+        = ui_form_for(@user) do |f|
+          - f.input :email, as: :ui_text_field, append: ui_glyph('envelope')
       - e.code do
-        ui_bibz_form_for(@search) do |f|
+        ui_form_for(@search) do |f|
           ...
-          f.input :email, as: :text_field, append: glyph('envelope')
+          f.input :email, as: :ui_text_field, append: ui_glyph('envelope')
           ...
         end
       - e.footer do

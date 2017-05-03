@@ -1,24 +1,24 @@
-= title 'Alert, Notify'
-%blockquote UiBibz::Ui::Core::Notify
+= title 'Alert'
+%blockquote UiBibz::Ui::Core::Alert
 %p.bd-callout Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
 
-= code "notify"
+= code "ui_alert"
 
 = component_options do |co|
   - co.status_link
   - co.list 'closable', types: :boolean, default: "false"
 
 - @sections = sections do |s|
-  - s.section title: "Notify" do
+  - s.section title: "Alert" do
     = example do |c|
       - c.header do
         - %i(danger warning info success).each do |status|
-          = notify status.to_s.titleize, status: status
+          = ui_alert status.to_s.titleize, status: status
       - c.code do
-        notify 'Danger', status: :danger
-        notify 'Warning', status: :warning
-        notify 'Info', status: :info
-        notify 'Success', status: :success
+        ui_alert 'Danger', status: :danger
+        ui_alert 'Warning', status: :warning
+        ui_alert 'Info', status: :info
+        ui_alert 'Success', status: :success
       - c.html do
         <div class="alert-danger alert alert-dismissible" role="alert">Danger</div>
         <div class="alert-warning alert alert-dismissible" role="alert">Warning</div>
@@ -27,16 +27,16 @@
       - c.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Notify options" do
+  - s.section title: "Alert options" do
     = example do |c|
       - c.header do
-        = notify 'Success', status: :success, closable: true, class: 'my-alert'
-        = notify status: :danger, closable: true, class: 'my-alert' do
+        = ui_alert 'Success', status: :success, closable: true, class: 'my-alert'
+        = ui_alert status: :danger, closable: true, class: 'my-alert' do
           = "Danger notification with #{ link_to('link', '#', class: 'alert-link') }.".html_safe
       - c.code do
-        notify 'Success', { status: :success, closable: true }, { class: 'my-alert' }
+        ui_alert 'Success', { status: :success, closable: true }, { class: 'my-alert' }
          
-        notify({ status: :danger, closable: true }, { class: 'my-alert' }) do
+        ui_alert({ status: :danger, closable: true }, { class: 'my-alert' }) do
           "Danger notification with #{ link_to('link', '#', class: 'alert-link') }"
         end
       - c.html do

@@ -9,10 +9,10 @@ class ComponentsController < ApplicationController
   def jumbotron
   end
 
-  def label_etiquette
+  def badge
   end
 
-  def alert_notify
+  def alert
   end
 
   def progress

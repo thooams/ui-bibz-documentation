@@ -4,10 +4,10 @@
 
 = code do
   :plain
-    button_group do
-      button_choice content, options, html_options
+    ui_button_group do
+      ui_button_choice content, options, html_options
       # or
-      button_choice options, html_options do
+      ui_button_choice options, html_options do
         content
       end
     end
@@ -24,13 +24,13 @@
   - s.section title: "Checkbox buttons" do
     = example do |c|
       - c.header do
-        = button_group do
-          = button_choice 'Checkbox 1'
-          = button_choice 'Checkbox 2', state: :active
+        = ui_button_group do
+          = ui_button_choice 'Checkbox 1'
+          = ui_button_choice 'Checkbox 2', state: :active
       - c.code do
-        button_group do
-          button_choice 'Checkbox 1', status: :primary
-          button_choice 'Checkbox 2', status: :primary, state: :active
+        ui_button_group do
+          ui_button_choice 'Checkbox 1', status: :primary
+          ui_button_choice 'Checkbox 2', status: :primary, state: :active
         end
       - c.html do
         <div data-toggle="buttons" class="btn-group" role="group">
@@ -44,13 +44,13 @@
   - s.section title: "Checkbox buttons options" do
     = example do |c|
       - c.header do
-        = button_group do
-          = button_choice 'Checkbox 1', status: :success, outline: true, glyph: 'diamond', size: :lg
-          = button_choice 'Checkbox 2', status: :success, state: :active, outline: true, size: :lg
+        = ui_button_group do
+          = ui_button_choice 'Checkbox 1', status: :success, outline: true, glyph: 'diamond', size: :lg
+          = ui_button_choice 'Checkbox 2', status: :success, state: :active, outline: true, size: :lg
       - c.code do
-        button_group do
-          button_choice 'Checkbox 1', status: :primary, outline: true, size: :lg
-          button_choice 'Checkbox 2', status: :primary, state: :active, outline: true, size: :lg
+        ui_button_group do
+          ui_button_choice 'Checkbox 1', status: :primary, outline: true, size: :lg
+          ui_button_choice 'Checkbox 2', status: :primary, state: :active, outline: true, size: :lg
         end
       - c.html do
         <div data-toggle="buttons" class="btn-group" role="group">
@@ -63,13 +63,13 @@
   - s.section title: "Radio button" do
     = example do |c|
       - c.header do
-        = button_group do
-          = button_choice 'Radio 1', type: :radio
-          = button_choice 'Radio 2', state: :active, type: :radio
+        = ui_button_group do
+          = ui_button_choice 'Radio 1', type: :radio
+          = ui_button_choice 'Radio 2', state: :active, type: :radio
       - c.code do
-        button_group do
-          button_choice 'Radio 1', status: :primary, type: :radio
-          button_choice 'Radio 2', status: :primary, state: :active, type: :radio
+        ui_button_group do
+          ui_button_choice 'Radio 1', status: :primary, type: :radio
+          ui_button_choice 'Radio 2', status: :primary, state: :active, type: :radio
         end
       - c.html do
         <div data-toggle="buttons" class="btn-group" role="group">
@@ -83,13 +83,13 @@
   - s.section title: "Radio buttons options" do
     = example do |c|
       - c.header do
-        = button_group do
-          = button_choice 'Radio 1', status: :danger, outline: true, size: :lg, type: :radio
-          = button_choice 'Radio 2', status: :danger, state: :active, outline: true, size: :lg, type: :radio
+        = ui_button_group do
+          = ui_button_choice 'Radio 1', status: :danger, outline: true, size: :lg, type: :radio
+          = ui_button_choice 'Radio 2', status: :danger, state: :active, outline: true, size: :lg, type: :radio
       - c.code do
-        button_group do
-          button_choice 'Radio 1', status: :danger, outline: true, size: :lg, type: :radio
-          button_choice 'Radio 2', status: :danger, state: :active, outline: true, size: :lg, type: :radio
+        ui_button_group do
+          ui_button_choice 'Radio 1', status: :danger, outline: true, size: :lg, type: :radio
+          ui_button_choice 'Radio 2', status: :danger, state: :active, outline: true, size: :lg, type: :radio
         end
       - c.html do
         <div data-toggle="buttons" class="btn-group" role="group">

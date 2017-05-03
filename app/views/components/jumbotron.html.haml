@@ -11,17 +11,17 @@
   - s.section title: "Jumbotron" do
     = example do |c|
       - c.header do
-        = jumbotron do
+        = ui_jumbotron do
           %h2.display-3 Hello, world!
-          %p.lead This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+          %p.lead This is a simple hero unit, a simple ui_jumbotron-style component for calling extra attention to featured content or information.</p>
           %hr.m-y-md
           %p It uses utility classes for typography and spacing to space content out within the larger container.
           %p.lead
-            = button_link 'Learn more', url: '#learn-more'
+            = ui_button_link 'Learn more', url: '#learn-more'
       - c.code do
-        jumbotron do
+        ui_jumbotron do
           <h1 class="display-3">Hello, world!</h1>
-          <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+          <p class="lead">This is a simple hero unit, a simple ui_jumbotron-style component for calling extra attention to featured content or information.</p>
           <hr class="m-y-md">
           <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
           <p class="lead">
@@ -31,7 +31,7 @@
       - c.html do
         <div class="jumbotron">
           <h1 class="display-3">Hello, world!</h1>
-          <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+          <p class="lead">This is a simple hero unit, a simple ui_jumbotron-style component for calling extra attention to featured content or information.</p>
           <p></p>
           <hr class="m-y-md">
           <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
@@ -43,19 +43,19 @@
   - s.section title: "Fluid" do
     = example do |c|
       - c.header do
-        = jumbotron fluid: true do
-          %h2.display-3 Fluid jumbotron
-          %p.lead This is a modified jumbotron that occupies the entire horizontal space of it's parent.
+        = ui_jumbotron fluid: true do
+          %h2.display-3 Fluid ui_jumbotron
+          %p.lead This is a modified ui_jumbotron that occupies the entire horizontal space of it's parent.
       - c.code do
-        jumbotron fluid: true do
-          <h1 class="display-3">Fluid jumbotron</h1>
-          <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of it's parent.</p>
+        ui_jumbotron fluid: true do
+          <h1 class="display-3">Fluid ui_jumbotron</h1>
+          <p class="lead">This is a modified ui_jumbotron that occupies the entire horizontal space of it's parent.</p>
         end
       - c.html do
-        <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron ui_jumbotron-fluid">
           <div class="container">
-            <h1 class="display-3">Fluid jumbotron</h1>
-            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of it's parent.</p>
+            <h1 class="display-3">Fluid ui_jumbotron</h1>
+            <p class="lead">This is a modified ui_jumbotron that occupies the entire horizontal space of it's parent.</p>
           </div>
         </div>
       - c.footer do

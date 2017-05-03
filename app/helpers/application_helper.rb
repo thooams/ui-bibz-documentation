@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def documentation_link name, url
-    link_to "#{ glyph 'book' } #{ name }".html_safe, url
+    link_to "#{ ui_glyph 'book' } #{ name }".html_safe, url
   end
 
   def extend_of_component name, component_link = nil
@@ -17,11 +17,11 @@ module ApplicationHelper
   end
 
   def active_icon record
-    record.active ? glyph('check-circle', state: :success) : glyph('alert')
+    record.active ? ui_glyph('check-circle', state: :success) : ui_glyph('alert')
   end
 
   def itag text, link
-    link_to(glyph_and_text('tag', text), link)
+    link_to(ui_glyph_and_text('tag', text), link)
   end
 
   def add_sections_titles array, text = nil
@@ -55,11 +55,11 @@ module ApplicationHelper
   end
 
   def see_component url
-    link_to "#{ glyph 'eye' } See component".html_safe, url
+    link_to "#{ ui_glyph 'eye' } See component".html_safe, url
   end
 
   def title name
-    content_tag :h2, glyph('diamond', label: name)
+    content_tag :h2, ui_glyph('diamond', label: name)
   end
 
   def tap_warning

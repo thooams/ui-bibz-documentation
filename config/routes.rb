@@ -101,8 +101,8 @@ Rails.application.routes.draw do
     end
 
     get 'jumbotron'
-    get 'label_etiquette'
-    get 'alert_notify'
+    get 'badge'
+    get 'alert'
     get 'component'
     get 'progress'
     get 'list_group'
