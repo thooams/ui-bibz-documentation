@@ -15,13 +15,13 @@
 
   // Breadcrumb component
   - cc.card tap: true do |c|
-    - c.header "Breadcrumb"
+    - c.header "Breadcrumbs"
     - c.block do
       = ui_breadcrumb store: User.all.limit(3), link_label: :email, link_url: "#/id/edit"
 
   // ui_button component
   - cc.card tap: true do |c|
-    - c.header "Button"
+    - c.header "Buttons"
     - c.block do
       - %w(primary secondary success warning danger info link).each do |s|
         = ui_button s.titleize, status: s.to_sym, ui_glyph: 'diamond'
@@ -43,7 +43,7 @@
 
   // ui_button component
   - cc.card tap: true do |c|
-    - c.header "Button Choice"
+    - c.header "Buttons Choice"
     - c.block do
       = ui_button_group do
         = ui_button_choice 'Checkbox 1', status: :primary, state: :active
@@ -60,7 +60,7 @@
 
   // Dropdown component
   - cc.card tap: true do |c|
-    - c.header "Dropdown"
+    - c.header "Dropdowns"
     - c.block do
       - %w(primary secondary success warning danger info).each do |s|
         = ui_dropdown s.titleize, ui_glyph: 'diamond', status: s.to_sym do |d|
@@ -89,7 +89,7 @@
 
   // ui_button Group component
   - cc.card tap: true do |c|
-    - c.header "Button Group"
+    - c.header "Buttons Group"
     - c.block do
       = ui_button_group do
         = ui_button 'Button'
@@ -114,7 +114,7 @@
 
   // ui_button link component
   - cc.card tap: true do |c|
-    - c.header "Button link"
+    - c.header "Buttons link"
     - c.block do
       - %w(primary secondary success warning danger info link).each do |s|
         = ui_button_link s.titleize, url: "##{ s }", status: s.to_sym, ui_glyph: 'diamond'
@@ -134,7 +134,7 @@
 
   // ui_button split dropdown component
   - cc.card tap: true do |c|
-    - c.header "Split Dropdown"
+    - c.header "Split Dropdowns"
     - c.block do
       - %w(primary secondary success warning danger info).each do |s|
         = ui_split_dropdown s.titleize, ui_glyph: 'diamond', status: s.to_sym do |d|
@@ -162,7 +162,7 @@
 
   // ui_glyph component
   - cc.card tap: true do |c|
-    - c.header "Glyph"
+    - c.header "Glyphs"
     - c.block do
       - %w(primary secondary success warning danger info).each do |s|
         = ui_glyph 'diamond', status: s.to_sym
@@ -181,7 +181,7 @@
 
   // ui_badge component
   - cc.card tap: true do |c|
-    - c.header "ui_badge"
+    - c.header "Badges"
     - c.block do
       - %w(primary default success warning danger info).each do |s|
         = ui_badge s.titleize, status: s.to_sym
@@ -192,7 +192,7 @@
 
   // List group component
   - cc.card tap: true do |c|
-    - c.header "List group"
+    - c.header "Lists group"
     - c.block do
       = ui_list_group do |lg|
         - lg.list 'Cras justo odio', badge: 14
@@ -217,7 +217,7 @@
 
   // Modal component
   - cc.card tap: true do |c|
-    - c.header "Modal"
+    - c.header "Modals"
     - c.block do
       = ui_modal class: 'modal-example' do |m|
         - m.header 'Modal title'
@@ -240,7 +240,7 @@
 
   // Nav component
   - cc.card tap: true do |c|
-    - c.header "Nav"
+    - c.header "Navs"
     - c.block do
       = ui_nav do |n|
         - n.link 'Active', url: '#active', state: :active
@@ -304,7 +304,7 @@
 
   // Navbar component
   - cc.card tap: true do |c|
-    - c.header "Nav"
+    - c.header "Navbars"
     - c.block do
       = ui_navbar title: 'Navbar' do |nb|
         - nb.nav do |n|
@@ -369,7 +369,7 @@
 
   // ui_stars component
   - cc.card tap: true do |c|
-    - c.header "Star"
+    - c.header "Stars"
     - c.block do
       - %i(xs sm md lg).each do |i|
         = ui_star 4, size: i
@@ -388,31 +388,31 @@
   - cc.card tap: true do |c|
     - c.header "Forms"
     - c.block do
-      %label auto_complete_field
+      %label ui_auto_complete_field
       = ui_auto_complete_field 'example1', { option_tags: options_for_select(5.times.map{ |i| "option #{i}" }) }, { placeholder: 'Type option..' }
     - c.block do
-      %label dropdown_select_field
+      %label ui_dropdown_select_field
       = ui_dropdown_select_field 'example1', searchable: true, option_tags: options_for_select(5.times.map{ |i| "option #{i}" })
     - c.block do
-      %label date_picker_field
+      %label ui_date_picker_field
       = ui_date_picker_field 'range', range: ui_glyph('calendar-minus-o'), append: ui_glyph('car'), prepend: ui_glyph('pencil')
     - c.block do
-      %label formula_field
+      %label ui_formula_field
       = ui_formula_field 'value', {}, { placeholder: 'Type your formula...(2+3/2)'}
     - c.block do
-      %label markdown_editor_field
+      %label ui_markdown_editor_field
       = ui_markdown_editor_field 'comments'
     - c.block do
-      %label multi_column_field
+      %label ui_multi_column_field
       - grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
       = ui_multi_column_field 'example', { option_tags: grouped_options_for_select(grouped_options), searchable: true, selectable_opt_group: true }
     - c.block do
-      %label multi_select_field
+      %label ui_multi_select_field
       %br
       - grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
       = ui_multi_select_field 'example', select_all_option: true, searchable: true, collapsible_opt_group: true, option_tags: grouped_options_for_select(grouped_options)
     - c.block do
-      %label text_field
+      %label ui_text_field
       = text_field 'search', { append: ui_glyph('pencil'), prepend: ui_glyph('camera-retro') }, { placeholder: 'Type your search...' }
     - c.block do
       %label switch_field
@@ -534,7 +534,7 @@
 
 // Table component
 = ui_card tap: true do |c|
-  - c.header "Table"
+  - c.header "Tables"
   - c.block do
     = ui_col num: 6 do
       = ""
@@ -559,8 +559,7 @@
       = ui_table_pagination_per_page store: @users
   - c.footer see_component components_table_path
 
-
-= ui_table_card store: @users, title: 'Table ui_card', tap: true do |b|
+= ui_table_card store: @users, title: 'Table card', tap: true do |b|
   - b.columns do |cls|
     - cls.column :id
     - cls.column :email
