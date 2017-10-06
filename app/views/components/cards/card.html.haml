@@ -58,19 +58,21 @@
     = example do |e|
       - e.header do
         = ui_card do
-          = "Content"
-        = ui_card "Content", { status: :info }, { class: 'my-card1'}
+          = "Content 1"
+        %br
+        = ui_card "Content 2", { status: :info }, { class: 'my-card1'}
+        %br
         = ui_card({ status: :success }, { class: 'my-card2'})  do
-          = "Content"
+          = "Content 3"
       - e.code do
         ui_card do
-          Content
+          Content 1
         end
          
-        ui_card "Content", { status: :info }, { class: 'my-card1'}
+        ui_card "Content3", { status: :info }, { class: 'my-card1'}
          
         ui_card({ status: :success }, { class: 'my-card2'})  do
-          "Content"
+          "Content 3"
         end
       - e.html do
         <div class="card card-block">Content</div>

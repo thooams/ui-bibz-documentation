@@ -15,14 +15,8 @@
         - UiBibzApp::Application::STATUSES.each do |status|
           = ui_alert "This is a #{ status.to_s } alert", status: status
       - c.code do
-        ui_alert 'This is a primary alert', status: :primary
-        ui_alert 'This is a secondary alert', status: :secondary
-        ui_alert 'This is a success alert', status: :success
-        ui_alert 'This is a danger alert', status: :danger
-        ui_alert 'This is a warning alert', status: :warning
-        ui_alert 'This is a info alert', status: :info
-        ui_alert 'This is a light alert', status: :light
-        ui_alert 'This is a dark alert', status: :dark
+        - UiBibzApp::Application::STATUSES.each do |status|
+          = "ui_alert 'This is a #{ status.to_s } alert', status: :#{ status }".html_safe
       - c.html do
         <div class="alert-danger alert alert-dismissible" role="alert">Danger</div>
         <div class="alert-warning alert alert-dismissible" role="alert">Warning</div>

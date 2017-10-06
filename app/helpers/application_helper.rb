@@ -43,7 +43,7 @@ module ApplicationHelper
   end
 
   def inherit_component_link name
-    "#{ name} (inherit of #{ link_to 'component', components_path })"
+    "#{ name} (inherit of #{ link_to 'component', components_path })".html_safe
   end
 
   def inherit_specific_component_link name, url
