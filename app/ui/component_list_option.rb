@@ -17,7 +17,7 @@ module UiBibz::Ui::Ux
     end
 
     def status_link
-      list(option_link('status'), { types: :symbol, values: UiBibzApp::Application::STATUSES })
+      list(option_link('status'), { types: :symbol, values: UiBibzApp::Application::STATUSES.map{ |s| ":#{ s }" } })
     end
 
     def glyph_link

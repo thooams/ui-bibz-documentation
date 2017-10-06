@@ -7,7 +7,7 @@ module UiBibzApp
     DESCRIPTION = UI_BIBZ.description
     SUMMARY     = UI_BIBZ.summary
     LICENSE     = UI_BIBZ.license
-    STATUSES    = %w(:primary :secondary :danger :success :info :warning)
+    STATUSES    = %i(primary secondary success danger warning info light dark)
 
     class Gems
 

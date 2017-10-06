@@ -12,13 +12,17 @@
   - s.section title: "Alert" do
     = example do |c|
       - c.header do
-        - %i(danger warning info success).each do |status|
-          = ui_alert status.to_s.titleize, status: status
+        - UiBibzApp::Application::STATUSES.each do |status|
+          = ui_alert "This is a #{ status.to_s } alert", status: status
       - c.code do
-        ui_alert 'Danger', status: :danger
-        ui_alert 'Warning', status: :warning
-        ui_alert 'Info', status: :info
-        ui_alert 'Success', status: :success
+        ui_alert 'This is a primary alert', status: :primary
+        ui_alert 'This is a secondary alert', status: :secondary
+        ui_alert 'This is a success alert', status: :success
+        ui_alert 'This is a danger alert', status: :danger
+        ui_alert 'This is a warning alert', status: :warning
+        ui_alert 'This is a info alert', status: :info
+        ui_alert 'This is a light alert', status: :light
+        ui_alert 'This is a dark alert', status: :dark
       - c.html do
         <div class="alert-danger alert alert-dismissible" role="alert">Danger</div>
         <div class="alert-warning alert alert-dismissible" role="alert">Warning</div>
