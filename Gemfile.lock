@@ -6,6 +6,7 @@ PATH
       font-awesome-sass
       haml
       haml-rails
+      jquery-rails (>= 3.1.0)
       rails (>= 4.2.0)
       sass-rails (>= 5.0.0)
       will-paginate-i18n

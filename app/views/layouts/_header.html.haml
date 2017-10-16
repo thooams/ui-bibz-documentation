@@ -1,5 +1,5 @@
 %header
-  = ui_navbar title: UiBibzApp::Application::NAME, status: :secondary, type: :light do |nb|
+  = ui_navbar title: UiBibzApp::Application::NAME, status: :light, type: :light do |nb|
     - nb.nav do |n|
       - opts = { url: getting_started_path }
       - opts.merge!({ state: :active }) if params[:action] == 'getting_started'
