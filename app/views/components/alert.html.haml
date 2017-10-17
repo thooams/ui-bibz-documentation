@@ -28,8 +28,6 @@
         <div class="alert-warning alert alert-dismissible" role="alert">Warning</div>
         <div class="alert-info alert alert-dismissible" role="alert">Info</div>
         <div class="alert-success alert alert-dismissible" role="alert">Success</div>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Alert options" do
     = example do |c|
@@ -48,7 +46,24 @@
 
         <div class="alert-danger my-alert alert alert-dismissible" role="alert">Danger notification with <a class="alert-link" href="#">link</a>.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button></div>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
+
+
+  - s.section title: "Alert options" do
+    = example do |c|
+      - c.header do
+        = ui_alert 'Success', status: :success, closable: true, class: 'my-alert'
+        = ui_alert status: :danger, closable: true, class: 'my-alert' do
+          = "Danger notification with #{ link_to('link', '#', class: 'alert-link') }.".html_safe
+      - c.code do
+        ui_alert 'Success', { status: :success, closable: true }, { class: 'my-alert' }
+         
+        ui_alert({ status: :danger, closable: true }, { class: 'my-alert' }) do
+          "Danger notification with #{ link_to('link', '#', class: 'alert-link') }"
+        end
+      - c.html do
+        <div class="alert-success my-alert alert alert-dismissible" role="alert">Success<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button></div>
+
+        <div class="alert-danger my-alert alert alert-dismissible" role="alert">Danger notification with <a class="alert-link" href="#">link</a>.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button></div>
 
 = @sections.render

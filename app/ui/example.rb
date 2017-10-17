@@ -4,7 +4,6 @@ module UiBibz::Ui::Ux
     def initialize content = nil, options = nil, html_options = nil, &block
       super
       @options = @options.merge({ tap: true})
-      @items = [@content]
       @pre_items = []
       @ruby_id = "ruby-#{ SecureRandom.uuid }"
       @html_id = "html-#{ SecureRandom.uuid }"
@@ -21,8 +20,11 @@ module UiBibz::Ui::Ux
     end
 
     def render
-      @items.insert(@items.size - 1, content_tag(:div, code_nav, class: "card-block highlight"))
-      @items.insert(@items.size - 1, content_tag(:div, @pre_items.join.html_safe, class: 'tab-content'))
+      # With footer block
+      #@items.insert(@items.size - 1, content_tag(:div, code_nav, class: "card-block highlight"))
+      #@items.insert(@items.size - 1, content_tag(:div, @pre_items.join.html_safe, class: 'tab-content'))
+      @items << content_tag(:div, code_nav, class: "card-block highlight")
+      @items << content_tag(:div, @pre_items.join.html_safe, class: 'tab-content')
       content_tag :div, @items.join.html_safe, html_options
     end
 
