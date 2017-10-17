@@ -11,18 +11,14 @@
   - co.list 'type', types: 'symbol', values: ':pill'
 
 - @sections = sections do |s|
-  - s.section title: "badge" do
+  - s.section title: "Badge" do
     = example do |c|
       - c.header do
-        - %i(primary default danger warning info success).each do |status|
+        - UiBibzApp::Application::STATUSES.each do |status|
           = ui_badge status.to_s.titleize, status: status
       - c.code do
-        ui_badge 'Primary', status: :primary
-        ui_badge 'Default', status: :default
-        ui_badge 'Danger', status: :danger
-        ui_badge 'Warning', status: :warning
-        ui_badge 'Info', status: :info
-        ui_badge 'Success', status: :success
+        - UiBibzApp::Application::STATUSES.each do |status|
+          = "ui_badge '#{ status.to_s.titleize }', status: :#{ status }".html_safe
       - c.html do
         <span class="badge-primary tag">Primary</span>
         <span class="badge-default tag">Default</span>
@@ -33,18 +29,14 @@
       - c.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "badge Options" do
+  - s.section title: "Badge Options" do
     = example do |c|
       - c.header do
-        - %i(primary default danger warning info success).each do |status|
+        - UiBibzApp::Application::STATUSES.each do |status|
           = ui_badge status.to_s.titleize, status: status, type: :pill, glyph: 'diamond'
       - c.code do
-        ui_badge 'Primary', status: :primary, type: :pill, glyph: 'diamond'
-        ui_badge 'Default', status: :default, type: :pill, glyph: 'diamond'
-        ui_badge 'Danger', status: :danger, type: :pill, glyph: 'diamond'
-        ui_badge 'Warning', status: :warning, type: :pill, glyph: 'diamond'
-        ui_badge 'Info', status: :info, type: :pill, glyph: 'diamond'
-        ui_badge 'Success', status: :success, type: :pill, glyph: 'diamond'
+        - UiBibzApp::Application::STATUSES.each do |status|
+          = "ui_badge '#{ status.to_s.titleize }', status: :#{ status }, type: :pill, glyph: 'diamond'".html_safe
       - c.html do
         <span class="badge-primary tag tag-pill"><i class="glyph fa fa-diamond"></i> Primary</span>
         <span class="badge-default tag tag-pill"><i class="glyph fa fa-diamond"></i> Default</span>

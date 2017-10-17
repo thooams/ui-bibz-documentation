@@ -2,11 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.card-code > .card-header, .card-code > .card-footer
+.card-code > .card-header
   background-color: white
 
-.card-code .card-block pre
+.card-header:first-child
+  border-radius: 0px !important
+
+.card-code .card-body pre
   margin: 0
+  padding: 10
+
+.card-code .card-codes
+  padding: 0
+
+pre
+  margin-bottom: 0px !important
 
 .card-code > .card-header
   min-height: 65px
@@ -14,6 +24,9 @@
 
 .highlight .err
   background-color: transparent !important
+
+.highlight
+  background-color: white !important
 
 .card-code > .card-header:after
   position: absolute
@@ -24,6 +37,11 @@
   color: #959595
   letter-spacing: 1px
   content: "EXEMPLE"
+
+.card-code
+  .nav-tabs
+    background-color: rgba(0,0,0,.03)
+    padding: 10px 10px 0px 10px
 
 .card-columns
   @include media-breakpoint-only(lg)

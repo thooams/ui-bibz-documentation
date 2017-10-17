@@ -11,20 +11,25 @@ module UiBibz::Ui::Ux
 
     def code content = nil, options = nil, html_options = nil, &block
       @code = UiBibz::Ui::Core::Component.new(content, options, html_options, &block)
-      @pre_items << content_tag(:div, code_html, class: "active card-block highlight tab-pane", id: @ruby_id)
+      @pre_items << content_tag(:div, code_html, class: "active card-body highlight tab-pane", id: @ruby_id)
     end
 
     def html content = nil, options = nil, html_options = nil, &block
       @html  = UiBibz::Ui::Core::Component.new(content, options, html_options, &block)
-      @pre_items << content_tag(:div, html_preview, class: "card-block highlight tab-pane", id: @html_id)
+      @pre_items << content_tag(:div, html_preview, class: "card-body highlight tab-pane", id: @html_id)
     end
 
     def render
+<<<<<<< HEAD
       # With footer block
       #@items.insert(@items.size - 1, content_tag(:div, code_nav, class: "card-block highlight"))
       #@items.insert(@items.size - 1, content_tag(:div, @pre_items.join.html_safe, class: 'tab-content'))
       @items << content_tag(:div, code_nav, class: "card-block highlight")
       @items << content_tag(:div, @pre_items.join.html_safe, class: 'tab-content')
+=======
+      @items.insert(@items.size - 1, content_tag(:div, code_nav, class: "card-body card-codes"))
+      @items.insert(@items.size - 1, content_tag(:div, @pre_items.join.html_safe, class: 'tab-content'))
+>>>>>>> 7b6b5940349c317d9dd9d67e430d2c892880e0e7
       content_tag :div, @items.join.html_safe, html_options
     end
 
