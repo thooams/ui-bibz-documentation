@@ -20,14 +20,14 @@
         - UiBibzApp::Application::STATUSES.each do |status|
           = "ui_badge '#{ status.to_s.titleize }', status: :#{ status }".html_safe
       - c.html do
-        <span class="badge-primary tag">Primary</span>
-        <span class="badge-default tag">Default</span>
-        <span class="badge-danger tag">Danger</span>
-        <span class="badge-warning tag">Warning</span>
-        <span class="badge-info tag">Info</span>
-        <span class="badge-success tag">Success</span>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
+        <span class="badge-primary badge">Primary</span>
+        <span class="badge-secondary badge">Secondary</span>
+        <span class="badge-success badge">Success</span>
+        <span class="badge-danger badge">Danger</span>
+        <span class="badge-warning badge">Warning</span>
+        <span class="badge-info badge">Info</span>
+        <span class="badge-light badge">Light</span>
+        <span class="badge-dark badge">Dark</span>
 
   - s.section title: "Badge Options" do
     = example do |c|
@@ -38,13 +38,13 @@
         - UiBibzApp::Application::STATUSES.each do |status|
           = "ui_badge '#{ status.to_s.titleize }', status: :#{ status }, type: :pill, glyph: 'diamond'".html_safe
       - c.html do
-        <span class="badge-primary tag tag-pill"><i class="glyph fa fa-diamond"></i> Primary</span>
-        <span class="badge-default tag tag-pill"><i class="glyph fa fa-diamond"></i> Default</span>
-        <span class="badge-danger tag tag-pill"><i class="glyph fa fa-diamond"></i> Danger</span>
-        <span class="badge-warning tag tag-pill"><i class="glyph fa fa-diamond"></i> Warning</span>
-        <span class="badge-info tag tag-pill"><i class="glyph fa fa-diamond"></i> Info</span>
-        <span class="badge-success tag tag-pill"><i class="glyph fa fa-diamond"></i> Success</span>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
+        <span class="badge-primary badge badge-pill"><i class="glyph fa fa-diamond"></i> Primary</span>
+        <span class="badge-secondary badge badge-pill"><i class="glyph fa fa-diamond"></i> Secondary</span>
+        <span class="badge-success badge badge-pill"><i class="glyph fa fa-diamond"></i> Success</span>
+        <span class="badge-danger badge badge-pill"><i class="glyph fa fa-diamond"></i> Danger</span>
+        <span class="badge-warning badge badge-pill"><i class="glyph fa fa-diamond"></i> Warning</span>
+        <span class="badge-info badge badge-pill"><i class="glyph fa fa-diamond"></i> Info</span>
+        <span class="badge-light badge badge-pill"><i class="glyph fa fa-diamond"></i> Light</span>
+        <span class="badge-dark badge badge-pill"><i class="glyph fa fa-diamond"></i> Dark</span>
 
 = @sections.render

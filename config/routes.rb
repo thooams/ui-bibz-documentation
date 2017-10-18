@@ -100,9 +100,13 @@ Rails.application.routes.draw do
       get 'breadcrumb'
     end
 
+     # notifications
+    namespace :notifications do
+      get 'alert'
+    end
+
     get 'jumbotron'
     get 'badge'
-    get 'alert'
     get 'component'
     get 'progress'
     get 'list_group'

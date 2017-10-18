@@ -1,5 +1,4 @@
 - n.nav do |nc|
-  - nc.link 'Alert', nav_options(components_alert_path)
   - nc.link 'Badge', nav_options(components_badge_path)
   - nc.link 'Cards', url: '#', state: :disabled
   - nc.nav do |na|
@@ -62,6 +61,9 @@
     - na.link 'Row', nav_options(components_layouts_row_path)
     - na.link 'Container', nav_options(components_layouts_container_path)
   - nc.link 'List group', nav_options(components_list_group_path)
+  - nc.link 'Notifications', url: '#', state: :disabled
+  - nc.nav do |no|
+    - no.link 'Alert', nav_options(components_notifications_alert_path)
   - nc.link 'Paths', url: '#', state: :disabled
   - nc.nav do |no|
     - no.link 'Breadcrumb', nav_options(components_paths_breadcrumb_path)

@@ -1,5 +1,5 @@
 = title 'Alert'
-%blockquote UiBibz::Ui::Core::Alert
+%blockquote UiBibz::Ui::Core::Notifications::Alert
 %p.bd-callout Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
 
 = code do
@@ -23,7 +23,6 @@
 = component_options do |co|
   - co.status_link
   - co.list 'closable', types: :boolean, default: "false"
-  - co.tap_link
   - co.list('tap', { types: :boolean, description: '*Required if you want use :header or :body options' })
 
 - @sections = sections do |s|
@@ -45,7 +44,7 @@
         <div class="alert-light alert alert-dismissible" role="alert">This is a light alert</div>
         <div class="alert-dark alert alert-dismissible" role="alert">This is a dark alert</div>
 
-  - s.section title: "Alert options" do
+  - s.section title: "Options" do
     = example do |c|
       - c.header do
         = ui_alert 'Success', status: :success, closable: true, glyph: 'check', class: 'my-alert'
@@ -74,7 +73,7 @@
             </button>
           </div>
 
-  - s.section title: "Alert additional content" do
+  - s.section title: "Additional content" do
     = example do |c|
       - c.header do
         = ui_alert status: :success, glyph: 'thumbs-o-up', closable: true, tap: true do |a|
