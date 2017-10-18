@@ -2,11 +2,29 @@
 %blockquote UiBibz::Ui::Core::Alert
 %p.bd-callout Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
 
-= code "ui_alert"
+= code do
+  :plain
+    ui_alert content, options, html_options
+    # or
+    ui_alert options, html_options do |a|
+      a.header content, options, html_options
+      # or
+      a.header options, html_options do
+        content
+      end
+
+      a.body content, options, html_options
+      # or
+      a.body options, html_options do
+        content
+      end
+    end
 
 = component_options do |co|
   - co.status_link
   - co.list 'closable', types: :boolean, default: "false"
+  - co.tap_link
+  - co.list('tap', { types: :boolean, description: '*Required if you want use :header or :body options' })
 
 - @sections = sections do |s|
   - s.section title: "Alert" do
@@ -18,16 +36,20 @@
         - UiBibzApp::Application::STATUSES.each do |status|
           = "ui_alert 'This is a #{ status.to_s } alert', status: :#{ status }".html_safe
       - c.html do
-        <div class="alert-danger alert alert-dismissible" role="alert">Danger</div>
-        <div class="alert-warning alert alert-dismissible" role="alert">Warning</div>
-        <div class="alert-info alert alert-dismissible" role="alert">Info</div>
-        <div class="alert-success alert alert-dismissible" role="alert">Success</div>
+        <div class="alert-primary alert alert-dismissible" role="alert">This is a primary alert</div>
+        <div class="alert-secondary alert alert-dismissible" role="alert">This is a secondary alert</div>
+        <div class="alert-success alert alert-dismissible" role="alert">This is a success alert</div>
+        <div class="alert-danger alert alert-dismissible" role="alert">This is a danger alert</div>
+        <div class="alert-warning alert alert-dismissible" role="alert">This is a warning alert</div>
+        <div class="alert-info alert alert-dismissible" role="alert">This is a info alert</div>
+        <div class="alert-light alert alert-dismissible" role="alert">This is a light alert</div>
+        <div class="alert-dark alert alert-dismissible" role="alert">This is a dark alert</div>
 
   - s.section title: "Alert options" do
     = example do |c|
       - c.header do
-        = ui_alert 'Success', status: :success, closable: true, class: 'my-alert'
-        = ui_alert status: :danger, closable: true, class: 'my-alert' do
+        = ui_alert 'Success', status: :success, closable: true, glyph: 'check', class: 'my-alert'
+        = ui_alert status: :danger, closable: true, glyph: 'ban', class: 'my-alert' do
           = "Danger notification with #{ link_to('link', '#', class: 'alert-link') }.".html_safe
       - c.code do
         ui_alert 'Success', { status: :success, closable: true }, { class: 'my-alert' }
@@ -36,28 +58,50 @@
           "Danger notification with #{ link_to('link', '#', class: 'alert-link') }"
         end
       - c.html do
-        <div class="alert-success my-alert alert alert-dismissible" role="alert">Success<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button></div>
+        :plain
+          <div class="alert-success my-alert alert alert-dismissible" role="alert">
+            <i class="glyph fa fa-check"></i> Success
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+            </button>
+          </div>
 
-        <div class="alert-danger my-alert alert alert-dismissible" role="alert">Danger notification with <a class="alert-link" href="#">link</a>.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button></div>
+          <div class="alert-danger my-alert alert alert-dismissible" role="alert">
+            <i class="glyph fa fa-ban"></i> Danger notification with
+            <a class="alert-link" href="#">link</a>.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+            </button>
+          </div>
 
-
-  - s.section title: "Alert options" do
+  - s.section title: "Alert additional content" do
     = example do |c|
       - c.header do
-        = ui_alert 'Success', status: :success, closable: true, class: 'my-alert'
-        = ui_alert status: :danger, closable: true, class: 'my-alert' do
-          = "Danger notification with #{ link_to('link', '#', class: 'alert-link') }.".html_safe
+        = ui_alert status: :success, glyph: 'thumbs-o-up', closable: true, tap: true do |a|
+          - a.header 'Well done!'
+          - a.body "Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content."
       - c.code do
-        ui_alert 'Success', { status: :success, closable: true }, { class: 'my-alert' }
-         
-        ui_alert({ status: :danger, closable: true }, { class: 'my-alert' }) do
-          "Danger notification with #{ link_to('link', '#', class: 'alert-link') }"
-        end
+        :plain
+          ui_alert status: :success, glyph: 'thumbs-o-up', closable: true, tap: true do |a|
+            a.header 'Well done!'
+            a.body do
+              "Aww yeah, you successfully read this important alert message.
+              This example text is going to run a bit longer so that you can see
+              how spacing within an alert works with this kind of content."
+            end
+          end
       - c.html do
-        <div class="alert-success my-alert alert alert-dismissible" role="alert">Success<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button></div>
-
-        <div class="alert-danger my-alert alert alert-dismissible" role="alert">Danger notification with <a class="alert-link" href="#">link</a>.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button></div>
+        :plain
+          <div class="alert-success alert alert-dismissible" role="alert">
+            <h4 class="alert-header">
+              <i class="glyph fa fa-thumbs-o-up"></i> Well done!
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+                <span class="sr-only">Close</span>
+              </button>
+            </h4>
+            <hr>
+            <p class="alert-body mb-0">Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+          </div>
 
 = @sections.render

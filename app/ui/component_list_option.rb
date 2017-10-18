@@ -42,7 +42,7 @@ module UiBibz::Ui::Ux
     end
 
     def tap_link
-      list('tap', { types: :boolean, description: '*Required if you want use :header, block or footer inside' })
+      list('tap', { types: :boolean, description: '*Required if you want use :header, :body or :footer options' })
     end
 
     def render

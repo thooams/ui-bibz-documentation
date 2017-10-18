@@ -20,16 +20,11 @@ module UiBibz::Ui::Ux
     end
 
     def render
-<<<<<<< HEAD
       # With footer block
       #@items.insert(@items.size - 1, content_tag(:div, code_nav, class: "card-block highlight"))
       #@items.insert(@items.size - 1, content_tag(:div, @pre_items.join.html_safe, class: 'tab-content'))
       @items << content_tag(:div, code_nav, class: "card-block highlight")
       @items << content_tag(:div, @pre_items.join.html_safe, class: 'tab-content')
-=======
-      @items.insert(@items.size - 1, content_tag(:div, code_nav, class: "card-body card-codes"))
-      @items.insert(@items.size - 1, content_tag(:div, @pre_items.join.html_safe, class: 'tab-content'))
->>>>>>> 7b6b5940349c317d9dd9d67e430d2c892880e0e7
       content_tag :div, @items.join.html_safe, html_options
     end
 
