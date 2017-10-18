@@ -11,7 +11,7 @@
       end
     end
 
-= component_options do |co|
+-# component_options do |co|
   - co.list 'store', types: 'object'
   - co.list 'link_label', types: 'symbol', values: ':name'
   - co.list 'link_url', types: 'string', values: '#'
@@ -47,22 +47,23 @@
           b.link 'Data', state: :active
         end
       - c.html do
-        <ol class="breadcrumb"><li class="active">Home</li></ol>
-          
-        <ol class="breadcrumb">
-          <li><a href="#home">Home</a></li>
-          <li class="active">Library</li>
-        </ol>
-          
-        <ol class="breadcrumb">
-          <li><a href="#active">Home</a></li>
-          <li><a href="#library">Library</a></li>
-          <li class="active">Data</li>
-        </ol>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
+        :plain
+          <ol class="breadcrumb">
+            <li class="active breadcrumb-item">Home</li>
+          </ol>
 
-  - s.section title: "Breadcrumb with store" do
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#home">Home</a></li>
+            <li class="active breadcrumb-item">Library</li>
+          </ol>
+
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#active">Home</a></li>
+            <li class="breadcrumb-item"><a href="#library">Library</a></li>
+            <li class="active breadcrumb-item">Data</li>
+          </ol>
+
+  -# s.section title: "Breadcrumb with store" do
     %p Options are :
     = component_list_options do |clo|
       - clo.list 'store', types: :object, required: true

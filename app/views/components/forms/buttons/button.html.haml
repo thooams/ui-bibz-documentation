@@ -26,39 +26,40 @@
 
     = example do |c|
       - c.header do
-        - %w(primary secondary success warning danger link).each do |status|
-          = ui_button status.titleize, status: status.to_sym
+        - UiBibzApp::Application::STATUSES.each do |status|
+          = ui_button status.to_s.titleize, status: status
       - c.code do
-        - %w(primary secondary success warning danger link).each do |status|
-          = "ui_button '#{ status.titleize }', status: :#{status}"
+        - UiBibzApp::Application::STATUSES.each do |status|
+          = "ui_button '#{ status.to_s.titleize }', status: :#{status}".html_safe
       - c.html do
         <button class="btn-primary btn">Primary</button>
         <button class="btn-secondary btn">Secondary</button>
         <button class="btn-success btn">Success</button>
-        <button class="btn-warning btn">Warning</button>
         <button class="btn-danger btn">Danger</button>
-        <button class="btn-link btn">Link</button>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
+        <button class="btn-warning btn">Warning</button>
+        <button class="btn-info btn">Info</button>
+        <button class="btn-light btn">Light</button>
+        <button class="btn-dark btn">Dark</button>
 
   - s.section title: "Outline", tag: :h3 do
     :markdown
       The background color of the buttons can be removed through the `outline` option that has for a Boolean argument.
     = example do |c|
       - c.header do
-        - %w(primary secondary success warning danger).each do |status|
-          = ui_button status.titleize, status: status.to_sym, outline: true
+        - UiBibzApp::Application::STATUSES.each do |status|
+          = ui_button status.to_s.titleize, status: status.to_sym, outline: true
       - c.code do
-        - %w(primary secondary success warning danger).each do |status|
-          = "ui_button '#{ status.titleize }', status: :#{status}"
+        - UiBibzApp::Application::STATUSES.each do |status|
+          = "ui_button '#{ status.to_s.titleize }', status: :#{status}, outline: true".html_safe
       - c.html do
         <button class="btn-outline-primary btn">Primary</button>
         <button class="btn-outline-secondary btn">Secondary</button>
         <button class="btn-outline-success btn">Success</button>
-        <button class="btn-outline-warning btn">Warning</button>
         <button class="btn-outline-danger btn">Danger</button>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
+        <button class="btn-outline-warning btn">Warning</button>
+        <button class="btn-outline-info btn">Info</button>
+        <button class="btn-outline-light btn">Light</button>
+        <button class="btn-outline-dark btn">Dark</button>
 
   - s.section title: "Size", tag: :h3 do
     :markdown
@@ -67,24 +68,20 @@
       * :lg
       * :md
       * :sm
-      * :xs
 
     = example do |c|
       - c.header do
         = ui_button 'Large button', status: :primary, size: :lg
         = ui_button 'Medium button', status: :primary, size: :md
         = ui_button 'Small button', status: :primary, size: :sm
-        = ui_button 'Extra small button', status: :primary, size: :xs
       - c.code do
         ui_button 'Large button', status: :primary, size: :lg
         ui_button 'Medium button', status: :primary, size: :md
         ui_button 'Small button', status: :primary, size: :sm
-        ui_button 'Extra small button', status: :primary, size: :xs
       - c.html do
         <button class="btn-primary btn btn-lg">Large button</button>
         <button class="btn-primary btn">Medium button</button>
         <button class="btn-primary btn btn-sm">Small button</button>
-        <button class="btn-primary btn btn-xs">Extra small button</button>
       - c.footer do
         = documentation_link 'Documentation', '#'
 
