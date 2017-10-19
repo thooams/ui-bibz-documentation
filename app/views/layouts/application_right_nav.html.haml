@@ -24,10 +24,11 @@
           = yield
         = ui_col( lg: { num: 2 }, class: 'secondary-nav' ) do
           - unless @sections.nil?
-            %h3 Contents
-            = subnav do |n|
-              - @sections.names.each do |s|
-                - n.link s
+            .sticky
+              %h3 Contents
+              = subnav do |n|
+                - @sections.names.each do |s|
+                  - n.link s
 
       .scroll-to-top
         = ui_button_link "", { url: url_for(controller: controller_name, action: action_name, anchor: 'top'), glyph: "arrow-circle-up", size: :lg, status: :primary, type: 'fw' }, { class: "back-top" }

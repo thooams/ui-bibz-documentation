@@ -177,22 +177,18 @@ body > footer
 .secondary-nav
   background: linear-gradient(to right, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 10%)
   border-left: 1px solid rgba(0,0,0,0.1)
-  display: none
+  .sticky
+    position: -webkit-sticky
+    position: sticky
+    top: 4rem
+    //max-height: calc(120vh - 2rem)
+    overflow-y: auto
   h2:first-child
     margin-top: 0rem
+    margin-bottom: 1rem
   li
     width: 100%
     display: block
-
-// Fixer le menu de droite lors du scroll (voir application.coffee)
-.fix-secondary-nav
-  display: block
-  position: fixed
-  top: 0
-  right: 0
-  // margin-top: 1rem
-  h2:first-child
-    margin-bottom: 1rem
 
 // Menu de gauche
 .left-nav
@@ -203,7 +199,7 @@ body > footer
 
 .content
   background: linear-gradient(to right, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 3%)
-  padding: 3rem
+  padding: 0rem 3rem 3rem 3rem
 
 @media all and (max-width: 992px)
   .secondary-nav
@@ -213,7 +209,7 @@ body > footer
 
 h2
   border-bottom: 1px solid #efefef
-  margin-top: 0rem
+  //margin-top: 0rem
   padding-bottom: 5px
 
 .bd-callout

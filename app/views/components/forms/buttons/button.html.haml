@@ -26,12 +26,16 @@
 
     = example do |c|
       - c.header do
+        = ui_button 'Normal'
         - UiBibzApp::Application::STATUSES.each do |status|
           = ui_button status.to_s.titleize, status: status
+        = ui_button 'Link', status: :link
       - c.code do
+        ui_button 'Normal'
         - UiBibzApp::Application::STATUSES.each do |status|
           = "ui_button '#{ status.to_s.titleize }', status: :#{status}".html_safe
       - c.html do
+        <button class="btn">Normal</button>
         <button class="btn-primary btn">Primary</button>
         <button class="btn-secondary btn">Secondary</button>
         <button class="btn-success btn">Success</button>
@@ -40,6 +44,7 @@
         <button class="btn-info btn">Info</button>
         <button class="btn-light btn">Light</button>
         <button class="btn-dark btn">Dark</button>
+        <button class="btn-link btn">Link</button>
 
   - s.section title: "Outline", tag: :h3 do
     :markdown
@@ -52,6 +57,7 @@
         - UiBibzApp::Application::STATUSES.each do |status|
           = "ui_button '#{ status.to_s.titleize }', status: :#{status}, outline: true".html_safe
       - c.html do
+        <button class="btn-outline btn">Normal</button>
         <button class="btn-outline-primary btn">Primary</button>
         <button class="btn-outline-secondary btn">Secondary</button>
         <button class="btn-outline-success btn">Success</button>
@@ -82,8 +88,6 @@
         <button class="btn-primary btn btn-lg">Large button</button>
         <button class="btn-primary btn">Medium button</button>
         <button class="btn-primary btn btn-sm">Small button</button>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Type", tag: :h3 do
     :markdown
@@ -98,8 +102,6 @@
       - c.html do
         <button class="btn-primary btn btn-block">Block level button</button>
         <button class="btn-secondary btn btn-block">Block level button</button>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "state", tag: :h3 do
     :markdown
@@ -119,8 +121,6 @@
       - c.html do
         <button class="active btn-primary btn">Primary</button>
         <button class="disabled btn-primary btn">Primary</button>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Options and html options" do
     :markdown
@@ -131,19 +131,17 @@
 
     = example do |c|
       - c.header do
-        = ui_button 'Success', { status: :success }, { class: 'button' }
-        = ui_button({ status: :info }, { class: 'button' }) do
+        = ui_button 'Success', { status: :success, glyph: :diamond }, { class: 'button' }
+        = ui_button({ badge: 2 }, { class: 'button' }) do
           = 'Info'
       - c.code do
-        ui_button 'Primary', { status: :success }, { class: 'button' }
+        ui_button 'Primary', { status: :success, glyph: 'diamond' }, { class: 'button' }
          
-        ui_button({ status: :success }, { class: 'button' }) do
+        ui_button({ status: :success, badge: 2 }, { class: 'button' }) do
           Info
         end
       - c.html do
         <button class="button btn-success btn">Success</button>
         <button class="button btn-info btn">Info</button>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
 = @sections.render
