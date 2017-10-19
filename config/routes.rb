@@ -50,6 +50,11 @@ Rails.application.routes.draw do
         get 'formula-field'
       end
 
+      # simple form
+      namespace :simple_form do
+        get 'inputs'
+      end
+
       # selects
       namespace :selects do
         get 'select-field'

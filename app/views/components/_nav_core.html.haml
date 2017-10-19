@@ -40,6 +40,10 @@
       - na.link 'Multi column field', nav_options(components_forms_selects_multi_column_field_path)
       - na.link 'Multi select field', nav_options(components_forms_selects_multi_select_field_path)
 
+    - no.link 'Simple form', url: '#', state: :disabled
+    - no.nav do |na|
+      - na.link 'Inputs', nav_options(components_forms_simple_form_inputs_path)
+
     - no.link 'Surrounds', url: '#', state: :disabled
     - no.nav do |na|
       - na.link 'Surround field', nav_options(components_forms_surrounds_surround_field_path)

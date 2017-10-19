@@ -29,7 +29,7 @@ module UiBibz::Ui::Ux
     end
 
     def size_link
-      list(option_link('size'), { types: :symbol, values: %w(:lg :md :sm :xs) })
+      list(option_link('size'), { types: :symbol, values: %w(:lg :md :sm) })
     end
 
     def state_link
