@@ -1,5 +1,5 @@
 = ui_nav class: 'nav-left' do |n|
-  - n.link 'Core', url: components_core_path
+  - n.link 'Core', url: components_core_path, state: :disabled
   = render partial: 'components/nav_core', locals: { n: n}
-  - n.link 'Ux', url: components_ux_path
+  - n.link 'Ux', url: components_ux_path, state: :disabled
   = render partial: 'components/nav_ux', locals: { n: n}

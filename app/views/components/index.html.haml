@@ -24,8 +24,6 @@
         Component.new(options, html_options) do
           content
         end
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Render method" do
     :markdown
@@ -37,36 +35,21 @@
         Component.new({ size: :xs }, { id: 'my-id' }) do
           My content
         end.render
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Size" do
     :markdown
       Some component may have the size option in their settings.
       The size argument contains three distinct values :
 
-        * :xs
         * :sm
         * :md
         * :lg
 
     = example do |c|
       - c.code do
-        Component.new content, size: :xs
+        Component.new content, size: :sm
         Component.new content, size: :md
         Component.new content, size: :lg
-      - c.footer do
-        = documentation_link 'Documentation', '#'
-        |
-        = itag "button", components_forms_buttons_button_path
-        ,
-        = itag "dropdown", components_dropdowns_dropdown_path
-        ,
-        = itag "glyph", components_glyph_path
-        ,
-        = itag "nav", components_navs_nav_path
-        ,
-        = itag "star", components_star_path
 
   - s.section title: "Status" do
     :markdown
@@ -74,33 +57,14 @@
       This option lets you change the color of the item as specified in [the bootstrap documentation](http://v4-alpha.getbootstrap.com/components/button/).
       The `status` argument contains 7 distinct values :
 
-        * :primary
-        * :secondary
-        * :danger
-        * :success
-        * :info
-        * :warning
+    %ul
+      - UiBibzApp::Application::STATUSES.each do |status|
+        %li= ":#{ status }"
 
     = example do |c|
       - c.code do
-        Component.new content, status: :primary
-        Component.new content, status: :secondary
-        Component.new content, status: :danger
-        Component.new content, status: :success
-        Component.new content, status: :info
-        Component.new content, status: :warning
-      - c.footer do
-        = documentation_link 'Documentation', '#'
-        |
-        = itag "button", components_forms_buttons_button_path
-        ,
-        = itag "dropdown", components_dropdowns_dropdown_path
-        ,
-        = itag "glyph", components_glyph_path
-        ,
-        = itag "nav", components_navs_nav_path
-        ,
-        = itag "star", components_star_path
+        - UiBibzApp::Application::STATUSES.each do |status|
+          = "Component.new content, status: :#{ status }"
 
   - s.section title: "Glyph" do
     :markdown
@@ -112,28 +76,12 @@
       - c.code do
         Component.new content, glyph: 'star'
         Component.new content, glyph: { name: 'star', size: 2, type: 'fw', label: 'Diamond' }
-      - c.footer do
-        = documentation_link 'Documentation', '#'
-        |
-        = itag "button", components_forms_buttons_button_path
-        ,
-        = itag "dropdown", components_dropdowns_dropdown_path
-        ,
-        = itag "glyph", components_glyph_path
-        ,
-        = itag "nav", components_navs_nav_path
-        ,
-        = itag "star", components_star_path
-        ,
-        = itag "card", components_cards_card_path
 
   - s.section title: "State" do
     = example do |c|
       - c.code do
         Component.new content, state: :active
         Component.new content, state: :disabled
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Html options" do
     :markdown
@@ -145,8 +93,6 @@
         Component.new({}, { id: 'my-id' }) do
           content
         end
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Tips" do
     :markdown
@@ -157,6 +103,5 @@
         Component.new content, { size: :xs }, { class: 'my-component' }
         \# or
         Component.new content, class: 'my-component', size: :xs
-      - c.footer do
-        = documentation_link 'Documentation', '#'
+
 = @sections.render
