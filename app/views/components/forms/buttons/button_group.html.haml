@@ -48,7 +48,7 @@
 
     = example do |c|
       - c.header do
-        = ui_button_group do |bg|
+        = ui_button_group status: :primary do |bg|
           - bg.button 'Button'
           - bg.button_link 'Button link', url: '#button-link'
           - bg.dropdown "Dropdown" do |bd|
@@ -58,7 +58,7 @@
             - bd.header 'Header'
             - bd.link "Separate link", url: '#separate-link'
       - c.code do
-        ui_button_group do |bg|
+        ui_button_group status: :primary do |bg|
           bg.button 'Button'
           bg.button_link 'Button link', url: '#button-link'
           bg.dropdown "Dropdown" do |bd|
@@ -70,21 +70,21 @@
           end
         end
       - c.html do
-        <div data-toggle="buttons" class="btn-group" role="group">
-          <button class="btn-primary btn">Button</button>
-          <a class="btn-primary btn" href="#button-link">Button link</a>
-          <div class="btn-group dropdown" role="group">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></button>
-            <div class="dropdown-menu dropdown-menu-left">
-              <a class="dropdown-item" href="#action">Action</a>
-              <a class="dropdown-item" href="#another-action">Another action</a>
-              <div class="dropdown-divider"></div>
-              <h6 class="dropdown-header" role="presentation">Header</h6>
-              <a class="dropdown-item" href="#separate-link">Separate link</a>
-            </div>
-          </div>
-        </div>
-
+        :plain
+          <div class="btn-group" role="group">
+            <button class="btn-primary btn">Button</button>
+            <a class="btn-primary btn" role="button" href="#button-link">Button link</a>
+            <div class="dropdown btn-group">
+              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span>
+              </button>
+              <div class="dropdown-menu dropdown-menu-left" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
+              <a class="dropdown-item" href="#action">Action</a>
+              <a class="dropdown-item" href="#another-action">Another action</a>
+              <div class="dropdown-divider"></div>
+              <h6 class="dropdown-header" role="presentation">Header</h6>
+              <a class="dropdown-item" href="#separate-link">Separate link</a>
+            </div>
+          </div>
 
   - s.section title: "Size" do
     = component_list_options do |co|

@@ -11,7 +11,7 @@
       #{ UiBibzApp::Application::DESCRIPTION }
       <br/>
       #{ UiBibzApp::Application::SUMMARY }
-    = ui_button_link "Get #{ UiBibzApp::Application::NAME }", url: getting_started_path, status: :secondary
+    = ui_button_link "Get #{ UiBibzApp::Application::NAME }", url: getting_started_path, status: :light, outline: true
     %p
       %span.littlemsg For Bootstrap and Ruby lovers
 .pageheader-white
@@ -32,6 +32,6 @@
         %br
         One framework, every device
     %hr.little-hr
-    = ui_button_link 'View GitHub Project', url: 'https://github.com/thooams/Ui-Bibz', status: :secondary
+    = ui_button_link 'View GitHub Project', url: 'https://github.com/thooams/Ui-Bibz', status: :primary
     %p
       %span.littlemsg Ui Bibz Open Source Project available on GitHub

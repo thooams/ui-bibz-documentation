@@ -1,6 +1,6 @@
 = title 'Button link'
 %blockquote UiBibz::Ui::Core::Forms::Buttons::ButtonLink
-%p.bd-callout A link with button appearance
+%p.bd-callout A link with button appearance.
 
 = code "ui_button_link"
 
@@ -22,17 +22,14 @@
       %li :link
     = example do |c|
       - c.header do
-        = ui_button_link 'Normal', url: '#normal'
         - UiBibzApp::Application::STATUSES.each do |status|
           = ui_button_link status.to_s.titleize, url: "##{ status }", status: status
         = ui_button_link 'Link', url: '#link', status: :link
       - c.code do
-        ui_button_link 'Normal', url: '#normal'
         - UiBibzApp::Application::STATUSES.each do |status|
           = "ui_button_link '#{ status.to_s.titleize }', url: '##{ status }', status: :#{status}".html_safe
         ui_button_link 'Link', url: '#link', status: :link
       - c.html do
-        <a class="btn" role="button" href="#normal">Normal</a>
         <a class="btn-primary btn" role="button" href="#primary">Primary</a>
         <a class="btn-secondary btn" role="button" href="#secondary">Secondary</a>
         <a class="btn-success btn" role="button" href="#success">Success</a>
@@ -64,6 +61,10 @@
         <a class="btn-outline-dark btn" role="button" href="#dark">Dark</a>
 
   - s.section title: "Size", tag: :h3 do
+    %p The size can be be defined through the `size` option that has the following two arguments :
+    %ul
+      - UiBibzApp::Application::SIZES.each do |size|
+        %li= ":#{ size }"
     = example do |c|
       - c.header do
         = ui_button_link 'Large button link', url: 'large-button-link', size: :lg
@@ -77,8 +78,6 @@
         <a class="btn-primary btn btn-lg" href="large-button-link">Large button link</a>
         <a class="btn-primary btn" href="#medium-button-link">Medium button link</a>
         <a class="btn-primary btn btn-sm" href="#small-button-link">Small button link</a>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Type", tag: :h3 do
     = example do |c|
@@ -91,10 +90,14 @@
       - c.html do
         <a class="btn-primary btn btn-block" href="#block-level-button-link">Block level button link</a>
         <a class="btn-secondary btn btn-block" href="#block-level-button-link">Block level button link</a>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "state", tag: :h3 do
+    :markdown
+      The buttons inherits the `state` option, this option is in element [component] (../components/)
+      This option lets you disable or enable the element about through these two arguments :
+
+      * :active
+      * :disabled
     = example do |c|
       - c.header do
         = ui_button_link 'Primary', url: '#active', state: :active
@@ -105,18 +108,27 @@
       - c.html do
         <a class="active btn-primary btn" href="#active">Primary</a>
         <a class="disabled btn-primary btn" href="#disabled">Primary</a>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Options and html options" do
+    :markdown
+      Like the [component] (../ components/), the `bouton` element can be written in two ways :
+
+      * in line
+      * in block
     = example do |c|
       - c.header do
-        = ui_button_link 'Success', { url: '#', status: :success, glyph: 'diamond' }, { class: 'button_link' }
+        = ui_button_link 'Primary Active', status: :primary, state: :active
+        = ui_button_link 'Toggle Danger', { status: :danger, glyph: :diamond, toggle: true }, { class: 'button' }
+        = ui_button_link({ badge: 2 }, { class: 'button' }) do
+          = 'Info'
       - c.code do
-        ui_button_link 'Primary', { url: '#', status: :success, glyph: 'diamond' }, { class: 'button_link' }
+        ui_button_link 'Primary Active', status: :primary, state: :active
+        ui_button_link 'Toggle Danger', { status: :danger, glyph: :diamond, toggle: true }, { class: 'button' }
+         
+        ui_button_link({ status: :success, badge: 2 }, { class: 'button' }) do
+          Info
+        end
       - c.html do
         <a class="button_link btn-success btn" href="#"><i class="glyph fa fa-diamond"></i> Success</a>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
 = @sections.render
