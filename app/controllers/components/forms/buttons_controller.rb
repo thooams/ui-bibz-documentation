@@ -12,4 +12,6 @@ class Components::Forms::ButtonsController < Components::FormsController
   def button_link
   end
 
+  def button_toolbar
+  end
 end

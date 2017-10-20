@@ -25,6 +25,7 @@ Rails.application.routes.draw do
         get 'button'
         get 'button-choice'
         get 'button-group'
+        get 'button-toolbar'
         get 'button-link'
         get 'button-split-dropdown'
       end

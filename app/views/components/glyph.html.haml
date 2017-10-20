@@ -31,30 +31,31 @@
         ui_glyph 'diamond'
       - c.html do
         <i class="glyph fa fa-diamond"></i>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Size" do
-    :markdown
-      L'argument size accepte pour argument un nombre ou `:xs` `:md` `:lg`
+    %p The size can be be defined through the `size` option that has the following arguments :
+    %ul
+      - UiBibzApp::Application::SIZES.each do |size|
+        %li= ":#{ size }"
+      - 5.times.each do |i|
+        %li= i + 1
+
     = example do |c|
       - c.header do
-        = ui_glyph 'diamond', size: :xs
-        = ui_glyph 'diamond', size: 2
-        = ui_glyph 'diamond', size: :md
-        = ui_glyph 'diamond', size: :lg
+        - UiBibzApp::Application::SIZES.each do |size|
+          = ui_glyph 'diamond', size: size
+        - 5.times.each do |i|
+          = ui_glyph 'diamond', size: i + 1
       - c.code do
-        ui_glyph 'diamond', size: :xs
-        ui_glyph 'diamond', size: 2
-        ui_glyph 'diamond', size: :md
-        ui_glyph 'diamond', size: :lg
+        - UiBibzApp::Application::SIZES.each do |size|
+          = "ui_glyph 'diamond', size: :#{ size }".html_safe
+        - 5.times.each do |i|
+          = "ui_glyph 'diamond', size: #{ i + 1 }".html_safe
       - c.html do
         <i class="glyph fa fa-diamond fa-1x"></i>
         <i class="glyph fa fa-diamond fa-2x"></i>
         <i class="glyph fa fa-diamond fa-3x"></i>
         <i class="glyph fa fa-diamond fa-5x"></i>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Type" do
     = example do |c|
@@ -66,30 +67,28 @@
         ui_glyph 'diamond', type: 'fw'
       - c.html do
         <i class="glyph fa fa-diamond fa-fw"></i>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "status" do
+    %p The <code>status</code> option for agument the following symbols :
+    %ul
+      - UiBibzApp::Application::STATUSES.each do |status|
+        %li= ":#{ status }"
     = example do |c|
       - c.header do
-        - %i(primary secondary warning info success danger).each do |status|
+        - UiBibzApp::Application::STATUSES.each do |status|
           = ui_glyph 'diamond', status: status
       - c.code do
-        ui_glyph 'diamond', status: :primary
-        ui_glyph 'diamond', status: :secondary
-        ui_glyph 'diamond', status: :warning
-        ui_glyph 'diamond', status: :info
-        ui_glyph 'diamond', status: :success
-        ui_glyph 'diamond', status: :danger
+        - UiBibzApp::Application::STATUSES.each do |status|
+          = "ui_glyph 'diamond', status: :#{ status }".html_safe
       - c.html do
-        <i class="glyph-primary ui_glyph fa fa-diamond"></i>
-        <i class="glyph-secondary ui_glyph fa fa-diamond"></i>
-        <i class="glyph-warning ui_glyph fa fa-diamond"></i>
-        <i class="glyph-info ui_glyph fa fa-diamond"></i>
-        <i class="glyph-success ui_glyph fa fa-diamond"></i>
-        <i class="glyph-danger ui_glyph fa fa-diamond"></i>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
+        <i class="glyph-primary glyph fa fa-diamond"></i>
+        <i class="glyph-secondary glyph fa fa-diamond"></i>
+        <i class="glyph-success glyph fa fa-diamond"></i>
+        <i class="glyph-danger glyph fa fa-diamond"></i>
+        <i class="glyph-warning glyph fa fa-diamond"></i>
+        <i class="glyph-info glyph fa fa-diamond"></i>
+        <i class="glyph-light glyph fa fa-diamond"></i>
+        <i class="glyph-dark glyph fa fa-diamond"></i>
 
   - s.section title: "Rotate" do
     = example do |c|
@@ -105,8 +104,6 @@
         <i class="glyph fa fa-diamond fa-rotate-90"></i>
         <i class="glyph fa fa-diamond fa-rotate-180"></i>
         <i class="glyph fa fa-diamond fa-rotate-270"></i>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Flip" do
     = example do |c|
@@ -119,8 +116,6 @@
       - c.html do
         <i class="glyph fa fa-diamond fa-flip-horizontal"></i>
         <i class="glyph fa fa-diamond fa-flip-vertical"></i>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Stack" do
     = example do |c|
@@ -133,19 +128,15 @@
       - c.html do
         <i class="glyph fa fa-square fa-stack-2x"></i>
         <i class="glyph-danger ui_glyph fa fa-diamond fa-stack-1x"></i>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Hash" do
     %p You can create a ui_glyph with only one hash.
     = example do |c|
       - c.header do
-        = ui_glyph({ name: 'diamond', size: :xs, label: 'Diamond' })
+        = ui_glyph({ name: 'diamond', size: :sm, label: 'Diamond' })
       - c.code do
-        ui_glyph { name: 'diamond', size: :xs, label: 'Diamond' }
+        ui_glyph { name: 'diamond', size: :sm, label: 'Diamond' }
       - c.html do
         <i class="glyph fa fa-diamond fa-1x"></i> Diamond
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
 = @sections.render
