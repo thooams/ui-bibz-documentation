@@ -9,44 +9,59 @@
   - co.glyph_link
   - co.state_link
   - co.size_link
+  - co.list 'toggle', types: 'boolean'
   - co.list 'outline', types: 'boolean'
   - co.list 'type', types: 'symbol', values: ':block'
 
 - @sections = sections do |s|
   - s.section title: "Button link" do
+    %p The <code>status</code> option for agument the following symbols:
+    %ul
+      - UiBibzApp::Application::STATUSES.each do |status|
+        %li= ":#{ status }"
+      %li :link
     = example do |c|
       - c.header do
-        - %w(primary secondary success warning danger link).each do |status|
-          = ui_button_link status.titleize, url: "##{ status }", status: status.to_sym
+        = ui_button_link 'Normal', url: '#normal'
+        - UiBibzApp::Application::STATUSES.each do |status|
+          = ui_button_link status.to_s.titleize, url: "##{ status }", status: status
+        = ui_button_link 'Link', url: '#link', status: :link
       - c.code do
-        - %w(primary secondary success warning danger link).each do |status|
-          = "ui_button '#{ status.titleize }', url: '##{ status }', status: :#{status}"
+        ui_button_link 'Normal', url: '#normal'
+        - UiBibzApp::Application::STATUSES.each do |status|
+          = "ui_button_link '#{ status.to_s.titleize }', url: '##{ status }', status: :#{status}".html_safe
+        ui_button_link 'Link', url: '#link', status: :link
       - c.html do
-        <a class="btn-primary btn" href="#primary">Primary</a>
-        <a class="btn-secondary btn" href="#secondary">Secondary</a>
-        <a class="btn-success btn" href="#success">Success</a>
-        <a class="btn-warning btn" href="#warning">Warning</a>
-        <a class="btn-danger btn" href="#danger">Danger</a>
-        <a class="btn-link btn" href="#link">Link</a>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
+        <a class="btn" role="button" href="#normal">Normal</a>
+        <a class="btn-primary btn" role="button" href="#primary">Primary</a>
+        <a class="btn-secondary btn" role="button" href="#secondary">Secondary</a>
+        <a class="btn-success btn" role="button" href="#success">Success</a>
+        <a class="btn-danger btn" role="button" href="#danger">Danger</a>
+        <a class="btn-warning btn" role="button" href="#warning">Warning</a>
+        <a class="btn-info btn" role="button" href="#info">Info</a>
+        <a class="btn-light btn" role="button" href="#light">Light</a>
+        <a class="btn-dark btn" role="button" href="#dark">Dark</a>
+        <a class="btn-link btn" role="button" href="#link">Link</a>
 
   - s.section title: "Outline", tag: :h3 do
+    :markdown
+      The background color of the buttons can be removed through the `outline` option that has for a Boolean argument.
     = example do |c|
       - c.header do
-        - %w(primary secondary success warning danger link).each do |status|
-          = ui_button_link status.titleize, url: "##{ status }", status: status.to_sym, outline: true
+        - UiBibzApp::Application::STATUSES.each do |status|
+          = ui_button_link status.to_s.titleize, url: "##{ status }", status: status, outline: true
       - c.code do
-        - %w(primary secondary success warning danger link).each do |status|
-          = "ui_button '#{ status.titleize }', url: '##{ status }', status: :#{status}, outline: true"
+        - UiBibzApp::Application::STATUSES.each do |status|
+          = "ui_button_link '#{ status.to_s.titleize }', url: '##{ status }', outline: true, status: :#{status}".html_safe
       - c.html do
-        <a class="btn-primary-outline btn" href="#primary">Primary</a>
-        <a class="btn-secondary-outline btn" href="#secondary">Secondary</a>
-        <a class="btn-success-outline btn" href="#success">Success</a>
-        <a class="btn-warning-outline btn" href="#warning">Warning</a>
-        <a class="btn-danger-outline btn" href="#danger">Danger</a>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
+        <a class="btn-outline-primary btn" role="button" href="#primary">Primary</a>
+        <a class="btn-outline-secondary btn" role="button" href="#secondary">Secondary</a>
+        <a class="btn-outline-success btn" role="button" href="#success">Success</a>
+        <a class="btn-outline-danger btn" role="button" href="#danger">Danger</a>
+        <a class="btn-outline-warning btn" role="button" href="#warning">Warning</a>
+        <a class="btn-outline-info btn" role="button" href="#info">Info</a>
+        <a class="btn-outline-light btn" role="button" href="#light">Light</a>
+        <a class="btn-outline-dark btn" role="button" href="#dark">Dark</a>
 
   - s.section title: "Size", tag: :h3 do
     = example do |c|

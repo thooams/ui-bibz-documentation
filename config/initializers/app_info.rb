@@ -8,6 +8,7 @@ module UiBibzApp
     SUMMARY     = UI_BIBZ.summary
     LICENSE     = UI_BIBZ.license
     STATUSES    = %i(primary secondary success danger warning info light dark)
+    SIZES       = %i(lg md sm)
 
     class Gems
 

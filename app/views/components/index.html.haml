@@ -41,15 +41,14 @@
       Some component may have the size option in their settings.
       The size argument contains three distinct values :
 
-        * :sm
-        * :md
-        * :lg
+    %ul
+      - UiBibzApp::Application::SIZES.each do |size|
+        %li= ":#{ size }"
 
     = example do |c|
       - c.code do
-        Component.new content, size: :sm
-        Component.new content, size: :md
-        Component.new content, size: :lg
+        - UiBibzApp::Application::SIZES.each do |size|
+          = "Component.new content, size: :#{ size }"
 
   - s.section title: "Status" do
     :markdown

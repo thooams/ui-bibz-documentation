@@ -15,15 +15,11 @@
 
 - @sections = sections do |s|
   - s.section title: "Button" do
-    :markdown
-      The `status` option for agument the following symbols :
-
-      * :primary
-      * :secondary
-      * :success
-      * :warning
-      * :danger
-      * :link
+    %p The <code>status</code> option for agument the following symbols :
+    %ul
+      - UiBibzApp::Application::STATUSES.each do |status|
+        %li= ":#{ status }"
+      %li :link
 
     = example do |c|
       - c.header do
@@ -69,12 +65,10 @@
         <button class="btn-outline-dark btn">Dark</button>
 
   - s.section title: "Size", tag: :h3 do
-    :markdown
-      The size can be be defined through the `size` option that has the following two arguments :
-
-      * :lg
-      * :md
-      * :sm
+    %p The size can be be defined through the `size` option that has the following two arguments :
+    %ul
+      - UiBibzApp::Application::SIZES.each do |size|
+        %li= ":#{ size }"
 
     = example do |c|
       - c.header do
