@@ -33,6 +33,7 @@
   - co.size_link
   - co.list 'position', types: 'symbol', values: %w(:right :left)
   - co.list 'type', types: 'symbol', values: %w(:dropup :dropdown), default: ':dropdown'
+  - co.list 'tag', types: 'symbol', values: %w(:a :button), default: ':button'
 
 - @sections = sections do |s|
   - s.section title: "Dropdown" do
@@ -63,7 +64,7 @@
           end
         end
       - c.html do
-        <div class="open-dropdown-example dropdown btn-group open">
+        <div class="dropdown btn-group">
           <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></button>
           <div class="dropdown-menu dropdown-menu-left">
             <a class="dropdown-item" href="#action">Action 1</a>
@@ -93,7 +94,7 @@
           end
         end
       - c.html do
-        <div class="open-dropdown-example dropdown btn-group open">
+        <div class="dropdown btn-group">
           <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="glyph fa fa-diamond"></i> Dropdown <span class="caret"></span></button>
           <div class="dropdown-menu dropdown-menu-left">
             <a class="dropdown-item" data-confirm="Are you sure?" href="#action">Confirm action</a>
@@ -102,6 +103,29 @@
           </div>
         </div>
 
+  - s.section title: "Tag" do
+    %p Replace <code>&lt;button&gt;</code> by <code>&lt;a&gt;</code> tag.
+    = example do |c|
+      - c.header do
+        = ui_dropdown "Dropdown link", tag: :a, open: true, class: 'open-dropdown-example' do |d|
+          - d.link "Action 1", url: '#action-1'
+          - d.link "Action 2", url: '#action-2'
+          - d.link "Action 3", url: '#action-3'
+      - c.code do
+        ui_dropdown "Dropdown link", tag: :a do |d|
+          d.link "Action 1", url: '#action-1'
+          d.link "Action 2", url: '#action-2'
+          d.link "Action 3", url: '#action-3'
+        end
+      - c.html do
+        <div class="dropdown btn-group">
+          <a class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown with right menu <span class="caret"></span></a>
+          <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="#action-1">Action 1</a>
+            <a class="dropdown-item" href="#action-2">Action 2</a>
+            <a class="dropdown-item" href="#action-3">Action 3</a>
+          </div>
+        </div>
 
   - s.section title: "Position" do
     = example do |c|
@@ -117,7 +141,7 @@
           d.link "Action 3", url: '#action-3'
         end
       - c.html do
-        <div class="open-dropdown-example dropdown btn-group open">
+        <div class="dropdown btn-group">
           <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown with right menu <span class="caret"></span></button>
           <div class="dropdown-menu dropdown-menu-right">
             <a class="dropdown-item" href="#action-1">Action 1</a>
@@ -248,31 +272,31 @@
         %li= ":#{ size }"
     = example do |e|
       - e.header do
-        = ui_dropdown 'Dropdown Lg', size: :lg do |d|
+        = ui_dropdown 'Dropdown Lg', size: :lg, inline: true do |d|
           - d.link "Action 1", url: '#action-1'
           - d.link "Action 2", url: '#action-2', state: :disabled
           - d.link "Action 3", url: '#action-3'
-        = ui_dropdown 'Dropdown Md', size: :md do |d|
+        = ui_dropdown 'Dropdown Md', size: :md, inline: true do |d|
           - d.link "Action 1", url: '#action-1'
           - d.link "Action 2", url: '#action-2', state: :disabled
           - d.link "Action 3", url: '#action-3'
 
-        = ui_dropdown 'Dropdown Sm', size: :sm do |d|
+        = ui_dropdown 'Dropdown Sm', size: :sm , inline: true do |d|
           - d.link "Action 1", url: '#action-1'
           - d.link "Action 2", url: '#action-2', state: :disabled
           - d.link "Action 3", url: '#action-3'
       - e.code do
-        ui_dropdown 'Dropdown Lg', size: :lg do |d|
+        ui_dropdown 'Dropdown Lg', size: :lg, inline: true do |d|
           d.link "Action 1", url: '#action-1'
           d.link "Action 2", url: '#action-2'
           d.link "Action 3", url: '#action-3'
         end
-        ui_dropdown 'Dropdown Md', size: :md do |d|
+        ui_dropdown 'Dropdown Md', size: :md, inline: true do |d|
           d.link "Action 1", url: '#action-1'
           d.link "Action 2", url: '#action-2'
           d.link "Action 3", url: '#action-3'
         end
-        ui_dropdown 'Dropdown Sm', size: :sm do |d|
+        ui_dropdown 'Dropdown Sm', size: :sm, inline: true do |d|
           d.link "Action 1", url: '#action-1'
           d.link "Action 2", url: '#action-2'
           d.link "Action 3", url: '#action-3'
@@ -311,7 +335,7 @@
     = example do |c|
       - c.header do
         - %i(primary secondary danger warning info success).each do |status|
-          = ui_dropdown status.to_s.titleize, status: status do |bd|
+          = ui_dropdown status.to_s.titleize, status: status, inline: true do |bd|
             - bd.link "Action", url: '#action', glyph: 'diamond'
             - bd.link url: '#another-action' do
               = "Another action"
@@ -321,20 +345,22 @@
             - bd.link({ url: '#separate-link'}, { class: 'my-link'}) do
               = "Separate link"
       - c.code do
-        ui_dropdown 'Primary' do |bd|
-          bd.link "Action", url: '#action', glyph: 'diamond'
-          bd.link "Another action", url: '#another-action'
-          bd.link url: '#another-action' do
-            "Another action"
-          end
-          bd.divider
-          bd.header 'Header'
-          bd.html "     Normal Text"
-          bd.link "Separate link", url: '#separate-link'
-          bd.link({ url: '#separate-link'}, { class: 'my-link'}) do
-            "Separate link"
-          end
-        end
+        - %i(primary secondary danger warning info success).each do |status|
+          :plain
+            ui_dropdown '#{ status.to_s.titleize }', status: :#{ status }, inline: true do |bd|
+              bd.link "Action", url: '#action', glyph: 'diamond'
+              bd.link "Another action", url: '#another-action'
+              bd.link url: '#another-action' do
+                "Another action"
+              end
+              bd.divider
+              bd.header 'Header'
+              bd.html "     Normal Text"
+              bd.link "Separate link", url: '#separate-link'
+              bd.link({ url: '#separate-link'}, { class: 'my-link'}) do
+                "Separate link"
+              end
+            end
       - c.html do
         <div class="btn-group dropdown" role="group">
           <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Primary <span class="caret"></span></button>
