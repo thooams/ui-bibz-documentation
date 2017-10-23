@@ -36,8 +36,6 @@
             <input type="checkbox" name="examplebasic" id="examplebasic" class="switch">
           </div>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "State" do
     = example do |e|
@@ -64,8 +62,6 @@
             <input type="checkbox" name="examplestate" id="examplestate" disabled="disabled" class="true switch">
           </div>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Animate" do
     = example do |e|
@@ -92,8 +88,6 @@
             <input type="checkbox" name="exampleanimate" id="exampleanimate" data-animate="false" class="switch">
           </div>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Color" do
     = example do |e|
@@ -110,26 +104,22 @@
             <input type="checkbox" name="examplecolor" id="examplecolor" data-on-color="success" data-off-color="danger" class="switch">
           </div>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Text" do
     = example do |e|
       - e.header do
-        = ui_switch_field 'exampletext', { left_text: "ExampleOn", right_text: "ExampleOff" }
+        = ui_switch_field 'exampletext', { left_text: "Yes", right_text: "No" }
       - e.code do
-        ui_switch_field 'exampletext', { left_text: "ExampleOn", right_text: "ExampleOff" }
+        ui_switch_field 'exampletext', { left_text: "Yes", right_text: "No" }
       - e.html do
         <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-id-exampletext bootstrap-switch-off bootstrap-switch-animate" style="width: 196px;">
           <div class="bootstrap-switch-container" style="width: 291px; margin-left: -97px;">
-            <span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 97px;">ExampleOn</span>
+            <span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 97px;">Yes</span>
             <span class="bootstrap-switch-label" style="width: 97px;">&nbsp;</span>
-            <span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 97px;">ExampleOff</span>
+            <span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 97px;">No</span>
             <input type="checkbox" name="exampletext" id="exampletext" data-on-text="ExampleOn" data-off-text="ExampleOff" class="switch">
           </div>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Label" do
     = example do |e|
@@ -156,12 +146,6 @@
             <input type="checkbox" name="examplelabel" id="examplelabel" data-label-text="<i class=&quot;glyph fa fa-diamond&quot;></i>" class="switch">
           </div>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
-        |
-        = documentation_link 'Glyph', '/components/glyphs'
-    :markdown
-      You can use the component [glyph](/components/glyphs) to insert an icon .
 
   - s.section title: "Readonly" do
     = example do |e|
@@ -188,8 +172,6 @@
             <input type="checkbox" name="examplereadonly" id="examplereadonly" class="switch">
           </div>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Checked" do
     = example do |e|
@@ -216,8 +198,26 @@
             <input type="checkbox" name="examplechecked" id="examplechecked" class="switch">
           </div>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Size", tag: :h3 do
+    %p The size can be be defined through the `size` option that has the following arguments :
+    %ul
+      - UiBibzApp::Application::SIZES.each do |size|
+        %li= ":#{ size }"
+
+    = example do |c|
+      - c.header do
+        = ui_switch_field 'Large switch', size: :lg
+        = ui_switch_field 'Medium switch', size: :md
+        = ui_switch_field 'Small switch', size: :sm
+      - c.code do
+        ui_button 'Large button', status: :primary, size: :lg
+        ui_button 'Medium button', status: :primary, size: :md
+        ui_button 'Small button', status: :primary, size: :sm
+      - c.html do
+        <button class="btn-primary btn btn-lg">Large button</button>
+        <button class="btn-primary btn">Medium button</button>
+        <button class="btn-primary btn btn-sm">Small button</button>
 
   - s.section title: "Simple form" do
     %p= simple_form_text_with_input "ui_switch_field"
@@ -232,7 +232,5 @@
           f.input :active, as: :ui_switch_field
           ...
         end
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
 = @sections.render

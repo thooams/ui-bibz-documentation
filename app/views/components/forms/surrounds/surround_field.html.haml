@@ -9,17 +9,6 @@
   - co.list 'append', types: 'html'
   - co.list 'prepend', types: 'html'
   - co.list 'addon', types: 'component'
-  - co.list link_to('button', components_forms_buttons_button_path), types: 'component'
-  - co.list link_to('button_group', components_forms_buttons_button_group_path), types: 'component'
-  - co.list link_to('button_link', components_forms_buttons_button_link_path), types: 'component'
-  - co.list link_to('checkbox_field', components_forms_choices_checkbox_field_path), types: 'component'
-  - co.list link_to('radio_field', components_forms_choices_radio_field_path), types: 'component'
-  - co.list link_to('date_picker_field', components_forms_dates_date_picker_field_path), types: 'component'
-  - co.list link_to('dropdown_select_field', components_forms_selects_dropdown_select_field_path), types: 'component'
-  - co.list link_to('multi_select_field', components_forms_selects_multi_select_field_path), types: 'component'
-  - co.list link_to('select_field', components_forms_selects_select_field_path), types: 'component'
-  - co.list link_to('auto_complete_field', components_forms_texts_auto_complete_field_path), types: 'component'
-  - co.list link_to('text_field', components_forms_texts_text_field_path), types: 'component'
 
 - @sections = sections do |s|
   - s.section title: "Surround Field" do
@@ -28,7 +17,7 @@
         = ui_surround_field do |sf|
           - sf.checkbox_field 'check', label: false
           - sf.auto_complete_field 'name', option_tags: select_options_tags
-          - sf.button 'button'
+          - sf.button 'button', status: :primary
           - sf.addon  '€'
         %br
         = ui_surround_field do |sf|
@@ -231,6 +220,21 @@
               </div>
             </div>
           </div>
+
+  - s.section title: "Button choice blocks" do
+    %p Button choice has on block type:
+    %ul
+      %li= inherit_specific_component_link 'button', components_forms_buttons_button_path
+      %li= inherit_specific_component_link 'button_group', components_forms_buttons_button_group_path
+      %li= inherit_specific_component_link 'button_link', components_forms_buttons_button_link_path
+      %li= inherit_specific_component_link 'checkbox_field', components_forms_choices_checkbox_field_path
+      %li= inherit_specific_component_link 'radio_field', components_forms_choices_radio_field_path
+      %li= inherit_specific_component_link 'date_picker_field', components_forms_dates_date_picker_field_path
+      %li= inherit_specific_component_link 'dropdown_select_field', components_forms_selects_dropdown_select_field_path
+      %li= inherit_specific_component_link 'multi_select_field', components_forms_selects_multi_select_field_path
+      %li= inherit_specific_component_link 'select_field', components_forms_selects_select_field_path
+      %li= inherit_specific_component_link 'auto_complete_field', components_forms_texts_auto_complete_field_path
+      %li= inherit_specific_component_link 'text_field', components_forms_texts_text_field_path
 
   - s.section title: "Simple form" do
     %p= simple_form_text_with_input "ui_surround_field"
