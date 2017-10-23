@@ -12,7 +12,6 @@
 ##
 
 #= require ui_bibz
-#= require jquery
 #= require turbolinks
 
 # Fonction pour fixer le menu de droite lors du scrolling

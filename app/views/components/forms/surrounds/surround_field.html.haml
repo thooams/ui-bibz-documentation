@@ -43,9 +43,6 @@
         = ui_surround_field do |sf|
           - sf.button_refresh
           - sf.dropdown_select_field 'select', option_tags: select_options_tags
-          - sf.button_group do
-            = ui_button_choice 'choice 1'
-            = ui_button_choice 'choice 2'
           - sf.multi_select_field 'select', option_tags: select_options_tags
           - sf.button_link 'link', url: '#link'
       - e.code do
@@ -67,10 +64,6 @@
           ui_surround_field do |sf|
             sf.button_refresh
             sf.dropdown_select_field 'select', option_tags: select_options_tags
-            sf.button_group do
-              = ui_button_choice 'choice 1'
-              = ui_button_choice 'choice 2'
-            end
             sf.multi_select_field 'select', option_tags: select_options_tags
             sf.button_link 'link', url: '#link'
           end
@@ -239,10 +232,6 @@
             </div>
           </div>
 
-      - e.footer do
-        = documentation_link 'Documentation', '#'
-
-
   - s.section title: "Simple form" do
     %p= simple_form_text_with_input "ui_surround_field"
     = example do |e|
@@ -268,7 +257,5 @@
             end
             ...
           end
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
 = @sections.render

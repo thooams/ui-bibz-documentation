@@ -42,8 +42,6 @@
             <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 4"> option 4</label></a></li>
           </ul>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Clickable_opt_group option" do
     = example do |e|
@@ -77,8 +75,6 @@
             <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="France"> France</label></a></li>
           </ul>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Collapsible_opt_group option" do
     = example do |e|
@@ -112,8 +108,6 @@
             <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="France"> France</label></a></li>
           </ul>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Searchable option" do
     = example do |e|
@@ -145,8 +139,77 @@
             <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 4"> option 4</label></a></li>
           </ul>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Size" do
+    %p The size can be be defined through the `size` option that has the following arguments :
+    %ul
+      - UiBibzApp::Application::SIZES.each do |size|
+        %li= ":#{ size }"
+    = example do |e|
+      - e.header do
+        = ui_multi_select_field 'lg', size: :lg, option_tags: select_options_tags
+        = ui_multi_select_field 'md', size: :md, option_tags: select_options_tags
+        = ui_multi_select_field 'sm', size: :sm, option_tags: select_options_tags
+      - e.code do
+        option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
+        ui_multi_select_field 'lg', size: :lg, option_tags: option_tags
+        ui_multi_select_field 'md', size: :md, option_tags: option_tags
+        ui_multi_select_field 'sm', size: :sm, option_tags: option_tags
+      - e.html do
+        :plain
+          <select name="lg[]" id="example1" class="btn-secondary btn-lg multi-select-field" multiple="multiple" style="display: none;">
+            <option value="0">option 0</option>
+            <option value="1">option 1</option>
+            <option value="2">option 2</option>
+            <option value="3">option 3</option>
+            <option value="4">option 4</option>
+          </select>
+          <div class="btn-group">
+            <button type="button" class="multiselect dropdown-toggle btn btn-secondary btn-lg multi-select-field" data-toggle="dropdown" title="None selected">None selected <b class="caret"></b></button>
+            <ul class="multiselect-container dropdown-menu">
+              <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="0"> option 0</label></a></li>
+              <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="1"> option 1</label></a></li>
+              <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="2"> option 2</label></a></li>
+              <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="3"> option 3</label></a></li>
+              <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="4"> option 4</label></a></li>
+            </ul>
+          </div>
+
+          <select name="md[]" id="example1" class="btn-secondary btn-md multi-select-field" multiple="multiple" style="display: none;">
+            <option value="0">option 0</option>
+            <option value="1">option 1</option>
+            <option value="2">option 2</option>
+            <option value="3">option 3</option>
+            <option value="4">option 4</option>
+          </select>
+          <div class="btn-group">
+            <button type="button" class="multiselect dropdown-toggle btn btn-secondary btn-md multi-select-field" data-toggle="dropdown" title="None selected">None selected <b class="caret"></b></button>
+            <ul class="multiselect-container dropdown-menu">
+              <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="0"> option 0</label></a></li>
+              <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="1"> option 1</label></a></li>
+              <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="2"> option 2</label></a></li>
+              <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="3"> option 3</label></a></li>
+              <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="4"> option 4</label></a></li>
+            </ul>
+          </div>
+
+          <select name="sm[]" id="example1" class="btn-secondary btn-sm multi-select-field" multiple="multiple" style="display: none;">
+            <option value="0">option 0</option>
+            <option value="1">option 1</option>
+            <option value="2">option 2</option>
+            <option value="3">option 3</option>
+            <option value="4">option 4</option>
+          </select>
+          <div class="btn-group">
+            <button type="button" class="multiselect dropdown-toggle btn btn-secondary btn-sm multi-select-field" data-toggle="dropdown" title="None selected" aria-expanded="false">None selected <b class="caret"></b></button>
+            <ul class="multiselect-container dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 31px, 0px); top: 0px; left: 0px; will-change: transform;">
+              <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="0"> option 0</label></a></li>
+              <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="1"> option 1</label></a></li>
+              <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="2"> option 2</label></a></li>
+              <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="3"> option 3</label></a></li>
+              <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="4"> option 4</label></a></li>
+            </ul>
+          </div>
 
   - s.section title: "Select_all_option option" do
     = example do |e|
@@ -174,8 +237,6 @@
             <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 4"> option 4</label></a></li>
           </ul>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Status option" do
     = example do |e|
@@ -208,9 +269,6 @@
             <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 4"> option 4</label></a></li>
           </ul>
         </div>
-        …
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Field Connected" do
     = render partial: '/components/connect_option'
@@ -233,8 +291,6 @@
       - e.html do
         :plain
           ""
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Connected (local)" do
     = example do |e|
@@ -257,8 +313,6 @@
       - e.html do
         :plain
           ""
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Refresh Connected" do
     %p Option <code>refresh</code> take same arguments than <code>connect</code> option.
@@ -318,11 +372,6 @@
             </button>
           </span>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
-
-
-
 
   - s.section title: "Simple form" do
     %p= simple_form_text_with_input "ui_multi_select_field"
@@ -347,8 +396,6 @@
           f.association :country, as: :ui_multi_select_field, collection: @countries, label_method: :name, value_method: :id
           ...
         end
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
     %p
       You can use `grouped: true` option to group collection
@@ -383,7 +430,5 @@
           f.association :country, as: :ui_multi_select_field, refresh: { target: { url: components_forms_selects_select_field_path }}, collection: @countries, label_method: :name, value_method: :id
           ...
         end
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
 = @sections.render

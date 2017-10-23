@@ -150,6 +150,73 @@
       - c.footer do
         = documentation_link 'Documentation', '#'
 
+
+  - s.section title: "Size" do
+    %p The size can be be defined through the `size` option that has the following arguments :
+    %ul
+      - UiBibzApp::Application::SIZES.each do |size|
+        %li= ":#{ size }"
+    = example do |e|
+      - e.header do
+        = ui_split_dropdown 'Dropdown Lg', size: :lg do |d|
+          - d.link "Action 1", url: '#action-1'
+          - d.link "Action 2", url: '#action-2', state: :disabled
+          - d.link "Action 3", url: '#action-3'
+        = ui_split_dropdown 'Dropdown Md', size: :md do |d|
+          - d.link "Action 1", url: '#action-1'
+          - d.link "Action 2", url: '#action-2', state: :disabled
+          - d.link "Action 3", url: '#action-3'
+
+        = ui_split_dropdown 'Dropdown Sm', size: :sm do |d|
+          - d.link "Action 1", url: '#action-1'
+          - d.link "Action 2", url: '#action-2', state: :disabled
+          - d.link "Action 3", url: '#action-3'
+      - e.code do
+        ui_split_dropdown 'Dropdown Lg', size: :lg do |d|
+          d.link "Action 1", url: '#action-1'
+          d.link "Action 2", url: '#action-2'
+          d.link "Action 3", url: '#action-3'
+        end
+        ui_split_dropdown 'Dropdown Md', size: :md do |d|
+          d.link "Action 1", url: '#action-1'
+          d.link "Action 2", url: '#action-2'
+          d.link "Action 3", url: '#action-3'
+        end
+        ui_split_dropdown 'Dropdown Sm', size: :sm do |d|
+          d.link "Action 1", url: '#action-1'
+          d.link "Action 2", url: '#action-2'
+          d.link "Action 3", url: '#action-3'
+        end
+      - e.html do
+        :plain
+          <div class="dropdown btn-group">
+            <button class="btn btn-primary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown Lg <span class="caret"></span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-left">
+              <a class="dropdown-item" href="#action-1">Action 1</a>
+              <a class="disabled dropdown-item" href="#action-2">Action 2</a>
+              <a class="dropdown-item" href="#action-3">Action 3</a>
+            </div>
+          </div>
+
+          <div class="dropdown btn-group">
+            <button class="btn btn-primary btn-md dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown Md <span class="caret"></span></button>
+            <div class="dropdown-menu dropdown-menu-left">
+              <a class="dropdown-item" href="#action-1">Action 1</a>
+              <a class="disabled dropdown-item" href="#action-2">Action 2</a>
+              <a class="dropdown-item" href="#action-3">Action 3</a>
+            </div>
+          </div>
+
+          <div class="dropdown btn-group">
+            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown Sm <span class="caret"></span></button>
+            <div class="dropdown-menu dropdown-menu-left">
+              <a class="dropdown-item" href="#action-1">Action 1</a>
+              <a class="disabled dropdown-item" href="#action-2">Action 2</a>
+              <a class="dropdown-item" href="#action-3">Action 3</a>
+            </div>
+          </div>
+
   - s.section title: "Buttonsplit  dropdown options" do
     = example do |c|
       - c.header do
