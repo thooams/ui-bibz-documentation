@@ -28,7 +28,7 @@
     end
 
 = component_options do |co|
-  - co.list 'type', types: 'symbol', values: %w(:link :button)
+  - co.list 'tag', types: 'symbol', values: %w(:a :button :li)
 
 - @sections = sections do |s|
   - s.section title: "List group" do
@@ -62,8 +62,6 @@
           <li class="list-group-item">Porta ac consectetur ac</li>
           <li class="list-group-item">Vestibulum at eros</li>
         </ul>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "List group options" do
     %p List group has several options:
@@ -71,7 +69,7 @@
       - clo.status_link
       - clo.glyph_link
       - clo.state_link
-      - clo.list 'type', types: 'symbol', values: %w(:button :link)
+      - clo.list 'tag', types: 'symbol', values: %w(:a :button :li)
 
   - s.section title: "badges" do
     = example do |c|
@@ -92,20 +90,18 @@
           <li class="list-group-item">Dapibus ac facilisis in<span class="badge-default pull-right badge badge-pill">2</span></li>
           <li class="list-group-item">Morbi leo risus<span class="badge-default pull-right badge badge-pill">1</span></li>
         </ul>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Linked items" do
     = example do |c|
       - c.header do
-        = ui_list_group type: :link do |lg|
+        = ui_list_group tag: :a do |lg|
           - lg.list 'Cras justo odio', url: "#1", state: :active
           - lg.list 'Dapibus ac facilisis in', url: "#2"
           - lg.list 'Morbi leo risus', url: "#3"
           - lg.list 'Porta ac consectetur ac', url: "#4"
           - lg.list 'Vestibulum at eros', url: "#5"
       - c.code do
-        ui_list_group type: :link do |lg|
+        ui_list_group tag: :link do |lg|
           lg.list 'Cras justo odio', url: "#1",state: :active
           lg.list 'Dapibus ac facilisis in', url: "#2"
           lg.list 'Morbi leo risus', url: "#3"
@@ -120,20 +116,18 @@
           <a class="list-group-item" href="#4">Porta ac consectetur ac</a>
           <a class="list-group-item" href="#5">Vestibulum at eros</a>
         </div>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Button items" do
     = example do |c|
       - c.header do
-        = ui_list_group type: :button do |lg|
-          - lg.list 'Cras justo odio'
+        = ui_list_group tag: :button do |lg|
+          - lg.list 'Cras justo odio', state: :active
           - lg.list 'Dapibus ac facilisis in'
           - lg.list 'Morbi leo risus'
           - lg.list 'Porta ac consectetur ac'
           - lg.list 'Vestibulum at eros'
       - c.code do
-        ui_list_group type: :button do |lg|
+        ui_list_group tag: :button do |lg|
           lg.list 'Cras justo odio'
           lg.list 'Dapibus ac facilisis in'
           lg.list 'Morbi leo risus'
@@ -142,14 +136,12 @@
         end
       - c.html do
         <div class="list-group">
-          <a class="active list-group-item">Cras justo odio</a>
-          <a class="list-group-item">Dapibus ac facilisis in</a>
-          <a class="list-group-item">Morbi leo risus</a>
-          <a class="list-group-item">Porta ac consectetur ac</a>
-          <a class="list-group-item">Vestibulum at eros</a>
+          <button class="active list-group-item">Cras justo odio</button>
+          <button class="list-group-item">Dapibus ac facilisis in</button>
+          <button class="list-group-item">Morbi leo risus</button>
+          <button class="list-group-item">Porta ac consectetur ac</button>
+          <button class="list-group-item">Vestibulum at eros</button>
         </div>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Disabled items" do
     = example do |c|
@@ -176,26 +168,20 @@
           <li class="list-group-item">Porta ac consectetur ac</li>
           <li class="list-group-item">Vestibulum at eros</li>
         </ul>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
 
   - s.section title: "Status" do
     = example do |c|
       - c.header do
         = ui_list_group  do |lg|
-          - lg.list 'Cras justo odio', status: :danger
-          - lg.list 'Dapibus ac facilisis in', status: :info
-          - lg.list 'Morbi leo risus', status: :warning
-          - lg.list 'Porta ac consectetur ac', status: :success
-          - lg.list 'Vestibulum at eros', status: :primary
+          - lg.list "This is a normal list group item"
+          - UiBibzApp::Application::STATUSES.each do |status|
+            - lg.list "This is a #{ status } list group item", status: status
       - c.code do
         ui_list_group do |lg|
-          lg.list 'Cras justo odio', status: :danger
-          lg.list 'Dapibus ac facilisis in', status: :info
-          lg.list 'Morbi leo risus', status: :warning
-          lg.list 'Porta ac consectetur ac', status: :success
-          lg.list 'Vestibulum at eros', status: :primary
+          lg.list "This is a normal list group item"
+        - UiBibzApp::Application::STATUSES.each do |status|
+          = "  lg.list 'This is a #{ status } list group item', status: :#{ status }".html_safe
         end
       - c.html do
         <ul class="list-group">
@@ -205,8 +191,6 @@
           <li class="list-group-item-success list-group-item">Porta ac consectetur ac</li>
           <li class="list-group-item-primary list-group-item">Vestibulum at eros</li>
         </ul>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Custom content" do
 
@@ -263,6 +247,4 @@
             <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
           </li>
         </ul>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 = @sections.render

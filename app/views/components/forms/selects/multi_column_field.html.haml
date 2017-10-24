@@ -63,8 +63,6 @@
             </ul>
           </div>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Selectable optgroup option" do
     = example do |e|
@@ -126,8 +124,6 @@
             </ul>
           </div>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Searchable option" do
     = example do |e|
@@ -183,8 +179,6 @@
             </ul>
           </div>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Field Connected" do
     = render partial: '/components/connect_option'
@@ -272,8 +266,6 @@
               </ul>
             </div>
           </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Connected (local)" do
     = example do |e|
@@ -360,8 +352,6 @@
             </div>
           </div>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   -# s.section title: "Refresh Connected" do
     %p Option <code>refresh</code> take same arguments than <code>connect</code> option.
@@ -421,8 +411,6 @@
             </button>
           </span>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Simple form" do
     %p= simple_form_text_with_input "ui_multi_column_field"
@@ -437,7 +425,5 @@
           f.input :country, as: :ui_multi_column_field, collection: @countries
           ...
         end
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
 = @sections.render

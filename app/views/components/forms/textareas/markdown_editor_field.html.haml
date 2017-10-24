@@ -72,8 +72,6 @@
             <a href="#" class="exit-fullscreen" title="Exit fullscreen"><span class="fa fa-compress"></span></a>
           </div>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Simple form" do
     %p= simple_form_text_with_input "ui_markdown_editor_field"
@@ -87,7 +85,5 @@
           f.input :name, as: :ui_markdown_editor_field
           ...
         end
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
 = @sections.render

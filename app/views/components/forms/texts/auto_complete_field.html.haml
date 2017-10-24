@@ -28,8 +28,6 @@
             <option value="option 3">option 3</option>
             <option value="option 4">option 4</option>
           </datalist>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Auto Complete Field surrounded" do
     = example do |e|
@@ -51,8 +49,6 @@
             </datalist>
             <span class="input-group-addon"><i class="glyph fa fa-camera-retro"></i></span>
           </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Auto Complete Field options" do
     = example do |e|
@@ -70,8 +66,6 @@
             <option value="option 3">option 3</option>
             <option value="option 4">option 4</option>
           </datalist>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Refresh Connected" do
     %p Option <code>refresh</code> take same arguments than <code>connect</code> option.
@@ -100,8 +94,6 @@
                 </i> </span>
             </div>
           </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Simple form" do
     %p= simple_form_text_with_input "ui_auto_complete_field"
@@ -128,7 +120,5 @@
             f.input :email, append: ui_glyph('envelope'), as: :ui_auto_complete_field, collection: 5.times.map{|i| "test\#{i}@test.com"}
             ...
           end
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
 = @sections.render

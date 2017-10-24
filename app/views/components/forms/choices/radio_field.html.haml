@@ -19,7 +19,8 @@
         - %w(primary secondary success info warning danger).each_with_index do |status, i|
           = ui_radio_field :status, value: status, label: status, status: status.to_sym, checked: i == 0
       - e.code do
-        ui_radio_field :status, value: 'primary', status: :primary
+        - %w(primary secondary success info warning danger).each_with_index do |status|
+          = "ui_radio_field :status, value: '#{ status }', status: :#{ status }".html_safe
       - e.html do
         <div class="abc-radio-primary radio abc-radio">
           <input type="radio" name="status" id="status_primary" value="primary">
@@ -32,7 +33,8 @@
         - %w(primary secondary success info warning danger).each_with_index do |status, i|
           = ui_radio_field "status-square", value: status, label: status, status: status.to_sym, type: :square, checked: i == 0
       - e.code do
-        ui_radio_field "status-circle", type: :square, value: 'success', status: :success
+        - %w(primary secondary success info warning danger).each_with_index do |status|
+          = "ui_radio_field :status, value: '#{ status }', type: square, status: :#{ status }".html_safe
       - e.html do
         <div class="abc-checkbox-success checkbox abc-checkbox">
           <input type="radio" name="status-square" id="status-square_success" value="success">
@@ -63,7 +65,8 @@
         - %w(primary secondary success info warning danger).each_with_index do |status, i|
           = ui_radio_field "inline-status", value: status, inline: true, label: status, status: status.to_sym, checked: i == 0
       - e.code do
-        ui_radio_field "inline-status", value: status, inline: true, label: status, status: status.to_sym
+        - %w(primary secondary success info warning danger).each_with_index do |status|
+          = "ui_radio_field :inline_status, value: '#{ status }', inline: true, status: :#{ status }".html_safe
       - e.html do
         <div class="abc-radio-primary radio abc-radio radio-inline">
           <input type="radio" name="inline-status" id="inline-status_primary" value="primary" checked="checked">

@@ -227,7 +227,7 @@
     %p Option <code>refresh</code> take same arguments than <code>connect</code> option.
     = example do |e|
       - e.header do
-        - refresh = { target: { url: components_forms_selects_select_field_path }}
+        - refresh = { status: :primary, target: { url: components_forms_selects_select_field_path }}
         = ui_dropdown_select_field 'example 3 target', option_tags: select_options_tags, refresh: refresh
       - e.code do
         option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })

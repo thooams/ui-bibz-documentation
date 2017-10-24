@@ -30,7 +30,7 @@
   - s.section title: "Circle" do
     = example do |e|
       - e.header do
-        - %w(primary secondary success info warning danger).each do |status|
+        - %w(primary secondary success info warning danger).each do |status, |
           = ui_checkbox_field "#{status}-circle", { value: status, label: status, status: status.to_sym, type: :circle, checked: true }
       - e.code do
         ui_checkbox_field "success-circle", { type: :circle, value: 'success', status: :success, checked: true }
