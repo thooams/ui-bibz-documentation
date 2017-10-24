@@ -26,8 +26,6 @@
           <input type="checkbox" name="primary" id="primary" value="primary" class="styled" checked="checked" />
           <label for="primary">primary</label>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Circle" do
     = example do |e|
@@ -41,22 +39,18 @@
           <input type="checkbox" name="primary" id="primary" value="primary" class="styled" checked="checked" />
           <label for="primary">primary</label>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Indeterminate" do
     = example do |e|
       - e.header do
-        = ui_checkbox_field "select", indeterminate: true
+        = ui_checkbox_field "Indeterminate", indeterminate: true
       - e.code do
-        ui_checkbox_field "select", { indeterminate: true }
+        ui_checkbox_field "Indeterminate", { indeterminate: true }
       - e.html do
         <div class="abc-checkbox-default checkbox abc-checkbox indeterminate">
           <input type="checkbox" name="select" id="select" class="styled">
-          <label for="select">Select</label>
+          <label for="select">Indeterminate</label>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Inline" do
     = example do |e|
@@ -70,8 +64,6 @@
           <input type="checkbox" name="primary" id="primary" value="primary" class="styled" checked="checked" />
           <label for="primary">primary</label>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "State" do
     = example do |e|
@@ -90,8 +82,6 @@
           <input type="radio" name="state" id="state_false" value="false" disabled="disabled" checked="checked">
           <label for="state_false">choice 2</label>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Label" do
     = example do |e|
@@ -104,7 +94,5 @@
           <input type="checkbox" name="check" id="check" class="styled">
           <label for="check">My label</label>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
 = @sections.render

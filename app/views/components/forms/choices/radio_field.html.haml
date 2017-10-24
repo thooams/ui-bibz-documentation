@@ -25,8 +25,6 @@
           <input type="radio" name="status" id="status_primary" value="primary">
           <label for="status_primary">primary</label>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Square" do
     = example do |e|
@@ -40,8 +38,6 @@
           <input type="radio" name="status-square" id="status-square_success" value="success">
           <label for="status-square_success">success</label>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "State" do
     = example do |e|
@@ -60,8 +56,6 @@
           <input type="radio" name="state" id="state_false" value="false" disabled="disabled" checked="checked">
           <label for="state_false">choice 2</label>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Inline" do
     = example do |e|
@@ -75,7 +69,5 @@
           <input type="radio" name="inline-status" id="inline-status_primary" value="primary" checked="checked">
           <label for="inline-status_primary">primary</label>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
 = @sections.render
