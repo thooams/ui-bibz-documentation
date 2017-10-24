@@ -31,8 +31,10 @@
   - co.glyph_link
   - co.state_link
   - co.size_link
+  - co.list 'inline', types: 'boolean', values: %w(true false)
   - co.list 'position', types: 'symbol', values: %w(:right :left)
   - co.list 'type', types: 'symbol', values: %w(:dropup :dropdown), default: ':dropdown'
+  - co.list 'tag', types: 'symbol', values: %w(:a :button), default: ':button'
 
 = content_for :third_nav do
   = ui_nav class: 'secondary-nav' do |n|
