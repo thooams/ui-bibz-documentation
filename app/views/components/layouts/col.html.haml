@@ -20,38 +20,58 @@
 
 - @sections = sections do |s|
   - s.section title: "Col" do
+    = example do |c|
+      - c.header do
+        = ui_row class: 'test' do
+          = ui_col do
+            Col 1
+          = ui_col "Col 2"
+      - c.code do
+        :plain
+          ui_row class: 'test' do
+            ui_col do
+              Col 1
+            end
+            ui_col "Col 2"
+          end
+      - c.html do
+        :plain
+          <div class="test row">
+            <div class="col">Col 1</div>
+            <div class="col">Col 2</div>
+          </div>
+
+  - s.section title: "Col Options" do
     :markdown
       A column can take several arguments :
 
-      * num - Integer (mandatory)
-      * offset - Integer
-      * pull - Integer
-      * push - Integer
+      * num - Integer/Symbol (1..12 || :auto)
+      * offset - Integer (1..12)
+      * pull - Integer (1..12)
+      * push - Integer  (1..12)
 
-      By default, the size of the grid will be `:md`.
     = example do |c|
+      - c.header do
+        = ui_row class: 'test' do
+          = ui_col({ num: 10, offset: 2 }, { class: 'test-col' }) do
+            Col 1
+          = ui_col 'Col 2', { num: 2, pull: 4 }, { class: 'test-col2' }
       - c.code do
-        row class: 'test' do
-          col({ num: 10, offset: 2 }, { class: 'test-col' }) do
-            ...
-            content
-            ...
-          end
-          ui_col content, { num: 2, pull: 4 }, { class: 'test-col2' }
-        end
+        :plain
+          ui_row class: 'test' do
+            ui_col({ num: 10, offset: 2 }, { class: 'test-col' }) do
+              Col 1
+            end
+            ui_col 'Col 2', { num: 2, pull: 4 }, { class: 'test-col2' }
+          end
       - c.html do
-        <div class="test row">
-          <div class="test-ui_col col-md-10 col-md-offset-2">
-            ...
-            content
-            ...
-          </div>
-          <div class="test-col2 col-md-2 col-md-pull-4">
-            content
-          </div>
-        </div>
+        :plain
+          <div class="test row">
+            <div class="test-col col-md-10 offset-md-2">Col 1</div>
+            <div class="test-col2 col-md-2 col-md-pull-4">Col 2</div>
+          </div>
 
-  - s.section title: "ui_col with differents sizes" do
+  - s.section title: "Col with differents sizes" do
     :markdown
       To add multiple sizes of columns, you must use arguments :
 
@@ -61,25 +81,24 @@
       * :lg
       * :xl
     = example do |c|
+      - c.header do
+        = ui_row class: 'test' do
+          = ui_col(md: { num: 5, offset: 2 }, xs: { num: 2 }) do
+            Col 1
+          = ui_col 'Col 2', { md: { num: 7, pull: 4 }, xs: { num: 10 }}, { class: 'test-col2' }
       - c.code do
-        row class: 'test' do
-          col(md: { num: 5, offset: 2 }, xs: { num: 2 }) do
-            ...
-            content
-            ...
-          end
-          ui_col content, { md: { num: 7, pull: 4 }, xs: { num: 10 }}, { class: 'test-col2' }
-        end
+        :plain
+          ui_row class: 'test' do
+            ui_col(md: { num: 5, offset: 2 }, xs: { num: 2 }) do
+              Col 1
+            end
+            ui_col 'Col 2', { md: { num: 7, pull: 4 }, xs: { num: 10 }}, { class: 'test-col2' }
+          end
       - c.html do
-        <div class="test row">
-          <div class="col-md-5 col-md-offset-2 col-xs-2">
-            ...
-            content
-            ...
-          </div>
-          <div class="test-col2 col-md-7 col-md-pull-4 col-xs-10">
-            content
-          </div>
-        </div>
+        :plain
+          <div class="test row">
+            <div class="col-md-5 offset-md-2 col-xs-2">Col 1</div>
+            <div class="test-col2 col-md-7 col-md-pull-4 col-xs-10">Col 2</div>
+          </div>
 
 = @sections.render

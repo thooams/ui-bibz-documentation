@@ -18,13 +18,33 @@
         ui_text_field 'search'
       - e.html do
         <input type="text" name="search" id="search" placeholder="Type your search..." class="form-control">
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Text Field surrounded" do
     = example do |e|
       - e.header do
-        = ui_text_field 'search', { append: ui_glyph('pencil'), prepend: ui_glyph('camera-retro') }, { placeholder: 'Type your search...' }
+        = ui_form_for @user, html: { class: 'form-test' } do |f|
+          = ui_row type: :form do
+            = ui_col do
+              = f.ui_surround_field size: :sm do |s|
+                - s.glyph "map-marker"
+                - s.input :name, as: :string, placeholder: 'ex : Grenoble, 199 place de la Bastille Paris, …'
+              = f.ui_surround_field size: :sm do |s|
+                - s.glyph "street-view"
+                - s.input :country_id, as: :ui_select_field, collection: Country.all
+                - s.addon 'km'
+              = f.ui_button_group size: :sm do |bg|
+                - bg.input :company, as: :ui_button_choices, type: :radio, collection: [['Company 1', 1],['Company 2', 2]]
+            = ui_col do
+              = f.ui_surround_field size: :sm do |s|
+                - s.addon  'From'
+                - s.input :price, as: :ui_select_field, class: 'form-control-sm', collection: 12.times.map{ |i| i * 50000 }
+                - s.addon  'To'
+                - s.input :price_formula, as: :ui_select_field, class: 'form-control-sm', collection: 12.times.map{ |i| (i+1) * 50000 }
+                - s.glyph 'euro'
+              = f.ui_surround_field size: :sm  do |s|
+                - s.glyph "globe"
+                - s.input :email, as: :ui_multi_select_field, collection: [['Email 1', 1], ['Email 2', 2]]
+              = f.button :submit, "Search", class: 'btn-outline-primary btn-sm'
       - e.code do
         ui_text_field 'search', { append: ui_glyph('pencil'), prepend: ui_glyph('camera-retro') }, { placeholder: 'Type your search...' }
       - e.html do
@@ -33,8 +53,6 @@
           <input type="text" name="search" id="search" placeholder="Type your search..." class="form-control">
           <span class="input-group-addon"><i class="glyph fa fa-camera-retro"></i></span>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Text Field Options" do
     = example do |e|
@@ -48,8 +66,6 @@
           <input type="text" name="search" id="search" placeholder="Type your search..." class="disabled has-danger form-control" disabled="disabled">
           <span class="input-group-addon"><i class="glyph fa fa-camera-retro"></i></span>
         </div>
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Simple form" do
     %p= simple_form_text_with_input "ui_text_field"
@@ -63,8 +79,6 @@
           f.input :email, as: :ui_text_field, append: ui_glyph('envelope')
           ...
         end
-      - e.footer do
-        = documentation_link 'Documentation', '#'
 
 
 
