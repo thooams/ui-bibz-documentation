@@ -19,16 +19,16 @@
           content
         end
 
-        l.block content, options, html_options
+        l.body content, options, html_options
         # or
-        l.block options, html_options do
+        l.body options, html_options do
           content
         end
       end
     end
 
 = component_options do |co|
-  - co.list 'tag', types: 'symbol', values: %w(:a :button :li)
+  - co.list 'type', types: 'symbol', values: %w(:a :button :li)
 
 - @sections = sections do |s|
   - s.section title: "List group" do
@@ -69,27 +69,31 @@
       - clo.status_link
       - clo.glyph_link
       - clo.state_link
-      - clo.list 'tag', types: 'symbol', values: %w(:a :button :li)
+      - clo.list link_to('badge',components_badge_path), types: %w(hash string)
 
   - s.section title: "badges" do
     = example do |c|
       - c.header do
         = ui_list_group do |lg|
           - lg.list 'Cras justo odio', badge: 14
-          - lg.list 'Dapibus ac facilisis in', badge: 2
-          - lg.list 'Morbi leo risus', badge: 1
+          - lg.list 'Dapibus ac facilisis in', badge: { content: 2, type: :square }
       - c.code do
         ui_list_group do |lg|
           lg.list 'Cras justo odio', badge: 14
-          lg.list 'Dapibus ac facilisis in', badge: 2
-          lg.list 'Morbi leo risus', badge: 1
+          lg.list 'Dapibus ac facilisis in', badge: { content: 2, type: :square }
         end
       - c.html do
-        <ul class="list-group">
-          <li class="list-group-item">Cras justo odio<span class="badge-default pull-right badge badge-pill">14</span></li>
-          <li class="list-group-item">Dapibus ac facilisis in<span class="badge-default pull-right badge badge-pill">2</span></li>
-          <li class="list-group-item">Morbi leo risus<span class="badge-default pull-right badge badge-pill">1</span></li>
-        </ul>
+        :plain
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Cras justo odio
+              <span class="badge-secondary badge badge-pill">14</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Dapibus ac facilisis in
+              <span class="badge-secondary badge">2</span>
+            </li>
+          </ul>
 
   - s.section title: "Linked items" do
     = example do |c|
@@ -101,7 +105,7 @@
           - lg.list 'Porta ac consectetur ac', url: "#4"
           - lg.list 'Vestibulum at eros', url: "#5"
       - c.code do
-        ui_list_group tag: :link do |lg|
+        ui_list_group tag: :a do |lg|
           lg.list 'Cras justo odio', url: "#1",state: :active
           lg.list 'Dapibus ac facilisis in', url: "#2"
           lg.list 'Morbi leo risus', url: "#3"
@@ -146,7 +150,7 @@
   - s.section title: "Disabled items" do
     = example do |c|
       - c.header do
-        = ui_list_group  do |lg|
+        = ui_list_group do |lg|
           - lg.list 'Cras justo odio', state: :disabled
           - lg.list 'Dapibus ac facilisis in'
           - lg.list 'Morbi leo risus'
@@ -202,49 +206,62 @@
 
     = example do |c|
       - c.header do
-        = ui_list_group  do |lg|
-          - lg.list tap: true, state: :active do |l|
-            - l.header 'List group item heading'
-            - l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
-          - lg.list tap: true do |l|
-            - l.header class: 'my-header' do
+        = ui_list_group tag: :a do |lg|
+          - lg.list tap: true, url: '#', state: :active do |l|
+            - l.header 'List group item heading', extra: "3 days ago"
+            - l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.', extra: "Donec id elit non mi porta"
+          - lg.list tap: true, url: '#' do |l|
+            - l.header class: 'my-header', extra: "3 days ago" do
               = 'List group item heading'
-            - l.body class: 'my-body' do
+            - l.body class: 'my-body', extra: "Donec id elit non mi porta" do
               = 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
-          - lg.list tap: true do |l|
-            - l.header 'List group item heading'
-            - l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
+          - lg.list tap: true, url: '#' do |l|
+            - l.header 'List group item heading', extra: "3 days ago"
+            - l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.', extra: "Donec id elit non mi porta"
       - c.code do
-        ui_list_group do |lg|
+        ui_list_group tag: :a do |lg|
           lg.list tap: true, state: :active do |l|
-            l.header 'List group item heading'
-            l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
+            l.header 'List group item heading', extra: "3 days ago"
+            l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.', extra: "Donec id elit non mi porta"
           end
           lg.list tap: true do |l|
-            l.header class: 'my-header' do
+            l.header class: 'my-header', extra: "3 days ago" do
               'List group item heading'
             end
-            l.body class: 'my-body' do
+            l.body class: 'my-body', extra: "Donec id elit non mi porta" do
               'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
             end
           lg.list tap: true do |l|
-            l.header 'List group item heading'
-            l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
+            l.header 'List group item heading', extra: "3 days ago"
+            l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.', extra: "Donec id elit non mi porta"
           end
         end
       - c.html do
-        <ul class="list-group">
-          <li class="active list-group-item">
-            <h4 class="list-group-item-heading">List group item heading</h4>
-            <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-          </li>
-          <li class="list-group-item">
-            <h4 class="my-header list-group-item-heading">List group item heading</h4>
-            <p class="my-body list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-          </li>
-          <li class="list-group-item">
-            <h4 class="list-group-item-heading">List group item heading</h4>
-            <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-          </li>
-        </ul>
+        :plain
+          <div class="list-group">
+            <a tag="a" href="#" class="active list-group-item list-group-item-action flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">List group item heading</h5>
+                <small>3 days ago</small>
+              </div>
+              <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+              <small>Donec id elit non mi porta</small>
+            </a>
+            <a tag="a" href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="my-header d-flex w-100 justify-content-between">
+                <h5 class="mb-1">List group item heading</h5>
+                <small>3 days ago</small>
+              </div>
+              <p class="my-body mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+              <small>Donec id elit non mi porta</small>
+            </a>
+            <a tag="a" href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">List group item heading</h5>
+                <small>3 days ago</small>
+              </div>
+              <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+              <small>Donec id elit non mi porta</small>
+            </a>
+          </div>
 = @sections.render

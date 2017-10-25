@@ -13,6 +13,7 @@
   - co.list 'text', types: 'boolean'
   - co.list 'toggle', types: 'boolean'
   - co.list 'type', types: 'symbol', values: ':block'
+  - co.list link_to('badge',components_badge_path), types: %w(hash string)
 
 - @sections = sections do |s|
   - s.section title: "Button" do
@@ -132,6 +133,7 @@
         = ui_button 'Text', glyph: 'diamond', status: :success, text: false
         = ui_button({ badge: 2 }, { class: 'button' }) do
           = 'Info'
+        = ui_button 'Warning', status: :warning, badge: { content: 3, type: :pill }
       - c.code do
         ui_button 'Primary Active', status: :primary, state: :active
         ui_button 'Toggle Danger', { status: :danger, glyph: :diamond, toggle: true }, { class: 'button' }
@@ -141,6 +143,7 @@
           Info
         end
 
+        ui_button 'Warning', status: :warning, badge: { content: 3, type: :pill }
       - c.html do
         :plain
           <button class="active btn-primary btn" role="button">Primary Active</button>
@@ -151,5 +154,6 @@
           <button class="button btn" role="button">
             Info<span class="badge-secondary badge">2</span>
           </button>
+          <button class="btn-warning btn">Warning<span class="badge-warning badge badge-pill">3</span></button>
 
 = @sections.render
