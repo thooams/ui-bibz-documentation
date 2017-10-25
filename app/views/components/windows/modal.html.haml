@@ -42,8 +42,8 @@
           - m.header 'Modal title'
           - m.body 'One fine body'
           - m.footer do
-            = ui_button 'Close', status: :secondary
-            = ui_button 'Save changes'
+            = ui_button 'Close', status: :danger
+            = ui_button 'Save changes', status: :success
       - c.code do
         ui_modal class: 'modal-example' do |m|
           m.header 'Modal itle'
@@ -58,11 +58,11 @@
           <div class="modal-dialog " role="document">
             <div class="modal-content">
               <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
                 <button class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">×</span>
                   <span class="sr-only">Close</span>
                 </button>
-                <h4 class="modal-title">Modal title</h4>
               </div>
               <div class="modal-body">One fine body</div>
               <div class="modal-footer">
@@ -72,8 +72,6 @@
             </div>
           </div>
         </div>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
 
   - s.section title: "Size" do
@@ -97,18 +95,16 @@
         <div class="modal-example ui_modal">
           <div class="modal-dialog ui_modal-sm" role="document">
             <div class="modal-content"><div class="modal-header">
+              <h5 class="modal-title">Modal title</h5>
               <button class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">×</span>
                 <span class="sr-only">Close</span>
               </button>
-              <h4 class="modal-title">Modal title</h4>
             </div>
             <div class="modal-body">One fine body</div>
             </div>
           </div>
         </div>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "Effect" do
     = example do |c|
@@ -135,17 +131,15 @@
           <div class="modal-dialog " role="document">
             <div class="modal-content">
               <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
                 <button class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">×</span>
                   <span class="sr-only">Close</span>
                 </button>
-                <h4 class="modal-title">Modal title</h4>
               </div>
               <div class="modal-body">One fine body</div>
             </div>
           </div>
         </div>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
 = @sections.render
