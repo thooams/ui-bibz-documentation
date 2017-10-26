@@ -23,8 +23,9 @@
 = component_options do |co|
   - co.state_link
   - co.list 'type', types: 'symbol', values: %w(:tabs :pills :links)
-  - co.list 'position', types: 'symbol', values: %w(:left right)
+  - co.list 'position', types: 'symbol', values: %w(:left :center :right)
   - co.list 'stacked', types: 'boolean'
+  - co.list 'justify', types: 'boolean'
 
 - @sections = sections do |s|
   - s.section title: "Nav" do
@@ -67,12 +68,13 @@
         </ul>
 
   - s.section title: "Nav blocks" do
-    :markdown
-      ui_nav has on block type:
-
-      * #{ inherit_component_link 'link' } [options `url:` is required]
-      * #{ inherit_specific_component_link 'dropdown', components_dropdowns_dropdown_path }
-      * #{ inherit_specific_component_link 'nav', components_navs_nav_path }
+    %p Nav has on block type:
+    = component_list_options do |clo|
+      - clo.list inherit_component_link('link'),tap: true do |cl|
+        - cl.list 'url', required: true
+        - cl.state_link
+      - clo.list inherit_specific_component_link('dropdown', components_dropdowns_dropdown_path)
+      - clo.list inherit_specific_component_link('nav', components_navs_nav_path)
 
   - s.section title: "Link" do
     = example do |c|
@@ -99,6 +101,60 @@
           <a class="nav-link" href="#another-link">Another link</a>
           <a class="disabled nav-link" href="#disabled">Disabled</a>
         </nav>
+
+  - s.section title: "Position" do
+    = example do |c|
+      - c.header do
+        = ui_nav type: :links, position: :right do |n|
+          - n.link 'Active', url: '#active', state: :active
+          - n.link 'Another link', url: '#another-link'
+          - n.link 'Disabled', url: '#disabled', state: :disabled
+        = ui_nav type: :links, position: :center do |n|
+          - n.link 'Active', url: '#active', state: :active
+          - n.link 'Another link', url: '#another-link'
+          - n.link 'Disabled', url: '#disabled', state: :disabled
+        = ui_nav type: :links do |n|
+          - n.link 'Active', url: '#active', state: :active
+          - n.link 'Another link', url: '#another-link'
+          - n.link 'Disabled', url: '#disabled', state: :disabled
+      - c.code do
+        :plain
+          ui_nav type: :links, position: :right do |n|
+            n.link 'Active', url: '#active', state: :active
+            n.link 'Another link', url: '#another-link'
+            n.link 'Disabled', url: '#disabled', state: :disabled
+          end
+
+          ui_nav type: :links, position: :center do |n|
+            n.link 'Active', url: '#active', state: :active
+            n.link 'Another link', url: '#another-link'
+            n.link 'Disabled', url: '#disabled', state: :disabled
+          end
+
+          ui_nav type: :links do |n|
+            n.link 'Active', url: '#active', state: :active
+            n.link 'Another link', url: '#another-link'
+            n.link 'Disabled', url: '#disabled', state: :disabled
+          end
+      - c.html do
+        :plain
+          <nav class="nav nav-links justify-content-end">
+            <a class="active nav-link" href="#active">Active</a>
+            <a class="nav-link" href="#another-link">Another link</a>
+            <a class="disabled nav-link" href="#disabled">Disabled</a>
+          </nav>
+
+          <nav class="nav nav-links justify-content-center">
+            <a class="active nav-link" href="#active">Active</a>
+            <a class="nav-link" href="#another-link">Another link</a>
+            <a class="disabled nav-link" href="#disabled">Disabled</a>
+          </nav>
+
+          <nav class="nav nav-links">
+            <a class="active nav-link" href="#active">Active</a>
+            <a class="nav-link" href="#another-link">Another link</a>
+            <a class="disabled nav-link" href="#disabled">Disabled</a>
+          </nav>
 
   - s.section title: "Tab" do
     = example do |c|
@@ -238,7 +294,7 @@
         </ul>
 
   - s.section title: "Connection" do
-    %p For more information see: #{ link_to 'Boostrap ui_nav', 'http://v4-alpha.getbootstrap.com/components/navs/#javascript-behavior' }
+    %p For more information see: #{ link_to 'Boostrap nav', 'http://v4-alpha.getbootstrap.com/components/navs/#javascript-behavior' }
     = example do |c|
       - c.header do
         = ui_nav type: :tabs do |n|
