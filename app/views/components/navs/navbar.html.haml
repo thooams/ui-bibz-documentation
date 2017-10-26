@@ -26,9 +26,9 @@
 
 = component_options do |co|
   - co.status_link
-  - co.state_link
   - co.list 'type', types: 'symbol', values: %w(:light :dark)
   - co.list 'position', types: 'symbol', values: %w(:top :bottom)
+  - co.list 'sticky', types: 'boolean', values: %w(true false)
 
 - @sections = sections do |s|
   - s.section title: "Navbar" do
@@ -39,7 +39,6 @@
             - n.link 'Home', url: '#active', state: :active
             - n.link url: '#link', class: 'my-link' do
               Features
-            - n.link 'Pricing', url: '#another-link'
             - n.dropdown 'Dropdown' do |d|
               - d.link "Action 1", url: '#action'
               - d.link url: '#another-action' do
@@ -47,7 +46,7 @@
               - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
                 = "Action 3"
           - nb.form '/search', { type: :form_tag, position: :right } do
-            = ui_text_field 'Search'
+            = ui_text_field 'Search', class: 'mr-sm-2'
             = ui_button('Search', status: :success, outline: true)
       - c.code do
         ui_navbar title: 'Navbar' do |nb|
@@ -56,7 +55,6 @@
             n.link url: '#link', class: 'my-link' do
               Features
             end
-            n.link 'Pricing', url: '#another-link'
             n.dropdown 'Dropdown' do |d|
               d.link "Action 1", url: '#action'
               d.link url: '#another-action' do
@@ -68,7 +66,7 @@
             end
           end
           nb.form '/search', { type: :form_tag, position: :right } do
-            ui_text_field 'Search'
+            ui_text_field 'Search', class: 'mr-sm-2'
             ui_button 'Search', status: :success, outline: true
           end
         end
@@ -101,12 +99,79 @@
             </div>
           </div>
         </nav>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Navbar justified" do
+    %p Use <code>mr-auto</code> class in navbar component to justify items.
+    = example do |c|
+      - c.header do
+        = ui_navbar title: 'Navbar' do |nb|
+          - nb.nav class: 'mr-auto' do |n|
+            - n.link 'Home', url: '#active', state: :active
+            - n.link url: '#link', class: 'my-link' do
+              Features
+          - nb.nav do |n|
+            - n.link 'Right link', url: '#right-link'
+            - n.dropdown 'Dropdown', glyph: 'user' do |d|
+              - d.link "Action 1", url: '#action'
+              - d.link url: '#another-action' do
+                = "Action 2"
+              - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+                = "Action 3"
+      - c.code do
+        :plain
+          ui_navbar title: 'Navbar' do |nb|
+            nb.nav class: 'mr-auto' do |n|
+              n.link 'Home', url: '#active', state: :active
+              n.link url: '#link', class: 'my-link' do
+                Features
+              end
+            end
+            nb.nav do |n|
+              n.link 'Right link', url: '#right-link'
+              n.dropdown 'Dropdown', glyph: 'user' do |d|
+                d.link "Action 1", url: '#action'
+                d.link url: '#another-action' do
+                  "Action 2"
+                end
+                d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+                  "Action 3"
+                end
+              end
+            end
+          end
+      - c.html do
+        <input type="text" name="Search" id="Search">
+        <button class="btn-success-outline btn">Search</button>
+        <nav class="navbar navbar-light">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbar-collapse-192277148643299499256799640337178773539">☰</button>
+            </div>
+            <div class="collapse navbar-toggleable-xs" id="navbar-collapse-192277148643299499256799640337178773539">
+            <a class="navbar-brand" href="/">Navbar</a>
+            <ul class="nav navbar-nav">
+              <li class="nav-item"><a class="active nav-link" href="#active">Home</a></li>
+              <li class="my-link nav-item"><a class="my-link nav-link" href="#link">Features</a></li>
+              <li class="nav-item"><a class="nav-link" href="#another-link">Pricing</a></li>
+              <li class="dropdown nav-item">
+              <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown <span class="caret"></span></a>
+              <div class="dropdown-menu dropdown-menu-left">
+                <a class="dropdown-item" href="#action">Action 1</a>
+                <a class="dropdown-item" href="#another-action">Action 2</a>
+                <a class="my-link dropdown-item" href="#separate-link">Action 3</a>
+              </div>
+              </li>
+            </ul>
+            <form class="navbar-form form-inline pull-right" action="/search" accept-charset="UTF-8" method="post">
+              <input name="utf8" type="hidden" value="✓">
+            </form>
+            </div>
+          </div>
+        </nav>
 
   - s.section title: "Navbar Options" do
     :markdown
-      ui_navbar has several block type:
+      Navbar has several block type:
 
       * #{ inherit_specific_component_link 'nav', components_navs_nav_path }
       * #{ inherit_specific_component_link 'dropdown', components_dropdowns_dropdown_path }
@@ -121,7 +186,7 @@
           - nb.nav do |n|
             - n.link 'Home', url: '#home'
         %br
-        = ui_navbar title: 'Navbar', status: :inverse, type: :dark do |nb|
+        = ui_navbar title: 'Navbar', status: :dark, type: :dark do |nb|
           - nb.nav do |n|
             - n.link 'Home', url: '#home'
         %br
@@ -135,7 +200,7 @@
           end
         end
          
-        ui_navbar title: 'Navbar', status: :inverse, type: :dark do |nb|
+        ui_navbar title: 'Navbar', status: :dark, type: :dark do |nb|
           nb.nav do |n|
             n.link 'Home', url: '#home'
           end
@@ -188,7 +253,37 @@
             </div>
           </div>
         </nav>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
+
+  - s.section title: "Simple form" do
+    = example do |e|
+      - e.header do
+        = ui_navbar type: :dark, status: :dark do |nb|
+          - nb.brand image_tag 'ruby-white'
+          - nb.nav do |n|
+            - n.link 'Link', url: '#link'
+          - nb.form @user, { type: :ui_form_for, url: components_navs_navbar_path, method: 'get', input_html: { class: 'mr-sm-2' }} do |f|
+            = f.input :country_id, as: :ui_select_field, label: false, collection: Country.all
+            = f.ui_surround_field do |s|
+              - s.glyph 'user'
+              - s.input :name, as: :ui_text_field, label: false
+              - s.input :company, as: :ui_dropdown_select_field, label: false, collection: Continent.all
+            = f.submit 'Go', class: 'btn btn-primary btn-outline-primary'
+      - e.code do
+        :plain
+          ui_navbar type: :dark, status: :dark do |nb|
+            nb.brand image_tag 'ruby-white'
+            nb.nav do |n|
+              n.link 'Link', url: '#link'
+            end
+            nb.form @user, { type: :ui_form_for, url: components_navs_navbar_path, method: 'get', input_html: { class: 'mr-sm-2' }} do |f|
+              = f.input :country_id, as: :ui_select_field, label: false, collection: Country.all
+              = f.ui_surround_field do |s|
+                s.glyph 'user'
+                s.input :name, as: :ui_text_field, label: false
+                s.input :company, as: :ui_dropdown_select_field, label: false, collection: Continent.all
+              end
+              = f.submit 'Go', class: 'btn btn-primary btn-outline-primary'
+            end
+          end
 
 = @sections.render
