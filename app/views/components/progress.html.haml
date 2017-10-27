@@ -1,6 +1,6 @@
-= title 'Progress'
-%blockquote UiBibz::Ui::Core::Progress
-%p.bd-callout Provide up-to-date feedback on the ui_progress of a workflow or action with simple yet flexible ui_progress bars.
+= title 'Progress Bar'
+%blockquote UiBibz::Ui::Core::Progresses::ProgressBar
+%p.bd-callout Provide up-to-date feedback on the ui_progress_bar of a workflow or action with simple yet flexible ui_progress_bar bars.
 
 = code 'progress'
 
@@ -11,96 +11,163 @@
   - co.list 'animated', types: 'boolean'
 
 - @sections = sections do |s|
-  - s.section title: "Progress" do
+  - s.section title: "Progress Bar" do
     = example do |c|
       - c.header do
-        = ui_progress 0
-        = ui_progress '25%', { status: :primary, value: 25 }, { class: 'my-progress' }
-        = ui_progress({ status: :primary, value: 50 }, { class: 'my-progress'}) do
+        = ui_progress_bar 0
+        = ui_progress_bar '25%', { status: :primary, value: 25 }, { class: 'my-progress' }
+        = ui_progress_bar({ status: :primary, value: 50 }, { class: 'my-progress'}) do
           = 50
       - c.code do
-        ui_progress 0
+        ui_progress_bar 0
          
-        ui_progress "25%", { status: :primary, value: 25 }, { class: 'my-progress' }
+        ui_progress_bar "25%", { status: :primary, value: 25 }, { class: 'my-progress' }
          
-        ui_progress({ status: :primary, value: 50 }, { class: 'my-progress'}) do
+        ui_progress_bar({ status: :primary, value: 50 }, { class: 'my-progress'}) do
           50%
         end
       - c.html do
         <progress class="progress" max="100" value="0">0</progress>
-        <progress class="my-progress ui_progress-primary ui_progress" max="100" value="25">25%</progress>
-        <progress class="my-progress ui_progress-primary ui_progress" max="100" value="50">50
+        <progress class="my-progress ui_progress_bar-primary ui_progress_bar" max="100" value="25">25%</progress>
+        <progress class="my-progress ui_progress_bar-primary ui_progress_bar" max="100" value="50">50
         </progress>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
   - s.section title: "status" do
     = example do |c|
       - c.header do
-        = ui_progress 10, status: :primary
-        = ui_progress 25, status: :success
-        = ui_progress 50, status: :warning
-        = ui_progress 75, status: :danger
-        = ui_progress 100, status: :info
+        = ui_progress_bar 10, status: :primary
+        = ui_progress_bar 25, status: :success
+        = ui_progress_bar 50, status: :warning
+        = ui_progress_bar 75, status: :danger
+        = ui_progress_bar 100, status: :info
       - c.code do
-        ui_progress 10, status: :primary
-        ui_progress 25, status: :success
-        ui_progress 50, status: :warning
-        ui_progress 75, status: :danger
-        ui_progress 100, status: :info
+        ui_progress_bar 10, status: :primary
+        ui_progress_bar 25, status: :success
+        ui_progress_bar 50, status: :warning
+        ui_progress_bar 75, status: :danger
+        ui_progress_bar 100, status: :info
       - c.html do
-        <progress class="progress-primary ui_progress" max="100" value="10">10</progress>
-        <progress class="progress-success ui_progress" max="100" value="25">25</progress>
-        <progress class="progress-warning ui_progress" max="100" value="50">50</progress>
-        <progress class="progress-danger ui_progress" max="100" value="75">75</progress>
-        <progress class="progress-info ui_progress" max="100" value="100">100</progress>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
+        <progress class="progress-primary ui_progress_bar" max="100" value="10">10</progress>
+        <progress class="progress-success ui_progress_bar" max="100" value="25">25</progress>
+        <progress class="progress-warning ui_progress_bar" max="100" value="50">50</progress>
+        <progress class="progress-danger ui_progress_bar" max="100" value="75">75</progress>
+        <progress class="progress-info ui_progress_bar" max="100" value="100">100</progress>
+
+  - s.section title: "type" do
+    = example do |c|
+      - c.header do
+        = ui_progress_bar 10, status: :primary, type: :line
+        = ui_progress_bar 25, status: :success, type: :line
+        = ui_progress_bar 50, status: :warning, type: :line
+        = ui_progress_bar 75, status: :danger, type: :line
+        = ui_progress_bar 100, status: :info, type: :line
+      - c.code do
+        ui_progress_bar 10, status: :primary, type: :line
+        ui_progress_bar 25, status: :success, type: :line
+        ui_progress_bar 50, status: :warning, type: :line
+        ui_progress_bar 75, status: :danger, type: :line
+        ui_progress_bar 100, status: :info, type: :line
+      - c.html do
+        <progress class="progress-primary progress-bar-line ui_progress_bar" max="100" value="10">10</progress>
+        <progress class="progress-success progress-bar-line ui_progress_bar" max="100" value="25">25</progress>
+        <progress class="progress-warning progress-bar-line ui_progress_bar" max="100" value="50">50</progress>
+        <progress class="progress-danger  progress-bar-line ui_progress_bar" max="100" value="75">75</progress>
+        <progress class="progress-info    progress-bar-line ui_progress_bar" max="100" value="100">100</progress>
 
   - s.section title: "Striped" do
     = example do |c|
       - c.header do
-        = ui_progress 10, status: :primary, striped: true
-        = ui_progress 25, status: :success, striped: true
-        = ui_progress 50, status: :warning, striped: true
-        = ui_progress 75, status: :danger, striped: true
-        = ui_progress 100, status: :info, striped: true
+        = ui_progress_bar 10, status: :primary, striped: true
+        = ui_progress_bar 25, status: :success, striped: true
+        = ui_progress_bar 50, status: :warning, striped: true
+        = ui_progress_bar 75, status: :danger, striped: true
+        = ui_progress_bar 100, status: :info, striped: true
       - c.code do
-        ui_progress 10, status: :primary, striped: true
-        ui_progress 25, status: :success, striped: true
-        ui_progress 50, status: :warning, striped: true
-        ui_progress 75, status: :danger, striped: true
-        ui_progress 100, status: :info, striped: true
+        ui_progress_bar 10, status: :primary, striped: true
+        ui_progress_bar 25, status: :success, striped: true
+        ui_progress_bar 50, status: :warning, striped: true
+        ui_progress_bar 75, status: :danger, striped: true
+        ui_progress_bar 100, status: :info, striped: true
       - c.html do
-        <progress class="progress-primary ui_progress ui_progress-striped" max="100" value="10">10</progress>
-        <progress class="progress-success ui_progress ui_progress-striped" max="100" value="25">25</progress>
-        <progress class="progress-warning ui_progress ui_progress-striped" max="100" value="50">50</progress>
-        <progress class="progress-danger ui_progress ui_progress-striped" max="100" value="75">75</progress>
-        <progress class="progress-info ui_progress ui_progress-striped" max="100" value="100">100</progress>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
+        <progress class="progress-primary ui_progress_bar ui_progress_bar-striped" max="100" value="10">10</progress>
+        <progress class="progress-success ui_progress_bar ui_progress_bar-striped" max="100" value="25">25</progress>
+        <progress class="progress-warning ui_progress_bar ui_progress_bar-striped" max="100" value="50">50</progress>
+        <progress class="progress-danger ui_progress_bar ui_progress_bar-striped" max="100" value="75">75</progress>
+        <progress class="progress-info ui_progress_bar ui_progress_bar-striped" max="100" value="100">100</progress>
 
   - s.section title: "Animated" do
     = example do |c|
       - c.header do
-        = ui_progress 10, status: :primary, striped: true, animated: true
-        = ui_progress 25, status: :success, striped: true, animated: true
-        = ui_progress 50, status: :warning, striped: true, animated: true
-        = ui_progress 75, status: :danger, striped: true, animated: true
-        = ui_progress 100, status: :info, striped: true, animated: true
+        = ui_progress_bar 10, status: :primary, striped: true, animated: true
+        = ui_progress_bar 25, status: :success, striped: true, animated: true
+        = ui_progress_bar 50, status: :warning, striped: true, animated: true
+        = ui_progress_bar 75, status: :danger, striped: true, animated: true
+        = ui_progress_bar 100, status: :info, striped: true, animated: true
       - c.code do
-        ui_progress 10, status: :primary, striped: true, animated: true
-        ui_progress 25, status: :success, striped: true, animated: true
-        ui_progress 50, status: :warning, striped: true, animated: true
-        ui_progress 75, status: :danger, striped: true, animated: true
-        ui_progress 100, status: :info, striped: true, animated: true
+        ui_progress_bar 10, status: :primary, striped: true, animated: true
+        ui_progress_bar 25, status: :success, striped: true, animated: true
+        ui_progress_bar 50, status: :warning, striped: true, animated: true
+        ui_progress_bar 75, status: :danger, striped: true, animated: true
+        ui_progress_bar 100, status: :info, striped: true, animated: true
       - c.html do
-        <progress class="progress-primary ui_progress ui_progress-striped ui_progress-animated" max="100" value="10">10</progress>
-        <progress class="progress-success ui_progress ui_progress-striped ui_progress-animated" max="100" value="25">25</progress>
-        <progress class="progress-warning ui_progress ui_progress-striped ui_progress-animated" max="100" value="50">50</progress>
-        <progress class="progress-danger ui_progress ui_progress-striped ui_progress-animated" max="100" value="75">75</progress>
-        <progress class="progress-info ui_progress ui_progress-striped ui_progress-animated" max="100" value="100">100</progress>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
+        <progress class="progress-primary ui_progress_bar ui_progress_bar-striped ui_progress_bar-animated" max="100" value="10">10</progress>
+        <progress class="progress-success ui_progress_bar ui_progress_bar-striped ui_progress_bar-animated" max="100" value="25">25</progress>
+        <progress class="progress-warning ui_progress_bar ui_progress_bar-striped ui_progress_bar-animated" max="100" value="50">50</progress>
+        <progress class="progress-danger ui_progress_bar ui_progress_bar-striped ui_progress_bar-animated" max="100" value="75">75</progress>
+        <progress class="progress-info ui_progress_bar ui_progress_bar-striped ui_progress_bar-animated" max="100" value="100">100</progress>
+
+  - s.section title: "stacked" do
+    = example do |c|
+      - c.header do
+        = ui_progress_bar 100, stacked: true, striped: true, animated: true
+        = ui_progress_bar 100, stacked: true, inverse: true
+        = ui_progress_bar 47, stacked: true
+      - c.code do
+        ui_progress_bar 100, stacked: true, striped: true, animated: true
+        ui_progress_bar 100, stacked: true, inverse: true
+        ui_progress_bar 47, stacked: true
+      - c.html do
+        :plain
+          <div class="progress">
+            <div class="bg-success progress-bar progress-bar-striped progress-bar-animated" aria-valuenow="7.4" aria-valuemin="0" aria-valuemax="100" style="width: 7.4%" role="progressbar"></div>
+            <div class="bg-primary progress-bar progress-bar-striped progress-bar-animated" aria-valuenow="15.3" aria-valuemin="0" aria-valuemax="100" style="width: 15.3%" role="progressbar"></div>
+            <div class="bg-info progress-bar progress-bar-striped progress-bar-animated" aria-valuenow="21.1" aria-valuemin="0" aria-valuemax="100" style="width: 21.1%" role="progressbar"></div>
+            <div class="bg-warning progress-bar progress-bar-striped progress-bar-animated" aria-valuenow="25.9" aria-valuemin="0" aria-valuemax="100" style="width: 25.9%" role="progressbar"></div>
+            <div class="bg-danger progress-bar progress-bar-striped progress-bar-animated" aria-valuenow="30.3" aria-valuemin="0" aria-valuemax="100" style="width: 30.3%" role="progressbar"></div>
+          </div>
+
+          <div class="progress">
+            <div class="bg-danger progress-bar" aria-valuenow="7.4" aria-valuemin="0" aria-valuemax="100" style="width: 7.4%" role="progressbar"></div>
+            <div class="bg-warning progress-bar" aria-valuenow="15.3" aria-valuemin="0" aria-valuemax="100" style="width: 15.3%" role="progressbar"></div>
+            <div class="bg-info progress-bar" aria-valuenow="21.1" aria-valuemin="0" aria-valuemax="100" style="width: 21.1%" role="progressbar"></div>
+            <div class="bg-primary progress-bar" aria-valuenow="25.9" aria-valuemin="0" aria-valuemax="100" style="width: 25.9%" role="progressbar"></div>
+            <div class="bg-success progress-bar" aria-valuenow="30.3" aria-valuemin="0" aria-valuemax="100" style="width: 30.3%" role="progressbar"></div>
+          </div>
+
+          <div class="progress">
+            <div class="bg-success progress-bar" aria-valuenow="7.4" aria-valuemin="0" aria-valuemax="100" style="width: 7.4%" role="progressbar"></div>
+            <div class="bg-primary progress-bar" aria-valuenow="15.3" aria-valuemin="0" aria-valuemax="100" style="width: 15.3%" role="progressbar"></div>
+            <div class="bg-info progress-bar" aria-valuenow="21.1" aria-valuemin="0" aria-valuemax="100" style="width: 21.1%" role="progressbar"></div>
+            <div class="bg-warning progress-bar" aria-valuenow="12.173" aria-valuemin="0" aria-valuemax="100" style="width: 12.173%" role="progressbar"></div>
+          </div>
+
+  - s.section title: "Custom" do
+    = example do |c|
+      - c.header do
+        = ui_progress_bar tap: true do |pb|
+          - pb.bar 25, status: :warning, striped: true
+          - pb.bar 65, status: :danger
+      - c.code do
+        :plain
+          ui_progress_bar tap: true do |pb|
+            pb.bar 25, status: :warning, striped: true
+            pb.bar 65, status: :danger
+          end
+      - c.html do
+        :plain
+          <div class="progress">
+            <div class="bg-warning progress-bar progress-bar-striped" aria-valuenow="25.0" aria-valuemin="0" aria-valuemax="100" style="width: 25.0%" role="progressbar"></div>
+            <div class="bg-danger progress-bar" aria-valuenow="65.0" aria-valuemin="0" aria-valuemax="100" style="width: 65.0%" role="progressbar"></div>
+          </div>
 
 = @sections.render
