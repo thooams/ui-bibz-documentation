@@ -2,7 +2,7 @@ module UiBibzApp
   class Application
 
     UI_BIBZ     = Gem::Specification.find_by_name('ui_bibz')
-    VERSION     = UI_BIBZ.version
+    VERSION     = UI_BIBZ.version.to_s
     NAME        = UI_BIBZ.name.humanize.titleize
     DESCRIPTION = UI_BIBZ.description
     SUMMARY     = UI_BIBZ.summary
