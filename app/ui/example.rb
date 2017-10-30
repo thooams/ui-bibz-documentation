@@ -25,10 +25,14 @@ module UiBibz::Ui::Ux
       #@items.insert(@items.size - 1, content_tag(:div, @pre_items.join.html_safe, class: 'tab-content'))
       @items << content_tag(:div, code_nav, class: "card-block highlight")
       @items << content_tag(:div, @pre_items.join.html_safe, class: 'tab-content')
-      content_tag :div, @items.join.html_safe, html_options
+      content_tag :div, html_structure, html_options
     end
 
   private
+
+    def html_structure
+      [@header, @items.join, @footer].compact.join.html_safe
+    end
 
     def code_nav
       UiBibz::Ui::Core::Navs::Nav.new(type: :tabs).tap do |n|
