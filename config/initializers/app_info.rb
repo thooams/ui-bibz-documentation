@@ -9,6 +9,8 @@ module UiBibzApp
     LICENSE     = "MIT" #UI_BIBZ.license
     STATUSES    = %i(primary secondary success danger warning info light dark)
     SIZES       = %i(lg md sm)
+    FONTAWESOME_VERSION = "4.7.0"
+    BOOTSTRAP_VERSION   = "4.0.0.beta2"
 
     class Gems
 
