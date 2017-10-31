@@ -49,7 +49,9 @@
 
 = component_options do |co|
   - co.status_link
-  - co.list 'text_position', types: 'symbol', values: %w(:left :center :right)
+  - co.list 'text', types: 'hash', tap: true do |clo|
+    - clo.list 'positon', types: 'symbol', values: %w(:left :center :right)
+    - clo.size_link
   - co.list 'outline', types: 'boolean', values: %w(true false)
   - co.tap_link
 
@@ -75,9 +77,18 @@
           "Content 3"
         end
       - e.html do
-        <div class="card card-body">Content</div>
-        <div class="my-card1 card-info card card-body">Content</div>
-        <div class="my-card2 card-success card card-body">Content</div>
+        :plain
+          <div class="card">
+            <div class="card-body">Content 1</div>
+          </div>
+
+          <div class="my-card1 bg-info text-white card">
+            <div class="card-body">Content 2</div>
+          </div>
+
+          <div class="my-card2 bg-success text-white card">
+            <div class="card-body">Content 3</div>
+          </div>
 
   - s.section title: "Card with header, body and footer" do
     :markdown
@@ -110,49 +121,49 @@
             - c.footer({ muted: true }, { class: 'my-footer'}) do
               = "Footer 3"
       - e.code do
-        ui_card tap: true do |c|
-          c.header 'Header 1'
-          c.body 'Content 1'
-          c.footer 'Footer 1'
-        end
-         
-        ui_card tap: true do |c|
-          c.header 'Header 2', { glyph: 'diamond' }, { class: 'my-header' }
-          c.body 'Content 2', { glyph: 'diamond' }, { class: 'my-content' }
-          c.footer 'Footer 2', { muted: true }, { class: 'my-footer'}
-        end
-         
-        ui_card tap: true do |c|
-          c.header({ glyph: 'diamond' }, { class: 'my-header' }) do
-            'Header 3'
-          end
-          c.body({ glyph: 'diamond' }, { class: 'my-content' }) do
-            "Content 3"
-          end
-          c.footer({ muted: true }, { class: 'my-footer'}) do
-            "Footer 3"
-          end
-        end
+        :plain
+          ui_card tap: true do |c|
+            c.header 'Header 1'
+            c.body 'Content 1'
+            c.footer 'Footer 1'
+          end
+           
+          ui_card tap: true do |c|
+            c.header 'Header 2', { glyph: 'diamond' }, { class: 'my-header' }
+            c.body 'Content 2', { glyph: 'diamond' }, { class: 'my-content' }
+            c.footer 'Footer 2', { muted: true }, { class: 'my-footer'}
+          end
+           
+          ui_card tap: true do |c|
+            c.header({ glyph: 'diamond' }, { class: 'my-header' }) do
+              'Header 3'
+            end
+            c.body({ glyph: 'diamond' }, { class: 'my-content' }) do
+              "Content 3"
+            end
+            c.footer({ muted: true }, { class: 'my-footer'}) do
+              "Footer 3"
+            end
+          end
       - e.html do
-        <div class="card-deck-wrapper">
-          <div class="card-deck">
-            <div class="card">
-              <div class="card-header">Header 1</div>
-              <div class="card-body">Content 1</div>
-              <div class="card-footer">Footer 1</div>
-            </div>
-            <div class="card">
-              <div class="my-header card-header"><i class="glyph fa fa-diamond"></i> Header 2</div>
-              <div class="my-content card-body">Content 2</div>
-              <div class="my-footer card-footer text-muted">Footer 2</div>
-            </div>
-            <div class="card">
-              <div class="my-header card-header"><i class="glyph fa fa-diamond"></i> Header 3</div>
-              <div class="my-content card-body">Content 3</div>
-              <div class="my-footer card-footer text-muted">Footer 3</div>
-            </div>
-          </div>
-        </div>
+        :plain
+          <div class="card">
+            <div class="card-header">Header 1</div>
+            <div class="card-body">Content 1</div>
+            <div class="card-footer">Footer 1</div>
+          </div>
+
+          <div class="card">
+            <div class="my-header card-header"><i class="glyph fa fa-diamond"></i> Header 2</div>
+            <div class="my-content card-body">Content 2</div>
+            <div class="my-footer card-footer text-muted">Footer 2</div>
+          </div>
+
+          <div class="card">
+            <div class="my-header card-header"><i class="glyph fa fa-diamond"></i> Header 3</div>
+            <div class="my-content card-body">Content 3</div>
+            <div class="my-footer card-footer text-muted">Footer 3</div>
+          </div>
 
   - s.section title: "Image and list_group" do
     :markdown
@@ -235,7 +246,7 @@
               - b.text "With supporting text below as a natural lead-in to additional content."
               - b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
 
-          - cd.card tap: true, text: { position: :right } do |c|
+          - cd.card tap: true, text: { position: :right, size: :lg } do |c|
             - c.body tap: true do |b|
               - b.title "Special title treatment"
               - b.text "With supporting text below as a natural lead-in to additional content."
@@ -249,7 +260,7 @@
           end
         end
          
-        ui_card tap: true, text_position: :center do |c|
+        ui_card tap: true, text: { position: :center } do |c|
           c.body tap: true do |b|
             b.title class: 'title' do
               "Special title treatment"
@@ -263,7 +274,7 @@
           end
         end
          
-        ui_card tap: true, text_position: :right do |c|
+        ui_card tap: true, text: { position: :right, size: :lg } do |c|
           c.body tap: true do |b|
             b.title "Special title treatment"
             b.text "With supporting text below as a natural lead-in to additional content."
@@ -271,31 +282,30 @@
           end
         end
       - e.html do
-        <div class="card-deck-wrapper">
-          <div class="card-deck">
-            <div class="card">
-              <div class="card-body">
-                <h4 class="card-title">Special title treatment</h4>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a class="btn btn-primary card-title">Go somewhere</a>
-              </div>
-            </div>
-            <div class="card text-center">
-              <div class="card-body">
-                <h4 class="card-title title">Special title treatment</h4>
-                <p class="card-text text">With supporting text below as a natural lead-in to additional content.</p>
-                <a class="btn btn-primary card-title">Go somewhere</a>
-              </div>
-            </div>
-            <div class="card text-right">
-              <div class="card-body">
-                <h4 class="card-title">Special title treatment</h4>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a class="btn btn-primary card-title">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-        </div>
+        :plain
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Special title treatment</h4>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a class="btn btn-primary card-link" href="#go-somewhere">Go somewhere</a>
+            </div>
+          </div>
+
+          <div class="card text-md-center">
+            <div class="card-body">
+              <h4 class="card-title">Special title treatment</h4>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a class="btn btn-primary card-link" href="#go-somewhere">Go somewhere</a>
+            </div>
+          </div>
+
+          <div class="card text-lg-right">
+            <div class="card-body">
+              <h4 class="card-title">Special title treatment</h4>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a class="btn btn-primary card-link" href="#go-somewhere">Go somewhere</a>
+            </div>
+          </div>
 
   - s.section title: "Status" do
     = example do |e|

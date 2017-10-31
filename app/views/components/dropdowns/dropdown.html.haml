@@ -32,6 +32,7 @@
   - co.state_link
   - co.size_link
   - co.list 'inline', types: 'boolean', values: %w(true false)
+  - co.list 'outline', types: 'boolean', values: %w(true false)
   - co.list 'position', types: 'symbol', values: %w(:right :left)
   - co.list 'type', types: 'symbol', values: %w(:dropup :dropdown), default: ':dropdown'
   - co.list 'tag', types: 'symbol', values: %w(:a :button), default: ':button'
@@ -402,7 +403,7 @@
   - s.section title: "Statuses" do
     = example do |c|
       - c.header do
-        - %i(primary secondary danger warning info success).each do |status|
+        - UiBibzApp::Application::STATUSES.each do |status|
           = ui_dropdown status.to_s.titleize, status: status, inline: true do |bd|
             - bd.link "Action", url: '#action', glyph: 'diamond'
             - bd.link url: '#another-action' do
@@ -413,7 +414,7 @@
             - bd.link({ url: '#separate-link'}, { class: 'my-link'}) do
               = "Separate link"
       - c.code do
-        - %i(primary secondary danger warning info success).each do |status|
+        - UiBibzApp::Application::STATUSES.each do |status|
           :plain
             ui_dropdown '#{ status.to_s.titleize }', status: :#{ status }, inline: true do |bd|
               bd.link "Action", url: '#action', glyph: 'diamond'
@@ -430,70 +431,68 @@
               end
             end
       - c.html do
-        <div class="btn-group dropdown" role="group">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Primary <span class="caret"></span></button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#action"><i class="glyph fa fa-diamond"></i> Action</a>
-            <a class="dropdown-item" href="#another-action">Another action</a>
-            <div class="dropdown-divider"></div>
-            <h6 class="dropdown-header" role="presentation">Header</h6>
-            <a class="my-link dropdown-item" href="#separate-link">Separate link</a>
-          </div>
-        </div>
-          
-        <div class="btn-group dropdown" role="group">
-          <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Secondary <span class="caret"></span></button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#action"><i class="glyph fa fa-diamond"></i> Action</a>
-            <a class="dropdown-item" href="#another-action">Another action</a>
-            <div class="dropdown-divider"></div>
-            <h6 class="dropdown-header" role="presentation">Header</h6>
-            <a class="my-link dropdown-item" href="#separate-link">Separate link</a>
-          </div>
-        </div>
-          
-        <div class="btn-group dropdown" role="group">
-          <button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Danger <span class="caret"></span></button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#action"><i class="glyph fa fa-diamond"></i> Action</a>
-            <a class="dropdown-item" href="#another-action">Another action</a>
-            <div class="dropdown-divider"></div>
-            <h6 class="dropdown-header" role="presentation">Header</h6>
-            <a class="my-link dropdown-item" href="#separate-link">Separate link</a>
-          </div>
-        </div>
-          
-        <div class="btn-group dropdown" role="group">
-          <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Warning <span class="caret"></span></button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#action"><i class="glyph fa fa-diamond"></i> Action</a>
-            <a class="dropdown-item" href="#another-action">Another action</a>
-            <div class="dropdown-divider"></div>
-            <h6 class="dropdown-header" role="presentation">Header</h6>
-            <a class="my-link dropdown-item" href="#separate-link">Separate link</a>
-          </div>
-        </div>
-          
-        <div class="btn-group dropdown" role="group">
-          <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Info <span class="caret"></span></button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#action"><i class="glyph fa fa-diamond"></i> Action</a>
-            <a class="dropdown-item" href="#another-action">Another action</a>
-            <div class="dropdown-divider"></div>
-            <h6 class="dropdown-header" role="presentation">Header</h6>
-            <a class="my-link dropdown-item" href="#separate-link">Separate link</a>
-          </div>
-        </div>
-          
-        <div class="btn-group dropdown" role="group">
-          <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Success <span class="caret"></span></button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#action"><i class="glyph fa fa-diamond"></i> Action</a>
-            <a class="dropdown-item" href="#another-action">Another action</a>
-            <div class="dropdown-divider"></div>
-            <h6 class="dropdown-header" role="presentation">Header</h6>
-            <a class="my-link dropdown-item" href="#separate-link">Separate link</a>
-          </div>
-        </div>
+        - UiBibzApp::Application::STATUSES.each do |status|
+          :plain
+            <div class="dropdown btn-group">
+              <button class="btn btn-#{ status } dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown-248578436189652527536962324584326088393">Primary <span class="caret"></span></button>
+              <div class="dropdown-menu" arial-labelledby="dropdown-248578436189652527536962324584326088393">
+                <a class="dropdown-item" href="#action">
+                  <i class="glyph fa fa-diamond"></i> Action
+                </a>
+                <a class="dropdown-item" href="#another-action">Another action</a>
+                <div class="dropdown-divider"></div>
+                <h6 class="dropdown-header" role="presentation">Header</h6>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Normal Text
+                <a class="my-link dropdown-item" href="#separate-link">Separate link</a>
+              </div>
+            </div>
+
+  - s.section title: "Outline" do
+    = example do |c|
+      - c.header do
+        - UiBibzApp::Application::STATUSES.each do |status|
+          = ui_dropdown status.to_s.titleize, status: status, outline: true, inline: true do |bd|
+            - bd.link "Action", url: '#action', glyph: 'diamond'
+            - bd.link url: '#another-action' do
+              = "Another action"
+            - bd.divider
+            - bd.header 'Header'
+            - bd.html "     Normal Text"
+            - bd.link({ url: '#separate-link'}, { class: 'my-link'}) do
+              = "Separate link"
+      - c.code do
+        - UiBibzApp::Application::STATUSES.each do |status|
+          :plain
+            ui_dropdown '#{ status.to_s.titleize }', outline: true, status: :#{ status }, inline: true do |bd|
+              bd.link "Action", url: '#action', glyph: 'diamond'
+              bd.link "Another action", url: '#another-action'
+              bd.link url: '#another-action' do
+                "Another action"
+              end
+              bd.divider
+              bd.header 'Header'
+              bd.html "     Normal Text"
+              bd.link "Separate link", url: '#separate-link'
+              bd.link({ url: '#separate-link'}, { class: 'my-link'}) do
+                "Separate link"
+              end
+            end
+      - c.html do
+        - UiBibzApp::Application::STATUSES.each do |status|
+          :plain
+            <div class="dropdown btn-group">
+              <button class="btn btn-outline-#{ status } dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown-248578436189652527536962324584326088393">Primary <span class="caret"></span></button>
+              <div class="dropdown-menu" arial-labelledby="dropdown-248578436189652527536962324584326088393">
+                <a class="dropdown-item" href="#action">
+                  <i class="glyph fa fa-diamond"></i> Action
+                </a>
+                <a class="dropdown-item" href="#another-action">Another action</a>
+                <div class="dropdown-divider"></div>
+                <h6 class="dropdown-header" role="presentation">Header</h6>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Normal Text
+                <a class="my-link dropdown-item" href="#separate-link">Separate link</a>
+              </div>
+            </div>
+
 
 = @sections.render
