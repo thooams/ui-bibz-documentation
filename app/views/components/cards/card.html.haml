@@ -309,10 +309,7 @@
 
   - s.section title: "Status" do
     = example do |e|
-      %p The <code>status</code> option for agument the following symbols :
-      %ul
-        - UiBibzApp::Application::STATUSES.each do |status|
-          %li= ":#{ status }"
+      = status_description
       - e.header do
         = ui_card_column do |cd|
           - UiBibzApp::Application::STATUSES.each do |status|

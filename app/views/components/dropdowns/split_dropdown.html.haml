@@ -151,10 +151,7 @@
             </div>
 
   - s.section title: "Size" do
-    %p The size can be be defined through the `size` option that has the following arguments :
-    %ul
-      - UiBibzApp::Application::SIZES.each do |size|
-        %li= ":#{ size }"
+    = size_description
     = example do |e|
       - e.header do
         = ui_split_dropdown 'Dropdown Lg', size: :lg do |d|

@@ -17,12 +17,7 @@
 
 - @sections = sections do |s|
   - s.section title: "Button" do
-    %p The <code>status</code> option for agument the following symbols :
-    %ul
-      - UiBibzApp::Application::STATUSES.each do |status|
-        %li= ":#{ status }"
-      %li :link
-
+    = status_description
     = example do |c|
       - c.header do
         = ui_button 'Normal'
@@ -67,11 +62,7 @@
         <button class="btn-outline-dark btn">Dark</button>
 
   - s.section title: "Size", tag: :h3 do
-    %p The size can be be defined through the `size` option that has the following arguments :
-    %ul
-      - UiBibzApp::Application::SIZES.each do |size|
-        %li= ":#{ size }"
-
+    = size_description
     = example do |c|
       - c.header do
         = ui_button 'Large button', status: :primary, size: :lg

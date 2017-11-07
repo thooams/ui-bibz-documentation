@@ -12,8 +12,8 @@
   - cc.card tap: true do |c|
     - c.header "Alerts"
     - c.body do
-      - %w(success warning danger info).each do |s|
-        = ui_alert s.titleize, status: s.to_sym, ui_glyph: 'diamond', closable: true
+      - UiBibzApp::Application::STATUSES.each do |status|
+        = ui_alert status.to_s.titleize, status: status, ui_glyph: 'diamond', closable: true
     - c.footer see_component components_notifications_alert_path
 
   // Breadcrumb component

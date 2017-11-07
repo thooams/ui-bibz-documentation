@@ -77,4 +77,18 @@ module ApplicationHelper
     "Ui Bibz is compatible with #{ link_to "simple form", "https://github.com/plataformatec/simple_form", target: '_blank' }.
     You can use defaults inputs of <strong>Simple Form</strong> and defaults inputs of <strong>Ui Bibz</strong> like <code>#{ input_name }</code>. You can use Simple Form input options and Ui Bibz #{ input_name } options.".html_safe
   end
+
+  def size_description
+    content_tag :div do
+      concat "The <code>size</code> option has following symbols for argument:".html_safe
+      concat content_tag :ul, UiBibzApp::Application::SIZES.map{ |size| content_tag(:li, ":#{ size }") }.join.html_safe
+    end
+  end
+
+  def status_description
+    content_tag :div do
+      concat "The <code>status</code> option has following symbols for argument:".html_safe
+      concat content_tag :ul, UiBibzApp::Application::STATUSES.map{ |status| content_tag(:li, ":#{ status }") }.join.html_safe
+    end
+  end
 end

@@ -40,9 +40,7 @@
 
 
   - s.section title: "Status" do
-    = component_list_options do |co|
-      - co.status_link
-
+    = status_description
     = example do |c|
       - c.header do
         = ui_button_group status: :success do |bg|
@@ -63,9 +61,7 @@
         </div>
 
   - s.section title: "Size" do
-    = component_list_options do |co|
-      - co.size_link
-
+    = size_description
     = example do |c|
       - c.header do
         = ui_button_group size: :sm do |bg|

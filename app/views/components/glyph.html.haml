@@ -69,10 +69,7 @@
         <i class="glyph fa fa-diamond fa-fw"></i>
 
   - s.section title: "status" do
-    %p The <code>status</code> option for agument the following symbols :
-    %ul
-      - UiBibzApp::Application::STATUSES.each do |status|
-        %li= ":#{ status }"
+    = status_description
     = example do |c|
       - c.header do
         - UiBibzApp::Application::STATUSES.each do |status|

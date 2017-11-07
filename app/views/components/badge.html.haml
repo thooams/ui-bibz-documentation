@@ -8,7 +8,7 @@
 = component_options do |co|
   - co.status_link
   - co.glyph_link
-  - co.list 'type', types: 'symbol', values: ':pill'
+  - co.list 'type', types: 'symbol', values: %w(:pill :square)
 
 - @sections = sections do |s|
   - s.section title: "Badge" do

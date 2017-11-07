@@ -37,14 +37,7 @@
         end.render
 
   - s.section title: "Size" do
-    :markdown
-      Some component may have the size option in their settings.
-      The size argument contains three distinct values :
-
-    %ul
-      - UiBibzApp::Application::SIZES.each do |size|
-        %li= ":#{ size }"
-
+    = size_description
     = example do |c|
       - c.code do
         - UiBibzApp::Application::SIZES.each do |size|
@@ -54,12 +47,8 @@
     :markdown
       Some component may have the `status` option in their settings.
       This option lets you change the color of the item as specified in [the bootstrap documentation](https://getbootstrap.com/docs/4.0/components/buttons/).
-      The `status` argument contains 7 distinct values :
 
-    %ul
-      - UiBibzApp::Application::STATUSES.each do |status|
-        %li= ":#{ status }"
-
+    = status_description
     = example do |c|
       - c.code do
         - UiBibzApp::Application::STATUSES.each do |status|
