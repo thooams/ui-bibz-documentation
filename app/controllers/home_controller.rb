@@ -12,4 +12,7 @@ class HomeController < ApplicationController
     @users = User.all.table_search_pagination(params, session)
   end
 
+  def custom_component
+  end
+
 end

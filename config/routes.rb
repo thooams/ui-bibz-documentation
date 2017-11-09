@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'getting_started' => 'home#getting_started'
   get 'about'           => 'home#about'
+  get 'custom_component'=> 'home#custom_component'
   get 'theme'           => 'home#theme'
   get 'components'      => 'components#index'
 

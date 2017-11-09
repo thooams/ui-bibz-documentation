@@ -92,4 +92,8 @@
         \# or
         Component.new content, class: 'my-component', size: :xs
 
+  - s.section title: "Custom Component" do
+    %p You can create your own components into your application.
+    %p For more information, see #{ link_to 'Custom Component page', custom_component_path}
+
 = @sections.render

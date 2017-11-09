@@ -7,6 +7,9 @@
       - opts = { url: components_path }
       - opts.merge!({ state: :active }) if controller_name == 'components'
       - n.link 'Components', opts
+      - opts = { url: custom_component_path }
+      - opts.merge!({ state: :active }) if params[:action]  == 'custom_component'
+      - n.link 'Custom Component', opts
       - opts = { url: theme_path }
       - opts.merge!({ state: :active}) if params[:action] == 'theme'
       - n.link 'Theme', opts

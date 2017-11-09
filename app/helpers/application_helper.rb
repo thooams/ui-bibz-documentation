@@ -63,9 +63,13 @@ module ApplicationHelper
   end
 
   def tap_warning
+    warning_message "Tap option: ", "To add a block type, you must add <code>tap: true</code> to the card options."
+  end
+
+  def warning_message title, content
     content_tag :p, class: "bd-callout bd-callout-warning" do
-      concat content_tag :span, "Tap option: "
-      concat "To add a block type, you must add <code>tap: true</code> to the card options.".html_safe
+      concat content_tag :span, title
+      concat content.html_safe
     end
   end
 
