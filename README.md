@@ -58,7 +58,7 @@ If you want to send us a patches, use the [issue system of github](https://githu
 ### Contact
 
 * E-mail address: thomas@hummel.link
-* Website: http://www.hummel.link
+* Website: http://hummel.link
 
 ### History
 
