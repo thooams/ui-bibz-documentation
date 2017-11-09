@@ -313,7 +313,7 @@
         - nb.nav do |n|
           - n.link 'Home', url: '#active', state: :active
         - nb.form '#', { method: :get, type: :form_tag, position: :right } do
-          = ui_text_field 'Search'
+          = ui_text_field 'Search', class: 'mr-2'
           = ui_button 'Search', status: :success, outline: true
     - c.body do
       = ui_navbar title: 'Navbar' do |nb|
@@ -329,8 +329,8 @@
             - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
               = "Action 3"
     - c.body do
-      - %w(primary inverse success warning danger info).each do |s|
-        = ui_navbar title: 'Navbar', status: s.to_sym do |nb|
+      - UiBibzApp::Application::STATUSES.each do |status|
+        = ui_navbar title: 'Navbar', status: status do |nb|
           - nb.nav do |n|
             - n.link 'Home', url: '#active', state: :active
             - n.link url: '#link', class: 'my-link' do
@@ -343,8 +343,8 @@
               - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
                 = "Action 3"
         %br
-      - %w(primary inverse success warning danger info).each do |s|
-        = ui_navbar title: 'Navbar', status: s.to_sym, type: :dark do |nb|
+      - UiBibzApp::Application::STATUSES.each do |status|
+        = ui_navbar title: 'Navbar', status: status, type: :dark do |nb|
           - nb.nav do |n|
             - n.link 'Home', url: '#active', state: :active
             - n.link url: '#link', class: 'my-link' do
