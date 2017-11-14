@@ -3,45 +3,36 @@
   %h2 Install
 
   %p Add these lines in your Gemfile:
+  = example do |c|
+    - c.code title: 'Gemfile' do
+      :plain
+        # Gemfile
+        gem "ui_bibz", '~> #{ UiBibzApp::Application::VERSION }'
 
-  = ui_card class: 'highlight code code-index' do
-    %pre.codehilite
-      %code
-        %span
-          :plain
-            source 'https://rubygems.org'
-
-            ...
-            gem "ui_bibz", '~> #{ UiBibzApp::Application::VERSION }'
-            ...
-
-  %p Run this command:
-  = ui_card class: 'highlight code code-index' do
-    %pre.codehilite
-      %code
-        %span
-          :plain
-            bundle install
+  %br
+  %p Run command:
+  = example  do |c|
+    - c.code title: 'Terminal' do
+      :plain
+        bundle install
 
   %h2 Assets Install
 
   %p Put this line in: <code>/app/assets/stylesheets/applications.css</code>
-  = ui_card class: 'highlight code code-index' do
-    %pre.codehilite
-      %code
-        %span
-          :plain
-            *= require ui_bibz
+  = example  do |c|
+    - c.code title: 'Code' do
+      :plain
+        # /app/assets/stylesheets/applications.css
+        *= require ui_bibz
 
+
+  %br
   %p Put this line in: <code>/app/assets/javascripts/applications.js</code>
-  = ui_card class: 'highlight code code-index' do
-    %pre.codehilite
-      %code
-        %span
-          :plain
-            //= require ui_bibz
-
-  <em>Ps: You can use sass variables into Boostrap.</em>
+  = example  do |c|
+    - c.code title: 'Code' do
+      :plain
+        # /app/assets/javascripts/applications.js
+        //= require ui_bibz
 
 = ui_col num: 4 do
   %div
