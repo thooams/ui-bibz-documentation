@@ -2,15 +2,14 @@
   %h1 Getting Started
   %h2 Install
 
-  %p Add these lines in your Gemfile:
+  Add these lines in your Gemfile:
   = example do |c|
-    - c.code title: 'Gemfile' do
+    - c.code title: 'Code' do
       :plain
         # Gemfile
         gem "ui_bibz", '~> #{ UiBibzApp::Application::VERSION }'
 
-  %br
-  %p Run command:
+  Run command:
   = example  do |c|
     - c.code title: 'Terminal' do
       :plain
@@ -18,7 +17,7 @@
 
   %h2 Assets Install
 
-  %p Put this line in: <code>/app/assets/stylesheets/applications.css</code>
+  Put this line in: <code>/app/assets/stylesheets/applications.css</code>
   = example  do |c|
     - c.code title: 'Code' do
       :plain
@@ -26,8 +25,7 @@
         *= require ui_bibz
 
 
-  %br
-  %p Put this line in: <code>/app/assets/javascripts/applications.js</code>
+  Put this line in: <code>/app/assets/javascripts/applications.js</code>
   = example  do |c|
     - c.code title: 'Code' do
       :plain

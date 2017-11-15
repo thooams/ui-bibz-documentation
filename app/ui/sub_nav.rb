@@ -1,5 +1,5 @@
 module UiBibz::Ui::Ux
-  class SubNav < UiBibz::Ui::Core::Navs::Nav
+  class SubNav < UiBibz::Ui::Core::Navigations::Nav
     # See UiBibz::Ui::Core::Component.initialize
     def initialize content = nil, options = nil, html_options = nil, &block
       super

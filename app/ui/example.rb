@@ -1,5 +1,5 @@
 module UiBibz::Ui::Ux
-  class Example < UiBibz::Ui::Core::Cards::Card
+  class Example < UiBibz::Ui::Core::Boxes::Card
 
     def initialize content = nil, options = nil, html_options = nil, &block
       super
@@ -35,7 +35,7 @@ module UiBibz::Ui::Ux
     end
 
     def code_nav
-      UiBibz::Ui::Core::Navs::Nav.new(type: :tabs).tap do |n|
+      UiBibz::Ui::Core::Navigations::Nav.new(type: :tabs).tap do |n|
         n.link @code.options[:title] || 'Ruby', url: "##{ @ruby_id }", state: :active
         n.link 'Html', url: "##{ @html_id }"  unless @html.nil?
       end.render
