@@ -11,7 +11,7 @@
   = ui_button_link "See Boostrap 4!" , { url: "https://getbootstrap.com/" }, { target: '_blank' }
 
 %h2 Notifications
-%h3 Alerts
+%h3 Alerts (#{ link_to 'Doc', components_notifications_alert_path })
 = ui_row do
   = ui_col num: 12 do
     = ui_alert status: :success, glyph: 'thumbs-o-up', closable: true, tap: true do |a|
@@ -24,18 +24,23 @@
     - else
       = ui_alert "This is a #{ status.to_s } alert", status: status
 
-%h3 Badges
 = ui_row do
   = ui_col do
+    %h3 Badges
     - UiBibzApp::Application::STATUSES.each_with_index do |status, i|
       = ui_badge status.to_s.titleize, status: status, glyph: 'diamond'
-  = ui_col do
+    %br
     - UiBibzApp::Application::STATUSES.each_with_index do |status, i|
       = ui_badge status.to_s.titleize, status: status, type: :pill, glyph: 'diamond'
+  = ui_col do
+    %h3 Progress bars
+    = ui_progress_bar 25, status: :success
+    %br
+    = ui_progress_bar 100, stacked: true, animated: true, striped: true
+    %br
+    = ui_progress_bar 75, status: :danger, line: true
 
-%h3 Progress bars
-
-%h2 Navs
+%h2 Navigations
 //= ui_breadcrumb store: User.all.limit(1), link_label: :email, link_url: "#/id/edit"
 = ui_row do
   = ui_col do
@@ -50,10 +55,149 @@
       - b.link 'Library', url: '#library'
       - b.link 'Data', url: '#data'
   = ui_col do
-    %h3 Pagination
-    = ui_table_pagination store: @users
+    %h3 Paginations
+    = ui_pagination do |p|
+      - p.link '«', url: '#<', state: :disabled
+      - p.link '1', url: '#1', state: :active
+      - p.link '2', url: '#1'
+      - p.link '3', url: '#1'
+      - p.link '4', url: '#1'
 
+    = ui_pagination do |p|
+      - p.link '«', url: '#<', state: :disabled
+      - p.link '1', url: '#1', state: :active
+      - p.link '2', url: '#1'
+      - p.link '…', url: '#1', state: :disabled
+      - p.link '20', url: '#1'
+      - p.link '»', url: '#>'
 
+= ui_row do
+  = ui_col do
+    %h3 Toolbars
+    = ui_toolbar justify: true do |bt|
+      - bt.button_group status: :success  do |bg|
+        - bg.button '', text: false, glyph: 'copy'
+        - bg.button '', text: false, glyph: 'paste', status: :danger
+        - bg.button '', text: false, glyph: 'cut'
+      - bt.button_group do |bg|
+        - bg.button '', status: :dark, glyph: 'car'
+        - bg.button '', status: :dark, glyph: 'star'
+      - bt.button_group do |bg|
+        - bg.button 'Edit', status: :dark
+        - bg.button 'Delete', status: :dark
+        - bg.dropdown 'Dropdown', status: :primary do |d|
+          - d.link 'link', url: '#link'
+  = ui_col do
+    %h3 Tabs
+    = ui_nav type: :tabs do |n|
+      - n.link 'Home', url: '#home', state: :active
+      - n.link 'Profil', url: '#profil'
+      - n.link 'Disabled', url: '#profil', state: :disabled
+      - n.dropdown 'Dropdown' do |d|
+        - d.link 'Action'
+        - d.link 'Another action'
+        - d.link 'Something else here'
+        - d.divider
+        - d.link 'Separted link'
+
+= ui_row do
+  = ui_col do
+    %h3 Pills
+    = ui_nav type: :pills do |n|
+      - n.link 'Home', url: '#home', state: :active
+      - n.link 'Profil', url: '#profil'
+      - n.link 'Disabled', url: '#profil', state: :disabled
+      - n.dropdown 'Dropdown' do |d|
+        - d.link 'Action'
+        - d.link 'Another action'
+        - d.link 'Something else here'
+        - d.divider
+        - d.link 'Separted link'
+    %br
+    = ui_nav type: :pills, stacked: true do |n|
+      - n.link 'Home', url: '#home', state: :active
+      - n.link 'Profil', url: '#profil'
+      - n.link 'Disabled', url: '#profil', state: :disabled
+      - n.dropdown 'Dropdown' do |d|
+        - d.link 'Action'
+        - d.link 'Another action'
+        - d.link 'Something else here'
+        - d.divider
+        - d.link 'Separted link'
+  = ui_col do
+    %h3 Links
+    = ui_nav do |n|
+      - n.link 'Home', url: '#home', state: :active
+      - n.link 'Profil', url: '#profil'
+      - n.link 'Disabled', url: '#profil', state: :disabled
+      - n.dropdown 'Dropdown' do |d|
+        - d.link 'Action'
+        - d.link 'Another action'
+        - d.link 'Something else here'
+        - d.divider
+        - d.link 'Separted link'
+    %br
+    = ui_nav stacked: true do |n|
+      - n.link 'Home', url: '#home', state: :active
+      - n.link 'Profil', url: '#profil'
+      - n.link 'Disabled', url: '#profil', state: :disabled
+      - n.dropdown 'Dropdown' do |d|
+        - d.link 'Action'
+        - d.link 'Another action'
+        - d.link 'Something else here'
+        - d.divider
+        - d.link 'Separted link'
+
+= ui_row do
+  = ui_col num: 12 do
+    %h3 Navbars
+    = ui_navbar title: 'Navbar', justify: true, status: :dark, type: :dark do |nb|
+      - nb.nav class: 'mr-auto' do |n|
+        - n.link 'Home', url: '#active', state: :active
+        - n.link 'Profil', url: '#profil'
+        - n.link 'Disabled', url: '#profil', state: :disabled
+        - n.dropdown 'Dropdown' do |d|
+          - d.link 'Action'
+          - d.link 'Another action'
+          - d.link 'Something else here'
+          - d.divider
+          - d.link 'Separted link'
+      - nb.form '#', { method: :get, type: :form_tag, position: :right } do
+        = ui_text_field 'Search', class: 'mr-2'
+        = ui_button 'Search', status: :success, outline: true
+
+    %br
+    = ui_navbar title: 'Navbar', justify: true, status: :info, type: :dark do |nb|
+      - nb.nav class: 'mr-auto' do |n|
+        - n.link 'Home', url: '#active', state: :active
+        - n.link 'Profil', url: '#profil'
+        - n.link 'Disabled', url: '#profil', state: :disabled
+        - n.dropdown 'Dropdown' do |d|
+          - d.link 'Action'
+          - d.link 'Another action'
+          - d.link 'Something else here'
+          - d.divider
+          - d.link 'Separted link'
+      - nb.form '#', { method: :get, type: :form_tag, position: :right } do
+        = ui_text_field 'Search', class: 'mr-2'
+        = ui_button 'Search', status: :light, outline: true
+
+    %br
+    = ui_navbar title: 'Navbar', justify: true, status: :warning do |nb|
+      - nb.nav class: 'mr-auto' do |n|
+        - n.link 'Home', url: '#active', state: :active
+        - n.link 'Profil', url: '#profil'
+        - n.link 'Disabled', url: '#profil', state: :disabled
+        - n.dropdown 'Dropdown' do |d|
+          - d.link 'Action'
+          - d.link 'Another action'
+          - d.link 'Something else here'
+          - d.divider
+          - d.link 'Separted link'
+      - nb.form '#', { method: :get, type: :form_tag, position: :right } do
+        = ui_text_field 'Search', class: 'mr-2'
+        = ui_button 'Search', status: :danger, outline: true
+%br
 = ui_card_column do |cc|
 
 
