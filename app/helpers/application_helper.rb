@@ -9,11 +9,11 @@ module ApplicationHelper
     #Il hérite d'ailleurs des options présentes dans l'élement component.".html_safe
     "#{ short_extend_of_component(name, component_link) }<br>
     Like this one, the #{ content_tag :code, name } component has #{ content_tag :code, 'options' } and #{ content_tag :code, 'html_options' } present as hash.<br/>
-    It inherits options of #{ link_to('component', components_component_path) } element.".html_safe
+    It inherits options of #{ link_to('component', component_path) } element.".html_safe
   end
 
   def short_extend_of_component name, component_link = nil
-    "The #{ content_tag :code, name } component is an extension of #{ component_link || link_to('component', components_component_path) } element.".html_safe
+    "The #{ content_tag :code, name } component is an extension of #{ component_link || link_to('component', component_path) } element.".html_safe
   end
 
   def active_icon record
@@ -43,7 +43,7 @@ module ApplicationHelper
   end
 
   def inherit_component_link name
-    "#{ name} (inherit of #{ link_to 'component', components_path })".html_safe
+    "#{ name} (inherit of #{ link_to 'component', component_path })".html_safe
   end
 
   def inherit_specific_component_link name, url

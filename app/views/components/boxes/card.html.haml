@@ -1,5 +1,5 @@
 = title 'Card'
-%bodyquote UiBibz::Ui::Core::Cards::Card
+%bodyquote UiBibz::Ui::Core::Boxes::Card
 %p.bd-callout A card is a flexible and extensible content container. It includes options for headers and footers, a wide variety of content, contextual background colors, and powerful display options.
 
 = code do
@@ -98,7 +98,7 @@
       * #{ inherit_component_link 'body' }
       * #{ inherit_component_link 'footer' }
       * image (`String`)
-      * #{ link_to 'list_group', components_list_group_path }
+      * #{ link_to 'list_group', components_lists_list_group_path }
 
     = tap_warning
 
@@ -169,7 +169,7 @@
     :markdown
 
       * image (`String`)
-      * #{ link_to 'list_group', components_list_group_path }
+      * #{ link_to 'list_group', components_lists_list_group_path }
         * #{ inherit_component_link 'list' }
 
     = example do |e|
@@ -220,7 +220,7 @@
           </div>
         </div>
 
-  - s.section title: "body and Position" do
+  - s.section title: "Body and Position" do
 
     :markdown
       Card body has several body type:

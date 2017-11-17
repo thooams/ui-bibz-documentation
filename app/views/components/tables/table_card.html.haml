@@ -4,7 +4,7 @@
   %p
     The
     %code ui_table_card
-    component is a mix between a #{ link_to 'table', components_table_path } and a #{ link_to 'card', components_cards_card_path } component.<br/>
+    component is a mix between a #{ link_to 'table', components_tables_table_path } and a #{ link_to 'card', components_boxes_card_path } component.<br/>
     %br
     Pagination and search are integrated to the component
 
@@ -23,7 +23,7 @@
     To add, update, remove columns or actions in the component <code>table</code> you must add the option <code>tap: true</code>.
 
 %p
-  %strong Table ui_card operate like #{ link_to 'table', components_table_path } component.
+  %strong Table ui_card operate like #{ link_to 'table', components_tables_table_path } component.
 
 = code do
   :plain
@@ -166,18 +166,18 @@
       - c.footer do
         = documentation_link 'Documentation', '#'
 
-  - s.section title: "Table ui_card Options" do
+  - s.section title: "Table card Options" do
     %p Table has several options:
     = component_list_options do |clo|
       - clo.glyph_link
-      - clo.list link_to('store', components_table_path(anchor: 'controller')), types: 'object', required: true
-      - clo.list link_to('table_options', components_table_path(anchor: 'component-options')), types: :hash
+      - clo.list link_to('store', components_tables_table_path(anchor: 'controller')), types: 'object', required: true
+      - clo.list link_to('table_options', components_tables_table_path(anchor: 'component-options')), types: :hash
       - clo.list 'searchable', types: :boolean
       - clo.list 'paginable', types: :boolean
       - clo.list 'title', types: :string
       - clo.list 'table_html_options', types: :hash
 
-  - s.section title: "Table ui_card Blocks" do
+  - s.section title: "Table card Blocks" do
     :markdown
       Table has several blocks:
 

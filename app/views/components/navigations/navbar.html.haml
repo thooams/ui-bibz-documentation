@@ -1,5 +1,5 @@
 = title 'Navbar'
-%blockquote UiBibz::Ui::Core::Navs::Navbar
+%blockquote UiBibz::Ui::Core::Navigations::Navbar
 %p.bd-callout ui_navbars are responsive meta components that serve as navigation headers for your application or site. They begin collapsed (and are toggleable) in mobile views and become horizontal as the available viewport width increases.
 
 = code do
@@ -174,15 +174,15 @@
     = component_list_options do |clo|
       - clo.list "form",tap: true do |cl|
         - cl.list 'type', types: 'symbol', values: %w(:form_for :ui_form_for :form_tag), default: ":form_tag"
-      - clo.list inherit_specific_component_link('dropdown', components_dropdowns_dropdown_path)
-      - clo.list inherit_specific_component_link('nav', components_navs_nav_path)
+      - clo.list inherit_specific_component_link('dropdown', components_forms_dropdowns_dropdown_path)
+      - clo.list inherit_specific_component_link('nav', components_navigations_nav_path)
       - clo.list inherit_component_link('brand')
 
     :markdown
       Navbar has several block type:
 
-      * #{ inherit_specific_component_link 'nav', components_navs_nav_path }
-      * #{ inherit_specific_component_link 'dropdown', components_dropdowns_dropdown_path }
+      * #{ inherit_specific_component_link 'nav', components_navigations_nav_path }
+      * #{ inherit_specific_component_link 'dropdown', components_forms_dropdowns_dropdown_path }
       * #{ inherit_component_link 'brand' }
       * form
 
@@ -269,7 +269,7 @@
           - nb.brand image_tag 'ruby-white'
           - nb.nav do |n|
             - n.link 'Link', url: '#link'
-          - nb.form @user, { type: :ui_form_for, url: components_navs_navbar_path, method: 'get', input_html: { class: 'mr-sm-2' }} do |f|
+          - nb.form @user, { type: :ui_form_for, url: components_navigations_navbar_path, method: 'get', input_html: { class: 'mr-sm-2' }} do |f|
             = f.input :country_id, as: :ui_select_field, label: false, collection: Country.all
             = f.ui_surround_field do |s|
               - s.glyph 'user'
@@ -283,7 +283,7 @@
             nb.nav do |n|
               n.link 'Link', url: '#link'
             end
-            nb.form @user, { type: :ui_form_for, url: components_navs_navbar_path, method: 'get', input_html: { class: 'mr-sm-2' }} do |f|
+            nb.form @user, { type: :ui_form_for, url: components_navigations_navbar_path, method: 'get', input_html: { class: 'mr-sm-2' }} do |f|
               = f.input :country_id, as: :ui_select_field, label: false, collection: Country.all
               = f.ui_surround_field do |s|
                 s.glyph 'user'

@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'getting_started' => 'home#getting_started'
   get 'about'           => 'home#about'
+  get 'component'       => 'home#component'
   get 'custom_component'=> 'home#custom_component'
   get 'theme'           => 'home#theme'
-  get 'components'      => 'components#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -29,6 +29,11 @@ Rails.application.routes.draw do
         get 'button-toolbar'
         get 'button-link'
         get 'button-split-dropdown'
+      end
+
+      namespace :dropdowns do
+        get 'dropdown'
+        get 'split_dropdown'
       end
 
       # surrounds
@@ -78,9 +83,10 @@ Rails.application.routes.draw do
       end
     end
 
-    namespace :cards do
+    namespace :boxes do
       get 'card'
       get 'card-column-deck-and-group'
+      get 'jumbotron'
     end
 
     namespace :layouts do
@@ -89,40 +95,40 @@ Rails.application.routes.draw do
       get 'container'
     end
 
-    namespace :dropdowns do
-      get 'dropdown'
-      get 'split_dropdown'
-    end
-
     namespace :windows do
       get 'modal'
     end
 
-    namespace :navs do
+    namespace :navigations do
+      get 'breadcrumb'
+      get 'toolbar'
+      get 'pagination'
       get 'nav'
       get 'navbar'
-    end
-
-    namespace :paths do
-      get 'breadcrumb'
+      get 'tab_group'
     end
 
      # notifications
     namespace :notifications do
+      get 'component'
       get 'alert'
+      get 'badge'
+      get 'progress_bar'
     end
 
-    get 'jumbotron'
-    get 'badge'
-    get 'component'
-    get 'progress'
-    get 'list_group'
-    get 'star'
-    get 'table'
-    get 'table_card'
-    get 'core'
-    get 'ux'
-    get 'glyph'
+    namespace :icones do
+      get 'glyph'
+      get 'star'
+    end
+
+    namespace :tables do
+      get 'table'
+      get 'table_card'
+    end
+
+    namespace :lists do
+      get 'list_group'
+    end
   end
 
   # Example of regular route:

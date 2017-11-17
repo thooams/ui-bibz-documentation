@@ -35,7 +35,8 @@
 // Menu de gauche
 .nav-left
   font-size: 1rem
-  margin-bottom: 2rem
+  margin-top: 1.5rem
+  margin-right: 10px
   li.nav-item
     ul.nav
       li.nav-item
@@ -58,11 +59,10 @@
       font-size: 0.85rem
 
 .nav-left a.nav-link.active
-  padding-left: 8px
   font-weight: 800
-  color: rgb(0, 60, 111)
+  color: #007bff
   background-color: transparent
-  border-left: 2px solid rgb(0, 60, 111)
+  border-left: 2px solid #007bff
 
 .nav-left .nav-link
   padding: 0.2rem 0.5rem
@@ -72,6 +72,19 @@
 
 h2, h3
   margin-top: 3rem
+
+.anchorjs-link:hover
+  color: #2500AD
+*:hover > .anchorjs-link
+  transition: color .25s linear
+
+.content
+  h3:before
+    display: block
+    height: 6rem
+    margin-top: -6rem
+    visibility: hidden
+    content: ""
 
 $brand-primary-light: rgba(255, 255, 255, 0.15)
 
@@ -185,6 +198,10 @@ body > footer
 
 // Menu de droite
 .secondary-nav
+  a
+    color: #868e96
+  h3
+    margin-top: 0.5rem
   background: linear-gradient(to right, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 10%)
   border-left: 1px solid rgba(0,0,0,0.1)
   .sticky
@@ -201,15 +218,29 @@ body > footer
     display: block
 
 // Menu de gauche
+.sidebar
+  overflow: auto
+  position: sticky
+  max-height: calc(100vh - 3.5rem)
+  top: 3.5rem
+
 .left-nav
-  padding: 1rem 1rem 3rem 1rem
+  padding: 0px 0px 0px 0.5rem
   border-right: 1px solid rgba(0,0,0,0.1)
+  a
+    color: #868e96
+  a:hover
+    color: #007bff
   h2:first-child
     margin-top: 0rem
+  .nav-text
+    border-bottom: 1px solid #efefef
+    span
+      color: #868e96
 
 .content
   background: linear-gradient(to right, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 3%)
-  padding: 0rem 3rem 3rem 3rem
+  padding: 3rem
 
 @media all and (max-width: 992px)
   .secondary-nav

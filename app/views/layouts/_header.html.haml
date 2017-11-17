@@ -1,15 +1,21 @@
 %header
-  = ui_navbar title: UiBibzApp::Application::NAME, status: :dark, type: :dark do |nb|
+  = ui_navbar title: UiBibzApp::Application::NAME, position: :top, status: :dark, type: :dark do |nb|
+    - nb.brand image_tag('ui-bibz-logo-30.gif', class: 'rounded')
     - nb.nav do |n|
       - opts = { url: getting_started_path }
       - opts.merge!({ state: :active }) if params[:action] == 'getting_started'
       - n.link 'Get started', opts
-      - opts = { url: components_path }
+      - opts = { url: components_boxes_card_path }
       - opts.merge!({ state: :active }) if controller_name == 'components'
       - n.link 'Components', opts
-      - opts = { url: custom_component_path }
-      - opts.merge!({ state: :active }) if params[:action]  == 'custom_component'
-      - n.link 'Custom', opts
+      - opts = %w(component custom_component).include?(params[:action]) ? { state: :active } : {}
+      - n.dropdown 'Component', opts do |d|
+        - opts = { url: component_path }
+        - opts.merge!({ state: :active }) if params[:action]  == 'component'
+        - d.link 'Base', opts
+        - opts = { url: custom_component_path }
+        - opts.merge!({ state: :active }) if params[:action]  == 'custom_component'
+        - d.link 'Custom', opts
       - opts = { url: theme_path }
       - opts.merge!({ state: :active}) if params[:action] == 'theme'
       - n.link 'Theme', opts

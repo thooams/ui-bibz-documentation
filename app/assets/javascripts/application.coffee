@@ -12,6 +12,7 @@
 ##
 
 #= require ui_bibz
+#= require anchor.min
 
 # Fonction pour fixer le menu de droite lors du scrolling
 $(window).scroll ->
@@ -29,6 +30,7 @@ $(window).scroll ->
 
 # Smooth Scroll secondary nav
 $(document).on 'ready page:change', ->
+  anchors.add('.content h3')
   $('.secondary-nav>.nav>.nav-item>a[href*="#"]').on 'click', ->
     if location.pathname.replace(/^\//, '') == @pathname.replace(/^\//, '') and location.hostname == @hostname
       target = $(@hash)

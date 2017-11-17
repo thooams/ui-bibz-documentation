@@ -1,94 +1,97 @@
 = ui_nav class: 'nav-left' do |n|
-  - n.link 'Base', url: '#', state: :disabled
-  - n.link 'Component', nav_options(components_path)
+  - n.text 'Boxes'
+  - n.link 'Card', nav_options(components_boxes_card_path)
+  - n.link 'Card column, deck and group', nav_options(components_boxes_card_column_deck_and_group_path)
+  - n.link 'Jumbotron', nav_options(components_boxes_jumbotron_path)
 
 = ui_nav class: 'nav-left' do |n|
-  - n.link 'Boxes', url: '#', state: :disabled
-  - n.link 'Card', nav_options(components_cards_card_path)
-  - n.link 'Card column, deck and group', nav_options(components_cards_card_column_deck_and_group_path)
-  - n.link 'Jumbotron', nav_options(components_jumbotron_path)
-
+  - n.text 'Icons'
+  - n.link 'Glyph', nav_options(components_icones_glyph_path)
+  - n.link 'Star', nav_options(components_icones_star_path)
 
 = ui_nav class: 'nav-left' do |n|
-  - n.link 'Icons', url: '#', state: :disabled
-  - n.link 'Glyph', nav_options(components_glyph_path)
-  - n.link 'Star', nav_options(components_star_path)
+  - n.text 'Lists'
+  - n.link 'List group', nav_options(components_lists_list_group_path)
 
 = ui_nav class: 'nav-left' do |n|
-  - n.link 'Lists', url: '#', state: :disabled
-  - n.link 'List group', nav_options(components_list_group_path)
-
-= ui_nav class: 'nav-left' do |n|
-  - n.link 'Layouts', url: '#', state: :disabled
+  - n.text 'Layouts'
   - n.link 'Col', nav_options(components_layouts_col_path)
   - n.link 'Row', nav_options(components_layouts_row_path)
   - n.link 'Container', nav_options(components_layouts_container_path)
 
 = ui_nav class: 'nav-left' do |n|
-  - n.link 'Navigations', url: '#', state: :disabled
-  - n.link 'Nav', nav_options(components_navs_nav_path)
-  - n.link 'Navbar', nav_options(components_navs_navbar_path)
-  - n.link 'Breadcrumb', nav_options(components_paths_breadcrumb_path)
-  - n.link 'Pagination', nav_options("#pagination")
-  - n.link 'Toolbar', nav_options("#toolbar")
+  - n.text 'Navigations'
+  - n.link 'Nav', nav_options(components_navigations_nav_path)
+  - n.link 'Navbar', nav_options(components_navigations_navbar_path)
+  - n.link 'Breadcrumb', nav_options(components_navigations_breadcrumb_path)
+  - n.link 'Pagination', nav_options(components_navigations_pagination_path)
+  - n.link 'Tab group', nav_options(components_navigations_tab_group_path)
+  - n.link 'Toolbar', nav_options(components_navigations_toolbar_path)
 
 = ui_nav class: 'nav-left' do |n|
-  - n.link 'Notifications', url: '#', state: :disabled
+  - n.text 'Notifications'
   - n.link 'Alert', nav_options(components_notifications_alert_path)
-  - n.link 'Badge', nav_options(components_badge_path)
-  - n.link 'Progress bar', nav_options(components_progress_path)
+  - n.link 'Badge', nav_options(components_notifications_badge_path)
+  - n.link 'Progress bar', nav_options(components_notifications_progress_bar_path)
 
 = ui_nav class: 'nav-left' do |n|
-  - n.link 'Windows', url: '#', state: :disabled
+  - n.text 'Windows'
   - n.link 'Modal', nav_options(components_windows_modal_path)
 
 = ui_nav class: 'nav-left' do |n|
-  - n.link 'Tables', url: '#', state: :disabled
+  - n.text 'Tables'
+  - n.link 'Table', nav_options(components_tables_table_path)
+  - n.link 'Table card', nav_options(components_tables_table_card_path)
 
 = ui_nav class: 'nav-left' do |n|
-  - n.link 'Forms', url: '#', state: :disabled
+  - n.text 'Forms'
   - n.nav do |no|
-    - no.link 'Buttons', url: '#', state: :disabled
+    - no.text 'Buttons'
     - no.nav do |na|
       - na.link 'Button', nav_options(components_forms_buttons_button_path)
       - na.link 'Button choice', nav_options(components_forms_buttons_button_choice_path)
       - na.link 'Button group', nav_options(components_forms_buttons_button_group_path)
       - na.link 'Button link', nav_options(components_forms_buttons_button_link_path)
 
-    - no.link 'Choices', url: '#', state: :disabled
+    - no.text 'Dropdowns'
+    - no.nav do |na|
+      - na.link 'Dropdown', nav_options(components_forms_dropdowns_dropdown_path)
+      - na.link 'Split Dropdown', nav_options(components_forms_dropdowns_split_dropdown_path)
+
+    - no.text 'Choices'
     - no.nav do |na|
       - na.link 'Switch field', nav_options(components_forms_choices_switch_field_path)
       - na.link 'Checkbox field', nav_options(components_forms_choices_checkbox_field_path)
       - na.link 'Radio field', nav_options(components_forms_choices_radio_field_path)
 
-    - no.link 'Dates', url: '#', state: :disabled
+    - no.text 'Dates'
     - no.nav do |na|
       - na.link 'Date picker field', nav_options(components_forms_dates_date_picker_field_path)
 
-    - no.link 'Numbers', url: '#', state: :disabled
+    - no.text 'Numbers'
     - no.nav do |na|
       - na.link 'Formula field', nav_options(components_forms_numbers_formula_field_path)
 
-    - no.link 'Selects', url: '#', state: :disabled
+    - no.text 'Selects'
     - no.nav do |na|
       - na.link 'Dropdown select field', nav_options(components_forms_selects_dropdown_select_field_path)
       - na.link 'Select field', nav_options(components_forms_selects_select_field_path)
       - na.link 'Multi column field', nav_options(components_forms_selects_multi_column_field_path)
       - na.link 'Multi select field', nav_options(components_forms_selects_multi_select_field_path)
 
-    - no.link 'Simple form', url: '#', state: :disabled
+    - no.text 'Simple form'
     - no.nav do |na|
       - na.link 'Inputs', nav_options(components_forms_simple_form_inputs_path)
 
-    - no.link 'Surrounds', url: '#', state: :disabled
+    - no.text 'Surrounds'
     - no.nav do |na|
       - na.link 'Surround field', nav_options(components_forms_surrounds_surround_field_path)
 
-    - no.link 'Textareas', url: '#', state: :disabled
+    - no.text 'Textareas'
     - no.nav do |na|
       - na.link 'Markdown editor field', nav_options(components_forms_textareas_markdown_editor_field_path)
 
-    - no.link 'Texts', url: '#', state: :disabled
+    - no.text 'Texts'
     - no.nav do |na|
       - na.link 'Auto complete field', nav_options(components_forms_texts_auto_complete_field_path)
       - na.link 'Text field', nav_options(components_forms_texts_text_field_path)

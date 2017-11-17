@@ -1,49 +1,50 @@
-= ui_col num: 8, class: 'page'  do
-  %h1 Getting Started
-  %h2 Install
+= ui_row do
+  = ui_col num: 8, class: 'page'  do
+    %h1 Getting Started
+    %h2 Install
 
-  Add these lines in your Gemfile:
-  = example do |c|
-    - c.code title: 'Code' do
-      :plain
-        # Gemfile
-        gem "ui_bibz", '~> #{ UiBibzApp::Application::VERSION }'
+    Add these lines in your Gemfile:
+    = example do |c|
+      - c.code title: 'Code' do
+        :plain
+          # Gemfile
+          gem "ui_bibz", '~> #{ UiBibzApp::Application::VERSION }'
 
-  Run command:
-  = example  do |c|
-    - c.code title: 'Terminal' do
-      :plain
-        bundle install
+    Run command:
+    = example  do |c|
+      - c.code title: 'Terminal' do
+        :plain
+          bundle install
 
-  %h2 Assets Install
+    %h2 Assets Install
 
-  Put this line in: <code>/app/assets/stylesheets/applications.css</code>
-  = example  do |c|
-    - c.code title: 'Code' do
-      :plain
-        # /app/assets/stylesheets/applications.css
-        *= require ui_bibz
+    Put this line in: <code>/app/assets/stylesheets/applications.css</code>
+    = example  do |c|
+      - c.code title: 'Code' do
+        :plain
+          # /app/assets/stylesheets/applications.css
+          *= require ui_bibz
 
 
-  Put this line in: <code>/app/assets/javascripts/applications.js</code>
-  = example  do |c|
-    - c.code title: 'Code' do
-      :plain
-        # /app/assets/javascripts/applications.js
-        //= require ui_bibz
+    Put this line in: <code>/app/assets/javascripts/applications.js</code>
+    = example  do |c|
+      - c.code title: 'Code' do
+        :plain
+          # /app/assets/javascripts/applications.js
+          //= require ui_bibz
 
-= ui_col num: 4 do
-  %div
-    :markdown
+  = ui_col num: 4 do
+    %div
+      :markdown
 
-      ##Compatibility
+        ##Compatibility
 
-      Gem is compatible with [**Ruby**](https://www.ruby-lang.org/ "Ruby") version 2.x.x and [**Ruby On Rails**](http://rubyonrails.org/ "Rails") 4.2.x and 5.x.x.
+        Gem is compatible with [**Ruby**](https://www.ruby-lang.org/ "Ruby") version 2.x.x and [**Ruby On Rails**](http://rubyonrails.org/ "Rails") 4.2.x and 5.x.x.
 
-  %div
-    :markdown
+    %div
+      :markdown
 
-      ##Simple form
+        ##Simple form
 
-      Gem is compatible with  [simple_form](https://github.com/plataformatec/simple_form).
-      All inputs fields can be used with **simple_form**.
+        Gem is compatible with  [simple_form](https://github.com/plataformatec/simple_form).
+        All inputs fields can be used with **simple_form**.

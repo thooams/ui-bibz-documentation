@@ -25,7 +25,7 @@ module UiBibz::Ui::Ux
     end
 
     def table_link
-      list(link_to("table_options", components_table_path), { types: :hash })
+      list(link_to("table_options", components_tables_table_path), { types: :hash })
     end
 
     def size_link
@@ -52,7 +52,7 @@ module UiBibz::Ui::Ux
   private
 
     def option_link opt
-      link_to opt, components_path(anchor: opt)
+      link_to opt, component_path(anchor: opt)
     end
 
     def is_tap content, options
