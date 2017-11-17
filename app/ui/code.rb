@@ -10,14 +10,14 @@ module UiBibz::Ui::Ux
       content_tag :div, class: 'usage' do
         concat title
         concat sentence
-        concat UiBibz::Ui::Core::Cards::Card.new(code_html, nil, class: 'highlight code').render
+        concat UiBibz::Ui::Core::Boxes::Card.new(code_html, nil, class: 'highlight code').render
       end
     end
 
   private
 
     def title
-      content_tag :h2, UiBibz::Ui::Core::Glyph.new('book', { label: 'Usage' }).render
+      content_tag :h2, UiBibz::Ui::Core::Icons::Glyph.new('book', { label: 'Usage' }).render
     end
 
     def sentence
