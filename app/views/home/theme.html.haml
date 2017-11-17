@@ -10,6 +10,130 @@
   %p A quick preview of everything Bootstrap has to offer.
   = ui_button_link "See Boostrap 4!" , { url: "https://getbootstrap.com/" }, { target: '_blank' }
 
+%h3 Cards
+= ui_row do
+  = ui_col do
+    = ui_card tap: true do |c|
+      - c.header 'Card'
+      - c.image image
+      - c.body tap: true do |b|
+        - b.title "Card title"
+        - b.text "Some quick example text to build on the ui_card title and make up the bulk of the ui_card's content."
+      - c.list_group do |lg|
+        - lg.list "Cras justo odio"
+        - lg.list "Dapibas ac facilisis in"
+        - lg.list "vestibulum at eros"
+      - c.body tap: true do |b|
+        - b.link "Card link", url: '#', class: "card-link"
+        - b.link "Card link", url: '#', class: "card-link"
+      - c.footer "Footer"
+
+  = ui_col do
+    = ui_card tap: true do |c|
+      - c.body tap: true do |b|
+        - b.title "Special title treatment"
+        - b.text "With supporting text below as a natural lead-in to additional content."
+        - b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
+    %br
+    = ui_card tap: true, text: { position: :center } do |c|
+      - c.body tap: true do |b|
+        - b.title "Special title treatment"
+        - b.text "With supporting text below as a natural lead-in to additional content."
+        - b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
+    %br
+    = ui_card tap: true, text: { position: :right } do |c|
+      - c.body tap: true do |b|
+        - b.title "Special title treatment"
+        - b.text "With supporting text below as a natural lead-in to additional content."
+        - b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
+
+%br.clearfix
+
+%h3 Card groups
+= ui_card_group do |cg|
+  - cg.card(tap: true) do |c|
+    - c.header 'header 1'
+    - c.body 'content 1'
+    - c.footer 'footer 1'
+  - cg.card tap: true do |c|
+    - c.image image
+    - c.body tap: true do |b|
+      - b.title 'card title'
+      - b.text 'this is a wider ui_card with supporting text below as a natural lead-in to additional content. this content is a little bit longer.'
+      - b.text "<small class='text-muted'>last updated 3 mins ago</small>"
+  - cg.card tap: true do |c|
+    - c.list_group do |lg|
+      - lg.list "cras justo odio"
+      - lg.list "Dapibas ac facilisis in", state: :active
+      - lg.list tap: true do |l|
+        - l.header 'Header list'
+        - l.body "vestibulum at eros"
+  - cg.card "content 4 <br/> some quick example text to build on the ui_card title and make up the bulk of the ui_card's content."
+  - cg.card status: :primary, type: :inverse, text_position: :center do
+    = '<blockquote class="card-blockquote"><p>lorem ipsum dolor sit amet, consectetur adipiscing elit. integer posuere erat a ante.</p><footer>someone famous in <cite title="source title">source title</cite></footer></blockquote>'.html_safe
+
+%br.clearfix
+
+%h3 Card decks
+= ui_card_deck do |cd|
+  - UiBibzApp::Application::STATUSES.each_with_index do |status, i|
+    - if i.even?
+      - cd.card tap: true, status: status do |c|
+        - c.body tap: true do |b|
+          - b.title "Special title treatment"
+          - b.text "With supporting text below as a natural lead-in to additional content."
+
+= ui_card_deck do |cd|
+  - UiBibzApp::Application::STATUSES.each_with_index do |status, i|
+    - if i.odd?
+      - cd.card tap: true, status: status do |c|
+        - c.body tap: true do |b|
+          - b.title "Special title treatment"
+          - b.text "With supporting text below as a natural lead-in to additional content."
+
+%h3 Card columns
+= ui_card_column class: 'card-column-theme' do |cc|
+  - cc.card tap: true do |c|
+    - c.header 'header 1'
+    - c.body "content 1"
+    - c.footer 'footer 1'
+  - cc.card tap: true do |c|
+    - c.image image
+    - c.body tap: true do |b|
+      - b.title 'Card title'
+      - b.text 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.'
+      - b.text "<small class='text-muted'>Last updated 3 mins ago</small>"
+  - cc.card tap: true do |c|
+    - c.list_group do |lg|
+      - lg.list "Cras justo odio"
+      - lg.list "Dapibas ac facilisis in", state: :active
+      - lg.list tap: true do |l|
+        - l.header 'Header list'
+        - l.body "vestibulum at eros"
+  - cc.card "Content 4 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
+  - cc.card status: :primary, type: :inverse, text_position: :center do
+    = '<bodyquote class="card-bodyquote"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p><footer>Someone famous in <cite title="Source Title">Source Title</cite></footer></bodyquote>'.html_safe
+  - cc.card tap: true do |c|
+    - c.header 'header 1'
+    - c.body "content 1"
+    - c.footer 'footer 1'
+  - cc.card tap: true do |c|
+    - c.image image
+    - c.body tap: true do |b|
+      - b.title 'Card title'
+      - b.text 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.'
+      - b.text "<small class='text-muted'>Last updated 3 mins ago</small>"
+  - cc.card tap: true do |c|
+    - c.list_group do |lg|
+      - lg.list "Cras justo odio"
+      - lg.list "Dapibas ac facilisis in", state: :active
+      - lg.list tap: true do |l|
+        - l.header 'Header list'
+        - l.body "vestibulum at eros"
+  - cc.card "Content 4 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
+  - cc.card status: :primary, type: :inverse, text_position: :center do
+    = '<bodyquote class="card-bodyquote"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p><footer>Someone famous in <cite title="Source Title">Source Title</cite></footer></bodyquote>'.html_safe
+
 %h2 Notifications
 %h3 Alerts (#{ link_to 'Doc', components_notifications_alert_path })
 = ui_row do
@@ -89,10 +213,10 @@
           - d.link 'link', url: '#link'
   = ui_col do
     %h3 Tabs
-    = ui_nav type: :tabs do |n|
-      - n.link 'Home', url: '#home', state: :active
-      - n.link 'Profil', url: '#profil'
-      - n.link 'Disabled', url: '#profil', state: :disabled
+    = ui_tab_group do |n|
+      - n.tab 'Home', url: '#home', state: :active
+      - n.tab 'Profil', url: '#profil'
+      - n.tab 'Disabled', url: '#profil', state: :disabled
       - n.dropdown 'Dropdown' do |d|
         - d.link 'Action'
         - d.link 'Another action'
@@ -197,542 +321,258 @@
       - nb.form '#', { method: :get, type: :form_tag, position: :right } do
         = ui_text_field 'Search', class: 'mr-2'
         = ui_button 'Search', status: :danger, outline: true
-%br
-= ui_card_column do |cc|
 
-
-  // Breadcrumb component
-  - cc.card tap: true do |c|
-    - c.header "Breadcrumbs"
-    - c.body do
-      = ui_breadcrumb store: User.all.limit(3), link_label: :email, link_url: "#/id/edit"
-
-  // ui_button component
-  - cc.card tap: true do |c|
-    - c.header "Buttons"
-    - c.body do
-      - UiBibzApp::Application::STATUSES.each do |status|
-        = ui_button status.to_s.titleize, status: status, ui_glyph: 'diamond'
-    - c.body do
-      - UiBibzApp::Application::STATUSES.each do |status|
-        = ui_button status.to_s.titleize, status: status, outline: true, ui_glyph: 'diamond'
-    - c.body do
-      - UiBibzApp::Application::SIZES.each do |size|
-        = ui_button "Button #{ size }", status: :primary, size: size
-    - c.body do
-      = ui_button 'Block level ui_button', status: :primary, type: :block
-      = ui_button 'Block level ui_button', status: :secondary, type: :block
-    - c.body do
-      = ui_button 'Primary', status: :primary, state: :active
-      = ui_button 'Primary', status: :primary, state: :disabled
-    - c.footer see_component components_forms_buttons_button_path
-
-
-
-  // ui_button component
-  - cc.card tap: true do |c|
-    - c.header "Buttons Choice"
-    - c.body do
-      = ui_button_choice do |bc|
-        - bc.button 'Checkbox 1', status: :primary, state: :active
-        - bc.button 'Checkbox 2', status: :primary
-    - c.body do
-      = ui_button_group do |bc|
-        - bc.button 'Radio 1', type: :radio, status: :success, state: :active
-        - bc.button 'Radio 2', type: :radio, status: :success
-    - c.body do
-      = ui_button_group do |bc|
-        - bc.button 'Radio 1', type: :radio, size: :lg, outline: true, status: :danger, state: :active
-        - bc.button 'Radio 2', type: :radio, size: :lg, outline: true, status: :danger
-    - c.footer see_component components_forms_buttons_button_choice_path
-
-  // Dropdown component
-  - cc.card tap: true do |c|
-    - c.header "Dropdowns"
-    - c.body do
-      - %w(primary secondary success warning danger info).each do |s|
-        = ui_dropdown s.titleize, glyph: 'diamond', inline: true, status: s.to_sym do |d|
-          - d.link "Action", url: '#action', ui_glyph: 'diamond'
-          - d.link "Another action", url: '#another-action'
-          - d.divider
-          - d.header 'Header'
-          - d.html "     Normal Text"
-          - d.link "Separate link", url: '#separate-link'
-    - c.body do
-      = ui_dropdown "Dropdown Right", size: :lg, position: :right, status: :success do |d|
-        - d.link "Action", url: '#action', glyph: 'diamond'
-        - d.link "Another action", url: '#another-action'
-        - d.divider
-        - d.header 'Header'
-        - d.html "     Normal Text"
-        - d.link "Separate link", url: '#separate-link'
-      = ui_dropdown "Dropdown Up", size: :sm, type: :dropup, status: :danger do |d|
-        - d.link "Action", url: '#action', glyph: 'diamond'
-        - d.link "Another action", url: '#another-action'
-        - d.divider
-        - d.header 'Header'
-        - d.html "     Normal Text"
-        - d.link "Separate link", url: '#separate-link'
-    - c.footer see_component components_dropdowns_dropdown_path
-
-  // ui_button Group component
-  - cc.card tap: true do |c|
-    - c.header "Buttons Group"
-    - c.body do
-      = ui_button_group do
-        = ui_button 'Button'
-        = ui_button_link 'Button link', url: '#button-link'
-        = ui_dropdown "Dropdown" do |bd|
-          - bd.link "Action", url: '#action'
-          - bd.link "Another action", url: '#another-action'
-          - bd.divider
-          - bd.header 'Header'
-          - bd.link "Separate link", url: '#separate-link'
-    - c.body do
-      = ui_button_group size: :sm do
-        = ui_button 'Left', outline: true
-        = ui_button 'Middle', outline: true
-        = ui_button 'Right', outline: true
-    - c.body do
-      = ui_button_group position: :vertical do
-        = ui_button 'Left'
-        = ui_button 'Middle'
-        = ui_button 'Right'
-    - c.footer see_component components_forms_buttons_button_group_path
-
-  // ui_button link component
-  - cc.card tap: true do |c|
-    - c.header "Buttons link"
-    - c.body do
-      - UiBibzApp::Application::STATUSES.each do |status|
-        = ui_button_link status.to_s.titleize, url: "##{ status }", status: status, glyph: 'diamond'
-    - c.body do
-      - UiBibzApp::Application::STATUSES.each do |status|
-        = ui_button_link status.to_s.titleize, url: "##{ status }", status: status.to_sym, outline: true, glyph: 'diamond'
-    - c.body do
-      - UiBibzApp::Application::SIZES.each do |size|
-        = ui_button "Button #{ size }", url: "##{ size }", status: :primary, size: size.to_sym
-    - c.body do
-      = ui_button 'Block level ui_button', url: '#', status: :primary, type: :block
-      = ui_button 'Block level ui_button', url: '#', status: :secondary, type: :block
-    - c.body do
-      = ui_button 'Primary', url: '#active', status: :primary, state: :active
-      = ui_button 'Primary', url: '#disabled', status: :primary, state: :disabled
-    - c.footer see_component components_forms_buttons_button_link_path
-
-  // ui_button split dropdown component
-  - cc.card tap: true do |c|
-    - c.header "Split Dropdowns"
-    - c.body do
-      - %w(primary secondary success warning danger info).each do |s|
-        = ui_split_dropdown s.titleize, ui_glyph: 'diamond', status: s.to_sym do |d|
-          - d.link "Action", url: '#action', ui_glyph: 'diamond'
-          - d.link "Another action", url: '#another-action'
-          - d.divider
-          - d.header 'Header'
-          - d.html "     Normal Text"
-          - d.link "Separate link", url: '#separate-link'
-    - c.body do
-      = ui_split_dropdown "Split Dropdown Right", size: :lg, position: :right, status: :success do |d|
-        - d.link "Action", url: '#action', ui_glyph: 'diamond'
-        - d.link "Another action", url: '#another-action'
-        - d.divider
-        - d.header 'Header'
-        - d.html "     Normal Text"
-        - d.link "Separate link", url: '#separate-link'
-      = ui_split_dropdown "Split Dropdown Up", size: :sm, type: :dropup, status: :danger do |d|
-        - d.link "Action", url: '#action', ui_glyph: 'diamond'
-        - d.link "Another action", url: '#another-action'
-        - d.divider
-        - d.header 'Header'
-        - d.html "     Normal Text"
-    - c.footer see_component components_dropdowns_split_dropdown_path
-
-  // ui_glyph component
-  - cc.card tap: true do |c|
-    - c.header "Glyphs"
-    - c.body do
-      - %w(primary secondary success warning danger info).each do |s|
-        = ui_glyph 'diamond', status: s.to_sym
-    - c.body do
-      - 4.times do |i|
-        = ui_glyph 'diamond', size: i
-    - c.body do
-      = ui_glyph 'square', stack: 2
-      = ui_glyph 'diamond', stack: 1, status: :danger
-    - c.body do
-      = ui_glyph 'diamond', rotate: 90
-      = ui_glyph 'diamond', rotate: 180
-      = ui_glyph 'diamond', rotate: 270
-    - c.footer see_component components_glyph_path
-
-
-  // ui_badge component
-  - cc.card tap: true do |c|
-    - c.header "Badges"
-    - c.body do
-      - %w(primary default success warning danger info).each do |s|
-        = ui_badge s.titleize, status: s.to_sym
-    - c.body do
-      - %w(primary default success warning danger info).each do |s|
-        = ui_badge s.titleize, ui_glyph: 'diamond', status: s.to_sym, type: :pill
-    - c.footer see_component components_badge_path
-
-  // List group component
-  - cc.card tap: true do |c|
-    - c.header "Lists group"
-    - c.body do
-      = ui_list_group do |lg|
-        - lg.list 'Cras justo odio', badge: 14
-        - lg.list 'Dapibus ac facilisis in', ui_glyph: 'diamond'
-        - lg.list 'Morbi leo risus', state: :active
-        - lg.list 'Porta ac consectetur ac', state: :disabled
-        - lg.list 'Vestibulum at eros', status: :success
-      %br
-      = ui_list_group  do |lg|
-        - lg.list tap: true, state: :active do |l|
-          - l.header 'List group item heading'
-          - l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
-        - lg.list tap: true do |l|
-          - l.header class: 'my-header' do
-            = 'List group item heading'
-          - l.body class: 'my-body' do
-            = 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
-        - lg.list tap: true do |l|
-          - l.header 'List group item heading'
-          - l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
-    - c.footer see_component components_list_group_path
-
-  // Modal component
-  - cc.card tap: true do |c|
-    - c.header "Modals"
-    - c.body do
-      = ui_modal class: 'modal-example' do |m|
-        - m.header 'Modal title'
-        - m.body 'One fine body'
-        - m.footer do
-          = ui_button 'Close', status: :secondary
-          = ui_button 'Save changes'
-      = ui_modal class: 'modal-example', size: :sm do |m|
-        - m.header do
-          = 'Modal title'
-        - m.body do
-          = 'One fine body'
-      = ui_button_link 'click here to open modal', { url: '#' }, { data: { toggle: 'modal', target: '#modal-test' }}
-      = ui_modal({ effect: :fade }, { id: 'modal-test' }) do |m|
-        - m.header do
-          = 'Modal title'
-        - m.body do
-          = 'One fine body'
-    - c.footer see_component components_windows_modal_path
-
-  // Nav component
-  - cc.card tap: true do |c|
-    - c.header "Navs"
-    - c.body do
-      = ui_nav do |n|
-        - n.link 'Active', url: '#active', state: :active
-        - n.link url: '#link', class: 'my-link' do
-          Link
-        - n.nav do |na|
-          - na.link 'Another link', url: '#another-link'
-          - na.link 'Disabled', url: '#disabled', state: :disabled
-        - n.link 'Another link 2', url: '#another-link2'
-        - n.link 'Another link 3', url: '#another-link3'
-
-    - c.body do
-      = ui_nav type: :links do |n|
-        - n.link 'Active', url: '#active', state: :active
-        - n.link url: '#link', class: 'my-link' do
-          Link
-        - n.link 'Another link', url: '#another-link'
-        - n.link 'Disabled', url: '#disabled', state: :disabled
-
-    - c.body do
-      = ui_nav type: :tabs do |n|
-        - n.link 'Active', url: '#active', state: :active
-        - n.dropdown 'Dropdown' do |d|
-          - d.link "Action 1", url: '#action'
-          - d.link url: '#another-action' do
-            = "Action 2"
-          - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
-            = "Action 3"
-        - n.link 'Another link', url: '#another-link'
-        - n.link 'Disabled', url: '#disabled', state: :disabled
-    - c.body do
-      = ui_nav type: :pills do |n|
-        - n.link 'Active', url: '#active', state: :active
-        - n.dropdown 'Dropdown' do |d|
-          - d.link "Action 1", url: '#action'
-          - d.link url: '#another-action' do
-            = "Action 2"
-          - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
-            = "Action 3"
-        - n.link 'Another link', url: '#another-link'
-        - n.link 'Disabled', url: '#disabled', state: :disabled
-    - c.body do
-      = ui_nav type: :pills, stacked: true do |n|
-        - n.link 'Active', url: '#active', state: :active
-        - n.link 'Link', url: '#link'
-        - n.link 'Another link', url: '#another-link'
-        - n.link 'Disabled', url: '#disabled', state: :disabled
-    - c.body do
-      = ui_nav type: :tabs do |n|
-        - n.link 'Active', url: '#content1', state: :active
-        - n.link 'Link', url: '#content2'
-        - n.link 'Another link', url: '#content3'
-        - n.link 'Disabled', url: '#content4', state: :disabled
-      %br
-      .tab-content
-        = ui_card 'Content 1', { tab: true, state: :active }, { id: 'content1' }
-        = ui_card 'Content 2', { tab: true, effect: :fade }, { id: 'content2' }
-        = ui_card 'Content 3', { tab: true, effect: :fade }, { id: 'content3' }
-        = ui_card 'Content 4', { tab: true }, { id: 'content4' }
-    - c.footer see_component components_navs_nav_path
-
-  // Navbar component
-  - cc.card tap: true do |c|
-    - c.header "Navbars"
-    - c.body do
-      = ui_navbar title: 'Navbar' do |nb|
-        - nb.nav do |n|
-          - n.link 'Home', url: '#active', state: :active
-        - nb.form '#', { method: :get, type: :form_tag, position: :right } do
-          = ui_text_field 'Search', class: 'mr-2'
-          = ui_button 'Search', status: :success, outline: true
-    - c.body do
-      = ui_navbar title: 'Navbar' do |nb|
-        - nb.nav do |n|
-          - n.link 'Home', url: '#active', state: :active
-          - n.link url: '#link', class: 'my-link' do
-            Features
-          - n.link 'Pricing', url: '#another-link'
-          - n.dropdown 'Dropdown' do |d|
-            - d.link "Action 1", url: '#action'
-            - d.link url: '#another-action' do
-              = "Action 2"
-            - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
-              = "Action 3"
-    - c.body do
-      - UiBibzApp::Application::STATUSES.each do |status|
-        = ui_navbar title: 'Navbar', status: status do |nb|
-          - nb.nav do |n|
-            - n.link 'Home', url: '#active', state: :active
-            - n.link url: '#link', class: 'my-link' do
-              Features
-            - n.link 'Pricing', url: '#another-link'
-            - n.dropdown 'Dropdown' do |d|
-              - d.link "Action 1", url: '#action'
-              - d.link url: '#another-action' do
-                = "Action 2"
-              - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
-                = "Action 3"
-        %br
-      - UiBibzApp::Application::STATUSES.each do |status|
-        = ui_navbar title: 'Navbar', status: status, type: :dark do |nb|
-          - nb.nav do |n|
-            - n.link 'Home', url: '#active', state: :active
-            - n.link url: '#link', class: 'my-link' do
-              Features
-            - n.link 'Pricing', url: '#another-link'
-            - n.dropdown 'Dropdown' do |d|
-              - d.link "Action 1", url: '#action'
-              - d.link url: '#another-action' do
-                = "Action 2"
-              - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
-                = "Action 3"
-        %br
-    - c.footer see_component components_navs_navbar_path
-
-  // Progress component
-  - cc.card tap: true do |c|
-    - c.header "Progress"
-    - c.body do
-      - [[:secondary, 0], [:success, 20], [:primary, 40], [:info, 60], [:warning, 80], [:danger, 100]].each do |i|
-        = ui_progress_bar i[1], status: i[0].to_sym
-    - c.body do
-      - [[:secondary, 0], [:success, 20], [:primary, 40], [:info, 60], [:warning, 80], [:danger, 100]].each do |i|
-        = ui_progress_bar i[1], status: i[0].to_sym, striped: true, animated: true
-    - c.footer see_component components_progress_path
-
-  // ui_stars component
-  - cc.card tap: true do |c|
-    - c.header "Stars"
-    - c.body do
-      - %i(xs sm md lg).each do |i|
-        = ui_star 4, size: i
-        %br
-    - c.body do
-      - [[:secondary, 0], [:success, 1], [:primary, 2], [:info, 3], [:warning, 4], [:danger, 5]].each do |i|
-        = ui_star i[1], status: i[0].to_sym
-        %br
-    - c.body do
-      = ui_star 3.5
-      %br
-      = ui_star 6, num: 8
-    - c.footer see_component components_star_path
-
-  // Forms components
-  - cc.card tap: true do |c|
-    - c.header "Forms"
-    - c.body do
-      %label ui_auto_complete_field
-      = ui_auto_complete_field 'example1', { option_tags: options_for_select(5.times.map{ |i| "option #{i}" }) }, { placeholder: 'Type option..' }
-    - c.body do
-      %label ui_dropdown_select_field
-      = ui_dropdown_select_field 'example1', searchable: true, option_tags: options_for_select(5.times.map{ |i| "option #{i}" })
-    - c.body do
-      %label ui_date_picker_field
-      = ui_date_picker_field 'range', range: ui_glyph('calendar-minus-o'), append: ui_glyph('car'), prepend: ui_glyph('pencil')
-    - c.body do
-      %label ui_formula_field
-      = ui_formula_field 'value', {}, { placeholder: 'Type your formula...(2+3/2)'}
-    - c.body do
-      %label ui_markdown_editor_field
-      = ui_markdown_editor_field 'comments'
-    - c.body do
-      %label ui_multi_column_field
-      - grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
-      = ui_multi_column_field 'example', { option_tags: grouped_options_for_select(grouped_options), searchable: true, selectable_opt_group: true }
-    - c.body do
-      %label ui_multi_select_field
-      %br
-      - grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
-      = ui_multi_select_field 'example', select_all_option: true, searchable: true, collapsible_opt_group: true, option_tags: grouped_options_for_select(grouped_options)
-    - c.body do
-      %label ui_text_field
-      = text_field 'search', { append: ui_glyph('pencil'), prepend: ui_glyph('camera-retro') }, { placeholder: 'Type your search...' }
-    - c.body do
-      %label switch_field
-      %br
-      = ui_switch_field 'examplecolor'
-    - c.body do
-      %label input file
-      %label.custom-file
-        = file_field_tag :file, class: 'custom-file-input'
-        %span.custom-file-control
-    - c.body do
-      = ui_row do
-        = ui_col num: 6 do
-          %label checkbox_field
-          - UiBibzApp::Application::STATUSES.each do |status|
-            = ui_checkbox_field "#{status}", { status: status, checked: true, inline: true }
-        = ui_col num: 6 do
-          %label radio_field
-          - UiBibzApp::Application::STATUSES.each_with_index do |status, i|
-            = ui_radio_field :status, { value: status, label: status.to_s.humanize, status: status, inline: true, checked: i == 0 }
-
-%br.clearfix
-= ui_card_deck do |cd|
-
-  // ui_card component
-  - cd.card do
-    = ui_card tap: true do |c|
-      - c.header 'Card', ui_glyph: 'diamond'
-      - c.body  'Content 2'
-      - c.footer 'Footer 2', muted: true
-
+%h2 Icons
+= ui_row do
+  = ui_col do
+    %h3 Glyphs
+    - UiBibzApp::Application::STATUSES.each do |status|
+      = ui_glyph 'diamond', status: status
     %br
-    = ui_card status: :success do
-      Content
+    = ui_glyph 'diamond', rotate: 90
+    = ui_glyph 'diamond', rotate: 180
+    = ui_glyph 'diamond', rotate: 270
+    %br
+    - UiBibzApp::Application::SIZES.each do |size|
+      = ui_glyph 'diamond', size: size
+  = ui_col do
+    %h3 Stars
+    = ui_row do
+      = ui_col do
+        - UiBibzApp::Application::STATUSES.each_with_index do |status,i|
+          = ui_star i, status: status
+          %br
+      = ui_col do
+        - UiBibzApp::Application::SIZES.each_with_index do |size,i|
+          %br
+          = ui_star i+1, size: size
 
-  - cd.card tap: true do |c|
-    - c.header 'Card'
-    - c.image image
-    - c.body tap: true do |b|
-      - b.title "Card title"
-      - b.text "Some quick example text to build on the ui_card title and make up the bulk of the ui_card's content."
-    - c.list_group do |lg|
-      - lg.list "Cras justo odio"
-      - lg.list "Dapibas ac facilisis in"
-      - lg.list "vestibulum at eros"
-    - c.body tap: true do |b|
-      - b.link "Card link", url: '#', class: "card-link"
-      - b.link "Card link", url: '#', class: "card-link"
-    - c.footer see_component components_cards_card_path
-
-%br.clearfix
-= ui_card_group do |cg|
-  - cg.card(tap: true) do |c|
-    - c.header 'header 1'
-    - c.body 'content 1'
-    - c.footer 'footer 1'
-  - cg.card tap: true do |c|
-    - c.image image
-    - c.body tap: true do |b|
-      - b.title 'card title'
-      - b.text 'this is a wider ui_card with supporting text below as a natural lead-in to additional content. this content is a little bit longer.'
-      - b.text "<small class='text-muted'>last updated 3 mins ago</small>"
-  - cg.card tap: true do |c|
-    - c.list_group do |lg|
-      - lg.list "cras justo odio"
-      - lg.list "Dapibas ac facilisis in", state: :active
+%h2 Lists
+%h3 List groups
+= ui_row do
+  = ui_col do
+    = ui_list_group do |lg|
+      - lg.list 'Cras justo odio', badge: 14
+      - lg.list 'Dapibus ac facilisis in', ui_glyph: 'diamond'
+      - lg.list 'Morbi leo risus', state: :active
+      - lg.list 'Porta ac consectetur ac', state: :disabled
+      - lg.list 'Vestibulum at eros', status: :success
+  = ui_col do
+    = ui_list_group  do |lg|
+      - lg.list tap: true, state: :active do |l|
+        - l.header 'List group item heading'
+        - l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
       - lg.list tap: true do |l|
-        - l.header 'Header list'
-        - l.body "vestibulum at eros"
-  - cg.card "content 4 <br/> some quick example text to build on the ui_card title and make up the bulk of the ui_card's content."
-  - cg.card status: :primary, type: :inverse, text_position: :center do
-    = '<blockquote class="card-blockquote"><p>lorem ipsum dolor sit amet, consectetur adipiscing elit. integer posuere erat a ante.</p><footer>someone famous in <cite title="source title">source title</cite></footer></blockquote>'.html_safe
+        - l.header class: 'my-header' do
+          = 'List group item heading'
+        - l.body class: 'my-body' do
+          = 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
+      - lg.list tap: true do |l|
+        - l.header 'List group item heading'
+        - l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
+
+%br
+
+%h2 Windows
+%h3 Modal
+= ui_row do
+  = ui_col do
+    = ui_modal class: 'modal-example' do |m|
+      - m.header 'Modal title'
+      - m.body 'One fine body'
+      - m.footer do
+        = ui_button 'Close', status: :secondary
+        = ui_button 'Save', status: :danger
+  = ui_col do
+    = ui_modal class: 'modal-example', size: :sm do |m|
+      - m.header do
+        = 'Modal title'
+      - m.body do
+        = 'One fine body'
+    = ui_button_link 'click here to open modal', { url: '#' }, { data: { toggle: 'modal', target: '#modal-test' }}
+    = ui_modal({ effect: :fade }, { id: 'modal-test' }) do |m|
+      - m.header do
+        = 'Modal title'
+      - m.body do
+        = 'One fine body'
+
+%h2 Forms
+%h3 Buttons
+= ui_row class: 'buttons-theme' do
+  = ui_col do
+    - UiBibzApp::Application::STATUSES.each do |status|
+      = ui_button status.to_s.titleize, status: status, ui_glyph: 'diamond'
+  = ui_col do
+    - UiBibzApp::Application::STATUSES.each do |status|
+      = ui_button status.to_s.titleize, status: status, outline: true, ui_glyph: 'diamond'
+  = ui_col do
+    - UiBibzApp::Application::SIZES.each do |size|
+      = ui_button "Button #{ size }", status: :primary, size: size
+    = ui_button 'Block level button', status: :primary, type: :block
+    = ui_button 'Block level button', status: :secondary, type: :block
+
+= ui_row do
+  = ui_col do
+    %h3 Button Choices
+    = ui_button_choice status: :primary do |bc|
+      - bc.button 'Checkbox 1'
+      - bc.button 'Checkbox 2'
+    %br
+    = ui_button_group type: :radio, status: :success do |bc|
+      - bc.button 'Radio 1'
+      - bc.button 'Radio 2'
+  = ui_col do
+    %h3 Button Groups
+    = ui_button_group do |bg|
+      - bg.button 'Button'
+      - bg.button_link 'Button link', url: '#button-link'
+      - bg.dropdown "Dropdown" do |bd|
+        - bd.link "Action", url: '#action'
+        - bd.link "Another action", url: '#another-action'
+        - bd.divider
+        - bd.header 'Header'
+        - bd.link "Separate link", url: '#separate-link'
+
+= ui_row class: 'buttons-theme' do
+  = ui_col do
+    %h3 Dropdowns
+    - UiBibzApp::Application::STATUSES.each do |status|
+      = ui_dropdown status.to_s.titleize, glyph: 'diamond', inline: true, status: status do |d|
+        - d.link "Action", url: '#action', ui_glyph: 'diamond'
+        - d.link "Another action", url: '#another-action'
+        - d.divider
+        - d.header 'Header'
+        - d.html "     Normal Text"
+        - d.link "Separate link", url: '#separate-link'
+    %br
+    - UiBibzApp::Application::STATUSES.each do |status|
+      = ui_dropdown status.to_s.titleize, glyph: 'diamond', inline: true, outline: true, status: status do |d|
+        - d.link "Action", url: '#action', ui_glyph: 'diamond'
+        - d.link "Another action", url: '#another-action'
+        - d.divider
+        - d.header 'Header'
+        - d.html "     Normal Text"
+        - d.link "Separate link", url: '#separate-link'
+    %br
+    = ui_dropdown "Dropdown Right", size: :lg, position: :right, inline: true, status: :success do |d|
+      - d.link "Action", url: '#action', glyph: 'diamond'
+      - d.link "Another action", url: '#another-action'
+      - d.divider
+      - d.header 'Header'
+      - d.html "     Normal Text"
+      - d.link "Separate link", url: '#separate-link'
+    = ui_dropdown "Dropdown Up", size: :sm, type: :dropup, status: :danger do |d|
+      - d.link "Action", url: '#action', glyph: 'diamond'
+      - d.link "Another action", url: '#another-action'
+      - d.divider
+      - d.header 'Header'
+      - d.html "     Normal Text"
+      - d.link "Separate link", url: '#separate-link'
+
+  = ui_col do
+    %h3 Split Dropdowns
+    - UiBibzApp::Application::STATUSES.each do |status|
+      = ui_split_dropdown status.to_s.titleize, glyph: 'diamond', inline: true, status: status do |d|
+        - d.link "Action", url: '#action', ui_glyph: 'diamond'
+        - d.link "Another action", url: '#another-action'
+        - d.divider
+        - d.header 'Header'
+        - d.html "     Normal Text"
+        - d.link "Separate link", url: '#separate-link'
+    %br
+    - UiBibzApp::Application::STATUSES.each do |status|
+      = ui_split_dropdown status.to_s.titleize, glyph: 'diamond', inline: true, outline: true, status: status do |d|
+        - d.link "Action", url: '#action', ui_glyph: 'diamond'
+        - d.link "Another action", url: '#another-action'
+        - d.divider
+        - d.header 'Header'
+        - d.html "     Normal Text"
+        - d.link "Separate link", url: '#separate-link'
+
+= ui_row do
+  = ui_col do
+    %h3 Chexboxes
+    - UiBibzApp::Application::STATUSES[0..-3].each do |status|
+      = ui_checkbox_field "#{status}", { status: status, checked: true, inline: true }
+  = ui_col do
+    %h3 Radios
+    - UiBibzApp::Application::STATUSES[0..-3].each_with_index do |status, i|
+      = ui_radio_field :status, { value: status, label: status.to_s.humanize, status: status, inline: true, checked: i == 0 }
 
 %br.clearfix
-= ui_card_deck do |cd|
-  - cd.card tap: true do |c|
-    - c.body tap: true do |b|
-      - b.title "Special title treatment"
-      - b.text "With supporting text below as a natural lead-in to additional content."
-      - b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
-  - cd.card tap: true, text: { position: :center } do |c|
-    - c.body tap: true do |b|
-      - b.title "Special title treatment"
-      - b.text "With supporting text below as a natural lead-in to additional content."
-      - b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
-  - cd.card tap: true, text: { position: :right } do |c|
-    - c.body tap: true do |b|
-      - b.title "Special title treatment"
-      - b.text "With supporting text below as a natural lead-in to additional content."
-      - b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
 
-%br.clearfix
-= ui_card_deck do |cd|
-  - UiBibzApp::Application::STATUSES.each do |status|
-    - cd.card tap: true, status: status do |c|
-      - c.body tap: true do |b|
-        - b.title "Special title treatment"
-        - b.text "With supporting text below as a natural lead-in to additional content."
+%h3 Inputs
+= ui_row do
+  = ui_col num: 3 do
+    %h4 Auto Complete
+    = ui_auto_complete_field 'example1', { option_tags: options_for_select(5.times.map{ |i| "option #{i}" }) }, { placeholder: 'Type option..' }
+  = ui_col num: 3 do
+    %h4 Dropdown Select
+    = ui_dropdown_select_field 'example1', searchable: true, option_tags: options_for_select(5.times.map{ |i| "option #{i}" })
+  = ui_col num: 3 do
+    %h4 Formula
+    = ui_formula_field 'value', {}, { placeholder: 'Type your formula...(2+3/2)'}
+  = ui_col num: 3 do
+    %h4 Multi Select
+    - grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+    = ui_multi_select_field 'example', select_all_option: true, searchable: true, collapsible_opt_group: true, option_tags: grouped_options_for_select(grouped_options)
+%br
+= ui_row do
+  = ui_col num: 3 do
+    %h4 Text
+    = text_field 'search', { append: ui_glyph('pencil'), prepend: ui_glyph('camera-retro') }, { placeholder: 'Type your search...' }
+  = ui_col num: 3 do
+    %h4 Switch
+    %br
+    = ui_switch_field 'examplecolor'
+  = ui_col num: 3 do
+    %h4 Input File
+    %label.custom-file
+      = file_field_tag :file, class: 'custom-file-input'
+      %span.custom-file-control
+  = ui_col num: 6 do
+    %h4 Markdown Html Editor
+    = ui_markdown_editor_field 'comments'
+    %br
+    %h4 Date Picker
+    = ui_date_picker_field 'range', range: ui_glyph('calendar-minus-o'), append: ui_glyph('car'), prepend: ui_glyph('pencil')
+  = ui_col num: 6 do
+    %h4 Multi column
+    - grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+    = ui_multi_column_field 'example', { option_tags: grouped_options_for_select(grouped_options), searchable: true, selectable_opt_group: true }
 
-
-%br.clearfix
+%h2 Tables
 %br.clearfix
 // Table component
-= ui_card tap: true, class: 'table-test' do |c|
-  - c.header "Tables"
-  - c.body do
-    = ui_col num: 6 do
-      = ""
-    = ui_col num: 6 do
-      = ui_table_search_field store: @users
-    = ui_table({ store: @users, tap: true }) do |b|
-      - b.columns do |cls|
-        - cls.column :id
-        - cls.column :email
-        - cls.column :active
-        - cls.column :company
-        - cls.column :created_at
-        - cls.column :updated_at
-      - b.actions do |acs|
-        - acs.link 'Show', url: '#show', ui_glyph: 'eye'
-        - acs.link 'Edit', url: '#show', ui_glyph: 'pencil'
-        - acs.link 'Delete', url: '#show', ui_glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
+.table-test
+  = ui_row do
+    %h3 Tables
+    = ui_col num: 12 do
+      = ui_table({ store: @users, tap: true }) do |b|
+        - b.columns do |cls|
+          - cls.column :id
+          - cls.column :email
+          - cls.column :active
+          - cls.column :company
+          - cls.column :created_at
+          - cls.column :updated_at
+        - b.actions do |acs|
+          - acs.link 'Show', url: '#show', ui_glyph: 'eye'
+          - acs.link 'Edit', url: '#show', ui_glyph: 'pencil'
+          - acs.link 'Delete', url: '#show', ui_glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
 
-    = ui_col num: 8 do
+    = ui_col num: 4 do
+      %h4 Table Paginations
       = ui_table_pagination store: @users
     = ui_col num: 4 do
+      %h4 Table Searches
+      = ui_table_search_field store: @users
+    = ui_col num: 4 do
+      %h4 Table Pagination Per Page
       = ui_table_pagination_per_page store: @users
-  - c.footer see_component components_table_path
 
 %br.clear
-%br
-%br
+%h3 Table Cards
 = ui_table_card store: @users, title: 'Table card', class: 'table-test', tap: true do |b|
   - b.columns do |cls|
     - cls.column :id
