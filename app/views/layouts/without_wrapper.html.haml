@@ -1,0 +1,10 @@
+= ui_row do
+  = ui_col(xl: { num: 10 }, lg: { num: 10 }, md: { num: 10, }, sm: { num: 12 }, xs: { num: 12 }, class: 'content') do
+    = yield
+  = ui_col( xl: { num: 2 }, lg: { num: 2 }, class: 'secondary-nav' ) do
+    - unless @sections.nil?
+      .sticky
+        %h3 Contents
+        = subnav do |n|
+          - @sections.names.each do |s|
+            - n.link s
