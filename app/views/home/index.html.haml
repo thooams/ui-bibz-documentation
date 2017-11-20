@@ -1,17 +1,16 @@
 .pageheader-blue
   = ui_container do
     = ui_row do
-      = ui_col num: 2 do
-        = image_tag 'ui-bibz-logo.png', class: 'logo'
-      = ui_col num: 10 do
-        %h1= "#{ UiBibzApp::Application::NAME } v#{ UiBibzApp::Application::VERSION }"
-        %p.description
-          #{ UiBibzApp::Application::DESCRIPTION }
-          <br/>
-          #{ UiBibzApp::Application::SUMMARY }
-        = ui_button_link "Get #{ UiBibzApp::Application::NAME }", url: getting_started_path, status: :light, outline: true
-        %p
-          %span.littlemsg For Bootstrap and Ruby lovers
+      = ui_col do
+        %center
+          %h1= "#{ UiBibzApp::Application::NAME } v#{ UiBibzApp::Application::VERSION }"
+          %p.description
+            #{ UiBibzApp::Application::DESCRIPTION }
+            <br/>
+            #{ UiBibzApp::Application::SUMMARY }
+          = ui_button_link "Get #{ UiBibzApp::Application::NAME }", url: getting_started_path, status: :light, outline: true
+          %p
+            %span.littlemsg For Bootstrap and Ruby lovers
 .pageheader-white
   = ui_container do
     %h3.slogan Code less, do more, code better
