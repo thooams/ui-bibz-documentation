@@ -1,0 +1,107 @@
+= title 'Card deck'
+%blockquote UiBibz::Ui::Core::Boxes::CardDeck
+.bd-callout These elements allow the placement of the cards by deck.
+
+- image = 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22241%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20241%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15f6c72b839%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A12pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15f6c72b839%22%3E%3Crect%20width%3D%22241%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2289.765625%22%20y%3D%2294.2%22%3E241x180%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E'
+
+= code do
+  :plain
+    ui_card_deck options, html_options do |cd|
+      cd.card do
+        content
+      end
+    end
+
+- @sections = sections do |s|
+  - s.section title: "Card deck" do
+
+    %p= extend_of_component 'card_deck'
+
+    = example do |e|
+      - e.header do
+        = ui_card_deck do |cd|
+          - cd.card(tap: true) do |c|
+            - c.header 'header 1'
+            - c.body 'content 1'
+            - c.footer 'footer 1'
+          - cd.card tap: true do |c|
+            - c.image image
+            - c.body tap: true do |b|
+              - b.title 'Card title'
+              - b.text 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.'
+              - b.text "<small class='text-muted'>Last updated 3 mins ago</small>"
+          - cd.card tap: true do |c|
+            - c.list_group do |lg|
+              - lg.list "Cras justo odio"
+              - lg.list "Dapibas ac facilisis in", state: :active
+              - lg.list tap: true do |l|
+                - l.header 'Header list'
+                - l.body "vestibulum at eros"
+          - cd.card "Content 4 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
+          - cd.card status: :primary, type: :inverse, text_position: :center do
+            = '<bodyquote class="card-bodyquote"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p><footer>Someone famous in <cite title="Source Title">Source Title</cite></footer></bodyquote>'.html_safe
+      - e.code do
+        ui_card_deck do |cd|
+          cd.card tap: true do |c|
+            c.header "header 1"
+            c.body "content 1"
+            c.footer "footer 1"
+          end
+          cd.card tap: true do |c|
+            c.image 'image.svg'
+            c.body tap: true do |b|
+              b.title 'Card title'
+              b.text 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.'
+              b.text "<small class='text-muted'>Last updated 3 mins ago</small>"
+            end
+          end
+          cd.card tap: true do |c|
+            c.list_group do |lg|
+              lg.list "Cras justo odio"
+              lg.list "Dapibas ac facilisis in", state: :active
+              lg.list tap: true do |l|
+                l.header 'Header list'
+                l.body "vestibulum at eros"
+              end
+            end
+          end
+          cd.card "Content 4 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
+          cd.card status: :primary, type: :inverse, text_position: :center do
+            '<bodyquote class="card-bodyquote"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p><footer>Someone famous in <cite title="Source Title">Source Title</cite></footer></bodyquote>'.html_safe
+          end
+        end
+      - e.html do
+        <div class="card-deck-wrapper">
+          <div class="card-deck">
+            <div class="card">
+              <div class="card-header">header 1</div>
+              <div class="card-body">content 1</div>
+              <div class="card-footer">footer 1</div>
+            </div>
+            <div class="card">
+              <img src="/assets/image.svg" alt="Image">
+              <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+            <div class="card">
+              <ul class="list-group-flush list-group">
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="active list-group-item">Dapibas ac facilisis in</li>
+                <li class="list-group-item">
+                  <h4 class="list-group-item-heading">Header list</h4>
+                  <p class="list-group-item-text">vestibulum at eros</p>
+                </li>
+              </ul>
+            </div>
+            <div class="card card-body">Content 4 <br> Some quick example text to build on the card title and make up the bulk of the card's content.
+            </div>
+            <div class="card-primary card text-center card-body card-inverse">
+              <bodyquote class="card-bodyquote"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p><footer>Someone famous in <cite title="Source Title">Source Title</cite></footer></bodyquote>
+            </div>
+          </div>
+        </div>
+
+= @sections.render

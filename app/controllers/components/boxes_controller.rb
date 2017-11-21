@@ -3,7 +3,13 @@ class Components::BoxesController < ApplicationController
   def index
   end
 
-  def card_column_deck_and_group
+  def card_column
+  end
+
+  def card_deck
+  end
+
+  def card_group
   end
 
   def jumbotron
