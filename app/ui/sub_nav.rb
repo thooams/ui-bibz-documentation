@@ -7,7 +7,7 @@ module UiBibz::Ui::Ux
 
     def link content = nil, options = {}, html_options = nil, &block
       block_given? ? content.merge!({ nav_type: type }) : options.merge!({ nav_type: type })
-      @items << UiBibz::Ui::Ux::SubNavLink.new(content, options, html_options, &block).render
+      @items << UiBibz::Ui::Ux::SubNavLink.new(content, options, html_options, &block)
     end
 
   end
