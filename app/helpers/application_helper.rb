@@ -58,6 +58,23 @@ module ApplicationHelper
     link_to "#{ ui_glyph 'eye' } See component".html_safe, url
   end
 
+  def spacer_values
+    ("Spacer values: " + content_tag(:ul) do
+      concat content_tag :li, 'nil'
+      concat content_tag :li, 'auto'
+      5.times.each do |i|
+        concat content_tag(:li, i+1)
+      end
+    end).html_safe
+  end
+
+  def position_description
+    content_tag :div do
+      concat "The <code>position</code> option has following symbols for argument:".html_safe
+      concat content_tag :ul, %w(left center right).map{ |size| content_tag(:li, ":#{ size }") }.join.html_safe
+    end
+  end
+
   def title name
     content_tag :h2, ui_glyph('diamond', label: name)
   end

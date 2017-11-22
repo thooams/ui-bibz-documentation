@@ -21,10 +21,7 @@
     end
 
 = component_options do |co|
-  - co.state_link
   - co.list 'position', types: 'symbol', values: %w(:left :center :right)
-  - co.list 'stacked', types: 'boolean'
-  - co.list 'justify', types: 'boolean'
 
 - @sections = sections do |s|
   - s.section title: "Tab group" do
@@ -119,6 +116,7 @@
           </nav>
 
   - s.section title: "Spacer" do
+    = spacer_values
     = example do |c|
       - c.header do
         = ui_tab_group do |n|

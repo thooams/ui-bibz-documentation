@@ -36,7 +36,9 @@ $(document).on 'ready page:change', ->
   $('.sidebar').scroll ->
     localStorage.setItem('scrollTop', $(this).scrollTop())
 
-  anchors.add('.content h3')
+  anchors.options = { icon: "#", visible: 'always' }
+  anchors.add('.section > h3')
+  $('.section > h3').wrapInner("<div></div>")
   $('.secondary-nav>.nav>.nav-item>a[href*="#"]').on 'click', ->
     if location.pathname.replace(/^\//, '') == @pathname.replace(/^\//, '') and location.hostname == @hostname
       target = $(@hash)

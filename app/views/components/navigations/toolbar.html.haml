@@ -1,340 +1,151 @@
 = title 'Toolbar'
 %blockquote UiBibz::Ui::Core::Navigations::Toolbar
-%p.bd-callout ui_navs available in Bootstrap have shared markup, starting with the base .nav class, as well as shared status.
+%p.bd-callout Group a series of button group together on a single line with the button toolbar.
 
 = code do
   :plain
-    ui_nav options, html_options do |n|
-      n.link content, options, html_options
-      # or
-      n.link options, html_options do
-        content
-      end
-
-      n.nav do |na|
-        na.link content, options, html_options
-      end
-
-      n.dropdown name, options, html_options do |d|
-        d.link content, options, html_options
+    ui_toolbar options, html_options do |bt|
+      bt.button_group options, html_options do |bg|
+        bg.button content, options, html_options
+        bg.button options, html_options do
+          content
+        end
       end
     end
 
 = component_options do |co|
-  - co.state_link
-  - co.list 'type', types: 'symbol', values: %w(:tabs :pills :links)
-  - co.list 'position', types: 'symbol', values: %w(:left :center :right)
-  - co.list 'stacked', types: 'boolean'
-  - co.list 'justify', types: 'boolean'
+  - co.size_link
+  - co.status_link
 
 - @sections = sections do |s|
-  - s.section title: "Nav" do
+  - s.section title: "Spacer" do
+    = spacer_values
     = example do |c|
       - c.header do
-        = ui_nav do |n|
-          - n.link 'Active', url: '#active', state: :active
-          - n.link url: '#link', class: 'my-link' do
-            Link
-          - n.nav do |na|
-            - na.link 'Another link', url: '#another-link'
-            - na.link 'Disabled', url: '#disabled', state: :disabled
-          - n.link 'Another link 2', url: '#another-link2'
-          - n.link 'Another link 3', url: '#another-link3'
-      - c.code do
-        ui_nav do |n|
-          n.link 'Active', url: '#active', state: :active
-          n.link({ url: '#link' }, { class: 'my-link'}) do
-            "Link"
-          end
-          n.nav do |na|
-            na.link 'Another link', url: '#another-link'
-            na.link 'Disabled', url: '#disabled', state: :disabled
-          end
-          n.link 'Another link 2', url: '#another-link2'
-          n.link 'Another link 3', url: '#another-link3'
-        end
-      - c.html do
-        <ul class="nav">
-          <li class="nav-item"><a class="active nav-link" href="#active">Active</a></li>
-          <li class="my-link nav-item"><a class="my-link nav-link" href="#link">Link</a></li>
-          <li class="nav-item">
-            <ul class="nav">
-              <li class="nav-item"><a class="nav-link" href="#another-link">Another link</a></li>
-              <li class="nav-item"><a class="disabled nav-link" href="#disabled">Disabled</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="#another-link2">Another link 2</a></li>
-          <li class="nav-item"><a class="nav-link" href="#another-link3">Another link 3</a></li>
-        </ul>
-
-  - s.section title: "Nav blocks" do
-    %p Nav has several block type:
-    = component_list_options do |clo|
-      - clo.list inherit_component_link('link'),tap: true do |cl|
-        - cl.list 'url', required: true
-        - cl.state_link
-      - clo.list inherit_specific_component_link('dropdown', components_forms_dropdowns_dropdown_path)
-      - clo.list inherit_specific_component_link('nav', components_navigations_nav_path)
-
-  - s.section title: "Link" do
-    = example do |c|
-      - c.header do
-        = ui_nav type: :links do |n|
-          - n.link 'Active', url: '#active', state: :active
-          - n.link url: '#link', class: 'my-link' do
-            Link
-          - n.link 'Another link', url: '#another-link'
-          - n.link 'Disabled', url: '#disabled', state: :disabled
-      - c.code do
-        ui_nav type: :links do |n|
-          n.link 'Active', url: '#active', state: :active
-          n.link({ url: '#link' }, { class: 'my-link'}) do
-            "Link"
-          end
-          n.link 'Another link', url: '#another-link'
-          n.link 'Disabled', url: '#disabled', state: :disabled
-        end
-      - c.html do
-        <nav class="nav nav-links">
-          <a class="active nav-link" href="#active">Active</a>
-          <a class="my-link nav-link" href="#link">Link</a>
-          <a class="nav-link" href="#another-link">Another link</a>
-          <a class="disabled nav-link" href="#disabled">Disabled</a>
-        </nav>
-
-  - s.section title: "Position" do
-    = example do |c|
-      - c.header do
-        = ui_nav type: :links, position: :right do |n|
-          - n.link 'Active', url: '#active', state: :active
-          - n.link 'Another link', url: '#another-link'
-          - n.link 'Disabled', url: '#disabled', state: :disabled
-        = ui_nav type: :links, position: :center do |n|
-          - n.link 'Active', url: '#active', state: :active
-          - n.link 'Another link', url: '#another-link'
-          - n.link 'Disabled', url: '#disabled', state: :disabled
-        = ui_nav type: :links do |n|
-          - n.link 'Active', url: '#active', state: :active
-          - n.link 'Another link', url: '#another-link'
-          - n.link 'Disabled', url: '#disabled', state: :disabled
+        = ui_toolbar do |bt|
+          - bt.button_group do |bg|
+            - bg.button 1
+            - bg.button 2
+            - bg.button 3
+          - bt.spacer 2
+          - bt.button_group do |bg|
+            - bg.button 4
+            - bg.button 5
+            - bg.button 6
+          - bt.spacer 4
+          - bt.button_group do |bg|
+            - bg.button 8
+            - bg.button 9
+          - bt.spacer
+          - bt.button_group do |bg|
+            - bg.button 10
+            - bg.button 11
       - c.code do
         :plain
-          ui_nav type: :links, position: :right do |n|
-            n.link 'Active', url: '#active', state: :active
-            n.link 'Another link', url: '#another-link'
-            n.link 'Disabled', url: '#disabled', state: :disabled
-          end
-
-          ui_nav type: :links, position: :center do |n|
-            n.link 'Active', url: '#active', state: :active
-            n.link 'Another link', url: '#another-link'
-            n.link 'Disabled', url: '#disabled', state: :disabled
-          end
-
-          ui_nav type: :links do |n|
-            n.link 'Active', url: '#active', state: :active
-            n.link 'Another link', url: '#another-link'
-            n.link 'Disabled', url: '#disabled', state: :disabled
+          ui_toolbar do |t|
+            t.button_group do |bg|
+              bg.button 1
+              bg.button 2
+              bg.button 3
+            end
+            t.spacer 2
+            t.button_group do |bg|
+              bg.button 4
+              bg.button 5
+              bg.button 6
+            end
+            t.spacer 4
+            t.button_group do |bg|
+              bg.button 8
+              bg.button 9
+            end
+            t.spacer
+            t.button_group do |bg|
+              bg.button 10
+              bg.button 11
+            end
           end
       - c.html do
         :plain
-          <nav class="nav nav-links justify-content-end">
-            <a class="active nav-link" href="#active">Active</a>
-            <a class="nav-link" href="#another-link">Another link</a>
-            <a class="disabled nav-link" href="#disabled">Disabled</a>
-          </nav>
+          <div class="btn-toolbar" role="toolbar">
+            <div class="btn-group mr-2" role="group">
+              <button class="btn">1</button>
+              <button class="btn">2</button>
+              <button class="btn">3</button>
+            </div>
+            <div class="btn-group mr-4" role="group">
+              <button class="btn">4</button>
+              <button class="btn">5</button>
+              <button class="btn">6</button>
+            </div>
+            <div class="btn-group mr-auto" role="group">
+              <button class="btn">8</button>
+              <button class="btn">9</button>
+            </div>
+            <div class="btn-group" role="group">
+              <button class="btn">10</button>
+              <button class="btn">11</button>
+            </div>
+          </div>
 
-          <nav class="nav nav-links justify-content-center">
-            <a class="active nav-link" href="#active">Active</a>
-            <a class="nav-link" href="#another-link">Another link</a>
-            <a class="disabled nav-link" href="#disabled">Disabled</a>
-          </nav>
-
-          <nav class="nav nav-links">
-            <a class="active nav-link" href="#active">Active</a>
-            <a class="nav-link" href="#another-link">Another link</a>
-            <a class="disabled nav-link" href="#disabled">Disabled</a>
-          </nav>
-
-  - s.section title: "Tab" do
+  - s.section title: "Justify" do
     = example do |c|
       - c.header do
-        = ui_nav type: :tabs do |n|
-          - n.link 'Active', url: '#active', state: :active
-          - n.dropdown 'Dropdown' do |d|
-            - d.link "Action 1", url: '#action'
-            - d.link url: '#another-action' do
-              = "Action 2"
-            - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
-              = "Action 3"
-          - n.link 'Another link', url: '#another-link'
-          - n.link 'Disabled', url: '#disabled', state: :disabled
+        = ui_toolbar justify: true do |bt|
+          - bt.button_group status: :success  do |bg|
+            - bg.button 'Copy', text: false, glyph: 'copy'
+            - bg.button 'Paste', text: false, glyph: 'paste', status: :danger
+            - bg.button 'Cut', text: false, glyph: 'cut'
+          - bt.button_group status: :primary  do |bg|
+            - bg.button 4
+            - bg.button 5
+          - bt.button_group  do |bg|
+            - bg.button 6
+            - bg.button 7
+            - bg.dropdown 'Dropdown' do |d|
+              - d.link 'link', url: '#link'
       - c.code do
-        ui_nav type: :tabs do |n|
-          n.link 'Active', url: '#active', state: :active
-          n.dropdown 'Dropdown' do |d|
-            d.link "Action 1", url: '#action'
-            d.link url: '#another-action' do
-              "Action 2"
-            end
-            d.link({ url: '#separate-link'}, { class: 'my-link'}) do
-              "Action 3"
-            end
-          end
-          n.link 'Link', url: '#link'
-          n.link 'Another link', url: '#another-link'
-          n.link 'Disabled', url: '#disabled', state: :disabled
-        end
-      - c.html do
-        <ul class="nav nav-tabs">
-          <li class="nav-item"><a class="active nav-link" data-toggle="tab" role="tab" href="#active">Active</a></li>
-          <li class="dropdown nav-item">
-            <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown <span class="caret"></span></a>
-            <div class="dropdown-menu dropdown-menu-left">
-              <a class="dropdown-item" href="#action">Action 1</a>
-              <a class="dropdown-item" href="#another-action">Action 2</a>
-              <a class="my-link dropdown-item" href="#separate-link">Action 3</a>
-            </div>
-          </li>
-          <li class="nav-item"><a class="nav-link" data-toggle="tab" role="tab" href="#another-link">Another link</a></li>
-          <li class="nav-item"><a class="disabled nav-link" data-toggle="tab" role="tab" href="#disabled">Disabled</a></li>
-        </ul>
-
-  - s.section title: "Pill" do
-    = example do |c|
-      - c.header do
-        = ui_nav type: :pills do |n|
-          - n.link 'Active', url: '#active', state: :active
-          - n.dropdown 'Dropdown' do |d|
-            - d.link "Action 1", url: '#action'
-            - d.link url: '#another-action' do
-              = "Action 2"
-            - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
-              = "Action 3"
-          - n.link 'Another link', url: '#another-link'
-          - n.link 'Disabled', url: '#disabled', state: :disabled
-      - c.code do
-        ui_nav type: :pills do |n|
-          n.link 'Active', url: '#active', state: :active
-          n.dropdown 'Dropdown' do |d|
-            d.link "Action 1", url: '#action'
-            d.link url: '#another-action' do
-              "Action 2"
-            end
-            d.link({ url: '#separate-link'}, { class: 'my-link'}) do
-              "Action 3"
-            end
-          end
-          n.link 'Another link', url: '#another-link'
-          n.link 'Disabled', url: '#disabled', state: :disabled
-        end
-      - c.html do
-        <ul class="nav nav-pills">
-          <li class="nav-item"><a class="active nav-link" href="#active">Active</a></li>
-          <li class="dropdown nav-item">
-            <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown <span class="caret"></span></a>
-            <div class="dropdown-menu dropdown-menu-left">
-              <a class="dropdown-item" href="#action">Action 1</a>
-              <a class="dropdown-item" href="#another-action">Action 2</a>
-              <a class="my-link dropdown-item" href="#separate-link">Action 3</a>
-            </div>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="#another-link">Another link</a></li>
-          <li class="nav-item"><a class="disabled nav-link" href="#disabled">Disabled</a></li>
-        </ul>
-
-  - s.section title: "Justified" do
-    = example do |c|
-      - c.header do
-        = ui_nav type: :pills, justify: true do |n|
-          - n.link 'Active', url: '#active', state: :active
-          - n.link 'Another link', url: '#another-link'
-          - n.link 'Disabled', url: '#disabled', state: :disabled
-      - c.code do
-        ui_nav type: :pills, justify: true do |n|
-          n.link 'Active', url: '#active', state: :active
-          n.link 'Another link', url: '#another-link'
-          n.link 'Disabled', url: '#disabled', state: :disabled
-        end
+        :plain
+          ui_toolbar justify: true do |t|
+            t.button_group status: :success do |bg|
+              bg.button 'Copy', text: false, glyph: 'copy'
+              bg.button 'Paste', text: false, glyph: 'paste', status: :danger
+              bg.button 'Cut', text: false, glyph: 'cut'
+            end
+            t.button_group status: :primary do |bg|
+              bg.button 4
+              bg.button 5
+            end
+            t.button_group do |bg|
+              bg.button 4
+              bg.button 5
+              bg.dropdown 'Dropdown', do |d| 6
+                d.link 'Link', url: '#link'
+              end
+            end
+          end
       - c.html do
         :plain
-          <ul class="nav nav-pills nav-justified">
-            <li class="nav-item">
-              <a class="active nav-link" href="#active">Active</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#another-link">Another link</a>
-            </li>
-            <li class="nav-item">
-              <a class="disabled nav-link" href="#disabled">Disabled</a>
-            </li>
-          </ul>
-
-  - s.section title: "Stacked pill" do
-    = example do |c|
-      - c.header do
-        = ui_nav type: :pills, stacked: true, tag: :a do |n|
-          - n.link 'Active', url: '#active', state: :active
-          - n.link 'Link', url: '#link'
-          - n.link 'Another link', url: '#another-link'
-          - n.link 'Disabled', url: '#disabled', state: :disabled
-      - c.code do
-        ui_nav type: :pills, stacked: true do |n|
-          n.link 'Active', url: '#active', state: :active
-          n.link 'Link', url: '#link'
-          n.link 'Another link', url: '#another-link'
-          n.link 'Disabled', url: '#disabled', state: :disabled
-        end
-      - c.html do
-        <ul class="nav nav-pills nav-stacked">
-          <li class="nav-item"><a class="active ui_nav-link" href="#active">Active</a></li>
-          <li class="nav-item"><a class="nav-link" href="#link">Link</a></li>
-          <li class="nav-item"><a class="nav-link" href="#another-link">Another link</a></li>
-          <li class="nav-item"><a class="disabled nav-link" href="#disabled">Disabled</a></li>
-        </ul>
-
-  - s.section title: "Connection" do
-    %p For more information see: #{ link_to 'Boostrap nav', 'https://getbootstrap.com/docs/4.0/components/navs/"' }
-    = example do |c|
-      - c.header do
-        = ui_nav type: :tabs do |n|
-          - n.link 'Active', url: '#content1', state: :active
-          - n.link 'Link', url: '#content2'
-          - n.link 'Another link', url: '#content3'
-          - n.link 'Disabled', url: '#content4', state: :disabled
-        %br
-        .tab-content
-          = ui_card 'Content 1', { tab: true, state: :active }, { id: 'content1' }
-          = ui_card 'Content 2', { tab: true, effect: :fade }, { id: 'content2' }
-          = ui_card 'Content 3', { tab: true, effect: :fade }, { id: 'content3' }
-          = ui_card 'Content 4', { tab: true }, { id: 'content4' }
-      - c.code do
-        ui_nav type: :tabs do |n|
-          n.link 'Active', url: '#content1', state: :active
-          n.link 'Link', url: '#content2'
-          n.link 'Another link', url: '#content3'
-          n.link 'Disabled', url: '#content4', state: :disabled
-        end
-         
-        <div class='tab-content'>
-          card 'Content 1', { tab: true, state: :active }, { id: 'content1' }
-          card 'Content 2', { tab: true, effect: :fade }, { id: 'content2' }
-          card 'Content 3', { tab: true, effect: :fade }, { id: 'content3' }
-          card 'Content 4', { tab: true }, { id: 'content4' }
-        </div>
-      - c.html do
-        <ul class="nav nav-tabs">
-          <li class="nav-item"><a class="active nav-link" data-toggle="tab" role="tab" href="#content1">Active</a></li>
-          <li class="nav-item"><a class="nav-link" data-toggle="tab" role="tab" href="#content2">Link</a></li>
-          <li class="nav-item"><a class="nav-link" data-toggle="tab" role="tab" href="#content3">Another link</a></li>
-          <li class="nav-item"><a class="disabled nav-link" data-toggle="tab" role="tab" href="#content4">Disabled</a></li>
-        </ul>
-        <br>
-        <div class="tab-content">
-          <div id="content1" class="active card card-block tab-pane">Content 1</div>
-          <div id="content2" class="fade card card-block tab-pane">Content 2</div>
-          <div id="content3" class="fade card card-block tab-pane">Content 3</div>
-          <div id="content4" class="card card-block tab-pane">Content 4</div>
-        </div>
+          <div class="btn-toolbar justify-content-between" role="toolbar">
+            <div class="btn-group" role="group">
+              <button class="btn-success btn without-text" title="" data-original-title="Copy"><i class="glyph fa fa-copy"></i> &nbsp;</button>
+              <button class="btn-danger btn without-text" title="" data-original-title="Paste"><i class="glyph fa fa-paste"></i> &nbsp;</button>
+              <button class="btn-success btn without-text" title="" data-original-title="Cut"><i class="glyph fa fa-cut"></i> &nbsp;</button>
+            </div>
+            <div class="btn-group" role="group">
+              <button class="btn-primary btn">4</button>
+              <button class="btn-primary btn">5</button>
+            </div>
+            <div class="btn-group" role="group">
+              <button class="btn">6</button>
+              <button class="btn">7</button>
+              <div class="dropdown btn-group">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown-124592266235445737550728140034240625579">Dropdown <span class="caret"></span></button>
+                <div class="dropdown-menu" arial-labelledby="dropdown-124592266235445737550728140034240625579">
+                  <a class="dropdown-item" href="#link">link</a>
+                </div>
+              </div>
+            </div>
+          </div>
 
 = @sections.render
