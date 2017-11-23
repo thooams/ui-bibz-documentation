@@ -27,6 +27,13 @@
   - co.list 'stacked', types: 'boolean'
   - co.list 'justify', types: 'boolean'
 
+= component_items do |ci|
+  - ci.inherit_component 'link'
+  - ci.inherit_component 'text'
+  - ci.inherit_component 'nav', components_navigations_nav_path
+  - ci.inherit_component 'dropdown', components_forms_dropdowns_dropdown_path
+  - ci.inherit_component
+
 - @sections = sections do |s|
   - s.section title: "Nav" do
     = example do |c|

@@ -55,6 +55,13 @@
   - co.list 'outline', types: 'boolean', values: %w(true false)
   - co.tap_link
 
+= component_items do |ci|
+  - ci.inherit_component 'header'
+  - ci.inherit_component 'body'
+  - ci.inherit_component 'footer'
+  - ci.inherit_component 'image'
+  - ci.inherit_component 'list_group', components_lists_list_group_path
+
 - @sections = sections do |s|
   - s.section title: "Card" do
     = example do |e|
@@ -89,16 +96,6 @@
           <div class="my-card2 bg-success text-white card">
             <div class="card-body">Content 3</div>
           </div>
-
-  - s.section title: "Card with header, body and footer" do
-    :markdown
-      Card has several block type:
-
-      * #{ inherit_component_link 'header' }
-      * #{ inherit_component_link 'body' }
-      * #{ inherit_component_link 'footer' }
-      * image (`String`)
-      * #{ link_to 'list_group', components_lists_list_group_path }
 
     = tap_warning
 

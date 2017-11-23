@@ -14,6 +14,7 @@
 = ui_nav class: 'nav-left' do |n|
   - n.text 'Lists'
   - n.link 'List group', nav_options(components_lists_list_group_path)
+  - n.link 'List', nav_options(components_lists_list_path)
 
 = ui_nav class: 'nav-left' do |n|
   - n.text 'Layouts'
@@ -51,7 +52,6 @@
     - no.text 'Buttons'
     - no.nav do |na|
       - na.link 'Button', nav_options(components_forms_buttons_button_path)
-      - na.link 'Button choice', nav_options(components_forms_buttons_button_choice_path)
       - na.link 'Button group', nav_options(components_forms_buttons_button_group_path)
       - na.link 'Button link', nav_options(components_forms_buttons_button_link_path)
 
@@ -65,6 +65,7 @@
       - na.link 'Switch field', nav_options(components_forms_choices_switch_field_path)
       - na.link 'Checkbox field', nav_options(components_forms_choices_checkbox_field_path)
       - na.link 'Radio field', nav_options(components_forms_choices_radio_field_path)
+      - na.link 'Choice group', nav_options(components_forms_choices_choice_group_path)
 
     - no.text 'Dates'
     - no.nav do |na|

@@ -12,6 +12,9 @@
       end
     end
 
+= component_items do |ci|
+  - ci.inherit_component 'card', components_boxes_card_path
+
 - @sections = sections do |s|
   - s.section title: "Card group" do
     %p= extend_of_component 'card_group'

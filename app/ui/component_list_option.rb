@@ -45,11 +45,19 @@ module UiBibz::Ui::Ux
       list('tap', { types: :boolean, description: '*Required if you want use :header, :body or :footer options' })
     end
 
+    def inherit_component name = nil, path = nil
+      list(name, description: inherit_component_link(name, path))
+    end
+
     def render
       content_tag :ul, @items.join.html_safe, class: 'list-options'
     end
 
   private
+
+    def inherit_component_link name = nil, path = nil
+      " (inherit of #{ link_to(path.nil? ? 'component' : name, path || component_path) })"
+    end
 
     def option_link opt
       link_to opt, component_path(anchor: opt)

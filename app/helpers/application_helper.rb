@@ -46,8 +46,8 @@ module ApplicationHelper
     "#{ name} (inherit of #{ link_to 'component', component_path })".html_safe
   end
 
-  def inherit_specific_component_link name, url
-    "#{ name} (inherit of #{ link_to name, url })".html_safe
+  def inherit_specific_component_link name, url, other_name = nil
+    "#{ name} (inherit of #{ link_to (other_name || name), url })".html_safe
   end
 
   def based_on link
@@ -76,7 +76,10 @@ module ApplicationHelper
   end
 
   def title name
-    content_tag :h2, ui_glyph('diamond', label: name)
+    content_tag :h2 do
+      concat ui_glyph('diamond', label: name)
+      concat content_tag :span, "(ui_#{ name.parameterize.underscore })"
+    end
   end
 
   def tap_warning

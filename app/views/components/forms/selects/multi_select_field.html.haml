@@ -11,7 +11,7 @@
   - co.list 'clickable_opt_group', types: 'boolean'
   - co.list 'collapsible_opt_group', types: 'boolean'
   - co.list 'searchable', types: 'boolean'
-  - co.list 'select_all_option', types: 'boolean'
+  - co.list 'select_all_options', types: 'boolean'
   - co.list 'connect', types: 'hash'
   - co.list 'append', types: %w(string html)
   - co.list 'prepend', types: %w(string html)
@@ -43,7 +43,7 @@
           </ul>
         </div>
 
-  - s.section title: "Clickable_opt_group option" do
+  - s.section title: "Option group clickable" do
     = example do |e|
       - e.header do
         - grouped_options = { 'North America' => [['United states','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
@@ -76,7 +76,7 @@
           </ul>
         </div>
 
-  - s.section title: "Collapsible_opt_group option" do
+  - s.section title: "Options group collapsible" do
     = example do |e|
       - e.header do
         - grouped_options = { 'North America' => [['United states','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
@@ -109,7 +109,7 @@
           </ul>
         </div>
 
-  - s.section title: "Searchable option" do
+  - s.section title: "Searchable options" do
     = example do |e|
       - e.header do
         = ui_multi_select_field 'example1', searchable: true, option_tags: select_options_tags
@@ -208,13 +208,13 @@
             </ul>
           </div>
 
-  - s.section title: "Select_all_option option" do
+  - s.section title: "Select all options" do
     = example do |e|
       - e.header do
-        = ui_multi_select_field 'example1', select_all_option: true, option_tags: select_options_tags
+        = ui_multi_select_field 'example1', select_all_options: true, option_tags: select_options_tags
       - e.code do
         option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
-        ui_multi_select_field 'example', select_all_option: true, option_tags: option_tags
+        ui_multi_select_field 'example', select_all_options: true, option_tags: option_tags
       - e.html do
         <select name="example1[]" id="example1" data-include-select-all-option="true" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
           <option value="option 0">option 0</option>
@@ -248,6 +248,32 @@
         ui_multi_select_field 'warning', status: :warning, option_tags: option_tags
         ui_multi_select_field 'danger', status: :danger, option_tags: option_tags
         ui_multi_select_field 'link', status: :link, option_tags: option_tags
+      - e.html do
+        <select name="primary[]" id="primary" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
+          <option value="option 0">option 0</option>
+          <option value="option 1">option 1</option>
+          <option value="option 2">option 2</option>
+          <option value="option 3">option 3</option>
+          <option value="option 4">option 4</option>
+        </select>
+        <div class="btn-group">
+          <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="None selected">None selected <b class="caret"></b></button>
+          <ul class="multiselect-container dropdown-menu">
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 0"> option 0</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 1"> option 1</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 2"> option 2</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 3"> option 3</label></a></li>
+            <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="option 4"> option 4</label></a></li>
+          </ul>
+        </div>
+
+  - s.section title: "Number displayed" do
+    = example do |e|
+      - e.header do
+        = ui_multi_select_field :number_displayed, option_tags: select_options_tags, number_displayed: 1
+      - e.code do
+        option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
+        ui_multi_select_field 'number_displayed', option_tags: option_tags, number_displayed: 1
       - e.html do
         <select name="primary[]" id="primary" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
           <option value="option 0">option 0</option>

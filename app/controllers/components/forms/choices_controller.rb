@@ -9,4 +9,7 @@ class Components::Forms::ChoicesController < Components::FormsController
   def radio_field
   end
 
+  def choice_group
+  end
+
 end

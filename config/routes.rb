@@ -24,7 +24,6 @@ Rails.application.routes.draw do
       # buttons
       namespace :buttons do
         get 'button'
-        get 'button-choice'
         get 'button-group'
         get 'button-toolbar'
         get 'button-link'
@@ -77,6 +76,7 @@ Rails.application.routes.draw do
 
       # choices
       namespace :choices do
+        get 'choice-group'
         get 'switch-field'
         get 'checkbox-field'
         get 'radio-field'
@@ -130,6 +130,7 @@ Rails.application.routes.draw do
 
     namespace :lists do
       get 'list_group'
+      get 'list'
     end
   end
 

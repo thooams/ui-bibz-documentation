@@ -1,0 +1,125 @@
+= title 'Choice group'
+%blockquote UiBibz::Ui::Core::Forms::Choices::ChoiceGroup
+%p.bd-callout Allow use checkbox or radio inputs throught button element.
+
+= code do
+  :plain
+    ui_choice_group do |bc|
+      bc.choice content, options, html_options
+      # or
+      bc.choice options, html_options do
+        content
+      end
+    end
+
+= component_options do |co|
+  - co.status_link
+  - co.size_link
+  - co.list 'type', types: 'symbol', values: %w(:radio :checkbox)
+  - co.list 'outline', types: 'boolean'
+
+- @sections = sections do |s|
+  - s.section title: "Checkbox buttons" do
+    = example do |c|
+      - c.header do
+        = ui_choice_group do |bc|
+          - bc.choice 'Checkbox 1'
+          - bc.choice 'Checkbox 2', state: :active
+      - c.code do
+        :plain
+          ui_choice_group do |bc|
+            bc.choice 'Checkbox 1'
+            bc.choice 'Checkbox 2', state: :active
+          end
+      - c.html do
+        <div data-toggle="buttons" class="btn-group" >
+          <label class="btn-secondary btn"><input type="checkbox" autocomplete="off">Checkbox 1</label>
+          <label class="active btn-secondary btn"><input type="checkbox" autocomplete="off" checked="checked">Checkbox 2</label>
+        </div>
+
+  - s.section title: "Button choice blocks" do
+    %p Button choice has on block type:
+    %ul
+      %li= inherit_specific_component_link 'choice', components_forms_buttons_button_path, 'button'
+
+  - s.section title: "Checkbox buttons options" do
+    = example do |c|
+      - c.header do
+        = ui_choice_group size: :sm, outline: true, status: :success do |bc|
+          - bc.choice 'Checkbox 1'
+          - bc.choice 'Checkbox 2', state: :active, glyph: 'diamond'
+      - c.code do
+        ui_choice_group size: :sm, outline: true, status: :success do |bc|
+          bc.choice 'Checkbox 1'
+          bc.choice 'Checkbox 2', state: :active, glyph: 'diamond'
+        end
+      - c.html do
+        :plain
+          <div data-toggle="buttons" class="btn-group btn-group-sm button-choice">
+            <label class="btn-outline-success btn btn-sm checkbox">
+              <input type="checkbox" autocomplete="off">Checkbox 1
+            </label>
+            <label class="active btn-outline-success btn btn-sm checkbox" aria-pressed="true">
+              <input type="checkbox" autocomplete="off" checked="checked">
+                <i class="glyph fa fa-diamond"></i>Checkbox 2
+            </label>
+          </div>
+
+  - s.section title: "Radio button" do
+    = example do |c|
+      - c.header do
+        = ui_choice_group type: :radio do |bc|
+          - bc.choice 'Radio 1'
+          - bc.choice 'Radio 2', state: :active
+      - c.code do
+        ui_choice_group do |bc|
+          bc.choice 'Radio 1'
+          bc.choice 'Radio 2', state: :active
+        end
+      - c.html do
+        <div data-toggle="buttons" class="btn-group" role="group">
+          <label class="btn-primary btn"><input type="radio" autocomplete="off">Radio 1</label>
+          <label class="active btn-primary btn"><input type="radio" autocomplete="off" checked="checked">Radio 2</label>
+        </div>
+
+
+  - s.section title: "Radio buttons options" do
+    = example do |c|
+      - c.header do
+        = ui_choice_group size: :lg, type: :radio, outline: true do |bc|
+          - bc.choice 'Radio 1', status: :danger, glyph: 'diamond'
+          - bc.choice 'Radio 2', status: :danger, state: :active
+      - c.code do
+        ui_choice_group size: :lg, outline: true, type: :radio do |bc|
+          bc.choice 'Radio 1', status: :danger, glyph: 'diamond'
+          bc.choice 'Radio 2', status: :danger, state: :active
+        end
+      - c.html do
+        <div data-toggle="buttons" class="btn-group" role="group">
+          <label class="btn-danger-outline btn btn-lg"><input type="radio" autocomplete="off">Radio 1</label>
+          <label class="active btn-danger-outline btn btn-lg"><input type="radio" autocomplete="off" checked="checked">Radio 2</label>
+        </div>
+
+  - s.section title: "Radio buttons options" do
+    = example do |c|
+      - c.header do
+        = ui_choice_group size: :lg, status: :primary, type: :radio, outline: true do |bc|
+          - bc.choice 'Radio 1', glyph: 'diamond', state: :active
+          - bc.choice 'Radio 2', status: :danger, glyph: 'diamond', text: false
+          - bc.choice 'Radio 3'
+          - bc.choice 'Radio 4', status: :danger
+      - c.code do
+        :plain
+          ui_choice_group size: :lg, status: :primary, outline: true, type: :radio do |bc|
+            bc.choice 'Radio 1', glyph: 'diamond', state: :active, text: false
+            bc.choice 'Radio 2', status: :danger
+            bc.choice 'Radio 3'
+            bc.choice 'Radio 4', status: :danger
+          end
+      - c.html do
+        <div data-toggle="buttons" class="btn-group" role="group">
+          <label class="btn-danger-outline btn btn-lg"><input type="radio" autocomplete="off">Radio 1</label>
+          <label class="active btn-danger-outline btn btn-lg"><input type="radio" autocomplete="off" checked="checked">Radio 2</label>
+        </div>
+
+= @sections.render

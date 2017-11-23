@@ -91,7 +91,7 @@
         <button class="btn-primary btn btn-block">Block level button</button>
         <button class="btn-secondary btn btn-block">Block level button</button>
 
-  - s.section title: "state", tag: :h3 do
+  - s.section title: "State", tag: :h3 do
     :markdown
       The buttons inherits the `state` option, this option is in element [component] (../components/)
       This option lets you disable or enable the element about through these two arguments :
@@ -124,7 +124,7 @@
         = ui_button 'Text', glyph: 'diamond', status: :success, text: false
         = ui_button({ badge: 2 }, { class: 'button' }) do
           = 'Info'
-        = ui_button 'Warning', status: :warning, badge: { content: 3, type: :pill }
+        = ui_button 'Warning', status: :warning, badge: { content: 3, type: :pill, status: :danger }
       - c.code do
         ui_button 'Primary Active', status: :primary, state: :active
         ui_button 'Toggle Danger', { status: :danger, glyph: :diamond, toggle: true }, { class: 'button' }
@@ -134,7 +134,7 @@
           Info
         end
 
-        ui_button 'Warning', status: :warning, badge: { content: 3, type: :pill }
+        ui_button 'Warning', status: :warning, badge: { content: 3, type: :pill, status: :danger }
       - c.html do
         :plain
           <button class="active btn-primary btn" role="button">Primary Active</button>
@@ -145,6 +145,6 @@
           <button class="button btn" role="button">
             Info<span class="badge-secondary badge">2</span>
           </button>
-          <button class="btn-warning btn">Warning<span class="badge-warning badge badge-pill">3</span></button>
+          <button class="btn-warning btn">Warning<span class="badge-danger badge badge-pill">3</span></button>
 
 = @sections.render

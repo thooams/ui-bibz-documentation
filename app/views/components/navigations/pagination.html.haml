@@ -82,11 +82,11 @@
       - c.code do
         - UiBibzApp::Application::SIZES.each do |size|
           ui_pagination size: :#{ size } do |n|
-          n.link '«', url: '#<<', state: :disabled
-              n.link 1, url: '#<<', state: :active
+            n.link '«', url: '#<<', state: :disabled
+            n.link 1, url: '#<<', state: :active
           - 5.times.each do |i|
             = "  n.link #{ i+2 }, url: '##{ i+2 }', class: 'my-link'".html_safe
-          = "  n.link '»', url: '#>>'"
+          = "  n.link '»', url: '#>>'".html_safe
           = "end"
       - c.html do
         :plain
@@ -130,10 +130,9 @@
             - n.link '»', url: '#>>'
       - c.code do
         - %i(left center right).each do |p|
-          :plain
-            ui_pagination size: :#{ p } do |n|
-              n.link '«', url: '#<<', state: :disabled
-              n.link 1, url: '#<<', state: :active
+          ui_pagination size: :#{ p } do |n|
+            n.link '«', url: '#<<', state: :disabled
+            n.link 1, url: '#<<', state: :active
           - 5.times.each do |i|
             = "  n.link #{ i+2 }, url: '##{ i+2 }', class: 'my-link'".html_safe
           :plain

@@ -20,7 +20,7 @@
   - co.list 'name', types: 'string'
   - co.list 'rotate', types: 'number'
   - co.list 'stack', types: 'integer'
-  - co.list 'text', types: 'string'
+  - co.list 'label', types: 'string'
 
 - @sections = sections do |s|
   - s.section title: "Glyph" do
@@ -125,6 +125,15 @@
       - c.html do
         <i class="glyph fa fa-square fa-stack-2x"></i>
         <i class="glyph-danger ui_glyph fa fa-diamond fa-stack-1x"></i>
+
+  - s.section title: "Label" do
+    = example do |c|
+      - c.header do
+        = ui_glyph 'diamond', label: 'Diamond'
+      - c.code do
+        ui_glyph 'diamond', label: 'Diamond'
+      - c.html do
+        <i class="glyph fa fa-diamond"></i> Diamond
 
   - s.section title: "Hash" do
     %p You can create a ui_glyph with only one hash.

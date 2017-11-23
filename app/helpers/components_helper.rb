@@ -24,6 +24,10 @@ module ComponentsHelper
     UiBibz::Ui::Ux::ComponentOption.new(content, options, html_options).tap(&block).render
   end
 
+  def component_items content = nil, options = nil, html_options = nil, &block
+    UiBibz::Ui::Ux::ComponentItems.new(content, options, html_options).tap(&block).render
+  end
+
   def component_html_options content = nil, options = nil, html_options = nil, &block
     UiBibz::Ui::Ux::ComponentHtmlOption.new(content, options, html_options).tap(&block).render
   end

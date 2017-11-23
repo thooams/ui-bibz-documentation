@@ -1,38 +1,39 @@
-= title 'List group'
-%blockquote UiBibz::Ui::Core::Lists::ListGroup
-%p.bd-callout List groups are a flexible and powerful component for displaying not only simple lists of elements, but complex ones with custom content.
-
+= title 'List'
+%blockquote UiBibz::Ui::Core::Lists::List
+%p.bd-callout List component for displaying custom content.
 
 = code do
   :plain
-    ui_list_group options, html_options do |lg|
-      lg.list content, options, html_options
+    ui_list content, options, html_options
+    # or
+    ui_list options, html_options do
+      content
+    end
+    # or
+    ui_list options, html_options do |l|
+      l.header content, options, html_options
       # or
-      lg.list options, html_options do
+      l.header options, html_options do
         content
       end
-      # or
-      lg.list options, html_options do |l|
-        l.header content, options, html_options
-        # or
-        l.header options, html_options do
-          content
-        end
 
-        l.body content, options, html_options
-        # or
-        l.body options, html_options do
-          content
-        end
+      l.body content, options, html_options
+      # or
+      l.body options, html_options do
+        content
       end
     end
 
 = component_options do |co|
-  - co.list 'type', types: 'symbol', values: %w(:a :button :li)
-  - co.tap_link
+  - co.status_link
+  - co.glyph_link
+  - co.state_link
+  - co.list link_to('badge',components_boxes_card_path), types: %w(hash string)
 
 = component_items do |ci|
-  - ci.inherit_component 'list'
+  - ci.inherit_component 'header'
+  - ci.inherit_component 'body'
+  - ci.inherit_component 'footer'
 
 - @sections = sections do |s|
   - s.section title: "List group" do
