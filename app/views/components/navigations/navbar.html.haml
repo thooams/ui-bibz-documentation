@@ -30,6 +30,14 @@
   - co.list 'position', types: 'symbol', values: %w(:top :bottom)
   - co.list 'sticky', types: 'boolean', values: %w(true false)
 
+= component_items do |ci|
+  - ci.inherit_component 'brand'
+  - ci.inherit_component 'text'
+  - ci.inherit_component 'nav', components_navigations_nav_path
+  - ci.list 'form', tap: true do |cli|
+    - cli.list 'type', types: 'symbol', values: %w(:form_for :ui_form_for :form_tag), default: ":form_tag"
+
+
 - @sections = sections do |s|
   - s.section title: "Navbar" do
     = example do |c|

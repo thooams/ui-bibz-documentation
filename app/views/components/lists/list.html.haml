@@ -36,237 +36,149 @@
   - ci.inherit_component 'footer'
 
 - @sections = sections do |s|
-  - s.section title: "List group" do
+  - s.section title: "List" do
     = example do |c|
-
-      :markdown
-        List group has one block type:
-
-        * #{ inherit_component_link 'list' }
-
       - c.header do
-        = ui_list_group do |lg|
-          - lg.list 'Cras justo odio'
-          - lg.list 'Dapibus ac facilisis in'
-          - lg.list 'Morbi leo risus'
-          - lg.list 'Porta ac consectetur ac'
-          - lg.list 'Vestibulum at eros'
+        = ui_list 'Cras justo odio'
+        %br
+        = ui_list do
+          = 'Cras justo odio by block'
       - c.code do
-        ui_list_group do |lg|
-          lg.list 'Cras justo odio'
-          lg.list 'Dapibus ac facilisis in'
-          lg.list 'Morbi leo risus'
-          lg.list 'Porta ac consectetur ac'
-          lg.list 'Vestibulum at eros'
-        end
+        :plain
+          ui_list 'Cras justo odio'
+
+          ui_list do
+            Cras justo odio by block
+          end
       - c.html do
-        <ul class="list-group">
-          <li class="list-group-item">Cras justo odio</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Morbi leo risus</li>
-          <li class="list-group-item">Porta ac consectetur ac</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
+        <li class="list-group-item">Cras justo odio</li>
 
-  - s.section title: "List group options" do
-    %p List group has several options:
-    = component_list_options do |clo|
-      - clo.status_link
-      - clo.glyph_link
-      - clo.state_link
-      - clo.list link_to('badge',components_boxes_card_path), types: %w(hash string)
-
-  - s.section title: "badges" do
+  - s.section title: "Badge" do
     = example do |c|
       - c.header do
-        = ui_list_group do |lg|
-          - lg.list 'Cras justo odio', badge: 14
-          - lg.list 'Dapibus ac facilisis in', badge: { content: 2, type: :square }
+        = ui_list 'Cras justo odio', badge: 14
+        %br
+        = ui_list 'Dapibus ac facilisis in', badge: { content: 2, type: :square }
       - c.code do
-        ui_list_group do |lg|
-          lg.list 'Cras justo odio', badge: 14
-          lg.list 'Dapibus ac facilisis in', badge: { content: 2, type: :square }
-        end
+        :plain
+          ui_list 'Cras justo odio', badge: 14
+          ui_list 'Dapibus ac facilisis in', badge: { content: 2, type: :square }
       - c.html do
         :plain
-          <ul class="list-group">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              Cras justo odio
-              <span class="badge-secondary badge badge-pill">14</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              Dapibus ac facilisis in
-              <span class="badge-secondary badge">2</span>
-            </li>
-          </ul>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Cras justo odio
+            <span class="badge-secondary badge badge-pill">14</span>
+          </li>
 
-  - s.section title: "Linked items" do
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Dapibus ac facilisis in
+            <span class="badge-secondary badge">2</span>
+          </li>
+
+  - s.section title: "Link" do
     = example do |c|
       - c.header do
-        = ui_list_group tag: :a do |lg|
-          - lg.list 'Cras justo odio', url: "#1", state: :active
-          - lg.list 'Dapibus ac facilisis in', url: "#2"
-          - lg.list 'Morbi leo risus', url: "#3"
-          - lg.list 'Porta ac consectetur ac', url: "#4"
-          - lg.list 'Vestibulum at eros', url: "#5"
+        = ui_list 'Cras justo odio', url: "#1", state: :active, tag: :a
+        %br
+        = ui_list 'Porta ac consectetur ac', url: "#2", tag: :a
       - c.code do
-        ui_list_group tag: :a do |lg|
-          lg.list 'Cras justo odio', url: "#1",state: :active
-          lg.list 'Dapibus ac facilisis in', url: "#2"
-          lg.list 'Morbi leo risus', url: "#3"
-          lg.list 'Porta ac consectetur ac', url: "#4"
-          lg.list 'Vestibulum at eros', url: "#5"
-        end
+        :plain
+          ui_list 'Cras justo odio', url: "#1", state: :active, tag: :a
+          ui_list 'Porta ac consectetur ac', url: "#2", tag: :a
       - c.html do
-        <div class="list-group">
+        :plain
           <a class="active list-group-item" href="#1">Cras justo odio</a>
-          <a class="list-group-item" href="#2">Dapibus ac facilisis in</a>
-          <a class="list-group-item" href="#3">Morbi leo risus</a>
-          <a class="list-group-item" href="#4">Porta ac consectetur ac</a>
-          <a class="list-group-item" href="#5">Vestibulum at eros</a>
-        </div>
+          <a class="list-group-item" href="#2">Porta ac consectetur ac</a>
 
-  - s.section title: "Button items" do
+  - s.section title: "Button" do
     = example do |c|
       - c.header do
-        = ui_list_group tag: :button do |lg|
-          - lg.list 'Cras justo odio', state: :active
-          - lg.list 'Dapibus ac facilisis in'
-          - lg.list 'Morbi leo risus'
-          - lg.list 'Porta ac consectetur ac'
-          - lg.list 'Vestibulum at eros'
+        = ui_list 'Cras justo odio', url: "#1", state: :active, tag: :button
+        %br
+        = ui_list 'Porta ac consectetur ac', url: "#2", tag: :button
       - c.code do
-        ui_list_group tag: :button do |lg|
-          lg.list 'Cras justo odio'
-          lg.list 'Dapibus ac facilisis in'
-          lg.list 'Morbi leo risus'
-          lg.list 'Porta ac consectetur ac'
-          lg.list 'Vestibulum at eros'
-        end
+        :plain
+          ui_list 'Cras justo odio', url: "#1", state: :active, tag: :button
+          ui_list 'Porta ac consectetur ac', url: "#2", tag: :button
       - c.html do
-        <div class="list-group">
-          <button class="active list-group-item">Cras justo odio</button>
-          <button class="list-group-item">Dapibus ac facilisis in</button>
-          <button class="list-group-item">Morbi leo risus</button>
-          <button class="list-group-item">Porta ac consectetur ac</button>
-          <button class="list-group-item">Vestibulum at eros</button>
-        </div>
+        :plain
+          <button class="active list-group-item" href="#1">Cras justo odio</button>
+          <button class="list-group-item" href="#2">Porta ac consectetur ac<button>
 
   - s.section title: "Disabled items" do
     = example do |c|
       - c.header do
-        = ui_list_group do |lg|
-          - lg.list 'Cras justo odio', state: :disabled
-          - lg.list 'Dapibus ac facilisis in'
-          - lg.list 'Morbi leo risus'
-          - lg.list 'Porta ac consectetur ac'
-          - lg.list 'Vestibulum at eros'
+        = ui_list 'Cras justo odio', state: :disabled
       - c.code do
-        ui_list_group do |lg|
-          lg.list 'Cras justo odio', state: :disabled
-          lg.list 'Dapibus ac facilisis in'
-          lg.list 'Morbi leo risus'
-          lg.list 'Porta ac consectetur ac'
-          lg.list 'Vestibulum at eros'
-        end
+        :plain
+          ui_list 'Cras justo odio', state: :disabled
       - c.html do
-        <ul class="list-group">
+        :plain
           <li class="disabled list-group-item">Cras justo odio</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Morbi leo risus</li>
-          <li class="list-group-item">Porta ac consectetur ac</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
-
 
   - s.section title: "Status" do
     = example do |c|
       - c.header do
-        = ui_list_group  do |lg|
-          - lg.list "This is a normal list group item"
-          - UiBibzApp::Application::STATUSES.each do |status|
-            - lg.list "This is a #{ status } list group item", status: status
-      - c.code do
-        ui_list_group do |lg|
-          lg.list "This is a normal list group item"
         - UiBibzApp::Application::STATUSES.each do |status|
-          = "  lg.list 'This is a #{ status } list group item', status: :#{ status }".html_safe
-        end
+          = ui_list "This is a #{ status } list group item", status: status
+          %br
+      - c.code do
+        - UiBibzApp::Application::STATUSES.each do |status|
+          = "ui_list 'This is a #{ status } list group item', status: :#{ status }".html_safe
       - c.html do
-        <ul class="list-group">
-          <li class="list-group-item-danger list-group-item">Cras justo odio</li>
-          <li class="list-group-item-info list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item-warning list-group-item">Morbi leo risus</li>
-          <li class="list-group-item-success list-group-item">Porta ac consectetur ac</li>
-          <li class="list-group-item-primary list-group-item">Vestibulum at eros</li>
-        </ul>
+        <li class="list-group-item-primary list-group-item">This is a primary list group item</li>
+        <li class="list-group-item-secondary list-group-item">This is a secondary list group item</li>
+        <li class="list-group-item-success list-group-item">This is a success list group item</li>
+        <li class="list-group-item-danger list-group-item">This is a danger list group item</li>
+        <li class="list-group-item-warning list-group-item">This is a warning list group item</li>
+        <li class="list-group-item-info list-group-item">This is a info list group item</li>
+        <li class="list-group-item-light list-group-item">This is a light list group item</li>
+        <li class="list-group-item-dark list-group-item">This is a dark list group item</li>
 
-  - s.section title: "Custom content" do
-
-    :markdown
-      List group list has several block type:
-
-      * #{ inherit_component_link 'header' }
-      * #{ inherit_component_link 'body' }
-
+  - s.section title: "Block" do
     = example do |c|
       - c.header do
-        = ui_list_group tag: :a do |lg|
-          - lg.list tap: true, url: '#', state: :active do |l|
-            - l.header 'List group item heading', extra: "3 days ago"
-            - l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.', extra: "Donec id elit non mi porta"
-          - lg.list tap: true, url: '#' do |l|
-            - l.header class: 'my-header', extra: "3 days ago" do
-              = 'List group item heading'
-            - l.body class: 'my-body', extra: "Donec id elit non mi porta" do
-              = 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
-          - lg.list tap: true, url: '#' do |l|
-            - l.header 'List group item heading', extra: "3 days ago"
-            - l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.', extra: "Donec id elit non mi porta"
+        = ui_list tap: true, url: '#', state: :active, tag: :a do |l|
+          - l.header 'List group item heading', extra: "3 days ago"
+          - l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.', extra: "Donec id elit non mi porta"
+        %br
+        = ui_list tap: true, url: '#', tag: :a do |l|
+          - l.header class: 'my-header', extra: "3 days ago" do
+            = 'List group item heading'
+          - l.body class: 'my-body', extra: "Donec id elit non mi porta" do
+            = 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
       - c.code do
-        ui_list_group tag: :a do |lg|
-          lg.list tap: true, state: :active do |l|
-            l.header 'List group item heading', extra: "3 days ago"
-            l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.', extra: "Donec id elit non mi porta"
-          end
-          lg.list tap: true do |l|
-            l.header class: 'my-header', extra: "3 days ago" do
-              'List group item heading'
-            end
-            l.body class: 'my-body', extra: "Donec id elit non mi porta" do
-              'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
-            end
-          lg.list tap: true do |l|
-            l.header 'List group item heading', extra: "3 days ago"
-            l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.', extra: "Donec id elit non mi porta"
-          end
-        end
+        :plain
+          ui_list tap: true, state: :active, tag: :a do |l|
+            l.header 'List group item heading', extra: "3 days ago"
+            l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.', extra: "Donec id elit non mi porta"
+          end
+          ui_list tap: true, tag: :a do |l|
+            l.header class: 'my-header', extra: "3 days ago" do
+              'List group item heading'
+            end
+            l.body class: 'my-body', extra: "Donec id elit non mi porta" do
+              'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
+            end
+          end
       - c.html do
         :plain
-          <div class="list-group">
-            <a tag="a" href="#" class="active list-group-item list-group-item-action flex-column align-items-start">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">List group item heading</h5>
-                <small>3 days ago</small>
-              </div>
-              <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-              <small>Donec id elit non mi porta</small>
-            </a>
-            <a tag="a" href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-              <div class="my-header d-flex w-100 justify-content-between">
-                <h5 class="mb-1">List group item heading</h5>
-                <small>3 days ago</small>
-              </div>
-              <p class="my-body mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-              <small>Donec id elit non mi porta</small>
-            </a>
-            <a tag="a" href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">List group item heading</h5>
-                <small>3 days ago</small>
-              </div>
-              <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-              <small>Donec id elit non mi porta</small>
-            </a>
-          </div>
+          <a tag="a" href="#" class="active list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">List group item heading</h5>
+              <small>3 days ago</small>
+            </div>
+            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            <small>Donec id elit non mi porta</small>
+          </a>
+
+          <a tag="a" href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="my-header d-flex w-100 justify-content-between">
+              <h5 class="mb-1">List group item heading</h5>
+              <small>3 days ago</small>
+            </div>
+            <p class="my-body mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            <small>Donec id elit non mi porta</small>
+          </a>
+
 = @sections.render

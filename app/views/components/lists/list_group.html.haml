@@ -37,12 +37,6 @@
 - @sections = sections do |s|
   - s.section title: "List group" do
     = example do |c|
-
-      :markdown
-        List group has one block type:
-
-        * #{ inherit_component_link 'list' }
-
       - c.header do
         = ui_list_group do |lg|
           - lg.list 'Cras justo odio'
@@ -66,14 +60,6 @@
           <li class="list-group-item">Porta ac consectetur ac</li>
           <li class="list-group-item">Vestibulum at eros</li>
         </ul>
-
-  - s.section title: "List group options" do
-    %p List group has several options:
-    = component_list_options do |clo|
-      - clo.status_link
-      - clo.glyph_link
-      - clo.state_link
-      - clo.list link_to('badge',components_boxes_card_path), types: %w(hash string)
 
   - s.section title: "badges" do
     = example do |c|

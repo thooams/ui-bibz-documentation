@@ -56,7 +56,7 @@ module UiBibz::Ui::Ux
   private
 
     def inherit_component_link name = nil, path = nil
-      " (inherit of #{ link_to(path.nil? ? 'component' : name, path || component_path) })"
+      "(inherit of #{ link_to(path.nil? ? 'component' : name, path || component_path) })"
     end
 
     def option_link opt
