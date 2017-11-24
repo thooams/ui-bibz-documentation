@@ -57,6 +57,10 @@
   - co.list 'responsive', types: 'boolean'
   - co.list 'reflow', types: 'boolean'
 
+= component_items do |ci|
+  - ci.inherit_component "columns"
+  - ci.inherit_component "actions"
+
 - @sections = sections do |s|
   - s.section title: "Model" do
 

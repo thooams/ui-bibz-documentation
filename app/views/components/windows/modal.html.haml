@@ -26,16 +26,16 @@
 
 = component_options do |co|
   - co.list 'effect', types: 'symbol', values: %w(:fade)
+  - co.size_link
+  - co.tap_link
+
+= component_items do |ci|
+  - ci.inherit_component "header"
+  - ci.inherit_component "body"
+  - ci.inherit_component "footer"
 
 - @sections = sections do |s|
   - s.section title: "Modal" do
-    :markdown
-      ui_modal has several block type:
-
-      * #{ inherit_component_link 'header' }
-      * #{ inherit_component_link 'body' }
-      * #{ inherit_component_link 'footer' }
-
     = example do |c|
       - c.header do
         = ui_modal class: 'modal-example' do |m|

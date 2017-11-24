@@ -41,7 +41,7 @@ module UiBibz::Ui::Ux
       list('prepend', types: 'html', description: "Add a content after the field")
     end
 
-    def tap_link text
+    def tap_link text = nil
       list('tap', { types: :boolean, description: "*Required #{ text || 'if you want add <code>header</code>, <code>body</code> or <code>footer</code> item.' }".html_safe })
     end
 

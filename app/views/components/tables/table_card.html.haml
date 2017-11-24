@@ -48,6 +48,10 @@
   - co.list 'title', types: 'string'
   - co.list 'table_html_options', types: 'hash'
 
+= component_items do |ci|
+  - ci.inherit_component "columns"
+  - ci.inherit_component "actions"
+
 - @sections = sections do |s|
   - s.section title: "View" do
     :markdown
