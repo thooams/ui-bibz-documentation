@@ -2,13 +2,31 @@
 %blockquote UiBibz::Ui::Core::Notifications::ProgressBar
 %p.bd-callout Examples for using Bootstrap custom progress bars featuring support for stacked bars, animated backgrounds, and text labels.
 
-= code 'ui_progress_bar'
+= code do
+  :plain
+    ui_progress_bar content, options, html_options
+    # or
+    ui_progress_bar options, html_options do
+      content
+    end
+    # or
+    ui_progress_bar options, html_options do |pb|
+      pb.bar content, options, html_options
+      # or
+      pb.bar options, html_options do
+        content
+      end
+    end
 
 = component_options do |co|
   - co.status_link
+  - co.tap_link "if you want add <code>bar</code> item."
   - co.list 'value', types: 'number'
   - co.list 'striped', types: 'boolean'
   - co.list 'animated', types: 'boolean'
+
+= component_items do |ci|
+  - ci.inherit_component "bar"
 
 - @sections = sections do |s|
   - s.section title: "Progress Bar" do

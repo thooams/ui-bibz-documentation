@@ -41,12 +41,12 @@ module UiBibz::Ui::Ux
       list('prepend', types: 'html', description: "Add a content after the field")
     end
 
-    def tap_link
-      list('tap', { types: :boolean, description: '*Required if you want use :header, :body or :footer options' })
+    def tap_link text
+      list('tap', { types: :boolean, description: "*Required #{ text || 'if you want add <code>header</code>, <code>body</code> or <code>footer</code> item.' }".html_safe })
     end
 
-    def inherit_component name = nil, path = nil
-      list(name, description: inherit_component_link(name, path))
+    def inherit_component name = nil, path = nil, other_name = nil
+      list(name, description: inherit_component_link(other_name || name, path))
     end
 
     def render

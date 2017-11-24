@@ -17,7 +17,7 @@
   - co.list 'link_url', types: 'string', values: '#'
 
 = component_items do |ci|
-  - ci.inherit_component 'link'
+  - ci.inherit_component 'link', components_navigations_link_path
 
 - @sections = sections do |s|
   - s.section title: "Breadcrumb" do
