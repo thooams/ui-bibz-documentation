@@ -13,6 +13,9 @@ class Components::NavigationsController < ApplicationController
   def pagination
   end
 
+  def link
+  end
+
   def tab_group
   end
 

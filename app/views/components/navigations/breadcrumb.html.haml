@@ -16,6 +16,9 @@
   - co.list 'link_label', types: 'symbol', values: ':name'
   - co.list 'link_url', types: 'string', values: '#'
 
+= component_items do |ci|
+  - ci.inherit_component 'link'
+
 - @sections = sections do |s|
   - s.section title: "Breadcrumb" do
     = example do |c|

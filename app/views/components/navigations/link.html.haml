@@ -1,0 +1,22 @@
+= title 'Link'
+%blockquote UiBibz::Ui::Core::Navigations::Link
+%p.bd-callout Group a series of button group together on a single line with the button toolbar.
+
+= code 'link'
+
+= component_options do |co|
+  - co.list 'url', types: 'string'
+
+- @sections = sections do |s|
+  - s.section title: "Link" do
+    = example do |c|
+      - c.header do
+        = ui_link 'My link', url: components_navigations_link_path
+      - c.code do
+        :plain
+          ui_link 'My link', url: components_navigations_link_path
+      - c.html do
+        :plain
+          <a href="/components/navigations/link">My link</a>
+
+= @sections.render

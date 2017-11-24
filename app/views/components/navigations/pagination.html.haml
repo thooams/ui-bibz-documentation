@@ -19,6 +19,9 @@
   - co.list 'stacked', types: 'boolean'
   - co.list 'justify', types: 'boolean'
 
+= component_items do |ci|
+  - ci.inherit_component 'link'
+
 - @sections = sections do |s|
   - s.section title: "Pagination" do
     = example do |c|

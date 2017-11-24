@@ -24,6 +24,7 @@
 
 = ui_nav class: 'nav-left' do |n|
   - n.text 'Navigations'
+  - n.link 'Link', nav_options(components_navigations_link_path)
   - n.link 'Nav', nav_options(components_navigations_nav_path)
   - n.link 'Navbar', nav_options(components_navigations_navbar_path)
   - n.link 'Breadcrumb', nav_options(components_navigations_breadcrumb_path)

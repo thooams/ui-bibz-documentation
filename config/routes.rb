@@ -104,6 +104,7 @@ Rails.application.routes.draw do
     namespace :navigations do
       get 'breadcrumb'
       get 'toolbar'
+      get 'link'
       get 'pagination'
       get 'nav'
       get 'navbar'
