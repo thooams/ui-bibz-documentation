@@ -13,7 +13,7 @@
   - co.list 'text', types: 'boolean'
   - co.list 'toggle', types: 'boolean'
   - co.list 'type', types: 'symbol', values: ':block'
-  - co.list link_to('badge',components_boxes_card_path), types: %w(hash string)
+  - co.list 'badge', types: %w(hash string), description: "(use component #{ link_to('badge',components_boxes_card_path) } method)"
 
 - @sections = sections do |s|
   - s.section title: "Button" do

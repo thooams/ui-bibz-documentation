@@ -1,0 +1,235 @@
+= title 'Simple form', false
+
+%p
+  Ui Bibz is compatible with #{ link_to 'Simple Form', 'https://github.com/plataformatec/simple_form', target: "_blank" }.
+  %br
+  You can use defaults inputs of <strong>Simple Form</strong> and defaults inputs of <strong> Ui Bibz</strong>.
+  %br
+  You can use <strong>Simple Form</strong> input options and <strong>Ui Bibz</strong> component options.
+
+= component_items do |ci|
+  - ci.list 'input', tap: true do |co|
+    - co.list 'boolean', description: '(Simple Form)'
+    - co.list 'string', description: '(Simple Form)'
+    - co.list 'email', description: '(Simple Form)'
+    - co.list 'url', description: '(Simple Form)'
+    - co.list 'tel', description: '(Simple Form)'
+    - co.list 'password', description: '(Simple Form)'
+    - co.list 'search', description: '(Simple Form)'
+    - co.list 'uuid', description: '(Simple Form)'
+    - co.list 'text', description: '(Simple Form)'
+    - co.list 'file', description: '(Simple Form)'
+    - co.list 'hidden', description: '(Simple Form)'
+    - co.list 'integer', description: '(Simple Form)'
+    - co.list 'float', description: '(Simple Form)'
+    - co.list 'decimal', description: '(Simple Form)'
+    - co.list 'integer', description: '(Simple Form)'
+    - co.list 'float', description: '(Simple Form)'
+    - co.list 'range', description: '(Simple Form)'
+    - co.list 'datetime', description: '(Simple Form)'
+    - co.list 'date', description: '(Simple Form)'
+    - co.list 'time', description: '(Simple Form)'
+    - co.list 'select', description: '(Simple Form)'
+    - co.list 'radio_buttons', description: '(Simple Form)'
+    - co.list 'check_boxes', description: '(Simple Form)'
+    - co.list 'country', description: '(Simple Form)'
+    - co.list 'time_zone', description: '(Simple Form)'
+    - co.list 'ui_auto_complete_field', description: '(Ui Bibz)'
+    - co.list 'ui_choice_group', description: '(Ui Bibz)'
+    - co.list 'ui_date_picker_field', description: '(Ui Bibz)'
+    - co.list 'ui_dropdown_selecte_field', description: '(Ui Bibz)'
+    - co.list 'ui_formula_field', description: '(Ui Bibz)'
+    - co.list 'ui_markdown_editor_field', description: '(Ui Bibz)'
+    - co.list 'ui_multi_column_field', description: '(Ui Bibz)'
+    - co.list 'ui_multi_selecte_field', description: '(Ui Bibz)'
+    - co.list 'ui_radio_field', description: '(Ui Bibz)'
+    - co.list 'ui_select_field', description: '(Ui Bibz)'
+    - co.list 'ui_switch_field', description: '(Ui Bibz)'
+    - co.list 'ui_text_field', description: '(Ui Bibz)'
+  - ci.list 'ui_surround_field'
+  - ci.list 'ui_button_group'
+
+- @sections = sections do |s|
+  - s.section title: "Surround fields" do
+    = example do |e|
+      - e.header do
+        = ui_form_for @user, url: simple_form_path, method: :get, html: { class: 'form-test', } do |f|
+          = ui_row type: :form do
+            = f.ui_surround_field size: :sm do |s|
+              - s.glyph "map-marker"
+              - s.input :name, as: :string, placeholder: 'ex : Grenoble, 199 place de la Bastille Paris, …'
+            = f.ui_surround_field size: :sm do |s|
+              - s.glyph "street-view"
+              - s.input :country_id, as: :ui_select_field, collection: Country.all
+              - s.addon 'km'
+            = f.input :company, as: :ui_choice_group, size: :sm, label: false, type: :radio, collection: [['Company 1', 1],['Company 2', 2]]
+            = f.ui_surround_field size: :sm, inline: true do |s|
+              - s.glyph "globe"
+              - s.input :email, as: :ui_multi_select_field, collection: [['Email 1', 1], ['Email 2', 2]], input_html: { multiple: true }
+            = f.ui_surround_field size: :sm do |s|
+              - s.addon  'From'
+              - s.input :price_formula, as: :ui_select_field, class: 'form-control-sm', collection: 12.times.map{ |i| (i+1) * 50000 }
+              - s.addon  'To'
+              - s.input :price, as: :ui_select_field, class: 'form-control-sm', collection: 12.times.map{ |i| i * 50000 }
+              - s.glyph 'euro'
+            = f.button :submit, "Search", class: 'btn-outline-primary btn-sm'
+      - e.code do
+        :plain
+          ui_form_for @user, url: simple_form_path, method: :get, html: { class: 'form-test', } do |f|
+            ui_row type: :form do
+              f.ui_surround_field size: :sm do |s|
+                s.glyph "map-marker"
+                s.input :name, as: :string, placeholder: 'ex : Grenoble, 199 place de la Bastille Paris, …'
+              end
+              f.ui_surround_field size: :sm do |s|
+                s.glyph "street-view"
+                s.input :country_id, as: :ui_select_field, collection: Country.all
+                s.addon 'km'
+              end
+              f.input :company, as: :ui_choice_group, size: :sm, label: false, type: :radio, collection: [['Company 1', 1],['Company 2', 2]]
+              f.ui_surround_field size: :sm, inline: true do |s|
+                s.glyph "globe"
+                s.input :email, as: :ui_multi_select_field, collection: [['Email 1', 1], ['Email 2', 2]], input_html: { multiple: true }
+              end
+              f.ui_surround_field size: :sm do |s|
+                s.addon  'From'
+                s.input :price_formula, as: :ui_select_field, class: 'form-control-sm', collection: 12.times.map{ |i| (i+1) * 50000 }
+                s.addon  'To'
+                s.input :price, as: :ui_select_field, class: 'form-control-sm', collection: 12.times.map{ |i| i * 50000 }
+                s.glyph 'euro'
+              end
+              f.button :submit, "Search", class: 'btn-outline-primary btn-sm'
+            end
+          end
+      - e.html do
+        :plain
+          <form class="simple_form form-test" novalidate="novalidate" id="new_user" action="/simple_form" accept-charset="UTF-8" method="get">
+            <input name="utf8" type="hidden" value="✓">
+            <div class="form-row">
+              <div class="form-group surround_field">
+                <div class="input-group input-group-sm ui_surround_field">
+                  <span class="input-group-addon"><i class="glyph fa fa-map-marker"></i></span>
+                  <input class="form-control string optional" placeholder="ex : Grenoble, 199 place de la Bastille Paris, …" type="text" value="" name="user[name]" id="user_name">
+                </div>
+              </div>
+              <div class="form-group surround_field">
+                <div class="input-group input-group-sm ui_surround_field">
+                  <span class="input-group-addon"><i class="glyph fa fa-street-view"></i></span>
+                  <select name="user[country_id]" id="user_country_id" class="select-field form-control">
+                    <option selected="selected" value="1">France</option>
+                    <option value="2">Deutchland</option>
+                    <option value="3">Brasil</option>
+                    <option value="4">Mexico</option>
+                  </select>
+                  <span class="input-group-addon">km</span>
+                </div>
+              </div>
+              <div class="form-group ui_choice_group optional user_company">
+                <div data-toggle="buttons" class="btn-group btn-group-sm button-choice">
+                  <button class="btn btn-sm">Company 1</button>
+                  <button class="btn btn-sm">Company 2</button>
+                </div>
+              </div>
+              <div class="form-group surround_field">
+                <div class="input-group input-group-sm ui_surround_field">
+                  <span class="input-group-addon"><i class="glyph fa fa-globe"></i></span>
+                  <select name="user[email][]" id="user_email" multiple="multiple" class="btn-secondary multi-select-field" style="display: none;">
+                    <option value="1">Email 1</option>
+                    <option value="2">Email 2</option>
+                  </select>
+                  <div class="btn-group input-group-btn">
+                    <button type="button" class="multiselect dropdown-toggle btn btn-secondary multi-select-field" data-toggle="dropdown" title="" data-original-title="None selected">None selected <b class="caret"></b></button>
+                    <ul class="multiselect-container dropdown-menu">
+                      <li>
+                        <a href="javascript:void(0);">
+                          <label class="checkbox">
+                            <input type="checkbox" value="1"> Email 1
+                          </label>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0);">
+                          <label class="checkbox">
+                            <input type="checkbox" value="2"> Email 2
+                          </label>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group surround_field">
+                <div class="input-group input-group-sm ui_surround_field">
+                  <span class="input-group-addon">From</span>
+                  <select name="user[price_formula]" id="user_price_formula" class="form-control-sm select-field form-control">
+                    <option selected="selected" value="50000">50000</option>
+                    <option value="100000">100000</option>
+                    <option value="150000">150000</option>
+                    <option value="200000">200000</option>
+                    <option value="250000">250000</option>
+                    <option value="300000">300000</option>
+                    <option value="350000">350000</option>
+                    <option value="400000">400000</option>
+                    <option value="450000">450000</option>
+                    <option value="500000">500000</option>
+                    <option value="550000">550000</option>
+                    <option value="600000">600000</option>
+                  </select>
+                  <span class="input-group-addon">To</span>
+                  <select name="user[price]" id="user_price" class="form-control-sm select-field form-control">
+                    <option value="0">0</option>
+                    <option value="50000">50000</option>
+                    <option value="100000">100000</option>
+                    <option value="150000">150000</option>
+                    <option value="200000">200000</option>
+                    <option value="250000">250000</option>
+                    <option value="300000">300000</option>
+                    <option value="350000">350000</option>
+                    <option value="400000">400000</option>
+                    <option value="450000">450000</option>
+                    <option value="500000">500000</option>
+                    <option value="550000">550000</option>
+                  </select>
+                  <span class="input-group-addon">
+                    <i class="glyph fa fa-euro"></i>
+                  </span>
+                </div>
+              </div>
+              <input type="submit" name="commit" value="Search" class="btn btn-default btn-outline-primary btn-sm" data-disable-with="Search">
+            </div>
+          </form>
+
+  - s.section title: 'Button groups' do
+    = example do |e|
+      - e.header do
+        = ui_form_for @user, url: simple_form_path, method: :get do |f|
+          = f.input :email, as: :ui_text_field
+          = f.ui_button_group do |i|
+            - i.button 'Save', status: :danger
+            - i.button 'Close', status: :dark
+      - e.code do
+        :plain
+          ui_form_for @user, url: simple_form_path, method: :get do |f|
+            f.input :email, as: :ui_text_field
+            f.ui_button_group do |i|
+              i.button 'Save', status: :danger
+              i.button 'Close', status: :dark
+            end
+          end
+      - e.html do
+        :plain
+          <form class="simple_form" novalidate="novalidate" id="new_user" action="/simple_form" accept-charset="UTF-8" method="get">
+            <input name="utf8" type="hidden" value="✓">
+            <div class="form-group ui_text_field optional user_email">
+              <label class="control-label ui_text_field optional" for="user_email">Email</label>
+              <input type="text" name="user[email]" id="user_email" class="ui_text_field optional form-control">
+            </div>
+            <div class="button_group">
+              <div class="btn-group" role="group">
+                <button class="btn-danger btn">Save</button>
+                <button class="btn-dark btn">Close</button>
+              </div>
+            </div>
+          </form>
+
+= @sections.render

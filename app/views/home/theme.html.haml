@@ -1,7 +1,6 @@
 - image = 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22241%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20241%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15f6c72b839%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A12pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15f6c72b839%22%3E%3Crect%20width%3D%22241%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2289.765625%22%20y%3D%2294.2%22%3E241x180%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E'
 
-%h1 Bootstrap Theme
-
+= title 'Bootstrap Theme', false
 
 %h2 Boxes
 %h3 Jumbotron
@@ -69,8 +68,8 @@
         - l.header 'Header list'
         - l.body "vestibulum at eros"
   - cg.card "content 4 <br/> some quick example text to build on the ui_card title and make up the bulk of the ui_card's content."
-  - cg.card status: :primary, type: :inverse, text_position: :center do
-    = '<blockquote class="card-blockquote"><p>lorem ipsum dolor sit amet, consectetur adipiscing elit. integer posuere erat a ante.</p><footer>someone famous in <cite title="source title">source title</cite></footer></blockquote>'.html_safe
+  - cg.card status: :primary, text_position: :center do
+    = '<p>lorem ipsum dolor sit amet, consectetur adipiscing elit. integer posuere erat a ante.</p><footer>someone famous in <cite title="source title">source title</cite></footer>'.html_safe
 
 %br.clearfix
 
@@ -413,14 +412,14 @@
 
 = ui_row do
   = ui_col do
-    %h3 Button Choices
-    = ui_button_choice status: :primary do |bc|
-      - bc.button 'Checkbox 1'
-      - bc.button 'Checkbox 2'
+    %h3 Choice Groups
+    = ui_choice_group status: :primary do |bc|
+      - bc.choice 'Checkbox 1'
+      - bc.choice 'Checkbox 2'
     %br
-    = ui_button_group type: :radio, status: :success do |bc|
-      - bc.button 'Radio 1'
-      - bc.button 'Radio 2'
+    = ui_choice_group type: :radio, status: :success do |bc|
+      - bc.choice 'Radio 1'
+      - bc.choice 'Radio 2'
   = ui_col do
     %h3 Button Groups
     = ui_button_group do |bg|

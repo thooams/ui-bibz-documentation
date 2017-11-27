@@ -8,8 +8,8 @@
 
 = ui_nav class: 'nav-left' do |n|
   - n.text 'Icons'
-  - n.link 'Glyph', nav_options(components_icones_glyph_path)
-  - n.link 'Star', nav_options(components_icones_star_path)
+  - n.link 'Glyph', nav_options(components_icons_glyph_path)
+  - n.link 'Star', nav_options(components_icons_star_path)
 
 = ui_nav class: 'nav-left' do |n|
   - n.text 'Lists'
@@ -82,10 +82,6 @@
       - na.link 'Select field', nav_options(components_forms_selects_select_field_path)
       - na.link 'Multi column field', nav_options(components_forms_selects_multi_column_field_path)
       - na.link 'Multi select field', nav_options(components_forms_selects_multi_select_field_path)
-
-    - no.text 'Simple form'
-    - no.nav do |na|
-      - na.link 'Inputs', nav_options(components_forms_simple_form_inputs_path)
 
     - no.text 'Surrounds'
     - no.nav do |na|

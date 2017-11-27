@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'about'           => 'home#about'
   get 'component'       => 'home#component'
   get 'custom_component'=> 'home#custom_component'
+  get 'simple_form'     => 'home#simple_form'
   get 'theme'           => 'home#theme'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -54,11 +55,6 @@ Rails.application.routes.draw do
       # number
       namespace :numbers do
         get 'formula-field'
-      end
-
-      # simple form
-      namespace :simple_form do
-        get 'inputs'
       end
 
       # selects
@@ -119,7 +115,7 @@ Rails.application.routes.draw do
       get 'progress_bar'
     end
 
-    namespace :icones do
+    namespace :icons do
       get 'glyph'
       get 'star'
     end

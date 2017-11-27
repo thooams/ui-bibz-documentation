@@ -1,4 +1,4 @@
-%h1 Custom Component
+= title 'Custom Component', false
 %h2 Rules
 %ul
   %li The component must inherit the <code>component</code> element.
@@ -175,17 +175,16 @@ Several methods are called during the creation of html options classes:
 
           # Add default classes
           def component_html_classes
-            super << ['my-class', status]
+            ['my-class', status]
           end
 
           # Disabled component by default
           def component_options
-            options[:state].nil ? super.merge({ state: :disabled }) : super
+            { state: :disabled } unless options[:state].nil
           end
 
           # Add html options data
           def component_html_data
-            super
             add_html_data('target', options[:target]) unless options[:target].nil?
           end
 
@@ -216,39 +215,6 @@ Several methods are called during the creation of html options classes:
       end.render
   - e.html do
     <div class='my-class my-component-plugged my-component-secondary my-link' data-target='#target'><a href='/'>My link</a></div>
-
-
-%h3 Tree architecture in Ui Bibz Library
-= example do |e|
-  - e.code do
-    :plain
-      lib
-      |_ ui_bibz
-        |_ ui
-          |_ core
-            |_ component_name.rb
-          |_ ux
-            |_ component_name.rb
-
-      # or
-
-      lib
-      |_ ui_bibz
-        |_ ui
-          |_core
-            |_ component_name_folders
-              |_ component_name.rb
-              |_ components
-                |_ sub_component_1.rb
-                |_ sub_component_2.rb
-          |_ux
-            |_ component_name_folders
-              |_ component_name.rb
-              |_ components
-                |_ sub_component_1.rb
-                |_ sub_component_2.rb
-
-<em>Folder names must be named in plural.</em>
 
 %h3 Tree architecture in your app
 = example do |e|

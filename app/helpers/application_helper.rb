@@ -75,10 +75,10 @@ module ApplicationHelper
     end
   end
 
-  def title name
+  def title name, display_ui = true
     content_tag :h2 do
       concat ui_glyph('diamond', label: name)
-      concat content_tag :span, "(ui_#{ name.parameterize.underscore })"
+      concat content_tag :span, "(ui_#{ name.parameterize.underscore })" if display_ui
     end
   end
 

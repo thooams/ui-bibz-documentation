@@ -23,7 +23,7 @@
 = component_options do |co|
   - co.status_link
   - co.list 'closable', types: :boolean, default: "false"
-  - co.list('tap', { types: :boolean, description: '*Required if you want use :header or :body options' })
+  - co.tap_link "(if you want add <code>header</code> or <code>body</code> item.)"
 
 - @sections = sections do |s|
   - s.section title: "Alert" do

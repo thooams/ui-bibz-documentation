@@ -10,6 +10,21 @@
   - co.list 'prepend', types: 'html'
   - co.list 'addon', types: 'component'
 
+= component_items do |ci|
+  - ci.inherit_component 'button', components_forms_buttons_button_path
+  - ci.inherit_component 'button_group', components_forms_buttons_button_group_path
+  - ci.inherit_component 'button_link', components_forms_buttons_button_link_path
+  - ci.inherit_component 'checkbox_field', components_forms_choices_checkbox_field_path
+  - ci.inherit_component 'radio_field', components_forms_choices_radio_field_path
+  - ci.inherit_component 'date_picker_field', components_forms_dates_date_picker_field_path
+  - ci.inherit_component 'dropdown_select_field', components_forms_selects_dropdown_select_field_path
+  - ci.inherit_component 'multi_select_field', components_forms_selects_multi_select_field_path
+  - ci.inherit_component 'select_field', components_forms_selects_select_field_path
+  - ci.inherit_component 'auto_complete_field', components_forms_texts_auto_complete_field_path
+  - ci.inherit_component 'text_field', components_forms_texts_text_field_path
+  - ci.inherit_component 'addon'
+  - ci.inherit_component 'glyph', components_icons_glyph_path
+
 - @sections = sections do |s|
   - s.section title: "Surround Field" do
     = example do |e|

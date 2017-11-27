@@ -17,11 +17,11 @@ module UiBibz::Ui::Ux
     end
 
     def status_link
-      list(option_link('status'), { types: :symbol, values: UiBibzApp::Application::STATUSES.map{ |s| ":#{ s }" } })
+      list("status", { types: :symbol, values: UiBibzApp::Application::STATUSES.map{ |s| ":#{ s }" }, description: "(use component #{ option_link('status') } method)" })
     end
 
     def glyph_link
-      list(option_link('glyph'), { types: %w(string hash) })
+      list('glyph', { types: %w(string hash), description: "(use component #{ option_link('glyph') } method)" })
     end
 
     def table_link
@@ -29,11 +29,11 @@ module UiBibz::Ui::Ux
     end
 
     def size_link
-      list(option_link('size'), { types: :symbol, values: %w(:lg :md :sm) })
+      list('size', { types: :symbol, values: %w(:lg :md :sm), description: "(use component #{ option_link('size') } method)" })
     end
 
     def state_link
-      list(option_link('state'), { types: :symbol, values: %w(:disabled :active) })
+      list('state', { types: :symbol, values: %w(:disabled :active), description: "(use component #{ option_link('state') } method)" })
     end
 
     def append_and_prepend_list
@@ -42,7 +42,7 @@ module UiBibz::Ui::Ux
     end
 
     def tap_link text = nil
-      list('tap', { types: :boolean, description: "*Required #{ text || 'if you want add <code>header</code>, <code>body</code> or <code>footer</code> item.' }".html_safe })
+      list('tap', { types: :boolean, description: "#{ UiBibz::Ui::Core::Notifications::Badge.new('Required', status: :danger).render } #{ text || '(if you want add <code>header</code>, <code>body</code> or <code>footer</code> item.)' }".html_safe })
     end
 
     def inherit_component name = nil, path = nil, other_name = nil

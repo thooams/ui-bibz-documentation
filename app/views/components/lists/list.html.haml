@@ -28,7 +28,7 @@
   - co.status_link
   - co.glyph_link
   - co.state_link
-  - co.list link_to('badge',components_boxes_card_path), types: %w(hash string)
+  - co.list 'badge', types: %w(hash string), description: "(use component #{ link_to('badge',components_boxes_card_path) } method)"
 
 = component_items do |ci|
   - ci.inherit_component 'header'
