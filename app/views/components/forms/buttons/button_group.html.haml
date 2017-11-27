@@ -5,7 +5,9 @@
 = code do
   :plain
     ui_button_group options, html_options do |bg|
+      # by variable
       bg.button content, options, html_options
+      # by block
       bg.button options, html_options do
         content
       end
@@ -111,7 +113,7 @@
       * [button](#{ components_forms_buttons_button_path })
       * [button_link](#{ components_forms_buttons_button_link_path })
       * [dropdown](#{ components_forms_dropdowns_dropdown_path })
-      * [input](#{ components_forms_simple_form_inputs_path }) (Use with simple form)
+      * [input](#{ simple_form_path }) (Use with simple form)
 
     = example do |c|
       - c.header do

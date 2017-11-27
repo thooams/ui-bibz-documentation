@@ -115,4 +115,8 @@ module ApplicationHelper
       concat content_tag :ul, UiBibzApp::Application::STATUSES.map{ |status| content_tag(:li, ":#{ status }") }.join.html_safe
     end
   end
+
+  def exclusiveness
+    ui_badge('Exclu.', { status: :danger }, { title: 'Ui Bibz exclusiveness'})
+  end
 end

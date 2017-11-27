@@ -33,8 +33,10 @@
 
 = code do
   :plain
+    # by variable
     ui_table options, html_options
-    # or
+
+    # or by block with tap
     ui_table options, html_options do |t|
       t.columns do |cls|
         cls.column data_index, options, html_options

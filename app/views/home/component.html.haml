@@ -17,24 +17,32 @@
 
 - @sections = sections do |s|
   - s.section title: "Component" do
+    A component can be write a variable or by block.
+
     = example do |c|
       - c.code do
-        Component.new content, options, html_options
-        \# or
-        Component.new(options, html_options) do
-          content
-        end
+        :plain
+          # by variable
+          Component.new content, options, html_options
+
+          # or by block
+          Component.new(options, html_options) do
+            content
+          end
 
   - s.section title: "Render method" do
     :markdown
       The `render` method generates the html code of the component.
     = example do |c|
       - c.code do
-        Component.new('My content', { status: :primary }, { class: 'my-class' }).render
-        \# or
-        Component.new({ size: :xs }, { id: 'my-id' }) do
-          My content
-        end.render
+        :plain
+          # by variable
+          Component.new('My content', { status: :primary }, { class: 'my-class' }).render
+
+          # or by block
+          Component.new({ size: :xs }, { id: 'my-id' }) do
+            My content
+          end.render
 
   - s.section title: "Size" do
     = size_description
@@ -62,25 +70,39 @@
 
     = example do |c|
       - c.code do
-        Component.new content, glyph: 'star'
-        Component.new content, glyph: { name: 'star', size: 2, type: 'fw', label: 'Diamond' }
+        :plain
+          # by variable
+          Component.new content, glyph: 'star'
+
+          # or by block
+          Component.new glyph: { name: 'star', size: 2, type: 'fw', label: 'Diamond' } do
+            content
+          end
 
   - s.section title: "State" do
     = example do |c|
       - c.code do
-        Component.new content, state: :active
-        Component.new content, state: :disabled
+        :plain
+          # by variable
+          Component.new content, state: :active
+
+          # or by block
+          Component.new state: :disabled do
+            content
+          end
 
   - s.section title: "Html options" do
-    :markdown
-
-      You can add any html properties.
+    %p You can add any html properties.
     = example do |c|
       - c.code do
-        Component.new content, {}, { class: 'my-component', data: { target: 'first' }}
-        Component.new({}, { id: 'my-id' }) do
-          content
-        end
+        :plain
+          # by variable
+          Component.new content, nil, { class: 'my-component', data: { target: 'first' }}
+
+          # or by block
+          Component.new(nil, { id: 'my-id' }) do
+            content
+          end
 
   - s.section title: "Tips" do
     :markdown
@@ -88,9 +110,15 @@
       This solution was added to simplify writing of the component.
     = example do |c|
       - c.code do
-        Component.new content, { size: :xs }, { class: 'my-component' }
-        \# or
-        Component.new content, class: 'my-component', size: :xs
+        :plain
+          # by variable
+          Component.new content, { size: :xs }, { class: 'my-component' }
+          Component.new content, class: 'my-component', size: :xs
+
+          # or by block
+          Component.new class: 'my-component', size: :xs do
+            content
+          end
 
   - s.section title: "Custom Component" do
     %p You can create your own components into your application.

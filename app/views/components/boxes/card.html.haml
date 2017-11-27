@@ -4,25 +4,30 @@
 
 = code do
   :plain
+    # by variable
     ui_card content, options, html_options
-    # or
+
+    # or by block
     ui_card options, html_options do
       content
     end
-    # or
+
+    # or by block with tap
     ui_card options, html_options do |c|
+      # by variable
       c.header content, options, html_options
-      # or
+      # or by block
       c.header options, html_options do
         content
       end
 
+      # by variable
       c.body content, options, html_options
-      # or
+      # or by block
       c.body options, html_options do
         content
       end
-      # or
+      # or by block with tap
       c.body options, html_options do |b|
         b.link content, options, html_options
         b.link options, html_options do
@@ -30,17 +35,20 @@
         end
       end
 
+      # by variable
       c.footer content, options, html_options
-      # or
+      # or by block
       c.footer options, html_options do
         content
       end
 
       c.image ''
 
+      # by block with tap
       c.list_group do |lg|
+        # by variable
         lg.list content, options, html_options
-        # or
+        # or by block
         lg.list options, html_options do
           content
         end

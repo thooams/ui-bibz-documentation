@@ -6,12 +6,15 @@
 = code do
   :plain
     ui_list_group options, html_options do |lg|
+      # by variable
       lg.list content, options, html_options
-      # or
+
+      # or by block
       lg.list options, html_options do
         content
       end
-      # or
+
+      # or by block with tap
       lg.list options, html_options do |l|
         l.header content, options, html_options
         # or

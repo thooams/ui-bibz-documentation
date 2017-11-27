@@ -6,7 +6,9 @@
   :plain
     ui_toolbar options, html_options do |bt|
       bt.button_group options, html_options do |bg|
+        # by variable
         bg.button content, options, html_options
+        # or by block
         bg.button options, html_options do
           content
         end

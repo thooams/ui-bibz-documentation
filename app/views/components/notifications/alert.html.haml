@@ -4,17 +4,20 @@
 
 = code do
   :plain
+    # by variable
     ui_alert content, options, html_options
-    # or
+    # or by block
     ui_alert options, html_options do |a|
+      # by variable
       a.header content, options, html_options
-      # or
+      # or by block
       a.header options, html_options do
         content
       end
 
+      # by variable
       a.body content, options, html_options
-      # or
+      # or by block
       a.body options, html_options do
         content
       end

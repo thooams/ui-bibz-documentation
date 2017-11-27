@@ -5,8 +5,9 @@
 = code do
   :plain
     ui_pagination options, html_options do |n|
+      # by variable
       n.link content, options, html_options
-      # or
+      # or by block
       n.link options, html_options do
         content
       end

@@ -4,12 +4,15 @@
 
 = code do
   :plain
+    # by variable
     ui_progress_bar content, options, html_options
-    # or
+
+    # or by block
     ui_progress_bar options, html_options do
       content
     end
-    # or
+
+    # or by block with tap
     ui_progress_bar options, html_options do |pb|
       pb.bar content, options, html_options
       # or

@@ -5,8 +5,9 @@
 = code do
   :plain
     ui_navbar options, html_options do |nb|
+      # by variable
       n.brand content, options, html_options
-      # or
+      # or by block
       n.brand options, html_options do
         content
       end

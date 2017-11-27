@@ -4,21 +4,26 @@
 
 = code do
   :plain
+    # by variable
     ui_list content, options, html_options
-    # or
+
+    # or by block
     ui_list options, html_options do
       content
     end
-    # or
+
+    # or by block with tap
     ui_list options, html_options do |l|
+      # by variable
       l.header content, options, html_options
-      # or
+      # or by block
       l.header options, html_options do
         content
       end
 
+      # by variable
       l.body content, options, html_options
-      # or
+      # or by block
       l.body options, html_options do
         content
       end

@@ -5,20 +5,23 @@
 = code do
   :plain
     ui_modal options, html_options do |m|
+      # by variable
       m.header content, options, html_options
-      # or
+      # or by block
       m.header options, html_options do
         content
       end
 
+      # by variable
       m.body content, options, html_options
-      # or
+      # or by block
       m.body options, html_options do
         content
       end
 
+      # by variable
       m.footer content, options, html_options
-      # or
+      # or by block
       m.footer options, html_options do
         content
       end

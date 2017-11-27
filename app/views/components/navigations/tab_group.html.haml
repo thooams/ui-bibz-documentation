@@ -5,8 +5,9 @@
 = code do
   :plain
     ui_tab_group options, html_options do |n|
+      # by variable
       n.tab content, options, html_options
-      # or
+      # or by block
       n.tab options, html_options do
         content
       end

@@ -324,7 +324,7 @@
 %h2 Icons
 = ui_row do
   = ui_col do
-    %h3 Glyphs
+    %h3 Glyphs  #{ exclusiveness }
     - UiBibzApp::Application::STATUSES.each do |status|
       = ui_glyph 'diamond', status: status
     %br
@@ -335,7 +335,7 @@
     - UiBibzApp::Application::SIZES.each do |size|
       = ui_glyph 'diamond', size: size
   = ui_col do
-    %h3 Stars
+    %h3 Stars #{ exclusiveness }
     = ui_row do
       = ui_col do
         - UiBibzApp::Application::STATUSES.each_with_index do |status,i|
@@ -503,40 +503,49 @@
 %h3 Inputs
 = ui_row do
   = ui_col num: 3 do
-    %h4 Auto Complete
+    %h4 Auto Complete #{ exclusiveness }
     = ui_auto_complete_field 'example1', { option_tags: options_for_select(5.times.map{ |i| "option #{i}" }) }, { placeholder: 'Type option..' }
   = ui_col num: 3 do
-    %h4 Dropdown Select
+    %h4 Dropdown Select #{ exclusiveness }
     = ui_dropdown_select_field 'example1', searchable: true, option_tags: options_for_select(5.times.map{ |i| "option #{i}" })
   = ui_col num: 3 do
-    %h4 Formula
+    %h4 Formula  #{ exclusiveness }
     = ui_formula_field 'value', {}, { placeholder: 'Type your formula...(2+3/2)'}
   = ui_col num: 3 do
-    %h4 Multi Select
+    %h4 Multi Select #{ exclusiveness }
     - grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
     = ui_multi_select_field 'example', select_all_option: true, searchable: true, collapsible_opt_group: true, option_tags: grouped_options_for_select(grouped_options)
 %br
 = ui_row do
   = ui_col num: 3 do
-    %h4 Text
-    = text_field 'search', { append: ui_glyph('pencil'), prepend: ui_glyph('camera-retro') }, { placeholder: 'Type your search...' }
+    %h4 Text  #{ exclusiveness }
+    = ui_text_field 'search', { append: ui_glyph('pencil'), prepend: ui_glyph('camera-retro') }, { placeholder: 'Type your search...' }
   = ui_col num: 3 do
-    %h4 Switch
-    %br
+    %h4 Switch  #{ exclusiveness }
     = ui_switch_field 'examplecolor'
+    %br
   = ui_col num: 3 do
     %h4 Input File
     %label.custom-file
       = file_field_tag :file, class: 'custom-file-input'
       %span.custom-file-control
+  = ui_col num: 3 do
+    %h4 Surround  #{ exclusiveness }
+    = ui_surround_field do |s|
+      - s.glyph 'diamond'
+      - s.text_field 'text'
+      - s.addon 'To'
+      - s.text_field 'text'
+      - s.addon '€'
+
   = ui_col num: 6 do
-    %h4 Markdown Html Editor
+    %h4 Markdown Html Editor  #{ exclusiveness }
     = ui_markdown_editor_field 'comments'
     %br
-    %h4 Date Picker
+    %h4 Date Picker  #{ exclusiveness }
     = ui_date_picker_field 'range', range: ui_glyph('calendar-minus-o'), append: ui_glyph('car'), prepend: ui_glyph('pencil')
   = ui_col num: 6 do
-    %h4 Multi column
+    %h4 Multi column  #{ exclusiveness }
     - grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
     = ui_multi_column_field 'example', { option_tags: grouped_options_for_select(grouped_options), searchable: true, selectable_opt_group: true }
 
@@ -545,7 +554,7 @@
 // Table component
 .table-test
   = ui_row do
-    %h3 Tables
+    %h3 Tables  #{ exclusiveness }
     = ui_col num: 12 do
       = ui_table({ store: @users, tap: true }) do |b|
         - b.columns do |cls|
@@ -571,7 +580,7 @@
       = ui_table_pagination_per_page store: @users
 
 %br.clear
-%h3 Table Cards
+%h3 Table Cards  #{ exclusiveness }
 = ui_table_card store: @users, title: 'Table card', class: 'table-test', tap: true do |b|
   - b.columns do |cls|
     - cls.column :id

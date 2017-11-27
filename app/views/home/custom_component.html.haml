@@ -2,113 +2,109 @@
 %h2 Rules
 %ul
   %li The component must inherit the <code>component</code> element.
-  %li The component must meet the convention of the component:
+  %li The component must meet the convention of the component.
 
-%h2 Simple component
+%h2 Simple custom component
 %p Content can be pass by variable (<code>content</code>) or by block (<code>block</code>).
-= example do |e|
-  - e.code do
-    :plain
-      Component.new(content = nil, options = {}, html_options = {}, &block).render
-
-%h3 Explications
-
 Useful variables in render method:
 %ul
   %li <code>content</code> (content of component by variable or by block)
   %li <code>options</code> (options of component)
   %li <code>html_options</code> (html options of component)
+= example do |e|
+  - e.code do
+    :plain
+      Component.new(content = nil, options = {}, html_options = {}, &block).render
 
 = warning_message "Component render: ", "The component must use the <code>render</code> method to generate html code."
 
 %h3 Structure
 
 = example do |e|
+  Useful methods to add default options and html options for a component:
+  %ul
+    %li <code>component_html_classes</code>
+    %li <code>component_options</code>
+    %li <code>component_html_options</code>
   - e.code do
     :plain
-      class MyComponent < UiBibz::Ui::Core::Component
+      module UiBibz::Ui::Ux
+        class MyComponent < UiBibz::Ui::Core::Component
 
-        # initialize component
-        def initialize content = {}, options = {}, html_options = {}, &block
-          super
+          # initialize component
+          def initialize content = {}, options = {}, html_options = {}, &block
+            super
+          end
+
+          # Render html
+          def render
+          end
+
+          private
+
+          # Default component classes [String, Array]
+          def component_html_classes
+          end
+
+          # Default component options [Hash]
+          def component_options
+          end
+
+          # Default component html options [Hash]
+          def component_html_options
+          end
+
         end
-
-        # Render html
-        def render
-        end
-
-        private
-
-        # Default component classes [String, Array]
-        def component_html_classes
-        end
-
-        # Default component options [Hash]
-        def component_options
-        end
-
-        # Default component html options [Hash]
-        def component_html_options
-        end
-
       end
-
-%h3 Explications
-
-Useful methods to add default options and html options for a component:
-%ul
-  %li <code>component_html_classes</code>
-  %li <code>component_options</code>
-  %li <code>component_html_options</code>
 
 %h3 Html classes structure
 = example do |e|
+  Several methods are called during the creation of html options classes:
+  %ul
+    %li <code>state</code>
+    %li <code>status</code>
+    %li <code>effect</code>
+    %li <code>connect</code>
+    %li <code>component_html_classes</code>
   - e.code do
     :plain
-      class MyComponent < UiBibz::Ui::Core::Component
+      module UiBibz::Ui::Ux
+        class MyComponent < UiBibz::Ui::Core::Component
 
-        # initialize component
-        def initialize content = {}, options = {}, html_options = {}, &block
-          super
+          # initialize component
+          def initialize content = {}, options = {}, html_options = {}, &block
+            super
+          end
+
+          # Render html
+          def render
+          end
+
+          private
+
+          # To define state html class [:active, :disabled]
+          def state
+          end
+
+          # To define status html class [#{ UiBibzApp::Application::STATUSES.join(', ') }]
+          def status
+          end
+
+          # To define effect html class
+          def effect
+          end
+
+          # To define connect html class
+          def connect
+          end
+
+          # To add classes to html classes
+          def component_html_classes
+          end
+
         end
-
-        # Render html
-        def render
-        end
-
-        private
-
-        # To define state html class [:active, :disabled]
-        def state
-        end
-
-        # To define status html class [#{ UiBibzApp::Application::STATUSES.join(', ') }]
-        def status
-        end
-
-        # To define effect html class
-        def effect
-        end
-
-        # To define connect html class
-        def connect
-        end
-
-        # To add classes to html classes
-        def component_html_classes
-        end
-
       end
 
-%h3 Explications
-
-Several methods are called during the creation of html options classes:
-%ul
-  %li <code>state</code>
-  %li <code>status</code>
-  %li <code>effect</code>
-  %li <code>connect</code>
-  %li <code>component_html_classes</code>
 
 %h3 Example 1
 
@@ -159,7 +155,7 @@ Several methods are called during the creation of html options classes:
     :plain
       # app/ui/my_component.rb
       module UiBibz::Ui::Ux
-        class MyComponent < UiBibz::Ui::Core::Component
+        class MyComponent2 < UiBibz::Ui::Core::Component
 
           def initialize content = {}, options = {}, html_options = {}, &block
             super
@@ -202,21 +198,96 @@ Several methods are called during the creation of html options classes:
       end
 
 %br
-%h4 Call custom Component
+%h4 Create a helper
+= example do |e|
+  - e.code do
+    :plain
+      # app/helpers/component_helper.rb
+      def my_custom_component_2_helper content = nil, options = nil, html_options = nil, &block
+        UiBibz::Ui::Ux::MyComponent2.new(content, options, html_options, block).render
+      end
+
+%h4 Call custom helper
 = example do |e|
   - e.header do
     <div class='my-class my-component-plugged my-link' data-target='#target'><a href='/'>My link</a></div>
   - e.code do
     :plain
-      UiBibz::Ui::Ux::MyComponent.new('My link', { url: '/', plugged: true, target: '#target' }, { class: 'my-link'}).render
+      my_custom_component_2_helper('My link', { url: '/', plugged: true, target: '#target' }, { class: 'my-link'})
       # or
-      UiBibz::Ui::Ux::MyComponent.new({ url: '/', plugged: true, target: '#target' }, { class: 'my-link'}) do
+      my_custom_component_2_helper({ url: '/', plugged: true, target: '#target' }, { class: 'my-link'}) do
         'My link'
-      end.render
+      end
   - e.html do
     <div class='my-class my-component-plugged my-component-secondary my-link' data-target='#target'><a href='/'>My link</a></div>
 
-%h3 Tree architecture in your app
+%h2 Complex custom component
+
+= example do |e|
+  Use tap method to add items to a component.
+  - e.code do
+    :plain
+      module UiBibz::Ui::Ux
+        class MyComplexComponent < UiBibz::Ui::Core::Component
+
+          # initialize component
+          def initialize content = {}, options = {}, html_options = {}, &block
+            super
+            @items = []
+          end
+
+          # Render html
+          def render
+            content_tag :div, @items.map(&:render).join, html_options
+          end
+
+          # add links
+          def link content = nil, options = nil, html_options = nil, &block
+            @items << UiBibz::Ui::Core::Link.new(content, options, html_options, block)
+          end
+
+          private
+
+          def component_html_classes
+            "my-complex-component"
+          end
+
+        end
+      end
+
+%h4 Create a helper
+= example do |e|
+  - e.code do
+    :plain
+      # app/helpers/component_helper.rb
+      def my_complex_component content = nil, options = nil, html_options = nil, &block
+        UiBibz::Ui::Ux::MyComplexComponent.new(content, options, html_options).tap(block).render
+      end
+
+%h4 Call custom helper
+= example do |e|
+  - e.header do
+    :plain
+      <div class='my-class my-complex-component'>
+        <a href='#link1'>Link 1</a>
+        <a href='#link2'>Link 2</a>
+      </div>
+  - e.code do
+    :plain
+      my_complex_component class: 'my-class' do |cc|
+        cc.link 'Link1', url: '#link1'
+        cc.link url: '#link2' do
+          "Link 2"
+        end
+      end
+  - e.html do
+    :plain
+      <div class='my-class my-complex-component'>
+        <a href='#link1'>Link 1</a>
+        <a href='#link2'>Link 2</a>
+      </div>
+
+%h2 Tree architecture in your app
 = example do |e|
   - e.code do
     :plain

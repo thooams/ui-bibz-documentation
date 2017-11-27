@@ -51,7 +51,7 @@ module UiBibz::Ui::Ux
     def template
       if @is_not_block
         component_name = options[:component_name] || "content"
-        "\n #{ content } #{ component_name }, options, html_options \n # or \n #{ content } options, html_options do \n   #{ component_name } \n end"
+        "\n # by variable \n #{ content } #{ component_name }, options, html_options \n\n # or by block \n #{ content } options, html_options do \n   #{ component_name } \n end"
       else
         "\n#{ content }"
       end

@@ -5,7 +5,10 @@
 = code do
   :plain
     ui_breadcrumb options, html_options do |b|
+      # by variable
       b.link content, options, html_options
+
+      # or by block
       b.link options, html_options do
         content
       end
