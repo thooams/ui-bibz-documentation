@@ -13,13 +13,13 @@
   - co.list 'type', types: 'symbol', values: ':square'
 
 - @sections = sections do |s|
-  - s.section title: "Radio Field" do
+  - s.section title: "Status" do
     = example do |e|
       - e.header do
-        - %w(primary secondary success info warning danger).each_with_index do |status, i|
-          = ui_radio_field :status, value: status, label: status, status: status.to_sym, checked: i == 0
+        - UiBibzApp::Application::STATUSES[0..-3].each_with_index do |status, i|
+          = ui_radio_field :status, value: status, label: status.to_s, status: status, checked: i == 0
       - e.code do
-        - %w(primary secondary success info warning danger).each_with_index do |status|
+        - UiBibzApp::Application::STATUSES[0..-3].each_with_index do |status, i|
           = "ui_radio_field :status, value: \"#{ status }\", status: :#{ status }".html_safe
       - e.html do
         <div class="abc-radio-primary radio abc-radio">
@@ -30,10 +30,10 @@
   - s.section title: "Square" do
     = example do |e|
       - e.header do
-        - %w(primary secondary success info warning danger).each_with_index do |status, i|
-          = ui_radio_field "status-square", value: status, label: status, status: status.to_sym, type: :square, checked: i == 0
+        - UiBibzApp::Application::STATUSES[0..-3].each_with_index do |status, i|
+          = ui_radio_field "status-square", value: status, label: status.to_s, status: status, type: :square, checked: i == 0
       - e.code do
-        - %w(primary secondary success info warning danger).each_with_index do |status|
+        - UiBibzApp::Application::STATUSES[0..-3].each_with_index do |status, i|
           = "ui_radio_field :status, value: \"#{ status }\", type: square, status: :#{ status }".html_safe
       - e.html do
         <div class="abc-checkbox-success checkbox abc-checkbox">
@@ -62,10 +62,10 @@
   - s.section title: "Inline" do
     = example do |e|
       - e.header do
-        - %w(primary secondary success info warning danger).each_with_index do |status, i|
-          = ui_radio_field "inline-status", value: status, inline: true, label: status, status: status.to_sym, checked: i == 0
+        - UiBibzApp::Application::STATUSES[0..-3].each_with_index do |status, i|
+          = ui_radio_field "inline-status", value: status.to_s, inline: true, label: status.to_s, status: status, checked: i == 0
       - e.code do
-        - %w(primary secondary success info warning danger).each_with_index do |status|
+        - UiBibzApp::Application::STATUSES[0..-3].each_with_index do |status, i|
           = "ui_radio_field :inline_status, value: \"#{ status }\", inline: true, status: :#{ status }".html_safe
       - e.html do
         <div class="abc-radio-primary radio abc-radio radio-inline">

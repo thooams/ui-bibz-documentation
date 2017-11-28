@@ -16,7 +16,7 @@
   - co.list 'badge', types: %w(hash string), description: "(use component #{ link_to('badge',components_boxes_card_path) } method)"
 
 - @sections = sections do |s|
-  - s.section title: "Button" do
+  - s.section title: "Status" do
     = status_description
     = example do |c|
       - c.header do
@@ -28,6 +28,7 @@
         ui_button 'Normal'
         - UiBibzApp::Application::STATUSES.each do |status|
           = "ui_button '#{ status.to_s.titleize }', status: :#{status}".html_safe
+        ui_button 'Link', status: :link
       - c.html do
         <button class="btn">Normal</button>
         <button class="btn-primary btn">Primary</button>
@@ -129,12 +130,11 @@
         ui_button "Primary Active", status: :primary, state: :active
         ui_button "Toggle Danger", { status: :danger, glyph: :diamond, toggle: true }, { class: "button" }
         ui_button "Text", glyph: "diamond", status: :success, text: false
-         
+        ui_button "Warning", status: :warning, badge: { content: 3, type: :pill, status: :danger }
         ui_button({ status: :success, badge: 2 }, { class: "button" }) do
           Info
         end
 
-        ui_button "Warning", status: :warning, badge: { content: 3, type: :pill, status: :danger }
       - c.html do
         :plain
           <button class="active btn-primary btn" role="button">Primary Active</button>

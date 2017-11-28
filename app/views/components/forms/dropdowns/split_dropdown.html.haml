@@ -77,7 +77,6 @@
           :plain
             ui_split_dropdown "#{ status.to_s.titleize }", status: :#{ status } do |bd|
               bd.link "Action", url: "#action"
-              bd.link "Another action", url: "#another-action"
               bd.link url: "#another-action" do
                 "Another action"
               end
@@ -123,7 +122,6 @@
           :plain
             ui_split_dropdown "#{ status.to_s.titleize }", status: :#{ status }, outline: true  do |bd|
               bd.link "Action", url: "#action"
-              bd.link "Another action", url: "#another-action"
               bd.link url: "#another-action" do
                 "Another action"
               end
@@ -173,17 +171,17 @@
       - e.code do
         ui_split_dropdown "Dropdown Lg", size: :lg do |d|
           d.link "Action 1", url: "#action-1"
-          d.link "Action 2", url: "#action-2"
+          d.link "Action 2", url: "#action-2", state: :disabled
           d.link "Action 3", url: "#action-3"
         end
         ui_split_dropdown "Dropdown Md", size: :md do |d|
           d.link "Action 1", url: "#action-1"
-          d.link "Action 2", url: "#action-2"
+          d.link "Action 2", url: "#action-2", state: :disabled
           d.link "Action 3", url: "#action-3"
         end
         ui_split_dropdown "Dropdown Sm", size: :sm do |d|
           d.link "Action 1", url: "#action-1"
-          d.link "Action 2", url: "#action-2"
+          d.link "Action 2", url: "#action-2", state: :disabled
           d.link "Action 3", url: "#action-3"
         end
       - e.html do

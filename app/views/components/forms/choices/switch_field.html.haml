@@ -43,10 +43,10 @@
     = example do |e|
       - e.header do
         = ui_switch_field 'examplestate', inline: true
-        = ui_switch_field 'examplestate', inline: true
+        = ui_switch_field 'examplestate2', inline: true
       - e.code do
         ui_switch_field "examplestate", inline: true
-        ui_switch_field "examplestate", inline: true
+        ui_switch_field "examplestate2", inline: true
       - e.html do
         <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-examplestate bootstrap-switch-animate" style="width: 106px;">
           <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
@@ -56,12 +56,12 @@
             <input type="checkbox" name="examplestate" id="examplestate" class="switch">
           </div>
         </div>
-        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-disabled bootstrap-switch-id-examplestate bootstrap-switch-animate" style="width: 106px;">
+        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-disabled bootstrap-switch-id-examplestate2 bootstrap-switch-animate" style="width: 106px;">
           <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
             <span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 52px;">ON</span>
             <span class="bootstrap-switch-label" style="width: 52px;">&nbsp;</span>
             <span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 52px;">OFF</span>
-            <input type="checkbox" name="examplestate" id="examplestate" disabled="disabled" class="true switch">
+            <input type="checkbox" name="examplestate2" id="examplestate2" disabled="disabled" class="true switch">
           </div>
         </div>
 
@@ -69,10 +69,10 @@
     = example do |e|
       - e.header do
         = ui_switch_field 'examplestate', { state: 'active', inline: true }
-        = ui_switch_field 'examplestate', { state: 'disabled', inline: true }
+        = ui_switch_field 'examplestate2', { state: 'disabled', inline: true }
       - e.code do
         ui_switch_field "examplestate", { state: :active, inline: true }
-        ui_switch_field "examplestate", { state: :disabled, inline: true }
+        ui_switch_field "examplestate2", { state: :disabled, inline: true }
       - e.html do
         <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-examplestate bootstrap-switch-animate" style="width: 106px;">
           <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
@@ -82,12 +82,12 @@
             <input type="checkbox" name="examplestate" id="examplestate" class="switch">
           </div>
         </div>
-        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-disabled bootstrap-switch-id-examplestate bootstrap-switch-animate" style="width: 106px;">
+        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-disabled bootstrap-switch-id-examplestate2 bootstrap-switch-animate" style="width: 106px;">
           <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
             <span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 52px;">ON</span>
             <span class="bootstrap-switch-label" style="width: 52px;">&nbsp;</span>
             <span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 52px;">OFF</span>
-            <input type="checkbox" name="examplestate" id="examplestate" disabled="disabled" class="true switch">
+            <input type="checkbox" name="examplestate2" id="examplestate2" disabled="disabled" class="true switch">
           </div>
         </div>
 
@@ -95,10 +95,10 @@
     = example do |e|
       - e.header do
         = ui_switch_field 'exampleanimate', { animate: true, inline: true }
-        = ui_switch_field 'exampleanimate', { animate: false, inline: true }
+        = ui_switch_field 'exampleanimate2', { animate: false, inline: true }
       - e.code do
         ui_switch_field "exampleanimate", { animate: true, inline: true }
-        ui_switch_field "exampleanimate", { animate: false, inline: true }
+        ui_switch_field "exampleanimate2", { animate: false, inline: true }
       - e.html do
         <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-exampleanimate bootstrap-switch-animate" style="width: 106px;">
           <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
@@ -108,12 +108,12 @@
             <input type="checkbox" name="exampleanimate" id="exampleanimate" data-animate="true" class="switch">
           </div>
         </div>
-        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-exampleanimate" style="width: 106px;">
+        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-exampleanimate2" style="width: 106px;">
           <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
             <span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 52px;">ON</span>
             <span class="bootstrap-switch-label" style="width: 52px;">&nbsp;</span>
             <span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 52px;">OFF</span>
-            <input type="checkbox" name="exampleanimate" id="exampleanimate" data-animate="false" class="switch">
+            <input type="checkbox" name="exampleanimate2" id="exampleanimate2" data-animate="false" class="switch">
           </div>
         </div>
 
@@ -153,10 +153,10 @@
     = example do |e|
       - e.header do
         = ui_switch_field 'examplelabel', { middle_text: "MyText", inline: true }
-        = ui_switch_field 'examplelabel', { middle_text: ui_glyph('diamond'), inline: true }
+        = ui_switch_field 'examplelabel2', { middle_text: ui_glyph('diamond'), inline: true }
       - e.code do
         ui_switch_field "examplelabel", { middle_text: "MyText", inline: true  }
-        ui_switch_field "examplelabel", { middle_text: ui_glyph("diamond"), inline: true  }
+        ui_switch_field "examplelabel2", { middle_text: ui_glyph("diamond"), inline: true  }
       - e.html do
         <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-examplelabel bootstrap-switch-animate" style="width: 124px;">
           <div class="bootstrap-switch-container" style="width: 174px; margin-left: -52px;">
@@ -166,12 +166,12 @@
             <input type="checkbox" name="examplelabel" id="examplelabel" data-label-text="MyText" class="switch">
           </div>
         </div>
-        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-examplelabel bootstrap-switch-animate" style="width: 106px;">
+        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-examplelabel2 bootstrap-switch-animate" style="width: 106px;">
           <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
             <span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 52px;">ON</span>
             <span class="bootstrap-switch-label" style="width: 52px;"><i class="glyph fa fa-diamond"></i></span>
             <span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 52px;">OFF</span>
-            <input type="checkbox" name="examplelabel" id="examplelabel" data-label-text="<i class=&quot;glyph fa fa-diamond&quot;></i>" class="switch">
+            <input type="checkbox" name="examplelabel2" id="examplelabel2" data-label-text="<i class=&quot;glyph fa fa-diamond&quot;></i>" class="switch">
           </div>
         </div>
 
@@ -179,10 +179,10 @@
     = example do |e|
       - e.header do
         = ui_switch_field 'examplereadonly', { inline: true }, { readonly: true }
-        = ui_switch_field 'examplereadonly', { inline: true }, { readonly: false }
+        = ui_switch_field 'examplereadonly2', { inline: true }, { readonly: false }
       - e.code do
         ui_switch_field "examplereadonly", { inline: true }, { readonly: true }
-        ui_switch_field "examplereadonly", { inline: true }, { readonly: false }
+        ui_switch_field "examplereadonly2", { inline: true }, { readonly: false }
       - e.html do
         <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-readonly bootstrap-switch-id-examplereadonly bootstrap-switch-animate" style="width: 106px;">
           <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
@@ -192,23 +192,23 @@
             <input type="checkbox" name="examplereadonly" id="examplereadonly" readonly="readonly" class="switch">
           </div>
         </div>
-        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-examplereadonly bootstrap-switch-animate" style="width: 106px;">
+        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-examplereadonly2 bootstrap-switch-animate" style="width: 106px;">
           <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
             <span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 52px;">ON</span>
             <span class="bootstrap-switch-label" style="width: 52px;">&nbsp;</span>
             <span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 52px;">OFF</span>
-            <input type="checkbox" name="examplereadonly" id="examplereadonly" class="switch">
+            <input type="checkbox" name="examplereadonly2" id="examplereadonly2" class="switch">
           </div>
         </div>
 
   - s.section title: "Checked" do
     = example do |e|
       - e.header do
-        = ui_switch_field 'examplechecked', {}, { checked: true, inline: true }
-        = ui_switch_field 'examplechecked', {}, { checked: false, inline: true }
+        = ui_switch_field 'examplechecked', { inline: true }, { checked: true }
+        = ui_switch_field 'examplechecked2', { inline: true} , { checked: false }
       - e.code do
-        ui_switch_field "examplechecked", {}, { checked: true, inline: true }
-        ui_switch_field "examplechecked", {}, { checked: false, inline: true }
+        ui_switch_field "examplechecked", { inline: true }, { checked: true }
+        ui_switch_field "examplechecked2", { inline: true }, { checked: false }
       - e.html do
         <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-id-examplechecked bootstrap-switch-animate bootstrap-switch-off" style="width: 106px;">
           <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
@@ -218,12 +218,12 @@
             <input type="checkbox" name="examplechecked" id="examplechecked" checked="checked" class="switch">
           </div>
         </div>
-        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-examplechecked bootstrap-switch-animate" style="width: 106px;">
+        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-examplechecked2 bootstrap-switch-animate" style="width: 106px;">
           <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
             <span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 52px;">ON</span>
             <span class="bootstrap-switch-label" style="width: 52px;">&nbsp;</span>
             <span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 52px;">OFF</span>
-            <input type="checkbox" name="examplechecked" id="examplechecked" class="switch">
+            <input type="checkbox" name="examplechecked2" id="examplechecked2" class="switch">
           </div>
         </div>
 

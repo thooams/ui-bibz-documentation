@@ -219,16 +219,35 @@
           </div>
         </div>
 
-  - s.section title: "Body and Position" do
+  - s.section title: "Body" do
+    = component_items do |ci|
+      - ci.inherit_component 'title'
+      - ci.inherit_component 'text'
+      - ci.inherit_component 'link', components_navigations_link_path
 
-    :markdown
-      Card body has several body type:
+    = example do |e|
+      - e.header do
+        = ui_card tap: true do |c|
+          - c.body tap: true do |b|
+            - b.title "Special title treatment"
+            - b.text "With supporting text below as a natural lead-in to additional content."
+            - b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
+      - e.code do
+        :plain
+          ui_card tap: true do |c|
+            c.body tap: true do |b|
+              b.title "Special title treatment"
+              b.text "With supporting text below as a natural lead-in to additional content."
+              b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
+            end
+          end
 
-      * #{ inherit_component_link 'title' }
-      * #{ inherit_component_link 'text' }
-      * #{ inherit_component_link 'link' }
-
-      To add a body type, you must add `tap: true` to the body options.
+  - s.section title: "Position text" do
+    %p Position are:
+    %ul
+      %li :left
+      %li :center
+      %li :right
 
     = example do |e|
       - e.header do

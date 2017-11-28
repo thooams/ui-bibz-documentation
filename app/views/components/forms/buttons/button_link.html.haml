@@ -14,7 +14,7 @@
   - co.list 'type', types: 'symbol', values: ':block'
 
 - @sections = sections do |s|
-  - s.section title: "Button link" do
+  - s.section title: "Status" do
     = status_description
     = example do |c|
       - c.header do
@@ -84,7 +84,7 @@
         <a class="btn-primary btn btn-block" href="#block-level-button-link">Block level button link</a>
         <a class="btn-secondary btn btn-block" href="#block-level-button-link">Block level button link</a>
 
-  - s.section title: "state", tag: :h3 do
+  - s.section title: "State", tag: :h3 do
     :markdown
       The buttons inherits the `state` option, this option is in element [component] (../components/)
       This option lets you disable or enable the element about through these two arguments :
@@ -117,7 +117,6 @@
       - c.code do
         ui_button_link "Primary Active", status: :primary, state: :active
         ui_button_link "Toggle Danger", { status: :danger, glyph: :diamond, toggle: true }, { class: "button" }
-         
         ui_button_link({ status: :success, badge: 2 }, { class: "button" }) do
           Info
         end

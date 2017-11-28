@@ -14,11 +14,11 @@
   - co.list 'type', types: 'symbol', values: ':circle'
 
 - @sections = sections do |s|
-  - s.section title: "Checkbox Field" do
+  - s.section title: "Status" do
     = example do |e|
       - e.header do
-        - %w(primary secondary success info warning danger).each do |status|
-          = ui_checkbox_field status, { value: status, status: status.to_sym, checked: true }
+        - UiBibzApp::Application::STATUSES[0..-3].each do |status|
+          = ui_checkbox_field "#{status}", { status: status, checked: true }
       - e.code do
         ui_checkbox_field :primary, { value: "primary", status: :primary, checked: true }
       - e.html do
@@ -30,8 +30,8 @@
   - s.section title: "Circle" do
     = example do |e|
       - e.header do
-        - %w(primary secondary success info warning danger).each do |status, |
-          = ui_checkbox_field "#{status}-circle", { value: status, label: status, status: status.to_sym, type: :circle, checked: true }
+        - UiBibzApp::Application::STATUSES[0..-3].each do |status|
+          = ui_checkbox_field "#{ status }-circle", { value: status, label: status.to_s, status: status, type: :circle, checked: true }
       - e.code do
         ui_checkbox_field "success-circle", { type: :circle, value: "success", status: :success, checked: true }
       - e.html do

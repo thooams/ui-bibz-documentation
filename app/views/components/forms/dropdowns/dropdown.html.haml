@@ -43,13 +43,11 @@
 - @sections = sections do |s|
   - s.section title: "Dropdown" do
     = example do |c|
-      :markdown
-        Dropdown button has several block type:
-
-        * #{ inherit_component_link 'link' }
-        * #{ inherit_component_link 'header' }
-        * #{ inherit_component_link 'html' }
-        * divider
+      = component_items do |ci|
+        - ci.inherit_component 'header'
+        - ci.inherit_component 'html'
+        - ci.inherit_component 'link', components_navigations_link_path
+        - ci.list 'divider'
 
       - c.header do
         = ui_dropdown('Dropdown', { open: true }, { class: 'open-dropdown-example' }) do |d|
@@ -89,7 +87,6 @@
             = "Action 3"
       - c.code do
         ui_dropdown("Dropdown", { status: :secondary, glyph: "diamond" }, { class: "my-dropdown"}) do |d|
-          d.link "Action 1", url: "#action"
           d.link "Confirm action", url: "#action", link_html_options: { data: { confirm: "Are you sure?" }}, method: :delete
           d.link url: "#another-action" do
             "Action 2"
@@ -261,12 +258,12 @@
       - c.code do
         ui_dropdown "Inline 1" do |d|
           d.link "Action 1", url: "#action-1"
-          d.link "Action 2", url: "#action-2"
+          d.link "Action 2", url: "#action-2", state: :disabled
           d.link "Action 3", url: "#action-3"
         end
         ui_dropdown "Inline 2" do |d|
           d.link "Action 1", url: "#action-1"
-          d.link "Action 2", url: "#action-2"
+          d.link "Action 2", url: "#action-2", state: :disabled
           d.link "Action 3", url: "#action-3"
         end
       - c.html do
@@ -300,7 +297,7 @@
       - c.code do
         ui_dropdown "Dropdown" do |d|
           d.link "Action 1", url: "#action-1"
-          d.link "Action 2", url: "#action-2"
+          d.link "Action 2", url: "#action-2", state: :disabled
           d.link "Action 3", url: "#action-3"
         end
       - c.html do
@@ -323,7 +320,7 @@
       - c.code do
         ui_dropdown "Dropdown", open: true do |d|
           d.link "Action 1", url: "#action-1"
-          d.link "Action 2", url: "#action-2"
+          d.link "Action 2", url: "#action-2", state: :disabled
           d.link "Action 3", url: "#action-3"
         end
       - c.html do
@@ -357,17 +354,17 @@
       - e.code do
         ui_dropdown "Dropdown Lg", size: :lg, inline: true do |d|
           d.link "Action 1", url: "#action-1"
-          d.link "Action 2", url: "#action-2"
+          d.link "Action 2", url: "#action-2", state: :disabled
           d.link "Action 3", url: "#action-3"
         end
         ui_dropdown "Dropdown Md", size: :md, inline: true do |d|
           d.link "Action 1", url: "#action-1"
-          d.link "Action 2", url: "#action-2"
+          d.link "Action 2", url: "#action-2", state: :disabled
           d.link "Action 3", url: "#action-3"
         end
         ui_dropdown "Dropdown Sm", size: :sm, inline: true do |d|
           d.link "Action 1", url: "#action-1"
-          d.link "Action 2", url: "#action-2"
+          d.link "Action 2", url: "#action-2", state: :disabled
           d.link "Action 3", url: "#action-3"
         end
       - e.html do
@@ -418,7 +415,6 @@
           :plain
             ui_dropdown "#{ status.to_s.titleize }", status: :#{ status }, inline: true do |bd|
               bd.link "Action", url: "#action", glyph: "diamond"
-              bd.link "Another action", url: "#another-action"
               bd.link url: "#another-action" do
                 "Another action"
               end
@@ -465,7 +461,6 @@
           :plain
             ui_dropdown "#{ status.to_s.titleize }", outline: true, status: :#{ status }, inline: true do |bd|
               bd.link "Action", url: "#action", glyph: "diamond"
-              bd.link "Another action", url: "#another-action"
               bd.link url: "#another-action" do
                 "Another action"
               end
