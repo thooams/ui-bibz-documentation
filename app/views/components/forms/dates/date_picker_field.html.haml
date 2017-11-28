@@ -26,7 +26,7 @@
       - e.html do
         <input type="text" name="search" id="search" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" class="date_picker form-control">
 
-  - s.section title: "Date Picker Field format" do
+  - s.section title: "Format" do
     = example do |e|
       - e.header do
         = ui_date_picker_field 'date_at', format: 'dd/mm/yyyy'
@@ -35,7 +35,7 @@
       - e.html do
         <input type="text" name="date_at" id="date_at" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" data-date-toggle-active="true" class="date_picker form-control">
 
-  - s.section title: "Date Picker Field with glyph" do
+  - s.section title: "Glyph" do
     = example do |e|
       - e.header do
         = ui_date_picker_field 'date_at', append: ui_glyph('calendar'), prepend: ui_glyph('pencil')
@@ -44,7 +44,7 @@
       - e.html do
         <input type="text" name="date_at" id="date_at" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" class="date_picker form-control">
 
-  - s.section title: "Date Picker Field multiple" do
+  - s.section title: "Multiple" do
     = example do |e|
       - e.header do
         = ui_date_picker_field 'date_at', multiple: true
@@ -53,7 +53,7 @@
       - e.html do
         <input type="text" name="date_at" id="date_at" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" data-date-toggle-active="true" data-date-multidate="true" class="date_picker form-control">
 
-  - s.section title: "Date Picker Field days_of_week_disabled" do
+  - s.section title: "Days of week disabled" do
     = example do |e|
       - e.header do
         = ui_date_picker_field 'date_at', days_of_week_disabled: [1,4]
@@ -71,7 +71,7 @@
       - e.html do
         <input type="text" name="date_at" id="date_at" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" data-date-toggle-active="true" data-date-days-of-week-highlighted="[0,3]" class="date_picker form-control">
 
-  - s.section title: "Date Picker Field calendar_weeks" do
+  - s.section title: "Calendar weeks" do
     = example do |e|
       - e.header do
         = ui_date_picker_field 'date_at', calendar_weeks: true
@@ -80,7 +80,7 @@
       - e.html do
         <input type="text" name="date_at" id="date_at" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" data-date-calendar-weeks="true" data-date-toggle-active="true" class="date_picker form-control">
 
-  - s.section title: "Date Picker Field today_highlight" do
+  - s.section title: "Today highlight" do
     = example do |e|
       - e.header do
         = ui_date_picker_field 'date_at', today_highlight: true
@@ -89,7 +89,7 @@
       - e.html do
         <input type="text" name="date_at" id="date_at" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" data-date-today-highlight="true" data-date-toggle-active="true" class="date_picker form-control">
 
-  - s.section title: "Date Picker Field dates_disabled" do
+  - s.section title: "Dates disabled" do
     = example do |e|
       - e.header do
         = ui_date_picker_field 'date_at', dates_disabled: [Date.current.to_s,Date.tomorrow.to_s]
@@ -98,7 +98,7 @@
       - e.html do
         <input type="text" name="date_at" id="date_at" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" data-date-toggle-active="true" data-date-days-of-week-disabled="[1,4]" class="date_picker form-control">
 
-  - s.section title: "Date Picker Field range" do
+  - s.section title: "Field range" do
     = example do |e|
       - e.header do
         = ui_date_picker_field 'range', range: 'to'
@@ -110,7 +110,7 @@
           <input type="text" name="a" id="a" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" class="date_picker form-control">
         </div>
 
-  - s.section title: "Date Picker Field status" do
+  - s.section title: "Status" do
     = example do |e|
       - e.header do
         = ui_date_picker_field 'date_at', status: :success
@@ -122,7 +122,7 @@
           <input type="text" name="a" id="a" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" class="date_picker form-control">
         </div>
 
-  - s.section title: "Date Picker Field range with ui_glyph" do
+  - s.section title: "Range with glyph" do
     = example do |e|
       - e.header do
         = ui_date_picker_field 'range', range: ui_glyph('calendar-minus-o'), append: ui_glyph('car'), prepend: ui_glyph('pencil')
