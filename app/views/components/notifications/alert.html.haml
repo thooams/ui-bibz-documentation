@@ -54,9 +54,9 @@
         = ui_alert status: :danger, closable: true, glyph: 'ban', class: 'my-alert' do
           = "Danger notification with #{ link_to('link', '#', class: 'alert-link') }.".html_safe
       - c.code do
-        ui_alert 'Success', { status: :success, closable: true }, { class: 'my-alert' }
+        ui_alert "Success", { status: :success, closable: true }, { class: "my-alert" }
          
-        ui_alert({ status: :danger, closable: true }, { class: 'my-alert' }) do
+        ui_alert({ status: :danger, closable: true }, { class: "my-alert" }) do
           "Danger notification with #{ link_to('link', '#', class: 'alert-link') }"
         end
       - c.html do
@@ -84,8 +84,8 @@
           - a.body "Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content."
       - c.code do
         :plain
-          ui_alert status: :success, glyph: 'thumbs-o-up', closable: true, tap: true do |a|
-            a.header 'Well done!'
+          ui_alert status: :success, glyph: "thumbs-o-up", closable: true, tap: true do |a|
+            a.header "Well done!"
             a.body do
               "Aww yeah, you successfully read this important alert message.
               This example text is going to run a bit longer so that you can see

@@ -1,4 +1,4 @@
-= title "Dropdown select Field #{ ui_badge 'Beta', status: :danger }"
+= title "Dropdown select Field #{ ui_badge 'Beta', status: :danger }", true, "ui bibz"
 %blockquote UiBibz::Ui::Core::Forms::Selects::DropdownSelectField
 %p.bd-callout= based_on link_to "Bootstrap select", "http://silviomoreto.github.io/bootstrap-select/examples/", target: '_blank'
 
@@ -31,7 +31,7 @@
         = ui_dropdown_select_field 'example1', option_tags: select_options_tags, prompt: 'Select an option', include_blank: true
       - e.code do
         options_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
-        ui_dropdown_select_field 'example1', option_tags: option_tags, prompt: 'Select an option', include_blank: true
+        ui_dropdown_select_field "example1", option_tags: option_tags, prompt: "Select an option", include_blank: true
       - e.html do
         <div class="btn-group bootstrap-select">
           <button type="button" class="btn dropdown-toggle btn-secondary" data-toggle="dropdown" data-id="example1" title="option 0">
@@ -110,8 +110,8 @@
         - grouped_options = { 'North America' => [['United states','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
         =  ui_dropdown_select_field 'example 1', option_tags: grouped_options_for_select(grouped_options)
       - e.code do
-        grouped_options = { 'North America' => [['United states','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
-        ui_dropdown_select_field 'example 1', option_tags: grouped_options_for_select(grouped_options)
+        grouped_options = { "North America" => [["United states","US"], "Canada"], "Europe" => ["Denmark","Germany","France"] }
+        ui_dropdown_select_field "example 1", option_tags: grouped_options_for_select(grouped_options)
       - e.html do
         :plain
           <select name="example 1" id="example_1" class="select-field form-control">
@@ -131,7 +131,7 @@
         = ui_dropdown_select_field 'example1', searchable: true, option_tags: select_options_tags
       - e.code do
         options_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
-        ui_dropdown_select_field 'example1', searchable: true, option_tags: option_tags
+        ui_dropdown_select_field "example1", searchable: true, option_tags: option_tags
 
   - s.section title: "Max_options option" do
     = example do |e|
@@ -139,7 +139,7 @@
         = ui_dropdown_select_field 'example1', max_options: 3, option_tags: select_options_tags
       - e.code do
         option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
-        ui_dropdown_select_field 'example1', max_options: 3, option_tags: option_tags
+        ui_dropdown_select_field "example1", max_options: 3, option_tags: option_tags
 
   - s.section title: "Selected_text_format option" do
     %p
@@ -184,10 +184,10 @@
       - e.code do
         options_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
         \# First Dropdown Field
-        connect = { mode: 'remote', target: { selector: '#example_1_target', url: components_forms_selects_select_field_path }}
-        ui_dropdown_select_field 'example 1', { option_tags: select_options_tags, connect: connect }
+        connect = { mode: "remote", target: { selector: "#example_1_target", url: components_forms_selects_select_field_path }}
+        ui_dropdown_select_field "example 1", { option_tags: select_options_tags, connect: connect }
         \# Second Dropdown Field
-        ui_dropdown_select_field 'example 1 target', option_tags: select_options_tags
+        ui_dropdown_select_field "example 1 target", option_tags: select_options_tags
 
   - s.section title: "Connected (local)" do
     = example do |e|
@@ -201,12 +201,12 @@
         option_tags  = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
         \# First Select input
         options_data = 5.times.map{ |o| 5.times.map{ |i| { text: "New option \#{ o }.\#{ i }", value: i, connect_option_id: o }}}.flatten
-        connect      = { mode: 'local', target: { selector: '#example_2_target', data: options_data }}}
-        ui_dropdown_select_field 'example 2', { option_tags: options_html, connect: connect }
+        connect      = { mode: "local", target: { selector: "#example_2_target", data: options_data }}}
+        ui_dropdown_select_field "example 2", { option_tags: options_html, connect: connect }
 
         \# Second Select input
         options_html = options_for_select(5.times.map{ |i| "option \#{i}" })
-        ui_dropdown_select_field 'example 2 target', option_tags: options_html
+        ui_dropdown_select_field "example 2 target", option_tags: options_html
       - e.html do
         :plain
           <select name='example 1' id='example_1' data-connect="{'type':'remote','target':{'selector':'#example_1_target','url':'/components/forms/selects/select-field'}}" class="ui-bibz-connect select-field form-control">
@@ -232,7 +232,7 @@
       - e.code do
         option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
         connect     = { target: { url: components_forms_selects_select_field_path }}
-        ui_dropdown_select_field 'example 3', option_tags: option_tags, refresh: connect
+        ui_dropdown_select_field "example 3", option_tags: option_tags, refresh: connect
       - e.html do
         :plain
           <div class="input-group select-field-refresh">

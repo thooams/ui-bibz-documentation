@@ -11,7 +11,7 @@
       - c.header do
         = image_tag "container.png", :style => "width: 40rem;"
       - c.code do
-        ui_container class: 'test' do
+        ui_container class: "test" do
           ...
           content
           ...
@@ -28,7 +28,7 @@
       - c.header do
         = image_tag "container-fluid.png", :style => "width: 40rem;"
       - c.code do
-        ui_container content, { type: :fluid }, { class: 'test-2' }
+        ui_container content, { type: :fluid }, { class: "test-2" }
       - c.html do
         <div class="test-2 container-fluid">
           content

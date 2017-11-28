@@ -17,7 +17,12 @@
 
 - @sections = sections do |s|
   - s.section title: "Component" do
-    A component can be write a variable or by block.
+    %p
+      A component can be write with a <strong>variable</strong> or a <strong>block</strong>.
+      %br
+      Content, options or html_options can be <code>nil</code>.
+      %br
+      <strong>Important:</strong> The position of <code>options</code> and <code>html_options</code> change when content is passed by variable or by block.
 
     = example do |c|
       - c.code do

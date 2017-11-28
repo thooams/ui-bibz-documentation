@@ -48,12 +48,12 @@
             = ui_button 'Close', status: :danger
             = ui_button 'Save changes', status: :success
       - c.code do
-        ui_modal class: 'modal-example' do |m|
-          m.header 'Modal itle'
-          m.body 'One fine body'
+        ui_modal class: "modal-example" do |m|
+          m.header "Modal itle"
+          m.body "One fine body"
           m.footer do
-            button 'Close', status: :secondary
-            button 'Save changes'
+            button "Close", status: :secondary
+            button "Save changes"
           end
         end
       - c.html do
@@ -86,12 +86,12 @@
           - m.body do
             = 'One fine body'
       - c.code do
-        ui_modal class: 'modal-example' do |m|
+        ui_modal class: "modal-example" do |m|
           m.header do
-            'Modal itle'
+            "Modal itle"
           end
           m.body do
-            'One fine body'
+            "One fine body"
           end
         end
       - c.html do
@@ -119,13 +119,13 @@
           - m.body do
             = 'One fine body'
       - c.code do
-        ui_button_link 'click here', { url: '#' }, { data: { toggle: 'modal', target: '#modal-test' }}
-        ui_modal({ effect: :fade }, { id: 'modal-test' }) do |m|
+        ui_button_link "click here", { url: "#" }, { data: { toggle: "modal", target: "#modal-test" }}
+        ui_modal({ effect: :fade }, { id: "modal-test" }) do |m|
           m.header do
-            'Modal itle'
+            "Modal itle"
           end
           m.body do
-            'One fine body'
+            "One fine body"
           end
         end
       - c.html do

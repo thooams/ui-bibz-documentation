@@ -50,7 +50,7 @@
           = 'Cras justo odio by block'
       - c.code do
         :plain
-          ui_list 'Cras justo odio'
+          ui_list "Cras justo odio"
 
           ui_list do
             Cras justo odio by block
@@ -66,8 +66,8 @@
         = ui_list 'Dapibus ac facilisis in', badge: { content: 2, type: :square }
       - c.code do
         :plain
-          ui_list 'Cras justo odio', badge: 14
-          ui_list 'Dapibus ac facilisis in', badge: { content: 2, type: :square }
+          ui_list "Cras justo odio", badge: 14
+          ui_list "Dapibus ac facilisis in", badge: { content: 2, type: :square }
       - c.html do
         :plain
           <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -88,8 +88,8 @@
         = ui_list 'Porta ac consectetur ac', url: "#2", tag: :a
       - c.code do
         :plain
-          ui_list 'Cras justo odio', url: "#1", state: :active, tag: :a
-          ui_list 'Porta ac consectetur ac', url: "#2", tag: :a
+          ui_list "Cras justo odio", url: "#1", state: :active, tag: :a
+          ui_list "Porta ac consectetur ac", url: "#2", tag: :a
       - c.html do
         :plain
           <a class="active list-group-item" href="#1">Cras justo odio</a>
@@ -103,8 +103,8 @@
         = ui_list 'Porta ac consectetur ac', url: "#2", tag: :button
       - c.code do
         :plain
-          ui_list 'Cras justo odio', url: "#1", state: :active, tag: :button
-          ui_list 'Porta ac consectetur ac', url: "#2", tag: :button
+          ui_list "Cras justo odio", url: "#1", state: :active, tag: :button
+          ui_list "Porta ac consectetur ac", url: "#2", tag: :button
       - c.html do
         :plain
           <button class="active list-group-item" href="#1">Cras justo odio</button>
@@ -113,10 +113,10 @@
   - s.section title: "Disabled items" do
     = example do |c|
       - c.header do
-        = ui_list 'Cras justo odio', state: :disabled
+        = ui_list "Cras justo odio", state: :disabled
       - c.code do
         :plain
-          ui_list 'Cras justo odio', state: :disabled
+          ui_list "Cras justo odio", state: :disabled
       - c.html do
         :plain
           <li class="disabled list-group-item">Cras justo odio</li>
@@ -129,7 +129,7 @@
           %br
       - c.code do
         - UiBibzApp::Application::STATUSES.each do |status|
-          = "ui_list 'This is a #{ status } list group item', status: :#{ status }".html_safe
+          = "ui_list \"This is a #{ status } list group item\", status: :#{ status }".html_safe
       - c.html do
         <li class="list-group-item-primary list-group-item">This is a primary list group item</li>
         <li class="list-group-item-secondary list-group-item">This is a secondary list group item</li>
@@ -155,15 +155,15 @@
       - c.code do
         :plain
           ui_list tap: true, state: :active, tag: :a do |l|
-            l.header 'List group item heading', extra: "3 days ago"
-            l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.', extra: "Donec id elit non mi porta"
+            l.header "List group item heading", extra: "3 days ago"
+            l.body "Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.", extra: "Donec id elit non mi porta"
           end
           ui_list tap: true, tag: :a do |l|
-            l.header class: 'my-header', extra: "3 days ago" do
-              'List group item heading'
+            l.header class: "my-header", extra: "3 days ago" do
+              "List group item heading"
             end
-            l.body class: 'my-body', extra: "Donec id elit non mi porta" do
-              'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
+            l.body class: "my-body", extra: "Donec id elit non mi porta" do
+              "Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit."
             end
           end
       - c.html do

@@ -1,4 +1,4 @@
-= title 'Radio Fields'
+= title 'Radio Fields', true, 'ui bibz'
 %blockquote UiBibz::Ui::Core::Forms::Choices::RadioField
 %p.bd-callout= based_on link_to "Awesome Bootstrap Checkbox", "https://github.com/flatlogic/awesome-bootstrap-checkbox", target: '_blank'
 
@@ -20,7 +20,7 @@
           = ui_radio_field :status, value: status, label: status, status: status.to_sym, checked: i == 0
       - e.code do
         - %w(primary secondary success info warning danger).each_with_index do |status|
-          = "ui_radio_field :status, value: '#{ status }', status: :#{ status }".html_safe
+          = "ui_radio_field :status, value: \"#{ status }\", status: :#{ status }".html_safe
       - e.html do
         <div class="abc-radio-primary radio abc-radio">
           <input type="radio" name="status" id="status_primary" value="primary">
@@ -34,7 +34,7 @@
           = ui_radio_field "status-square", value: status, label: status, status: status.to_sym, type: :square, checked: i == 0
       - e.code do
         - %w(primary secondary success info warning danger).each_with_index do |status|
-          = "ui_radio_field :status, value: '#{ status }', type: square, status: :#{ status }".html_safe
+          = "ui_radio_field :status, value: \"#{ status }\", type: square, status: :#{ status }".html_safe
       - e.html do
         <div class="abc-checkbox-success checkbox abc-checkbox">
           <input type="radio" name="status-square" id="status-square_success" value="success">
@@ -47,8 +47,8 @@
         = ui_radio_field :state, value: true, state: :disabled, label: 'choice 1'
         = ui_radio_field :state, value: false, state: :disabled, label: 'choice 2', checked: true
       - e.code do
-        ui_radio_field :state, value: true, state: :disabled, label: 'active'
-        ui_radio_field :state, value: false, state: :disabled, label: 'disabled', checked: true
+        ui_radio_field :state, value: true, state: :disabled, label: "active"
+        ui_radio_field :state, value: false, state: :disabled, label: "disabled", checked: true
       - e.html do
         <div class="disabled abc-radio-default radio abc-radio">
           <input type="radio" name="state" id="state_true" value="true" disabled="disabled">
@@ -66,7 +66,7 @@
           = ui_radio_field "inline-status", value: status, inline: true, label: status, status: status.to_sym, checked: i == 0
       - e.code do
         - %w(primary secondary success info warning danger).each_with_index do |status|
-          = "ui_radio_field :inline_status, value: '#{ status }', inline: true, status: :#{ status }".html_safe
+          = "ui_radio_field :inline_status, value: \"#{ status }\", inline: true, status: :#{ status }".html_safe
       - e.html do
         <div class="abc-radio-primary radio abc-radio radio-inline">
           <input type="radio" name="inline-status" id="inline-status_primary" value="primary" checked="checked">

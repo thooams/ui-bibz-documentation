@@ -1,4 +1,4 @@
-= title 'Text Field'
+= title 'Text Field', true, 'ui bibz'
 %blockquote UiBibz::Ui::Core::Forms::Texts::TextField
 
 = code "ui_text_field", component_name: "name"
@@ -15,7 +15,7 @@
       - e.header do
         = ui_text_field 'search'
       - e.code do
-        ui_text_field 'search'
+        ui_text_field "search"
       - e.html do
         <input type="text" name="search" id="search" placeholder="Type your search..." class="form-control">
 
@@ -24,7 +24,7 @@
       - e.header do
         = ui_text_field 'search', { append: ui_glyph('pencil'), prepend: ui_glyph('camera-retro') }, { placeholder: 'Type your search...' }
       - e.code do
-        ui_text_field 'search', { append: ui_glyph('pencil'), prepend: ui_glyph('camera-retro') }, { placeholder: 'Type your search...' }
+        ui_text_field "search", { append: ui_glyph("pencil"), prepend: ui_glyph("camera-retro") }, { placeholder: "Type your search..." }
       - e.html do
         <div class="input-group">
           <span class="input-group-addon"><i class="glyph fa fa-pencil"></i></span>
@@ -37,7 +37,7 @@
       - e.header do
         = ui_text_field 'search', { state: :disabled, status: :danger, append: ui_glyph('pencil'), prepend: ui_glyph('camera-retro') }, { placeholder: 'Type your search...' }
       - e.code do
-        ui_text_field 'search', { state: :disabled, status: :danger, append: ui_glyph('pencil'), prepend: ui_glyph('camera-retro') }, { placeholder: 'Type your search...' }
+        ui_text_field "search", { state: :disabled, status: :danger, append: ui_glyph("pencil"), prepend: ui_glyph("camera-retro") }, { placeholder: "Type your search..." }
       - e.html do
         <div class="input-group has-danger">
           <span class="input-group-addon"><i class="glyph fa fa-pencil"></i></span>
@@ -54,7 +54,7 @@
       - e.code do
         ui_form_for(@search) do |f|
           ...
-          f.input :email, as: :ui_text_field, append: ui_glyph('envelope')
+          f.input :email, as: :ui_text_field, append: ui_glyph("envelope")
           ...
         end
 

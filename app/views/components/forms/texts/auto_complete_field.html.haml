@@ -1,4 +1,4 @@
-= title 'Auto Complete Field'
+= title 'Auto Complete Field', true, 'ui bibz'
 %blockquote UiBibz::Ui::Core::Forms::Texts::autoCompleteField
 %p.bd-callout
   ui_auto_complete_field is a text_field which uses html #{ link_to('datalist', 'https://www.w3.org/wiki/HTML/Elements/datalist', target: "_blank") } to auto complete results.
@@ -34,7 +34,7 @@
       - e.header do
         = ui_auto_complete_field 'example1', option_tags: options_for_select(5.times.map{ |i| "option #{i}" }), append: ui_glyph('pencil'), prepend: ui_glyph('camera-retro')
       - e.code do
-        ui_auto_complete_field 'example1', option_tags: options_for_select(5.times.map{ |i| "option \#{i}" }), append: ui_glyph('pencil'), prepend: ui_glyph('camera-retro')
+        ui_auto_complete_field "example1", option_tags: options_for_select(5.times.map{ |i| "option \#{i}" }), append: ui_glyph("pencil"), prepend: ui_glyph("camera-retro")
       - e.html do
         :plain
           <div class="input-group">
@@ -55,7 +55,7 @@
       - e.header do
         = ui_auto_complete_field 'example1', status: :success, state: :disabled, option_tags: options_for_select(5.times.map{ |i| "option #{i}" })
       - e.code do
-        ui_auto_complete_field 'example1', status: :success, state: :disabled option_tags: options_for_select(5.times.map{ |i| "option \#{i}" })
+        ui_auto_complete_field "example1", status: :success, state: :disabled option_tags: options_for_select(5.times.map{ |i| "option \#{i}" })
       - e.html do
         :plain
           <input type="text" name="example1" id="example1" class="form-control" auto_complete="true" list="example1-datalist">
@@ -117,7 +117,7 @@
         :plain
           ui_form_for(@user) do |f|
             ...
-            f.input :email, append: ui_glyph('envelope'), as: :ui_auto_complete_field, collection: 5.times.map{|i| "test\#{i}@test.com"}
+            f.input :email, append: ui_glyph("envelope"), as: :ui_auto_complete_field, collection: 5.times.map{|i| "test\#{i}@test.com"}
             ...
           end
 

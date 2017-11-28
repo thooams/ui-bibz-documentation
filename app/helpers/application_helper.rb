@@ -75,10 +75,11 @@ module ApplicationHelper
     end
   end
 
-  def title name, display_ui = true
+  def title name, display_ui = true, logo_name = 'bootstrap'
     content_tag :h2 do
       concat ui_glyph('diamond', label: name)
       concat content_tag :span, "(ui_#{ name.parameterize.underscore })" if display_ui
+      concat bootstrap_or_ui_bibz_logo logo_name                         if display_ui
     end
   end
 
@@ -118,5 +119,9 @@ module ApplicationHelper
 
   def exclusiveness
     ui_badge('Exclu.', { status: :danger }, { title: 'Ui Bibz exclusiveness'})
+  end
+
+  def bootstrap_or_ui_bibz_logo name = 'bootstrap'
+    image_tag "#{ name.parameterize }-icon.png", class: 'icon-indicator', title: "#{ name.titleize } component"
   end
 end

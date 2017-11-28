@@ -5,8 +5,9 @@
 = code do
   :plain
     ui_choice_group do |bc|
+      # by variable
       bc.choice content, options, html_options
-      # or
+      # or by block
       bc.choice options, html_options do
         content
       end
@@ -28,8 +29,8 @@
       - c.code do
         :plain
           ui_choice_group do |bc|
-            bc.choice 'Checkbox 1'
-            bc.choice 'Checkbox 2', state: :active
+            bc.choice "Checkbox 1"
+            bc.choice "Checkbox 2", state: :active
           end
       - c.html do
         <div data-toggle="buttons" class="btn-group" >
@@ -50,8 +51,8 @@
           - bc.choice 'Checkbox 2', state: :active, glyph: 'diamond'
       - c.code do
         ui_choice_group size: :sm, outline: true, status: :success do |bc|
-          bc.choice 'Checkbox 1'
-          bc.choice 'Checkbox 2', state: :active, glyph: 'diamond'
+          bc.choice "Checkbox 1"
+          bc.choice "Checkbox 2", state: :active, glyph: "diamond"
         end
       - c.html do
         :plain
@@ -73,8 +74,8 @@
           - bc.choice 'Radio 2', state: :active
       - c.code do
         ui_choice_group do |bc|
-          bc.choice 'Radio 1'
-          bc.choice 'Radio 2', state: :active
+          bc.choice "Radio 1"
+          bc.choice "Radio 2", state: :active
         end
       - c.html do
         <div data-toggle="buttons" class="btn-group" role="group">
@@ -91,8 +92,8 @@
           - bc.choice 'Radio 2', status: :danger, state: :active
       - c.code do
         ui_choice_group size: :lg, outline: true, type: :radio do |bc|
-          bc.choice 'Radio 1', status: :danger, glyph: 'diamond'
-          bc.choice 'Radio 2', status: :danger, state: :active
+          bc.choice "Radio 1", status: :danger, glyph: "diamond"
+          bc.choice "Radio 2", status: :danger, state: :active
         end
       - c.html do
         <div data-toggle="buttons" class="btn-group" role="group">
@@ -111,10 +112,10 @@
       - c.code do
         :plain
           ui_choice_group size: :lg, status: :primary, outline: true, type: :radio do |bc|
-            bc.choice 'Radio 1', glyph: 'diamond', state: :active, text: false
-            bc.choice 'Radio 2', status: :danger
-            bc.choice 'Radio 3'
-            bc.choice 'Radio 4', status: :danger
+            bc.choice "Radio 1", glyph: "diamond", state: :active, text: false
+            bc.choice "Radio 2", status: :danger
+            bc.choice "Radio 3"
+            bc.choice "Radio 4", status: :danger
           end
       - c.html do
         <div data-toggle="buttons" class="btn-group" role="group">

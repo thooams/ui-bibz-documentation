@@ -69,9 +69,9 @@
         = ui_button 'Medium button', status: :primary, size: :md
         = ui_button 'Small button', status: :primary, size: :sm
       - c.code do
-        ui_button 'Large button', status: :primary, size: :lg
-        ui_button 'Medium button', status: :primary, size: :md
-        ui_button 'Small button', status: :primary, size: :sm
+        ui_button "Large button", status: :primary, size: :lg
+        ui_button "Medium button", status: :primary, size: :md
+        ui_button "Small button", status: :primary, size: :sm
       - c.html do
         <button class="btn-primary btn btn-lg">Large button</button>
         <button class="btn-primary btn">Medium button</button>
@@ -85,8 +85,8 @@
         = ui_button 'Block level button', status: :primary, type: :block
         = ui_button 'Block level button', status: :secondary, type: :block
       - c.code do
-        ui_button 'Block level button', status: :primary, type: :block
-        ui_button 'Block level button', status: :secondary, type: :block
+        ui_button "Block level button", status: :primary, type: :block
+        ui_button "Block level button", status: :secondary, type: :block
       - c.html do
         <button class="btn-primary btn btn-block">Block level button</button>
         <button class="btn-secondary btn btn-block">Block level button</button>
@@ -104,8 +104,8 @@
         = ui_button 'Primary', status: :primary, state: :active
         = ui_button 'Primary', status: :primary, state: :disabled
       - c.code do
-        ui_button 'Primary', status: :primary, state: :active
-        ui_button 'Primary', status: :primary, state: :disabled
+        ui_button "Primary", status: :primary, state: :active
+        ui_button "Primary", status: :primary, state: :disabled
       - c.html do
         <button class="active btn-primary btn">Primary</button>
         <button class="disabled btn-primary btn">Primary</button>
@@ -126,15 +126,15 @@
           = 'Info'
         = ui_button 'Warning', status: :warning, badge: { content: 3, type: :pill, status: :danger }
       - c.code do
-        ui_button 'Primary Active', status: :primary, state: :active
-        ui_button 'Toggle Danger', { status: :danger, glyph: :diamond, toggle: true }, { class: 'button' }
-        ui_button 'Text', glyph: 'diamond', status: :success, text: false
+        ui_button "Primary Active", status: :primary, state: :active
+        ui_button "Toggle Danger", { status: :danger, glyph: :diamond, toggle: true }, { class: "button" }
+        ui_button "Text", glyph: "diamond", status: :success, text: false
          
-        ui_button({ status: :success, badge: 2 }, { class: 'button' }) do
+        ui_button({ status: :success, badge: 2 }, { class: "button" }) do
           Info
         end
 
-        ui_button 'Warning', status: :warning, badge: { content: 3, type: :pill, status: :danger }
+        ui_button "Warning", status: :warning, badge: { content: 3, type: :pill, status: :danger }
       - c.html do
         :plain
           <button class="active btn-primary btn" role="button">Primary Active</button>

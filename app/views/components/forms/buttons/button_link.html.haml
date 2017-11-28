@@ -45,7 +45,7 @@
           = ui_button_link status.to_s.titleize, url: "##{ status }", status: status, outline: true
       - c.code do
         - UiBibzApp::Application::STATUSES.each do |status|
-          = "ui_button_link '#{ status.to_s.titleize }', url: '##{ status }', outline: true, status: :#{status}".html_safe
+          = "ui_button_link \"#{ status.to_s.titleize }\", url: \"##{ status }\", outline: true, status: :#{ status }".html_safe
       - c.html do
         <a class="btn-outline-primary btn" role="button" href="#primary">Primary</a>
         <a class="btn-outline-secondary btn" role="button" href="#secondary">Secondary</a>
@@ -64,9 +64,9 @@
         = ui_button_link 'Medium button link', url: '#medium-button-link'
         = ui_button_link 'Small button link', url: '#small-button-link', size: :sm
       - c.code do
-        ui_button_link 'Large button link', url: '#large-button-link', size: :lg
-        ui_button_link 'Medium button link', url: '#medium-button-link'
-        ui_button_link 'Small button link', url: '#small-button-link', size: :sm
+        ui_button_link "Large button link", url: "#large-button-link", size: :lg
+        ui_button_link "Medium button link", url: "#medium-button-link"
+        ui_button_link "Small button link", url: "#small-button-link", size: :sm
       - c.html do
         <a class="btn-primary btn btn-lg" href="large-button-link">Large button link</a>
         <a class="btn-primary btn" href="#medium-button-link">Medium button link</a>
@@ -78,8 +78,8 @@
         = ui_button_link 'Block level button link', url: '#block-level-button-link', status: :primary, type: :block
         = ui_button_link 'Block level button link', url: '#block-level-button-link', status: :secondary, type: :block
       - c.code do
-        ui_button_link 'Block level button link', url: '#block-level-button-link', status: :primary, type: :block
-        ui_button_link 'Block level button link', url: '#block-level-button-link', status: :secondary, type: :block
+        ui_button_link "Block level button link", url: "#block-level-button-link", status: :primary, type: :block
+        ui_button_link "Block level button link", url: "#block-level-button-link", status: :secondary, type: :block
       - c.html do
         <a class="btn-primary btn btn-block" href="#block-level-button-link">Block level button link</a>
         <a class="btn-secondary btn btn-block" href="#block-level-button-link">Block level button link</a>
@@ -96,8 +96,8 @@
         = ui_button_link 'Primary', url: '#active', state: :active
         = ui_button_link 'Primary', url: '#disabled', state: :disabled
       - c.code do
-        ui_button_link 'Primary', url: '#active', state: :active
-        ui_button_link 'Primary', url: '#disabled', state: :disabled
+        ui_button_link "Primary", url: "#active", state: :active
+        ui_button_link "Primary", url: "#disabled", state: :disabled
       - c.html do
         <a class="active btn-primary btn" href="#active">Primary</a>
         <a class="disabled btn-primary btn" href="#disabled">Primary</a>
@@ -115,10 +115,10 @@
         = ui_button_link({ badge: 2 }, { class: 'button' }) do
           = 'Info'
       - c.code do
-        ui_button_link 'Primary Active', status: :primary, state: :active
-        ui_button_link 'Toggle Danger', { status: :danger, glyph: :diamond, toggle: true }, { class: 'button' }
+        ui_button_link "Primary Active", status: :primary, state: :active
+        ui_button_link "Toggle Danger", { status: :danger, glyph: :diamond, toggle: true }, { class: "button" }
          
-        ui_button_link({ status: :success, badge: 2 }, { class: 'button' }) do
+        ui_button_link({ status: :success, badge: 2 }, { class: "button" }) do
           Info
         end
       - c.html do

@@ -1,4 +1,4 @@
-= title 'Multi Select Field'
+= title 'Multi Select Field', true, 'ui bibz'
 %blockquote UiBibz::Ui::Core::Forms::Selects::MultiSelectField
 %p.bd-callout= based_on link_to "bootstrap-multiselect", "http://davidstutz.github.io/bootstrap-multiselect/", target: '_blank'
 
@@ -49,8 +49,8 @@
         - grouped_options = { 'North America' => [['United states','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
         = ui_multi_select_field 'example2', { clickable_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
       - e.code do
-        grouped_options = { 'North America' => [['United states','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
-        ui_multi_select_field 'example', { clickable_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
+        grouped_options = { "North America" => [["United states","US"], "Canada"], "Europe" => ["Denmark","Germany","France"] }
+        ui_multi_select_field "example", { clickable_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
       - e.html do
         <select name="example2[]" id="example2" data-enable-clickable-opt-groups="true" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
           <optgroup label="North America">
@@ -82,8 +82,8 @@
         - grouped_options = { 'North America' => [['United states','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
         = ui_multi_select_field 'example2', { collapsible_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
       - e.code do
-        grouped_options = { 'North America' => [['United states','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
-        ui_multi_select_field 'example', { collapsible_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
+        grouped_options = { "North America" => [["United states","US"], "Canada"], "Europe" => ["Denmark","Germany","France"] }
+        ui_multi_select_field "example", { collapsible_opt_group: true, option_tags: grouped_options_for_select(grouped_options) }
       - e.html do
         <select name="example2[]" id="example2" data-enable-collapsible-opt-groups="true" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
           <optgroup label="North America">
@@ -149,9 +149,9 @@
         = ui_multi_select_field 'sm', size: :sm, option_tags: select_options_tags
       - e.code do
         option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
-        ui_multi_select_field 'lg', size: :lg, option_tags: option_tags
-        ui_multi_select_field 'md', size: :md, option_tags: option_tags
-        ui_multi_select_field 'sm', size: :sm, option_tags: option_tags
+        ui_multi_select_field "lg", size: :lg, option_tags: option_tags
+        ui_multi_select_field "md", size: :md, option_tags: option_tags
+        ui_multi_select_field "sm", size: :sm, option_tags: option_tags
       - e.html do
         :plain
           <select name="lg[]" id="example1" class="btn-secondary btn-lg multi-select-field" multiple="multiple" style="display: none;">
@@ -214,7 +214,7 @@
         = ui_multi_select_field 'example1', select_all_options: true, option_tags: select_options_tags
       - e.code do
         option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
-        ui_multi_select_field 'example', select_all_options: true, option_tags: option_tags
+        ui_multi_select_field "example", select_all_options: true, option_tags: option_tags
       - e.html do
         <select name="example1[]" id="example1" data-include-select-all-option="true" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
           <option value="option 0">option 0</option>
@@ -242,12 +242,12 @@
           = ui_multi_select_field s, status: s.to_sym, option_tags: select_options_tags
       - e.code do
         option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
-        ui_multi_select_field 'primary', status: :primary, option_tags: option_tags
-        ui_multi_select_field 'secondary', status: :secondary, option_tags: option_tags
-        ui_multi_select_field 'success', status: :success, option_tags: option_tags
-        ui_multi_select_field 'warning', status: :warning, option_tags: option_tags
-        ui_multi_select_field 'danger', status: :danger, option_tags: option_tags
-        ui_multi_select_field 'link', status: :link, option_tags: option_tags
+        ui_multi_select_field "primary", status: :primary, option_tags: option_tags
+        ui_multi_select_field "secondary", status: :secondary, option_tags: option_tags
+        ui_multi_select_field "success", status: :success, option_tags: option_tags
+        ui_multi_select_field "warning", status: :warning, option_tags: option_tags
+        ui_multi_select_field "danger", status: :danger, option_tags: option_tags
+        ui_multi_select_field "link", status: :link, option_tags: option_tags
       - e.html do
         <select name="primary[]" id="primary" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
           <option value="option 0">option 0</option>
@@ -273,7 +273,7 @@
         = ui_multi_select_field :number_displayed, option_tags: select_options_tags, number_displayed: 1
       - e.code do
         option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
-        ui_multi_select_field 'number_displayed', option_tags: option_tags, number_displayed: 1
+        ui_multi_select_field "number_displayed", option_tags: option_tags, number_displayed: 1
       - e.html do
         <select name="primary[]" id="primary" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
           <option value="option 0">option 0</option>
@@ -307,10 +307,10 @@
       - e.code do
         option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
         \# First multi column input
-        connect = { mode: 'remote', target: { selector: '#example_1_target', url: components_forms_selects_multi_column_field_path }}
-        ui_multi_select_field 'example 1', option_tags: option_tags, connect: connect
+        connect = { mode: "remote", target: { selector: "#example_1_target", url: components_forms_selects_multi_column_field_path }}
+        ui_multi_select_field "example 1", option_tags: option_tags, connect: connect
         \# Second select input
-        ui_multi_select_field 'example 1 target', option_tags: option_tags
+        ui_multi_select_field "example 1 target", option_tags: option_tags
       - e.html do
         :plain
           ""
@@ -323,16 +323,16 @@
         = ui_multi_select_field 'example 2', searchable: true, option_tags: select_options_tags, connect: connect
         %br
         %br
-        = ui_multi_select_field 'example 2 target', option_tags: select_options_tags
+        = ui_multi_select_field "example 2 target", option_tags: select_options_tags
       - e.code do
         option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
         \# First Select input
         options_data = 5.times.map{ |o| 5.times.map{ |i| { text: "New option \#{ o }.\#{ i }", value: i, connect_option_id: o }}}.flatten
-        connect      = { mode: 'local', target: { selector: '#example_2_target', data: options_data }}}
-        ui_multi_select_field 'example 2', { option_tags: option_tags, connect: connect }
+        connect      = { mode: "local", target: { selector: "#example_2_target", data: options_data }}}
+        ui_multi_select_field "example 2", { option_tags: option_tags, connect: connect }
 
         \# Second Select input
-        ui_multi_select_field 'example 2 target', option_tags: options_html
+        ui_multi_select_field "example 2 target", option_tags: options_html
       - e.html do
         :plain
           ""
@@ -346,7 +346,7 @@
       - e.code do
         option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
         connect     = { target: { url: components_forms_selects_select_field_path }}
-        ui_multi_select_field 'example 3', option_tags: option_tags, refresh: connect
+        ui_multi_select_field "example 3", option_tags: option_tags, refresh: connect
       - e.html do
         :plain
           <div class="input-group select-field-refresh">

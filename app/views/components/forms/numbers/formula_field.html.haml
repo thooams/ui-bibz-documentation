@@ -1,4 +1,4 @@
-= title 'Formula Field'
+= title 'Formula Field', true, 'ui bibz'
 %blockquote UiBibz::Ui::Core::Forms::Numbers::FormulaField
 %p.bd-callout
   By default, the second input name will take the first input name + "_formula".
@@ -18,7 +18,7 @@
       - e.header do
         = ui_formula_field 'value', {}, { placeholder: 'Type your formula...' }
       - e.code do
-        ui_formula_field 'value', {}, { placeholder: 'Type your formula...'}
+        ui_formula_field "value", {}, { placeholder: "Type your formula..."}
       - e.html do
         <div class="input-group ui_formula_field">
           <input type="text" name="value" id="value" value="" placeholder="Type your formula..." class="ui_formula_field_input form-control">
@@ -34,7 +34,7 @@
       - e.header do
         = ui_formula_field 'value', status: :success
       - e.code do
-        ui_formula_field 'value', status: :success
+        ui_formula_field "value", status: :success
       - e.html do
         <div class="input-group has-success ui_formula_field">
           <input type="text" name="value" id="value" value="" placeholder="Type your formula..." class="ui_formula_field_input form-control">
@@ -50,7 +50,7 @@
       - e.header do
         = ui_formula_field 'value', ui_formula_field_name: :another_value_formula
       - e.code do
-        ui_formula_field 'value', ui_formula_field_name: :another_value_formula
+        ui_formula_field "value", ui_formula_field_name: :another_value_formula
       - e.html do
         <div class="input-group ui_formula_field">
           <input type="text" name="value" id="value" value="" placeholder="Type your formula..." class="ui_formula_field_input form-control">

@@ -60,23 +60,23 @@
       - c.code do
         ui_navbar title: 'Navbar' do |nb|
           nb.nav do |n|
-            n.link 'Home', url: '#active', state: :active
-            n.link url: '#link', class: 'my-link' do
+            n.link "Home", url: "#active", state: :active
+            n.link url: "#link", class: "my-link" do
               Features
             end
-            n.dropdown 'Dropdown' do |d|
-              d.link "Action 1", url: '#action'
-              d.link url: '#another-action' do
+            n.dropdown "Dropdown" do |d|
+              d.link "Action 1", url: "#action"
+              d.link url: "#another-action" do
                 "Action 2"
               end
-              d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+              d.link({ url: "#separate-link"}, { class: "my-link"}) do
                 "Action 3"
               end
             end
           end
-          nb.form '/search', { type: :form_tag, position: :right } do
-            ui_text_field 'Search', class: 'mr-sm-2'
-            ui_button 'Search', status: :success, outline: true
+          nb.form "/search", { type: :form_tag, position: :right } do
+            ui_text_field "Search", class: "mr-sm-2"
+            ui_button "Search", status: :success, outline: true
           end
         end
       - c.html do
@@ -128,21 +128,21 @@
                 = "Action 3"
       - c.code do
         :plain
-          ui_navbar title: 'Navbar' do |nb|
-            nb.nav class: 'mr-auto' do |n|
-              n.link 'Home', url: '#active', state: :active
-              n.link url: '#link', class: 'my-link' do
+          ui_navbar title: "Navbar" do |nb|
+            nb.nav class: "mr-auto" do |n|
+              n.link "Home", url: "#active", state: :active
+              n.link url: "#link", class: "my-link" do
                 Features
               end
             end
             nb.nav do |n|
-              n.link 'Right link', url: '#right-link'
-              n.dropdown 'Dropdown', glyph: 'user' do |d|
-                d.link "Action 1", url: '#action'
-                d.link url: '#another-action' do
+              n.link "Right link", url: "#right-link"
+              n.dropdown "Dropdown", glyph: "user" do |d|
+                d.link "Action 1", url: "#action"
+                d.link url: "#another-action" do
                   "Action 2"
                 end
-                d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+                d.link({ url: "#separate-link"}, { class: "my-link"}) do
                   "Action 3"
                 end
               end
@@ -211,21 +211,21 @@
           - nb.nav do |n|
             - n.link 'Home', url: '#home'
       - c.code do
-        ui_navbar title: 'Navbar', status: :primary, type: :dark do |nb|
+        ui_navbar title: "Navbar", status: :primary, type: :dark do |nb|
           nb.nav do |n|
-            n.link 'Home', url: '#home'
+            n.link "Home", url: "#home"
           end
         end
          
-        ui_navbar title: 'Navbar', status: :dark, type: :dark do |nb|
+        ui_navbar title: "Navbar", status: :dark, type: :dark do |nb|
           nb.nav do |n|
-            n.link 'Home', url: '#home'
+            n.link "Home", url: "#home"
           end
         end
          
-        ui_navbar({ title: 'Navbar' }, { style: "background-color: #e3f2fd;"}) do |nb|
+        ui_navbar({ title: "Navbar" }, { style: "background-color: #e3f2fd;"}) do |nb|
           nb.nav do |n|
-            n.link 'Home', url: '#home'
+            n.link "Home", url: "#home"
           end
         end
       - c.html do
@@ -288,18 +288,18 @@
       - e.code do
         :plain
           ui_navbar type: :dark, status: :dark do |nb|
-            nb.brand image_tag 'ruby-white'
+            nb.brand image_tag "ruby-white"
             nb.nav do |n|
-              n.link 'Link', url: '#link'
+              n.link "Link", url: "#link"
             end
-            nb.form @user, { type: :ui_form_for, url: components_navigations_navbar_path, method: 'get', input_html: { class: 'mr-sm-2' }} do |f|
+            nb.form @user, { type: :ui_form_for, url: components_navigations_navbar_path, method: "get", input_html: { class: "mr-sm-2" }} do |f|
               = f.input :country_id, as: :ui_select_field, label: false, collection: Country.all
               = f.ui_surround_field do |s|
-                s.glyph 'user'
+                s.glyph "user"
                 s.input :name, as: :ui_text_field, label: false
                 s.input :company, as: :ui_dropdown_select_field, label: false, collection: Continent.all
               end
-              = f.submit 'Go', class: 'btn btn-primary btn-outline-primary'
+              = f.submit "Go", class: "btn btn-primary btn-outline-primary"
             end
           end
 

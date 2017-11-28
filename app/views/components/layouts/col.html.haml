@@ -22,13 +22,13 @@
   - s.section title: "Col" do
     = example do |c|
       - c.header do
-        = ui_row class: 'test' do
+        = ui_row class: "test" do
           = ui_col do
             Col 1
           = ui_col "Col 2"
       - c.code do
         :plain
-          ui_row class: 'test' do
+          ui_row class: "test" do
             ui_col do
               Col 1
             end
@@ -58,11 +58,11 @@
           = ui_col 'Col 2', { num: 2, pull: 4 }, { class: 'test-col2' }
       - c.code do
         :plain
-          ui_row class: 'test' do
-            ui_col({ num: 10, offset: 2 }, { class: 'test-col' }) do
+          ui_row class: "test" do
+            ui_col({ num: 10, offset: 2 }, { class: "test-col" }) do
               Col 1
             end
-            ui_col 'Col 2', { num: 2, pull: 4 }, { class: 'test-col2' }
+            ui_col "Col 2", { num: 2, pull: 4 }, { class: "test-col2" }
           end
       - c.html do
         :plain
@@ -88,11 +88,11 @@
           = ui_col 'Col 2', { md: { num: 7, pull: 4 }, xs: { num: 10 }}, { class: 'test-col2' }
       - c.code do
         :plain
-          ui_row class: 'test' do
+          ui_row class: "test" do
             ui_col(md: { num: 5, offset: 2 }, xs: { num: 2 }) do
               Col 1
             end
-            ui_col 'Col 2', { md: { num: 7, pull: 4 }, xs: { num: 10 }}, { class: 'test-col2' }
+            ui_col "Col 2", { md: { num: 7, pull: 4 }, xs: { num: 10 }}, { class: "test-col2" }
           end
       - c.html do
         :plain

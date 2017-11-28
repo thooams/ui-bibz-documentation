@@ -42,17 +42,17 @@
       - c.code do
         :plain
           ui_tab_group do |n|
-            n.tab 'Active', url: '#active', state: :active
-            n.tab url: '#link', class: 'my-link' do
+            n.tab "Active", url: "#active", state: :active
+            n.tab url: "#link", class: "my-link" do
               Link
             end
-            n.tab 'Disabled', url: '#disabled', state: :disabled
-            n.dropdown 'Dropdown' do |d|
-              d.link "Action 1", url: '#action'
-              d.link url: '#another-action' do
+            n.tab "Disabled", url: "#disabled", state: :disabled
+            n.dropdown "Dropdown" do |d|
+              d.link "Action 1", url: "#action"
+              d.link url: "#another-action" do
                 "Action 2"
               end
-              d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+              d.link({ url: "#separate-link"}, { class: "my-link"}) do
                 "Action 3"
               end
             end
@@ -92,9 +92,9 @@
         - %i(left center right).each do |p|
           :plain
             ui_tab_group position: p do |n|
-              n.tab 'Active', url: '#active', state: :active
-              n.tab 'Another link', url: '#another-link'
-              n.tab 'Disabled', url: '#disabled', state: :disabled
+              n.tab "Active", url: "#active", state: :active
+              n.tab "Another link", url: "#another-link"
+              n.tab "Disabled", url: "#disabled", state: :disabled
             end
       - c.html do
         :plain
@@ -134,16 +134,16 @@
       - c.code do
         :plain
           ui_tab_group do |n|
-            n.link 'Active', url: '#active', state: :active
-            n.link 'Another link', url: '#active'
-            n.link 'Disabled', url: '#disabled', state: :disabled
+            n.link "Active", url: "#active", state: :active
+            n.link "Another link", url: "#active"
+            n.link "Disabled", url: "#disabled", state: :disabled
             n.spacer
-            n.dropdown 'Dropdown' do |d|
-              d.link "Action 1", url: '#action'
-              d.link url: '#another-action' do
+            n.dropdown "Dropdown" do |d|
+              d.link "Action 1", url: "#action"
+              d.link url: "#another-action" do
                 "Action 2"
               end
-              d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+              d.link({ url: "#separate-link"}, { class: "my-link"}) do
                 "Action 3"
               end
             end
@@ -187,17 +187,17 @@
           = ui_card 'Content 4', { tab: true }, { id: 'content4' }
       - c.code do
         ui_tab_group type: :tabs do |n|
-          n.tab 'Active', url: '#content1', state: :active
-          n.tab 'Link', url: '#content2'
-          n.tab 'Another link', url: '#content3'
-          n.tab 'Disabled', url: '#content4', state: :disabled
+          n.tab "Active", url: "#content1", state: :active
+          n.tab "Link", url: "#content2"
+          n.tab "Another link", url: "#content3"
+          n.tab "Disabled", url: "#content4", state: :disabled
         end
          
         <div class='tab-content'>
-          ui_card 'Content 1', { tab: true, state: :active }, { id: 'content1' }
-          ui_card 'Content 2', { tab: true, effect: :fade }, { id: 'content2' }
-          ui_card 'Content 3', { tab: true, effect: :fade }, { id: 'content3' }
-          ui_card 'Content 4', { tab: true }, { id: 'content4' }
+          ui_card "Content 1", { tab: true, state: :active }, { id: "content1" }
+          ui_card "Content 2", { tab: true, effect: :fade }, { id: "content2" }
+          ui_card "Content 3", { tab: true, effect: :fade }, { id: "content3" }
+          ui_card "Content 4", { tab: true }, { id: "content4" }
         </div>
       - c.html do
         <ul class="nav nav-tabs">

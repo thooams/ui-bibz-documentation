@@ -5,22 +5,25 @@
 = code do
   :plain
     ui_dropdown name, options, html_options do |d|
+      # by variable
       d.link content, options, html_options
-      # or
+      # or by block
       d.link options, html_options do
         content
       end
 
       d.divider
 
+      # by variable
       d.header content, options, html_options
-      # or
+      # or by block
       d.header options, html_options do
         content
       end
 
+      # by variable
       d.html content
-      # or
+      # or by block
       d.html do
         content
       end
@@ -56,12 +59,12 @@
           - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
             = "Action 3"
       - c.code do
-        ui_dropdown 'Dropdown' do |d|
-          d.link "Action 1", url: '#action'
-          d.link url: '#another-action' do
+        ui_dropdown "Dropdown" do |d|
+          d.link "Action 1", url: "#action"
+          d.link url: "#another-action" do
             "Action 2"
           end
-          d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+          d.link({ url: "#separate-link"}, { class: "my-link"}) do
             "Action 3"
           end
         end
@@ -85,13 +88,13 @@
           - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
             = "Action 3"
       - c.code do
-        ui_dropdown('Dropdown', { status: :secondary, glyph: 'diamond' }, { class: 'my-dropdown'}) do |d|
-          d.link "Action 1", url: '#action'
-          d.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
-          d.link url: '#another-action' do
+        ui_dropdown("Dropdown", { status: :secondary, glyph: "diamond" }, { class: "my-dropdown"}) do |d|
+          d.link "Action 1", url: "#action"
+          d.link "Confirm action", url: "#action", link_html_options: { data: { confirm: "Are you sure?" }}, method: :delete
+          d.link url: "#another-action" do
             "Action 2"
           end
-          d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+          d.link({ url: "#separate-link"}, { class: "my-link"}) do
             "Action 3"
           end
         end
@@ -115,9 +118,9 @@
           - d.link "Action 3", url: '#action-3'
       - c.code do
         ui_dropdown "Dropdown link", tag: :a do |d|
-          d.link "Action 1", url: '#action-1'
-          d.link "Action 2", url: '#action-2'
-          d.link "Action 3", url: '#action-3'
+          d.link "Action 1", url: "#action-1"
+          d.link "Action 2", url: "#action-2"
+          d.link "Action 3", url: "#action-3"
         end
       - c.html do
         <div class="dropdown">
@@ -138,9 +141,9 @@
           - d.link "Action 3", url: '#action-3'
       - c.code do
         ui_dropdown "Dropdown with right menu", position: :right do |d|
-          d.link "Action 1", url: '#action-1'
-          d.link "Action 2", url: '#action-2'
-          d.link "Action 3", url: '#action-3'
+          d.link "Action 1", url: "#action-1"
+          d.link "Action 2", url: "#action-2"
+          d.link "Action 3", url: "#action-3"
         end
       - c.html do
         <div class="dropdown">
@@ -170,12 +173,12 @@
       - c.code do
         ui_dropdown "Dropdown" do |d|
           d.header "Header 1"
-          d.link "Action 1", url: '#action-1'
-          d.header class: 'my-header' do
-            'Header 2'
+          d.link "Action 1", url: "#action-1"
+          d.header class: "my-header" do
+            "Header 2"
           end
-          d.link "Action 2", url: '#action-2'
-          d.link "Action 3", url: '#action-3'
+          d.link "Action 2", url: "#action-2"
+          d.link "Action 3", url: "#action-3"
         end
       - c.html do
         <div class="open-dropdown-example dropdown">
@@ -202,10 +205,10 @@
         %br
       - c.code do
         ui_dropdown "Dropdown" do |d|
-          d.link "Action 1", url: '#action-1'
+          d.link "Action 1", url: "#action-1"
           d.divider
-          d.link "Separate action 1", url: '#separate-action-1'
-          d.link "Separate action 2", url: '#separate-action-2'
+          d.link "Separate action 1", url: "#separate-action-1"
+          d.link "Separate action 2", url: "#separate-action-2"
         end
       - c.html do
         <div class="open-dropdown-example dropdown">
@@ -229,9 +232,9 @@
         %br
       - c.code do
         ui_dropdown "Dropdown" do |d|
-          d.html link_to("Action 1", url: '#action-1', class: 'dropdown-item')
-          d.html link_to("Action 2", url: '#action-2', class: 'dropdown-item')
-          d.html link_to("Action 3", url: '#action-3', class: 'dropdown-item')
+          d.html link_to("Action 1", url: "#action-1", class: "dropdown-item")
+          d.html link_to("Action 2", url: "#action-2", class: "dropdown-item")
+          d.html link_to("Action 3", url: "#action-3", class: "dropdown-item")
         end
       - c.html do
         <div class="open-dropdown-example dropdown">
@@ -257,14 +260,14 @@
           - d.link "Action 3", url: '#action-3'
       - c.code do
         ui_dropdown "Inline 1" do |d|
-          d.link "Action 1", url: '#action-1'
-          d.link "Action 2", url: '#action-2'
-          d.link "Action 3", url: '#action-3'
+          d.link "Action 1", url: "#action-1"
+          d.link "Action 2", url: "#action-2"
+          d.link "Action 3", url: "#action-3"
         end
         ui_dropdown "Inline 2" do |d|
-          d.link "Action 1", url: '#action-1'
-          d.link "Action 2", url: '#action-2'
-          d.link "Action 3", url: '#action-3'
+          d.link "Action 1", url: "#action-1"
+          d.link "Action 2", url: "#action-2"
+          d.link "Action 3", url: "#action-3"
         end
       - c.html do
         :plain
@@ -296,9 +299,9 @@
           - d.link "Action 3", url: '#action-3'
       - c.code do
         ui_dropdown "Dropdown" do |d|
-          d.link "Action 1", url: '#action-1'
-          d.link "Action 2", url: '#action-2'
-          d.link "Action 3", url: '#action-3'
+          d.link "Action 1", url: "#action-1"
+          d.link "Action 2", url: "#action-2"
+          d.link "Action 3", url: "#action-3"
         end
       - c.html do
         <div class="open-dropdown-example dropdown">
@@ -319,9 +322,9 @@
           - d.link "Action 3", url: '#action-3'
       - c.code do
         ui_dropdown "Dropdown", open: true do |d|
-          d.link "Action 1", url: '#action-1'
-          d.link "Action 2", url: '#action-2'
-          d.link "Action 3", url: '#action-3'
+          d.link "Action 1", url: "#action-1"
+          d.link "Action 2", url: "#action-2"
+          d.link "Action 3", url: "#action-3"
         end
       - c.html do
         :plain
@@ -352,20 +355,20 @@
           - d.link "Action 2", url: '#action-2', state: :disabled
           - d.link "Action 3", url: '#action-3'
       - e.code do
-        ui_dropdown 'Dropdown Lg', size: :lg, inline: true do |d|
-          d.link "Action 1", url: '#action-1'
-          d.link "Action 2", url: '#action-2'
-          d.link "Action 3", url: '#action-3'
+        ui_dropdown "Dropdown Lg", size: :lg, inline: true do |d|
+          d.link "Action 1", url: "#action-1"
+          d.link "Action 2", url: "#action-2"
+          d.link "Action 3", url: "#action-3"
         end
-        ui_dropdown 'Dropdown Md', size: :md, inline: true do |d|
-          d.link "Action 1", url: '#action-1'
-          d.link "Action 2", url: '#action-2'
-          d.link "Action 3", url: '#action-3'
+        ui_dropdown "Dropdown Md", size: :md, inline: true do |d|
+          d.link "Action 1", url: "#action-1"
+          d.link "Action 2", url: "#action-2"
+          d.link "Action 3", url: "#action-3"
         end
-        ui_dropdown 'Dropdown Sm', size: :sm, inline: true do |d|
-          d.link "Action 1", url: '#action-1'
-          d.link "Action 2", url: '#action-2'
-          d.link "Action 3", url: '#action-3'
+        ui_dropdown "Dropdown Sm", size: :sm, inline: true do |d|
+          d.link "Action 1", url: "#action-1"
+          d.link "Action 2", url: "#action-2"
+          d.link "Action 3", url: "#action-3"
         end
       - e.html do
         :plain
@@ -413,17 +416,17 @@
       - c.code do
         - UiBibzApp::Application::STATUSES.each do |status|
           :plain
-            ui_dropdown '#{ status.to_s.titleize }', status: :#{ status }, inline: true do |bd|
-              bd.link "Action", url: '#action', glyph: 'diamond'
-              bd.link "Another action", url: '#another-action'
-              bd.link url: '#another-action' do
+            ui_dropdown "#{ status.to_s.titleize }", status: :#{ status }, inline: true do |bd|
+              bd.link "Action", url: "#action", glyph: "diamond"
+              bd.link "Another action", url: "#another-action"
+              bd.link url: "#another-action" do
                 "Another action"
               end
               bd.divider
-              bd.header 'Header'
+              bd.header "Header"
               bd.html "     Normal Text"
-              bd.link "Separate link", url: '#separate-link'
-              bd.link({ url: '#separate-link'}, { class: 'my-link'}) do
+              bd.link "Separate link", url: "#separate-link"
+              bd.link({ url: "#separate-link"}, { class: "my-link"}) do
                 "Separate link"
               end
             end
@@ -460,17 +463,17 @@
       - c.code do
         - UiBibzApp::Application::STATUSES.each do |status|
           :plain
-            ui_dropdown '#{ status.to_s.titleize }', outline: true, status: :#{ status }, inline: true do |bd|
-              bd.link "Action", url: '#action', glyph: 'diamond'
-              bd.link "Another action", url: '#another-action'
-              bd.link url: '#another-action' do
+            ui_dropdown "#{ status.to_s.titleize }", outline: true, status: :#{ status }, inline: true do |bd|
+              bd.link "Action", url: "#action", glyph: "diamond"
+              bd.link "Another action", url: "#another-action"
+              bd.link url: "#another-action" do
                 "Another action"
               end
               bd.divider
-              bd.header 'Header'
+              bd.header "Header"
               bd.html "     Normal Text"
-              bd.link "Separate link", url: '#separate-link'
-              bd.link({ url: '#separate-link'}, { class: 'my-link'}) do
+              bd.link "Separate link", url: "#separate-link"
+              bd.link({ url: "#separate-link"}, { class: "my-link"}) do
                 "Separate link"
               end
             end

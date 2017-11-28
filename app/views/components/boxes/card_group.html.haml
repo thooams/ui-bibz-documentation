@@ -49,10 +49,10 @@
             c.footer "footer 1"
           end
           cg.card tap: true do |c|
-            c.image 'image.svg'
+            c.image "image.svg"
             c.body tap: true do |b|
-              b.title 'Card title'
-              b.text 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.'
+              b.title "Card title"
+              b.text "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
               b.text "<small class='text-muted'>Last updated 3 mins ago</small>"
             end
           end
@@ -61,14 +61,14 @@
               lg.list "Cras justo odio"
               lg.list "Dapibas ac facilisis in", state: :active
               lg.list tap: true do |l|
-                l.header 'Header list'
+                l.header "Header list"
                 l.body "vestibulum at eros"
               end
             end
           end
-          cg.card "Content 4 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
+          cg.card "Content 4 <br/> Some quick example text to build on the card title and make up the bulk of the card"s content."
           cg.card status: :primary, type: :inverse, text_position: :center do
-            '<bodyquote class="card-bodyquote"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p><footer>Someone famous in <cite title="Source Title">Source Title</cite></footer></bodyquote>'.html_safe
+            "<bodyquote class='card-bodyquote'><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p><footer>Someone famous in <cite title="Source Title">Source Title</cite></footer></bodyquote>".html_safe
           end
         end
       - e.html do

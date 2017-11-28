@@ -50,16 +50,16 @@
           - n.link 'Another link 3', url: '#another-link3'
       - c.code do
         ui_nav do |n|
-          n.link 'Active', url: '#active', state: :active
-          n.link({ url: '#link' }, { class: 'my-link'}) do
+          n.link "Active", url: "#active", state: :active
+          n.link({ url: "#link" }, { class: "my-link"}) do
             "Link"
           end
           n.nav do |na|
-            na.link 'Another link', url: '#another-link'
-            na.link 'Disabled', url: '#disabled', state: :disabled
+            na.link "Another link", url: "#another-link"
+            na.link "Disabled", url: "#disabled", state: :disabled
           end
-          n.link 'Another link 2', url: '#another-link2'
-          n.link 'Another link 3', url: '#another-link3'
+          n.link "Another link 2", url: "#another-link2"
+          n.link "Another link 3", url: "#another-link3"
         end
       - c.html do
         <ul class="nav">
@@ -95,12 +95,12 @@
           - n.link 'Disabled', url: '#disabled', state: :disabled
       - c.code do
         ui_nav type: :links do |n|
-          n.link 'Active', url: '#active', state: :active
-          n.link({ url: '#link' }, { class: 'my-link'}) do
+          n.link "Active", url: "#active", state: :active
+          n.link({ url: "#link" }, { class: "my-link"}) do
             "Link"
           end
-          n.link 'Another link', url: '#another-link'
-          n.link 'Disabled', url: '#disabled', state: :disabled
+          n.link "Another link", url: "#another-link"
+          n.link "Disabled", url: "#disabled", state: :disabled
         end
       - c.html do
         <nav class="nav nav-links">
@@ -128,21 +128,21 @@
       - c.code do
         :plain
           ui_nav type: :links, position: :right do |n|
-            n.link 'Active', url: '#active', state: :active
-            n.link 'Another link', url: '#another-link'
-            n.link 'Disabled', url: '#disabled', state: :disabled
+            n.link "Active", url: "#active", state: :active
+            n.link "Another link", url: "#another-link"
+            n.link "Disabled", url: "#disabled", state: :disabled
           end
 
           ui_nav type: :links, position: :center do |n|
-            n.link 'Active', url: '#active', state: :active
-            n.link 'Another link', url: '#another-link'
-            n.link 'Disabled', url: '#disabled', state: :disabled
+            n.link "Active", url: "#active", state: :active
+            n.link "Another link", url: "#another-link"
+            n.link "Disabled", url: "#disabled", state: :disabled
           end
 
           ui_nav type: :links do |n|
-            n.link 'Active', url: '#active', state: :active
-            n.link 'Another link', url: '#another-link'
-            n.link 'Disabled', url: '#disabled', state: :disabled
+            n.link "Active", url: "#active", state: :active
+            n.link "Another link", url: "#another-link"
+            n.link "Disabled", url: "#disabled", state: :disabled
           end
       - c.html do
         :plain
@@ -179,19 +179,19 @@
           - n.link 'Disabled', url: '#disabled', state: :disabled
       - c.code do
         ui_nav type: :tabs do |n|
-          n.link 'Active', url: '#active', state: :active
-          n.dropdown 'Dropdown' do |d|
-            d.link "Action 1", url: '#action'
-            d.link url: '#another-action' do
+          n.link "Active", url: "#active", state: :active
+          n.dropdown "Dropdown" do |d|
+            d.link "Action 1", url: "#action"
+            d.link url: "#another-action" do
               "Action 2"
             end
-            d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+            d.link({ url: "#separate-link"}, { class: "my-link"}) do
               "Action 3"
             end
           end
-          n.link 'Link', url: '#link'
-          n.link 'Another link', url: '#another-link'
-          n.link 'Disabled', url: '#disabled', state: :disabled
+          n.link "Link", url: "#link"
+          n.link "Another link", url: "#another-link"
+          n.link "Disabled", url: "#disabled", state: :disabled
         end
       - c.html do
         <ul class="nav nav-tabs">
@@ -223,18 +223,18 @@
           - n.link 'Disabled', url: '#disabled', state: :disabled
       - c.code do
         ui_nav type: :pills do |n|
-          n.link 'Active', url: '#active', state: :active
-          n.dropdown 'Dropdown' do |d|
-            d.link "Action 1", url: '#action'
-            d.link url: '#another-action' do
+          n.link "Active", url: "#active", state: :active
+          n.dropdown "Dropdown" do |d|
+            d.link "Action 1", url: "#action"
+            d.link url: "#another-action" do
               "Action 2"
             end
-            d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+            d.link({ url: "#separate-link"}, { class: "my-link"}) do
               "Action 3"
             end
           end
-          n.link 'Another link', url: '#another-link'
-          n.link 'Disabled', url: '#disabled', state: :disabled
+          n.link "Another link", url: "#another-link"
+          n.link "Disabled", url: "#disabled", state: :disabled
         end
       - c.html do
         <ul class="nav nav-pills">
@@ -288,10 +288,10 @@
           - n.link 'Disabled', url: '#disabled', state: :disabled
       - c.code do
         ui_nav type: :pills, stacked: true do |n|
-          n.link 'Active', url: '#active', state: :active
-          n.link 'Link', url: '#link'
-          n.link 'Another link', url: '#another-link'
-          n.link 'Disabled', url: '#disabled', state: :disabled
+          n.link "Active", url: "#active", state: :active
+          n.link "Link", url: "#link"
+          n.link "Another link", url: "#another-link"
+          n.link "Disabled", url: "#disabled", state: :disabled
         end
       - c.html do
         <ul class="nav nav-pills nav-stacked">
@@ -318,10 +318,10 @@
           = ui_card 'Content 4', { tab: true }, { id: 'content4' }
       - c.code do
         ui_nav type: :tabs do |n|
-          n.link 'Active', url: '#content1', state: :active
-          n.link 'Link', url: '#content2'
-          n.link 'Another link', url: '#content3'
-          n.link 'Disabled', url: '#content4', state: :disabled
+          n.link "Active", url: "#content1", state: :active
+          n.link "Link", url: "#content2"
+          n.link "Another link", url: "#content3"
+          n.link "Disabled", url: "#content4", state: :disabled
         end
          
         <div class='tab-content'>

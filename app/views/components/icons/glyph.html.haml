@@ -1,4 +1,4 @@
-= title 'Glyph'
+= title 'Glyph', true, 'ui bibz'
 %blockquote UiBibz::Ui::Core::Icons::Glyph
 %p.bd-callout Icon component includes over 634 glyphs in font format from the #{ link_to 'fontawesome.io', 'http://fontawesome.io/icons/'} set (<em>version #{ UiBibzApp::Application::FONTAWESOME_VERSION }</em>).
 
@@ -31,7 +31,7 @@
       - c.header do
         = ui_glyph 'diamond'
       - c.code do
-        ui_glyph 'diamond'
+        ui_glyph "diamond"
       - c.html do
         <i class="glyph fa fa-diamond"></i>
 
@@ -51,9 +51,9 @@
           = ui_glyph 'diamond', size: i + 1
       - c.code do
         - UiBibzApp::Application::SIZES.each do |size|
-          = "ui_glyph 'diamond', size: :#{ size }".html_safe
+          = "ui_glyph \"diamond\", size: :#{ size }".html_safe
         - 5.times.each do |i|
-          = "ui_glyph 'diamond', size: #{ i + 1 }".html_safe
+          = "ui_glyph \"diamond\", size: #{ i + 1 }".html_safe
       - c.html do
         <i class="glyph fa fa-diamond fa-1x"></i>
         <i class="glyph fa fa-diamond fa-2x"></i>
@@ -67,7 +67,7 @@
       - c.header do
         = ui_glyph 'diamond', type: 'fw'
       - c.code do
-        ui_glyph 'diamond', type: 'fw'
+        ui_glyph "diamond", type: "fw"
       - c.html do
         <i class="glyph fa fa-diamond fa-fw"></i>
 
@@ -79,7 +79,7 @@
           = ui_glyph 'diamond', status: status
       - c.code do
         - UiBibzApp::Application::STATUSES.each do |status|
-          = "ui_glyph 'diamond', status: :#{ status }".html_safe
+          = "ui_glyph \"diamond\", status: :#{ status }".html_safe
       - c.html do
         <i class="glyph-primary glyph fa fa-diamond"></i>
         <i class="glyph-secondary glyph fa fa-diamond"></i>
@@ -97,9 +97,9 @@
         = ui_glyph 'diamond', rotate: 180
         = ui_glyph 'diamond', rotate: 270
       - c.code do
-        ui_glyph 'diamond', rotate: 90
-        ui_glyph 'diamond', rotate: 180
-        ui_glyph 'diamond', rotate: 270
+        ui_glyph "diamond", rotate: 90
+        ui_glyph "diamond", rotate: 180
+        ui_glyph "diamond", rotate: 270
       - c.html do
         <i class="glyph fa fa-diamond fa-rotate-90"></i>
         <i class="glyph fa fa-diamond fa-rotate-180"></i>
@@ -111,8 +111,8 @@
         = ui_glyph 'diamond', flip: :horizontal
         = ui_glyph 'diamond', flip: :vertical
       - c.code do
-        ui_glyph 'diamond', flip: :horizontal
-        ui_glyph 'diamond', flip: :vertical
+        ui_glyph "diamond", flip: :horizontal
+        ui_glyph "diamond", flip: :vertical
       - c.html do
         <i class="glyph fa fa-diamond fa-flip-horizontal"></i>
         <i class="glyph fa fa-diamond fa-flip-vertical"></i>
@@ -123,8 +123,8 @@
         = ui_glyph 'square', stack: 2
         = ui_glyph 'diamond', stack: 1, status: :danger
       - c.code do
-        ui_glyph 'square', stack: 2
-        ui_glyph 'diamond', stack: 1, status: :danger
+        ui_glyph "square", stack: 2
+        ui_glyph "diamond", stack: 1, status: :danger
       - c.html do
         <i class="glyph fa fa-square fa-stack-2x"></i>
         <i class="glyph-danger ui_glyph fa fa-diamond fa-stack-1x"></i>
@@ -134,7 +134,7 @@
       - c.header do
         = ui_glyph 'diamond', label: 'Diamond'
       - c.code do
-        ui_glyph 'diamond', label: 'Diamond'
+        ui_glyph "diamond", label: 'Diamond'
       - c.html do
         <i class="glyph fa fa-diamond"></i> Diamond
 
@@ -144,7 +144,7 @@
       - c.header do
         = ui_glyph({ name: 'diamond', size: :sm, label: 'Diamond' })
       - c.code do
-        ui_glyph { name: 'diamond', size: :sm, label: 'Diamond' }
+        ui_glyph { name: "diamond", size: :sm, label: "Diamond" }
       - c.html do
         <i class="glyph fa fa-diamond fa-1x"></i> Diamond
 

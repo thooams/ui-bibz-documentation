@@ -29,9 +29,9 @@
       - c.code do
         :plain
           ui_button_group do |bg|
-            bg.button 'Left'
-            bg.button 'Middle'
-            bg.button 'Right'
+            bg.button "Left"
+            bg.button "Middle"
+            bg.button "Right"
           end
       - c.html do
         <div class="btn-group" role="group">
@@ -51,9 +51,9 @@
           - bg.button 'Right'
       - c.code do
         ui_button_group status: :success do |bg|
-          bg.button 'Left'
-          bg.button 'Middle'
-          bg.button 'Right'
+          bg.button "Left"
+          bg.button "Middle"
+          bg.button "Right"
         end
       - c.html do
         <div class="btn-group btn-group-sm" role="group">
@@ -72,9 +72,9 @@
           - bg.button 'Right'
       - c.code do
         ui_button_group size: :sm do |bg|
-          bg.button 'Left'
-          bg.button 'Middle'
-          bg.button 'Right'
+          bg.button "Left"
+          bg.button "Middle"
+          bg.button "Right"
         end
       - c.html do
         <div class="btn-group btn-group-sm" role="group">
@@ -95,9 +95,9 @@
           - bg.button 'Right'
       - c.code do
         ui_button_group position: :vertical do |bg|
-          bg.button 'Left'
-          bg.button 'Middle'
-          bg.button 'Right'
+          bg.button "Left"
+          bg.button "Middle"
+          bg.button "Right"
         end
       - c.html do
         <div class="btn-group-vertical" role="group">
@@ -128,14 +128,14 @@
             - bd.link "Separate link", url: '#separate-link'
       - c.code do
         ui_button_group status: :primary do |bg|
-          bg.button 'Dark', status: :dark
-          bg.button_link 'Link', url: '#button-link'
+          bg.button "Dark", status: :dark
+          bg.button_link "Link", url: "#button-link"
           bg.dropdown "Dropdown" do |bd|
-            bd.link "Action", url: '#action'
-            bd.link "Another action", url: '#another-action'
+            bd.link "Action", url: "#action"
+            bd.link "Another action", url: "#another-action"
             bd.divider
-            bd.header 'Header'
-            bd.link "Separate link", url: '#separate-link'
+            bd.header "Header"
+            bd.link "Separate link", url: "#separate-link"
           end
         end
       - c.html do

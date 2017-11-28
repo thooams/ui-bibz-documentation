@@ -114,9 +114,9 @@
         :plain
           ui_toolbar justify: true do |t|
             t.button_group status: :success do |bg|
-              bg.button 'Copy', text: false, glyph: 'copy'
-              bg.button 'Paste', text: false, glyph: 'paste', status: :danger
-              bg.button 'Cut', text: false, glyph: 'cut'
+              bg.button "Copy", text: false, glyph: "copy"
+              bg.button "Paste", text: false, glyph: "paste", status: :danger
+              bg.button "Cut", text: false, glyph: "cut"
             end
             t.button_group status: :primary do |bg|
               bg.button 4
@@ -125,8 +125,8 @@
             t.button_group do |bg|
               bg.button 4
               bg.button 5
-              bg.dropdown 'Dropdown', do |d| 6
-                d.link 'Link', url: '#link'
+              bg.dropdown "Dropdown", do |d| 6
+                d.link "Link", url: "#link"
               end
             end
           end

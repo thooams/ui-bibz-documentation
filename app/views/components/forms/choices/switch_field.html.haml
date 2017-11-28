@@ -1,4 +1,4 @@
-= title 'Switch Field'
+= title 'Switch Field', true, 'ui bibz'
 %blockquote UiBibz::Ui::Core::Forms::Choices::SwitchField
 %p.bd-callout= based_on link_to "Bootstrap Switch", "http://bootstrapswitch.com/", target: '_blank'
 
@@ -45,8 +45,8 @@
         = ui_switch_field 'examplestate', inline: true
         = ui_switch_field 'examplestate', inline: true
       - e.code do
-        ui_switch_field 'examplestate', inline: true
-        ui_switch_field 'examplestate', inline: true
+        ui_switch_field "examplestate", inline: true
+        ui_switch_field "examplestate", inline: true
       - e.html do
         <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-examplestate bootstrap-switch-animate" style="width: 106px;">
           <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
@@ -71,8 +71,8 @@
         = ui_switch_field 'examplestate', { state: 'active', inline: true }
         = ui_switch_field 'examplestate', { state: 'disabled', inline: true }
       - e.code do
-        ui_switch_field 'examplestate', { state: 'active', inline: true }
-        ui_switch_field 'examplestate', { state: 'disabled', inline: true }
+        ui_switch_field "examplestate", { state: :active, inline: true }
+        ui_switch_field "examplestate", { state: :disabled, inline: true }
       - e.html do
         <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-examplestate bootstrap-switch-animate" style="width: 106px;">
           <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
@@ -97,8 +97,8 @@
         = ui_switch_field 'exampleanimate', { animate: true, inline: true }
         = ui_switch_field 'exampleanimate', { animate: false, inline: true }
       - e.code do
-        ui_switch_field 'exampleanimate', { animate: true, inline: true }
-        ui_switch_field 'exampleanimate', { animate: false, inline: true }
+        ui_switch_field "exampleanimate", { animate: true, inline: true }
+        ui_switch_field "exampleanimate", { animate: false, inline: true }
       - e.html do
         <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-exampleanimate bootstrap-switch-animate" style="width: 106px;">
           <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
@@ -120,9 +120,9 @@
   - s.section title: "Color" do
     = example do |e|
       - e.header do
-        = ui_switch_field 'examplecolor', { left_color: :success, right_color: :danger }
+        = ui_switch_field "examplecolor", { left_color: :success, right_color: :danger }
       - e.code do
-        ui_switch_field 'examplecolor', { left_color: :success, right_color: :danger }
+        ui_switch_field "examplecolor", { left_color: :success, right_color: :danger }
       - e.html do
         <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-examplecolor bootstrap-switch-animate" style="width: 106px;">
           <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
@@ -138,7 +138,7 @@
       - e.header do
         = ui_switch_field 'exampletext', { left_text: "Yes", right_text: "No" }
       - e.code do
-        ui_switch_field 'exampletext', { left_text: "Yes", right_text: "No" }
+        ui_switch_field "exampletext", { left_text: "Yes", right_text: "No" }
       - e.html do
         <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-id-exampletext bootstrap-switch-off bootstrap-switch-animate" style="width: 196px;">
           <div class="bootstrap-switch-container" style="width: 291px; margin-left: -97px;">
@@ -155,8 +155,8 @@
         = ui_switch_field 'examplelabel', { middle_text: "MyText", inline: true }
         = ui_switch_field 'examplelabel', { middle_text: ui_glyph('diamond'), inline: true }
       - e.code do
-        ui_switch_field 'examplelabel', { middle_text: 'MyText', inline: true  }
-        ui_switch_field 'examplelabel', { middle_text: ui_glyph('diamond'), inline: true  }
+        ui_switch_field "examplelabel", { middle_text: "MyText", inline: true  }
+        ui_switch_field "examplelabel", { middle_text: ui_glyph("diamond"), inline: true  }
       - e.html do
         <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-id-examplelabel bootstrap-switch-animate" style="width: 124px;">
           <div class="bootstrap-switch-container" style="width: 174px; margin-left: -52px;">
@@ -181,8 +181,8 @@
         = ui_switch_field 'examplereadonly', { inline: true }, { readonly: true }
         = ui_switch_field 'examplereadonly', { inline: true }, { readonly: false }
       - e.code do
-        ui_switch_field 'examplereadonly', { inline: true }, { readonly: true }
-        ui_switch_field 'examplereadonly', { inline: true }, { readonly: false }
+        ui_switch_field "examplereadonly", { inline: true }, { readonly: true }
+        ui_switch_field "examplereadonly", { inline: true }, { readonly: false }
       - e.html do
         <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-off bootstrap-switch-readonly bootstrap-switch-id-examplereadonly bootstrap-switch-animate" style="width: 106px;">
           <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
@@ -207,8 +207,8 @@
         = ui_switch_field 'examplechecked', {}, { checked: true, inline: true }
         = ui_switch_field 'examplechecked', {}, { checked: false, inline: true }
       - e.code do
-        ui_switch_field 'examplechecked', {}, { checked: true, inline: true }
-        ui_switch_field 'examplechecked', {}, { checked: false, inline: true }
+        ui_switch_field "examplechecked", {}, { checked: true, inline: true }
+        ui_switch_field "examplechecked", {}, { checked: false, inline: true }
       - e.html do
         <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-id-examplechecked bootstrap-switch-animate bootstrap-switch-off" style="width: 106px;">
           <div class="bootstrap-switch-container" style="width: 156px; margin-left: -52px;">
@@ -235,9 +235,9 @@
         = ui_switch_field 'Medium switch', size: :md, inline: true
         = ui_switch_field 'Small switch', size: :sm, inline: true
       - c.code do
-        ui_button 'Large button', size: :lg, inline: true
-        ui_button 'Medium button', size: :md, inline: true
-        ui_button 'Small button', size: :sm , inline: true
+        ui_button "Large button", size: :lg, inline: true
+        ui_button "Medium button", size: :md, inline: true
+        ui_button "Small button", size: :sm , inline: true
       - c.html do
         <button class="btn-secondary btn btn-lg">Large button</button>
         <button class="btn-secondary btn">Medium button</button>

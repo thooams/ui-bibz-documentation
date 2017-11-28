@@ -1,4 +1,4 @@
-= title 'Date Picker Field'
+= title 'Date Picker Field', true, 'ui bibz'
 %blockquote UiBibz::Ui::Core::Forms::Dates::DatePickerField
 %p.bd-callout= based_on link_to "boostrap datepicker", "http://eternicode.github.io/bootstrap-datepicker/?markup=input&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=2&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&keyboardNavigation=on&forceParse=on#sandbox", target: '_blank'
 
@@ -31,16 +31,16 @@
       - e.header do
         = ui_date_picker_field 'date_at', format: 'dd/mm/yyyy'
       - e.code do
-        ui_date_picker_field 'date_at', format: 'dd/mm/yyyy'
+        ui_date_picker_field "date_at", format: "dd/mm/yyyy"
       - e.html do
         <input type="text" name="date_at" id="date_at" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" data-date-toggle-active="true" class="date_picker form-control">
 
-  - s.section title: "Date Picker Field with ui_glyph" do
+  - s.section title: "Date Picker Field with glyph" do
     = example do |e|
       - e.header do
         = ui_date_picker_field 'date_at', append: ui_glyph('calendar'), prepend: ui_glyph('pencil')
       - e.code do
-        ui_date_picker_field 'date_at', append: ui_glyph('calendar'), prepend: ui_glyph('pencil')
+        ui_date_picker_field "date_at", append: ui_glyph("calendar"), prepend: ui_glyph("pencil")
       - e.html do
         <input type="text" name="date_at" id="date_at" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" class="date_picker form-control">
 
@@ -49,7 +49,7 @@
       - e.header do
         = ui_date_picker_field 'date_at', multiple: true
       - e.code do
-        ui_date_picker_field 'date_at', multiple: true
+        ui_date_picker_field "date_at", multiple: true
       - e.html do
         <input type="text" name="date_at" id="date_at" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" data-date-toggle-active="true" data-date-multidate="true" class="date_picker form-control">
 
@@ -58,7 +58,7 @@
       - e.header do
         = ui_date_picker_field 'date_at', days_of_week_disabled: [1,4]
       - e.code do
-        ui_date_picker_field 'date_at', days_of_week_disabled: [1,4]
+        ui_date_picker_field "date_at", days_of_week_disabled: [1,4]
       - e.html do
         <input type="text" name="date_at" id="date_at" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" data-date-toggle-active="true" data-date-days-of-week-disabled="[1,4]" class="date_picker form-control">
 
@@ -76,7 +76,7 @@
       - e.header do
         = ui_date_picker_field 'date_at', calendar_weeks: true
       - e.code do
-        ui_date_picker_field 'date_at', calendar_weeks: true
+        ui_date_picker_field "date_at", calendar_weeks: true
       - e.html do
         <input type="text" name="date_at" id="date_at" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" data-date-calendar-weeks="true" data-date-toggle-active="true" class="date_picker form-control">
 
@@ -85,7 +85,7 @@
       - e.header do
         = ui_date_picker_field 'date_at', today_highlight: true
       - e.code do
-        ui_date_picker_field 'date_at', today_highlight: true
+        ui_date_picker_field "date_at", today_highlight: true
       - e.html do
         <input type="text" name="date_at" id="date_at" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" data-date-today-highlight="true" data-date-toggle-active="true" class="date_picker form-control">
 
@@ -94,7 +94,7 @@
       - e.header do
         = ui_date_picker_field 'date_at', dates_disabled: [Date.current.to_s,Date.tomorrow.to_s]
       - e.code do
-        = "ui_date_picker_field 'date_at', days_of_week_disabled: #{ [Date.current.to_s,Date.tomorrow.to_s]   }".html_safe
+        = "ui_date_picker_field \"date_at\", days_of_week_disabled: #{ [Date.current.to_s,Date.tomorrow.to_s]   }".html_safe
       - e.html do
         <input type="text" name="date_at" id="date_at" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" data-date-toggle-active="true" data-date-days-of-week-disabled="[1,4]" class="date_picker form-control">
 
@@ -103,7 +103,7 @@
       - e.header do
         = ui_date_picker_field 'range', range: 'to'
       - e.code do
-        ui_date_picker_field 'range', range: 'to'
+        ui_date_picker_field "range", range: 'to'
       - e.html do
         <div class="input-group input-daterange">
           <input type="text" name="r" id="r" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" class="date_picker form-control"><span class="input-group-addon input-group-range">to</span>
@@ -115,7 +115,7 @@
       - e.header do
         = ui_date_picker_field 'date_at', status: :success
       - e.code do
-        ui_date_picker_field 'date_at', status: :success
+        ui_date_picker_field "date_at", status: :success
       - e.html do
         <div class="input-group has-success input-daterange">
           <input type="text" name="r" id="r" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" class="date_picker form-control"><span class="input-group-addon input-group-range">to</span>
@@ -127,7 +127,7 @@
       - e.header do
         = ui_date_picker_field 'range', range: ui_glyph('calendar-minus-o'), append: ui_glyph('car'), prepend: ui_glyph('pencil')
       - e.code do
-        ui_date_picker_field 'range', range: ui_glyph('calendar-minus-o'), append: ui_glyph('car'), prepend: ui_glyph('pencil')
+        ui_date_picker_field "range", range: ui_glyph("calendar-minus-o"), append: ui_glyph("car"), prepend: ui_glyph("pencil")
       - e.html do
         <div class="input-group input-daterange">
           <span class="input-group-addon"><i class="ui_glyph fa fa-car"></i></span>
@@ -144,7 +144,7 @@
       - e.code do
         ui_form_for(@search) do |f|
           ...
-          f.input :date, as: :ui_date_picker_field, append: ui_glyph('calendar')
+          f.input :date, as: :ui_date_picker_field, append: ui_glyph("calendar")
           ...
         end
 
