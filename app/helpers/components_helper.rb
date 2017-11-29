@@ -35,4 +35,8 @@ module ComponentsHelper
   def component_list_options content = nil, options = nil, html_options = nil, &block
     UiBibz::Ui::Ux::ComponentListOption.new(content, options, html_options).tap(&block).render
   end
+
+  def my_complex_component content = nil, options = nil, html_options = nil, &block
+    UiBibz::Ui::Ux::MyComplexComponent.new(content, options, html_options).tap(&block).render
+  end
 end

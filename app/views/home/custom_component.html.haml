@@ -238,12 +238,12 @@ Useful variables in render method:
 
           # Render html
           def render
-            content_tag :div, @items.map(&:render).join, html_options
+            content_tag :div, @items.map(&:render).join.html_safe, html_options
           end
 
           # add links
           def link content = nil, options = nil, html_options = nil, &block
-            @items << UiBibz::Ui::Core::Link.new(content, options, html_options, block)
+            @items << UiBibz::Ui::Core::Navigations::Link.new(content, options, html_options, &block)
           end
 
           private
@@ -261,29 +261,28 @@ Useful variables in render method:
     :plain
       # app/helpers/component_helper.rb
       def my_complex_component content = nil, options = nil, html_options = nil, &block
-        UiBibz::Ui::Ux::MyComplexComponent.new(content, options, html_options).tap(block).render
+        UiBibz::Ui::Ux::MyComplexComponent.new(content, options, html_options).tap(&block).render
       end
 
 %h4 Call custom helper
 = example do |e|
   - e.header do
-    :plain
-      <div class='my-class my-complex-component'>
-        <a href='#link1'>Link 1</a>
-        <a href='#link2'>Link 2</a>
-      </div>
+    = my_complex_component class: 'my-class' do |cc|
+      - cc.link 'Link1', url: '#link1', class: 'mr-2'
+      - cc.link url: '#link2' do
+        Link 2
   - e.code do
     :plain
       my_complex_component class: 'my-class' do |cc|
-        cc.link 'Link1', url: '#link1'
-        cc.link url: '#link2' do
-          "Link 2"
+        cc.link "Link1", url: "#link1", class: "mr-2"
+        cc.link url: "#link2" do
+          Link 2
         end
       end
   - e.html do
     :plain
       <div class='my-class my-complex-component'>
-        <a href='#link1'>Link 1</a>
+        <a href='#link1' class="mr-2">Link 1</a>
         <a href='#link2'>Link 2</a>
       </div>
 

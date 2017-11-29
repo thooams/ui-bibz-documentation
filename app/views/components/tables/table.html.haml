@@ -3,8 +3,8 @@
 .bd-callout
   %p
     The
-    %code ui_table
-    component is a html ui_table with a store.
+    %code table
+    component is a html table with a store.
     %br
     An pagination and/or a search can be added before or after the component with these methods:
 
@@ -19,17 +19,15 @@
       The methods of
       %code will_paginate
       work with the
-      %code ui_table
+      %code table
       component such as
       %code per_page
       \.
-
 
 = ui_card tap: true do |c|
   - c.header 'Important'
   - c.body do
     To add, update, remove columns or actions in the component <code>table</code> you must add the option <code>tap: true</code>.
-
 
 = code do
   :plain
