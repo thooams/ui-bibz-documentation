@@ -87,6 +87,13 @@ Rails.application.routes.draw do
       get 'jumbotron'
     end
 
+    namespace :containers do
+      get 'panel'
+      get 'panel-tree'
+      get 'panel-table'
+      get 'viewport'
+    end
+
     namespace :layouts do
       get 'col'
       get 'row'

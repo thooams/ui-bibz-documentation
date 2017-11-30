@@ -1,0 +1,109 @@
+= title 'Panel'
+%blockquote UiBibz::Ui::Ux::Containers::Panel
+%p.bd-callout A panel is a flexible and extensible content container. It includes options for headers and footers, a wide variety of content, contextual background colors, and powerful display options.
+
+= code do
+  :plain
+    ui_panel options, html_options do |c|
+      # by variable
+      c.header content, options, html_options
+      # or by block
+      c.header options, html_options do
+        content
+      end
+
+      c.toolbar do |t|
+        t.button_group do |bg|
+          # by variable
+          bg.button content, options, html_options
+          # or by block
+          bg.button options, html_options do
+            content
+          end
+        end
+      end
+
+      # by variable
+      c.body content, options, html_options
+      # or by block
+      c.body options, html_options do
+        content
+      end
+      # or by block with tap
+      c.body options, html_options do |b|
+        b.link content, options, html_options
+        b.link options, html_options do
+          content
+        end
+      end
+
+      # by variable
+      c.footer content, options, html_options
+      # or by block
+      c.footer options, html_options do
+        content
+      end
+    end
+
+= component_options do |co|
+  - co.status_link
+  - co.list 'text', types: 'hash', tap: true do |clo|
+    - clo.list 'positon', types: 'symbol', values: %w(:left :center :right)
+    - clo.size_link
+  - co.list 'outline', types: 'boolean', values: %w(true false)
+  - co.tap_link
+
+= component_items do |ci|
+  - ci.inherit_component 'header'
+  - ci.inherit_component 'body'
+  - ci.inherit_component 'footer'
+  - ci.inherit_component 'image'
+  - ci.inherit_component 'list_group', components_lists_list_group_path
+
+- @sections = sections do |s|
+  - s.section title: "Panel" do
+    = example do |e|
+      - e.header do
+        = ui_panel do |p|
+          - p.header tap: true do |h|
+            - h.title 'My header'
+            - h.actions size: :sm, outline: true, status: :secondary do |a|
+              - a.button 'Refresh', glyph: 'refresh', text: false
+              - a.button 'Refresh', glyph: 'refresh', text: false
+          - p.toolbar justify: true, size: :sm do |t|
+            - t.button_group do |bg|
+              - bg.button 'Copy'
+              - bg.button 'Cut'
+              - bg.button 'Paste'
+            - t.spacer 2
+            - t.button_group do |bg|
+              - bg.button 'Delete'
+            - t.spacer
+            - t.button_group do |bg|
+              - bg.dropdown 'Dropdown' do |d|
+                - d.link 'Link'
+          - p.body 'Body'
+          - p.toolbar size: :sm do |t|
+            - t.button_group size: :sm do |bg|
+              - bg.button 'Add', glyph: 'plus-circle', status: :success, text: false
+              - bg.button 'Remove', glyph: 'minus-circle', status: :danger, text: false
+          - p.footer 'Footer'
+      - e.code do
+        ui_card({ status: :success }, { class: "my-card2"})  do
+          "Content 3"
+        end
+      - e.html do
+        :plain
+          <div class="card">
+            <div class="card-body">Content 1</div>
+          </div>
+
+          <div class="my-card1 bg-info text-white card">
+            <div class="card-body">Content 2</div>
+          </div>
+
+          <div class="my-card2 bg-success text-white card">
+            <div class="card-body">Content 3</div>
+          </div>
+
+= @sections.render
