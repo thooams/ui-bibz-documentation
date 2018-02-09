@@ -73,7 +73,7 @@
             - cls.column :updated_at
           - b.actions do |acs|
             - acs.link 'Show', url: '#show', glyph: 'eye'
-            - acs.link 'Edit', url: '#show', glyph: 'pencil'
+            - acs.link 'Edit', url: '#show', glyph: 'pencil-alt'
             - acs.link 'Delete', url: '#show', glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
       - c.code do
         ui_table_card({ store: @users, tap: true })
@@ -126,7 +126,7 @@
                     <button class="btn btn-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="glyph fa fa-ellipsis-v fa-fw"></i> Actions <span class="caret"></span></button>
                     <div class="dropdown-menu dropdown-menu-right">
                       <a class="dropdown-item" href="#show"><i class="glyph fa fa-eye"></i> Show</a>
-                      <a class="dropdown-item" href="#show"><i class="glyph fa fa-pencil"></i> Edit</a>
+                      <a class="dropdown-item" href="#show"><i class="glyph fa fa-pencil-alt"></i> Edit</a>
                       <a class="dropdown-item" data-confirm="Are you sure?" href="#show"><i class="glyph fa fa-trash"></i> Delete</a>
                     </div>
                   </div>

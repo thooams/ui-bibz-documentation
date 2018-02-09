@@ -32,13 +32,13 @@
   - s.section title: "Auto Complete Field surrounded" do
     = example do |e|
       - e.header do
-        = ui_auto_complete_field 'example1', option_tags: options_for_select(5.times.map{ |i| "option #{i}" }), append: ui_glyph('pencil'), prepend: ui_glyph('camera-retro')
+        = ui_auto_complete_field 'example1', option_tags: options_for_select(5.times.map{ |i| "option #{i}" }), append: ui_glyph('pencil-alt'), prepend: ui_glyph('camera-retro')
       - e.code do
-        ui_auto_complete_field "example1", option_tags: options_for_select(5.times.map{ |i| "option \#{i}" }), append: ui_glyph("pencil"), prepend: ui_glyph("camera-retro")
+        ui_auto_complete_field "example1", option_tags: options_for_select(5.times.map{ |i| "option \#{i}" }), append: ui_glyph("pencil-alt"), prepend: ui_glyph("camera-retro")
       - e.html do
         :plain
           <div class="input-group">
-            <span class="input-group-addon"><i class="glyph fa fa-pencil"></i></span>
+            <span class="input-group-addon"><i class="glyph fa fa-pencil-alt"></i></span>
             <input type="text" name="example1" id="example1" class="form-control" autocomplete="true" list="example1-datalist">
             <datalist id="example1-datalist">
               <option value="option 0">option 0</option>

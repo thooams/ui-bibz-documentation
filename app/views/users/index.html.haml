@@ -2,15 +2,15 @@
 
   = navbar(status: :danger, title: 'state', type: :dark, position: :bottom) do |nb|
     - nb.nav do |n|
-      - n.link 'Link 1', url: '#link-1', glyph: 'diamond'
-      - n.link 'Link 2', url: '#link-2', glyph: 'diamond'
+      - n.link 'Link 1', url: '#link-1', glyph: 'gem'
+      - n.link 'Link 2', url: '#link-2', glyph: 'gem'
     -#= nb.form({ url: '/search', type: :form_tag }) do
       -#.form-group
         -#= text_field_tag 'search', nil, { class: 'form-control', placeholder: 'Search' }
       -#= button 'Submit', type: :submit
     - nb.nav({ position: :right }, { class: 'nav2'}) do |n|
       - n.dropdown 'Dropdown' do |d|
-        - d.link 'Link 2', { url: '#test', glyph: 'diamond' }
+        - d.link 'Link 2', { url: '#test', glyph: 'gem' }
         - d.link(url: '#link-2', state: :active) do
           Link 3
   .bd-example-modal
@@ -39,7 +39,7 @@
     - pb.bar(type: :striped) do
       = 10
 
-  = notify 'state', glyph: 'diamond', close: true
+  = notify 'state', glyph: 'gem', close: true
 
   %br
   %br
@@ -75,7 +75,7 @@
   %br
 
   = button_split_dropdown 'Dropdown', status: :primary do |d|
-    - d.link 'state', url: '#', glyph: 'diamond'
+    - d.link 'state', url: '#', glyph: 'gem'
     - d.header 'header'
     - d.link 'momo', url: '#'
     - d.divider
@@ -94,20 +94,20 @@
     = button_choice 'tata', type: :radio
 
   = nav position: :justified do |n|
-    - n.link 'state', { url: '#state', state: :active, glyph: 'diamond' }
+    - n.link 'state', { url: '#state', state: :active, glyph: 'gem' }
     - n.link 'momo', { url: '#mono' }
 
   %br
   = nav type: :tabs do |n|
-    - n.link 'state', { url: '#state', state: :active, glyph: 'diamond' }
+    - n.link 'state', { url: '#state', state: :active, glyph: 'gem' }
     - n.link 'momo', { url: '#mono' }
 
   %br
   = nav type: :pills do |n|
-    - n.link 'state', url: '#state', state: :active, glyph: 'diamond'
+    - n.link 'state', url: '#state', state: :active, glyph: 'gem'
     - n.link 'momo', url: '#mono', badge: 30
     - n.dropdown('Dropdown', status: :primary) do |d|
-      - d.link 'state', url: '#', glyph: 'diamond'
+      - d.link 'state', url: '#', glyph: 'gem'
       - d.header 'header'
       - d.link 'momo', url: '#'
       - d.divider
@@ -147,7 +147,7 @@
       = link_to "Card link", '#', class: "card-link"
 
   = card(status: :danger, tap: true, class: 'state') do |p|
-    - p.header 'state', glyph: 'diamond'
+    - p.header 'state', glyph: 'gem'
     - p.block 'state'
     - p.footer 'state'
 
@@ -184,9 +184,9 @@
       - cls.column :email
       - cls.column :company
     - g.actions do |acs|
-      - acs.link 'state', url: edit_user_path(:id), glyph: 'pencil'
+      - acs.link 'state', url: edit_user_path(:id), glyph: 'pencil-alt'
       - acs.divider
-      - acs.link 'momo', url: user_path(:id), glyph: 'diamond'
+      - acs.link 'momo', url: user_path(:id), glyph: 'gem'
 
   = table_search_field store: @users
   %br

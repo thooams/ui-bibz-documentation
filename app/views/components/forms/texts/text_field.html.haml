@@ -22,12 +22,12 @@
   - s.section title: "Text Field surrounded" do
     = example do |e|
       - e.header do
-        = ui_text_field 'search', { append: ui_glyph('pencil'), prepend: ui_glyph('camera-retro') }, { placeholder: 'Type your search...' }
+        = ui_text_field 'search', { append: ui_glyph('pencil-alt'), prepend: ui_glyph('camera-retro') }, { placeholder: 'Type your search...' }
       - e.code do
-        ui_text_field "search", { append: ui_glyph("pencil"), prepend: ui_glyph("camera-retro") }, { placeholder: "Type your search..." }
+        ui_text_field "search", { append: ui_glyph("pencil-alt"), prepend: ui_glyph("camera-retro") }, { placeholder: "Type your search..." }
       - e.html do
         <div class="input-group">
-          <span class="input-group-addon"><i class="glyph fa fa-pencil"></i></span>
+          <span class="input-group-addon"><i class="glyph fa fa-pencil-alt"></i></span>
           <input type="text" name="search" id="search" placeholder="Type your search..." class="form-control">
           <span class="input-group-addon"><i class="glyph fa fa-camera-retro"></i></span>
         </div>
@@ -35,12 +35,12 @@
   - s.section title: "Text Field Options" do
     = example do |e|
       - e.header do
-        = ui_text_field 'search', { state: :disabled, status: :danger, append: ui_glyph('pencil'), prepend: ui_glyph('camera-retro') }, { placeholder: 'Type your search...' }
+        = ui_text_field 'search', { state: :disabled, status: :danger, append: ui_glyph('pencil-alt'), prepend: ui_glyph('camera-retro') }, { placeholder: 'Type your search...' }
       - e.code do
-        ui_text_field "search", { state: :disabled, status: :danger, append: ui_glyph("pencil"), prepend: ui_glyph("camera-retro") }, { placeholder: "Type your search..." }
+        ui_text_field "search", { state: :disabled, status: :danger, append: ui_glyph("pencil-alt"), prepend: ui_glyph("camera-retro") }, { placeholder: "Type your search..." }
       - e.html do
         <div class="input-group has-danger">
-          <span class="input-group-addon"><i class="glyph fa fa-pencil"></i></span>
+          <span class="input-group-addon"><i class="glyph fa fa-pencil-alt"></i></span>
           <input type="text" name="search" id="search" placeholder="Type your search..." class="disabled has-danger form-control" disabled="disabled">
           <span class="input-group-addon"><i class="glyph fa fa-camera-retro"></i></span>
         </div>

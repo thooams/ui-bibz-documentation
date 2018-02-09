@@ -79,14 +79,14 @@
   - s.section title: "Dropdown options" do
     = example do |c|
       - c.header do
-        = ui_dropdown('Dropdown', { status: :secondary, glyph: 'diamond', open: true }, { class: 'open-dropdown-example' }) do |d|
+        = ui_dropdown('Dropdown', { status: :secondary, glyph: 'gem', open: true }, { class: 'open-dropdown-example' }) do |d|
           - d.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
           - d.link url: '#another-action' do
             = "Action 2"
           - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
             = "Action 3"
       - c.code do
-        ui_dropdown("Dropdown", { status: :secondary, glyph: "diamond" }, { class: "my-dropdown"}) do |d|
+        ui_dropdown("Dropdown", { status: :secondary, glyph: "gem" }, { class: "my-dropdown"}) do |d|
           d.link "Confirm action", url: "#action", link_html_options: { data: { confirm: "Are you sure?" }}, method: :delete
           d.link url: "#another-action" do
             "Action 2"
@@ -97,7 +97,7 @@
         end
       - c.html do
         <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="glyph fa fa-diamond"></i> Dropdown <span class="caret"></span></button>
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="glyph fa fa-gem"></i> Dropdown <span class="caret"></span></button>
           <div class="dropdown-menu">
             <a class="dropdown-item" data-confirm="Are you sure?" href="#action">Confirm action</a>
             <a class="dropdown-item" href="#another-action">Action 2</a>
@@ -402,7 +402,7 @@
       - c.header do
         - UiBibzApp::Application::STATUSES.each do |status|
           = ui_dropdown status.to_s.titleize, status: status, inline: true do |bd|
-            - bd.link "Action", url: '#action', glyph: 'diamond'
+            - bd.link "Action", url: '#action', glyph: 'gem'
             - bd.link url: '#another-action' do
               = "Another action"
             - bd.divider
@@ -414,7 +414,7 @@
         - UiBibzApp::Application::STATUSES.each do |status|
           :plain
             ui_dropdown "#{ status.to_s.titleize }", status: :#{ status }, inline: true do |bd|
-              bd.link "Action", url: "#action", glyph: "diamond"
+              bd.link "Action", url: "#action", glyph: "gem"
               bd.link url: "#another-action" do
                 "Another action"
               end
@@ -433,7 +433,7 @@
               <button class="btn btn-#{ status } dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown-248578436189652527536962324584326088393">Primary <span class="caret"></span></button>
               <div class="dropdown-menu" arial-labelledby="dropdown-248578436189652527536962324584326088393">
                 <a class="dropdown-item" href="#action">
-                  <i class="glyph fa fa-diamond"></i> Action
+                  <i class="glyph fa fa-gem"></i> Action
                 </a>
                 <a class="dropdown-item" href="#another-action">Another action</a>
                 <div class="dropdown-divider"></div>
@@ -448,7 +448,7 @@
       - c.header do
         - UiBibzApp::Application::STATUSES.each do |status|
           = ui_dropdown status.to_s.titleize, status: status, outline: true, inline: true do |bd|
-            - bd.link "Action", url: '#action', glyph: 'diamond'
+            - bd.link "Action", url: '#action', glyph: 'gem'
             - bd.link url: '#another-action' do
               = "Another action"
             - bd.divider
@@ -460,7 +460,7 @@
         - UiBibzApp::Application::STATUSES.each do |status|
           :plain
             ui_dropdown "#{ status.to_s.titleize }", outline: true, status: :#{ status }, inline: true do |bd|
-              bd.link "Action", url: "#action", glyph: "diamond"
+              bd.link "Action", url: "#action", glyph: "gem"
               bd.link url: "#another-action" do
                 "Another action"
               end
@@ -479,7 +479,7 @@
               <button class="btn btn-outline-#{ status } dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown-248578436189652527536962324584326088393">Primary <span class="caret"></span></button>
               <div class="dropdown-menu" arial-labelledby="dropdown-248578436189652527536962324584326088393">
                 <a class="dropdown-item" href="#action">
-                  <i class="glyph fa fa-diamond"></i> Action
+                  <i class="glyph fa fa-gem"></i> Action
                 </a>
                 <a class="dropdown-item" href="#another-action">Another action</a>
                 <div class="dropdown-divider"></div>

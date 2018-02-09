@@ -33,18 +33,18 @@
     = example do |c|
       - c.header do
         - UiBibzApp::Application::STATUSES.each do |status|
-          = ui_badge status.to_s.titleize, status: status, type: :pill, glyph: 'diamond'
+          = ui_badge status.to_s.titleize, status: status, type: :pill, glyph: 'gem'
       - c.code do
         - UiBibzApp::Application::STATUSES.each do |status|
-          = "ui_badge '#{ status.to_s.titleize }', status: :#{ status }, type: :pill, glyph: 'diamond'".html_safe
+          = "ui_badge '#{ status.to_s.titleize }', status: :#{ status }, type: :pill, glyph: 'gem'".html_safe
       - c.html do
-        <span class="badge-primary badge badge-pill"><i class="glyph fa fa-diamond"></i> Primary</span>
-        <span class="badge-secondary badge badge-pill"><i class="glyph fa fa-diamond"></i> Secondary</span>
-        <span class="badge-success badge badge-pill"><i class="glyph fa fa-diamond"></i> Success</span>
-        <span class="badge-danger badge badge-pill"><i class="glyph fa fa-diamond"></i> Danger</span>
-        <span class="badge-warning badge badge-pill"><i class="glyph fa fa-diamond"></i> Warning</span>
-        <span class="badge-info badge badge-pill"><i class="glyph fa fa-diamond"></i> Info</span>
-        <span class="badge-light badge badge-pill"><i class="glyph fa fa-diamond"></i> Light</span>
-        <span class="badge-dark badge badge-pill"><i class="glyph fa fa-diamond"></i> Dark</span>
+        <span class="badge-primary badge badge-pill"><i class="glyph fa fa-gem"></i> Primary</span>
+        <span class="badge-secondary badge badge-pill"><i class="glyph fa fa-gem"></i> Secondary</span>
+        <span class="badge-success badge badge-pill"><i class="glyph fa fa-gem"></i> Success</span>
+        <span class="badge-danger badge badge-pill"><i class="glyph fa fa-gem"></i> Danger</span>
+        <span class="badge-warning badge badge-pill"><i class="glyph fa fa-gem"></i> Warning</span>
+        <span class="badge-info badge badge-pill"><i class="glyph fa fa-gem"></i> Info</span>
+        <span class="badge-light badge badge-pill"><i class="glyph fa fa-gem"></i> Light</span>
+        <span class="badge-dark badge badge-pill"><i class="glyph fa fa-gem"></i> Dark</span>
 
 = @sections.render

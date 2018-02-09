@@ -62,10 +62,10 @@
   - s.section title: "Surround options" do
     = example do |e|
       - e.header do
-        = ui_select_field 'example1', option_tags: select_options_tags, append: ui_glyph('pencil'), prepend: ui_glyph('diamond')
+        = ui_select_field 'example1', option_tags: select_options_tags, append: ui_glyph('pencil-alt'), prepend: ui_glyph('gem')
       - e.code do
         option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
-        ui_select_field "example1", option_tags: select_options_tags, append: ui_glyph("pencil"), prepend: ui_glyph("diamond")
+        ui_select_field "example1", option_tags: select_options_tags, append: ui_glyph("pencil-alt"), prepend: ui_glyph("gem")
 
   - s.section title: "Field Connected" do
     = render partial: '/components/connect_option'

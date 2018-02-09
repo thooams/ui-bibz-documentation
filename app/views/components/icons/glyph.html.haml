@@ -29,11 +29,11 @@
   - s.section title: "Glyph" do
     = example do |c|
       - c.header do
-        = ui_glyph 'diamond'
+        = ui_glyph 'gem'
       - c.code do
-        ui_glyph "diamond"
+        ui_glyph "gem"
       - c.html do
-        <i class="glyph fa fa-diamond"></i>
+        <i class="glyph fa fa-gem"></i>
 
   - s.section title: "Size" do
     %p The size can be be defined through the `size` option that has the following arguments :
@@ -46,106 +46,106 @@
     = example do |c|
       - c.header do
         - UiBibzApp::Application::SIZES.each do |size|
-          = ui_glyph 'diamond', size: size
+          = ui_glyph 'gem', size: size
         - 5.times.each do |i|
-          = ui_glyph 'diamond', size: i + 1
+          = ui_glyph 'gem', size: i + 1
       - c.code do
         - UiBibzApp::Application::SIZES.each do |size|
-          = "ui_glyph \"diamond\", size: :#{ size }".html_safe
+          = "ui_glyph \"gem\", size: :#{ size }".html_safe
         - 5.times.each do |i|
-          = "ui_glyph \"diamond\", size: #{ i + 1 }".html_safe
+          = "ui_glyph \"gem\", size: #{ i + 1 }".html_safe
       - c.html do
-        <i class="glyph fa fa-diamond fa-1x"></i>
-        <i class="glyph fa fa-diamond fa-2x"></i>
-        <i class="glyph fa fa-diamond fa-3x"></i>
-        <i class="glyph fa fa-diamond fa-5x"></i>
+        <i class="glyph fa fa-gem fa-1x"></i>
+        <i class="glyph fa fa-gem fa-2x"></i>
+        <i class="glyph fa fa-gem fa-3x"></i>
+        <i class="glyph fa fa-gem fa-5x"></i>
 
   - s.section title: "Type" do
     = example do |c|
       :markdown
         * `fw` : fixed width icon
       - c.header do
-        = ui_glyph 'diamond', type: 'fw'
+        = ui_glyph 'gem', type: 'fw'
       - c.code do
-        ui_glyph "diamond", type: "fw"
+        ui_glyph "gem", type: "fw"
       - c.html do
-        <i class="glyph fa fa-diamond fa-fw"></i>
+        <i class="glyph fa fa-gem fa-fw"></i>
 
   - s.section title: "status" do
     = status_description
     = example do |c|
       - c.header do
         - UiBibzApp::Application::STATUSES.each do |status|
-          = ui_glyph 'diamond', status: status
+          = ui_glyph 'gem', status: status
       - c.code do
         - UiBibzApp::Application::STATUSES.each do |status|
-          = "ui_glyph \"diamond\", status: :#{ status }".html_safe
+          = "ui_glyph \"gem\", status: :#{ status }".html_safe
       - c.html do
-        <i class="glyph-primary glyph fa fa-diamond"></i>
-        <i class="glyph-secondary glyph fa fa-diamond"></i>
-        <i class="glyph-success glyph fa fa-diamond"></i>
-        <i class="glyph-danger glyph fa fa-diamond"></i>
-        <i class="glyph-warning glyph fa fa-diamond"></i>
-        <i class="glyph-info glyph fa fa-diamond"></i>
-        <i class="glyph-light glyph fa fa-diamond"></i>
-        <i class="glyph-dark glyph fa fa-diamond"></i>
+        <i class="glyph-primary glyph fa fa-gem"></i>
+        <i class="glyph-secondary glyph fa fa-gem"></i>
+        <i class="glyph-success glyph fa fa-gem"></i>
+        <i class="glyph-danger glyph fa fa-gem"></i>
+        <i class="glyph-warning glyph fa fa-gem"></i>
+        <i class="glyph-info glyph fa fa-gem"></i>
+        <i class="glyph-light glyph fa fa-gem"></i>
+        <i class="glyph-dark glyph fa fa-gem"></i>
 
   - s.section title: "Rotate" do
     = example do |c|
       - c.header do
-        = ui_glyph 'diamond', rotate: 90
-        = ui_glyph 'diamond', rotate: 180
-        = ui_glyph 'diamond', rotate: 270
+        = ui_glyph 'gem', rotate: 90
+        = ui_glyph 'gem', rotate: 180
+        = ui_glyph 'gem', rotate: 270
       - c.code do
-        ui_glyph "diamond", rotate: 90
-        ui_glyph "diamond", rotate: 180
-        ui_glyph "diamond", rotate: 270
+        ui_glyph "gem", rotate: 90
+        ui_glyph "gem", rotate: 180
+        ui_glyph "gem", rotate: 270
       - c.html do
-        <i class="glyph fa fa-diamond fa-rotate-90"></i>
-        <i class="glyph fa fa-diamond fa-rotate-180"></i>
-        <i class="glyph fa fa-diamond fa-rotate-270"></i>
+        <i class="glyph fa fa-gem fa-rotate-90"></i>
+        <i class="glyph fa fa-gem fa-rotate-180"></i>
+        <i class="glyph fa fa-gem fa-rotate-270"></i>
 
   - s.section title: "Flip" do
     = example do |c|
       - c.header do
-        = ui_glyph 'diamond', flip: :horizontal
-        = ui_glyph 'diamond', flip: :vertical
+        = ui_glyph 'gem', flip: :horizontal
+        = ui_glyph 'gem', flip: :vertical
       - c.code do
-        ui_glyph "diamond", flip: :horizontal
-        ui_glyph "diamond", flip: :vertical
+        ui_glyph "gem", flip: :horizontal
+        ui_glyph "gem", flip: :vertical
       - c.html do
-        <i class="glyph fa fa-diamond fa-flip-horizontal"></i>
-        <i class="glyph fa fa-diamond fa-flip-vertical"></i>
+        <i class="glyph fa fa-gem fa-flip-horizontal"></i>
+        <i class="glyph fa fa-gem fa-flip-vertical"></i>
 
   - s.section title: "Stack" do
     = example do |c|
       - c.header do
         = ui_glyph 'square', stack: 2
-        = ui_glyph 'diamond', stack: 1, status: :danger
+        = ui_glyph 'gem', stack: 1, status: :danger
       - c.code do
         ui_glyph "square", stack: 2
-        ui_glyph "diamond", stack: 1, status: :danger
+        ui_glyph "gem", stack: 1, status: :danger
       - c.html do
         <i class="glyph fa fa-square fa-stack-2x"></i>
-        <i class="glyph-danger ui_glyph fa fa-diamond fa-stack-1x"></i>
+        <i class="glyph-danger ui_glyph fa fa-gem fa-stack-1x"></i>
 
   - s.section title: "Label" do
     = example do |c|
       - c.header do
-        = ui_glyph 'diamond', label: 'Diamond'
+        = ui_glyph 'gem', label: 'gem'
       - c.code do
-        ui_glyph "diamond", label: 'Diamond'
+        ui_glyph "gem", label: 'gem'
       - c.html do
-        <i class="glyph fa fa-diamond"></i> Diamond
+        <i class="glyph fa fa-gem"></i> gem
 
   - s.section title: "Hash" do
     %p You can create a ui_glyph with only one hash.
     = example do |c|
       - c.header do
-        = ui_glyph({ name: 'diamond', size: :sm, label: 'Diamond' })
+        = ui_glyph({ name: 'gem', size: :sm, label: 'gem' })
       - c.code do
-        ui_glyph { name: "diamond", size: :sm, label: "Diamond" }
+        ui_glyph { name: "gem", size: :sm, label: "gem" }
       - c.html do
-        <i class="glyph fa fa-diamond fa-1x"></i> Diamond
+        <i class="glyph fa fa-gem fa-1x"></i> gem
 
 = @sections.render

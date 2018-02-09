@@ -115,13 +115,13 @@
             - c.body 'Content 1'
             - c.footer 'Footer 1'
           - cd.card tap: true do |c|
-            - c.header 'Header 2', { glyph: 'diamond' }, { class: 'my-header' }
-            - c.body 'Content 2', { glyph: 'diamond' }, { class: 'my-content' }
+            - c.header 'Header 2', { glyph: 'gem' }, { class: 'my-header' }
+            - c.body 'Content 2', { glyph: 'gem' }, { class: 'my-content' }
             - c.footer 'Footer 2', { muted: true }, { class: 'my-footer'}
           - cd.card tap: true do |c|
-            - c.header({ glyph: 'diamond' }, { class: 'my-header' }) do
+            - c.header({ glyph: 'gem' }, { class: 'my-header' }) do
               = 'Header 3'
-            - c.body({ glyph: 'diamond' }, { class: 'my-content' }) do
+            - c.body({ glyph: 'gem' }, { class: 'my-content' }) do
               = "Content 3"
             - c.footer({ muted: true }, { class: 'my-footer'}) do
               = "Footer 3"
@@ -134,16 +134,16 @@
           end
            
           ui_card tap: true do |c|
-            c.header "Header 2", { glyph: "diamond" }, { class: "my-header" }
-            c.body "Content 2", { glyph: "diamond" }, { class: "my-content" }
+            c.header "Header 2", { glyph: "gem" }, { class: "my-header" }
+            c.body "Content 2", { glyph: "gem" }, { class: "my-content" }
             c.footer "Footer 2", { muted: true }, { class: 'my-footer'}
           end
            
           ui_card tap: true do |c|
-            c.header({ glyph: "diamond" }, { class: "my-header" }) do
+            c.header({ glyph: "gem" }, { class: "my-header" }) do
               'Header 3'
             end
-            c.body({ glyph: "diamond" }, { class: "my-content" }) do
+            c.body({ glyph: "gem" }, { class: "my-content" }) do
               "Content 3"
             end
             c.footer({ muted: true }, { class: "my-footer"}) do
@@ -159,13 +159,13 @@
           </div>
 
           <div class="card">
-            <div class="my-header card-header"><i class="glyph fa fa-diamond"></i> Header 2</div>
+            <div class="my-header card-header"><i class="glyph fa fa-gem"></i> Header 2</div>
             <div class="my-content card-body">Content 2</div>
             <div class="my-footer card-footer text-muted">Footer 2</div>
           </div>
 
           <div class="card">
-            <div class="my-header card-header"><i class="glyph fa fa-diamond"></i> Header 3</div>
+            <div class="my-header card-header"><i class="glyph fa fa-gem"></i> Header 3</div>
             <div class="my-content card-body">Content 3</div>
             <div class="my-footer card-footer text-muted">Footer 3</div>
           </div>

@@ -111,16 +111,16 @@
     = example do |c|
       - c.header do
         = ui_button_link 'Primary Active', status: :primary, state: :active
-        = ui_button_link 'Toggle Danger', { status: :danger, glyph: :diamond, toggle: true }, { class: 'button' }
+        = ui_button_link 'Toggle Danger', { status: :danger, glyph: :gem, toggle: true }, { class: 'button' }
         = ui_button_link({ badge: 2 }, { class: 'button' }) do
           = 'Info'
       - c.code do
         ui_button_link "Primary Active", status: :primary, state: :active
-        ui_button_link "Toggle Danger", { status: :danger, glyph: :diamond, toggle: true }, { class: "button" }
+        ui_button_link "Toggle Danger", { status: :danger, glyph: :gem, toggle: true }, { class: "button" }
         ui_button_link({ status: :success, badge: 2 }, { class: "button" }) do
           Info
         end
       - c.html do
-        <a class="button_link btn-success btn" href="#"><i class="glyph fa fa-diamond"></i> Success</a>
+        <a class="button_link btn-success btn" href="#"><i class="glyph fa fa-gem"></i> Success</a>
 
 = @sections.render

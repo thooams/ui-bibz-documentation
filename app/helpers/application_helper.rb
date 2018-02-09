@@ -77,7 +77,7 @@ module ApplicationHelper
 
   def title name, display_ui = true, logo_name = 'bootstrap'
     content_tag :h2 do
-      concat ui_glyph('diamond', label: name)
+      concat ui_glyph('gem', label: name)
       concat content_tag :span, "(ui_#{ display_ui.kind_of?(String) ? display_ui : name.parameterize.underscore })" if display_ui
       concat bootstrap_or_ui_bibz_logo(logo_name) if display_ui
     end

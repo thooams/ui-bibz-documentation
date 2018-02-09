@@ -217,7 +217,7 @@
   - s.section title: "Buttonsplit  dropdown options" do
     = example do |c|
       - c.header do
-        = ui_split_dropdown "Dropdown right", glyph: 'diamond', status: :success, size: :lg, position: :right do |bd|
+        = ui_split_dropdown "Dropdown right", glyph: 'gem', status: :success, size: :lg, position: :right do |bd|
           - bd.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
           - bd.link "Another action", url: '#another-action'
           - bd.divider
@@ -232,7 +232,7 @@
           - bd.link "Separate link", url: '#separate-link'
 
       - c.code do
-        ui_split_dropdown "Dropdown right", glyph: "diamond", status: :success, size: :lg, position: :right do |bd|
+        ui_split_dropdown "Dropdown right", glyph: "gem", status: :success, size: :lg, position: :right do |bd|
           bd.link "Confirm action", url: "#action", link_html_options: { data: { confirm: "Are you sure?" }}, method: :delete
           bd.link "Another action", url: "#another-action"
           bd.divider

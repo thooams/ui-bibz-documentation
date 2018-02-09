@@ -151,10 +151,10 @@
   = ui_col do
     %h3 Badges
     - UiBibzApp::Application::STATUSES.each_with_index do |status, i|
-      = ui_badge status.to_s.titleize, status: status, glyph: 'diamond'
+      = ui_badge status.to_s.titleize, status: status, glyph: 'gem'
     %br
     - UiBibzApp::Application::STATUSES.each_with_index do |status, i|
-      = ui_badge status.to_s.titleize, status: status, type: :pill, glyph: 'diamond'
+      = ui_badge status.to_s.titleize, status: status, type: :pill, glyph: 'gem'
   = ui_col do
     %h3 Progress bars
     = ui_progress_bar 25, status: :success
@@ -326,14 +326,14 @@
   = ui_col do
     %h3 Glyphs  #{ exclusiveness }
     - UiBibzApp::Application::STATUSES.each do |status|
-      = ui_glyph 'diamond', status: status
+      = ui_glyph 'gem', status: status
     %br
-    = ui_glyph 'diamond', rotate: 90
-    = ui_glyph 'diamond', rotate: 180
-    = ui_glyph 'diamond', rotate: 270
+    = ui_glyph 'gem', rotate: 90
+    = ui_glyph 'gem', rotate: 180
+    = ui_glyph 'gem', rotate: 270
     %br
     - UiBibzApp::Application::SIZES.each do |size|
-      = ui_glyph 'diamond', size: size
+      = ui_glyph 'gem', size: size
   = ui_col do
     %h3 Stars #{ exclusiveness }
     = ui_row do
@@ -352,7 +352,7 @@
   = ui_col do
     = ui_list_group do |lg|
       - lg.list 'Cras justo odio', badge: 14
-      - lg.list 'Dapibus ac facilisis in', ui_glyph: 'diamond'
+      - lg.list 'Dapibus ac facilisis in', ui_glyph: 'gem'
       - lg.list 'Morbi leo risus', state: :active
       - lg.list 'Porta ac consectetur ac', state: :disabled
       - lg.list 'Vestibulum at eros', status: :success
@@ -400,10 +400,10 @@
 = ui_row class: 'buttons-theme' do
   = ui_col do
     - UiBibzApp::Application::STATUSES.each do |status|
-      = ui_button status.to_s.titleize, status: status, ui_glyph: 'diamond'
+      = ui_button status.to_s.titleize, status: status, ui_glyph: 'gem'
   = ui_col do
     - UiBibzApp::Application::STATUSES.each do |status|
-      = ui_button status.to_s.titleize, status: status, outline: true, ui_glyph: 'diamond'
+      = ui_button status.to_s.titleize, status: status, outline: true, ui_glyph: 'gem'
   = ui_col do
     - UiBibzApp::Application::SIZES.each do |size|
       = ui_button "Button #{ size }", status: :primary, size: size
@@ -436,8 +436,8 @@
   = ui_col do
     %h3 Dropdowns
     - UiBibzApp::Application::STATUSES.each do |status|
-      = ui_dropdown status.to_s.titleize, glyph: 'diamond', inline: true, status: status do |d|
-        - d.link "Action", url: '#action', ui_glyph: 'diamond'
+      = ui_dropdown status.to_s.titleize, glyph: 'gem', inline: true, status: status do |d|
+        - d.link "Action", url: '#action', ui_glyph: 'gem'
         - d.link "Another action", url: '#another-action'
         - d.divider
         - d.header 'Header'
@@ -445,8 +445,8 @@
         - d.link "Separate link", url: '#separate-link'
     %br
     - UiBibzApp::Application::STATUSES.each do |status|
-      = ui_dropdown status.to_s.titleize, glyph: 'diamond', inline: true, outline: true, status: status do |d|
-        - d.link "Action", url: '#action', ui_glyph: 'diamond'
+      = ui_dropdown status.to_s.titleize, glyph: 'gem', inline: true, outline: true, status: status do |d|
+        - d.link "Action", url: '#action', ui_glyph: 'gem'
         - d.link "Another action", url: '#another-action'
         - d.divider
         - d.header 'Header'
@@ -454,14 +454,14 @@
         - d.link "Separate link", url: '#separate-link'
     %br
     = ui_dropdown "Dropdown Right", size: :lg, position: :right, inline: true, status: :success do |d|
-      - d.link "Action", url: '#action', glyph: 'diamond'
+      - d.link "Action", url: '#action', glyph: 'gem'
       - d.link "Another action", url: '#another-action'
       - d.divider
       - d.header 'Header'
       - d.html "     Normal Text"
       - d.link "Separate link", url: '#separate-link'
     = ui_dropdown "Dropdown Up", size: :sm, type: :dropup, status: :danger do |d|
-      - d.link "Action", url: '#action', glyph: 'diamond'
+      - d.link "Action", url: '#action', glyph: 'gem'
       - d.link "Another action", url: '#another-action'
       - d.divider
       - d.header 'Header'
@@ -471,8 +471,8 @@
   = ui_col do
     %h3 Split Dropdowns
     - UiBibzApp::Application::STATUSES.each do |status|
-      = ui_split_dropdown status.to_s.titleize, glyph: 'diamond', inline: true, status: status do |d|
-        - d.link "Action", url: '#action', ui_glyph: 'diamond'
+      = ui_split_dropdown status.to_s.titleize, glyph: 'gem', inline: true, status: status do |d|
+        - d.link "Action", url: '#action', ui_glyph: 'gem'
         - d.link "Another action", url: '#another-action'
         - d.divider
         - d.header 'Header'
@@ -480,8 +480,8 @@
         - d.link "Separate link", url: '#separate-link'
     %br
     - UiBibzApp::Application::STATUSES.each do |status|
-      = ui_split_dropdown status.to_s.titleize, glyph: 'diamond', inline: true, outline: true, status: status do |d|
-        - d.link "Action", url: '#action', ui_glyph: 'diamond'
+      = ui_split_dropdown status.to_s.titleize, glyph: 'gem', inline: true, outline: true, status: status do |d|
+        - d.link "Action", url: '#action', ui_glyph: 'gem'
         - d.link "Another action", url: '#another-action'
         - d.divider
         - d.header 'Header'
@@ -519,7 +519,7 @@
 = ui_row do
   = ui_col num: 3 do
     %h4 Text  #{ exclusiveness }
-    = ui_text_field 'search', { append: ui_glyph('pencil'), prepend: ui_glyph('camera-retro') }, { placeholder: 'Type your search...' }
+    = ui_text_field 'search', { append: ui_glyph('pencil-alt'), prepend: ui_glyph('camera-retro') }, { placeholder: 'Type your search...' }
   = ui_col num: 3 do
     %h4 Switch  #{ exclusiveness }
     = ui_switch_field 'examplecolor'
@@ -532,7 +532,7 @@
   = ui_col num: 3 do
     %h4 Surround  #{ exclusiveness }
     = ui_surround_field do |s|
-      - s.glyph 'diamond'
+      - s.glyph 'gem'
       - s.text_field 'text'
       - s.addon 'To'
       - s.text_field 'text'
@@ -543,7 +543,7 @@
     = ui_markdown_editor_field 'comments'
     %br
     %h4 Date Picker  #{ exclusiveness }
-    = ui_date_picker_field 'range', range: ui_glyph('calendar-minus-o'), append: ui_glyph('car'), prepend: ui_glyph('pencil')
+    = ui_date_picker_field 'range', range: ui_glyph('calendar-minus-o'), append: ui_glyph('car'), prepend: ui_glyph('pencil-alt')
   = ui_col num: 6 do
     %h4 Multi column  #{ exclusiveness }
     - grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
@@ -566,7 +566,7 @@
           - cls.column :updated_at
         - b.actions do |acs|
           - acs.link 'Show', url: '#show', ui_glyph: 'eye'
-          - acs.link 'Edit', url: '#show', ui_glyph: 'pencil'
+          - acs.link 'Edit', url: '#show', ui_glyph: 'pencil-alt'
           - acs.link 'Delete', url: '#show', ui_glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
 
     = ui_col num: 4 do
@@ -591,5 +591,5 @@
     - cls.column :updated_at
   - b.actions do |acs|
     - acs.link 'Show', url: '#show', ui_glyph: 'eye'
-    - acs.link 'Edit', url: '#show', ui_glyph: 'pencil'
+    - acs.link 'Edit', url: '#show', ui_glyph: 'pencil-alt'
     - acs.link 'Delete', url: '#show', ui_glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}

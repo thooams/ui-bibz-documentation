@@ -48,11 +48,11 @@
       - c.header do
         = ui_choice_group size: :sm, outline: true, status: :success do |bc|
           - bc.choice 'Checkbox 1'
-          - bc.choice 'Checkbox 2', state: :active, glyph: 'diamond'
+          - bc.choice 'Checkbox 2', state: :active, glyph: 'gem'
       - c.code do
         ui_choice_group size: :sm, outline: true, status: :success do |bc|
           bc.choice "Checkbox 1"
-          bc.choice "Checkbox 2", state: :active, glyph: "diamond"
+          bc.choice "Checkbox 2", state: :active, glyph: "gem"
         end
       - c.html do
         :plain
@@ -62,7 +62,7 @@
             </label>
             <label class="active btn-outline-success btn btn-sm checkbox" aria-pressed="true">
               <input type="checkbox" autocomplete="off" checked="checked">
-                <i class="glyph fa fa-diamond"></i>Checkbox 2
+                <i class="glyph fa fa-gem"></i>Checkbox 2
             </label>
           </div>
 
@@ -88,11 +88,11 @@
     = example do |c|
       - c.header do
         = ui_choice_group size: :lg, type: :radio, outline: true do |bc|
-          - bc.choice 'Radio 1', status: :danger, glyph: 'diamond'
+          - bc.choice 'Radio 1', status: :danger, glyph: 'gem'
           - bc.choice 'Radio 2', status: :danger, state: :active
       - c.code do
         ui_choice_group size: :lg, outline: true, type: :radio do |bc|
-          bc.choice "Radio 1", status: :danger, glyph: "diamond"
+          bc.choice "Radio 1", status: :danger, glyph: "gem"
           bc.choice "Radio 2", status: :danger, state: :active
         end
       - c.html do
@@ -105,14 +105,14 @@
     = example do |c|
       - c.header do
         = ui_choice_group size: :lg, status: :primary, type: :radio, outline: true do |bc|
-          - bc.choice 'Radio 1', glyph: 'diamond', state: :active
-          - bc.choice 'Radio 2', status: :danger, glyph: 'diamond', text: false
+          - bc.choice 'Radio 1', glyph: 'gem', state: :active
+          - bc.choice 'Radio 2', status: :danger, glyph: 'gem', text: false
           - bc.choice 'Radio 3'
           - bc.choice 'Radio 4', status: :danger
       - c.code do
         :plain
           ui_choice_group size: :lg, status: :primary, outline: true, type: :radio do |bc|
-            bc.choice "Radio 1", glyph: "diamond", state: :active, text: false
+            bc.choice "Radio 1", glyph: "gem", state: :active, text: false
             bc.choice "Radio 2", status: :danger
             bc.choice "Radio 3"
             bc.choice "Radio 4", status: :danger
