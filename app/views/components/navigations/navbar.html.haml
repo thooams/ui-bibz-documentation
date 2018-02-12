@@ -35,6 +35,7 @@
   - ci.inherit_component 'brand'
   - ci.inherit_component 'text'
   - ci.inherit_component 'nav', components_navigations_nav_path
+  - ci.list 'spacer', types: %w(integer), values: %w(nil 1 2 3 4 5 6)
   - ci.list 'form', tap: true do |cli|
     - cli.list 'type', types: 'symbol', values: %w(:form_for :ui_form_for :form_tag), default: ":form_tag"
 
@@ -110,14 +111,14 @@
         </nav>
 
   - s.section title: "Navbar justified" do
-    %p Use <code>mr-auto</code> class in navbar component to justify items.
     = example do |c|
       - c.header do
         = ui_navbar title: 'Navbar' do |nb|
-          - nb.nav class: 'mr-auto' do |n|
+          - nb.nav do |n|
             - n.link 'Home', url: '#active', state: :active
             - n.link url: '#link', class: 'my-link' do
               Features
+          - nb.spacer
           - nb.nav do |n|
             - n.link 'Right link', url: '#right-link'
             - n.dropdown 'Dropdown', glyph: 'user' do |d|
@@ -135,6 +136,7 @@
                 Features
               end
             end
+            nb.spacer
             nb.nav do |n|
               n.link "Right link", url: "#right-link"
               n.dropdown "Dropdown", glyph: "user" do |d|
@@ -278,6 +280,7 @@
           - nb.brand image_tag 'ruby-white'
           - nb.nav do |n|
             - n.link 'Link', url: '#link'
+          - nb.spacer 2
           - nb.form @user, { type: :ui_form_for, url: components_navigations_navbar_path, method: 'get', input_html: { class: 'mr-sm-2' }} do |f|
             = f.input :country_id, as: :ui_select_field, label: false, collection: Country.all
             = f.ui_surround_field do |s|
