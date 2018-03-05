@@ -1,3 +1,4 @@
+require File.join(Rails.root,'app', 'ui', 'component_option')
 module UiBibz::Ui::Ux
   class ComponentItems < ComponentOption
 
