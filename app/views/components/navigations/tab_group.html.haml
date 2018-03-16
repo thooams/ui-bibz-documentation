@@ -174,7 +174,7 @@
     %p For more information see: #{ link_to 'Boostrap nav', 'https://getbootstrap.com/docs/4.0/components/navs/"' }
     = example do |c|
       - c.header do
-        = ui_tab_group type: :tabs do |n|
+        = ui_tab_group do |n|
           - n.tab 'Active', url: '#content1', state: :active
           - n.tab 'Link', url: '#content2'
           - n.tab 'Another link', url: '#content3'
@@ -186,7 +186,7 @@
           = ui_card 'Content 3', { tab: true, effect: :fade }, { id: 'content3' }
           = ui_card 'Content 4', { tab: true }, { id: 'content4' }
       - c.code do
-        ui_tab_group type: :tabs do |n|
+        ui_tab_group do |n|
           n.tab "Active", url: "#content1", state: :active
           n.tab "Link", url: "#content2"
           n.tab "Another link", url: "#content3"
