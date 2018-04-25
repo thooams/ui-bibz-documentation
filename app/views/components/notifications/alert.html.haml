@@ -27,6 +27,7 @@
   - co.status_link
   - co.list 'closable', types: :boolean, default: "false"
   - co.tap_link "(if you want add <code>header</code> or <code>body</code> item.)"
+  - co.list 'timeout', types: :integer
 
 - @sections = sections do |s|
   - s.section title: "Alert" do
@@ -74,6 +75,18 @@
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">×</span><span class="sr-only">Close</span>
             </button>
+          </div>
+
+    = example do |c|
+      %p Timeout option add 'fade' class after timeout.
+      - c.header do
+        = ui_alert 'Alert with timeout', timeout: 4000
+      - c.code do
+        ui_alert "Alert with timeout", timeout: 4000
+      - c.html do
+        :plain
+          <div class="alert-secondary alert alert-dismissible" data-timeout="4000" role="alert">
+            <i class="glyph fa fa-check"></i> Alert with timeout
           </div>
 
   - s.section title: "Additional content" do

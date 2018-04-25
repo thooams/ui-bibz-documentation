@@ -43,7 +43,7 @@ gem 'simple_form'
 gem 'rouge'
 # Ui Bibz Framework
 #gem 'ui_bibz', path: '~/Apps/Ui-Bibz'
-gem 'ui_bibz', '~> 2.0.0'
+gem 'ui_bibz', '~> 2.0', '>= 2.0.1'
 
 gem 'awesome_print', group: :development
 
