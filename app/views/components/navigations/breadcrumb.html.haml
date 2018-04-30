@@ -14,8 +14,11 @@
       end
     end
 
--# component_options do |co|
-  - co.list 'store', types: 'object'
+    # or
+
+    ui_breadcrumb store, options, html_options
+
+- component_options do |co|
   - co.list 'link_label', types: 'symbol', values: ':name'
   - co.list 'link_url', types: 'string', values: '#'
 
@@ -27,52 +30,57 @@
     = example do |c|
       - c.header do
         = ui_breadcrumb tap: true do |b|
-          - b.link 'Home', state: :active
+          - b.link 'Home', current: true
         %br
         = ui_breadcrumb tap: true do |b|
           - b.link 'Home', url: '#home'
-          - b.link 'Library', state: :active
+          - b.link 'Library', current: true
         %br
         = ui_breadcrumb tap: true do |b|
           - b.link 'Home', url: '#active'
           - b.link 'Library', url: '#library'
-          - b.link 'Data', state: :active
+          - b.link 'Data', current: true
       - c.code do
         ui_breadcrumb do |b|
-          b.link "Home", state: :active
+          b.link "Home", current: true
         end
          
         ui_breadcrumb do |b|
           b.link "Home", url: "#home"
-          b.link "Library", state: :active
+          b.link "Library", current: true
         end
          
         ui_breadcrumb do |b|
           b.link "Home", url: "#home"
           b.link "Library", url: "#library"
-          b.link "Data", state: :active
+          b.link "Data", current: true
         end
       - c.html do
         :plain
-          <ol class="breadcrumb">
-            <li class="active breadcrumb-item">Home</li>
-          </ol>
+          <nav arial-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="active breadcrumb-item" aria-current="page">Home</li>
+            </ol>
+          </nav>
 
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#home">Home</a></li>
-            <li class="active breadcrumb-item">Library</li>
-          </ol>
+          <nav arial-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#home">Home</a></li>
+              <li class="active breadcrumb-item" aria-current="page">Library</li>
+            </ol>
+          </nav>
 
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#active">Home</a></li>
-            <li class="breadcrumb-item"><a href="#library">Library</a></li>
-            <li class="active breadcrumb-item">Data</li>
-          </ol>
+          <nav arial-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#active">Home</a></li>
+              <li class="breadcrumb-item"><a href="#library">Library</a></li>
+              <li class="active breadcrumb-item" aria-current="page">Data</li>
+            </ol>
+          </nav>
 
-  -# s.section title: "Breadcrumb with store" do
+  - s.section title: "Breadcrumb with store" do
     %p Options are :
     = component_list_options do |clo|
-      - clo.list 'store', types: :object, required: true
       - clo.list 'link_label', types: %w(symbol string), default: ':name'
       - clo.list 'link_url', types: :string, default: '#'
 
@@ -83,14 +91,14 @@
 
     = example do |c|
       - c.header do
-        = ui_breadcrumb store: @users, link_label: :email, link_url: "#/id/edit"
+        = ui_breadcrumb @users, link_label: :email, link_url: "#/id/edit"
       - c.code do
         ui_breadcrumb store: @users, link_label: :email, link_url: "\#/id/edit"
       - c.html do
         <ol class="breadcrumb">
           <li><a href="#/1/edit">test0@test.com</a></li>
           <li><a href="#/2/edit">test1@test.com</a></li>
-          <li>test2@test.com</li>
+          <li aria-current="page">test2@test.com</li>
         </ol>
       - c.footer do
         = documentation_link 'Documentation', '#'
