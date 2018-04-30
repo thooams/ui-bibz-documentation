@@ -9,6 +9,7 @@
   - co.status_link
   - co.glyph_link
   - co.list 'type', types: 'symbol', values: %w(:pill :square)
+  - co.list 'url', types: 'string', description: 'If url is used, tag change from span to link.'
 
 - @sections = sections do |s|
   - s.section title: "Badge" do
@@ -33,18 +34,18 @@
     = example do |c|
       - c.header do
         - UiBibzApp::Application::STATUSES.each do |status|
-          = ui_badge status.to_s.titleize, status: status, type: :pill, glyph: 'gem'
+          = ui_badge status.to_s.titleize, status: status, type: :pill, glyph: 'gem', url: "##{ status }"
       - c.code do
         - UiBibzApp::Application::STATUSES.each do |status|
-          = "ui_badge '#{ status.to_s.titleize }', status: :#{ status }, type: :pill, glyph: 'gem'".html_safe
+          = "ui_badge '#{ status.to_s.titleize }', status: :#{ status }, type: :pill, glyph: 'gem', url: '##{ status }'".html_safe
       - c.html do
-        <span class="badge-primary badge badge-pill"><i class="glyph fa fa-gem"></i> Primary</span>
-        <span class="badge-secondary badge badge-pill"><i class="glyph fa fa-gem"></i> Secondary</span>
-        <span class="badge-success badge badge-pill"><i class="glyph fa fa-gem"></i> Success</span>
-        <span class="badge-danger badge badge-pill"><i class="glyph fa fa-gem"></i> Danger</span>
-        <span class="badge-warning badge badge-pill"><i class="glyph fa fa-gem"></i> Warning</span>
-        <span class="badge-info badge badge-pill"><i class="glyph fa fa-gem"></i> Info</span>
-        <span class="badge-light badge badge-pill"><i class="glyph fa fa-gem"></i> Light</span>
-        <span class="badge-dark badge badge-pill"><i class="glyph fa fa-gem"></i> Dark</span>
+        <a href="#primary" class="badge-primary badge badge-pill"><i class="glyph fa fa-gem"></i> Primary</span>
+        <a href="#secondary" class="badge-secondary badge badge-pill"><i class="glyph fa fa-gem"></i> Secondary</span>
+        <a href="#success" class="badge-success badge badge-pill"><i class="glyph fa fa-gem"></i> Success</span>
+        <a href="#danger" class="badge-danger badge badge-pill"><i class="glyph fa fa-gem"></i> Danger</span>
+        <a href="#warning" class="badge-warning badge badge-pill"><i class="glyph fa fa-gem"></i> Warning</span>
+        <a href="#info" class="badge-info badge badge-pill"><i class="glyph fa fa-gem"></i> Info</span>
+        <a href="#light" class="badge-light badge badge-pill"><i class="glyph fa fa-gem"></i> Light</span>
+        <a href="#dark" class="badge-dark badge badge-pill"><i class="glyph fa fa-gem"></i> Dark</span>
 
 = @sections.render

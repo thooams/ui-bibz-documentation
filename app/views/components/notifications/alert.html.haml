@@ -27,7 +27,7 @@
   - co.status_link
   - co.list 'closable', types: :boolean, default: "false"
   - co.tap_link "(if you want add <code>header</code> or <code>body</code> item.)"
-  - co.list 'timeout', types: :integer
+  - co.list 'timeout', types: :integer, description: 'Fade out after timeout'
 
 - @sections = sections do |s|
   - s.section title: "Alert" do

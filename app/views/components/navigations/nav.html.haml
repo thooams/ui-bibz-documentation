@@ -325,10 +325,10 @@
         end
          
         <div class='tab-content'>
-          card 'Content 1', { tab: true, state: :active }, { id: 'content1' }
-          card 'Content 2', { tab: true, effect: :fade }, { id: 'content2' }
-          card 'Content 3', { tab: true, effect: :fade }, { id: 'content3' }
-          card 'Content 4', { tab: true }, { id: 'content4' }
+          ui_card 'Content 1', { tab: true, state: :active }, { id: 'content1' }
+          ui_card 'Content 2', { tab: true, effect: :fade }, { id: 'content2' }
+          ui_card 'Content 3', { tab: true, effect: :fade }, { id: 'content3' }
+          ui_card 'Content 4', { tab: true }, { id: 'content4' }
         </div>
       - c.html do
         <ul class="nav nav-tabs">
@@ -344,5 +344,6 @@
           <div id="content3" class="fade card card-block tab-pane">Content 3</div>
           <div id="content4" class="card card-block tab-pane">Content 4</div>
         </div>
+
 
 = @sections.render

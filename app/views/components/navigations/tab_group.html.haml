@@ -19,6 +19,7 @@
 
 = component_options do |co|
   - co.list 'position', types: 'symbol', values: %w(:left :center :right)
+  - co.list 'tag_type', types: 'symbol', values: %w(:a :span)
 
 = component_items do |ci|
   - ci.inherit_component 'tab', components_navigations_link_path, 'link'
@@ -116,59 +117,71 @@
             <a class="disabled nav-link" href="#disabled">Disabled</a>
           </nav>
 
-  - s.section title: "Spacer" do
-    = spacer_values
+  - s.section title: "Card navigation" do
     = example do |c|
       - c.header do
-        = ui_tab_group do |n|
-          - n.link 'Active', url: '#active', state: :active
-          - n.link 'Another link', url: '#active'
-          - n.link 'Disabled', url: '#disabled', state: :disabled
-          - n.spacer
-          - n.dropdown 'Dropdown' do |d|
-            - d.link "Action 1", url: '#action'
-            - d.link url: '#another-action' do
-              = "Action 2"
-            - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
-              = "Action 3"
+        = ui_card tap: true do |c|
+          - c.header tap: true do |h|
+            - h.tab_group tap: true do |n|
+              - n.tab 'Active', url: '#active', state: :active
+              - n.tab 'Another link', url: '#active'
+              - n.tab 'Disabled', url: '#disabled', state: :disabled
+              - n.spacer
+              - n.dropdown 'Dropdown' do |d|
+                - d.link "Action 1", url: '#action'
+                - d.link url: '#another-action' do
+                  = "Action 2"
+                - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+                  = "Action 3"
+          - c.body ''
       - c.code do
         :plain
-          ui_tab_group do |n|
-            n.link "Active", url: "#active", state: :active
-            n.link "Another link", url: "#active"
-            n.link "Disabled", url: "#disabled", state: :disabled
-            n.spacer
-            n.dropdown "Dropdown" do |d|
-              d.link "Action 1", url: "#action"
-              d.link url: "#another-action" do
-                "Action 2"
-              end
-              d.link({ url: "#separate-link"}, { class: "my-link"}) do
-                "Action 3"
-              end
-            end
+          ui_card tap: true do |c|
+            c.header tap: true do |h|
+              h.tab_group tap: true do |n|
+                n.tab 'Active', url: '#active', state: :active
+                n.tab 'Another link', url: '#active'
+                n.tab 'Disabled', url: '#disabled', state: :disabled
+                n.spacer
+                n.dropdown 'Dropdown' do |d|
+                  d.link "Action 1", url: '#action'
+                  d.link url: '#another-action' do
+                    "Action 2"
+                  end
+                  d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+                    "Action 3"
+                  end
+                end
+              end
+            end
+            c.body ''
           end
       - c.html do
         :plain
-          <ul class="nav nav-tabs">
-            <li class="active nav-item">
-              <a class="nav-link" href="#active">Active</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#active">Another link</a>
-            </li>
-            <li class="disabled  mr-auto nav-item">
-              <a class="disabled nav-link" href="#disabled">Disabled</a>
-            </li>
-            <li class="dropdown nav-item">
-              <a class="dropdown-toggle nav-link active" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown <span class="caret"></span></a>
-              <div class="dropdown-menu" arial-labelledby="dropdown-215166184182764420015994202772620281414" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 42px, 0px); top: 0px; left: 0px; will-change: transform;">
-                <a class="dropdown-item" href="#action">Action 1</a>
-                <a class="dropdown-item" href="#another-action">Action 2</a>
-                <a class="my-link dropdown-item" href="#separate-link">Action 3</a>
-              </div>
-            </li>
-          </ul>
+          <div class="card">
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs">
+                <li class="active nav-item">
+                  <a class="nav-link" href="#active">Active</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#active">Another link</a>
+                </li>
+                <li class="disabled  mr-auto nav-item">
+                  <a class="disabled nav-link" href="#disabled">Disabled</a>
+                </li>
+                <li class="dropdown nav-item">
+                  <a class="dropdown-toggle nav-link active" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown <span class="caret"></span></a>
+                  <div class="dropdown-menu" arial-labelledby="dropdown-215166184182764420015994202772620281414" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 42px, 0px); top: 0px; left: 0px; will-change: transform;">
+                    <a class="dropdown-item" href="#action">Action 1</a>
+                    <a class="dropdown-item" href="#another-action">Action 2</a>
+                    <a class="my-link dropdown-item" href="#separate-link">Action 3</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="card-body"></div>
+          </div>
 
   - s.section title: "Connection" do
     %p For more information see: #{ link_to 'Boostrap nav', 'https://getbootstrap.com/docs/4.0/components/navs/"' }
