@@ -14,6 +14,8 @@
 #= require ui_bibz
 #= require anchor.min
 
+uiBibz = new UiBibz()
+uiBibz.ready()
 
 # Fonction pour fixer le menu de droite lors du scrolling
 $(window).scroll ->
