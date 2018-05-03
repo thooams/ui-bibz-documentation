@@ -33,7 +33,7 @@
             bc.choice "Checkbox 2", state: :active
           end
       - c.html do
-        <div data-toggle="buttons" class="btn-group" >
+        <div data-toggle="buttons" class="btn-group btn-group-toggle" >
           <label class="btn-secondary btn"><input type="checkbox" autocomplete="off">Checkbox 1</label>
           <label class="active btn-secondary btn"><input type="checkbox" autocomplete="off" checked="checked">Checkbox 2</label>
         </div>
@@ -56,7 +56,7 @@
         end
       - c.html do
         :plain
-          <div data-toggle="buttons" class="btn-group btn-group-sm button-choice">
+          <div data-toggle="buttons" class="btn-group btn-group-sm button-choice btn-group-toggle">
             <label class="btn-outline-success btn btn-sm checkbox">
               <input type="checkbox" autocomplete="off">Checkbox 1
             </label>
@@ -78,7 +78,7 @@
           bc.choice "Radio 2", state: :active
         end
       - c.html do
-        <div data-toggle="buttons" class="btn-group" role="group">
+        <div data-toggle="buttons" class="btn-group btn-group-toggle" role="group">
           <label class="btn-primary btn"><input type="radio" autocomplete="off">Radio 1</label>
           <label class="active btn-primary btn"><input type="radio" autocomplete="off" checked="checked">Radio 2</label>
         </div>
@@ -96,7 +96,7 @@
           bc.choice "Radio 2", status: :danger, state: :active
         end
       - c.html do
-        <div data-toggle="buttons" class="btn-group" role="group">
+        <div data-toggle="buttons" class="btn-group btn-group-toggle" role="group">
           <label class="btn-danger-outline btn btn-lg"><input type="radio" autocomplete="off">Radio 1</label>
           <label class="active btn-danger-outline btn btn-lg"><input type="radio" autocomplete="off" checked="checked">Radio 2</label>
         </div>
@@ -118,7 +118,7 @@
             bc.choice "Radio 4", status: :danger
           end
       - c.html do
-        <div data-toggle="buttons" class="btn-group" role="group">
+        <div data-toggle="buttons" class="btn-group btn-group-toggle" role="group">
           <label class="btn-danger-outline btn btn-lg"><input type="radio" autocomplete="off">Radio 1</label>
           <label class="active btn-danger-outline btn btn-lg"><input type="radio" autocomplete="off" checked="checked">Radio 2</label>
         </div>

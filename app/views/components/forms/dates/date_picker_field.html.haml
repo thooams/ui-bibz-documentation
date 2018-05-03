@@ -125,13 +125,13 @@
   - s.section title: "Range with glyph" do
     = example do |e|
       - e.header do
-        = ui_date_picker_field 'range', range: ui_glyph('calendar-minus-o'), append: ui_glyph('car'), prepend: ui_glyph('pencil-alt')
+        = ui_date_picker_field 'range', range: ui_glyph('calendar-minus'), append: ui_glyph('car'), prepend: ui_glyph('pencil-alt')
       - e.code do
-        ui_date_picker_field "range", range: ui_glyph("calendar-minus-o"), append: ui_glyph("car"), prepend: ui_glyph("pencil-alt")
+        ui_date_picker_field "range", range: ui_glyph("calendar-minus"), append: ui_glyph("car"), prepend: ui_glyph("pencil-alt")
       - e.html do
         <div class="input-group input-daterange">
           <span class="input-group-addon"><i class="ui_glyph fa fa-car"></i></span>
-          <input type="text" name="r" id="r" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" class="date_picker form-control"><span class="input-group-addon input-group-range"><i class="ui_glyph fa fa-calendar-minus-o"></i></span>
+          <input type="text" name="r" id="r" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" class="date_picker form-control"><span class="input-group-addon input-group-range"><i class="ui_glyph fa fa-calendar-minus"></i></span>
           <input type="text" name="a" id="a" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" class="date_picker form-control"><span class="input-group-addon"><i class="ui_glyph fa fa-pencil-alt"></i></span>
         </div>
 

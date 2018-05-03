@@ -325,6 +325,11 @@
             </div>
           </div>
 
+  - s.section title: "Card Navigation" do
+    %ul
+      %li #{ link_to "Navigation by tabs", components_navigations_tab_group_path(anchor: "card-navigation") }
+      %li #{ link_to "Navigation by pills", components_navigations_nav_path(anchor: "card-navigation") }
+
   - s.section title: "Status" do
     = example do |e|
       = status_description

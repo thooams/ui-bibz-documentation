@@ -256,12 +256,10 @@
     = example do |e|
       - e.header do
         = ui_form_for(User.first) do |f|
-          - f.input :email
-          -#= f.ui_surround_field label: 'Email' do |sf|
+          = f.ui_surround_field label: 'Email' do |sf|
             - sf.addon glyph: 'envelope'
             - sf.input :email#, as: :ui_bibz_text_field
             - sf.button_link 'button', url: "#button_link"
-            - sf.input :created_at, as: :date_picker_field
             - sf.addon glyph: 'calendar'
       - e.code do
         :plain
@@ -271,7 +269,6 @@
               sf.addon glyph: 'envelope'
               sf.input :email
               sf.button_link 'button', url: "#button_link"
-              sf.input :created_at, as: :date_picker_field
               sf.addon glyph: 'calendar'
             end
             ...

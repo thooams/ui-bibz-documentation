@@ -92,7 +92,7 @@
       - c.code do
         - %i(left center right).each do |p|
           :plain
-            ui_tab_group position: p do |n|
+            ui_tab_group position: :#{ p } do |n|
               n.tab "Active", url: "#active", state: :active
               n.tab "Another link", url: "#another-link"
               n.tab "Disabled", url: "#disabled", state: :disabled
@@ -116,6 +116,36 @@
             <a class="nav-link" href="#another-link">Another link</a>
             <a class="disabled nav-link" href="#disabled">Disabled</a>
           </nav>
+
+  - s.section title: "Span" do
+    You can replace link items by span items.
+    = example do |c|
+      - c.header do
+        = ui_tab_group tag_type: :span do |n|
+          - n.tab 'Active', url: '#active', state: :active
+          - n.tab 'Another link', url: '#another-link'
+          - n.tab 'Disabled', url: '#disabled', state: :disabled
+        %br
+      - c.code do
+        :plain
+          ui_tab_group tag_type: :span do |n|
+            n.tab "Active", url: "#active", state: :active
+            n.tab "Another link", url: "#another-link"
+            n.tab "Disabled", url: "#disabled", state: :disabled
+          end
+      - c.html do
+        :plain
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <span class="nav-link" data-toggle="tab" role="tab" aria-selected="true">Active</span>
+            </li>
+            <li class="nav-item">
+              <span class="nav-link active show" data-toggle="tab" role="tab">Another link</span>
+            </li>
+            <li class="nav-item">
+              <span class="disabled nav-link" data-toggle="tab" role="tab">Disabled</span>
+            </li>
+          </ul>
 
   - s.section title: "Card navigation" do
     = example do |c|
