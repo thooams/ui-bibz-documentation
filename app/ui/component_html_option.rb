@@ -1,4 +1,4 @@
-require File.join(Rails.root,'app', 'ui', 'component_list_option')
+#require File.join(Rails.root,'app', 'ui', 'component_list_option')
 module UiBibz::Ui::Ux
   class ComponentHtmlOption < ComponentListOption
 

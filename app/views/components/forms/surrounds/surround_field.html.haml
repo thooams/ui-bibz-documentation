@@ -6,6 +6,7 @@
 = component_options do |co|
   - co.status_link
   - co.state_link
+  - co.size_link
   - co.list 'append', types: 'html'
   - co.list 'prepend', types: 'html'
   - co.list 'addon', types: 'component'
@@ -250,6 +251,25 @@
       %li= inherit_specific_component_link 'select_field', components_forms_selects_select_field_path
       %li= inherit_specific_component_link 'auto_complete_field', components_forms_texts_auto_complete_field_path
       %li= inherit_specific_component_link 'text_field', components_forms_texts_text_field_path
+
+  - s.section title: "Size options" do
+    = example do |e|
+      - e.header do
+        = size_description
+        - UiBibzApp::Application::SIZES.each do |size|
+          = ui_surround_field size: size  do |sf|
+            - sf.glyph 'car'
+            - sf.text_field :example
+            - sf.button 'calendar', text: false, glyph: 'calendar', status: :info
+          %br
+      - e.code do
+        - UiBibzApp::Application::SIZES.each do |size|
+          :plain
+            ui_surround_field size: size  do |sf|
+              sf.glyph 'car'
+              sf.text_field :example
+              sf.button 'calendar', text: false, glyph: 'calendar', status: :info
+            end
 
   - s.section title: "Simple form" do
     %p= simple_form_text_with_input "ui_surround_field"
