@@ -1,3 +1,4 @@
+require 'ui_bibz'
 module UiBibzApp
   class Application
     include UiBibz
