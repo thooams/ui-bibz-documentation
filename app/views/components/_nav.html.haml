@@ -16,22 +16,22 @@
   - n.link 'Star', nav_options(components_icons_star_path)
 
 = ui_nav class: 'nav-left' do |n|
-  - n.text 'Lists'
-  - n.link 'List group', nav_options(components_lists_list_group_path)
-  - n.link 'List', nav_options(components_lists_list_path)
-
-= ui_nav class: 'nav-left' do |n|
   - n.text 'Layouts'
   - n.link 'Col', nav_options(components_layouts_col_path)
-  - n.link 'Row', nav_options(components_layouts_row_path)
   - n.link 'Container', nav_options(components_layouts_container_path)
+  - n.link 'Row', nav_options(components_layouts_row_path)
+
+= ui_nav class: 'nav-left' do |n|
+  - n.text 'Lists'
+  - n.link 'List', nav_options(components_lists_list_path)
+  - n.link 'List group', nav_options(components_lists_list_group_path)
 
 = ui_nav class: 'nav-left' do |n|
   - n.text 'Navigations'
+  - n.link 'Breadcrumb', nav_options(components_navigations_breadcrumb_path)
   - n.link 'Link', nav_options(components_navigations_link_path)
   - n.link 'Nav', nav_options(components_navigations_nav_path)
   - n.link 'Navbar', nav_options(components_navigations_navbar_path)
-  - n.link 'Breadcrumb', nav_options(components_navigations_breadcrumb_path)
   - n.link 'Pagination', nav_options(components_navigations_pagination_path)
   - n.link 'Tab group', nav_options(components_navigations_tab_group_path)
   - n.link 'Toolbar', nav_options(components_navigations_toolbar_path)
@@ -41,10 +41,6 @@
   - n.link 'Alert', nav_options(components_notifications_alert_path)
   - n.link 'Badge', nav_options(components_notifications_badge_path)
   - n.link 'Progress bar', nav_options(components_notifications_progress_bar_path)
-
-= ui_nav class: 'nav-left' do |n|
-  - n.text 'Windows'
-  - n.link 'Modal', nav_options(components_windows_modal_path)
 
 = ui_nav class: 'nav-left' do |n|
   - n.text 'Tables'
@@ -60,21 +56,21 @@
       - na.link 'Button group', nav_options(components_forms_buttons_button_group_path)
       - na.link 'Button link', nav_options(components_forms_buttons_button_link_path)
 
-    - no.text 'Dropdowns'
-    - no.nav do |na|
-      - na.link 'Dropdown', nav_options(components_forms_dropdowns_dropdown_path)
-      - na.link 'Split Dropdown', nav_options(components_forms_dropdowns_split_dropdown_path)
-
     - no.text 'Choices'
     - no.nav do |na|
-      - na.link 'Switch field', nav_options(components_forms_choices_switch_field_path)
       - na.link 'Checkbox field', nav_options(components_forms_choices_checkbox_field_path)
-      - na.link 'Radio field', nav_options(components_forms_choices_radio_field_path)
       - na.link 'Choice group', nav_options(components_forms_choices_choice_group_path)
+      - na.link 'Radio field', nav_options(components_forms_choices_radio_field_path)
+      - na.link 'Switch field', nav_options(components_forms_choices_switch_field_path)
 
     - no.text 'Dates'
     - no.nav do |na|
       - na.link 'Date picker field', nav_options(components_forms_dates_date_picker_field_path)
+
+    - no.text 'Dropdowns'
+    - no.nav do |na|
+      - na.link 'Dropdown', nav_options(components_forms_dropdowns_dropdown_path)
+      - na.link 'Split Dropdown', nav_options(components_forms_dropdowns_split_dropdown_path)
 
     - no.text 'Numbers'
     - no.nav do |na|
@@ -100,3 +96,6 @@
       - na.link 'Auto complete field', nav_options(components_forms_texts_auto_complete_field_path)
       - na.link 'Text field', nav_options(components_forms_texts_text_field_path)
 
+= ui_nav class: 'nav-left' do |n|
+  - n.text 'Windows'
+  - n.link 'Modal', nav_options(components_windows_modal_path)
