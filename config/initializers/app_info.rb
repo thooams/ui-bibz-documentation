@@ -1,5 +1,7 @@
 module UiBibzApp
   class Application
+    include UiBibz
+
     VERSION     = UiBibz::VERSION
     NAME        = UiBibz::NAME
     DESCRIPTION = UiBibz::DESCRIPTION
