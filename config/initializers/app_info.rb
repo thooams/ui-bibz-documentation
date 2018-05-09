@@ -1,4 +1,4 @@
-require 'ui_bibz'
+require 'ui_bibz/infos'
 module UiBibzApp
   class Application
     include UiBibz
