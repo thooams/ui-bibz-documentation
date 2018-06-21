@@ -1,0 +1,162 @@
+= title 'Glyph Group', true, 'ui bibz'
+%blockquote UiBibz::Ui::Core::Icons::GlyphGroup
+
+= code do
+  :plain
+    ui_glyph_group options, html_options do |gg|
+      gg.glyph name, options, html_options
+
+      # with another glyph
+      gg.glyph name, options, html_options
+
+      # or with text
+      gg.text text, options, html_options
+
+      # or with a counter
+      gg.counter text, options, html_options
+    end
+
+= component_items do |ci|
+  - ci.inherit_component 'glyph', components_icons_glyph_group_path
+  - ci.inherit_component 'text'
+  - ci.inherit_component 'counter'
+
+- @sections = sections do |s|
+  - s.section title: "Glyph group" do
+    = example do |c|
+      - c.header do
+        = ui_glyph_group size: 4 do |gg|
+          - gg.glyph 'circle', status: :danger
+          - gg.glyph 'times', inverse: true, transform: 'shrink-6'
+
+        = ui_glyph_group size: 4 do |gg|
+          - gg.glyph 'bookmark'
+          - gg.glyph 'heart', inverse: true, transform: 'shrink-10 up-2', status: :danger
+
+        = ui_glyph_group size: 4 do |gg|
+          - gg.glyph 'play', transform: "rotate--90 grow-2"
+          - gg.glyph 'sun', inverse: true, transform: 'shrink-10 up-2'
+          - gg.glyph 'moon', inverse: true, transform: 'shrink-11 down-4.2 left-4'
+          - gg.glyph 'star', inverse: true, transform: 'shrink-11 down-4.2 right-4'
+
+        = ui_glyph_group size: 4 do |gg|
+          - gg.glyph 'calendar', status: :primary
+          - gg.text Date.today.day, inverse: true, transform: 'shrink-8 down-3'
+
+        = ui_glyph_group size: 4 do |gg|
+          - gg.glyph 'certificate', status: :warning
+          - gg.text "New", inverse: true, transform: 'shrink-11.5 rotate--30'
+
+        = ui_glyph_group size: 4 do |gg|
+          - gg.glyph 'envelope'
+          - gg.counter 1119, inverse: true, status: :danger, position: 'top-right'
+
+      - c.code do
+        :plain
+          ui_glyph_group size: 4 do |gg|
+            gg.glyph 'circle', status: :danger
+            gg.glyph 'times', inverse: true, transform: 'shrink-6'
+          end
+
+          ui_glyph_group size: 4 do |gg|
+            gg.glyph 'bookmark'
+            gg.glyph 'heart', inverse: true, transform: 'shrink-10 up-2', status: :danger
+          end
+
+          ui_glyph_group size: 4 do |gg|
+            gg.glyph 'play', transform: "rotate--90 grow-2"
+            gg.glyph 'sun', inverse: true, transform: 'shrink-10 up-2'
+            gg.glyph 'moon', inverse: true, transform: 'shrink-11 down-4.2 left-4'
+            gg.glyph 'star', inverse: true, transform: 'shrink-11 down-4.2 right-4'
+          end
+
+          ui_glyph_group size: 4 do |gg|
+            gg.glyph 'calendar', status: :primary
+            gg.text Date.today.day, inverse: true, transform: 'shrink-8 down-3'
+          end
+
+          ui_glyph_group size: 4 do |gg|
+            gg.glyph 'certificate', status: :warning
+            gg.text "New", inverse: true, transform: 'shrink-11.5 rotate--30'
+          end
+
+          ui_glyph_group size: 4 do |gg|
+            gg.glyph 'envelope'
+            gg.counter 1119, inverse: true, status: :danger, position: 'top-right'
+          end
+      - c.html do
+        :plain
+          <span class="fa-layers fa-fw fa-4x">
+            <svg class="svg-inline--fa fa-circle fa-w-16 glyph-danger glyph" aria-hidden="true" data-prefix="fas" data-icon="circle" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" data-fa-i2svg="">
+              <path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"></path>
+            </svg><!-- <i class="glyph-danger glyph fas fa-circle"></i> -->
+            <svg data-fa-transform="shrink-6" class="svg-inline--fa fa-times fa-w-11 glyph fa-inverse" aria-hidden="true" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 352 512" data-fa-i2svg="" style="transform-origin: 0.34375em 0.5em;">
+              <g transform="translate(176 256)">
+                <g transform="translate(0, 0) scale(0.625, 0.625) rotate(0 0 0)">
+                  <path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z" transform="translate(-176 -256)"></path>
+                </g>
+              </g>
+            </svg><!-- <i data-fa-transform="shrink-6" class="glyph fas fa-times fa-inverse"></i> -->
+          </span>
+
+          <span class="fa-layers fa-fw fa-4x">
+            <svg class="svg-inline--fa fa-bookmark fa-w-12 glyph" aria-hidden="true" data-prefix="fas" data-icon="bookmark" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 384 512" data-fa-i2svg="">
+              <path fill="currentColor" d="M0 512V48C0 21.49 21.49 0 48 0h288c26.51 0 48 21.49 48 48v464L192 400 0 512z"></path>
+            </svg><!-- <i class="glyph fas fa-bookmark"></i> -->
+            <svg data-fa-transform="shrink-10 up-2" class="svg-inline--fa fa-heart fa-w-16 glyph-danger glyph fa-inverse" aria-hidden="true" data-prefix="fas" data-icon="heart" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" data-fa-i2svg="" style="transform-origin: 0.5em 0.375em;">
+              <g transform="translate(256 256)">
+                <g transform="translate(0, -64) scale(0.375, 0.375) rotate(0 0 0)">
+                  <path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z" transform="translate(-256 -256)"></path>
+                </g>
+              </g>
+            </svg><!-- <i data-fa-transform="shrink-10 up-2" class="glyph-danger glyph fas fa-heart fa-inverse"></i> -->
+          </span>
+
+          <span class="fa-layers fa-fw fa-4x">
+            <svg data-fa-transform="rotate--90 grow-2" class="svg-inline--fa fa-play fa-w-14 glyph" aria-hidden="true" data-prefix="fas" data-icon="play" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512" data-fa-i2svg="" style="transform-origin: 0.4375em 0.5em;">
+              <g transform="translate(224 256)">
+                <g transform="translate(0, 0) scale(1.125, 1.125) rotate(-90 0 0)">
+                  <path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z" transform="translate(-224 -256)"></path>
+                </g>
+              </g>
+            </svg><!-- <i data-fa-transform="rotate--90 grow-2" class="glyph fas fa-play"></i> -->
+            <svg data-fa-transform="shrink-10 up-2" class="svg-inline--fa fa-sun fa-w-16 glyph fa-inverse" aria-hidden="true" data-prefix="fas" data-icon="sun" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" data-fa-i2svg="" style="transform-origin: 0.5em 0.375em;">
+              <g transform="translate(256 256)">
+                <g transform="translate(0, -64) scale(0.375, 0.375) rotate(0 0 0)">
+                  <path fill="currentColor" d="M274.835 12.646l25.516 62.393c4.213 10.301 16.671 14.349 26.134 8.492l57.316-35.479c15.49-9.588 34.808 4.447 30.475 22.142l-16.03 65.475c-2.647 10.81 5.053 21.408 16.152 22.231l67.224 4.987c18.167 1.348 25.546 24.057 11.641 35.826L441.81 242.26c-8.495 7.19-8.495 20.289 0 27.479l51.454 43.548c13.906 11.769 6.527 34.478-11.641 35.826l-67.224 4.987c-11.099.823-18.799 11.421-16.152 22.231l16.03 65.475c4.332 17.695-14.986 31.73-30.475 22.142l-57.316-35.479c-9.463-5.858-21.922-1.81-26.134 8.492l-25.516 62.393c-6.896 16.862-30.774 16.862-37.67 0l-25.516-62.393c-4.213-10.301-16.671-14.349-26.134-8.492l-57.317 35.479c-15.49 9.588-34.808-4.447-30.475-22.142l16.03-65.475c2.647-10.81-5.053-21.408-16.152-22.231l-67.224-4.987c-18.167-1.348-25.546-24.057-11.641-35.826L70.19 269.74c8.495-7.19 8.495-20.289 0-27.479l-51.454-43.548c-13.906-11.769-6.527-34.478 11.641-35.826l67.224-4.987c11.099-.823 18.799-11.421 16.152-22.231l-16.03-65.475c-4.332-17.695 14.986-31.73 30.475-22.142l57.317 35.479c9.463 5.858 21.921 1.81 26.134-8.492l25.516-62.393c6.896-16.861 30.774-16.861 37.67 0zM392 256c0-74.991-61.01-136-136-136-74.991 0-136 61.009-136 136s61.009 136 136 136c74.99 0 136-61.009 136-136zm-32 0c0 57.346-46.654 104-104 104s-104-46.654-104-104 46.654-104 104-104 104 46.654 104 104z" transform="translate(-256 -256)"></path>
+                </g>
+              </g>
+            </svg><!-- <i data-fa-transform="shrink-10 up-2" class="glyph fas fa-sun fa-inverse"></i> -->
+            <svg data-fa-transform="shrink-11 down-4.2 left-4" class="svg-inline--fa fa-moon fa-w-16 glyph fa-inverse" aria-hidden="true" data-prefix="fas" data-icon="moon" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" data-fa-i2svg="" style="transform-origin: 0.25em 0.7625em;">
+              <g transform="translate(256 256)">
+                <g transform="translate(-128, 134.4) scale(0.3125, 0.3125) rotate(0 0 0)">
+                  <path fill="currentColor" d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z" transform="translate(-256 -256)"></path>
+                </g>
+              </g>
+            </svg><!-- <i data-fa-transform="shrink-11 down-4.2 left-4" class="glyph fas fa-moon fa-inverse"></i> -->
+            <svg data-fa-transform="shrink-11 down-4.2 right-4" class="svg-inline--fa fa-star fa-w-18 glyph fa-inverse" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512" data-fa-i2svg="" style="transform-origin: 0.8125em 0.7625em;">
+            <g transform="translate(288 256)">
+              <g transform="translate(128, 134.4) scale(0.3125, 0.3125) rotate(0 0 0)">
+                <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z" transform="translate(-288 -256)"></path>
+              </g>
+            </g></svg><!-- <i data-fa-transform="shrink-11 down-4.2 right-4" class="glyph fas fa-star fa-inverse"></i> -->
+          </span>
+
+          <span class="fa-layers fa-fw fa-4x">
+            <svg class="svg-inline--fa fa-calendar fa-w-14 glyph-primary glyph" aria-hidden="true" data-prefix="fas" data-icon="calendar" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512" data-fa-i2svg="">
+              <path fill="currentColor" d="M12 192h424c6.6 0 12 5.4 12 12v260c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V204c0-6.6 5.4-12 12-12zm436-44v-36c0-26.5-21.5-48-48-48h-48V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H160V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v36c0 6.6 5.4 12 12 12h424c6.6 0 12-5.4 12-12z"></path>
+             </svg><!-- <i class="glyph-primary glyph fas fa-calendar"></i> -->
+          <span data-fa-transform="shrink-8 down-3" class="fa-layers-text fa-inverse" aria-hidden="true" data-fa-i2svg="" style="transform: translate(calc(-50% + 0em), calc(-50% + 0.1875em)) scale(0.5, 0.5) rotate(0deg) ;-webkit-transform: translate(calc(-50% + 0em), calc(-50% + 0.1875em)) scale(0.5, 0.5) rotate(0deg) ;">21</span><!-- <span data-fa-transform="shrink-8 down-3" class="fa-layers-text fa-inverse">21</span> -->
+          </span>
+
+          <span class="fa-layers fa-fw fa-4x"><svg class="svg-inline--fa fa-certificate fa-w-16 glyph-warning glyph" aria-hidden="true" data-prefix="fas" data-icon="certificate" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" data-fa-i2svg="">
+            <path fill="currentColor" d="M458.622 255.92l45.985-45.005c13.708-12.977 7.316-36.039-10.664-40.339l-62.65-15.99 17.661-62.015c4.991-17.838-11.829-34.663-29.661-29.671l-61.994 17.667-15.984-62.671C337.085.197 313.765-6.276 300.99 7.228L256 53.57 211.011 7.229c-12.63-13.351-36.047-7.234-40.325 10.668l-15.984 62.671-61.995-17.667C74.87 57.907 58.056 74.738 63.046 92.572l17.661 62.015-62.65 15.99C.069 174.878-6.31 197.944 7.392 210.915l45.985 45.005-45.985 45.004c-13.708 12.977-7.316 36.039 10.664 40.339l62.65 15.99-17.661 62.015c-4.991 17.838 11.829 34.663 29.661 29.671l61.994-17.667 15.984 62.671c4.439 18.575 27.696 24.018 40.325 10.668L256 458.61l44.989 46.001c12.5 13.488 35.987 7.486 40.325-10.668l15.984-62.671 61.994 17.667c17.836 4.994 34.651-11.837 29.661-29.671l-17.661-62.015 62.65-15.99c17.987-4.302 24.366-27.367 10.664-40.339l-45.984-45.004z"></path></svg><!-- <i class="glyph-warning glyph fas fa-certificate"></i> -->
+            <span data-fa-transform="shrink-11.5 rotate--30" class="fa-layers-text fa-inverse" aria-hidden="true" data-fa-i2svg="" style="transform: translate(calc(-50% + 0em), calc(-50% + 0em)) scale(0.28125, 0.28125) rotate(-30deg) ;-webkit-transform: translate(calc(-50% + 0em), calc(-50% + 0em)) scale(0.28125, 0.28125) rotate(-30deg) ;">New</span><!-- <span data-fa-transform="shrink-11.5 rotate--30" class="fa-layers-text fa-inverse">New</span> -->
+          </span>
+
+          <span class="fa-layers fa-fw fa-4x"><svg class="svg-inline--fa fa-envelope fa-w-16 glyph" aria-hidden="true" data-prefix="fas" data-icon="envelope" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" data-fa-i2svg="">
+            <path fill="currentColor" d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path></svg><!-- <i class="glyph fas fa-envelope"></i> -->
+            <span class="fa-layers-counter fa-layers-top-right">1119</span>
+          </span>
+
+= @sections.render
