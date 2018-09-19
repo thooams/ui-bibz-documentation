@@ -24,6 +24,7 @@
   - co.list 'rotate', types: 'number'
   - co.list 'stack', types: 'integer'
   - co.list 'label', types: 'string'
+  - co.list 'style', types: 'symbol'
 
 - @sections = sections do |s|
   - s.section title: "Glyph" do
@@ -137,6 +138,21 @@
         ui_glyph "gem", label: 'gem'
       - c.html do
         <i class="glyph fa fa-gem"></i> gem
+
+  - s.section title: "Style" do
+    %ul
+      %li :solid
+      %li :regular
+      %li :light
+      %li :brands
+
+    = example do |c|
+      - c.header do
+        = ui_glyph 'bluetooth', style: :brands
+      - c.code do
+        ui_glyph 'bluethooth', style: :brands
+      - c.html do
+        <i class="glyph fa fa-gem fa-1x"></i> gem
 
   - s.section title: "Hash" do
     %p You can create a ui_glyph with only one hash.

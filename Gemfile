@@ -53,7 +53,7 @@ gem 'rouge'
 
 # Ui Bibz Framework
 #gem 'ui_bibz', path: '~/Apps/Ui-Bibz'
-gem 'ui_bibz', '~> 2.0', '>= 2.1.0'
+gem 'ui_bibz'
 #
 # Use HAML for html generator
 gem 'haml-rails'

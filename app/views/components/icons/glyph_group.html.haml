@@ -159,4 +159,15 @@
             <span class="fa-layers-counter fa-layers-top-right">1119</span>
           </span>
 
+
+  - s.section title: "Glyph group in component" do
+    = example do |c|
+      - c.header do
+        = ui_link 'My link', url: '#', glyph:  { type: :group, items: [{ name: 'circle', status: :danger },{ name: 'times', inverse: true, transform: 'shrink-6'}] }
+
+      - c.code do
+        ui_link 'My link', url: '#', glyph: { type: :group, items: [{name: 'circle', status: :danger },{ name: 'times', inverse: true, transform: 'shrink-6'}] }
+      - c.html do
+        <i class="glyph fa fa-gem fa-1x"></i> gem
+
 = @sections.render
