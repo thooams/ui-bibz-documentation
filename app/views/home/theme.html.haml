@@ -135,7 +135,7 @@
 %h3 Alerts
 = ui_row do
   = ui_col num: 12 do
-    = ui_alert status: :success, glyph: 'thumbs-o-up', closable: true, tap: true do |a|
+    = ui_alert status: :success, glyph: 'thumbs-up', closable: true, tap: true do |a|
       - a.header 'Well done!'
       - a.body "Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content."
   - UiBibzApp::Application::STATUSES.each_with_index do |status, i|
@@ -591,3 +591,67 @@
     - acs.link 'Show', url: '#show', ui_glyph: 'eye'
     - acs.link 'Edit', url: '#show', ui_glyph: 'pencil-alt'
     - acs.link 'Delete', url: '#show', ui_glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
+
+%br.clearfix
+%h2 Panels #{ exclusiveness }
+= ui_panel do |p|
+  - p.header tap: true do |h|
+    - h.title 'My header'
+    - h.actions size: :sm, outline: true, status: :secondary do |a|
+      - a.button 'Minimize', glyph: 'caret-up', text: false
+      - a.button 'Options', glyph: 'cog', text: false
+      - a.button 'Close', glyph: 'times', text: false
+  - p.toolbar justify: true, size: :sm do |t|
+    - t.button_group do |bg|
+      - bg.button 'Copy'
+      - bg.button 'Cut'
+      - bg.button 'Paste'
+    - t.spacer 2
+    - t.button_group do |bg|
+      - bg.button 'Delete'
+    - t.spacer
+    - t.button_group do |bg|
+      - bg.dropdown 'Dropdown' do |d|
+        - d.link 'Link'
+  - p.body 'Body'
+  - p.toolbar size: :sm do |t|
+    - t.button_group size: :sm do |bg|
+      - bg.button 'Add', glyph: 'plus-circle', status: :success, text: false
+      - bg.button 'Remove', glyph: 'minus-circle', status: :danger, text: false
+  - p.footer 'Footer'
+
+%br
+%p or
+
+= ui_panel do |p|
+  - p.header tap: true do |h|
+    - h.title 'My header'
+
+  - p.toolbar justify: true, size: :sm do |t|
+    - t.button_group do |bg|
+      - bg.button 'Copy'
+      - bg.button 'Cut'
+      - bg.button 'Paste'
+    - t.spacer 2
+    - t.button_group do |bg|
+      - bg.button 'Delete'
+    - t.spacer
+    - t.button_group do |bg|
+      - bg.dropdown 'Dropdown' do |d|
+        - d.link 'Link'
+
+  - p.deck do |d|
+    - d.panel do |b|
+      - b.header 'Tree Header'
+      - b.body 'Tree Body<br/>with content<br/>on multiline'
+    - d.panel do |b|
+      - b.header 'Overview Header'
+      - b.body 'Overview Body'
+
+  - p.toolbar size: :sm do |t|
+    - t.button_group size: :sm do |bg|
+      - bg.button 'Add', glyph: 'plus-circle', status: :success, text: false
+      - bg.button 'Remove', glyph: 'minus-circle', status: :danger, text: false
+
+  - p.footer 'Footer'
+

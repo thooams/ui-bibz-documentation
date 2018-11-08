@@ -12,6 +12,11 @@
         bg.button options, html_options do
           content
         end
+
+        n.form url, options, html_options do
+          content
+        end
+
       end
     end
 
@@ -22,6 +27,8 @@
 = component_items do |ci|
   - ci.inherit_component 'button_group', components_forms_buttons_button_group_path
   - ci.list 'spacer'
+  - ci.list 'form', tap: true do |cli|
+    - cli.list 'type', types: 'symbol', values: %w(:form_for :ui_form_for :form_tag), default: ":form_tag"
 
 - @sections = sections do |s|
   - s.section title: "Spacer" do
@@ -104,9 +111,8 @@
             - bg.button 'Copy', text: false, glyph: 'copy'
             - bg.button 'Paste', text: false, glyph: 'paste', status: :danger
             - bg.button 'Cut', text: false, glyph: 'cut'
-          - bt.button_group status: :primary  do |bg|
-            - bg.button 4
-            - bg.button 5
+          - bt.form "form", url: '#', type: :form_tag do
+            = ui_text_field "text"
           - bt.button_group  do |bg|
             - bg.button 6
             - bg.button 7
