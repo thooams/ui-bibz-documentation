@@ -96,16 +96,49 @@
             content
           end
 
+  - s.section title: "Cache" do
+    %p You can cache your component thanks to rails #{ link_to 'cache', 'https://guides.rubyonrails.org/caching_with_rails.html', target: "_blank" } options.
+    = example do |c|
+      - c.code do
+        :plain
+          # by variable
+          Component.new content, cache: "my-component-cache-\#{ Date.today }"
+
+          # or by block
+          Component.new cache: "my-static-component-cache" do
+            content
+          end
+
+  - s.section title: "Stimulus options" do
+    %p Ui Bibz can use #{ link_to "stimulus", "https://stimulusjs.org/", target: "_blank" } with these options:
+    %ul.list-options
+      %li
+        controller
+        %span.option-types [String]
+      %li
+        action
+        %span.option-types [String]
+      %li
+        target
+        %span.option-types [String]
+    = example do |c|
+      - c.code do
+        :plain
+          Component.new controller: "hello" do
+            Component.new 'My sub component', target: 'hello.name'
+            Component.new 'My sub component 2', action: 'click->hello#greet'
+          end
+
   - s.section title: "Html options" do
     %p You can add any html properties.
     = example do |c|
       - c.code do
         :plain
           # by variable
-          Component.new content, nil, { class: 'my-component', data: { target: 'first' }}
+          Component.new content, nil, { class: 'my-component', data: { level: 'first' }}
 
           # or by block
-          Component.new(nil, { id: 'my-id' }) do
+          Component.new({}, { id: 'my-id' }) do
             content
           end
 

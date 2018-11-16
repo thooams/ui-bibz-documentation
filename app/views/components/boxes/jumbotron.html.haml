@@ -6,6 +6,10 @@
 
 = component_options do |co|
   - co.list 'fluid', types: 'boolean'
+  - co.cache_link
+  - co.stimulus_controller_link
+  - co.stimulus_action_link
+  - co.stimulus_target_link
 
 - @sections = sections do |s|
   - s.section title: "Jumbotron" do

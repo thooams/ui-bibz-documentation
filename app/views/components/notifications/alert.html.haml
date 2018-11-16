@@ -28,6 +28,10 @@
   - co.list 'closable', types: :boolean, default: "false"
   - co.tap_link "(if you want add <code>header</code> or <code>body</code> item.)"
   - co.list 'timeout', types: :integer, description: 'Fade out after timeout'
+  - co.cache_link
+  - co.stimulus_controller_link
+  - co.stimulus_action_link
+  - co.stimulus_target_link
 
 - @sections = sections do |s|
   - s.section title: "Alert" do

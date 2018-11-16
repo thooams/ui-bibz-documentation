@@ -20,6 +20,22 @@ module UiBibz::Ui::Ux
       list("status", { types: :symbol, values: UiBibzApp::Application::STATUSES.map{ |s| ":#{ s }" }, description: "(use component #{ option_link('status') } method)" })
     end
 
+    def cache_link
+      list("cache", { types: :string, description: "(use can #{ option_link('cache') } your component" })
+    end
+
+    def stimulus_controller_link
+      list("controller", { types: :string, description: "(use component #{ option_link('stimulus-options') } method)" })
+    end
+
+    def stimulus_action_link
+      list("action", { types: :string, description: "(use component #{ option_link('stimulus-options') } method)" })
+    end
+
+    def stimulus_target_link
+      list("target", { types: :string, description: "(use component #{ option_link('stimulus-options') } method)" })
+    end
+
     def glyph_link
       list('glyph', { types: %w(string hash), description: "(use component #{ option_link('glyph') } method)" })
     end

@@ -20,6 +20,10 @@
 = component_options do |co|
   - co.list 'position', types: 'symbol', values: %w(:left :center :right)
   - co.list 'tag_type', types: 'symbol', values: %w(:a :span)
+  - co.cache_link
+  - co.stimulus_controller_link
+  - co.stimulus_action_link
+  - co.stimulus_target_link
 
 = component_items do |ci|
   - ci.inherit_component 'tab', components_navigations_link_path, 'link'

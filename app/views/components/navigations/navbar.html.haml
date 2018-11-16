@@ -30,6 +30,10 @@
   - co.list 'type', types: 'symbol', values: %w(:light :dark)
   - co.list 'position', types: 'symbol', values: %w(:top :bottom)
   - co.list 'sticky', types: 'boolean', values: %w(true false)
+  - co.cache_link
+  - co.stimulus_controller_link
+  - co.stimulus_action_link
+  - co.stimulus_target_link
 
 = component_items do |ci|
   - ci.inherit_component 'brand'

@@ -39,6 +39,10 @@
   - co.list 'position', types: 'symbol', values: %w(:right :left)
   - co.list 'type', types: 'symbol', values: %w(:dropup :dropdown), default: ':dropdown'
   - co.list 'tag', types: 'symbol', values: %w(:a :button), default: ':button'
+  - co.cache_link
+  - co.stimulus_controller_link
+  - co.stimulus_action_link
+  - co.stimulus_target_link
 
 = content_for :third_nav do
   = ui_nav class: 'secondary-nav' do |n|
