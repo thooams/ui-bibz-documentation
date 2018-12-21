@@ -48,6 +48,10 @@ module UiBibz::Ui::Ux
       list('size', { types: :symbol, values: %w(:lg :md :sm), description: "(use component #{ option_link('size') } method)" })
     end
 
+    def popover_link
+      list('popover', { types: [:string, :hash], description: "(use component #{ option_link('popover') } method)" })
+    end
+
     def state_link
       list('state', { types: :symbol, values: %w(:disabled :active), description: "(use component #{ option_link('state') } method)" })
     end

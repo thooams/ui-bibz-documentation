@@ -84,6 +84,30 @@
             content
           end
 
+
+  - s.section title: "Popover" do
+    :markdown
+      Some component may have the `popover` option in their settings.
+      This option lets you add a popover to its component by string or hash.
+
+    = component_list_options do |co|
+      - co.list 'content', types: 'string'
+      - co.list 'title', types: 'string'
+      - co.list 'position', types: 'symbol', values: %w(:auto :top :left :right :bottom), description: "How to position the popover"
+      - co.list 'template', types: 'string', description: "Base HTML to use when creating the popover."
+      - co.list 'trigger', types: 'string', values: %w(click hover focus), description: "You may pass multiple triggers; separate them with a space"
+      - co.list 'animation', types: 'boolean', description: "Apply a CSS fade transition to the popover"
+      - co.list 'html', types: 'boolean', description: "Insert HTML into the popover. If false, jQuery's text method will be used to insert content into the DOM. Use text if you're worried about XSS attacks."
+
+    = example do |c|
+      - c.code do
+        :plain
+          # by sting
+          Component.new content, popover: 'My popover text...'
+
+          # or by hash
+          Component.new content, popover: { content: 'My popover text...', title: 'My Titel', ... }
+
   - s.section title: "State" do
     = example do |c|
       - c.code do
