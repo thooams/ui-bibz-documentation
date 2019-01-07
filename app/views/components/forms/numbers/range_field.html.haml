@@ -1,0 +1,62 @@
+= title 'Range Field', true, 'ui bibz'
+%blockquote UiBibz::Ui::Core::Forms::Numbers::RangeField
+
+= code "ui_range_field", component_name: "name"
+
+= component_options do |co|
+  - co.list 'value', types: 'string', description: "Input's value"
+  - co.list 'min', types: %w(integer float), description: "The minimum acceptable value"
+  - co.list 'max', types: %w(integer float), description: "The maximum acceptable value"
+  - co.list 'in', types: 'array', description: "A range specifying the :min and :max values."
+  - co.list 'within', types: 'array', description: "Same as :in"
+  - co.list 'step', types: %w(integer float), description: "The acceptable value granularity."
+
+- @sections = sections do |s|
+  - s.section title: "Range Field" do
+    = example do |e|
+      - e.header do
+        = ui_range_field 'range'
+      - e.code do
+        ui_text_field "range"
+      - e.html do
+        <input type="range" name="range" id="range" class="custom-range">
+
+  - s.section title: "Range Field min, max, step and value" do
+    = example do |e|
+      - e.header do
+        = ui_range_field 'range', min: -3, max: 3, step: 0.2, value: 0.40
+      - e.code do
+        ui_range_field 'range', min: -3, max: 3, step: 0.2, value: 0.40
+      - e.html do
+        <input type="range" name="range" id="range" value="0.4" class="custom-range" min="-3" max="3" step="0.2">
+
+  - s.section title: "Range Field with in or within" do
+    = example do |e|
+      - e.header do
+        = ui_range_field 'range', in: 0..100, value: 8
+        %br
+        %br.fix-clear
+        = ui_range_field 'range', value: 6, within: 5..10, step: 0.2
+      - e.code do
+        ui_range_field 'range', in: 0..100, value: 8
+        ui_range_field 'range', within: 5..10, step: 0.2, value: 6
+      - e.html do
+        <input type="range" name="range" id="range" value="8" class="custom-range" min="0" max="100">
+        <input type="range" name="range" id="range" value="6" class="custom-range" min="5" max="10" step="0.2">
+
+  - s.section title: "Simple form" do
+    %p= simple_form_text_with_input "ui_range_field"
+    = example do |e|
+      - e.header do
+        = ui_form_for(@user) do |f|
+          - f.input :name, as: :ui_range_field, label: 'Age'
+      - e.code do
+        ui_form_for(@search) do |f|
+          ...
+          f.input :age, as: :ui_range_field
+          ...
+        end
+
+
+
+= @sections.render

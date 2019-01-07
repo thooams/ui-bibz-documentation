@@ -1,73 +1,63 @@
-= title 'Checkbox Field', true, 'ui bibz'
+= title 'Checkbox Field'
 %blockquote UiBibz::Ui::Core::Forms::Choices::CheckboxField
-%p.bd-callout= based_on link_to "Awesome Bootstrap Checkbox", "https://github.com/flatlogic/awesome-bootstrap-checkbox", target: '_blank'
+%p.bd-callout Custom Checkboxes for form.
 
 = code "ui_checkbox_field", component_name: "name"
 
 = component_options do |co|
-  - co.status_link
   - co.state_link
   - co.list 'value', types: %w(boolean string integer)
   - co.list 'label', types: 'string'
   - co.list 'intermediate', types: 'boolean'
   - co.list 'inline', types: 'boolean'
-  - co.list 'type', types: 'symbol', values: ':circle'
   - co.cache_link
   - co.stimulus_controller_link
   - co.stimulus_action_link
   - co.stimulus_target_link
 
 - @sections = sections do |s|
-  - s.section title: "Status" do
+  - s.section title: "Checkbox" do
     = example do |e|
       - e.header do
-        - UiBibzApp::Application::STATUSES[0..-3].each do |status|
-          = ui_checkbox_field "#{status}", { status: status, checked: true }
+        = ui_checkbox_field :custom_check
       - e.code do
-        ui_checkbox_field :primary, { value: "primary", status: :primary, checked: true }
+        ui_checkbox_field :custom_check
       - e.html do
-        <div class="abc-checkbox-primary checkbox abc-checkbox">
-          <input type="checkbox" name="primary" id="primary" value="primary" class="styled" checked="checked" />
-          <label for="primary">primary</label>
-        </div>
-
-  - s.section title: "Circle" do
-    = example do |e|
-      - e.header do
-        - UiBibzApp::Application::STATUSES[0..-3].each do |status|
-          = ui_checkbox_field "#{ status }-circle", { value: status, label: status.to_s, status: status, type: :circle, checked: true }
-      - e.code do
-        ui_checkbox_field "success-circle", { type: :circle, value: "success", status: :success, checked: true }
-      - e.html do
-        <div class="abc-checkbox-primary checkbox abc-checkbox abc-checkbox-circle">
-          <input type="checkbox" name="primary" id="primary" value="primary" class="styled" checked="checked" />
-          <label for="primary">primary</label>
-        </div>
+        :plain
+          <div class="custom-control custom-checkbox">
+            <input type="hidden" name="custom_check" id="custom_check-hidden" value="0">
+            <input type="checkbox" name="custom_check" id="custom_check" value="1" class="custom-control-input">
+            <label class="custom-control-label" for="custom_check">custom_check</label>
+          </div>
 
   - s.section title: "Indeterminate" do
     = example do |e|
       - e.header do
         = ui_checkbox_field "Indeterminate", indeterminate: true
       - e.code do
-        ui_checkbox_field "Indeterminate", { indeterminate: true }
+        ui_checkbox_field "Indeterminate", indeterminate: true
       - e.html do
-        <div class="abc-checkbox-default checkbox abc-checkbox indeterminate">
-          <input type="checkbox" name="select" id="select" class="styled">
-          <label for="select">Indeterminate</label>
-        </div>
+        :plain
+          <div class="custom-control custom-checkbox">
+            <input type="hidden" name="Indeterminate" id="Indeterminate-hidden" value="0">
+            <input type="checkbox" name="Indeterminate" id="Indeterminate" value="1" indeterminate="indeterminate" class="custom-control-input">
+            <label class="custom-control-label" for="Indeterminate">Indeterminate</label>
+          </div>
 
   - s.section title: "Inline" do
     = example do |e|
       - e.header do
-        - %w(primary secondary success info warning danger).each do |status|
-          = ui_checkbox_field "inline-#{status}", value: status, inline: true, label: status, status: status.to_sym, checked: true
+        - 5.times.each do |i|
+          = ui_checkbox_field "inline-#{i}", value: "checkbox-#{ i }", inline: true, label: "Checkbox #{ i }", checked: true
       - e.code do
-        ui_checkbox_field :primary, { value: 'primary', inline: true, status: :primary, checked: true }
+        ui_checkbox_field :checkbox_1, value: 'Checkbox 1', inline: true, checked: true
       - e.html do
-        <div class="abc-checkbox-primary checkbox abc-checkbox checkbox-inline">
-          <input type="checkbox" name="primary" id="primary" value="primary" class="styled" checked="checked" />
-          <label for="primary">primary</label>
-        </div>
+        :plain
+          <div class="custom-control custom-checkbox custom-control-inline">
+            <input type="hidden" name="inline-1" id="inline-1-hidden" value="0">
+            <input type="checkbox" name="inline-1" id="inline-1" value="checkbox-1" class="custom-control-input" checked="checked">
+            <label class="custom-control-label" for="inline-1">Checkbox 1</label>
+          </div>
 
   - s.section title: "State" do
     = example do |e|
@@ -75,28 +65,33 @@
         = ui_checkbox_field :state_1, value: true, state: :disabled, label: 'choice 1'
         = ui_checkbox_field :state_2, value: false, state: :disabled, label: 'choice 2', checked: true
       - e.code do
-        ui_checkbox_field :state, { value: true, state: :disabled, label: 'active' }
-        ui_checkbox_field :state, { value: false, state: :disabled, label: 'disabled', checked: true }
+        ui_checkbox_field :state,  value: true, state: :disabled, label: 'active'
+        ui_checkbox_field :state,  value: false, state: :disabled, label: 'disabled', checked: true
       - e.html do
-        <div class="disabled abc-radio-default radio abc-radio">
-          <input type="radio" name="state" id="state_true" value="true" disabled="disabled">
-          <label for="state_true">choice 1</label>
-        </div>
-        <div class="disabled abc-radio-default radio abc-radio">
-          <input type="radio" name="state" id="state_false" value="false" disabled="disabled" checked="checked">
-          <label for="state_false">choice 2</label>
-        </div>
+        :plain
+          <div class="disabled custom-control custom-checkbox">
+            <input type="hidden" name="state_1" id="state_1-hidden" value="0">
+            <input type="checkbox" name="state_1" id="state_1" value="true" disabled="disabled" class="custom-control-input">
+            <label class="custom-control-label" for="state_1">choice 1</label>
+          </div>
+          <div class="disabled custom-control custom-checkbox">
+            <input type="hidden" name="state_2" id="state_2-hidden" value="0">
+            <input type="checkbox" name="state_2" id="state_2" value="1" disabled="disabled" class="custom-control-input" checked="checked">
+            <label class="custom-control-label" for="state_2">choice 2</label>
+          </div>
 
   - s.section title: "Label" do
     = example do |e|
       - e.header do
         = ui_checkbox_field :check, label: 'My label'
       - e.code do
-        ui_checkbox_field :check, { label: 'My label' }
+        ui_checkbox_field :check, label: 'My label'
       - e.html do
-        <div class="abc-checkbox-default checkbox abc-checkbox">
-          <input type="checkbox" name="check" id="check" class="styled">
-          <label for="check">My label</label>
-        </div>
+        :plain
+          <div class="custom-control custom-checkbox">
+            <input type="hidden" name="check" id="check-hidden" value="0">
+            <input type="checkbox" name="check" id="check" value="1" class="custom-control-input">
+            <label class="custom-control-label" for="check">My label</label>
+          </div>
 
 = @sections.render

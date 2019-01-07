@@ -59,6 +59,7 @@
 
     - no.text 'Choices'
     - no.nav do |na|
+      - na.link 'Box Switch field', nav_options(components_forms_choices_box_switch_field_path)
       - na.link 'Checkbox field', nav_options(components_forms_choices_checkbox_field_path)
       - na.link 'Choice group', nav_options(components_forms_choices_choice_group_path)
       - na.link 'Radio field', nav_options(components_forms_choices_radio_field_path)
@@ -76,6 +77,8 @@
     - no.text 'Numbers'
     - no.nav do |na|
       - na.link 'Formula field', nav_options(components_forms_numbers_formula_field_path)
+      - na.link 'Number field', nav_options(components_forms_numbers_number_field_path)
+      - na.link 'Range field', nav_options(components_forms_numbers_range_field_path)
 
     - no.text 'Selects'
     - no.nav do |na|

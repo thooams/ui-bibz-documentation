@@ -1,0 +1,62 @@
+= title 'Number Field', true, 'ui bibz'
+%blockquote UiBibz::Ui::Core::Forms::Numbers::NumberField
+
+= code "ui_number_field", component_name: "name"
+
+= component_options do |co|
+  - co.list 'value', types: 'string', description: "Input's value"
+  - co.list 'min', types: %w(integer float), description: "The minimum acceptable value"
+  - co.list 'max', types: %w(integer float), description: "The maximum acceptable value"
+  - co.list 'in', types: 'array', description: "A number specifying the :min and :max values."
+  - co.list 'within', types: 'array', description: "Same as :in"
+  - co.list 'step', types: %w(integer float), description: "The acceptable value granularity."
+
+- @sections = sections do |s|
+  - s.section title: "Number Field" do
+    = example do |e|
+      - e.header do
+        = ui_number_field 'number'
+      - e.code do
+        ui_text_field "number"
+      - e.html do
+        <input type="number" name="number" id="number" class="custom-number">
+
+  - s.section title: "Number Field min, max, step and value" do
+    = example do |e|
+      - e.header do
+        = ui_number_field 'number', min: -3, max: 3, step: 0.2, value: 0.40
+      - e.code do
+        ui_number_field 'number', min: -3, max: 3, step: 0.2, value: 0.40
+      - e.html do
+        <input type="number" name="number" id="number" value="0.4" class="custom-number" min="-3" max="3" step="0.2">
+
+  - s.section title: "Number Field with in or within" do
+    = example do |e|
+      - e.header do
+        = ui_number_field 'number', in: 0..100, value: 8
+        %br
+        %br.fix-clear
+        = ui_number_field 'number', value: 6, within: 5..10, step: 0.2
+      - e.code do
+        ui_number_field 'number', in: 0..100, value: 8
+        ui_number_field 'number', within: 5..10, step: 0.2, value: 6
+      - e.html do
+        <input type="number" name="number" id="number" value="8" class="custom-number" min="0" max="100">
+        <input type="number" name="number" id="number" value="6" class="custom-number" min="5" max="10" step="0.2">
+
+  - s.section title: "Simple form" do
+    %p= simple_form_text_with_input "ui_number_field"
+    = example do |e|
+      - e.header do
+        = ui_form_for(@user) do |f|
+          - f.input :name, as: :ui_number_field, label: "Age"
+      - e.code do
+        ui_form_for(@search) do |f|
+          ...
+          f.input :name, as: :ui_number_field
+          ...
+        end
+
+
+
+= @sections.render

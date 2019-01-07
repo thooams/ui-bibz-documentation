@@ -510,6 +510,12 @@
     %h4 Formula  #{ exclusiveness }
     = ui_formula_field 'value', {}, { placeholder: 'Type your formula...(2+3/2)'}
   = ui_col num: 3 do
+    %h4 Number
+    = ui_number_field 'value', value: 5, min: 2, max: 6
+  = ui_col num: 3 do
+    %h4 Range
+    = ui_range_field 'value'
+  = ui_col num: 3 do
     %h4 Multi Select #{ exclusiveness }
     - grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
     = ui_multi_select_field 'example', select_all_option: true, searchable: true, collapsible_opt_group: true, option_tags: grouped_options_for_select(grouped_options)

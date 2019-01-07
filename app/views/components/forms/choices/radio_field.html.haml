@@ -1,49 +1,46 @@
-= title 'Radio Fields', true, 'ui bibz'
+= title 'Radio Fields'
 %blockquote UiBibz::Ui::Core::Forms::Choices::RadioField
-%p.bd-callout= based_on link_to "Awesome Bootstrap Checkbox", "https://github.com/flatlogic/awesome-bootstrap-checkbox", target: '_blank'
+%p.bd-callout Custom Radio Buttons for form.
 
 = code "ui_radio_field", component_name: "name"
 
 = component_options do |co|
-  - co.status_link
   - co.state_link
   - co.list 'value', types: %w(boolean string integer)
   - co.list 'label', types: 'string'
   - co.list 'inline', types: 'boolean'
-  - co.list 'type', types: 'symbol', values: ':square'
   - co.cache_link
   - co.stimulus_controller_link
   - co.stimulus_action_link
   - co.stimulus_target_link
 
 - @sections = sections do |s|
-  - s.section title: "Status" do
+  - s.section title: "Radio" do
     = example do |e|
       - e.header do
-        - UiBibzApp::Application::STATUSES[0..-3].each_with_index do |status, i|
-          = ui_radio_field :status, value: status, label: status.to_s, status: status, checked: i == 0
+        = ui_radio_field :custom_radio
       - e.code do
-        - UiBibzApp::Application::STATUSES[0..-3].each_with_index do |status, i|
-          = "ui_radio_field :status, value: \"#{ status }\", status: :#{ status }".html_safe
+        ui_radio_field :custom_radio
       - e.html do
-        <div class="abc-radio-primary radio abc-radio">
-          <input type="radio" name="status" id="status_primary" value="primary">
-          <label for="status_primary">primary</label>
-        </div>
+        :plain
+          <div class="custom-control custom-radio">
+            <input type="radio" name="custom_radio" id="custom_radio_" class="custom-control-input">
+            <label class="custom-control-label" for="custom_radio_">custom_radio</label>
+          </div>
 
-  - s.section title: "Square" do
+  - s.section title: "Inline" do
     = example do |e|
       - e.header do
-        - UiBibzApp::Application::STATUSES[0..-3].each_with_index do |status, i|
-          = ui_radio_field "status-square", value: status, label: status.to_s, status: status, type: :square, checked: i == 0
+        - 5.times.each do |i|
+          = ui_radio_field "inline-radio", value: "radio-#{ i }", inline: true, label: "Radio #{ i }", checked: i == 0
       - e.code do
-        - UiBibzApp::Application::STATUSES[0..-3].each_with_index do |status, i|
-          = "ui_radio_field :status, value: \"#{ status }\", type: square, status: :#{ status }".html_safe
+        ui_radio_field "inline-radio", value: 'Radio 1', inline: true
       - e.html do
-        <div class="abc-checkbox-success checkbox abc-checkbox">
-          <input type="radio" name="status-square" id="status-square_success" value="success">
-          <label for="status-square_success">success</label>
-        </div>
+        :plain
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" name="inline-radio" id="inline-radio_radio-0" value="radio-0" class="custom-control-input" checked="checked">
+            <label class="custom-control-label" for="inline-radio_radio-0">Radio 0</label>
+          </div>
 
   - s.section title: "State" do
     = example do |e|
@@ -54,27 +51,27 @@
         ui_radio_field :state, value: true, state: :disabled, label: "active"
         ui_radio_field :state, value: false, state: :disabled, label: "disabled", checked: true
       - e.html do
-        <div class="disabled abc-radio-default radio abc-radio">
-          <input type="radio" name="state" id="state_true" value="true" disabled="disabled">
-          <label for="state_true">choice 1</label>
-        </div>
-        <div class="disabled abc-radio-default radio abc-radio">
-          <input type="radio" name="state" id="state_false" value="false" disabled="disabled" checked="checked">
-          <label for="state_false">choice 2</label>
-        </div>
+        :plain
+          <div class="disabled custom-control custom-radio">
+            <input type="radio" name="state" id="state_true" value="true" disabled="disabled" class="custom-control-input">
+            <label class="custom-control-label" for="state_true">choice 1</label>
+          </div>
+          <div class="disabled custom-control custom-radio">
+            <input type="radio" name="state" id="state_false" value="false" disabled="disabled" class="custom-control-input" checked="checked">
+            <label class="custom-control-label" for="state_false">choice 2</label>
+          </div>
 
-  - s.section title: "Inline" do
+  - s.section title: "Label" do
     = example do |e|
       - e.header do
-        - UiBibzApp::Application::STATUSES[0..-3].each_with_index do |status, i|
-          = ui_radio_field "inline-status", value: status.to_s, inline: true, label: status.to_s, status: status, checked: i == 0
+        = ui_radio_field :radio, label: 'My label'
       - e.code do
-        - UiBibzApp::Application::STATUSES[0..-3].each_with_index do |status, i|
-          = "ui_radio_field :inline_status, value: \"#{ status }\", inline: true, status: :#{ status }".html_safe
+        ui_radio_field :radio, label: 'My label'
       - e.html do
-        <div class="abc-radio-primary radio abc-radio radio-inline">
-          <input type="radio" name="inline-status" id="inline-status_primary" value="primary" checked="checked">
-          <label for="inline-status_primary">primary</label>
-        </div>
+        :plain
+          <div class="custom-control custom-radio">
+            <input type="radio" name="radio" id="radio_" class="custom-control-input">
+            <label class="custom-control-label" for="radio_">My label</label>
+          </div>
 
 = @sections.render

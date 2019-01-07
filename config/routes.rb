@@ -45,6 +45,8 @@ Rails.application.routes.draw do
       # number
       namespace :numbers do
         get 'formula-field'
+        get 'number-field'
+        get 'range-field'
       end
 
       # selects
@@ -64,6 +66,7 @@ Rails.application.routes.draw do
       namespace :choices do
         get 'choice-group'
         get 'switch-field'
+        get 'box-switch-field'
         get 'checkbox-field'
         get 'radio-field'
       end
