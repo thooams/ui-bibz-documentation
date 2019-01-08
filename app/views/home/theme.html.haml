@@ -489,12 +489,12 @@
 = ui_row do
   = ui_col do
     %h3 Chexboxes
-    - UiBibzApp::Application::STATUSES[0..-3].each do |status|
-      = ui_checkbox_field "#{status}", { status: status, checked: true, inline: true }
+    - 3.times.each do |i|
+      = ui_checkbox_field "checkbox_#{ i }", { value: i, label: "Checkbox #{ i }", inline: true, checked: i == 0 }
   = ui_col do
     %h3 Radios
-    - UiBibzApp::Application::STATUSES[0..-3].each_with_index do |status, i|
-      = ui_radio_field :status, { value: status, label: status.to_s.humanize, status: status, inline: true, checked: i == 0 }
+    - 3.times.each do |i|
+      = ui_radio_field :radios, { value: i, label: "Radio #{ i }", inline: true, checked: i == 0 }
 
 %br.clearfix
 
@@ -508,7 +508,7 @@
     = ui_dropdown_select_field 'example1', searchable: true, option_tags: options_for_select(5.times.map{ |i| "option #{i}" })
   = ui_col num: 3 do
     %h4 Formula  #{ exclusiveness }
-    = ui_formula_field 'value', {}, { placeholder: 'Type your formula...(2+3/2)'}
+    = ui_formula_field 'value', {}, { formula_field_value: '1+3', placeholder: 'Type your formula...(2+3/2)'}
   = ui_col num: 3 do
     %h4 Number
     = ui_number_field 'value', value: 5, min: 2, max: 6
@@ -525,14 +525,16 @@
     %h4 Text  #{ exclusiveness }
     = ui_text_field 'search', { append: ui_glyph('pencil-alt'), prepend: ui_glyph('camera-retro') }, { placeholder: 'Type your search...' }
   = ui_col num: 3 do
-    %h4 Switch  #{ exclusiveness }
-    = ui_switch_field 'examplecolor'
+    %h4 Switch
+    = ui_switch_field 'Switch'
+    %br
+  = ui_col num: 3 do
+    %h4 Box Switch  #{ exclusiveness }
+    = ui_box_switch_field 'box_switch'
     %br
   = ui_col num: 3 do
     %h4 Input File
-    %label.custom-file
-      = file_field_tag :file, class: 'custom-file-input'
-      %span.custom-file-control
+    = ui_file_field :file
   = ui_col num: 3 do
     %h4 Surround  #{ exclusiveness }
     = ui_surround_field do |s|

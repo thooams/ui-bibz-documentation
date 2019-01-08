@@ -1,0 +1,70 @@
+= title 'File Field'
+%blockquote UiBibz::Ui::Core::Forms::Files::FileField
+
+= code "ui_file_field", component_name: "name"
+
+= component_options do |co|
+  - co.state_link
+  - co.cache_link
+  - co.list "multiple", types: :boolean, description: "Upload multiple files"
+  - co.stimulus_controller_link
+  - co.stimulus_action_link
+  - co.stimulus_target_link
+
+- @sections = sections do |s|
+  - s.section title: "File Field" do
+    = example do |e|
+      - e.header do
+        = ui_file_field 'upload'
+      - e.code do
+        ui_file_field "upload"
+      - e.html do
+        :plain
+          <div class="custom-file">
+            <input type="file" name="upload" id="upload" class="custom-file-input">
+            <label class="custom-file-label" for="upload"></label>
+          </div>
+
+  - s.section title: "File Field state" do
+    = example do |e|
+      - e.header do
+        = ui_file_field 'upload', state: :disabled
+      - e.code do
+        ui_file_field "upload", state: :disabled
+      - e.html do
+        :plain
+          <div class="disabled custom-file">
+            <input type="file" name="upload" id="upload" class="custom-file-input" disabled="disabled">
+            <label class="custom-file-label" for="upload"></label>
+          </div>
+
+  - s.section title: "File Field Multiple" do
+    = example do |e|
+      - e.header do
+        = ui_file_field 'upload', multiple: true
+      - e.code do
+        ui_file_field "upload", multiple: true
+      - e.html do
+        :plain
+          <div class="custom-file">
+            <input type="file" name="upload" id="upload" class="custom-file-input" multiple="multiple">
+            <label class="custom-file-label" for="upload"></label>
+          </div>
+
+  - s.section title: "Simple form" do
+    %p= simple_form_text_with_input "ui_file_field"
+    = example do |e|
+      - e.header do
+        = ui_form_for(@user) do |f|
+          - @user.email = "toto.xml"
+          - f.input :email, as: :ui_file_field, label: 'Upload'
+      - e.code do
+        ui_form_for(@search) do |f|
+          ...
+          f.input :upload, as: :ui_file_field
+          ...
+        end
+
+
+
+= @sections.render

@@ -26,6 +26,11 @@ Rails.application.routes.draw do
         get 'split_dropdown'
       end
 
+      # files
+      namespace :files do
+        get 'file-field'
+      end
+
       # surrounds
       namespace :surrounds do
         get 'surround-field'

@@ -21,7 +21,7 @@ module UiBibz::Ui::Ux
     end
 
     def cache_link
-      list("cache", { types: :string, description: "(use can #{ option_link('cache') } your component" })
+      list("cache", { types: :string, description: "(use to #{ option_link('cache') } your component)" })
     end
 
     def stimulus_controller_link
