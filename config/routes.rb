@@ -118,6 +118,7 @@ Rails.application.routes.draw do
       get 'alert'
       get 'badge'
       get 'progress_bar'
+      get 'toast'
     end
 
     namespace :icons do

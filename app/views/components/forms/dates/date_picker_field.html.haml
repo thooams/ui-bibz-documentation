@@ -126,6 +126,24 @@
           <input type="text" name="a" id="a" data-date-locale="en" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-today-btn="linked" class="date_picker form-control">
         </div>
 
+  - s.section title: "Display Mode" do
+    %p= "Display mode options (#{ link_to('start view', 'https://uxsolutions.github.io/bootstrap-datepicker/?markup=input&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=4&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&keyboardNavigation=on&forceParse=on#sandbox')}):".html_safe
+    %ul
+      %li days: 0
+      %li months: 1
+      %li years: 2
+      %li decades: 3
+      %li centuries: 4
+
+    = example do |e|
+      - e.header do
+        = ui_date_picker_field 'date_at', display_mode: :months
+      - e.code do
+        ui_date_picker_field "date_at", display_mode: :months
+      - e.html do
+        ""
+
+
   - s.section title: "Range with glyph" do
     = example do |e|
       - e.header do

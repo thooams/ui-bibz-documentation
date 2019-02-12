@@ -230,22 +230,26 @@
         .tab-content
           = ui_card 'Content 1', { tab: true, state: :active }, { id: 'content1' }
           = ui_card 'Content 2', { tab: true, effect: :fade }, { id: 'content2' }
-          = ui_card 'Content 3', { tab: true, effect: :fade }, { id: 'content3' }
+          = ui_card({ tab: true, effect: :fade }, { id: 'content3' }) do
+            Content 3
           = ui_card 'Content 4', { tab: true }, { id: 'content4' }
       - c.code do
-        ui_tab_group do |n|
-          n.tab "Active", url: "#content1", state: :active
-          n.tab "Link", url: "#content2"
-          n.tab "Another link", url: "#content3"
-          n.tab "Disabled", url: "#content4", state: :disabled
-        end
-         
-        <div class='tab-content'>
-          ui_card "Content 1", { tab: true, state: :active }, { id: "content1" }
-          ui_card "Content 2", { tab: true, effect: :fade }, { id: "content2" }
-          ui_card "Content 3", { tab: true, effect: :fade }, { id: "content3" }
-          ui_card "Content 4", { tab: true }, { id: "content4" }
-        </div>
+        :plain
+          ui_tab_group do |n|
+            n.tab "Active", url: "#content1", state: :active
+            n.tab "Link", url: "#content2"
+            n.tab "Another link", url: "#content3"
+            n.tab "Disabled", url: "#content4", state: :disabled
+          end
+           
+          <div class='tab-content'>
+            ui_card "Content 1", { tab: true, state: :active }, { id: "content1" }
+            ui_card "Content 2", { tab: true, effect: :fade }, { id: "content2" }
+            ui_card({ tab: true, effect: :fade }, { id: "content3" }) do
+               Content 3
+            end
+            ui_card "Content 4", { tab: true }, { id: "content4" }
+          </div>
       - c.html do
         <ul class="nav nav-tabs">
           <li class="nav-item"><a class="active nav-link" data-toggle="tab" role="tab" href="#ucontent1">Active</a></li>

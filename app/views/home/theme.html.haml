@@ -161,6 +161,13 @@
     %br
     = ui_progress_bar 75, status: :danger, line: true
 
+= ui_row do
+  = ui_col do
+    %h3 Toasts
+    = ui_toast class: 'show' do |t|
+      - t.header 'My toast Notification', glyph: :gem
+      - t.body 'My Toast message.'
+
 %h2 Navigations
 //= ui_breadcrumb store: User.all.limit(1), link_label: :email, link_url: "#/id/edit"
 = ui_row do

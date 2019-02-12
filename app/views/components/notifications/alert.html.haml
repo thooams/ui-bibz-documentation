@@ -97,12 +97,12 @@
   - s.section title: "Additional content" do
     = example do |c|
       - c.header do
-        = ui_alert status: :success, glyph: 'thumbs-o-up', closable: true, tap: true do |a|
+        = ui_alert status: :success, glyph: 'thumbs-up', closable: true, tap: true do |a|
           - a.header 'Well done!'
           - a.body "Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content."
       - c.code do
         :plain
-          ui_alert status: :success, glyph: "thumbs-o-up", closable: true, tap: true do |a|
+          ui_alert status: :success, glyph: "thumbs-up", closable: true, tap: true do |a|
             a.header "Well done!"
             a.body do
               "Aww yeah, you successfully read this important alert message.
@@ -114,7 +114,7 @@
         :plain
           <div class="alert-success alert alert-dismissible" role="alert">
             <h4 class="alert-header">
-              <i class="glyph fa fa-thumbs-o-up"></i> Well done!
+              <i class="glyph fa fa-thumbs-up"></i> Well done!
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">×</span>
                 <span class="sr-only">Close</span>

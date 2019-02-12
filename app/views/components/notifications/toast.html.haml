@@ -1,0 +1,101 @@
+= title 'Toast'
+%blockquote UiBibz::Ui::Core::Notifications::Toast
+%p.bd-callout Provide contextual feedback messages for typical user actions with the handful of available and flexible toast messages.
+
+= code do
+  :plain
+    ui_toast options, html_options do |a|
+      # by variable
+      a.header content, options, html_options
+      # or by block
+      a.header options, html_options do
+        content
+      end
+
+      # by variable
+      a.body content, options, html_options
+      # or by block
+      a.body options, html_options do
+        content
+      end
+    end
+
+= component_options do |co|
+  - co.list 'time', types: :string, description: 'Time info'
+  - co.cache_link
+  - co.stimulus_controller_link
+  - co.stimulus_action_link
+  - co.stimulus_target_link
+
+- @sections = sections do |s|
+  - s.section title: "Toast" do
+    = example do |c|
+      - c.header do
+        = ui_toast class: 'my-toast show' do |t|
+          - t.header 'My toast Header', glyph: :gem, time: '2 seconds ago'
+          - t.body 'My toast Body'
+      - c.code do
+        :plain
+          ui_toast class: 'my-toast show' do |t|
+            t.header 'My toast Header', glyph: :gem, time: '2 seconds ago'
+            t.body 'My toast Body'
+          end
+      - c.html do
+        :plain
+          <div class="my-toast show toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+              <svg class="svg-inline--fa fa-gem fa-w-18 mr-2 glyph" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="gem" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
+                <path fill="currentColor" d="M485.5 0L576 160H474.9L405.7 0h79.8zm-128 0l69.2 160H149.3L218.5 0h139zm-267 0h79.8l-69.2 160H0L90.5 0zM0 192h100.7l123 251.7c1.5 3.1-2.7 5.9-5 3.3L0 192zm148.2 0h279.6l-137 318.2c-1 2.4-4.5 2.4-5.5 0L148.2 192zm204.1 251.7l123-251.7H576L357.3 446.9c-2.3 2.7-6.5-.1-5-3.2z"></path>
+              </svg><!-- <i class="mr-2 glyph fas fa-gem"></i> -->
+              <strong class="mr-auto">My toast Header</strong>
+              <small class="text-muted">2 seconds ago</small>
+              <button class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="toast-body">My toast Body</div>
+          </div>
+
+  - s.section title: "Options" do
+    = example do |c|
+      - c.header class: 'bg-dark' do
+        = ui_toast class: 'my-toast show', auto_hide: true do |t|
+          - t.header 'My toast Header', img: image_path('ui-bibz-logo-30.gif'), time: '2 seconds ago'
+          - t.body 'My toast Body'
+        = ui_toast class: 'my-toast2 show' do |t|
+          - t.header 'My toast Header 2', glyph: :gem, time: 'Now'
+          - t.body 'My toast Body 2'
+      - c.code do
+        :plain
+          ui_toast class: 'my-toast show', auto_hide: true do |t|
+            t.header 'My toast Header', img: image_path('ui-bibz-logo-30.gif'), time: '2 seconds ago'
+            t.body 'My toast Body'
+          end
+
+          ui_toast class: 'my-toast2 show' do |t|
+            t.header glyph: :gem, time: 'Now' do
+              My toast Header 2
+            end
+            t.body 'My toast Body 2'
+          end
+      - c.html do
+        :plain
+          <div data-autohide="true" class="my-toast show toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+              <img class="rounded mr-2" width="20px" height="20px" src="/assets/ui-bibz-logo-30-9c9f99605f83320cec3b86413ef285f50dfe8941e4b52be6e6baa89bddb2cab9.gif">
+              <strong class="mr-auto">My toast Header</strong>
+              <small class="text-muted">2 seconds ago</small>
+              <button class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="toast-body">My toast Body</div>
+          </div>
+
+          <div class="my-toast2 show toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+              <svg class="svg-inline--fa fa-gem fa-w-18 mr-2 glyph" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="gem" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M485.5 0L576 160H474.9L405.7 0h79.8zm-128 0l69.2 160H149.3L218.5 0h139zm-267 0h79.8l-69.2 160H0L90.5 0zM0 192h100.7l123 251.7c1.5 3.1-2.7 5.9-5 3.3L0 192zm148.2 0h279.6l-137 318.2c-1 2.4-4.5 2.4-5.5 0L148.2 192zm204.1 251.7l123-251.7H576L357.3 446.9c-2.3 2.7-6.5-.1-5-3.2z"></path></svg><!-- <i class="mr-2 glyph fas fa-gem"></i> -->
+              <strong class="mr-auto">My toast Header 2</strong>
+              <small class="text-muted">Now</small>
+              <button class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="toast-body">My toast Body 2</div>
+          </div>
+
+= @sections.render
