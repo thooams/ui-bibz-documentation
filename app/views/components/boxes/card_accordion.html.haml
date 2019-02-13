@@ -1,0 +1,100 @@
+= title 'Card accordion'
+%blockquote UiBibz::Ui::Core::Boxes::CardAccordion
+.bd-callout These elements allow the placement of the cards by accordion.
+
+= code do
+  :plain
+    ui_card_accordion options, html_options do |cc|
+      cc.card tap: true do |c|
+        c.header
+          ui_link "Link", url: '#', collapse: "collapse-id"
+        end
+        c.body collaspe: 'collapse-id' do
+          content
+        end
+      end
+    end
+
+= component_items do |ci|
+  - ci.inherit_component 'card', components_boxes_card_path
+
+- @sections = sections do |s|
+  - s.section title: "Card accordion" do
+    = example do |e|
+      - e.header do
+        = ui_card_accordion do |cc|
+          - cc.card tap: true do |c|
+            - c.header do
+              = ui_link 'Collapse link 1', collapse: 'collapse-1', active_collapse: true
+            - c.body "Content 1", collapse: 'collapse-1', show: true
+          - cc.card tap: true do |c|
+            - c.header do
+              = ui_link 'Collapse link 2', collapse: 'collapse-2'
+            - c.body "Content 2", collapse: 'collapse-2'
+          - cc.card tap: true do |c|
+            - c.header do
+              = ui_link 'Collapse link 3', collapse: 'collapse-3'
+            - c.body "Content 3", collapse: 'collapse-3'
+      - e.code do
+        ui_card_accordion do |cc|
+          cc.card tap: true do |c|
+            c.header "header 1"
+            c.body "content 1"
+            c.footer "footer 1"
+          end
+          cc.card tap: true do |c|
+            c.image "image.svg"
+            c.body tap: true do |b|
+              b.title "Card title"
+              b.text "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+              b.text "<small class='text-muted'>Last updated 3 mins ago</small>"
+            end
+          end
+          cc.card tap: true do |c|
+            c.list_group do |lg|
+              lg.list "Cras justo odio"
+              lg.list "Dapibas ac facilisis in", state: :active
+              lg.list tap: true do |l|
+                l.header "Header list"
+                l.body "vestibulum at eros"
+              end
+            end
+          end
+          cc.card "Content 4 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
+          cc.card status: :primary, type: :inverse, text_position: :center do
+            "<bodyquote class='card-bodyquote'><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p><footer>Someone famous in <cite title='Source Title'>Source Title</cite></footer></bodyquote>".html_safe
+          end
+        end
+      - e.html do
+        <div class="card-accordions">
+          <div class="card">
+            <div class="card-header">header 1</div>
+            <div class="card-body">content 1</div>
+            <div class="card-footer">footer 1</div>
+          </div>
+          <div class="card">
+            <img src="/assets/image.svg" alt="Image">
+            <div class="card-body">
+              <h4 class="card-title">Card title</h4>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+          <div class="card">
+            <ul class="list-group-flush list-group">
+              <li class="list-group-item">Cras justo odio</li>
+              <li class="active list-group-item">Dapibas ac facilisis in</li>
+              <li class="list-group-item">
+                <h4 class="list-group-item-heading">Header list</h4>
+                <p class="list-group-item-text">vestibulum at eros</p>
+              </li>
+            </ul>
+          </div>
+          <div class="card card-body">Content 4 <br> Some quick example text to build on the card title and make up the bulk of the card's content.
+          </div>
+          <div class="card-primary card text-center card-body card-inverse">
+            <bodyquote class="card-bodyquote"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p><footer>Someone famous in <cite title="Source Title">Source Title</cite></footer></bodyquote>
+          </div>
+        </div>
+
+= @sections.render

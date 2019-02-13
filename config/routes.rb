@@ -80,6 +80,7 @@ Rails.application.routes.draw do
     namespace :boxes do
       get 'card'
       get 'card-column'
+      get 'card-accordion'
       get 'card-deck'
       get 'card-group'
       get 'jumbotron'
