@@ -1,4 +1,4 @@
-= title 'Date Picker Field', true, 'ui bibz'
+= title 'Date Picker Field', logo_name: 'ui bibz', url: "http://eternicode.github.io/bootstrap-datepicker/?markup=input&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=2&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&keyboardNavigation=on&forceParse=on#sandbox"
 %blockquote UiBibz::Ui::Core::Forms::Dates::DatePickerField
 %p.bd-callout= based_on link_to "boostrap datepicker", "http://eternicode.github.io/bootstrap-datepicker/?markup=input&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=2&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&keyboardNavigation=on&forceParse=on#sandbox", target: '_blank'
 
@@ -141,15 +141,31 @@
       - e.code do
         ui_date_picker_field "date_at", display_mode: :months
       - e.html do
-        ""
+        <input type="text" name="date_at" id="date_at" data-date-locale="en" data-provide="datepicker" data-date-format="yyyy-mm-dd" data-date-today-btn="linked" data-date-toggle-active="true" data-date-start-view="1" class="date_picker form-control">
 
+  - s.section title: "Display Mode min and max" do
+    %p= "Display mode min options (#{ link_to('min and max view mode', 'https://uxsolutions.github.io/bootstrap-datepicker/?markup=input&format=&weekStart=&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=4&todayBtn=false&clearBtn=false&language=en&orientation=auto&multidate=&multidateSeparator=&keyboardNavigation=on&forceParse=on#sandbox')}):".html_safe
+    %ul
+      %li days: 0
+      %li months: 1
+      %li years: 2
+      %li decades: 3
+      %li centuries: 4
+
+    = example do |e|
+      - e.header do
+        = ui_date_picker_field 'date_at', display_mode: :months, display_mode_min: :months, display_mode_max: :years
+      - e.code do
+        ui_date_picker_field "date_at", display_mode: :months, display_mode_min: :months, display_mode_max: :years
+      - e.html do
+        <input type="text" name="date_at" id="date_at" data-date-locale="en" data-provide="datepicker" data-date-format="yyyy-mm-dd" data-date-today-btn="linked" data-date-toggle-active="true" data-date-start-view="1" data-date-min-view-mode="1" data-date-max-view-mode="2" class="date_picker form-control">
 
   - s.section title: "Range with glyph" do
     = example do |e|
       - e.header do
         = ui_date_picker_field 'range', range: ui_glyph('calendar-minus'), append: ui_glyph('car'), prepend: ui_glyph('pencil-alt')
       - e.code do
-        ui_date_picker_field "range", range: ui_glyph("calendar-minus"), append: ui_glyph("car"), prepend: ui_glyph("pencil-alt")
+        ui_date_picker_field "range", range: ui_glyph("calendar-minus"), display_mode: :months, append: ui_glyph("car"), prepend: ui_glyph("pencil-alt")
       - e.html do
         <div class="input-group input-daterange">
           <span class="input-group-addon"><i class="ui_glyph fa fa-car"></i></span>
@@ -162,11 +178,11 @@
     = example do |e|
       - e.header do
         = ui_form_for(@user) do |f|
-          - f.input :updated_at, as: :ui_date_picker_field, append: ui_glyph('calendar')
+          - f.input :updated_at, as: :ui_date_picker_field, append: ui_glyph('calendar'), display_mode: :months
       - e.code do
         ui_form_for(@search) do |f|
           ...
-          f.input :date, as: :ui_date_picker_field, append: ui_glyph("calendar")
+          f.input :date, as: :ui_date_picker_field, append: ui_glyph("calendar"), display_mode: :months
           ...
         end
 

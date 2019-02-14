@@ -75,11 +75,11 @@ module ApplicationHelper
     end
   end
 
-  def title name, display_ui = true, logo_name = 'bootstrap'
+  def title name, display_ui: true, logo_name: 'bootstrap', url: nil
     content_tag :h2 do
       concat ui_glyph('gem', label: name)
       concat content_tag :span, "(ui_#{ display_ui.kind_of?(String) ? display_ui : name.parameterize.underscore })" if display_ui
-      concat bootstrap_or_ui_bibz_logo(logo_name) if display_ui
+      concat bootstrap_or_ui_bibz_logo(logo_name, url) if display_ui
     end
   end
 
@@ -121,7 +121,12 @@ module ApplicationHelper
     ui_badge('Exclu.', { status: :danger }, { title: 'Ui Bibz exclusiveness'})
   end
 
-  def bootstrap_or_ui_bibz_logo name = 'bootstrap'
-    image_tag "#{ name.parameterize }-icon.png", class: 'icon-indicator', title: "#{ name.titleize } component"
+  def bootstrap_or_ui_bibz_logo name, url
+    img = image_tag "#{ name.parameterize }-icon.png", class: 'icon-indicator'
+    url.nil? ? img : link_to(img, url, target: "_blank", title: "See original component documentation")
+  end
+
+  def bootstrap_start_url name
+    "https://getbootstrap.com/docs/#{ UiBibzApp::Application::BOOTSTRAP_VERSION[0,3] }/#{ name }"
   end
 end

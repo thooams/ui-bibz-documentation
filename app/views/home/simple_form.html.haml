@@ -1,4 +1,4 @@
-= title 'Simple form', false
+= title 'Simple form', display_ui: false
 
 %p
   Ui Bibz is compatible with #{ link_to 'Simple Form', 'https://github.com/plataformatec/simple_form', target: "_blank" }.
@@ -71,7 +71,7 @@
               - s.input :price_formula, as: :ui_select_field, class: 'form-control-sm', collection: 12.times.map{ |i| (i+1) * 50000 }
               - s.addon  'To'
               - s.input :price, as: :ui_select_field, class: 'form-control-sm', collection: 12.times.map{ |i| i * 50000 }
-              - s.glyph 'euro'
+              - s.addon '€'
             = f.button :submit, "Search", class: 'btn-outline-primary btn-sm'
       - e.code do
         :plain

@@ -1,4 +1,4 @@
-= title "Select Field", true, 'ui bibz'
+= title "Select Field", logo_name: 'ui bibz', url: "components/forms/#select-menu"
 %blockquote UiBibz::Ui::Core::Forms::Selects::SelectField
 
 = code "ui_select_field", component_name: "name"
@@ -70,6 +70,23 @@
       - e.code do
         option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
         ui_select_field "example1", option_tags: select_options_tags, append: ui_glyph("pencil-alt"), prepend: ui_glyph("gem")
+
+  - s.section title: "Size" do
+    = size_description
+    = example do |e|
+      - e.header do
+        = ui_select_field 'example lg', option_tags: select_options_tags, size: :lg
+        %br
+        %br
+        = ui_select_field 'example md', option_tags: select_options_tags, size: :md
+        %br
+        %br
+        = ui_select_field 'example sm', option_tags: select_options_tags, size: :sm
+      - e.code do
+        option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
+        ui_select_field 'example lg', option_tags: select_options_tags, size: :lg
+        ui_select_field 'example md', option_tags: select_options_tags, size: :md
+        ui_select_field 'example sm', option_tags: select_options_tags, size: :sm
 
   - s.section title: "Field Connected" do
     = render partial: '/components/connect_option'
