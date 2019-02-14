@@ -1,0 +1,99 @@
+= title 'Spinner', url: "components/spinner/"
+%blockquote UiBibz::Ui::Core::Notifications::Spinner
+%p.bd-callout
+  Add any of the below mentioned modifier classes to change the appearance of a spinner.
+
+= code 'spinner'
+
+= component_options do |co|
+  - co.status_link
+  - co.list 'type', types: 'symbol', values: %w(:border :grow)
+  - co.stimulus_controller_link
+  - co.stimulus_action_link
+  - co.stimulus_target_link
+
+- @sections = sections do |s|
+  - s.section title: "Spinner" do
+    = example do |c|
+      - c.header do
+        - UiBibzApp::Application::STATUSES.each do |status|
+          = ui_spinner status.to_s.titleize, status: status
+      - c.code do
+        - UiBibzApp::Application::STATUSES.each do |status|
+          = "ui_spinner '#{ status.to_s.titleize }', status: :#{ status }".html_safe
+      - c.html do
+        :plain
+          <div class="text-primary spinner-border" role="status"><span class="sr-only">Primary</span></div>
+          <div class="text-secondary spinner-border" role="status"><span class="sr-only">Secondary</span></div>
+          <div class="text-success spinner-border" role="status"><span class="sr-only">Success</span></div>
+          <div class="text-danger spinner-border" role="status"><span class="sr-only">Danger</span></div>
+          <div class="text-warning spinner-border" role="status"><span class="sr-only">Warning</span></div>
+          <div class="text-info spinner-border" role="status"><span class="sr-only">Info</span></div>
+          <div class="text-light spinner-border" role="status"><span class="sr-only">Light</span></div>
+          <div class="text-dark spinner-border" role="status"><span class="sr-only">Dark</span></div>
+
+  - s.section title: "Type" do
+    = example do |c|
+      - c.header do
+        - UiBibzApp::Application::STATUSES.each do |status|
+          = ui_spinner status.to_s.titleize, status: status, type: :grow
+      - c.code do
+        - UiBibzApp::Application::STATUSES.each do |status|
+          = "ui_spinner '#{ status.to_s.titleize }', status: :#{ status }, type: :grow".html_safe
+      - c.html do
+        :plain
+          <div class="text-primary spinner-grow" role="status"><span class="sr-only">Primary</span></div>
+          <div class="text-secondary spinner-grow" role="status"><span class="sr-only">Secondary</span></div>
+          <div class="text-success spinner-grow" role="status"><span class="sr-only">Success</span></div>
+          <div class="text-danger spinner-grow" role="status"><span class="sr-only">Danger</span></div>
+          <div class="text-warning spinner-grow" role="status"><span class="sr-only">Warning</span></div>
+          <div class="text-info spinner-grow" role="status"><span class="sr-only">Info</span></div>
+          <div class="text-light spinner-grow" role="status"><span class="sr-only">Light</span></div>
+          <div class="text-dark spinner-grow" role="status"><span class="sr-only">Dark</span></div>
+
+  - s.section title: "Size" do
+    = size_description
+    = example do |c|
+      - c.header do
+        = ui_spinner "Large Spinner", size: :lg
+        = ui_spinner "Medium Spinner", size: :md
+        = ui_spinner "Small Spinner", size: :sm
+      - c.code do
+        ui_spinner "Large Spinner", size: :lg
+        ui_spinner "Medium Spinner", size: :md
+        ui_spinner "Small Spinner", size: :sm
+      - c.html do
+        :plain
+          <div class="spinner-border spinner-border-lg" role="status"><span class="sr-only">Large Spinner</span></div>
+          <div class="spinner-border spinner-border-md" role="status"><span class="sr-only">Medium Spinner</span></div>
+          <div class="spinner-border spinner-border-sm" role="status"><span class="sr-only">Small Spinner</span></div>
+
+  - s.section title: "Buttons" do
+    = example do |c|
+      - c.header do
+        = ui_button "Loading...", status: :primary, spinner: true, text: false
+        = ui_button "Loading...", status: :primary, spinner: true
+        = ui_button "Loading...", status: :secondary, spinner: { status: :success, type: :grow }, text: false
+        = ui_button "Loading...", status: :warning, spinner: { type: :grow, status: :danger }
+      - c.code do
+        ui_button "Loading...", status: :primary, spinner: true, text: false
+        ui_button "Loading...", status: :primary, spinner: true
+        ui_button "Loading...", status: :secondary, spinner: { status: :success, type: :grow }, text: false
+        ui_button "Loading...", status: :warning, spinner: { type: :grow, status: :danger }
+        ui_button "Loading...", spinner: true
+      - c.html do
+        :plain
+          <button class="btn-primary btn without-text">
+            <span class="spinner-border spinner-border-sm" role="status"><span class="sr-only">Loading...</span></span>
+          </button>
+          <button class="btn-primary btn">
+            <span class="mr-2 spinner-border spinner-border-sm" role="status"><span class="sr-only">Loading...</span></span>Loading...
+          </button>
+          <button class="btn-secondary btn without-text">
+            <span class="text-success spinner-grow spinner-grow-sm" role="status"><span class="sr-only">Loading...</span></span>
+          </button>
+          <button class="btn-warning btn">
+            <span class="text-danger mr-2 spinner-grow spinner-grow-sm" role="status"><span class="sr-only">Loading...</span></span>Loading...
+          </button>
+
+= @sections.render

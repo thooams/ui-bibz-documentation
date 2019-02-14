@@ -119,6 +119,7 @@ Rails.application.routes.draw do
       get 'alert'
       get 'badge'
       get 'progress_bar'
+      get 'spinner'
       get 'toast'
     end
 
