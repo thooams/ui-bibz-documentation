@@ -87,18 +87,14 @@
 
   - s.section title: "Popover" do
     :markdown
-      Some component may have the `popover` option in their settings.
+      Some component may have the `popover` option in their settings like buttons, links, ...
       This option lets you add a popover to its component by string or hash.
 
     = component_list_options do |co|
-      - co.list 'content', types: 'string'
-      - co.list 'title', types: 'string'
-      - co.list 'position', types: 'symbol', values: %w(:auto :top :left :right :bottom), description: "How to position the popover"
-      - co.list 'template', types: 'string', description: "Base HTML to use when creating the popover."
-      - co.list 'trigger', types: 'string', values: %w(click hover focus), description: "You may pass multiple triggers; separate them with a space"
-      - co.list 'animation', types: 'boolean', description: "Apply a CSS fade transition to the popover"
-      - co.list 'html', types: 'boolean', description: "Insert HTML into the popover. If false, jQuery's text method will be used to insert content into the DOM. Use text if you're worried about XSS attacks."
-
+      - co.list 'postion', types: 'symbol', values: %w(:auto :top :left :right :bottom), description: "How to position the popover"
+      - UiBibz::Ui::Core::Component::POPOVER_METHODS.each do |mth|
+        - co.list mth
+    %p Documentation for popover options are in #{ link_to("bootstrap documentation", bootstrap_start_url("components/popovers/#options"), target: "_blank") }.
     = example do |c|
       - c.code do
         :plain
@@ -107,6 +103,27 @@
 
           # or by hash
           Component.new content, popover: { content: 'My popover text...', title: 'My Titel', ... }
+
+  - s.section title: "Tooltip" do
+    :markdown
+      Some component may have the `tooltip` option in their settings like buttons, links, ...
+      This option lets you add a tooltip to its component by boolean or hash.
+
+    = component_list_options do |co|
+      - co.list 'postion', types: 'symbol', values: %w(:auto :top :left :right :bottom), description: "How to position the popover"
+      - UiBibz::Ui::Core::Component::TOOLTIP_METHODS.each do |mth|
+        - co.list mth
+
+    %p Documentation for popover options are in #{ link_to("bootstrap documentation", bootstrap_start_url("components/tooltips/#options"), target: "_blank") }.
+
+    = example do |c|
+      - c.code do
+        :plain
+          # by boolean
+          Component.new content, { tooltip: true }, { title: 'My popover text...' }
+
+          # or by hash
+          Component.new content, tooltip: { content: 'My popover text...', title: 'My Titel', ... }
 
   - s.section title: "State" do
     = example do |c|
