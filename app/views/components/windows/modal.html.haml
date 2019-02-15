@@ -89,8 +89,18 @@
             = 'Modal title'
           - m.body do
             = 'One fine body'
+        = ui_modal class: 'modal-example', size: :md do |m|
+          - m.header do
+            = 'Modal title'
+          - m.body do
+            = 'One fine body'
+        = ui_modal class: 'modal-example', size: :lg do |m|
+          - m.header do
+            = 'Modal title'
+          - m.body do
+            = 'One fine body'
       - c.code do
-        ui_modal class: "modal-example" do |m|
+        ui_modal class: "modal-example", size: :sm do |m|
           m.header do
             "Modal itle"
           end
