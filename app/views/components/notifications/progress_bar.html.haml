@@ -27,6 +27,7 @@
   - co.list 'value', types: 'number'
   - co.list 'striped', types: 'boolean'
   - co.list 'animated', types: 'boolean'
+  - co.list 'statuses', types: %w(boolean array)
   - co.popover_link
   - co.cache_link
   - co.stimulus_controller_link
@@ -226,6 +227,41 @@
             <div class="bg-info progress-bar" aria-valuenow="21.1" aria-valuemin="0" aria-valuemax="100" style="width: 21.1%" role="progressbar"></div>
             <div class="bg-warning progress-bar" aria-valuenow="12.173" aria-valuemin="0" aria-valuemax="100" style="width: 12.173%" role="progressbar"></div>
           </div>
+
+
+  - s.section title: "Progress bar with statuses" do
+    %p
+      Status changes according to the percentage of progression.
+      %br
+      [:success, :primary, :info, :warning, :danger]
+      %br
+      You can pass our status array in <code>statuses</code> option.
+      Percentage will be divided by the number of elements in statuses array.
+
+    = example do |c|
+      - c.header do
+        = ui_progress_bar 10, statuses: true
+        = ui_progress_bar 34, statuses: true
+        = ui_progress_bar 45, statuses: true, striped: true
+        = ui_progress_bar 62, statuses: true, animated: true, striped: true
+        = ui_progress_bar 83, statuses: true
+        = ui_progress_bar 49, statuses: [:primary, :danger]
+      - c.code do
+        :plain
+          ui_progress_bar 10, statuses: true
+          ui_progress_bar 34, statuses: true
+          ui_progress_bar 45, statuses: true
+          ui_progress_bar 62, statuses: true
+          ui_progress_bar 83, statuses: true
+          ui_progress_bar 49, statuses: [:primary, :danger]
+      - c.html do
+        :plain
+          <div class="progress"><div class="bg-success progress-bar" aria-valuenow="10.0" aria-valuemin="0" aria-valuemax="100" style="width: 10.0%" role="progressbar">10.0%</div></div>
+          <div class="progress"><div class="bg-primary progress-bar" aria-valuenow="34.0" aria-valuemin="0" aria-valuemax="100" style="width: 34.0%" role="progressbar">34.0%</div></div>
+          <div class="progress"><div class="bg-info progress-bar" aria-valuenow="45.0" aria-valuemin="0" aria-valuemax="100" style="width: 45.0%" role="progressbar">45.0%</div></div>
+          <div class="progress"><div class="bg-warning progress-bar" aria-valuenow="62.0" aria-valuemin="0" aria-valuemax="100" style="width: 62.0%" role="progressbar">62.0%</div></div>
+          <div class="progress"><div class="bg-danger progress-bar" aria-valuenow="83.0" aria-valuemin="0" aria-valuemax="100" style="width: 83.0%" role="progressbar">83.0%</div></div>
+          <div class="progress"><div class="bg-primary progress-bar" aria-valuenow="49.0" aria-valuemin="0" aria-valuemax="100" style="width: 49.0%" role="progressbar">49.0%</div></div>
 
   - s.section title: "Custom" do
     = example do |c|

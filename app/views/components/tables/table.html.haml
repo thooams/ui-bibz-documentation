@@ -71,12 +71,20 @@
     %p You must include UiBibz Searchable Concern and list searchable fields through <code>searchable_attributes</code> method. Insert in the model the following line :
     = example do |c|
       - c.code do
-        class User < ActiveRecord::Base
-          include UiBibz::Concerns::Models::Searchable
-          ...
-          searchable_attributes :email, :name
-          ...
-        end
+        :plain
+          class User < ActiveRecord::Base
+            include UiBibz::Concerns::Models::Searchable
+            ...
+            # in User table
+            searchable_attributes :email, :name
+            # or in join table
+            searchable_attributes :name, company: :email
+            # or in join table with multi columns
+            searchable_attributes :name, company: [:email, :active]
+            # or with build column with :as argument
+            searchable_attributes :name, company: :email, as: :mybuildcolumn
+            ...
+          end
 
   - s.section title: "Controller" do
     :markdown
@@ -212,6 +220,9 @@
         - cl.list 'costum_sort', types: 'string', description: 'Identify column'
         - cl.list 'as', types: 'symbol', values: %w(:boolean :progress :input)
         - cl.list 'hidden', types: 'boolean'
+        - cl.list 'progress_options', types: 'hash', description: "Options of #{ link_to('progress bar', components_notifications_progress_bar_path) }"
+        - cl.list 'input_options', types: 'hash', description: 'Options of input'
+        - cl.list 'format', types: 'lambda', description: 'To format each results'
 
     = example do |c|
       - c.header do
@@ -219,25 +230,26 @@
           - b.columns do |cls|
             - cls.column :id, name: '#'
             - cls.column :email, link: '#email'
-            - cls.column :active, as: :boolean
+            - cls.column :active, as: :boolean, name: "See"
             - cls.column :company, format: lambda { |records, record| "company #{ record.id }" }
+            - cls.column :updated_at, name: "Progress", format: lambda { |_,record| ui_progress_bar(rand(99), statuses: true) }
             - cls.column :created_at, date_format: '%d/%M/%Y'
-            - cls.column :updated_at
           - b.actions do |acs|
             - acs.link 'Show', url: '#show', glyph: 'eye'
             - acs.link 'Edit', url: '#show', glyph: 'pencil-alt'
             - acs.link 'Delete', url: '#show', glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
       - c.code do
-        ui_table({ store: @users, tap: true }) do |b|
-          b.columns do |cls|
-            cls.column :id, name: '#'
-            cls.column :email, link: '#email'
-            cls.column :active, as: :boolean
-            cls.column :company, format: lambda { |records, record| "company \#{ record.id }" }
-            cls.column :created_at, date_format: '%d/%M/%Y'
-            cls.column :updated_at
-          end
-        end
+        :plain
+          ui_table({ store: @users, tap: true }) do |b|
+            b.columns do |cls|
+              cls.column :id, name: '#'
+              cls.column :email, link: '#email'
+              cls.column :active, as: :boolean
+              cls.column :company, format: lambda { |records, record| "company \#{ record.id }" }
+              cls.column :created_at, date_format: '%d/%M/%Y'
+              cls.column :progress, as: :progress, progress_options: { statuses: true }
+            end
+          end
       - c.html do
         <table class="table">
           <thead>
