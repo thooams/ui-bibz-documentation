@@ -47,7 +47,7 @@ GEM
     archive-zip (0.11.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
-    autoprefixer-rails (9.4.8)
+    autoprefixer-rails (9.4.9)
       execjs
     awesome_print (1.8.0)
     better_errors (2.5.1)
@@ -235,7 +235,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
-    ui_bibz (2.3.3)
+    ui_bibz (2.3.4)
       bootstrap (= 4.3.1)
       haml
       haml-rails

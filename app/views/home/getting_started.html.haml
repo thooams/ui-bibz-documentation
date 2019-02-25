@@ -14,6 +14,14 @@
       - c.code title: 'Terminal' do
         :plain
           bundle install
+          rails generate ui_bibz:install
+
+    %p
+      <code>rails generate ui_bibz:install</code> generate a config file in <code>config/initializers/ui_bibz.rb</code>.
+      %br
+      <strong>Warning:</strong> If you change <code>fontawesomejs = true</code> to <code>false</code> in this file, you will execute
+      <code>rake tmp:clear</code> in console to refresh files.
+
 
     %h2 Assets Install
 
