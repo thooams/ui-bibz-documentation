@@ -1,4 +1,4 @@
-module UiBibz::Ui::Ux
+module UiBibz::Ui::Ux::ComponentList
   class ComponentListOptionList < UiBibz::Ui::Core::Component
 
     def initialize content = nil, options = nil, html_options = nil, &block

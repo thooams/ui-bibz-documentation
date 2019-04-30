@@ -9,6 +9,7 @@
 /test/version_tmp/
 /tmp/
 /log
+/node_modules/
 
 *~
 .*.swp
