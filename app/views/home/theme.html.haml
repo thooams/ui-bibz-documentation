@@ -337,6 +337,7 @@
     = ui_glyph 'gem', rotate: 180
     = ui_glyph 'gem', rotate: 270
     %br
+    %br
     - UiBibzApp::Application::SIZES.each do |size|
       = ui_glyph 'gem', size: size
   = ui_col do
@@ -346,8 +347,10 @@
         - UiBibzApp::Application::STATUSES.each_with_index do |status,i|
           = ui_star i, status: status
           %br
+
       = ui_col do
         - UiBibzApp::Application::SIZES.each_with_index do |size,i|
+          %br
           %br
           = ui_star i+1, size: size
 

@@ -1,4 +1,4 @@
-module UiBibz::Ui::Ux
+module UiBibz::Ui::Ux::Nav::Components
   class SubNavLink < UiBibz::Ui::Core::Component
 
     # See UiBibz::Ui::Core::Component.initialize

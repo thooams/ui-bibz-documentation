@@ -9,7 +9,7 @@ gem 'rails', '~> 5.2.0'
 # To heroku
 group :development, :test do
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
+  gem 'sqlite3', '1.3.13'
 end
 
 group :production do
@@ -52,7 +52,7 @@ gem 'simple_form'
 gem 'rouge'
 
 # Ui Bibz Framework
-#gem 'ui_bibz', path: '~/Apps/Ui-Bibz'
+#gem 'ui_bibz', path: '~/Apps/ui-bibz'
 gem 'ui_bibz'
 #
 # Use HAML for html generator

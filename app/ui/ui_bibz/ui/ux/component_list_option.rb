@@ -10,9 +10,9 @@ module UiBibz::Ui::Ux
       if is_tap(name, options)
         options = {} if options.nil?
         options[:tree] = ComponentListOption.new.tap(&block).render
-        @items << ComponentListOptionList.new(name, options, html_options).render
+        @items << UiBibz::Ui::Ux::ComponentList::ComponentListOptionList.new(name, options, html_options).render
       else
-        @items << ComponentListOptionList.new(name, options, html_options, &block).render
+        @items << UiBibz::Ui::Ux::ComponentList::ComponentListOptionList.new(name, options, html_options, &block).render
       end
     end
 

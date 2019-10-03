@@ -51,6 +51,7 @@
         %br
         = ui_surround_field do |sf|
           - sf.button_refresh
+          - sf.text_field 'toto'
           - sf.dropdown_select_field 'select', option_tags: select_options_tags
           - sf.multi_select_field 'select', option_tags: select_options_tags
           - sf.button_link 'link', url: '#link'
