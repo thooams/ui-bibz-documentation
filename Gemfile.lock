@@ -229,7 +229,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
-    ui_bibz (2.4.0)
+    ui_bibz (2.5.0)
       bootstrap (= 4.4.1)
       haml
       haml-rails
