@@ -1,4 +1,4 @@
-![Ui Bibz logo](http://img11.hostingpics.net/pics/781245uibibzlogo.png)
+![Ui Bibz logo](https://ui-bibz-documentation.herokuapp.com/assets/ui-bibz-logo-79e4c924791cf5af86703e09ba1993fdbc42549f0bc164297911b9757536c493.png)
 
 [![Gem Version](https://badge.fury.io/rb/ui_bibz.svg)](http://badge.fury.io/rb/ui_bibz)
 [![Build Status](https://travis-ci.org/thooams/Ui-Bibz.svg)](https://travis-ci.org/thooams/Ui-Bibz)
