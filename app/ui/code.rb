@@ -1,4 +1,3 @@
-module UiBibz::Ui::Ux
   class Code < UiBibz::Ui::Core::Component
 
     def initialize content = nil, options = nil, html_options = nil, &block
@@ -29,7 +28,7 @@ module UiBibz::Ui::Ux
     end
 
     def component_elements_list
-      UiBibz::Ui::Ux::ComponentListOption.new.tap do |clo|
+      ComponentListOption.new.tap do |clo|
         clo.list 'content', { types: %w(value block) }
         clo.list 'options', { types: :hash, default: '{}' }
         clo.list 'html_options', { types: :hash, default: '{}' }
@@ -58,4 +57,3 @@ module UiBibz::Ui::Ux
     end
 
   end
-end

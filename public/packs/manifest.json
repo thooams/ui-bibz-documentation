@@ -1,0 +1,25 @@
+{
+  "application.js": "/packs/js/application-50db5f361f48324ebd65.js",
+  "application.js.map": "/packs/js/application-50db5f361f48324ebd65.js.map",
+  "components.js": "/packs/js/components-42769962629845fde4e6.js",
+  "components.js.map": "/packs/js/components-42769962629845fde4e6.js.map",
+  "entrypoints": {
+    "application": {
+      "js": [
+        "/packs/js/application-50db5f361f48324ebd65.js"
+      ],
+      "js.map": [
+        "/packs/js/application-50db5f361f48324ebd65.js.map"
+      ]
+    },
+    "components": {
+      "js": [
+        "/packs/js/components-42769962629845fde4e6.js"
+      ],
+      "js.map": [
+        "/packs/js/components-42769962629845fde4e6.js.map"
+      ]
+    }
+  },
+  "media/images/puce.gif": "/packs/media/images/puce-731bb5bcdd442e74befa56f15d017624.gif"
+}

@@ -1,0 +1,74 @@
+// Place all the styles related to the Components controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "~bootstrap/scss/bootstrap"
+
+.card-code
+  margin-bottom: 10px
+
+.card-code > .card-header
+  background-color: white
+
+.card-header:first-child
+  border-radius: 0px !important
+
+.card-code .card-body pre
+  margin: 0
+  padding: 10
+  max-height: 400px
+
+.card-code .card-codes
+  padding: 0
+
+pre
+  margin-bottom: 0px !important
+
+.card-code > .card-header
+  min-height: 65px
+  margin-top: 2rem
+
+.highlight .err
+  background-color: transparent !important
+
+.highlight
+  background-color: white !important
+
+.card-code > .card-header:after
+  position: absolute
+  top: 15px
+  left: 15px
+  font-size: 12px
+  font-weight: 800
+  color: #959595
+  letter-spacing: 1px
+  content: "EXEMPLE"
+
+.card-block
+  .nav-tabs
+    background-color: rgba(0,0,0,.03)
+    padding: 10px 10px 0px 10px
+
+.card-columns
+  @include media-breakpoint-only(lg)
+    column-count: 2
+  @include media-breakpoint-only(xl)
+    column-count: 2
+
+.code
+  padding: 0
+
+.list-options
+  span
+    padding: 0 5px
+  .option-types
+    font-style: italic
+    color: grey
+  .option-default
+    font-style: bold
+    color: grey
+  .option-description
+    font-style: italic
+
+.usage .code, .component-options > .list-options, .component-html-options > .list-options
+  margin-top: 1.25rem

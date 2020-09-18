@@ -1,0 +1,350 @@
+@import "ui-bibz-js/sass/ui-bibz"
+@import components
+
+.anchorjs-link:hover
+  color: #007bff
+  font-weight: bold
+
+.bd-example-modal .modal
+  position: relative
+  top: auto
+  right: auto
+  bottom: auto
+  left: auto
+  z-index: 1
+  display: block
+
+.nav-link
+  text-decoration: none
+
+.page
+  padding: 5rem  3rem 3rem 3rem
+  min-height: calc(100vh - 9.05rem)
+  h1
+    font-size: 4rem
+  h2
+    font-size: 3rem
+  h3
+    margin-top: 2rem
+
+.buttons-theme
+  button
+    margin-bottom: 10px
+
+  .dropdown
+    margin-right: 10px
+
+.card-column-theme
+  @include media-breakpoint-only(lg)
+    column-count: 3
+  @include media-breakpoint-only(xl)
+    column-count: 4
+
+// Menu de gauche
+.nav-left
+  font-size: 1rem
+  margin-top: 1.5rem
+  margin-right: 10px
+  li.nav-item
+    ul.nav
+      li.nav-item
+        a.nav-link.active
+          font-weight: 800
+      ul.nav
+        li.nav-item
+          a.nav-link.active
+            padding-left: 8px
+            font-weight: 800
+            border-left: 2px solid #007bff
+  .nav
+    font-size: 1rem
+    padding-left: 10px !important
+    .nav
+      font-size: 0.85rem
+
+.nav-left a.nav-link.active
+  font-weight: 800
+  color: #007bff
+  background-color: transparent
+  border-left: 2px solid #007bff
+
+.nav-left .nav-link
+  padding: 0.2rem 0.5rem
+.nav-left li.nav-item
+  display: block
+  width: 100%
+
+h2, h3
+  margin-top: 3rem
+
+.content h2 span
+  margin-left: 0.5rem
+  font-size: 1rem
+  font-style: italic
+
+.content
+  h3:before
+    display: block
+    height: 6rem
+    margin-top: -6rem
+    visibility: hidden
+    content: ""
+
+$brand-primary-light: rgba(255, 255, 255, 0.15)
+
+.pageheader
+  padding: 4rem
+  background-color: theme-color(primary)
+  background-image: linear-gradient($brand-primary-light 2px, transparent 2px), linear-gradient(90deg, $brand-primary-light 2px, transparent 2px),  linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px
+  color: white
+  //margin-bottom: 3rem
+  border-bottom: 1px solid rgb(19, 100, 162)
+  border-top: 1px solid rgb(19, 100, 162)
+  img
+    float: left
+    margin-right: 0.5rem
+  .logo
+    margin-right: 2rem
+    border: 1px solid rgb(19, 100, 162)
+
+// Style pour la page d'accueil
+.pageheader-blue
+  margin-top: 3.5rem
+  padding: 1rem
+  background-color: theme-color(primary)
+  background-image: linear-gradient($brand-primary-light 2px, transparent 2px), linear-gradient(90deg, $brand-primary-light 2px, transparent 2px),  linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)
+
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px
+  color: white
+  border-top: 1px solid rgb(19, 100, 162)
+  .icon
+    float: left
+  .littlemsg
+    line-height: 1.7rem
+    font-style: italic
+    font-size: 0.7rem
+    color: rgb(214, 214, 214)
+
+// Style pour la page d'accueil
+.pageheader-white
+  min-height: calc(100vh - 30.7rem)
+  h3
+    margin-top: 1rem
+  padding: 0rem, 4rem, 0, 4rem
+  background-color: rgb(255, 255, 255)
+  color: rgb(20, 23, 5)
+  text-align: center
+  .slogan
+    font-family: Impact
+  .columns-white
+    font-size: 0.8rem
+    .logo-rails
+      width: 300px
+      margin-bottom: 1.5rem
+    .loco-uibibz
+      margin-bottom: 1rem
+    .logo-bootstrap
+      width: 210px
+  .little-hr
+    height: 0.1rem
+    color: #405E98
+    background-color: #405E98
+    width: 20%
+    margin-top: 2rem
+    border-radius: 90%
+  .littlemsg
+    line-height: 2rem
+
+body > footer
+  padding: 1rem 0
+  font-size: 85%
+  background-color: #f7f7f7
+  border-top: 1px solid #e6e6e6
+  text-align: center
+  nav
+    a
+      padding: 5px
+
+.open-dropdown-example
+  margin-bottom: 120px
+
+.modal-example
+  position: relative
+  top: auto
+  right: auto
+  bottom: auto
+  left: auto
+  z-index: 1
+  display: block
+
+// Bouton retour au top
+.scroll-to-top
+  margin: 0
+  position: fixed
+  bottom: 2%
+  right: 1%
+  text-decoration: none
+  border-radius: 40%
+
+.back-top
+  display: none
+
+// Image de la page Get Started
+.img-keep-calm
+  width: 15rem
+  border-radius: 3rem
+  margin-left: 5rem
+
+.card
+  img
+    width: 100%
+    height: 200px
+
+
+// Menu de droite
+.secondary-nav
+  a
+    color: #868e96
+  h3
+    margin-top: 0.5rem
+  background: linear-gradient(to right, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 10%)
+  border-left: 1px solid rgba(0,0,0,0.1)
+  .sticky
+    position: -webkit-sticky
+    position: sticky
+    top: 4rem
+    //max-height: calc(120vh - 2rem)
+    overflow-y: auto
+  h2:first-child
+    margin-top: 0rem
+    margin-bottom: 1rem
+  li
+    width: 100%
+    display: block
+
+// Menu de gauche
+.sidebar
+  overflow: auto
+  position: sticky
+  max-height: calc(100vh - 3.5rem)
+  top: 3.5rem
+  padding-bottom: 3.5rem
+
+.left-nav
+  padding: 0px 0px 0px 0.5rem
+  border-right: 1px solid rgba(0,0,0,0.1)
+  a
+    color: #868e96
+  a:hover
+    color: #007bff
+  h2:first-child
+    margin-top: 0rem
+  .nav-text
+    border-bottom: 1px solid #efefef
+    span
+      color: #868e96
+
+.content
+  background: linear-gradient(to right, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 3%)
+  padding: 3rem
+
+@media all and (max-width: 992px)
+  .secondary-nav
+    display: none
+  .left-nav
+    margin: 0 0 1rem 0
+
+h2
+  border-bottom: 1px solid #efefef
+  //margin-top: 0rem
+  padding-bottom: 5px
+
+.bd-callout
+  padding: 1.25rem
+  margin-top: 1.25rem
+  margin-bottom: 1.25rem
+  border: 1px solid #eee
+  border-left-width: .25rem
+  border-radius: .25rem
+
+.bd-callout-warning
+  border-color: theme-color(warning)
+  span
+    color: theme-color(warning)
+
+.about
+  ul
+    list-style: none
+    margin-left: 7.7rem
+    li
+      background-image: url(~puce.gif)
+      background-repeat: no-repeat
+      background-position: left center
+      padding-left: 20px
+
+.navbar
+  .navbar-form
+    input[type=text]
+      width: 150px
+
+.code
+  .card-body
+    padding: 0rem 1.25rem 1.25rem 1.25rem
+.code-index
+  pre
+    margin-bottom: 0px
+
+blockquote
+  color: grey
+
+.connected-input-table
+  text-align: center
+  td:first-child
+    text-align: left
+
+.auto-complete-field
+  min-width: 150px
+
+.card-header > .dropdown
+  margin-right: 10px
+
+.ui_surround_field
+  .dropdown
+    margin-right: 0px
+
+.row.test .col, .row.test div[class*= "col"], .form-row.test .col, .form-row.test div[class*= "col"]
+  background-color: rgba(86,61,124,.15)
+  border: 1px solid rgba(86,61,124,.2)
+
+.form-test
+  .form-group
+    margin-bottom: 0px
+    margin-right: 10px
+
+.navbar-brand
+  img
+    width: 30px
+    height: 30px
+
+.card-header
+  .progress
+    margin-bottom: 10px
+
+.grey-background
+  background-color: #efefef !important
+
+.card-deck-wrapper, .table-test
+  margin-bottom: 10px
+
+.icon-indicator
+  float: right
+  margin-top: 10px
+
+.card-code, .col
+  .modal
+    height: inherit
+
+.uioi

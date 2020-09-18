@@ -3,8 +3,12 @@
 %meta{ name: 'Author', CONTENT: 'Thomas HUMMEL <thomas@hummel.link>'}
 %meta{ name: 'Keywords', CONTENT: 'bootstrap rails, bootstrap ruby, ui bibz, bibz bootstrap, bootstrap interface, bootstrap ui, bootstrap interface'}
 %link{ rel: "shortcut icon", type: "image/x-icon", href: "/favicon.ico" }
-= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-= javascript_include_tag 'application', 'data-turbolinks-track' => true
+-# = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+-# = javascript_include_tag 'application', 'data-turbolinks-track' => true
+= csrf_meta_tags
+= csp_meta_tag
+-#= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 :css
   "#{ Rouge::Theme::find('github').render(scope: '.highlight') }"
 = csrf_meta_tags
