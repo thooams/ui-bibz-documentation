@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   resources :users
   get 'home/index'
@@ -139,5 +141,4 @@ Rails.application.routes.draw do
       get 'list'
     end
   end
-
 end

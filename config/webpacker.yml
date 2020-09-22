@@ -11,7 +11,7 @@ default: &default
 
   # Additional paths webpack should lookup modules
   # ['app/assets', 'engine/foo/app/assets']
-  resolved_paths: [] #'app/javascript/packs', 'app/javascript/src', 'app/javascript/images']
+  resolved_paths: ['app/javascript/images']
 
   # Reload manifest.json on all requests so we reload latest compiled packs
   cache_manifest: false
@@ -64,7 +64,7 @@ development:
     hmr: false
     # Inline should be set to true if using HMR
     inline: true
-    overlay: false
+    overlay: true
     compress: true
     disable_host_check: true
     use_local_ip: false
@@ -74,7 +74,6 @@ development:
       'Access-Control-Allow-Origin': '*'
     watch_options:
       ignored: '**/node_modules/**'
-
 
 test:
   <<: *default

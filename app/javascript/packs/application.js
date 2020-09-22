@@ -3,15 +3,17 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-// require("@rails/ujs").start()
-// require("turbolinks").start()
-// require("@rails/activestorage").start()
-// require("channels")
-// // require('bootstrap')
 //
-// import UiBibzJs from 'ui-bibz-js'
-// let uiBibzJs = new UiBibzJs
-// uiBibzJs.start()
+require("@rails/ujs").start()
+require("turbolinks").start()
+require("@rails/activestorage").start()
+require("channels")
+
+import "../stylesheets/application"
+
+import UiBibzJs from 'ui-bibz-js'
+let uiBibzJs = new UiBibzJs
+uiBibzJs.start()
 //
 // var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
 // console.log(dropdownElementList)
@@ -27,6 +29,3 @@
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 //
-import "../src/test"
-alert('uirestuaienrst')
-console.log('tototersieuiutenrusternustie')
