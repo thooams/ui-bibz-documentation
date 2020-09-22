@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
+gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 
 # To heroku
 group :development, :test do
@@ -21,8 +21,6 @@ end
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
 
@@ -48,8 +46,7 @@ gem 'simple_form'
 gem 'rouge'
 
 # Ui Bibz Framework
-# gem 'ui_bibz', path: '~/Apps/Ui-Bibz'
-gem 'ui_bibz'
+gem 'ui_bibz', path: '~/Apps/Ui-Bibz'
 #
 # Use HAML for html generator
 gem 'haml-rails'
