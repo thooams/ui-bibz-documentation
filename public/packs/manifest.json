@@ -1,25 +1,24 @@
 {
-  "application.js": "/packs/js/application-50db5f361f48324ebd65.js",
-  "application.js.map": "/packs/js/application-50db5f361f48324ebd65.js.map",
-  "components.js": "/packs/js/components-42769962629845fde4e6.js",
-  "components.js.map": "/packs/js/components-42769962629845fde4e6.js.map",
+  "application.js": "/packs/js/application-1164552483cf9d66a920.js",
+  "application.js.map": "/packs/js/application-1164552483cf9d66a920.js.map",
+  "bundle.js": "/packs/js/bundle-601bf291c6f45f401e08.js",
+  "bundle.js.map": "/packs/js/bundle-601bf291c6f45f401e08.js.map",
   "entrypoints": {
     "application": {
       "js": [
-        "/packs/js/application-50db5f361f48324ebd65.js"
+        "/packs/js/application-1164552483cf9d66a920.js"
       ],
       "js.map": [
-        "/packs/js/application-50db5f361f48324ebd65.js.map"
+        "/packs/js/application-1164552483cf9d66a920.js.map"
       ]
     },
-    "components": {
+    "bundle": {
       "js": [
-        "/packs/js/components-42769962629845fde4e6.js"
+        "/packs/js/bundle-601bf291c6f45f401e08.js"
       ],
       "js.map": [
-        "/packs/js/components-42769962629845fde4e6.js.map"
+        "/packs/js/bundle-601bf291c6f45f401e08.js.map"
       ]
     }
-  },
-  "media/images/puce.gif": "/packs/media/images/puce-731bb5bcdd442e74befa56f15d017624.gif"
+  }
 }

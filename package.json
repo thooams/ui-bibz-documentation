@@ -5,9 +5,9 @@
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
-    "@rails/webpacker": "4.3.0",
+    "@rails/webpacker": "^4.0.0-rc.8",
     "turbolinks": "^5.2.0",
-    "ui-bibz-js": "file:/home/thomas/Apps/ui-bibz-js"
+    "ui-bibz-js": "file:../ui-bibz-js"
   },
   "version": "0.1.0",
   "devDependencies": {

@@ -48,3 +48,10 @@ Session.vim
 # Remove project folders
 /log
 /public/system
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity

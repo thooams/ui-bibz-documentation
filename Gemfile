@@ -81,6 +81,7 @@ group :development do
   gem "binding_of_caller"
 
   gem "overcommit"
+  gem "solargraph"
 end
 
 group :test do
