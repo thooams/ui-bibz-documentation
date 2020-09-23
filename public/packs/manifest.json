@@ -1,15 +1,25 @@
 {
-  "application.js": "/packs/js/application-98b50e2f305ff6191137.js",
-  "application.js.map": "/packs/js/application-98b50e2f305ff6191137.js.map",
+  "application.js": "/packs/js/application-b2dd5273c540e04f3da7.js",
+  "application.js.map": "/packs/js/application-b2dd5273c540e04f3da7.js.map",
   "entrypoints": {
     "application": {
       "js": [
-        "/packs/js/application-98b50e2f305ff6191137.js"
+        "/packs/js/application-b2dd5273c540e04f3da7.js"
       ],
       "js.map": [
-        "/packs/js/application-98b50e2f305ff6191137.js.map"
+        "/packs/js/application-b2dd5273c540e04f3da7.js.map"
       ]
     }
   },
-  "media/images/puce.gif": "/packs/media/images/puce-731bb5bcdd442e74befa56f15d017624.gif"
+  "media/images/puce.gif": "/packs/media/images/puce-731bb5bcdd442e74befa56f15d017624.gif",
+  "media/webfonts/fa-regular-400.eot": "/packs/media/webfonts/fa-regular-400-ad3a7c0d.eot",
+  "media/webfonts/fa-regular-400.svg": "/packs/media/webfonts/fa-regular-400-e75dfd90.svg",
+  "media/webfonts/fa-regular-400.ttf": "/packs/media/webfonts/fa-regular-400-1a78af41.ttf",
+  "media/webfonts/fa-regular-400.woff": "/packs/media/webfonts/fa-regular-400-05b53beb.woff",
+  "media/webfonts/fa-regular-400.woff2": "/packs/media/webfonts/fa-regular-400-3a3398a6.woff2",
+  "media/webfonts/fa-solid-900.eot": "/packs/media/webfonts/fa-solid-900-89bd2e38.eot",
+  "media/webfonts/fa-solid-900.svg": "/packs/media/webfonts/fa-solid-900-03ba7cb7.svg",
+  "media/webfonts/fa-solid-900.ttf": "/packs/media/webfonts/fa-solid-900-781e85bb.ttf",
+  "media/webfonts/fa-solid-900.woff": "/packs/media/webfonts/fa-solid-900-ee09ad75.woff",
+  "media/webfonts/fa-solid-900.woff2": "/packs/media/webfonts/fa-solid-900-c500da19.woff2"
 }

@@ -226,6 +226,7 @@
   - s.section title: "Body" do
     = component_items do |ci|
       - ci.inherit_component 'title'
+      - ci.inherit_component 'subtitle'
       - ci.inherit_component 'text'
       - ci.inherit_component 'link', components_navigations_link_path
 
@@ -234,6 +235,7 @@
         = ui_card tap: true do |c|
           - c.body tap: true do |b|
             - b.title "Special title treatment"
+            - b.subtitle "Special subtitle treatment"
             - b.text "With supporting text below as a natural lead-in to additional content."
             - b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
       - e.code do
@@ -241,6 +243,7 @@
           ui_card tap: true do |c|
             c.body tap: true do |b|
               b.title "Special title treatment"
+              b.subtitle "Special subtitle treatment"
               b.text "With supporting text below as a natural lead-in to additional content."
               b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
             end
@@ -493,6 +496,7 @@
               - c.header "#{ status.to_s.titleize } Header"
               - c.body tap: true do |b|
                 - b.title "Special title treatment"
+                - b.subtitle "Special subtitle treatment"
                 - b.text "With supporting text below as a natural lead-in to additional content."
               - c.footer "#{ status.to_s.titleize } Footer"
       - e.code do
@@ -502,6 +506,7 @@
               c.header "#{ status.to_s.titleize } Header"
               c.body tap: true do |b|
                 b.title "Special title treatment"
+                b.subtitle "Special subtitle treatment"
                 b.text "With supporting text below as a natural lead-in to additional content."
               end
             end

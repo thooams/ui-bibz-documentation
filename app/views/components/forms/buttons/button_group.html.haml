@@ -78,22 +78,41 @@
     = example do |c|
       - c.header do
         = ui_button_group size: :sm do |bg|
-          - bg.button 'Left'
+          - bg.button 'Left', state: :active
           - bg.button 'Middle'
           - bg.button 'Right'
       - c.code do
         ui_button_group size: :sm do |bg|
+          bg.button "Left", state: :active
+          bg.button "Middle"
+          bg.button "Right"
+        end
+      - c.html do
+        <div class="btn-group btn-group-sm" role="group">
+          <button class="btn-primary btn active">Left</button>
+          <button class="btn-primary btn">Middle</button>
+          <button class="btn-primary btn">Right</button>
+        </div>
+
+  - s.section title: "Outline" do
+    = example do |c|
+      - c.header do
+        = ui_button_group outline: true do |bg|
+          - bg.button 'Left'
+          - bg.button 'Middle'
+          - bg.button 'Right'
+      - c.code do
+        ui_button_group outline: true do |bg|
           bg.button "Left"
           bg.button "Middle"
           bg.button "Right"
         end
       - c.html do
         <div class="btn-group btn-group-sm" role="group">
-          <button class="btn-primary btn">Left</button>
-          <button class="btn-primary btn">Middle</button>
-          <button class="btn-primary btn">Right</button>
+          <button class="btn-outline-secondary btn">Left</button>
+          <button class="btn-outline-secondary btn">Middle</button>
+          <button class="btn-outline-secondary btn">Right</button>
         </div>
-
 
   - s.section title: "Position" do
     = component_list_options do |co|

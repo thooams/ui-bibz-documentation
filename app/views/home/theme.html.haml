@@ -168,6 +168,14 @@
       - t.header 'My toast Notification', glyph: :gem
       - t.body 'My Toast message.'
 
+  = ui_col do
+    %h3 Tooltip
+    = ui_button_link "Tooltip link", { tooltip: { title:  "My tooltip"}, url: "javascript:void(0)"}
+
+  = ui_col do
+    %h3 Popover
+    = ui_button_link "Popover link", url: "javascript:void(0)", popover: { title: "Popover Title", content: "And here's some amazing content. It's very engaging. Right?" }
+
 %h2 Navigations
 //= ui_breadcrumb store: User.all.limit(1), link_label: :email, link_url: "#/id/edit"
 = ui_row do
