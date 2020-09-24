@@ -127,7 +127,6 @@ Rails.application.routes.draw do
 
     namespace :icons do
       get 'glyph'
-      get 'glyph_group'
       get 'star'
     end
 
