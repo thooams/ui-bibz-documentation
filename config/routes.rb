@@ -83,7 +83,7 @@ Rails.application.routes.draw do
       get 'card'
       get 'card-column'
       get 'card-accordion'
-      get 'card-deck'
+      get 'card-grid'
       get 'card-group'
       get 'jumbotron'
     end

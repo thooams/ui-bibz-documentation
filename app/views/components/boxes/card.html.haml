@@ -113,7 +113,7 @@
 
     = example do |e|
       - e.header do
-        = ui_card_deck do |cd|
+        = ui_card_grid do |cd|
           - cd.card tap: true do |c|
             - c.header 'Header 1'
             - c.body 'Content 1'
@@ -181,6 +181,7 @@
           - c.image "https://picsum.photos/700/200"
           - c.body tap: true do |b|
             - b.title "Card title"
+            - b.subtitle "Card subtitle"
             - b.text "Some quick example text to build on the card title and make up the bulk of the card's content."
           - c.list_group do |lg|
             - lg.list "Cras justo odio"
@@ -194,6 +195,7 @@
           c.image "image.svg"
           c.body tap: true do |b|
             b.title "Card title"
+            b.subtitle "Card subtitle"
             b.text "Some quick example text to build on the card title and make up the bulk of the card"s content."
           end
           c.list_group do |lg|
@@ -210,6 +212,7 @@
           <img src="/assets/image.svg" alt="Image">
           <div class="card-body">
             <h4 class="card-title">Card title</h4>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
           <ul class="list-group-flush list-group">
@@ -258,7 +261,7 @@
 
     = example do |e|
       - e.header do
-        = ui_card_deck do |cd|
+        = ui_card_grid do |cd|
           - cd.card tap: true do |c|
             - c.body tap: true do |b|
               - b.title "Special title treatment"
@@ -402,7 +405,7 @@
     = example do |e|
       = status_description
       - e.header do
-        = ui_card_column do |cd|
+        = ui_card_grid({num: 2}, { class: 'g-4'}) do |cd|
           - UiBibzApp::Application::STATUSES.each do |status|
             - cd.card tap: true, status: status do |c|
               - c.header "#{ status.to_s.titleize } Header"
@@ -490,13 +493,12 @@
   - s.section title: "Outline" do
     = example class: 'grey-background' do |e|
       - e.header class: 'grey-background' do
-        = ui_card_column do |cd|
+        = ui_card_grid({num: 2}, { class: 'g-4'}) do |cd|
           - UiBibzApp::Application::STATUSES.each do |status|
             - cd.card tap: true, status: status, outline: true do |c|
               - c.header "#{ status.to_s.titleize } Header"
               - c.body tap: true do |b|
                 - b.title "Special title treatment"
-                - b.subtitle "Special subtitle treatment"
                 - b.text "With supporting text below as a natural lead-in to additional content."
               - c.footer "#{ status.to_s.titleize } Footer"
       - e.code do
@@ -506,7 +508,6 @@
               c.header "#{ status.to_s.titleize } Header"
               c.body tap: true do |b|
                 b.title "Special title treatment"
-                b.subtitle "Special subtitle treatment"
                 b.text "With supporting text below as a natural lead-in to additional content."
               end
             end
