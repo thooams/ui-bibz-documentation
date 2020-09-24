@@ -123,6 +123,52 @@
           </div>
         </div>
 
+  - s.section title: "fullscreen" do
+    = example do |c|
+      - c.header do
+        = ui_button_link 'fullscreen', { url: '#' }, { data: { toggle: 'modal', target: '#modal-test1' }}
+        = ui_modal({fullscreen: true}, { id: 'modal-test1' }) do |m|
+          - m.header do
+            = 'Modal title'
+          - m.body do
+            = 'One fine body'
+          - m.footer do
+            = ui_button "save", status: :primary
+
+        - %i[xs sm md lg xl].each_with_index do |size|
+          = ui_button_link "fullscreen below #{size}", { url: '#' }, { data: { toggle: 'modal', target: "#modal-test-#{size}" }}
+          = ui_modal({fullscreen: true, size: size }, { id: "modal-test-#{size}" }) do |m|
+            - m.header do
+              = 'Modal title'
+            - m.body do
+              = 'One fine body'
+            - m.footer do
+              = ui_button "save", status: :primary
+
+      - c.code do
+        ui_modal class: "modal-example", size: :sm do |m|
+          m.header do
+            "Modal itle"
+          end
+          m.body do
+            "One fine body"
+          end
+        end
+      - c.html do
+        <div class="modal-example ui_modal">
+          <div class="modal-dialog ui_modal-sm" role="document">
+            <div class="modal-content"><div class="modal-header">
+              <h5 class="modal-title">Modal title</h5>
+              <button class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+                <span class="sr-only">Close</span>
+              </button>
+            </div>
+            <div class="modal-body">One fine body</div>
+            </div>
+          </div>
+        </div>
+
   - s.section title: "Effect" do
     = example do |c|
       - c.header do

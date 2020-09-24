@@ -51,10 +51,14 @@
 
     = example do |c|
       - c.header do
+        %br
         - UiBibzApp::Application::SIZES.each do |size|
           = ui_glyph 'gem', size: size
         - 5.times.each do |i|
           = ui_glyph 'gem', size: i + 1
+        %br
+        %br
+        %br
       - c.code do
         - UiBibzApp::Application::SIZES.each do |size|
           = "ui_glyph \"gem\", size: :#{ size }".html_safe
