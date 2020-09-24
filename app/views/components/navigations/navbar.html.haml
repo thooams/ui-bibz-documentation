@@ -30,6 +30,8 @@
   - co.list 'type', types: 'symbol', values: %w(:light :dark)
   - co.list 'position', types: 'symbol', values: %w(:top :bottom)
   - co.list 'sticky', types: 'boolean', values: %w(true false)
+  - co.list 'container', types: 'hash', description: "same options like  #{ link_to('container', components_layouts_container_path) }"
+  - co.list 'container_html', types: 'hash', description: "html options for container"
   - co.cache_link
   - co.stimulus_controller_link
   - co.stimulus_action_link
@@ -287,7 +289,7 @@
               - s.glyph 'user'
               - s.input :name, as: :ui_text_field, label: false
               - s.input :company, as: :ui_dropdown_select_field, label: false, collection: Continent.all
-            = f.submit 'Go', class: 'btn btn-primary btn-outline-primary'
+            = f.submit 'Go', class: 'btn btn-outline-primary'
       - e.code do
         :plain
           ui_navbar type: :dark, status: :dark do |nb|

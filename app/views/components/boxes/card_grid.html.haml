@@ -12,6 +12,18 @@
       end
     end
 
+= component_options do |co|
+  - co.list 'num', types: 'integer'
+  - co.list 'xs', types: 'hash'
+  - co.list 'sm', types: 'hash'
+  - co.list 'md', types: 'hash'
+  - co.list 'lg', types: 'hash'
+  - co.list 'xl', types: 'hash'
+  - co.cache_link
+  - co.stimulus_controller_link
+  - co.stimulus_action_link
+  - co.stimulus_target_link
+
 = component_items do |ci|
   - ci.inherit_component 'card', components_boxes_card_path
 
@@ -25,7 +37,7 @@
         = ui_card_grid({md: { num: 2}},{ class: 'g-4'}) do |cd|
           - 4.times.each do
             - cd.card(tap: true) do |c|
-              - c.image "https://picsum.photos/400/200"
+              - c.image image
               - c.body 'This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.'
       - e.code do
         :plain
@@ -48,6 +60,33 @@
             end
           end
       - e.html do
-        <div class="g-4 card-grid row row-cols-md-2"><div class="col"><div class="card"><img class="card-img-top" src="https://picsum.photos/400/200"><div class="card-body">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</div></div></div><div class="col"><div class="card"><img class="card-img-top" src="https://picsum.photos/400/200"><div class="card-body">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</div></div></div><div class="col"><div class="card"><img class="card-img-top" src="https://picsum.photos/400/200"><div class="card-body">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</div></div></div><div class="col"><div class="card"><img class="card-img-top" src="https://picsum.photos/400/200"><div class="card-body">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</div></div></div></div>
+        :plain
+          <div class="g-4 card-grid row row-cols-md-2">
+            <div class="col">
+              <div class="card">
+                <img class="card-img-top" src="https://picsum.photos/400/200">
+                <div class="card-body">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img class="card-img-top" src="https://picsum.photos/400/200">
+                <div class="card-body">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img class="card-img-top" src="https://picsum.photos/400/200">
+                <div class="card-body">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img class="card-img-top" src="https://picsum.photos/400/200">
+                <div class="card-body">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</div>
+              </div>
+            </div>
+          </div>
+
 
 = @sections.render

@@ -188,7 +188,7 @@
             <div class="panel-footer">Footer</div>
           </div>
 
-  - s.section title: "Deck in panel" do
+  - s.section title: "Grid in panel" do
     = example do |e|
       - e.header do
         = ui_panel do |p|
@@ -209,7 +209,7 @@
               - bg.dropdown 'Dropdown' do |d|
                 - d.link 'Link'
 
-          - p.deck do |d|
+          - p.grid num: 2 do |d|
             - d.panel do |b|
               - b.header 'Tree Header'
               - b.body 'Tree Body<br/>with content<br/>on multiline'
