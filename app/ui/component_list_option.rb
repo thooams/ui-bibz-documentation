@@ -44,7 +44,7 @@ class ComponentListOption < UiBibz::Ui::Core::Component
   end
 
   def size_link
-    list('size', { types: :symbol, values: %w(:lg :md :sm), description: "(use component #{ option_link('size') } method)" })
+    list('size', { types: :symbol, values: UiBibzApp::Application::SIZES.map{ |a| ":#{a}" }, description: "(use component #{ option_link('size') } method)" })
   end
 
   def popover_link

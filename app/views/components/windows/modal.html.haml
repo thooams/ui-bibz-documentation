@@ -29,6 +29,8 @@
 
 = component_options do |co|
   - co.list 'effect', types: 'symbol', values: %w(:fade)
+  - co.list 'position', types: 'symbol', values: %w(:centered)
+  - co.list 'backdrop', types: 'symbol', values: %w(:static)
   - co.size_link
   - co.tap_link
   - co.cache_link
@@ -46,14 +48,14 @@
     = example do |c|
       - c.header do
         = ui_modal class: 'modal-example' do |m|
-          - m.header 'Modal title'
+          - m.header '<b>Modal title</b>'
           - m.body 'One fine body'
           - m.footer do
             = ui_button 'Close', status: :danger
             = ui_button 'Save changes', status: :success
       - c.code do
         ui_modal class: "modal-example" do |m|
-          m.header "Modal itle"
+          m.header "<b>Modal title</b>"
           m.body "One fine body"
           m.footer do
             button "Close", status: :secondary
@@ -80,23 +82,28 @@
           </div>
         </div>
 
-
   - s.section title: "Size" do
+    = size_description
     = example do |c|
       - c.header do
         = ui_modal class: 'modal-example', size: :sm do |m|
           - m.header do
-            = 'Modal title'
+            = 'Sm Modal title'
           - m.body do
             = 'One fine body'
         = ui_modal class: 'modal-example', size: :md do |m|
           - m.header do
-            = 'Modal title'
+            = 'Md Modal title'
           - m.body do
             = 'One fine body'
         = ui_modal class: 'modal-example', size: :lg do |m|
           - m.header do
-            = 'Modal title'
+            = 'Lg Modal title'
+          - m.body do
+            = 'One fine body'
+        = ui_modal class: 'modal-example', size: :xl do |m|
+          - m.header do
+            = 'Xl Modal title'
           - m.body do
             = 'One fine body'
       - c.code do
@@ -123,27 +130,65 @@
           </div>
         </div>
 
-  - s.section title: "fullscreen" do
+  - s.section title: "Backdrop static" do
     = example do |c|
       - c.header do
-        = ui_button_link 'fullscreen', { url: '#' }, { data: { toggle: 'modal', target: '#modal-test1' }}
-        = ui_modal({fullscreen: true}, { id: 'modal-test1' }) do |m|
+        = ui_button_link 'Static Backdrop modal', { url: '#' }, { data: { toggle: 'modal', target: '#backdrop-modal' }}
+        = ui_modal({ effect: :fade, backdrop: :static}, {id: "backdrop-modal"}) do |m|
           - m.header do
-            = 'Modal title'
+            = 'Backdrop Modal title'
           - m.body do
             = 'One fine body'
           - m.footer do
-            = ui_button "save", status: :primary
+            = ui_button "Close", { status: :secondary }, data: { dismiss: "modal" }
+            = ui_button "Understood", status: :primary
+      - c.code do
+        ui_modal({ effect: :fade, backdrop: :static}, {id: "backdrop-modal"}) do |m|
+          m.header do
+            "Backdrop Modal title"
+          end
+          m.body do
+            "One fine body"
+          end
+          m.footer do
+            ui_button "Close", { status: :secondary }, data: { dismiss: "modal" }
+            ui_button "Understood", status: :primary
+          end
+        end
+      - c.html do
+        ""
 
-        - %i[xs sm md lg xl].each_with_index do |size|
+  - s.section title: "Position" do
+    = example do |c|
+      - c.header do
+        = ui_button_link 'Vertical centered modal', { url: '#' }, { data: { toggle: 'modal', target: '#centered-modal' }}
+        = ui_modal({ effect: :fade, position: :centered}, {id: "centered-modal"}) do |m|
+          - m.header do
+            = 'Vertical Centered Modal title'
+          - m.body do
+            = 'One fine body'
+          - m.footer do
+            = ui_button "Close", { status: :secondary }, data: { dismiss: "modal" }
+            = ui_button "Understood", status: :primary
+      - c.code do
+        ui_modal({ effect: :fade, backdrop: :static}, {id: "backdrop-modal"}) do |m|
+          m.header do
+            "Backdrop Modal title"
+          end
+          m.body do
+            "One fine body"
+          end
+        end
+      - c.html do
+        ""
+
+  - s.section title: "fullscreen" do
+    %p Modal must be inserted outside a card.
+    = example do |c|
+      - c.header do
+        = ui_button_link 'fullscreen', { url: '#' }, { data: { toggle: 'modal', target: '#modal-test1' }}
+        - UiBibzApp::Application::SIZES.each_with_index do |size|
           = ui_button_link "fullscreen below #{size}", { url: '#' }, { data: { toggle: 'modal', target: "#modal-test-#{size}" }}
-          = ui_modal({fullscreen: true, size: size }, { id: "modal-test-#{size}" }) do |m|
-            - m.header do
-              = 'Modal title'
-            - m.body do
-              = 'One fine body'
-            - m.footer do
-              = ui_button "save", status: :primary
 
       - c.code do
         ui_modal class: "modal-example", size: :sm do |m|
@@ -206,3 +251,20 @@
         </div>
 
 = @sections.render
+
+= ui_modal({fullscreen: true}, { id: 'modal-test1' }) do |m|
+  - m.header do
+    = 'Modal title'
+  - m.body do
+    = 'One fine body'
+  - m.footer do
+    = ui_button "save", status: :primary
+
+- UiBibzApp::Application::SIZES.each_with_index do |size|
+  = ui_modal({fullscreen: true, size: size }, { id: "modal-test-#{size}" }) do |m|
+    - m.header do
+      = 'Modal title'
+    - m.body do
+      = 'One fine body'
+    - m.footer do
+      = ui_button "save", status: :primary
