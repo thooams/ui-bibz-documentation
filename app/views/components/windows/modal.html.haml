@@ -31,6 +31,7 @@
   - co.list 'effect', types: 'symbol', values: %w(:fade)
   - co.list 'position', types: 'symbol', values: %w(:centered)
   - co.list 'backdrop', types: 'symbol', values: %w(:static)
+  - co.list 'scrollable', types: 'boolean'
   - co.size_link
   - co.tap_link
   - co.cache_link
@@ -63,24 +64,21 @@
           end
         end
       - c.html do
-        <div class="modal-example ui_modal">
-          <div class="modal-dialog " role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
-                <button class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                  <span class="sr-only">Close</span>
-                </button>
-              </div>
-              <div class="modal-body">One fine body</div>
-              <div class="modal-footer">
-                <button class="btn-secondary btn">Close</button>
-                <button class="btn-primary btn">Save changes</button>
-              </div>
-            </div>
-          </div>
-        </div>
+        :plain
+          <div class="modal-example modal" tabindex="-1" aria-labelledby="Modal title" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title"><b>Modal title</b></h5>
+                  <button class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                </div>
+                <div class="modal-body">One fine body</div>
+                <div class="modal-footer"><button class="btn-danger btn">Close</button>
+                  <button class="btn-success btn">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
 
   - s.section title: "Size" do
     = size_description
@@ -116,19 +114,18 @@
           end
         end
       - c.html do
-        <div class="modal-example ui_modal">
-          <div class="modal-dialog ui_modal-sm" role="document">
-            <div class="modal-content"><div class="modal-header">
-              <h5 class="modal-title">Modal title</h5>
-              <button class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">×</span>
-                <span class="sr-only">Close</span>
-              </button>
-            </div>
-            <div class="modal-body">One fine body</div>
-            </div>
-          </div>
-        </div>
+        :plain
+          <div class="modal-example modal" tabindex="-1" aria-labelledby="Sm Modal title" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Sm Modal title</h5>
+                  <button class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                </div>
+                <div class="modal-body">One fine body</div>
+              </div>
+            </div>
+          </div>
 
   - s.section title: "Backdrop static" do
     = example do |c|
@@ -143,6 +140,8 @@
             = ui_button "Close", { status: :secondary }, data: { dismiss: "modal" }
             = ui_button "Understood", status: :primary
       - c.code do
+        ui_button_link 'Static Backdrop modal', { url: '#' }, { data: { toggle: 'modal', target: '#backdrop-modal' }}
+
         ui_modal({ effect: :fade, backdrop: :static}, {id: "backdrop-modal"}) do |m|
           m.header do
             "Backdrop Modal title"
@@ -156,31 +155,100 @@
           end
         end
       - c.html do
-        ""
+        :plain
+          <a data-toggle="modal" data-target="#backdrop-modal" class="btn-secondary btn" role="button" href="#">Static Backdrop modal</a>
+
+          <div id="backdrop-modal" data-backdrop="static" data-keyboard="false" class="fade modal show" tabindex="-1" aria-labelledby="Backdrop Modal title
+            " aria-modal="true" role="dialog" style="display: block; padding-right: 15px;">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Backdrop Modal title</h5>
+                  <button class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                </div>
+                <div class="modal-body">One fine body</div>
+                <div class="modal-footer"><button data-dismiss="modal" class="btn-secondary btn">Close</button>
+                  <button class="btn-primary btn">Understood</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+  - s.section title: "Scrolling long content" do
+    %p Modal must be inserted outside a card.
+    = example do |c|
+      - c.header do
+        = ui_button_link 'Scrollable modal', { url: '#' }, { data: { toggle: 'modal', target: '#scrollable-modal' }}
+      - c.code do
+        ui_button_link 'Scrollable modal', { url: '#' }, { data: { toggle: 'modal', target: '#scrollable-modal' }}
+
+        ui_modal({ scrollable: true }, {id: "backdrop-modal"}) do |m|
+          m.header do
+            "Scrollable Modal title"
+          end
+          m.body do
+            "..."
+          end
+          m.footer do
+            ui_button "Close", { status: :secondary }, data: { dismiss: "modal" }
+            ui_button "Understood", status: :primary
+          end
+        end
+      - c.html do
+        :plain
+          <a data-toggle="modal" data-target="#scrollable-modal" class="btn-secondary btn" role="button" href="#">Scrollable modal</a>
+
+          <div id="scrollable-modal" class="modal show" tabindex="-1" aria-labelledby="Scrollable Modal title" aria-modal="true" role="dialog" style="padding-right: 15px; display: block;">
+            <div class="modal-dialog modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Scrollable Modal title</h5>
+                  <button class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                </div>
+                <div class="modal-body">
+                  <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                  <p>...</p>
+                  <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                </div>
+                <div class="modal-footer"><button data-dismiss="modal" class="btn-secondary btn">Close</button>
+                  <button class="btn-primary btn">Understood</button>
+                </div>
+              </div>
+            </div>
+          </div>
 
   - s.section title: "Position" do
+    %p Modal must be inserted outside a card.
     = example do |c|
       - c.header do
         = ui_button_link 'Vertical centered modal', { url: '#' }, { data: { toggle: 'modal', target: '#centered-modal' }}
-        = ui_modal({ effect: :fade, position: :centered}, {id: "centered-modal"}) do |m|
-          - m.header do
-            = 'Vertical Centered Modal title'
-          - m.body do
-            = 'One fine body'
-          - m.footer do
-            = ui_button "Close", { status: :secondary }, data: { dismiss: "modal" }
-            = ui_button "Understood", status: :primary
       - c.code do
-        ui_modal({ effect: :fade, backdrop: :static}, {id: "backdrop-modal"}) do |m|
+        ui_button_link 'Vertical centered modal', { url: '#' }, { data: { toggle: 'modal', target: '#centered-modal' }}
+
+        ui_modal({ position: centered }, {id: "backdrop-modal"}) do |m|
           m.header do
-            "Backdrop Modal title"
+            "Centered Modal title"
           end
           m.body do
             "One fine body"
           end
         end
       - c.html do
-        ""
+        :plain
+          <a data-toggle="modal" data-target="#centered-modal" class="btn-secondary btn" role="button" href="#">Vertical centered modal</a>
+
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Vertical Centered Modal title</h5>
+                <button class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+              </div>
+              <div class="modal-body">One fine body</div>
+              <div class="modal-footer"><button data-dismiss="modal" class="btn-secondary btn">Close</button>
+                <button class="btn-primary btn">Understood</button>
+              </div>
+            </div>
+          </div>
 
   - s.section title: "fullscreen" do
     %p Modal must be inserted outside a card.
@@ -191,9 +259,10 @@
           = ui_button_link "fullscreen below #{size}", { url: '#' }, { data: { toggle: 'modal', target: "#modal-test-#{size}" }}
 
       - c.code do
+        ui_button_link 'fullscreen', { url: '#' }, { data: { toggle: 'modal', target: '#modal-test1' }}
         ui_modal class: "modal-example", size: :sm do |m|
           m.header do
-            "Modal itle"
+            "Fullscreen title"
           end
           m.body do
             "One fine body"
@@ -254,7 +323,7 @@
 
 = ui_modal({fullscreen: true}, { id: 'modal-test1' }) do |m|
   - m.header do
-    = 'Modal title'
+    = 'Fullscreen Modal'
   - m.body do
     = 'One fine body'
   - m.footer do
@@ -268,3 +337,38 @@
       = 'One fine body'
     - m.footer do
       = ui_button "save", status: :primary
+
+= ui_modal({ effect: :fade, position: :centered}, {id: "centered-modal"}) do |m|
+  - m.header do
+    = 'Vertical Centered Modal title'
+  - m.body do
+    = 'One fine body'
+  - m.footer do
+    = ui_button "Close", { status: :secondary }, data: { dismiss: "modal" }
+    = ui_button "Understood", status: :primary
+
+= ui_modal({ scrollable: true }, {id: "scrollable-modal"}) do |m|
+  - m.header do
+    = 'Scrollable Modal title'
+  - m.body do
+    %p Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+    %p Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+    %p Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+    %p Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+    %p Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+    %p Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+    %p Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+    %p Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+    %p Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+    %p Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+    %p Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+    %p Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+    %p Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+    %p Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+    %p Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+    %p Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+    %p Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+    %p Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+  - m.footer do
+    = ui_button "Close", { status: :secondary }, data: { dismiss: "modal" }
+    = ui_button "Understood", status: :primary
