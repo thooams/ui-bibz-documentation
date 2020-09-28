@@ -72,7 +72,14 @@
   - ci.inherit_component 'body'
   - ci.inherit_component 'footer'
   - ci.inherit_component 'image'
-  - ci.inherit_component 'list_group', components_lists_list_group_path
+  - ci.inherit_component 'list_group', components_layouts_row_path
+  - ci.list 'row', types: ['content', 'hash'], description: "(inherit of #{link_to('row', components_layouts_row_path)})", tap: true do |clo|
+    - clo.list 'col', types: ['content', 'hash'], tap: true do |clu|
+      - clu.inherit_component 'header'
+      - clu.inherit_component 'body'
+      - clu.inherit_component 'footer'
+      - clu.inherit_component 'image'
+      - clu.inherit_component 'list_group'
 
 - @sections = sections do |s|
   - s.section title: "Card" do
@@ -251,6 +258,188 @@
               b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
             end
           end
+
+  - s.section title: "Card row" do
+    = example do |e|
+      - e.header do
+        = ui_card tap: true do |c|
+          - c.row tap: true, class: "g-0" do |r|
+            - r.col tap: true, num: 4 do |col|
+              - col.image "https://picsum.photos/700/200", position: :left
+            - r.col tap: true, num: 8 do |col|
+              - col.body tap: true do |b|
+                - b.title "Card title"
+                - b.subtitle "Card subtitle"
+                - b.text "Some quick example text to build on the card title and make up the bulk of the card's content."
+
+        %br
+        = ui_card tap: true do |c|
+          - c.row tap: true, class: "g-0" do |r|
+            - r.col tap: true, num: 3 do |col|
+              - col.image "https://picsum.photos/700/200", position: :left
+            - r.col tap: true, num: 6 do |col|
+              - col.body tap: true do |b|
+                - b.title "Card title"
+                - b.subtitle "Card subtitle"
+                - b.text "Some quick example text to build on the card title and make up the bulk of the card's content."
+            - r.col tap: true, num: 3 do |col|
+              - col.image "https://picsum.photos/700/200", position: :right
+        %br
+        = ui_card tap: true do |c|
+          - c.row tap: true, class: "g-0" do |r|
+            - r.col tap: true, num: 6 do |col|
+              - col.list_group do |gl|
+                - gl.list "List 1"
+                - gl.list "List 2"
+                - gl.list "List 3"
+                - gl.list "List 4"
+                - gl.list "List 5"
+                - gl.list "List 6"
+            - r.col tap: true, num: 6 do |col|
+              - col.header "Header card"
+              - col.body tap: true do |b|
+                - b.title "Card title"
+                - b.subtitle "Card subtitle"
+                - b.text "Some quick example text to build on the card title and make up the bulk of the card's content."
+              - col.footer "Footer card"
+        %br
+        = ui_card tap: true do |c|
+          - c.row tap: true, class: "g-0" do |r|
+            - r.col num: 4, class: "bg-success" do
+              %p.p-auto Left card
+            - r.col num: 8, class: "bg-danger" do
+              %p.p-auto Right card
+      - e.code do
+        :plain
+          ui_card tap: true do |c|
+            c.row tap: true, class: "g-0" do |r|
+              r.col tap: true, num: 4 do |col|
+                col.image "https://picsum.photos/700/200", position: :left
+              end
+              r.col tap: true, num: 8 do |col|
+                col.body tap: true do |b|
+                  b.title "Card title"
+                  b.subtitle "Card subtitle"
+                  b.text "Some quick example text to build on the card title and make up the bulk of the card's content."
+                end
+              end
+            end
+
+            ui_card tap: true do |c|
+              c.row tap: true, class: "g-0" do |r|
+                r.col tap: true, num: 3 do |col|
+                  col.image "https://picsum.photos/700/200", position: :left
+                end
+                r.col tap: true, num: 6 do |col|
+                  col.body tap: true do |b|
+                    b.title "Card title"
+                    b.subtitle "Card subtitle"
+                    b.text "Some quick example text to build on the card title and make up the bulk of the card's content."
+                  end
+                end
+                r.col tap: true, num: 3 do |col|
+                  col.image "https://picsum.photos/700/200", position: :right
+                end
+              end
+            end
+
+            ui_card tap: true do |c|
+              c.row tap: true, class: "g-0" do |r|
+                r.col tap: true, num: 6 do |col|
+                  col.list_group do |gl|
+                    gl.list "List 1"
+                    gl.list "List 2"
+                    gl.list "List 3"
+                    gl.list "List 4"
+                    gl.list "List 5"
+                    gl.list "List 6"
+                  end
+                end
+                r.col tap: true, num: 6 do |col|
+                  col.header "Header card"
+                  col.body tap: true do |b|
+                    b.title "Card title"
+                    b.subtitle "Card subtitle"
+                    b.text "Some quick example text to build on the card title and make up the bulk of the card's content."
+                  end
+                  col.footer "Footer card"
+                end
+              end
+            end
+
+            ui_card tap: true do |c|
+              c.row tap: true, class: "g-0" do |r|
+                r.col num: 4, class: "bg-success" do
+                  <p class='p-auto'>Left card</p>
+                end
+                r.col num: 8, class: "bg-danger" do
+                  <p class='p-auto'>Right card</p>
+                end
+              end
+            end
+        - e.html do
+          :plain
+            <div class="card">
+              <div class="g-0 row">
+                <div class=" col-md-4"><img class="card-img-left" src="https://picsum.photos/700/200"></div>
+                <div class=" col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="card">
+              <div class="g-0 row">
+                <div class=" col-md-3"><img class="card-img-left" src="https://picsum.photos/700/200"></div>
+                <div class=" col-md-6">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+                </div>
+                <div class=" col-md-3"><img class="card-img-right" src="https://picsum.photos/700/200"></div>
+              </div>
+            </div>
+            <br>
+            <div class="card">
+              <div class="g-0 row">
+                <div class=" col-md-6">
+                  <ul class="list-group-flush list-group">
+                    <li class="list-group-item">List 1</li>
+                    <li class="list-group-item">List 2</li>
+                    <li class="list-group-item">List 3</li>
+                    <li class="list-group-item">List 4</li>
+                    <li class="list-group-item">List 5</li>
+                    <li class="list-group-item">List 6</li>
+                  </ul>
+                </div>
+                <div class=" col-md-6">
+                  <div class="card-header">Header card</div>
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+                  <div class="card-footer">Footer card</div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="card">
+              <div class="g-0 row">
+                <div class="bg-success col-md-4 ">
+                  <p class="p-auto">Left card</p>
+                </div>
+                <div class="bg-danger col-md-8 ">
+                  <p class="p-auto">Right card</p>
+                </div>
+              </div>
+            </div>
 
   - s.section title: "Position text" do
     %p Position are:
