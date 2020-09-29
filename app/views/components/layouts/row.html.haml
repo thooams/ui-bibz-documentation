@@ -3,9 +3,27 @@
 %p.bd-callout
   Grid systems are used for creating page layouts through a series of rows that house your content.
   You can read about the doc :
-  = getbootstrap_doc("layout/grid/#example-column-ordering")
+  = getbootstrap_doc("layout/grid/")
 
-= code 'row'
+= code do
+  :plain
+    # by variable
+    ui_row content, options, html_options
+
+    # or by block
+    ui_row options, html_options do
+      content
+    end
+
+    # or by block with tap
+    ui_row options, html_options do |c|
+      # by variable
+      c.col content, options, html_options
+      # or by block
+      c.col options, html_options do
+        content
+      end
+    end
 
 = component_options do |co|
   - co.cache_link

@@ -38,7 +38,7 @@
   - co.list 'outline', types: 'boolean', values: %w(true false)
   - co.list 'caret', types: 'boolean', values: %w(true false), description: 'Remove caret'
   - co.list 'position', types: 'symbol', values: %w(:right :left)
-  - co.list 'type', types: 'symbol', values: %w(:dropup :dropdown), default: ':dropdown'
+  - co.list 'type', types: 'symbol', values: %w(:dropup :dropdown :dropleft :dropright), default: ':dropdown'
   - co.list 'tag', types: 'symbol', values: %w(:a :button), default: ':button'
   - co.popover_link
   - co.cache_link
@@ -316,6 +316,28 @@
           </div>
         </div>
 
+  - s.section title: "Active" do
+    = example do |c|
+      - c.header do
+        = ui_dropdown "Dropdown", open: true, class: 'open-dropdown-example' do |d|
+          - d.link "Action 1", url: '#action-1'
+          - d.link "Action 2", url: '#action-2', state: :active
+          - d.link "Action 3", url: '#action-3'
+      - c.code do
+        ui_dropdown "Dropdown" do |d|
+          d.link "Action 1", url: "#action-1"
+          d.link "Action 2", url: "#action-2", state: :active
+          d.link "Action 3", url: "#action-3"
+        end
+      - c.html do
+        <div class="open-dropdown-example dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#action-1">Action 1</a>
+            <a class="active dropdown-item" href="#action-2">Action 2</a>
+            <a class="dropdown-item" href="#action-3">Action 3</a>
+          </div>
+        </div>
   - s.section title: "Open" do
     = example do |c|
       - c.header do
@@ -495,5 +517,50 @@
               </div>
             </div>
 
+  - s.section title: "Type" do
+    = example do |c|
+      - c.header do
+        - %i[dropleft dropup dropdown dropright].each do |type|
+          = ui_dropdown type.to_s.titleize, type: type, inline: true do |bd|
+            - bd.link "Action", url: '#action', glyph: 'gem'
+            - bd.link url: '#another-action' do
+              = "Another action"
+            - bd.divider
+            - bd.header 'Header'
+            - bd.html "     Normal Text"
+            - bd.link({ url: '#separate-link'}, { class: 'my-link'}) do
+              = "Separate link"
+      - c.code do
+        - %i[dropleft dropup dropdown dropright].each do |type|
+          :plain
+            ui_dropdown "#{ type.to_s.titleize }", type: :#{type}, inline: true do |bd|
+              bd.link "Action", url: "#action", glyph: "gem"
+              bd.link url: "#another-action" do
+                "Another action"
+              end
+              bd.divider
+              bd.header "Header"
+              bd.html "     Normal Text"
+              bd.link "Separate link", url: "#separate-link"
+              bd.link({ url: "#separate-link"}, { class: "my-link"}) do
+                "Separate link"
+              end
+            end
+      - c.html do
+        - %i[dropleft dropup dropdown dropright].each do |type|
+          :plain
+            <div class="#{type} btn-group">
+              <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown-248578436189652527536962324584326088393">#{type.to_s.titleize} <span class="caret"></span></button>
+              <div class="dropdown-menu" arial-labelledby="dropdown-248578436189652527536962324584326088393">
+                <a class="dropdown-item" href="#action">
+                  <i class="glyph fa fa-gem"></i> Action
+                </a>
+                <a class="dropdown-item" href="#another-action">Another action</a>
+                <div class="dropdown-divider"></div>
+                <h6 class="dropdown-header" role="presentation">Header</h6>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Normal Text
+                <a class="my-link dropdown-item" href="#separate-link">Separate link</a>
+              </div>
+            </div>
 
 = @sections.render
