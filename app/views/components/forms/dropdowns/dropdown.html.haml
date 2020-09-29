@@ -227,28 +227,84 @@
   - s.section title: "Html" do
     = example do |c|
       - c.header do
-        = ui_dropdown "Dropdown", open: true, class: 'open-dropdown-example' do |d|
-          - d.html link_to("Action 1", '#action-1', class:'dropdown-item')
-          - d.html link_to("Action 2", '#action-2', class:'dropdown-item')
-          - d.html link_to("Action 3", '#action-3', class:'dropdown-item')
+        = ui_dropdown "Form in Dropdown" do |d|
+          - d.html do
+            %form.px-4.py-3
+              .mb-3
+                %label.form-label{:for => "exampleDropdownFormEmail1"} Email address
+                %input#exampleDropdownFormEmail1.form-control{:placeholder => "email@example.com", :type => "email"}/
+              .mb-3
+                %label.form-label{:for => "exampleDropdownFormPassword1"} Password
+                %input#exampleDropdownFormPassword1.form-control{:placeholder => "Password", :type => "password"}/
+              .mb-3
+                .form-check
+                  %input#dropdownCheck.form-check-input{:type => "checkbox"}/
+                  %label.form-check-label{:for => "dropdownCheck"}
+                    Remember me
+              %button.btn.btn-primary{:type => "submit"} Sign in
+            .dropdown-divider
+            %a.dropdown-item{:href => "#"} New around here? Sign up
+            %a.dropdown-item{:href => "#"} Forgot password?
+
         %br
         %br
       - c.code do
-        ui_dropdown "Dropdown" do |d|
-          d.html link_to("Action 1", url: "#action-1", class: "dropdown-item")
-          d.html link_to("Action 2", url: "#action-2", class: "dropdown-item")
-          d.html link_to("Action 3", url: "#action-3", class: "dropdown-item")
-        end
+        :plain
+          ui_dropdown "Form in Dropdown" do |d|
+            - d.html do
+              <form class="px-4 py-3">
+                <div class="mb-3">
+                  <label for="exampleDropdownFormEmail1" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleDropdownFormPassword1" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                </div>
+                <div class="mb-3">
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                    <label class="form-check-label" for="dropdownCheck">
+                      Remember me
+                    </label>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign in</button>
+              </form>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">New around here? Sign up</a>
+              <a class="dropdown-item" href="#">Forgot password?</a>
+            end
+          end
       - c.html do
-        <div class="open-dropdown-example dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#action-1">Action 1</a>
-            <a class="dropdown-item" href="#action-2">Action 2</a>
-            <a class="dropdown-item" href="#action-3">Action 3</a>
-          </div>
-        </div>
-
+        :plain
+          <div class="open-dropdown-example dropdown show">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown-21758">Form in Dropdown</button>
+            <div class="dropdown-menu show" arial-labelledby="dropdown-21758">
+              <form class="px-4 py-3">
+                <div class="mb-3">
+                  <label class="form-label" for="exampleDropdownFormEmail1">Email address</label>
+                  <input class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com" type="email">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="exampleDropdownFormPassword1">Password</label>
+                  <input class="form-control" id="exampleDropdownFormPassword1" placeholder="Password" type="password">
+                </div>
+                <div class="mb-3">
+                  <div class="form-check">
+                    <input class="form-check-input" id="dropdownCheck" type="checkbox">
+                    <label class="form-check-label" for="dropdownCheck">
+                    Remember me
+                    </label>
+                  </div>
+                </div>
+                <button class="btn btn-primary" type="submit">Sign in</button>
+              </form>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">New around here? Sign up</a>
+              <a class="dropdown-item" href="#">Forgot password?</a>
+            </div>
+          </div>
 
   - s.section title: "Inline" do
     = example do |c|

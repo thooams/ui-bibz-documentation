@@ -127,4 +127,21 @@
           <label class="active btn-danger-outline btn btn-lg"><input type="radio" autocomplete="off" checked="checked">Radio 2</label>
         </div>
 
+
+  - s.section title: "Simple form" do
+    %p= simple_form_text_with_input "ui_choice_field"
+    = example do |e|
+      - e.header do
+        - @user.active = true
+        = ui_form_for(@user) do |f|
+          = f.ui_choice_group do |cg|
+            - cg.input :active, as: :ui_choice_field
+            - cg.input :active, as: :ui_choice_field
+      - e.code do
+        ui_bibz_form_for(@user) do |f|
+          ...
+          f.input :active, as: :ui_switch_field
+          ...
+        end
+
 = @sections.render
