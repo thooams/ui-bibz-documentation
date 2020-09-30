@@ -137,6 +137,10 @@
           = f.ui_choice_group do |cg|
             - cg.input :active, as: :ui_choice_field
             - cg.input :active, as: :ui_choice_field, label: "Checkbox 2"
+          %br
+          = f.ui_choice_group type: :radio do |cg|
+            - cg.input :active, as: :ui_choice_field, label: "Radio 1"
+            - cg.input :active, as: :ui_choice_field, label: "Radio 2"
       - e.code do
         :plain
           ui_bibz_form_for(@user) do |f|
@@ -144,6 +148,10 @@
             f.ui_choice_group do |cg|
               cg.input :active, as: :ui_choice_field
               cg.input :active, as: :ui_choice_field, label: "Checkbox 2"
+            end
+            f.ui_choice_group type: :radio do |cg|
+              cg.input :active, as: :ui_choice_field, label: "Radio 1"
+              cg.input :active, as: :ui_choice_field, label: "Radio 2"
             end
             ...
           end

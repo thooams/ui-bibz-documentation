@@ -87,14 +87,14 @@
       - c.header do
         = ui_dropdown('Dropdown', { status: :secondary, glyph: 'gem', open: true }, { class: 'open-dropdown-example' }) do |d|
           - d.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
-          - d.link url: '#another-action' do
+          - d.link url: '#another-action', glyph: "gem" do
             = "Action 2"
           - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
             = "Action 3"
       - c.code do
         ui_dropdown("Dropdown", { status: :secondary, glyph: "gem" }, { class: "my-dropdown"}) do |d|
           d.link "Confirm action", url: "#action", link_html_options: { data: { confirm: "Are you sure?" }}, method: :delete
-          d.link url: "#another-action" do
+          d.link url: "#another-action", glyph: "gem" do
             "Action 2"
           end
           d.link({ url: "#separate-link"}, { class: "my-link"}) do
@@ -102,14 +102,17 @@
           end
         end
       - c.html do
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="glyph fa fa-gem"></i> Dropdown <span class="caret"></span></button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" data-confirm="Are you sure?" href="#action">Confirm action</a>
-            <a class="dropdown-item" href="#another-action">Action 2</a>
-            <a class="my-link dropdown-item" href="#separate-link">Action 3</a>
-          </div>
-        </div>
+        :plain
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="glyph fa fa-gem"></i> Dropdown <span class="caret"></span>
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" data-confirm="Are you sure?" href="#action">Confirm action</a>
+              <a class="dropdown-item" href="#another-action"><i class="glyph fas fa-gem"> </i>  Action 2
+              <a class="my-link dropdown-item" href="#separate-link">Action 3</a>
+            </div>
+          </div>
 
   - s.section title: "Tag" do
     %p Replace <code>&lt;button&gt;</code> by <code>&lt;a&gt;</code> tag.
