@@ -40,4 +40,21 @@
           content
         </div>
 
+  - s.section title: "Size" do
+    :markdown
+      To add multiple sizes of the container, you must use arguments :
+
+    %ul
+      - UiBibzApp::Application::BREAKPOINTS.each do |breakpoint|
+        %li :#{breakpoint}
+    = example do |c|
+      - c.header do
+        = image_tag "container.png", :style => "width: 40rem;"
+      - c.code do
+        ui_container content, { size: :sm }, { class: "test-2" }
+      - c.html do
+        <div class="test-2 container-sm">
+          content
+        </div>
+
 = @sections.render

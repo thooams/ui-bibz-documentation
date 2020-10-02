@@ -12,11 +12,8 @@
   - co.list 'offset', types: 'integer'
   - co.list 'pull', types: 'integer'
   - co.list 'push', types: 'integer'
-  - co.list 'xs', types: 'hash'
-  - co.list 'sm', types: 'hash'
-  - co.list 'md', types: 'hash'
-  - co.list 'lg', types: 'hash'
-  - co.list 'xl', types: 'hash'
+  - UiBibzApp::Application::BREAKPOINTS.each do |breakpoint|
+    - co.list breakpoint, types: 'hash'
   - co.cache_link
   - co.stimulus_controller_link
   - co.stimulus_action_link
@@ -71,59 +68,23 @@
       - c.html do
         :plain
           <div class="test row">
-            <div class="test-col col-md-10 offset-md-2">Col 1</div>
-            <div class="test-col2 col-md-2 col-md-pull-4">Col 2</div>
+            <div class="test-col col-10 offset-2">Col 1</div>
+            <div class="test-col2 col-2 col-pull-4">Col 2</div>
           </div>
 
   - s.section title: "Col with differents sizes" do
     :markdown
       To add multiple sizes of columns, you must use arguments :
 
-      * :xs
-      * :sm
-      * :md
-      * :lg
-      * :xl
+    %ul
+      - UiBibzApp::Application::BREAKPOINTS.each do |breakpoint|
+        %li :#{breakpoint}
     = example do |c|
       - c.header do
         = ui_row class: 'test' do
           = ui_col(md: { num: 5, offset: 2 }, xs: { num: 2 }) do
             Col 1
           = ui_col 'Col 2', { md: { num: 7, pull: 4 }, xs: { num: 10 }}, { class: 'test-col2' }
-      - c.code do
-        :plain
-          ui_row class: "test" do
-            ui_col(md: { num: 5, offset: 2 }, xs: { num: 2 }) do
-              Col 1
-            end
-            ui_col "Col 2", { md: { num: 7, pull: 4 }, xs: { num: 10 }}, { class: "test-col2" }
-          end
-      - c.html do
-        :plain
-          <div class="test row">
-            <div class="col-md-5 offset-md-2 col-xs-2">Col 1</div>
-            <div class="test-col2 col-md-7 col-md-pull-4 col-xs-10">Col 2</div>
-          </div>
-
-  - s.section title: "Col with differents sizes" do
-
-    = example do |c|
-      - c.header do
-        = ui_row type: :form, class: 'test' do
-          = ui_col num: 12 do
-            Col
-        = ui_row type: :form, class: 'test' do
-          = ui_col num: 6, class: 'form-group' do
-            = ui_text_field :test1
-          = ui_col num: 5, class: 'form-group' do
-            = ui_select_field :test2, options_tags: ["..."]
-          = ui_col num: 1, class: 'form-group' do
-            = ui_button 'Ok'
-        = ui_row type: :form, class: 'test' do
-          = ui_col num: 6, class: 'form-group' do
-            = ui_text_field :test1
-          = ui_col num: 6, class: 'form-group' do
-            = ui_select_field :test2, options_tags: ["..."]
       - c.code do
         :plain
           ui_row class: "test" do

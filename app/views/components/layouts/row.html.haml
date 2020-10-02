@@ -36,22 +36,81 @@
     = example do |c|
       - c.header do
         = ui_row class: 'test' do
+          = ui_col "Col 1"
           = ui_col do
-            = ui_text_field 'test'
-          = ui_col do
-            = ui_text_field 'test'
+            Col 2
+
+        %br
+        = ui_row class: 'test', tap: true do |row|
+          - row.col "Col 1"
+          - row.col do
+            Col 2
       - c.code do
         :plain
-          ui_row class: "test" do
+          ui_row class: 'test' do
+            ui_col "Col 1"
             ui_col do
-              ui_text_field "test"
+              Col 2
             end
-            ui_col do
-              ui_text_field "test"
+          end
+
+          ui_row class: 'test', tap: true do |row|
+            row.col "Col 1"
+            row.col do
+              Col 2
             end
           end
       - c.html do
         :plain
+          <div class="test row">
+            <div class="col">Col 1</div>
+            <div class="col">Col 2</div>
+          </div>
+
+          <div class="test row">
+            <div class="col">Col 1</div>
+            <div class="col">Col 2</div>
+          </div>
+
+  - s.section title: "Size" do
+    = example do |c|
+      - c.header do
+        = ui_row({ num: 1 }, class: 'test') do
+          = ui_col 'Col 1'
+          = ui_col 'Col 2'
+          = ui_col 'Col 3'
+        %br
+        = ui_row md: { num: 2 }, xs: { num: 1}, class: 'test' do
+          = ui_col 'Col 1'
+          = ui_col 'Col 2'
+          = ui_col 'Col 3'
+      - c.code do
+        :plain
+          ui_row({ num: 1 }, class: 'test') do
+            ui_col 'Col 1'
+            ui_col 'Col 2'
+            ui_col 'Col 3'
+          end
+
+          ui_row md: { num: 2 }, xs: { num: 1}, class: 'test' do
+            ui_col 'Col 1'
+            ui_col 'Col 2'
+            ui_col 'Col 3'
+          end
+      - c.html do
+        :plain
+          <div class="test row row-cols-1">
+            <div class="col">Col 1</div>
+            <div class="col">Col 2</div>
+            <div class="col">Col 3</div>
+          </div>
+
+          <div class="test row row-cols-md-2 row-cols-xs-1">
+            <div class="col">Col 1</div>
+            <div class="col">Col 2</div>
+            <div class="col">Col 3</div>
+          </div>
+
           <div class="test row">
             <div class="col">
               <input type="text" name="test" id="test" class="form-control">
@@ -61,32 +120,108 @@
             </div>
           </div>
 
-  - s.section title: "Type" do
+  - s.section title: "Gutter" do
     = example do |c|
       - c.header do
-        = ui_row type: :form, class: 'test' do
-          = ui_col do
-            = ui_text_field 'test'
-          = ui_col do
-            = ui_text_field 'test'
+        = ui_container class: "border" do
+          = ui_row gutter: { num: 2 }, class: "test" do
+            = ui_col 'col 1', num: 6
+            = ui_col 'col 2', num: 6
+            = ui_col 'col 3', num: 6
+            = ui_col 'col 4', num: 6
+        %br
+        = ui_container class: "border" do
+          = ui_row gutter: { num: 4, position: :horizontal }, class: "test" do
+            = ui_col 'col 1', num: 6
+            = ui_col 'col 2', num: 6
+            = ui_col 'col 3', num: 6
+            = ui_col 'col 4', num: 6
+        %br
+        = ui_container class: "border" do
+          = ui_row gutter: {md: { num: 1 }}, class: "test" do
+            = ui_col 'col 1', num: 6
+            = ui_col 'col 2', num: 6
+            = ui_col 'col 3', num: 6
+            = ui_col 'col 4', num: 6
+        %br
+        = ui_container class: "border" do
+          = ui_row gutter: {md: { num: 5, position: :vertical }, xs: { num: 3}}, class: "test" do
+            = ui_col 'col 1', num: 6
+            = ui_col 'col 2', num: 6
+            = ui_col 'col 3', num: 6
+            = ui_col 'col 4', num: 6
       - c.code do
         :plain
-          ui_row type: :form, class: "test" do
-            ui_col do
-              ui_text_field "test"
+          ui_container class: "border" do
+            ui_row gutter: { num: 2 }, class: "test" do
+              ui_col 'col 1', num: 6
+              ui_col 'col 2', num: 6
+              ui_col 'col 3', num: 6
+              ui_col 'col 4', num: 6
             end
-            ui_col do
-              ui_text_field "test"
+          end
+
+          ui_container class: "border" do
+            ui_row gutter: { num: 4, position: :horizontal }, class: "test" do
+              ui_col 'col 1', num: 6
+              ui_col 'col 2', num: 6
+              ui_col 'col 3', num: 6
+              ui_col 'col 4', num: 6
+            end
+          end
+
+          ui_container class: "border" do
+            ui_row gutter: {md: { num: 1 }}, class: "test" do
+              ui_col 'col 1', num: 6
+              ui_col 'col 2', num: 6
+              ui_col 'col 3', num: 6
+              ui_col 'col 4', num: 6
+            end
+          end
+
+          ui_container class: "border" do
+            ui_row gutter: {md: { num: 5, position: :vertical }, xs: { num: 3}}, class: "test" do
+              ui_col 'col 1', num: 6
+              ui_col 'col 2', num: 6
+              ui_col 'col 3', num: 6
+              ui_col 'col 4', num: 6
             end
           end
       - c.html do
         :plain
-          <div class="test row">
-            <div class="col">
-              <input type="text" name="test" id="test" class="form-control">
+          <div class="border container">
+            <div class="test row g-2">
+              <div class="col-6">col 1</div>
+              <div class="col-6">col 2</div>
+              <div class="col-6">col 3</div>
+              <div class="col-6">col 4</div>
             </div>
-            <div class="col">
-              <input type="text" name="test" id="test" class="form-control">
+          </div>
+
+          <div class="border container">
+            <div class="test row gx-4">
+              <div class="col-6">col 1</div>
+              <div class="col-6">col 2</div>
+              <div class="col-6">col 3</div>
+              <div class="col-6">col 4</div>
+            </div>
+          </div>
+
+          <div class="border container">
+            <div class="test row g-md-1">
+              <div class="col-6">col 1</div>
+              <div class="col-6">col 2</div>
+              <div class="col-6">col 3</div>
+              <div class="col-6">col 4</div>
+            </div>
+          </div>
+
+          <div class="border container">
+            <div class="test row gy-md-5 g-xs-3">
+              <div class="col-6">col 1</div>
+              <div class="col-6">col 2</div>
+              <div class="col-6">col 3</div>
+              <div class="col-6">col 4</div>
             </div>
           </div>
 
