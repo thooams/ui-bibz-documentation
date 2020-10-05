@@ -30,20 +30,6 @@
             <label class="custom-control-label" for="custom_check">custom_check</label>
           </div>
 
-  - s.section title: "Indeterminate" do
-    = example do |e|
-      - e.header do
-        = ui_checkbox_field "Indeterminate", indeterminate: true
-      - e.code do
-        ui_checkbox_field "Indeterminate", indeterminate: true
-      - e.html do
-        :plain
-          <div class="custom-control custom-checkbox">
-            <input type="hidden" name="Indeterminate" id="Indeterminate-hidden" value="0">
-            <input type="checkbox" name="Indeterminate" id="Indeterminate" value="1" indeterminate="indeterminate" class="custom-control-input">
-            <label class="custom-control-label" for="Indeterminate">Indeterminate</label>
-          </div>
-
   - s.section title: "Inline" do
     = example do |e|
       - e.header do
