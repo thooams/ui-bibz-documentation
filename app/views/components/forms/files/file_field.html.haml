@@ -51,6 +51,22 @@
             <label class="custom-file-label" for="upload"></label>
           </div>
 
+  - s.section title: "Custom File Field" do
+    = example do |e|
+      - e.header do
+        = ui_file_field 'upload', button_text: "Browse and Upload", input_text: "Choose file..."
+      - e.code do
+        ui_file_field 'upload', button_text: "Browse and Upload", input_text: "Choose file..."
+      - e.html do
+        :plain
+          <div class="form-file">
+            <input type="file" name="upload" id="upload" class="form-file-input">
+            <label class="form-file-label" for="upload">
+              <span class="form-file-text">Choose file...</span>
+              <span class="form-file-button">Browse and Upload</span>
+            </label>
+          </div>
+
   - s.section title: "Simple form" do
     %p= simple_form_text_with_input "ui_file_field"
     = example do |e|

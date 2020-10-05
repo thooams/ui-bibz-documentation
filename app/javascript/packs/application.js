@@ -11,6 +11,9 @@ require("channels")
 
 import "../stylesheets/application"
 
+import App from "../src/app"
+new App()
+
 import UiBibzJs from 'ui-bibz-js'
 let uiBibzJs = new UiBibzJs
 uiBibzJs.start()
