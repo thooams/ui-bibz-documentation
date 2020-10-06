@@ -85,7 +85,7 @@
     = component_list_options do |co|
       - co.list "num", types: :integer
       - UiBibzApp::Application::BREAKPOINTS.each do |breakpoint|
-        - co.list breakpoint, types: 'hash', tap: true do |cl|
+        - co.list breakpoint, types: 'hash' do |cl|
           - cl.list "num", types: :integer, values: "1..12 || :auto"
           - cl.list "offset", types: :integer, values: "1..12"
           - cl.list "pull", types: :integer, values: "1..12"

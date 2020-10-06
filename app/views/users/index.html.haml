@@ -33,7 +33,7 @@
   = progress_bar(status: :info, sr_only: true, type: :animated) do
     = 70
 
-  = progress_bar(tap: true) do |pb|
+  = progress_bar do |pb|
     - pb.bar 10, { status: :success, sr_only: false, label: 'Loading...' },{ class: 'test' }
     - pb.bar 30, status: :warning
     - pb.bar(type: :striped) do
@@ -123,7 +123,7 @@
 
   = list_group type: :link do |lg|
     - lg.list 'Momo', { status: :success, glyph: 'home' }, { href: '#Momo' }
-    - lg.list({ tap: true, state: :active }, { href: '#state' }) do |l|
+    - lg.list({ state: :active }, { href: '#state' }) do |l|
       - l.header 'My title'
       - l.body 'My title'
 
@@ -133,7 +133,7 @@
 
   %h2 Cards
 
-  = card(tap: true) do |c|
+  = card do |c|
     - c.image 'image.svg'
     - c.block do
       %h4.card-title Card title
@@ -146,7 +146,7 @@
       = link_to "Card link", '#', class: "card-link"
       = link_to "Card link", '#', class: "card-link"
 
-  = card(status: :danger, tap: true, class: 'state') do |p|
+  = card(status: :danger, class: 'state') do |p|
     - p.header 'state', glyph: 'gem'
     - p.block 'state'
     - p.footer 'state'
@@ -177,7 +177,7 @@
 
   %br
 
-  = table_card({ store: @users, tap: true, glyph: 'home' }) do |g|
+  = table_card({ store: @users, glyph: 'home' }) do |g|
     - g.columns do |cls|
       - cls.column :id, name: '#'
       - cls.column :name
@@ -190,7 +190,7 @@
 
   = table_search_field store: @users
   %br
-  = table store: @users, tap: true do |g|
+  = table store: @users do |g|
     - g.columns do |cls|
       - cls.column :id, name: '#'
       - cls.column :name

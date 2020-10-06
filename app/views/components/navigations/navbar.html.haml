@@ -42,7 +42,7 @@
   - ci.inherit_component 'text'
   - ci.inherit_component 'nav', components_navigations_nav_path
   - ci.list 'spacer', types: %w(integer), values: %w(nil 1 2 3 4 5 6)
-  - ci.list 'form', tap: true do |cli|
+  - ci.list 'form' do |cli|
     - cli.list 'type', types: 'symbol', values: %w(:form_for :ui_form_for :form_tag), default: ":form_tag"
 
 
@@ -185,7 +185,7 @@
   - s.section title: "Navbar Options" do
     %p Navbar has several block type:
     = component_list_options do |clo|
-      - clo.list "form",tap: true do |cl|
+      - clo.list "form" do |cl|
         - cl.list 'type', types: 'symbol', values: %w(:form_for :ui_form_for :form_tag), default: ":form_tag"
       - clo.list inherit_specific_component_link('dropdown', components_forms_dropdowns_dropdown_path)
       - clo.list inherit_specific_component_link('nav', components_navigations_nav_path)

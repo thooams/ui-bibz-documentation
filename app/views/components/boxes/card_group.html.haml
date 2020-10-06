@@ -21,21 +21,21 @@
     = example do |e|
       - e.header do
         = ui_card_group do |cg|
-          - cg.card(tap: true) do |c|
+          - cg.card do |c|
             - c.header 'header 1'
             - c.body 'content 1'
             - c.footer 'footer 1'
-          - cg.card tap: true do |c|
+          - cg.card do |c|
             - c.image image
-            - c.body tap: true do |b|
+            - c.body do |b|
               - b.title 'card title'
               - b.text 'this is a wider card with supporting text below as a natural lead-in to additional content. this content is a little bit longer.'
               - b.text "<small class='text-muted'>last updated 3 mins ago</small>"
-          - cg.card tap: true do |c|
+          - cg.card do |c|
             - c.list_group do |lg|
               - lg.list "cras justo odio"
               - lg.list "Dapibas ac facilisis in", state: :active
-              - lg.list tap: true do |l|
+              - lg.list do |l|
                 - l.header 'Header list'
                 - l.body "vestibulum at eros"
           - cg.card "content 4 <br/> some quick example text to build on the card title and make up the bulk of the card's content."
@@ -43,24 +43,24 @@
             = '<bodyquote class="card-bodyquote"><p>lorem ipsum dolor sit amet, consectetur adipiscing elit. integer posuere erat a ante.</p><footer>someone famous in <cite title="source title">source title</cite></footer></bodyquote>'.html_safe
       - e.code do
         ui_card_group do |cg|
-          cg.card tap: true do |c|
+          cg.card do |c|
             c.header "header 1"
             c.body "content 1"
             c.footer "footer 1"
           end
-          cg.card tap: true do |c|
+          cg.card do |c|
             c.image "image.svg"
-            c.body tap: true do |b|
+            c.body do |b|
               b.title "Card title"
               b.text "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
               b.text "<small class='text-muted'>Last updated 3 mins ago</small>"
             end
           end
-          cg.card tap: true do |c|
+          cg.card do |c|
             c.list_group do |lg|
               lg.list "Cras justo odio"
               lg.list "Dapibas ac facilisis in", state: :active
-              lg.list tap: true do |l|
+              lg.list do |l|
                 l.header "Header list"
                 l.body "vestibulum at eros"
               end

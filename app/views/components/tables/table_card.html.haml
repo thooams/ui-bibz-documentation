@@ -17,18 +17,12 @@
     %code per_page
     \.
 
-= ui_card tap: true do |c|
-  - c.header 'Important'
-  - c.body do
-    To add, update, remove columns or actions in the component <code>table</code> you must add the option <code>tap: true</code>.
-
-
 = code do
   :plain
     # by variable
     ui_table_card options, html_options
 
-    # or by block with tap
+    # or by block tapped
     ui_table_card options, html_options do |t|
       t.columns do |cls|
         cls.column data_index, options, html_options
@@ -41,7 +35,6 @@
 = component_options do |co|
   - co.glyph_link
   - co.table_link
-  - co.tap_link
   - co.list 'store', types: 'object', required: true
   - co.list 'searchable', types: 'boolean'
   - co.list 'paginable', types: 'boolean'
@@ -67,7 +60,7 @@
 
     = example do |c|
       - c.header do
-        = ui_table_card({ store: @users, tap: true }) do |b|
+        = ui_table_card(store: @users) do |b|
           - b.columns do |cls|
             - cls.column :id
             - cls.column :email
@@ -80,7 +73,7 @@
             - acs.link 'Edit', url: '#show', glyph: 'pencil-alt'
             - acs.link 'Delete', url: '#show', glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
       - c.code do
-        ui_table_card({ store: @users, tap: true })
+        ui_table_card(store: @users)
       - c.html do
         <form action="/components/tables_cards" accept-charset="UTF-8" method="get">
           <input name="utf8" type="hidden" value="✓">

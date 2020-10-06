@@ -12,7 +12,7 @@
       content
     end
 
-    # or by block with tap
+    # or by block tapped
     ui_card options, html_options do |c|
       # by variable
       c.header content, options, html_options
@@ -27,7 +27,7 @@
       c.body options, html_options do
         content
       end
-      # or by block with tap
+      # or by block tapped
       c.body options, html_options do |b|
         b.link content, options, html_options
         b.link options, html_options do
@@ -44,7 +44,7 @@
 
       c.image ''
 
-      # by block with tap
+      # by block tapped
       c.list_group do |lg|
         # by variable
         lg.list content, options, html_options
@@ -57,11 +57,10 @@
 
 = component_options do |co|
   - co.status_link
-  - co.list 'text', types: 'hash', tap: true do |clo|
+  - co.list 'text', types: 'hash' do |clo|
     - clo.list 'positon', types: 'symbol', values: %w(:left :center :right)
     - clo.size_link
   - co.list 'outline', types: 'boolean', values: %w(true false)
-  - co.tap_link
   - co.cache_link
   - co.stimulus_controller_link
   - co.stimulus_action_link
@@ -73,8 +72,8 @@
   - ci.inherit_component 'footer'
   - ci.inherit_component 'image'
   - ci.inherit_component 'list_group', components_layouts_row_path
-  - ci.list 'row', types: ['content', 'hash'], description: "(inherit of #{link_to('row', components_layouts_row_path)})", tap: true do |clo|
-    - clo.list 'col', types: ['content', 'hash'], tap: true do |clu|
+  - ci.list 'row', types: ['content', 'hash'], description: "(inherit of #{link_to('row', components_layouts_row_path)})" do |clo|
+    - clo.list 'col', types: ['content', 'hash'] do |clu|
       - clu.inherit_component 'header'
       - clu.inherit_component 'body'
       - clu.inherit_component 'footer'
@@ -116,20 +115,18 @@
             <div class="card-body">Content 3</div>
           </div>
 
-    = tap_warning
-
     = example do |e|
       - e.header do
         = ui_card_grid do |cd|
-          - cd.card tap: true do |c|
+          - cd.card do |c|
             - c.header 'Header 1'
             - c.body 'Content 1'
             - c.footer 'Footer 1'
-          - cd.card tap: true do |c|
+          - cd.card do |c|
             - c.header 'Header 2', { glyph: 'gem' }, { class: 'my-header' }
             - c.body 'Content 2', { glyph: 'gem' }, { class: 'my-content' }
             - c.footer 'Footer 2', { muted: true }, { class: 'my-footer'}
-          - cd.card tap: true do |c|
+          - cd.card do |c|
             - c.header({ glyph: 'gem' }, { class: 'my-header' }) do
               = 'Header 3'
             - c.body({ glyph: 'gem' }, { class: 'my-content' }) do
@@ -138,19 +135,19 @@
               = "Footer 3"
       - e.code do
         :plain
-          ui_card tap: true do |c|
+          ui_card do |c|
             c.header "Header 1"
             c.body "Content 1"
             c.footer "Footer"
           end
            
-          ui_card tap: true do |c|
+          ui_card do |c|
             c.header "Header 2", { glyph: "gem" }, { class: "my-header" }
             c.body "Content 2", { glyph: "gem" }, { class: "my-content" }
             c.footer "Footer 2", { muted: true }, { class: 'my-footer'}
           end
            
-          ui_card tap: true do |c|
+          ui_card do |c|
             c.header({ glyph: "gem" }, { class: "my-header" }) do
               'Header 3'
             end
@@ -184,9 +181,9 @@
   - s.section title: "Image and list group" do
     = example do |e|
       - e.header do
-        = ui_card tap: true do |c|
+        = ui_card do |c|
           - c.image "https://picsum.photos/300/100"
-          - c.body tap: true do |b|
+          - c.body do |b|
             - b.title "Card title"
             - b.subtitle "Card subtitle"
             - b.text "Some quick example text to build on the card title and make up the bulk of the card's content."
@@ -194,13 +191,13 @@
             - lg.list "Cras justo odio"
             - lg.list "Dapibas ac facilisis in"
             - lg.list "vestibulum at eros"
-          - c.body tap: true do |b|
+          - c.body do |b|
             - b.link "Card link", url: '#', class: "card-link"
             - b.link "Card link", url: '#', class: "card-link"
       - e.code do
-        ui_card tap: true do |c|
+        ui_card do |c|
           c.image "image.svg"
-          c.body tap: true do |b|
+          c.body do |b|
             b.title "Card title"
             b.subtitle "Card subtitle"
             b.text "Some quick example text to build on the card title and make up the bulk of the card"s content."
@@ -210,7 +207,7 @@
             lg.list "Dapibas ac facilisis in"
             lg.list "vestibulum at eros"
           end
-          c.body tap: true do |b|
+          c.body do |b|
             b.link "Card link", url: "#", class: "card-link"
             b.link "Card link", url: "#", class: "card-link"
           end
@@ -242,16 +239,16 @@
 
     = example do |e|
       - e.header do
-        = ui_card tap: true do |c|
-          - c.body tap: true do |b|
+        = ui_card do |c|
+          - c.body do |b|
             - b.title "Special title treatment"
             - b.subtitle "Special subtitle treatment"
             - b.text "With supporting text below as a natural lead-in to additional content."
             - b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
       - e.code do
         :plain
-          ui_card tap: true do |c|
-            c.body tap: true do |b|
+          ui_card do |c|
+            c.body do |b|
               b.title "Special title treatment"
               b.subtitle "Special subtitle treatment"
               b.text "With supporting text below as a natural lead-in to additional content."
@@ -263,32 +260,32 @@
     %p To use card in horizontal, you must use the row option item.
     = example do |e|
       - e.header do
-        = ui_card tap: true do |c|
-          - c.row tap: true, class: "g-0" do |r|
-            - r.col tap: true, num: 4 do |col|
+        = ui_card do |c|
+          - c.row class: "g-0" do |r|
+            - r.col num: 4 do |col|
               - col.image "https://picsum.photos/300/100", position: :left
-            - r.col tap: true, num: 8 do |col|
-              - col.body tap: true do |b|
+            - r.col num: 8 do |col|
+              - col.body do |b|
                 - b.title "Card title"
                 - b.subtitle "Card subtitle"
                 - b.text "Some quick example text to build on the card title and make up the bulk of the card's content."
 
         %br
-        = ui_card tap: true do |c|
-          - c.row tap: true, class: "g-0" do |r|
-            - r.col tap: true, num: 3 do |col|
+        = ui_card do |c|
+          - c.row class: "g-0" do |r|
+            - r.col num: 3 do |col|
               - col.image "https://picsum.photos/300/100", position: :left
-            - r.col tap: true, num: 6 do |col|
-              - col.body tap: true do |b|
+            - r.col num: 6 do |col|
+              - col.body do |b|
                 - b.title "Card title"
                 - b.subtitle "Card subtitle"
                 - b.text "Some quick example text to build on the card title and make up the bulk of the card's content."
-            - r.col tap: true, num: 3 do |col|
+            - r.col num: 3 do |col|
               - col.image "https://picsum.photos/300/100", position: :right
         %br
-        = ui_card tap: true do |c|
-          - c.row tap: true, class: "g-0" do |r|
-            - r.col tap: true, num: 6 do |col|
+        = ui_card do |c|
+          - c.row class: "g-0" do |r|
+            - r.col num: 6 do |col|
               - col.list_group do |gl|
                 - gl.list "List 1"
                 - gl.list "List 2"
@@ -296,29 +293,29 @@
                 - gl.list "List 4"
                 - gl.list "List 5"
                 - gl.list "List 6"
-            - r.col tap: true, num: 6 do |col|
+            - r.col num: 6 do |col|
               - col.header "Header card"
-              - col.body tap: true do |b|
+              - col.body do |b|
                 - b.title "Card title"
                 - b.subtitle "Card subtitle"
                 - b.text "Some quick example text to build on the card title and make up the bulk of the card's content."
               - col.footer "Footer card"
         %br
-        = ui_card tap: true do |c|
-          - c.row tap: true, class: "g-0" do |r|
+        = ui_card do |c|
+          - c.row class: "g-0" do |r|
             - r.col num: 4, class: "bg-success" do
               %p.p-auto Left card
             - r.col num: 8, class: "bg-danger" do
               %p.p-auto Right card
       - e.code do
         :plain
-          ui_card tap: true do |c|
-            c.row tap: true, class: "g-0" do |r|
-              r.col tap: true, num: 4 do |col|
+          ui_card do |c|
+            c.row class: "g-0" do |r|
+              r.col num: 4 do |col|
                 col.image "https://picsum.photos/300/100", position: :left
               end
-              r.col tap: true, num: 8 do |col|
-                col.body tap: true do |b|
+              r.col num: 8 do |col|
+                col.body do |b|
                   b.title "Card title"
                   b.subtitle "Card subtitle"
                   b.text "Some quick example text to build on the card title and make up the bulk of the card's content."
@@ -326,27 +323,27 @@
               end
             end
 
-            ui_card tap: true do |c|
-              c.row tap: true, class: "g-0" do |r|
-                r.col tap: true, num: 3 do |col|
+            ui_card do |c|
+              c.row class: "g-0" do |r|
+                r.col num: 3 do |col|
                   col.image "https://picsum.photos/300/100", position: :left
                 end
-                r.col tap: true, num: 6 do |col|
-                  col.body tap: true do |b|
+                r.col num: 6 do |col|
+                  col.body do |b|
                     b.title "Card title"
                     b.subtitle "Card subtitle"
                     b.text "Some quick example text to build on the card title and make up the bulk of the card's content."
                   end
                 end
-                r.col tap: true, num: 3 do |col|
+                r.col num: 3 do |col|
                   col.image "https://picsum.photos/300/100", position: :right
                 end
               end
             end
 
-            ui_card tap: true do |c|
-              c.row tap: true, class: "g-0" do |r|
-                r.col tap: true, num: 6 do |col|
+            ui_card do |c|
+              c.row class: "g-0" do |r|
+                r.col num: 6 do |col|
                   col.list_group do |gl|
                     gl.list "List 1"
                     gl.list "List 2"
@@ -356,9 +353,9 @@
                     gl.list "List 6"
                   end
                 end
-                r.col tap: true, num: 6 do |col|
+                r.col num: 6 do |col|
                   col.header "Header card"
-                  col.body tap: true do |b|
+                  col.body do |b|
                     b.title "Card title"
                     b.subtitle "Card subtitle"
                     b.text "Some quick example text to build on the card title and make up the bulk of the card's content."
@@ -368,8 +365,8 @@
               end
             end
 
-            ui_card tap: true do |c|
-              c.row tap: true, class: "g-0" do |r|
+            ui_card do |c|
+              c.row class: "g-0" do |r|
                 r.col num: 4, class: "bg-success" do
                   <p class='p-auto'>Left card</p>
                 end
@@ -452,34 +449,34 @@
     = example do |e|
       - e.header do
         = ui_card_grid do |cd|
-          - cd.card tap: true do |c|
-            - c.body tap: true do |b|
+          - cd.card do |c|
+            - c.body do |b|
               - b.title "Special title treatment"
               - b.text "With supporting text below as a natural lead-in to additional content."
               - b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
 
-          - cd.card tap: true, text: { position: :center } do |c|
-            - c.body tap: true do |b|
+          - cd.card text: { position: :center } do |c|
+            - c.body do |b|
               - b.title "Special title treatment"
               - b.text "With supporting text below as a natural lead-in to additional content."
               - b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
 
-          - cd.card tap: true, text: { position: :right, size: :lg } do |c|
-            - c.body tap: true do |b|
+          - cd.card text: { position: :right, size: :lg } do |c|
+            - c.body do |b|
               - b.title "Special title treatment"
               - b.text "With supporting text below as a natural lead-in to additional content."
               - b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
       - e.code do
-        ui_card tap: true do |c|
-          c.body tap: true do |b|
+        ui_card do |c|
+          c.body do |b|
             b.title "Special title treatment"
             b.text "With supporting text below as a natural lead-in to additional content."
             b.link "Go somewhere", url: "#go-somewhere", class: "btn btn-primary"
           end
         end
          
-        ui_card tap: true, text: { position: :center } do |c|
-          c.body tap: true do |b|
+        ui_card text: { position: :center } do |c|
+          c.body do |b|
             b.title class: "title" do
               "Special title treatment"
             end
@@ -492,8 +489,8 @@
           end
         end
          
-        ui_card tap: true, text: { position: :right, size: :lg } do |c|
-          c.body tap: true do |b|
+        ui_card text: { position: :right, size: :lg } do |c|
+          c.body do |b|
             b.title "Special title treatment"
             b.text "With supporting text below as a natural lead-in to additional content."
             b.link "Go somewhere", url: "#go-somewhere", class: "btn btn-primary"
@@ -528,9 +525,9 @@
   - s.section title: "Card tabs" do
     = example do |c|
       - c.header do
-        = ui_card tap: true do |c|
-          - c.header tap: true do |h|
-            - h.tab_group tap: true do |n|
+        = ui_card do |c|
+          - c.header do |h|
+            - h.tab_group do |n|
               - n.tab 'Active', url: '#active', state: :active
               - n.tab 'Another link', url: '#active'
               - n.tab 'Disabled', url: '#disabled', state: :disabled
@@ -544,9 +541,9 @@
           - c.body ''
       - c.code do
         :plain
-          ui_card tap: true do |c|
-            c.header tap: true do |h|
-              h.tab_group tap: true do |n|
+          ui_card do |c|
+            c.header do |h|
+              h.tab_group do |n|
                 n.tab 'Active', url: '#active', state: :active
                 n.tab 'Another link', url: '#active'
                 n.tab 'Disabled', url: '#disabled', state: :disabled
@@ -597,18 +594,18 @@
       - e.header do
         = ui_card_grid({num: 2}, { class: 'g-4'}) do |cd|
           - UiBibzApp::Application::STATUSES.each do |status|
-            - cd.card tap: true, status: status do |c|
+            - cd.card status: status do |c|
               - c.header "#{ status.to_s.titleize } Header"
-              - c.body tap: true do |b|
+              - c.body do |b|
                 - b.title "Special title treatment"
                 - b.text "With supporting text below as a natural lead-in to additional content."
               - c.footer "#{ status.to_s.titleize } Footer"
       - e.code do
         - UiBibzApp::Application::STATUSES.each do |status|
           :plain
-            ui_card tap: true, status: :#{ status } do |c|
+            ui_card status: :#{ status } do |c|
               c.header "#{ status.to_s.titleize } Header"
-              c.body tap: true do |b|
+              c.body do |b|
                 b.title "Special title treatment"
                 b.text "With supporting text below as a natural lead-in to additional content."
               end
@@ -685,18 +682,18 @@
       - e.header class: 'grey-background' do
         = ui_card_grid({num: 2}, { class: 'g-4'}) do |cd|
           - UiBibzApp::Application::STATUSES.each do |status|
-            - cd.card tap: true, status: status, outline: true do |c|
+            - cd.card status: status, outline: true do |c|
               - c.header "#{ status.to_s.titleize } Header"
-              - c.body tap: true do |b|
+              - c.body do |b|
                 - b.title "Special title treatment"
                 - b.text "With supporting text below as a natural lead-in to additional content."
               - c.footer "#{ status.to_s.titleize } Footer"
       - e.code do
         - UiBibzApp::Application::STATUSES.each do |status|
           :plain
-            ui_card tap: true, status: :#{ status }, outline: true do |c|
+            ui_card status: :#{ status }, outline: true do |c|
               c.header "#{ status.to_s.titleize } Header"
-              c.body tap: true do |b|
+              c.body do |b|
                 b.title "Special title treatment"
                 b.text "With supporting text below as a natural lead-in to additional content."
               end

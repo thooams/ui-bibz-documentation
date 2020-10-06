@@ -15,7 +15,7 @@
       content
     end
 
-    # or by block with tap
+    # or by block tapped
     ui_row options, html_options do |c|
       # by variable
       c.col content, options, html_options
@@ -27,7 +27,6 @@
 
 = component_options do |co|
   - co.list 'gutters', types: %w(integer hash)
-  - co.tap_link "(if you want to add <code>col</code> item.)"
   - co.list "num", types: :integer
   - UiBibzApp::Application::BREAKPOINTS.each do |breakpoint|
     - co.list breakpoint, types: 'hash'
@@ -49,7 +48,7 @@
             Col 2
 
         %br
-        = ui_row class: 'test', tap: true do |row|
+        = ui_row class: 'test' do |row|
           - row.col "Col 1"
           - row.col do
             Col 2
@@ -62,7 +61,7 @@
             end
           end
 
-          ui_row class: 'test', tap: true do |row|
+          ui_row class: 'test' do |row|
             row.col "Col 1"
             row.col do
               Col 2
@@ -85,7 +84,7 @@
     = component_list_options do |co|
       - co.list "num", types: :integer
       - UiBibzApp::Application::BREAKPOINTS.each do |breakpoint|
-        - co.list breakpoint, types: 'hash', tap: true do |cl|
+        - co.list breakpoint, types: 'hash' do |cl|
           - cl.list "num", types: :integer
     = example do |c|
       - c.header do
@@ -140,7 +139,7 @@
       - co.list "num", types: :integer
       - co.list "position", types: :symbol, values: %w(:vertical :horizontal)
       - UiBibzApp::Application::BREAKPOINTS.each do |breakpoint|
-        - co.list breakpoint, types: 'hash', tap: true do |cl|
+        - co.list breakpoint, types: 'hash' do |cl|
           - cl.list "num", types: :integer
           - cl.list "position", types: :symbol, values: %w(:vertical :horizontal)
 

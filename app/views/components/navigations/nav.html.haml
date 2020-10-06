@@ -82,7 +82,7 @@
   - s.section title: "Nav blocks" do
     %p Nav has several block type:
     = component_list_options do |clo|
-      - clo.list inherit_component_link('link'),tap: true do |cl|
+      - clo.list inherit_component_link('link') do |cl|
         - cl.list 'url', required: true
         - cl.state_link
       - clo.list inherit_specific_component_link('dropdown', components_forms_dropdowns_dropdown_path)

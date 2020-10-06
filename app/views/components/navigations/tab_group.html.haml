@@ -154,9 +154,9 @@
   - s.section title: "Card navigation" do
     = example do |c|
       - c.header do
-        = ui_card tap: true do |c|
-          - c.header tap: true do |h|
-            - h.tab_group tap: true do |n|
+        = ui_card do |c|
+          - c.header do |h|
+            - h.tab_group do |n|
               - n.tab 'Active', url: '#active', state: :active
               - n.tab 'Another link', url: '#active'
               - n.tab 'Disabled', url: '#disabled', state: :disabled
@@ -170,9 +170,9 @@
           - c.body ''
       - c.code do
         :plain
-          ui_card tap: true do |c|
-            c.header tap: true do |h|
-              h.tab_group tap: true do |n|
+          ui_card do |c|
+            c.header do |h|
+              h.tab_group do |n|
                 n.tab 'Active', url: '#active', state: :active
                 n.tab 'Another link', url: '#active'
                 n.tab 'Disabled', url: '#disabled', state: :disabled

@@ -12,7 +12,7 @@
       content
     end
 
-    # or by block with tap
+    # or by block tapped options
     ui_list options, html_options do |l|
       # by variable
       l.header content, options, html_options
@@ -148,22 +148,22 @@
   - s.section title: "Block" do
     = example do |c|
       - c.header do
-        = ui_list tap: true, url: '#', state: :active, tag: :a do |l|
+        = ui_list url: '#', state: :active, tag: :a do |l|
           - l.header 'List group item heading', extra: "3 days ago"
           - l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.', extra: "Donec id elit non mi porta"
         %br
-        = ui_list tap: true, url: '#', tag: :a do |l|
+        = ui_list url: '#', tag: :a do |l|
           - l.header class: 'my-header', extra: "3 days ago" do
             = 'List group item heading'
           - l.body class: 'my-body', extra: "Donec id elit non mi porta" do
             = 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
       - c.code do
         :plain
-          ui_list tap: true, state: :active, tag: :a do |l|
+          ui_list state: :active, tag: :a do |l|
             l.header "List group item heading", extra: "3 days ago"
             l.body "Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.", extra: "Donec id elit non mi porta"
           end
-          ui_list tap: true, tag: :a do |l|
+          ui_list tag: :a do |l|
             l.header class: "my-header", extra: "3 days ago" do
               "List group item heading"
             end

@@ -6,7 +6,7 @@ class ComponentListOption < UiBibz::Ui::Core::Component
   end
 
   def list name = nil, options = nil, html_options = nil, &block
-    if is_tap(name, options)
+    if UiBibz::Utils::Screwdriver.tapped?(block)
       options = {} if options.nil?
       options[:tree] = ComponentListOption.new.tap(&block).render
       @items << ComponentList::ComponentListOptionList.new(name, options, html_options).render
@@ -60,10 +60,6 @@ class ComponentListOption < UiBibz::Ui::Core::Component
     list('prepend', types: 'html', description: "Add a content after the field")
   end
 
-  def tap_link text = nil
-    list('tap', { types: :boolean, description: "#{ UiBibz::Ui::Core::Notifications::Badge.new('Required', status: :danger).render } #{ text || '(if you want to add <code>header</code>, <code>body</code> or <code>footer</code> item.)' }".html_safe })
-  end
-
   def inherit_component name = nil, path = nil, other_name = nil
     list(name, description: inherit_component_link(other_name || name, path))
   end
@@ -81,9 +77,4 @@ private
   def option_link opt
     link_to opt, component_path(anchor: opt)
   end
-
-  def is_tap content, options
-    (content[:tap] if content.kind_of?(Hash)) || (options[:tap] unless options.nil?)
-  end
-
 end

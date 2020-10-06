@@ -24,17 +24,12 @@
       %code per_page
       \.
 
-= ui_card tap: true do |c|
-  - c.header 'Important'
-  - c.body do
-    To add, update, remove columns or actions in the component <code>table</code> you must add the option <code>tap: true</code>.
-
 = code do
   :plain
     # by variable
     ui_table options, html_options
 
-    # or by block with tap
+    # or by block tapped
     ui_table options, html_options do |t|
       t.columns do |cls|
         cls.column data_index, options, html_options
@@ -46,7 +41,6 @@
 
 = component_options do |co|
   - co.size_link
-  - co.tap_link
   - co.list 'store', types: 'object', required: true
   - co.list 'actionable', types: 'boolean'
   - co.list 'sortable', types: 'boolean'
@@ -113,7 +107,7 @@
 
     = example do |c|
       - c.header do
-        = ui_table({ store: @users, tap: true }) do |b|
+        = ui_table(store: @users) do |b|
           - b.columns do |cls|
             - cls.column :id
             - cls.column :email
@@ -210,7 +204,7 @@
     = component_list_options do |clo|
       - clo.list 'data_index', types: :symbol
       - clo.list 'html_options', types: :hash
-      - clo.list 'options', types: :hash, tap: true do |cl|
+      - clo.list 'options', types: :hash do |cl|
         - cl.list 'name', types: 'string', description: 'The name of the column'
         - cl.list 'count', types: 'boolean', description: 'Use the count method on the element'
         - cl.list 'date_format', types: 'string', description: "Format the date display using the strftime method ex: `%Y/%M/%D`"
@@ -226,7 +220,7 @@
 
     = example do |c|
       - c.header do
-        = ui_table({ store: @users, tap: true }) do |b|
+        = ui_table(store: @users) do |b|
           - b.columns do |cls|
             - cls.column :id, name: '#'
             - cls.column :email, link: '#email'
@@ -240,7 +234,7 @@
             - acs.link 'Delete', url: '#show', glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
       - c.code do
         :plain
-          ui_table({ store: @users, tap: true }) do |b|
+          ui_table(store: @users) do |b|
             b.columns do |cls|
               cls.column :id, name: '#'
               cls.column :email, link: '#email'
@@ -310,7 +304,7 @@
 
     = example do |c|
       - c.header do
-        = ui_table({ store: @users, tap: true }) do |b|
+        = ui_table(store: @users) do |b|
           - b.columns do |cls|
             - cls.column :id
             - cls.column :email
@@ -324,7 +318,7 @@
             - acs.divider
             - acs.link 'Delete', url: "#delete", glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
       - c.code do
-        ui_table({ store: @users, tap: true }) do |b|
+        ui_table(store: @users) do |b|
           b.actions do |acs|
             acs.link 'Open', url: open_user_path(:id), glyph: 'folder-open'
             acs.link 'Close', url: close_user_path(:id), glyph: 'folder'
@@ -388,7 +382,7 @@
 
     = example do |c|
       - c.header do
-        = ui_table({ store: @users, tap: true }) do |b|
+        = ui_table(store: @users) do |b|
           - b.columns do |cls|
             - cls.column :id
             - cls.column :email
@@ -406,7 +400,7 @@
               - else
                 - acs.link 'Disabled', url: '#disabled'
       - c.code do
-        ui_table({ store: @users, tap: true }) do |b|
+        ui_table(store: @users) do |b|
           b.actions do |acs|
             acs.format do |record|
               acs.link 'Show', url: user_path(:id), glyph: 'eye'

@@ -10,36 +10,36 @@
 %h3 Cards
 = ui_row do
   = ui_col do
-    = ui_card tap: true do |c|
+    = ui_card do |c|
       - c.header 'Card'
       - c.image "https://picsum.photos/700/200"
-      - c.body tap: true do |b|
+      - c.body do |b|
         - b.title "Card title"
         - b.text "Some quick example text to build on the ui_card title and make up the bulk of the ui_card's content."
       - c.list_group do |lg|
         - lg.list "Cras justo odio"
         - lg.list "Dapibas ac facilisis in"
         - lg.list "vestibulum at eros"
-      - c.body tap: true do |b|
+      - c.body do |b|
         - b.link "Card link", url: '#', class: "card-link"
         - b.link "Card link", url: '#', class: "card-link"
       - c.footer "Footer"
 
   = ui_col do
-    = ui_card tap: true do |c|
-      - c.body tap: true do |b|
+    = ui_card do |c|
+      - c.body do |b|
         - b.title "Special title treatment"
         - b.text "With supporting text below as a natural lead-in to additional content."
         - b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
     %br
-    = ui_card tap: true, text: { position: :center } do |c|
-      - c.body tap: true do |b|
+    = ui_card text: { position: :center } do |c|
+      - c.body do |b|
         - b.title "Special title treatment"
         - b.text "With supporting text below as a natural lead-in to additional content."
         - b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
     %br
-    = ui_card tap: true, text: { position: :right } do |c|
-      - c.body tap: true do |b|
+    = ui_card text: { position: :right } do |c|
+      - c.body do |b|
         - b.title "Special title treatment"
         - b.text "With supporting text below as a natural lead-in to additional content."
         - b.link "Go somewhere", url: '#go-somewhere', class: 'btn btn-primary'
@@ -48,21 +48,21 @@
 
 %h3 Card groups
 = ui_card_group do |cg|
-  - cg.card(tap: true) do |c|
+  - cg.card do |c|
     - c.header 'header 1'
     - c.body 'content 1'
     - c.footer 'footer 1'
-  - cg.card tap: true do |c|
+  - cg.card do |c|
     - c.image "https://picsum.photos/300/200"
-    - c.body tap: true do |b|
+    - c.body do |b|
       - b.title 'card title'
       - b.text 'this is a wider ui_card with supporting text below as a natural lead-in to additional content. this content is a little bit longer.'
       - b.text "<small class='text-muted'>last updated 3 mins ago</small>"
-  - cg.card tap: true do |c|
+  - cg.card do |c|
     - c.list_group do |lg|
       - lg.list "cras justo odio"
       - lg.list "Dapibas ac facilisis in", state: :active
-      - lg.list tap: true do |l|
+      - lg.list do |l|
         - l.header 'Header list'
         - l.body "vestibulum at eros"
   - cg.card "content 4 <br/> some quick example text to build on the ui_card title and make up the bulk of the ui_card's content."
@@ -75,56 +75,56 @@
 = ui_card_deck do |cd|
   - UiBibzApp::Application::STATUSES.each_with_index do |status, i|
     - if i.even?
-      - cd.card tap: true, status: status do |c|
-        - c.body tap: true do |b|
+      - cd.card status: status do |c|
+        - c.body do |b|
           - b.title "Special title treatment"
           - b.text "With supporting text below as a natural lead-in to additional content."
 
 = ui_card_deck do |cd|
   - UiBibzApp::Application::STATUSES.each_with_index do |status, i|
     - if i.odd?
-      - cd.card tap: true, status: status do |c|
-        - c.body tap: true do |b|
+      - cd.card status: status do |c|
+        - c.body do |b|
           - b.title "Special title treatment"
           - b.text "With supporting text below as a natural lead-in to additional content."
 
 %h3 Card columns
 = ui_card_column class: 'card-column-theme' do |cc|
-  - cc.card tap: true do |c|
+  - cc.card do |c|
     - c.header 'header 1'
     - c.body "content 1"
     - c.footer 'footer 1'
-  - cc.card tap: true do |c|
+  - cc.card do |c|
     - c.image "https://picsum.photos/300/200"
-    - c.body tap: true do |b|
+    - c.body do |b|
       - b.title 'Card title'
       - b.text 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.'
       - b.text "<small class='text-muted'>Last updated 3 mins ago</small>"
-  - cc.card tap: true do |c|
+  - cc.card do |c|
     - c.list_group do |lg|
       - lg.list "Cras justo odio"
       - lg.list "Dapibas ac facilisis in", state: :active
-      - lg.list tap: true do |l|
+      - lg.list do |l|
         - l.header 'Header list'
         - l.body "vestibulum at eros"
   - cc.card "Content 4 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
   - cc.card status: :primary, type: :inverse, text_position: :center do
     = '<bodyquote class="card-bodyquote"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p><footer>Someone famous in <cite title="Source Title">Source Title</cite></footer></bodyquote>'.html_safe
-  - cc.card tap: true do |c|
+  - cc.card do |c|
     - c.header 'header 1'
     - c.body "content 1"
     - c.footer 'footer 1'
-  - cc.card tap: true do |c|
+  - cc.card do |c|
     - c.image "https://picsum.photos/300/200"
-    - c.body tap: true do |b|
+    - c.body do |b|
       - b.title 'Card title'
       - b.text 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.'
       - b.text "<small class='text-muted'>Last updated 3 mins ago</small>"
-  - cc.card tap: true do |c|
+  - cc.card do |c|
     - c.list_group do |lg|
       - lg.list "Cras justo odio"
       - lg.list "Dapibas ac facilisis in", state: :active
-      - lg.list tap: true do |l|
+      - lg.list do |l|
         - l.header 'Header list'
         - l.body "vestibulum at eros"
   - cc.card "Content 4 <br/> Some quick example text to build on the card title and make up the bulk of the card's content."
@@ -135,7 +135,7 @@
 %h3 Alerts
 = ui_row do
   = ui_col num: 12 do
-    = ui_alert status: :success, glyph: 'thumbs-up', closable: true, tap: true do |a|
+    = ui_alert status: :success, glyph: 'thumbs-up', closable: true, do |a|
       - a.header 'Well done!'
       - a.body "Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content."
   - UiBibzApp::Application::STATUSES.each_with_index do |status, i|
@@ -374,15 +374,15 @@
       - lg.list 'Vestibulum at eros', status: :success
   = ui_col do
     = ui_list_group  do |lg|
-      - lg.list tap: true, state: :active do |l|
+      - lg.list state: :active do |l|
         - l.header 'List group item heading'
         - l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
-      - lg.list tap: true do |l|
+      - lg.list do |l|
         - l.header class: 'my-header' do
           = 'List group item heading'
         - l.body class: 'my-body' do
           = 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
-      - lg.list tap: true do |l|
+      - lg.list do |l|
         - l.header 'List group item heading'
         - l.body 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'
 
@@ -580,7 +580,7 @@
   = ui_row do
     %h3 Tables  #{ exclusiveness }
     = ui_col num: 12 do
-      = ui_table({ store: @users, tap: true }) do |b|
+      = ui_table({ store: @users, }) do |b|
         - b.columns do |cls|
           - cls.column :id
           - cls.column :email
@@ -605,7 +605,7 @@
 
 %br.clear
 %h3 Table Cards  #{ exclusiveness }
-= ui_table_card store: @users, title: 'Table card', class: 'table-test', tap: true do |b|
+= ui_table_card store: @users, title: 'Table card', class: 'table-test', do |b|
   - b.columns do |cls|
     - cls.column :id
     - cls.column :email
@@ -621,7 +621,7 @@
 %br.clearfix
 %h2 Panels #{ exclusiveness }
 = ui_panel do |p|
-  - p.header tap: true do |h|
+  - p.header do |h|
     - h.title 'My header'
     - h.actions size: :sm, outline: true, status: :secondary do |a|
       - a.button 'Minimize', glyph: 'caret-up', text: false
@@ -650,7 +650,7 @@
 %p or
 
 = ui_panel do |p|
-  - p.header tap: true do |h|
+  - p.header do |h|
     - h.title 'My header'
 
   - p.toolbar justify: true, size: :sm do |t|

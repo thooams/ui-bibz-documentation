@@ -5,7 +5,7 @@
 = code do
   :plain
     ui_card_accordion options, html_options do |cc|
-      cc.card tap: true do |c|
+      cc.card do |c|
         c.header
           ui_link "Link", url: '#', collapse: "collapse-id"
         end
@@ -23,34 +23,34 @@
     = example do |e|
       - e.header do
         = ui_card_accordion do |cc|
-          - cc.card tap: true do |c|
+          - cc.card do |c|
             - c.header do
               = ui_link 'Collapse link 1', collapse: 'collapse-1', active_collapse: true
             - c.body "Content 1", collapse: 'collapse-1', show: true
-          - cc.card tap: true do |c|
+          - cc.card do |c|
             - c.header do
               = ui_link 'Collapse link 2', collapse: 'collapse-2'
             - c.body "Content 2", collapse: 'collapse-2'
-          - cc.card tap: true do |c|
+          - cc.card do |c|
             - c.header do
               = ui_link 'Collapse link 3', collapse: 'collapse-3'
             - c.body "Content 3", collapse: 'collapse-3'
       - e.code do
         :plain
           ui_card_accordion do |cc|
-            cc.card tap: true do |c|
+            cc.card do |c|
               c.header do
                 ui_link 'Collapse link 1', collapse: 'collapse-1', active_collapse: true
               end
               c.body "Content 1", collapse: 'collapse-1', show: true
             end
-            cc.card tap: true do |c|
+            cc.card do |c|
               c.header do
                 ui_link 'Collapse link 2', collapse: 'collapse-2'
               end
               c.body "Content 2", collapse: 'collapse-2'
             end
-            cc.card tap: true do |c|
+            cc.card do |c|
               c.header do
                 ui_link 'Collapse link 3', collapse: 'collapse-3'
               end
@@ -96,13 +96,13 @@
         %br
         %br
         = ui_card_accordion do |cc|
-          - cc.card tap: true do |c|
+          - cc.card do |c|
             - c.header "Card Header 4"
             - c.body "Content 4", collapse: 'collapse-4', show: true
-          - cc.card tap: true do |c|
+          - cc.card do |c|
             - c.header "Card Header 5"
             - c.body "Content 5", collapse: 'collapse-5'
-          - cc.card tap: true do |c|
+          - cc.card do |c|
             - c.header "Card Header 6"
             - c.body "Content 6", collapse: 'collapse-6'
       - e.code do
@@ -114,15 +114,15 @@
           end
 
           ui_card_accordion do |cc|
-            cc.card tap: true do |c|
+            cc.card do |c|
               c.header "Card Header 4"
               c.body "Content 4", collapse: 'collapse-4', show: true
             end
-            cc.card tap: true do |c|
+            cc.card do |c|
               c.header "Card Header 5"
               c.body "Content 5", collapse: 'collapse-5'
             end
-            cc.card tap: true do |c|
+            cc.card do |c|
               c.header "Card Header 6"
               c.body "Content 6", collapse: 'collapse-6'
             end

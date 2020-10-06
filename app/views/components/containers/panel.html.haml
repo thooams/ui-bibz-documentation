@@ -90,7 +90,7 @@
     = example do |e|
       - e.header do
         = ui_panel do |p|
-          - p.header tap: true do |h|
+          - p.header do |h|
             - h.title 'My header'
             - h.actions size: :sm, outline: true, status: :secondary do |a|
               - a.button 'Minimize', glyph: 'caret-up', text: false
@@ -117,7 +117,7 @@
       - e.code do
         :plain
           ui_panel do |p|
-            p.header tap: true do |h|
+            p.header do |h|
               h.title 'My header'
               h.actions size: :sm, outline: true, status: :secondary do |a|
                 a.button 'Minimize', glyph: 'caret-up', text: false
@@ -193,7 +193,7 @@
       - e.header do
         = ui_panel do |p|
 
-          - p.header tap: true do |h|
+          - p.header do |h|
             - h.title 'My header'
 
           - p.toolbar justify: true, size: :sm do |t|
@@ -226,7 +226,7 @@
       - e.code do
         :plain
           ui_panel do |p|
-            p.header tap: true do |h|
+            p.header do |h|
               h.title 'My header'
               h.actions size: :sm, outline: true, status: :secondary do |a|
                 a.button 'Minimize', glyph: 'caret-up', text: false
@@ -279,7 +279,7 @@
       - e.header do
         = ui_panel do |p|
 
-          - p.header tap: true do |h|
+          - p.header do |h|
             - h.title 'Main panel header'
 
           - p.toolbar justify: true, size: :sm do |t|
@@ -309,7 +309,7 @@
         :plain
           ui_panel do |p|
 
-            p.header tap: true do |h|
+            p.header do |h|
               h.title 'Main panel header'
             end
 
@@ -387,7 +387,7 @@
       - e.header do
         = ui_panel do |p|
 
-          - p.header tap: true do |h|
+          - p.header do |h|
             - h.title 'Main panel header'
 
           - p.toolbar justify: true, size: :sm do |t|
@@ -423,7 +423,7 @@
         :plain
           ui_panel do |p|
 
-            p.header tap: true do |h|
+            p.header do |h|
               h.title 'Main panel header'
             end
 

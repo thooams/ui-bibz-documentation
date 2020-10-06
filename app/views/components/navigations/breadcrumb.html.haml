@@ -33,14 +33,14 @@
   - s.section title: "Breadcrumb" do
     = example do |c|
       - c.header do
-        = ui_breadcrumb tap: true do |b|
+        = ui_breadcrumb do |b|
           - b.link 'Home', current: true
         %br
-        = ui_breadcrumb tap: true do |b|
+        = ui_breadcrumb do |b|
           - b.link 'Home', url: '#home'
           - b.link 'Library', current: true
         %br
-        = ui_breadcrumb tap: true do |b|
+        = ui_breadcrumb do |b|
           - b.link 'Home', url: '#active'
           - b.link 'Library', url: '#library'
           - b.link 'Data', current: true
