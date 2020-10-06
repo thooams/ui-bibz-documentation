@@ -621,4 +621,29 @@
               </div>
             </div>
 
+  - s.section title: "Theme" do
+    = example do |c|
+      - c.header do
+        = ui_dropdown "Dark dropdown", theme: :dark, open: true, class: 'open-dropdown-example' do |d|
+          - d.link "Action 1", url: '#action-1'
+          - d.link "Action 2", url: '#action-2', state: :active
+          - d.link "Action 3", url: '#action-3'
+      - c.code do
+        :plain
+          ui_dropdown "Dark dropdown", theme: :dark, open: true, class: 'open-dropdown-example' do |d|
+            d.link "Action 1", url: '#action-1'
+            d.link "Action 2", url: '#action-2', state: :active
+            d.link "Action 3", url: '#action-3'
+          end
+      - c.html do
+        :plain
+          <div class="open-dropdown-example dropdown show">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown-18744">Dark dropdown</button>
+            <div class="dropdown-menu dropdown-menu-dark show" arial-labelledby="dropdown-18744">
+              <a class="dropdown-item" href="#action-1">Action 1</a>
+              <a class="active dropdown-item" href="#action-2">Action 2</a>
+              <a class="dropdown-item" href="#action-3">Action 3</a>
+            </div>
+          </div>
+
 = @sections.render
