@@ -44,7 +44,7 @@
 
   - s.section title: "Options" do
     :markdown
-      A column can take several arguments :
+      A column can take several arguments [<code>Hash</code>/<code>Integer</code>]:
 
       * num - Integer/Symbol (1..12 || :auto)
       * offset - Integer (1..12)
@@ -54,31 +54,43 @@
     = example do |c|
       - c.header do
         = ui_row class: 'test' do
-          = ui_col({ num: 10, offset: 2 }, { class: 'test-col' }) do
+          = ui_col 3 do
             Col 1
-          = ui_col 'Col 2', { num: 2, pull: 4 }, { class: 'test-col2' }
+          = ui_col({ num: 10, offset: 2 }, { class: 'test-col' }) do
+            Col 2
+          = ui_col 'Col 3', { num: 2, pull: 4 }, { class: 'test-col2' }
       - c.code do
         :plain
           ui_row class: "test" do
-            ui_col({ num: 10, offset: 2 }, { class: "test-col" }) do
+            ui_col 3 do
               Col 1
             end
-            ui_col "Col 2", { num: 2, pull: 4 }, { class: "test-col2" }
+            ui_col({ num: 10, offset: 2 }, { class: "test-col" }) do
+              Col 2
+            end
+            ui_col "Col 3", { num: 2, pull: 4 }, { class: "test-col2" }
           end
       - c.html do
         :plain
           <div class="test row">
-            <div class="test-col col-10 offset-2">Col 1</div>
-            <div class="test-col2 col-2 col-pull-4">Col 2</div>
+            <div class="col-3">Col 1</div>
+            <div class="test-col col-10 offset-2">Col 2</div>
+            <div class="test-col2 col-2 col-pull-4">Col 3</div>
           </div>
 
   - s.section title: "Col with differents sizes" do
     :markdown
       To add multiple sizes of columns, you must use arguments :
 
-    %ul
+    = component_list_options do |co|
+      - co.list "num", types: :integer
       - UiBibzApp::Application::BREAKPOINTS.each do |breakpoint|
-        %li :#{breakpoint}
+        - co.list breakpoint, types: 'hash', tap: true do |cl|
+          - cl.list "num", types: :integer, values: "1..12 || :auto"
+          - cl.list "offset", types: :integer, values: "1..12"
+          - cl.list "pull", types: :integer, values: "1..12"
+          - cl.list "push", types: :integer, values: "1..12"
+
     = example do |c|
       - c.header do
         = ui_row class: 'test' do

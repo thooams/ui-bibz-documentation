@@ -28,6 +28,9 @@
 = component_options do |co|
   - co.list 'gutters', types: %w(integer hash)
   - co.tap_link "(if you want to add <code>col</code> item.)"
+  - co.list "num", types: :integer
+  - UiBibzApp::Application::BREAKPOINTS.each do |breakpoint|
+    - co.list breakpoint, types: 'hash'
   - co.cache_link
   - co.stimulus_controller_link
   - co.stimulus_action_link
