@@ -26,13 +26,7 @@
     end
 
 = component_options do |co|
-  - co.list 'gutters', types: %w(integer hash), tap: true do |ci|
-    - ci.list "num", types: :integer
-    - ci.list "position", types: :symbole, values: %w(:vertical :horizontal)
-    - UiBibzApp::Application::BREAKPOINTS.each do |breakpoint|
-      - ci.list breakpoint, types: 'hash', tap: true do |cl|
-        - cl.list "num", types: :integer
-        - cl.list "position", types: :symbole, values: %w(:vertical :horizontal)
+  - co.list 'gutters', types: %w(integer hash)
   - co.tap_link "(if you want to add <code>col</code> item.)"
   - co.cache_link
   - co.stimulus_controller_link
@@ -84,6 +78,12 @@
           </div>
 
   - s.section title: "Size" do
+    %p Cols accept an <code>integer</code> or a <code>hash</code>:
+    = component_list_options do |co|
+      - co.list "num", types: :integer
+      - UiBibzApp::Application::BREAKPOINTS.each do |breakpoint|
+        - co.list breakpoint, types: 'hash', tap: true do |cl|
+          - cl.list "num", types: :integer
     = example do |c|
       - c.header do
         = ui_row 1, class: 'test' do
@@ -131,7 +131,16 @@
             </div>
           </div>
 
-  - s.section title: "gutters" do
+  - s.section title: "Gutters" do
+    %p Gutters accept an <code>integer</code> or a <code>hash</code>:
+    = component_list_options do |co|
+      - co.list "num", types: :integer
+      - co.list "position", types: :symbole, values: %w(:vertical :horizontal)
+      - UiBibzApp::Application::BREAKPOINTS.each do |breakpoint|
+        - co.list breakpoint, types: 'hash', tap: true do |cl|
+          - cl.list "num", types: :integer
+          - cl.list "position", types: :symbole, values: %w(:vertical :horizontal)
+
     = example do |c|
       - c.header do
         = ui_container class: "border" do
