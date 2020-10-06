@@ -138,11 +138,11 @@
     %p Gutters accept an <code>integer</code> or a <code>hash</code>:
     = component_list_options do |co|
       - co.list "num", types: :integer
-      - co.list "position", types: :symbole, values: %w(:vertical :horizontal)
+      - co.list "position", types: :symbol, values: %w(:vertical :horizontal)
       - UiBibzApp::Application::BREAKPOINTS.each do |breakpoint|
         - co.list breakpoint, types: 'hash', tap: true do |cl|
           - cl.list "num", types: :integer
-          - cl.list "position", types: :symbole, values: %w(:vertical :horizontal)
+          - cl.list "position", types: :symbol, values: %w(:vertical :horizontal)
 
     = example do |c|
       - c.header do

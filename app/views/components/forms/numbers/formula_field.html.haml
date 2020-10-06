@@ -8,9 +8,9 @@
 = code "ui_formula_field", component_name: "name"
 
 = component_options do |co|
-  - co.status_link
-  - co.state_link
-  - co.list 'ui_formula_field_name', types: 'symbole'
+  - co.list "status", types: :symbol, values: %w[:success :danger]
+  - co.list 'state', types: :symbol, values: %w[:active :disabled :valid :invalid]
+  - co.list 'ui_formula_field_name', types: :symbol
   - co.cache_link
   - co.stimulus_controller_link
   - co.stimulus_action_link
@@ -43,15 +43,26 @@
             = ui_formula_field 'value', status: :danger
       - e.code do
         ui_formula_field "value", status: :success
+        ui_formula_field 'value', status: :danger
       - e.html do
-        <div class="input-group has-success ui_formula_field">
-          <input type="text" name="value" id="value" value="" placeholder="Type your formula..." class="ui_formula_field_input form-control">
-          <span class="ui_formula_field_sign input-group-addon">=</span>
-          <input type="text" name="value_formula" id="another_value_formula" value="" readonly="readonly" class="ui_formula_field_result form-control">
-          <span class="ui_formula_field_alert input-group-addon" data-toggle="tooltip">
-            <i class="glyph-danger glyph fa fa-exclamation-triangle"></i>
-          </span>
-        </div>
+        :plain
+          <div class="formula_field is-valid input-group ui_surround_field">
+            <input type="text" name="value_formula" id="value_formula" class="is-valid formula-field form-control">
+            <span class="formula-field-sign input-group-text" style="display: none;">=</span>
+            <input type="text" name="value" id="value" class="formula-field-result form-control" readonly="readonly" style="visible: hidden">
+            <span data-toggle="tooltip" class="formula-field-alert input-group-text" style="display: none;" data-original-title="" title="">
+              <i class="glyph-danger glyph fas fa-exclamation-triangle"></i>
+            </span>
+          </div>
+
+          <div class="formula_field is-invalid input-group ui_surround_field">
+            <input type="text" name="value_formula" id="value_formula" class="is-invalid formula-field form-control">
+            <span class="formula-field-sign input-group-text" style="display: none;">=</span>
+            <input type="text" name="value" id="value" class="formula-field-result form-control" readonly="readonly" style="visible: hidden">
+            <span data-toggle="tooltip" class="formula-field-alert input-group-text" style="display: none;" data-original-title="" title="">
+              <i class="glyph-danger glyph fas fa-exclamation-triangle"></i>
+            </span>
+          </div>
 
   - s.section title: "Formula Field State" do
     = example do |e|
@@ -66,16 +77,48 @@
           = ui_col num: 6 do
             = ui_formula_field 'value', state: :invalid
       - e.code do
-        ui_formula_field "value", status: :success
+        :plain
+          ui_formula_field 'value', state: :active
+          ui_formula_field 'value', state: :disabled
+          ui_formula_field 'value', state: :valid
+          ui_formula_field 'value', state: :invalid
       - e.html do
-        <div class="input-group has-success ui_formula_field">
-          <input type="text" name="value" id="value" value="" placeholder="Type your formula..." class="ui_formula_field_input form-control">
-          <span class="ui_formula_field_sign input-group-addon">=</span>
-          <input type="text" name="value_formula" id="another_value_formula" value="" readonly="readonly" class="ui_formula_field_result form-control">
-          <span class="ui_formula_field_alert input-group-addon" data-toggle="tooltip">
-            <i class="glyph-danger glyph fa fa-exclamation-triangle"></i>
-          </span>
-        </div>
+        :plain
+          <div class="formula_field active input-group ui_surround_field">
+            <input type="text" name="value_formula" id="value_formula" class="active formula-field form-control">
+            <span class="formula-field-sign input-group-text" style="display: none;">=</span>
+            <input type="text" name="value" id="value" class="formula-field-result form-control" readonly="readonly" style="visible: hidden">
+            <span data-toggle="tooltip" class="formula-field-alert input-group-text" style="display: none;" data-original-title="" title="">
+              <i class="glyph-danger glyph fas fa-exclamation-triangle"></i>
+            </span>
+          </div>
+
+          <div class="formula_field disabled input-group ui_surround_field">
+            <input type="text" name="value_formula" id="value_formula" class="disabled formula-field form-control" disabled="disabled">
+            <span class="formula-field-sign input-group-text" style="display: none;">=</span>
+            <input type="text" name="value" id="value" class="formula-field-result form-control" disabled="disabled" readonly="readonly" style="visible: hidden">
+            <span data-toggle="tooltip" class="formula-field-alert input-group-text" style="display: none;" data-original-title="" title="">
+              <i class="glyph-danger glyph fas fa-exclamation-triangle"></i>
+            </span>
+          </div>
+
+          <div class="formula_field is-valid input-group ui_surround_field">
+            <input type="text" name="value_formula" id="value_formula" class="is-valid formula-field form-control">
+            <span class="formula-field-sign input-group-text" style="display: none;">=</span>
+            <input type="text" name="value" id="value" class="formula-field-result form-control" readonly="readonly" style="visible: hidden">
+            <span data-toggle="tooltip" class="formula-field-alert input-group-text" style="display: none;" data-original-title="" title="">
+              <i class="glyph-danger glyph fas fa-exclamation-triangle"></i>
+            </span>
+          </div>
+
+          <div class="formula_field is-invalid input-group ui_surround_field">
+            <input type="text" name="value_formula" id="value_formula" class="is-invalid formula-field form-control">
+            <span class="formula-field-sign input-group-text" style="display: none;">=</span>
+            <input type="text" name="value" id="value" class="formula-field-result form-control" readonly="readonly" style="visible: hidden">
+            <span data-toggle="tooltip" class="formula-field-alert input-group-text" style="display: none;" data-original-title="" title="">
+              <i class="glyph-danger glyph fas fa-exclamation-triangle"></i>
+            </span>
+          </div>
 
   - s.section title: "Formula Field Options" do
     = example do |e|
