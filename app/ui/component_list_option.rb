@@ -61,7 +61,7 @@ class ComponentListOption < UiBibz::Ui::Core::Component
   end
 
   def tap_link text = nil
-    list('tap', { types: :boolean, description: "#{ UiBibz::Ui::Core::Notifications::Badge.new('Required', status: :danger).render } #{ text || '(if you want add <code>header</code>, <code>body</code> or <code>footer</code> item.)' }".html_safe })
+    list('tap', { types: :boolean, description: "#{ UiBibz::Ui::Core::Notifications::Badge.new('Required', status: :danger).render } #{ text || '(if you want to add <code>header</code>, <code>body</code> or <code>footer</code> item.)' }".html_safe })
   end
 
   def inherit_component name = nil, path = nil, other_name = nil

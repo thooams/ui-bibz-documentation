@@ -36,7 +36,35 @@
   - s.section title: "Formula Field Status" do
     = example do |e|
       - e.header do
-        = ui_formula_field 'value', status: :success
+        = ui_row do
+          = ui_col do
+            = ui_formula_field 'value', status: :success
+          = ui_col do
+            = ui_formula_field 'value', status: :danger
+      - e.code do
+        ui_formula_field "value", status: :success
+      - e.html do
+        <div class="input-group has-success ui_formula_field">
+          <input type="text" name="value" id="value" value="" placeholder="Type your formula..." class="ui_formula_field_input form-control">
+          <span class="ui_formula_field_sign input-group-addon">=</span>
+          <input type="text" name="value_formula" id="another_value_formula" value="" readonly="readonly" class="ui_formula_field_result form-control">
+          <span class="ui_formula_field_alert input-group-addon" data-toggle="tooltip">
+            <i class="glyph-danger glyph fa fa-exclamation-triangle"></i>
+          </span>
+        </div>
+
+  - s.section title: "Formula Field State" do
+    = example do |e|
+      - e.header do
+        = ui_row gutters: 2 do
+          = ui_col 6 do
+            = ui_formula_field 'value', state: :active
+          = ui_col num: 6 do
+            = ui_formula_field 'value', state: :disabled
+          = ui_col num: 6 do
+            = ui_formula_field 'value', state: :valid
+          = ui_col num: 6 do
+            = ui_formula_field 'value', state: :invalid
       - e.code do
         ui_formula_field "value", status: :success
       - e.html do

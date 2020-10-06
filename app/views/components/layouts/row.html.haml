@@ -26,10 +26,21 @@
     end
 
 = component_options do |co|
+  - co.list 'gutters', types: %w(integer hash), tap: true do |ci|
+    - ci.list "num", types: :integer
+    - ci.list "position", types: :symbole, values: %w(:vertical :horizontal)
+    - UiBibzApp::Application::BREAKPOINTS.each do |breakpoint|
+      - ci.list breakpoint, types: 'hash', tap: true do |cl|
+        - cl.list "num", types: :integer
+        - cl.list "position", types: :symbole, values: %w(:vertical :horizontal)
+  - co.tap_link "(if you want to add <code>col</code> item.)"
   - co.cache_link
   - co.stimulus_controller_link
   - co.stimulus_action_link
   - co.stimulus_target_link
+
+= component_items do |ci|
+  - ci.inherit_component 'col'
 
 - @sections = sections do |s|
   - s.section title: "Row" do
@@ -75,7 +86,7 @@
   - s.section title: "Size" do
     = example do |c|
       - c.header do
-        = ui_row({ num: 1 }, class: 'test') do
+        = ui_row 1, class: 'test' do
           = ui_col 'Col 1'
           = ui_col 'Col 2'
           = ui_col 'Col 3'
@@ -86,7 +97,7 @@
           = ui_col 'Col 3'
       - c.code do
         :plain
-          ui_row({ num: 1 }, class: 'test') do
+          ui_row 1, class: 'test' do
             ui_col 'Col 1'
             ui_col 'Col 2'
             ui_col 'Col 3'
@@ -120,32 +131,39 @@
             </div>
           </div>
 
-  - s.section title: "Gutter" do
+  - s.section title: "gutters" do
     = example do |c|
       - c.header do
         = ui_container class: "border" do
-          = ui_row gutter: { num: 2 }, class: "test" do
+          = ui_row gutters: 3, class: "test" do
             = ui_col 'col 1', num: 6
             = ui_col 'col 2', num: 6
             = ui_col 'col 3', num: 6
             = ui_col 'col 4', num: 6
         %br
         = ui_container class: "border" do
-          = ui_row gutter: { num: 4, position: :horizontal }, class: "test" do
+          = ui_row gutters: { num: 2 }, class: "test" do
             = ui_col 'col 1', num: 6
             = ui_col 'col 2', num: 6
             = ui_col 'col 3', num: 6
             = ui_col 'col 4', num: 6
         %br
         = ui_container class: "border" do
-          = ui_row gutter: {md: { num: 1 }}, class: "test" do
+          = ui_row gutters: { num: 4, position: :horizontal }, class: "test" do
             = ui_col 'col 1', num: 6
             = ui_col 'col 2', num: 6
             = ui_col 'col 3', num: 6
             = ui_col 'col 4', num: 6
         %br
         = ui_container class: "border" do
-          = ui_row gutter: {md: { num: 5, position: :vertical }, xs: { num: 3}}, class: "test" do
+          = ui_row gutters: {md: { num: 1 }}, class: "test" do
+            = ui_col 'col 1', num: 6
+            = ui_col 'col 2', num: 6
+            = ui_col 'col 3', num: 6
+            = ui_col 'col 4', num: 6
+        %br
+        = ui_container class: "border" do
+          = ui_row gutters: {md: { num: 5, position: :vertical }, xs: { num: 3}}, class: "test" do
             = ui_col 'col 1', num: 6
             = ui_col 'col 2', num: 6
             = ui_col 'col 3', num: 6
@@ -153,7 +171,7 @@
       - c.code do
         :plain
           ui_container class: "border" do
-            ui_row gutter: { num: 2 }, class: "test" do
+            ui_row gutters: 3, class: "test" do
               ui_col 'col 1', num: 6
               ui_col 'col 2', num: 6
               ui_col 'col 3', num: 6
@@ -162,7 +180,7 @@
           end
 
           ui_container class: "border" do
-            ui_row gutter: { num: 4, position: :horizontal }, class: "test" do
+            ui_row gutters: { num: 2 }, class: "test" do
               ui_col 'col 1', num: 6
               ui_col 'col 2', num: 6
               ui_col 'col 3', num: 6
@@ -171,7 +189,7 @@
           end
 
           ui_container class: "border" do
-            ui_row gutter: {md: { num: 1 }}, class: "test" do
+            ui_row gutters: { num: 4, position: :horizontal }, class: "test" do
               ui_col 'col 1', num: 6
               ui_col 'col 2', num: 6
               ui_col 'col 3', num: 6
@@ -180,7 +198,16 @@
           end
 
           ui_container class: "border" do
-            ui_row gutter: {md: { num: 5, position: :vertical }, xs: { num: 3}}, class: "test" do
+            ui_row gutters: {md: { num: 1 }}, class: "test" do
+              ui_col 'col 1', num: 6
+              ui_col 'col 2', num: 6
+              ui_col 'col 3', num: 6
+              ui_col 'col 4', num: 6
+            end
+          end
+
+          ui_container class: "border" do
+            ui_row gutters: {md: { num: 5, position: :vertical }, xs: { num: 3}}, class: "test" do
               ui_col 'col 1', num: 6
               ui_col 'col 2', num: 6
               ui_col 'col 3', num: 6
@@ -189,6 +216,15 @@
           end
       - c.html do
         :plain
+          <div class="border container">
+            <div class="test row g-3">
+              <div class="col-6">col 1</div>
+              <div class="col-6">col 2</div>
+              <div class="col-6">col 3</div>
+              <div class="col-6">col 4</div>
+            </div>
+          </div>
+
           <div class="border container">
             <div class="test row g-2">
               <div class="col-6">col 1</div>
