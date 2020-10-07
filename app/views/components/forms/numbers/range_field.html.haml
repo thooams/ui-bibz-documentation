@@ -44,6 +44,56 @@
         <input type="range" name="range" id="range" value="8" class="custom-range" min="0" max="100">
         <input type="range" name="range" id="range" value="6" class="custom-range" min="5" max="10" step="0.2">
 
+  - s.section title: "Tick" do
+    = example do |e|
+      - e.header do
+        = ui_range_field 'range', min: -10, max: 10, step: 2, value: 2, tick: true
+      - e.code do
+        ui_range_field 'range', min: -10, max: 10, step: 2, value: 2, tick: true
+      - e.html do
+        :plain
+          <input type="range" name="range" id="range" value="2" class="form-range" min="-10" max="10" step="2" list="range-69986-list">
+          <datalist id="range-69986-list">
+            <option value="-10" label="-10">-10</option>
+            <option value="-8"></option>
+            <option value="-6"></option>
+            <option value="-4"></option>
+            <option value="-2"></option>
+            <option value="0" label="0">0</option>
+            <option value="2"></option>
+            <option value="4"></option>
+            <option value="6"></option>
+            <option value="8"></option>
+            <option value="10" label="10">10</option>
+          </datalist>
+
+  - s.section title: "double range" do
+    = example do |e|
+      - e.header do
+        = ui_slider_field "percentage"
+        -# :plain
+        -#   <div class="slider-header" data-target="slider-distance">
+        -#     <div class="slider-header-min">
+        -#       <label>Min:</label> <span class="slider-min-value">0</span>
+        -#     </div>
+        -#     <div class="slider-header-max">
+        -#       <label>Max:</label> <span class="slider-max-value">100</span>
+        -#     </div>
+        -#   </div>
+        -#   <div id="slider-distance" class="slider">
+        -#     <div>
+        -#       <div style="width:70%;" class="slider-inverse-left"></div>
+        -#       <div style="width:70%;" class="slider-inverse-right"></div>
+        -#       <div style="left:30%;right:40%;" class="slider-range"></div>
+        -#       <span style="left:30%;" class="slider-thumb slider-thumb-left"></span>
+        -#       <span style="left:60%;" class="slider-thumb slider-thumb-right"></span>
+        -#     </div>
+        -#     <input type="range" tabindex="0" value="30" max="100" min="0" step="1"/>
+        -#     <input type="range" tabindex="0" value="60" max="100" min="0" step="1" />
+        -#   </div>
+      - e.code do
+        ""
+
   - s.section title: "Simple form" do
     %p= simple_form_text_with_input "ui_range_field"
     = example do |e|
