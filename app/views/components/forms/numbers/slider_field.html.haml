@@ -28,7 +28,18 @@
       - e.code do
         ui_slider_field "price"
       - e.html do
-        <input type="range" name="range" id="range" class="custom-range">
+        :plain
+          <div class="slider">
+            <div>
+              <div class="slider-inverse-left" style="width: 100%"></div>
+              <div class="slider-inverse-right" style="width: 100%"></div>
+              <div class="slider-range" style="left: 0%; right: 0%"></div>
+              <div class="slider-thumb slider-thumb-left" style="left: 0%"></div>
+              <div class="slider-thumb slider-thumb-right" style="left: 100%"></div>
+            </div>
+            <input type="range" name="price_min" id="price_min" value="0" max="100" min="0" step="1">
+            <input type="range" name="price_max" id="price_max" value="100" max="100" min="0" step="1">
+          </div>
 
   - s.section title: "Thumb min and max" do
     = example do |e|
@@ -37,9 +48,30 @@
         = ui_slider_field 'price', { thumb_min: 30, thumb_max: 70 }, { id: "price" }
       - e.code do
         ui_slider_header target: "price", thumb_min: 30, thumb_max: 70
-        ui_slider_field 'price', thumb_min: 30, thumb_max: 70
+        ui_slider_field 'price', { thumb_min: 30, thumb_max: 70 }, { id: "price" }
       - e.html do
-        <input type="range" name="range" id="range" class="custom-range">
+        :plain
+          <div data-target="price" class="slider-header">
+            <div class="slider-header-min">
+              <label>Min: </label>
+              <span>30</span>
+            </div>
+            <div class="slider-header-max">
+              <label>max: </label>
+              <span>70</span>
+            </div>
+          </div>
+          <div id="price" class="slider">
+            <div>
+              <div class="slider-inverse-left" style="width: 100%"></div>
+              <div class="slider-inverse-right" style="width: 100%"></div>
+              <div class="slider-range" style="left: 30%; right: 30%"></div>
+              <div class="slider-thumb slider-thumb-left" style="left: 30%"></div>
+              <div class="slider-thumb slider-thumb-right" style="left: 70%"></div>
+            </div>
+            <input type="range" name="price_min" id="price_min" value="30" max="100" min="0" step="1">
+            <input type="range" name="price_max" id="price_max" value="70" max="100" min="0" step="1">
+          </div>
 
   - s.section title: "Options" do
     %p The <code>ui_slider_header</code> options:
@@ -66,7 +98,28 @@
         ui_slider_header target: "sensor", thumb_min: -60, thumb_max: 100, class: "slider-header-inline", label_min: "Price min.", label_max: "Price max."
         ui_slider_field 'sensor', min: -120, thumb_min: -60, thumb_max: 100, max: 120, step: 20
       - e.html do
-        <input type="range" name="range" id="range" class="custom-range">
+        :plain
+          <div data-target="sensor" class="slider-header-inline slider-header">
+            <div class="slider-header-min">
+              <label>Temp min.</label>
+              <span>-60</span>
+            </div>
+            <div class="slider-header-max">
+              <label>Temp max.</label>
+              <span>100</span>
+            </div>
+          </div>
+          <div id="sensor" class="slider" min="-120" max="120" step="20">
+            <div>
+              <div class="slider-inverse-left" style="width: 100%"></div>
+              <div class="slider-inverse-right" style="width: 100%"></div>
+              <div class="slider-range" style="left: 25%; right: 8%"></div>
+              <div class="slider-thumb slider-thumb-left" style="left: 25%"></div>
+              <div class="slider-thumb slider-thumb-right" style="left: 92%"></div>
+            </div>
+            <input type="range" name="sensor_min" id="sensor_min" value="-60" max="120" min="-120" step="20">
+            <input type="range" name="sensor_max" id="sensor_max" value="100" max="120" min="-120" step="20">
+          </div>
 
   - s.section title: "State" do
     = example do |e|
@@ -75,7 +128,18 @@
       - e.code do
         ui_slider_field 'age', state: :disabled
       - e.html do
-        <input type="range" name="range" id="range" class="custom-range">
+        :plain
+          <div class="disabled slider">
+            <div>
+              <div class="slider-inverse-left" style="width: 100%"></div>
+              <div class="slider-inverse-right" style="width: 100%"></div>
+              <div class="slider-range" style="left: 30%; right: 30%"></div>
+              <div class="slider-thumb slider-thumb-left" style="left: 30%"></div>
+              <div class="slider-thumb slider-thumb-right" style="left: 70%"></div>
+            </div>
+            <input type="range" name="age_min" id="age_min" value="30" max="100" min="0" step="1" disabled="disabled">
+            <input type="range" name="age_max" id="age_max" value="70" max="100" min="0" step="1" disabled="disabled">
+          </div>
 
   - s.section title: "Simple form" do
     %p= simple_form_text_with_input "ui_slider_field"
