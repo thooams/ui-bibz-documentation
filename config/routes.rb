@@ -54,6 +54,7 @@ Rails.application.routes.draw do
         get 'formula-field'
         get 'number-field'
         get 'range-field'
+        get 'slider-field'
       end
 
       # selects
