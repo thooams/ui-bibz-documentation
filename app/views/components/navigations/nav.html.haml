@@ -38,6 +38,7 @@
   - ci.inherit_component 'nav', components_navigations_nav_path
   - ci.inherit_component 'dropdown', components_forms_dropdowns_dropdown_path
   - ci.list 'spacer'
+  - ci.html_link
 
 - @sections = sections do |s|
   - s.section title: "Nav" do
@@ -85,8 +86,10 @@
       - clo.list inherit_component_link('link') do |cl|
         - cl.list 'url', required: true
         - cl.state_link
+        - cl.html_link
       - clo.list inherit_specific_component_link('dropdown', components_forms_dropdowns_dropdown_path)
       - clo.list inherit_specific_component_link('nav', components_navigations_nav_path)
+      - clo.html_link
 
   - s.section title: "Link" do
     = example do |c|

@@ -44,6 +44,7 @@
   - ci.list 'spacer', types: %w(integer), values: %w(nil 1 2 3 4 5 6)
   - ci.list 'form' do |cli|
     - cli.list 'type', types: 'symbol', values: %w(:form_for :ui_form_for :form_tag), default: ":form_tag"
+  - ci.html_link
 
 
 - @sections = sections do |s|

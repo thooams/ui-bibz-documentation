@@ -72,13 +72,16 @@
   - ci.inherit_component 'footer'
   - ci.inherit_component 'image'
   - ci.inherit_component 'list_group', components_layouts_row_path
+  - ci.html_link
   - ci.list 'row', types: ['content', 'hash'], description: "(inherit of #{link_to('row', components_layouts_row_path)})" do |clo|
+    - clo.html_link
     - clo.list 'col', types: ['content', 'hash'] do |clu|
       - clu.inherit_component 'header'
       - clu.inherit_component 'body'
       - clu.inherit_component 'footer'
       - clu.inherit_component 'image'
       - clu.inherit_component 'list_group'
+      - clu.html_link
 
 - @sections = sections do |s|
   - s.section title: "Card" do
@@ -236,6 +239,7 @@
       - ci.inherit_component 'subtitle'
       - ci.inherit_component 'text'
       - ci.inherit_component 'link', components_navigations_link_path
+      - ci.html_link
 
     = example do |e|
       - e.header do

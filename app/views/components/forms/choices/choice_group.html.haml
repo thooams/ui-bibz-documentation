@@ -23,6 +23,10 @@
   - co.stimulus_action_link
   - co.stimulus_target_link
 
+= component_items do |ci|
+  - ci.list "choice"
+  - ci.html_link
+
 - @sections = sections do |s|
   - s.section title: "Checkbox buttons" do
     = example do |c|

@@ -55,6 +55,10 @@ class ComponentListOption < UiBibz::Ui::Core::Component
     list('state', { types: :symbol, values: %w(:disabled :active), description: "(use component #{ option_link('state') } method)" })
   end
 
+  def html_link
+    list('html', { types: %i[html string], description: "Insert html as component"})
+  end
+
   def append_and_prepend_list
     list('append', types: 'html', description: "Add a content before the field")
     list('prepend', types: 'html', description: "Add a content after the field")

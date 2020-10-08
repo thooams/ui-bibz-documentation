@@ -28,6 +28,7 @@
 = component_items do |ci|
   - ci.inherit_component 'tab', components_navigations_link_path, 'link'
   - ci.inherit_component 'dropdown', components_forms_dropdowns_dropdown_path
+  - ci.html_link
 
 - @sections = sections do |s|
   - s.section title: "Tab group" do

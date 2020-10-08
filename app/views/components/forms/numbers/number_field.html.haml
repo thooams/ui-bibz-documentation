@@ -4,6 +4,7 @@
 = code "ui_number_field", component_name: "name"
 
 = component_options do |co|
+  - co.state_link
   - co.list 'value', types: 'string', description: "Input's value"
   - co.list 'min', types: %w(integer float), description: "The minimum acceptable value"
   - co.list 'max', types: %w(integer float), description: "The maximum acceptable value"

@@ -31,6 +31,7 @@
 = component_items do |ci|
   - ci.inherit_component 'button_group', components_forms_buttons_button_group_path
   - ci.list 'spacer'
+  - ci.html_link
   - ci.list 'form' do |cli|
     - cli.list 'type', types: 'symbol', values: %w(:form_for :ui_form_for :form_tag), default: ":form_tag"
 
