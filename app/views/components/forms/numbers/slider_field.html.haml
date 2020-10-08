@@ -4,17 +4,24 @@
 = code "ui_range_field", component_name: "name"
 
 = component_options do |co|
-  - co.list 'value', types: 'string', description: "Input's value"
+  - co.state_link
   - co.list 'min', types: %w(integer float), description: "The minimum acceptable value"
   - co.list 'max', types: %w(integer float), description: "The maximum acceptable value"
   - co.list 'thumb_min', types: %w(integer float), description: "Placement of the min thumb"
   - co.list 'thumb_max', types: %w(integer float), description: "Placement of the min thumb"
-  - co.list 'in', types: 'array', description: "A range specifying the :min and :max values."
-  - co.list 'within', types: 'array', description: "Same as :in"
   - co.list 'step', types: %w(integer float), description: "The acceptable value granularity."
+  - co.list "input_name_min", types: :string, description: "Override the name of the first input"
+  - co.list "input_name_max", types: :string, description: "Override the name of the last input"
 
 - @sections = sections do |s|
   - s.section title: "Slider Field" do
+    %p
+      By default, <code>ui_slider_field</code> generate 2 inputs with suffix names: <b>_min</b> and <b>_max</b>:
+      %br
+      Eq. <code>ui_slider_field "price"</code> will generate two inputs with <b>price_min</b> and <b>price_max</b> name.
+      %br
+      You can override these inputs with the options: <code>input_name_min</code> and <code>input_name_max</code>.
+
     = example do |e|
       - e.header do
         = ui_slider_field 'price'
@@ -54,10 +61,10 @@
     = example do |e|
       - e.header do
         = ui_slider_header target: "sensor", thumb_min: -60, thumb_max: 100, class: "slider-header-inline", label_min: "Temp min.", label_max: "Temp max."
-        = ui_slider_field 'sensor', { min: -120, thumb_min: -60, thumb_max: 100, max: 120 }, { id: "sensor"}
+        = ui_slider_field 'sensor', { min: -120, thumb_min: -60, thumb_max: 100, max: 120, step: 20 }, { id: "sensor"}
       - e.code do
         ui_slider_header target: "sensor", thumb_min: -60, thumb_max: 100, class: "slider-header-inline", label_min: "Price min.", label_max: "Price max."
-        ui_slider_field 'sensor', min: -120, thumb_min: -60, thumb_max: 100, max: 120
+        ui_slider_field 'sensor', min: -120, thumb_min: -60, thumb_max: 100, max: 120, step: 20
       - e.html do
         <input type="range" name="range" id="range" class="custom-range">
 
@@ -69,5 +76,18 @@
         ui_slider_field 'age', state: :disabled
       - e.html do
         <input type="range" name="range" id="range" class="custom-range">
+
+  - s.section title: "Simple form" do
+    %p= simple_form_text_with_input "ui_slider_field"
+    = example do |e|
+      - e.header do
+        = ui_form_for(@user) do |f|
+          - f.input :name, as: :ui_slider_field, label: "Age"
+      - e.code do
+        ui_form_for(@search) do |f|
+          ...
+          f.input :name, as: :ui_number_field
+          ...
+        end
 
 = @sections.render
