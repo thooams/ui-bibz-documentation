@@ -56,7 +56,7 @@ class ComponentListOption < UiBibz::Ui::Core::Component
   end
 
   def html_link
-    list('html', { types: %i[html string], description: "Insert html as component"})
+    list('html', { types: %i[html string], description: "Insert html as a component"})
   end
 
   def append_and_prepend_list
