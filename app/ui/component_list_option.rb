@@ -43,9 +43,6 @@ class ComponentListOption < UiBibz::Ui::Core::Component
     list(link_to("table_options", components_tables_table_path), { types: :hash })
   end
 
-  def gutters_link
-  end
-
   def size_link
     list('size', { types: :symbol, values: UiBibzApp::Application::SIZES.map{ |a| ":#{a}" }, description: "(use component #{ option_link('size') } method)" })
   end
