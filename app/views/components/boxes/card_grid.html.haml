@@ -19,6 +19,7 @@
   - co.list 'md', types: 'hash'
   - co.list 'lg', types: 'hash'
   - co.list 'xl', types: 'hash'
+  - co.list "gutters", types: %i[integer hash], description: "The same options as the gutters in the #{link_to('row component',  components_layouts_row_path(anchor: 'gutters'))}"
   - co.cache_link
   - co.stimulus_controller_link
   - co.stimulus_action_link
@@ -31,18 +32,20 @@
 - @sections = sections do |s|
   - s.section title: "Card grid" do
 
-    %p= extend_of_component 'card_grid'
+    %p
+      = extend_of_component 'card_grid'
+      Card grid inherit from #{ link_to("row", components_layouts_row_path) } component.
 
     = example do |e|
       - e.header do
-        = ui_card_grid({md: { num: 2}},{ class: 'g-4'}) do |cd|
+        = ui_card_grid(num: 2, gutters: 4) do |cd|
           - 4.times.each do
             - cd.card do |c|
               - c.image image
               - c.body 'This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.'
       - e.code do
         :plain
-          ui_card_grid({md: { num: 2}},{ class: 'g-4'}) do |cd|
+          ui_card_grid(num: 2, gutters: 4) do |cd|
             cd.card do |c|
               c.image "image.svg"
               c.body 'This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.'
