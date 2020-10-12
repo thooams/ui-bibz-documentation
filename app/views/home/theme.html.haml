@@ -71,16 +71,16 @@
 
 %br.clearfix
 
-%h3 Card decks
-= ui_card_deck do |cd|
+%h3 Card grids
+= ui_card_grid do |cd|
   - UiBibzApp::Application::STATUSES.each_with_index do |status, i|
     - if i.even?
       - cd.card status: status do |c|
         - c.body do |b|
           - b.title "Special title treatment"
           - b.text "With supporting text below as a natural lead-in to additional content."
-
-= ui_card_deck do |cd|
+%br
+= ui_card_grid num: 2, gutters: 4 do |cd|
   - UiBibzApp::Application::STATUSES.each_with_index do |status, i|
     - if i.odd?
       - cd.card status: status do |c|
@@ -134,8 +134,8 @@
 %h2 Notifications
 %h3 Alerts
 = ui_row do
-  = ui_col num: 12 do
-    = ui_alert status: :success, glyph: 'thumbs-up', closable: true, do |a|
+  = ui_col 12 do
+    = ui_alert status: :success, glyph: 'thumbs-up', closable: true do |a|
       - a.header 'Well done!'
       - a.body "Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content."
   - UiBibzApp::Application::STATUSES.each_with_index do |status, i|
@@ -146,14 +146,14 @@
       = ui_alert "This is a #{ status.to_s } alert", status: status
 
 = ui_row do
-  = ui_col do
+  = ui_col 7 do
     %h3 Badges
     - UiBibzApp::Application::STATUSES.each_with_index do |status, i|
       = ui_badge status.to_s.titleize, status: status, glyph: 'gem'
     %br
     - UiBibzApp::Application::STATUSES.each_with_index do |status, i|
       = ui_badge status.to_s.titleize, status: status, type: :pill, glyph: 'gem'
-  = ui_col do
+  = ui_col 5 do
     %h3 Progress bars
     = ui_progress_bar 25, status: :success
     %br
@@ -476,13 +476,22 @@
       - d.header 'Header'
       - d.html "     Normal Text"
       - d.link "Separate link", url: '#separate-link'
-    = ui_dropdown "Dropdown Up", size: :sm, type: :dropup, status: :danger do |d|
+    = ui_dropdown "Dropdown dark theme", size: :lg, theme: :dark, inline: true, status: :dark do |d|
       - d.link "Action", url: '#action', glyph: 'gem'
       - d.link "Another action", url: '#another-action'
       - d.divider
       - d.header 'Header'
       - d.html "     Normal Text"
       - d.link "Separate link", url: '#separate-link'
+    %br
+    - %i[dropdown dropup dropleft dropright].each do |type|
+      = ui_dropdown type.to_s.titleize, size: :sm, type: type, inline: true, status: :danger do |d|
+        - d.link "Action", url: '#action', glyph: 'gem'
+        - d.link "Another action", url: '#another-action'
+        - d.divider
+        - d.header 'Header'
+        - d.html "     Normal Text"
+        - d.link "Separate link", url: '#separate-link'
 
   = ui_col do
     %h3 Split Dropdowns
@@ -517,43 +526,11 @@
 %br.clearfix
 
 %h3 Inputs
-= ui_row do
-  = ui_col num: 3 do
+= ui_row num: 3, gutters: 4 do
+  = ui_col do
     %h4 Auto Complete #{ exclusiveness }
     = ui_auto_complete_field 'example1', { option_tags: options_for_select(5.times.map{ |i| "option #{i}" }) }, { placeholder: 'Type option..' }
-  = ui_col num: 3 do
-    %h4 Dropdown Select #{ exclusiveness }
-    = ui_dropdown_select_field 'example1', searchable: true, option_tags: options_for_select(5.times.map{ |i| "option #{i}" })
-  = ui_col num: 3 do
-    %h4 Formula  #{ exclusiveness }
-    = ui_formula_field 'value', {}, { formula_field_value: '1+3', placeholder: 'Type your formula...(2+3/2)'}
-  = ui_col num: 3 do
-    %h4 Number
-    = ui_number_field 'value', value: 5, min: 2, max: 6
-  = ui_col num: 3 do
-    %h4 Range
-    = ui_range_field 'value'
-  = ui_col num: 3 do
-    %h4 Multi Select #{ exclusiveness }
-    - grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
-    = ui_multi_select_field 'example', select_all_option: true, searchable: true, collapsible_opt_group: true, option_tags: grouped_options_for_select(grouped_options)
-%br
-= ui_row do
-  = ui_col num: 3 do
-    %h4 Text  #{ exclusiveness }
-    = ui_text_field 'search', { append: ui_glyph('pencil-alt'), prepend: ui_glyph('camera-retro') }, { placeholder: 'Type your search...' }
-  = ui_col num: 3 do
-    %h4 Switch
-    = ui_switch_field 'Switch'
-    %br
-  = ui_col num: 3 do
-    %h4 Box Switch  #{ exclusiveness }
-    = ui_box_switch_field 'box_switch'
-    %br
-  = ui_col num: 3 do
-    %h4 Input File
-    = ui_file_field :file
-  = ui_col num: 3 do
+  = ui_col do
     %h4 Surround  #{ exclusiveness }
     = ui_surround_field do |s|
       - s.glyph 'gem'
@@ -561,14 +538,47 @@
       - s.addon 'To'
       - s.text_field 'text'
       - s.addon '€'
+  = ui_col do
+    %h4 Formula  #{ exclusiveness }
+    = ui_formula_field 'value', {}, { formula_field_value: '1+3', placeholder: 'Type your formula...(2+3/2)'}
+  = ui_col do
+    %h4 Number
+    = ui_number_field 'value', value: 5, min: 2, max: 6
+  = ui_col do
+    %h4 Date Picker  #{ exclusiveness }
+    = ui_date_picker_field 'range', range: ui_glyph('calendar-minus'), append: ui_glyph('car'), prepend: ui_glyph('pencil-alt')
+  = ui_col do
+    %h4 Text  #{ exclusiveness }
+    = ui_text_field 'search', { append: ui_glyph('pencil-alt'), prepend: ui_glyph('camera-retro') }, { placeholder: 'Type your search...' }
+  = ui_col do
+    %h4 Range
+    = ui_range_field 'value'
+  = ui_col do
+    %h4 Slider  #{ exclusiveness }
+    = ui_slider_field 'value', thumb_min: 30, thumb_max: 70
+  = ui_col do
+    %h4 Switch
+    = ui_switch_field 'Switch'
+  = ui_col do
+    %h4 Multi Select #{ exclusiveness }
+    - grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
+    = ui_multi_select_field 'example', select_all_option: true, searchable: true, collapsible_opt_group: true, option_tags: grouped_options_for_select(grouped_options)
+  = ui_col do
+    %h4 Dropdown Select #{ exclusiveness }
+    = ui_dropdown_select_field 'example1', searchable: true, option_tags: options_for_select(5.times.map{ |i| "option #{i}" })
+  = ui_col do
+    %h4 Box Switch  #{ exclusiveness }
+    = ui_box_switch_field 'box_switch'
+    %br
+  = ui_col do
+    %h4 Input File
+    = ui_file_field :file
 
-  = ui_col num: 6 do
+  = ui_col do
     %h4 Markdown Html Editor  #{ exclusiveness }
     = ui_markdown_editor_field 'comments'
     %br
-    %h4 Date Picker  #{ exclusiveness }
-    = ui_date_picker_field 'range', range: ui_glyph('calendar-minus'), append: ui_glyph('car'), prepend: ui_glyph('pencil-alt')
-  = ui_col num: 6 do
+  = ui_col do
     %h4 Multi column  #{ exclusiveness }
     - grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
     = ui_multi_column_field 'example', { option_tags: grouped_options_for_select(grouped_options), searchable: true, selectable_opt_group: true }
@@ -605,7 +615,7 @@
 
 %br.clear
 %h3 Table Cards  #{ exclusiveness }
-= ui_table_card store: @users, title: 'Table card', class: 'table-test', do |b|
+= ui_table_card store: @users, title: 'Table card', class: 'table-test' do |b|
   - b.columns do |cls|
     - cls.column :id
     - cls.column :email
