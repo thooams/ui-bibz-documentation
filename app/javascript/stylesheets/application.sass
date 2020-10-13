@@ -1,7 +1,6 @@
 @import "~ui-bibz-js/sass/ui-bibz"
 @import "stylesheets/components"
 
-auierstaunresatuenr
 .anchorjs-link:hover
   color: #007bff
   font-weight: bold
@@ -131,13 +130,12 @@ $brand-primary-light: rgba(255, 255, 255, 0.15)
 
 // Style pour la page d'accueil
 .pageheader-white
+  margin-top: 120px
   min-height: calc(100vh - 30.7rem)
   h3
     margin-top: 1rem
   padding: 0rem, 4rem, 0, 4rem
   background-color: rgb(255, 255, 255)
-  color: rgb(20, 23, 5)
-  text-align: center
   .slogan
     font-family: Impact
   .columns-white
@@ -325,11 +323,6 @@ blockquote
     margin-bottom: 0px
     margin-right: 10px
 
-.navbar-brand
-  img
-    width: 30px
-    height: 30px
-
 .card-header
   .progress
     margin-bottom: 10px
@@ -348,4 +341,20 @@ blockquote
   .modal
     height: inherit
 
-.uioi
+footer, .page, .sidebar, .content
+  a:not([class]), .anchorjs-link
+    color: #448cca
+
+footer a
+  color: #448cca
+
+.card-header a:not([class])
+  color: $primary
+
+.pageheader-white
+  .bg-primary, .btn-primary
+    background-color: #448cca !important
+    border-color: darken(#448cca, 10) !important
+    color: white
+
+

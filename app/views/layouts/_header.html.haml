@@ -1,12 +1,12 @@
 %header
   = ui_navbar title: UiBibzApp::Application::NAME, position: :top, status: :dark, type: :dark do |nb|
-    - nb.brand image_tag('ui-bibz-logo-30.gif', class: 'rounded')
+    - nb.brand image_tag('brand.png'), url: root_url
     - nb.nav do |n|
       - opts = { url: getting_started_path }
       - opts.merge!({ state: :active }) if params[:action] == 'getting_started'
       - n.link 'Get started', opts
       - opts = { url: components_boxes_card_path }
-      - opts.merge!({ state: :active }) if controller_name == 'components'
+      - opts.merge!({ state: :active }) if params[:controller].scan('components').size > 0
       - n.link 'Components', opts
       - opts = %w(component custom_component).include?(params[:action]) ? { state: :active } : {}
       - n.dropdown 'Component', opts do |d|
@@ -22,7 +22,11 @@
       - opts = { url: theme_path }
       - opts.merge!({ state: :active}) if params[:action] == 'theme'
       - n.link 'Theme', opts
-      - opts = { url: about_path }
+    - nb.spacer
+    - nb.nav do |sn|
+      - opts = { url: about_path, text: false, glyph: "info-circle" }
       - opts.merge!({ state: :active}) if params[:action] == 'about'
-      - n.link 'About', opts
-
+      - sn.link 'About', opts
+      - sn.link "Github", url: "https://github.com/thooams/Ui-Bibz", text: false, glyph: { name: "github", style: :brands }, a_html: { target: "_blank"}
+      - sn.link "Ruby Gem", url: "https://rubygems.org/gems/ui_bibz", text: false, glyph: "gem", a_html: { target: "_blank"}
+      - sn.link "Npm", url: "https://www.npmjs.com/package/ui-bibz-js", text: false, glyph:  { name: "npm", style: :brands }, a_html: { target: "_blank"}

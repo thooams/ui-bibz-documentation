@@ -1,18 +1,23 @@
 {
-  "application.js": "/packs/js/application-e848c549e8051e2a44ad.js",
-  "application.js.map": "/packs/js/application-e848c549e8051e2a44ad.js.map",
+  "application.js": "/packs/js/application-53d63472c757e7fba9be.js",
+  "application.js.map": "/packs/js/application-53d63472c757e7fba9be.js.map",
   "entrypoints": {
     "application": {
       "js": [
-        "/packs/js/application-e848c549e8051e2a44ad.js"
+        "/packs/js/application-53d63472c757e7fba9be.js"
       ],
       "js.map": [
-        "/packs/js/application-e848c549e8051e2a44ad.js.map"
+        "/packs/js/application-53d63472c757e7fba9be.js.map"
       ]
     }
   },
   "media/images/puce.gif": "/packs/media/images/puce-731bb5bcdd442e74befa56f15d017624.gif",
   "media/img/switch.png": "/packs/media/img/switch-a74d0364.png",
+  "media/webfonts/fa-brands-400.eot": "/packs/media/webfonts/fa-brands-400-e2ca6541.eot",
+  "media/webfonts/fa-brands-400.svg": "/packs/media/webfonts/fa-brands-400-2f122423.svg",
+  "media/webfonts/fa-brands-400.ttf": "/packs/media/webfonts/fa-brands-400-8300bd7f.ttf",
+  "media/webfonts/fa-brands-400.woff": "/packs/media/webfonts/fa-brands-400-ad527cc5.woff",
+  "media/webfonts/fa-brands-400.woff2": "/packs/media/webfonts/fa-brands-400-f075c50f.woff2",
   "media/webfonts/fa-regular-400.eot": "/packs/media/webfonts/fa-regular-400-b01516c1.eot",
   "media/webfonts/fa-regular-400.svg": "/packs/media/webfonts/fa-regular-400-3602b7e8.svg",
   "media/webfonts/fa-regular-400.ttf": "/packs/media/webfonts/fa-regular-400-49f00693.ttf",

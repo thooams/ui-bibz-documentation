@@ -6,8 +6,10 @@ export default class App {
   constructor(){
     let me = this
     document.addEventListener("turbolinks:load", function(){
-      me.scrollSidbar()
-      me.anchorsPage()
+      if(document.querySelector(".sidebar")){
+        me.scrollSidbar()
+        me.anchorsPage()
+      }
     })
   }
 

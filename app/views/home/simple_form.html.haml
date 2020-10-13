@@ -44,6 +44,7 @@
     - co.list 'ui_multi_selecte_field', description: '(Ui Bibz)'
     - co.list 'ui_radio_field', description: '(Ui Bibz)'
     - co.list 'ui_select_field', description: '(Ui Bibz)'
+    - co.list 'ui_slider_field', description: '(Ui Bibz)'
     - co.list 'ui_switch_field', description: '(Ui Bibz)'
     - co.list 'ui_text_field', description: '(Ui Bibz)'
   - ci.list 'ui_surround_field'
@@ -204,6 +205,7 @@
       - e.header do
         = ui_form_for @user, url: simple_form_path, method: :get do |f|
           = f.input :email, as: :ui_text_field
+          %br
           = f.ui_button_group do |i|
             - i.button 'Save', status: :danger
             - i.button 'Close', status: :dark

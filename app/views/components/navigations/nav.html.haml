@@ -87,6 +87,7 @@
         - cl.list 'url', required: true
         - cl.state_link
         - cl.html_link
+        - cl.list "a_html", types: :hash, description: "Html attributes for the a tag"
       - clo.list inherit_specific_component_link('dropdown', components_forms_dropdowns_dropdown_path)
       - clo.list inherit_specific_component_link('nav', components_navigations_nav_path)
       - clo.html_link

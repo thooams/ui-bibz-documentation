@@ -14,36 +14,23 @@
       - c.code title: 'Terminal' do
         :plain
           bundle install
-          rails generate ui_bibz:install
+          yarn add ui-bibz-js
 
-    %p
-      <code>rails generate ui_bibz:install</code> generate a config file in <code>config/initializers/ui_bibz.rb</code>.
-      %br
-      <strong>Warning:</strong> If you change <code>fontawesomejs = true</code> to <code>false</code> in this file, you will execute
-      <code>rake tmp:clear</code> in console to refresh files.
+    %h2 Assets Install with webpack
 
-
-    %h2 Assets Install
-
-    Put this line in: <code>/app/assets/stylesheets/applications.css</code>
+    Put this line in: <code>/app/javascript/packs/applications.js</code>
     = example  do |c|
       - c.code title: 'Code' do
         :plain
-          # /app/assets/stylesheets/applications.css
-          *= require ui_bibz
+          # /app/javascript/packs/applications.js
+          ...
 
+          import UiBibzJs from "ui-bibz-js"
+          let uiBibzJs = new UiBibzJs
+          uiBibzJs.start()
 
-    Put this line in: <code>/app/assets/javascripts/applications.js</code>
-    = example  do |c|
-      - c.code title: 'Code' do
-        :plain
-          # /app/assets/javascripts/applications.js
-          //= require ui_bibz
-          uiBibz = new UiBibz()
-          # or with turbolinks
-          uiBibz = new UiBibz({ turbolinks: Turbolinks })
+          ...
 
-          uiBibz.ready()
 
   = ui_col num: 4 do
     %div
@@ -51,7 +38,7 @@
 
         ##Compatibility
 
-        Gem is compatible with [**Ruby**](https://www.ruby-lang.org/ "Ruby") version 2.x.x and [**Ruby On Rails**](http://rubyonrails.org/ "Rails") 4.2.x and 5.x.x.
+        Gem is compatible with [**Ruby**](https://www.ruby-lang.org/ "Ruby") version 2.x.x and [**Ruby On Rails**](http://rubyonrails.org/ "Rails") 6.x.x.
 
     %div
       :markdown
