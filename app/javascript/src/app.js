@@ -6,16 +6,17 @@ export default class App {
   constructor(){
     let me = this
     document.addEventListener("turbolinks:load", function(){
-      if(document.querySelector(".sidebar")){
-        me.scrollSidbar()
+      let sidebar = document.querySelector(".sidebar")
+      if(sidebar){
+        me.scrollSidbar(sidebar)
         me.anchorsPage()
+        me.submenuToggle(sidebar)
       }
     })
   }
 
-  scrollSidbar(){
+  scrollSidbar(sidebar){
     let scrollTop = localStorage.getItem('scrollTop') || 0
-    let sidebar = document.querySelector(".sidebar")
 
     sidebar.scrollTo({top: scrollTop})
 
@@ -30,5 +31,12 @@ export default class App {
       visible: 'always'
     };
     anchors.add('.section > h3')
+  }
+
+  submenuToggle(sidebar){
+    document.querySelector(".submenu-toggler").addEventListener('click', function(){
+       console.log(sidebar)
+       sidebar.closest(".left-nav").classList.toggle("d-none")
+    })
   }
 }
