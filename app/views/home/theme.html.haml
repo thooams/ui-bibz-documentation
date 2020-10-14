@@ -526,7 +526,7 @@
 %br.clearfix
 
 %h3 Inputs
-= ui_row num: 3, gutters: 4 do
+= ui_row num: 2, md: { num: 3 }, sm: { num: 2 }, gutters: 4 do
   = ui_col do
     %h4 Auto Complete #{ exclusiveness }
     = ui_auto_complete_field 'example1', { option_tags: options_for_select(5.times.map{ |i| "option #{i}" }) }, { placeholder: 'Type option..' }
@@ -603,6 +603,7 @@
           - acs.link 'Edit', url: '#show', ui_glyph: 'pencil-alt'
           - acs.link 'Delete', url: '#show', ui_glyph: 'trash',  link_html_options: { data: { confirm: 'Are you sure?' }}
 
+  = ui_row num: 2, md: { num: 3}, sm: { num: 2 } do
     = ui_col num: 4 do
       %h4 Table Paginations
       = ui_table_pagination store: @users
