@@ -6,7 +6,6 @@
 [![Test Coverage](https://codeclimate.com/github/thooams/Ui-Bibz/badges/coverage.svg)](https://codeclimate.com/github/thooams/Ui-Bibz)
 [![Inline docs](http://inch-ci.org/github/thooams/Ui-Bibz.svg?branch=master)](http://inch-ci.org/github/thooams/Ui-Bibz)
 [![security](https://hakiri.io/github/thooams/Ui-Bibz/master.svg)](https://hakiri.io/github/thooams/Ui-Bibz/master)
-[![Dependency Status](https://gemnasium.com/thooams/Ui-Bibz.svg)](https://gemnasium.com/thooams/Ui-Bibz)
 
 # Ui Bibz Documentation
 > This is the documentation website for Ui Bibz.
@@ -21,5 +20,6 @@
 
 
 You must copy the folder `packs/media` presents on the documentation to
+
   - `thooams.github.io/ui-bibz/packs/`
   - `thooams.github.io/ui-bibz/docs/new-vesrsion/packs/`
