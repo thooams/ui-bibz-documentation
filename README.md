@@ -10,3 +10,16 @@
 
 # Ui Bibz Documentation
 > This is the documentation website for Ui Bibz.
+
+
+# Generate doc
+
+    rails s && bin/webpack --output-public-path=packs/ --watch
+    wget -r -k -E "http://localhost:3000"
+
+# Move packs/media
+
+
+You must copy the folder `packs/media` presents on the documentation to
+  - `thooams.github.io/ui-bibz/packs/`
+  - `thooams.github.io/ui-bibz/docs/new-vesrsion/packs/`

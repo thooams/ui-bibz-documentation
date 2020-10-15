@@ -16,13 +16,13 @@
           bundle install
           yarn add ui-bibz-js
 
-    %h2 Assets Install with webpack
+    %h2 Assets with webpack
 
-    Put this line in: <code>/app/javascript/packs/applications.js</code>
+    Put this line in: <code>app/javascript/packs/applications.js</code>
     = example  do |c|
       - c.code title: 'Code' do
         :plain
-          # /app/javascript/packs/applications.js
+          # app/javascript/packs/applications.js
           ...
 
           import UiBibzJs from "ui-bibz-js"
@@ -31,6 +31,15 @@
 
           ...
 
+
+    Put this line in: <code>app/javascript/stylesheets/application.sass</code>
+    = example  do |c|
+      - c.code title: 'Code' do
+        :plain
+          # app/javascript/stylesheets/application.sass
+          ...
+          @import "~ui-bibz-js/sass/ui-bibz"
+          ...
 
   = ui_col md: { num: 4 }, sm: { num: 12 } do
     %div
