@@ -145,13 +145,16 @@
     %p= simple_form_text_with_input "ui_slider_field"
     = example do |e|
       - e.header do
+        = ui_slider_header target: "new_user", class: "slider-header-inline", thumb_min: 0, thumb_max: 100
         = ui_form_for(@user) do |f|
-          - f.input :name, as: :ui_slider_field, label: "Age"
+          - f.input :name, as: :ui_slider_field, label: false
       - e.code do
-        ui_form_for(@search) do |f|
-          ...
-          f.input :name, as: :ui_number_field
-          ...
-        end
+        :plain
+          ui_slider_header target: "new_user", class: "slider-header-inline"
+          ui_form_for(@user) do |f|
+            ...
+            f.input :name, as: :ui_number_field, label: false
+            ...
+          end
 
 = @sections.render

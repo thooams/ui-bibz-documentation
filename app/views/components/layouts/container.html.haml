@@ -15,7 +15,7 @@
   - s.section title: "Container" do
     = example do |c|
       - c.header do
-        = image_tag "container.png", :style => "width: 40rem;"
+        = image_pack_tag "container.png", :style => "width: 40rem;"
       - c.code do
         ui_container class: "test" do
           ...
@@ -32,7 +32,7 @@
   - s.section title: "Type" do
     = example do |c|
       - c.header do
-        = image_tag "container-fluid.png", :style => "width: 40rem;"
+        = image_pack_tag "container-fluid.png", :style => "width: 40rem;"
       - c.code do
         ui_container content, { type: :fluid }, { class: "test-2" }
       - c.html do
@@ -49,7 +49,7 @@
         %li :#{breakpoint}
     = example do |c|
       - c.header do
-        = image_tag "container.png", :style => "width: 40rem;"
+        = image_pack_tag "container.png", :style => "width: 40rem;"
       - c.code do
         ui_container content, { size: :sm }, { class: "test-2" }
       - c.html do
