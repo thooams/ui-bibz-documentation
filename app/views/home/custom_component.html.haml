@@ -31,26 +31,23 @@ Useful variables in render method:
       module UiBibz::Ui::Ux
         class MyComponent < UiBibz::Ui::Core::Component
 
-          # initialize component
-          def initialize content = nil, options = nil, html_options = nil, &block
-            super
-          end
-
-          # Render html
-          def render
+          # Pre Render html
+          def pre_render
+            # Put your main code here, the pre_render method is called in the render method
+            # The pre_render method exists to allow you to use the cache
           end
 
           private
 
-          # Default component classes [String, Array]
+          # Default component classes [String, Array] - This method is not required
           def component_html_classes
           end
 
-          # Default component options [Hash]
+          # Default component options [Hash] - This method is not required
           def component_options
           end
 
-          # Default component html options [Hash]
+          # Default component html options [Hash] - This method is not required
           def component_html_options
           end
 
@@ -71,13 +68,8 @@ Useful variables in render method:
       module UiBibz::Ui::Ux
         class MyComponent < UiBibz::Ui::Core::Component
 
-          # initialize component
-          def initialize content = nil, options = nil, html_options = nil, &block
-            super
-          end
-
-          # Render html
-          def render
+          # Pre Render html
+          def pre_render
           end
 
           private
@@ -118,11 +110,7 @@ Useful variables in render method:
       module UiBibz::Ui::Ux
         class MyComponent < UiBibz::Ui::Core::Component
 
-          def initialize content = nil, options = nil, html_options = nil, &block
-            super
-          end
-
-          def render
+          def pre_render
             content_tag :div, html_options do
               link_to content, options[:url]
             end
@@ -157,11 +145,7 @@ Useful variables in render method:
       module UiBibz::Ui::Ux
         class MyComponent2 < UiBibz::Ui::Core::Component
 
-          def initialize content = nil, options = nil, html_options = nil, &block
-            super
-          end
-
-          def render
+          def pre_render
             content_tag :div, html_options do
               link_to content, options[:url]
             end
@@ -236,7 +220,7 @@ Useful variables in render method:
           end
 
           # Render html
-          def render
+          def pre_render
             content_tag :div, @items.map(&:render).join.html_safe, html_options
           end
 

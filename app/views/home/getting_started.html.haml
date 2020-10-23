@@ -24,16 +24,10 @@
         :plain
           # app/javascript/packs/applications.js
           ...
-
-          import UiBibzJs from "ui-bibz-js"
-          let uiBibzJs = new UiBibzJs
-          uiBibzJs.start()
-
+          require("ui-bibz-js").start()
           ...
 
 
-    Put this line in: <code>app/javascript/stylesheets/application.sass</code>
-    = example  do |c|
       - c.code title: 'Code' do
         :plain
           # app/javascript/stylesheets/application.sass

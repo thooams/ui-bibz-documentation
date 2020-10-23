@@ -46,7 +46,7 @@ gem 'simple_form'
 gem 'rouge'
 
 # Ui Bibz Framework
-gem 'ui_bibz', path: '~/Apps/Ui-Bibz'
+gem 'ui_bibz', path: '~/Apps/ui-bibz'
 #
 # Use HAML for html generator
 gem 'haml-rails'

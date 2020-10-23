@@ -7,9 +7,10 @@
 = component_options do |co|
   - co.state_link
   - co.list 'value', types: %w(boolean string integer)
-  - co.list 'label', types: 'string'
+  - co.list 'label', types: %w(string boolean)
   - co.list 'intermediate', types: 'boolean'
   - co.list 'inline', types: 'boolean'
+  - co.list "boolean", types: "boolean", description: "If your checkbox is for a boolean"
   - co.cache_link
   - co.stimulus_controller_link
   - co.stimulus_action_link
