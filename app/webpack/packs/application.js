@@ -6,14 +6,11 @@
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
+require('ui-bibz-js').start()
 require("channels")
 require.context('../images', true)
 
-import UiBibzJs from 'ui-bibz-js'
 import App from "../src/app"
-import "../stylesheets/application"
-
 new App()
 
-let uiBibzJs = new UiBibzJs
-uiBibzJs.start()
+import "../stylesheets/application"

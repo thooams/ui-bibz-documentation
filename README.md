@@ -13,13 +13,6 @@
 
 # Generate doc
 
-    rails s && bin/webpack --output-public-path=packs/ --watch
+    RAILS_ENV=production rails assets:precompile
+    RAILS_ENV=production RAILS_SERVE_STATIC_FILES=yes rails s
     wget -r -k -E "http://localhost:3000"
-
-# Move packs/media
-
-
-You must copy the folder `packs/media` presents on the documentation to
-
-  - `thooams.github.io/ui-bibz/packs/`
-  - `thooams.github.io/ui-bibz/docs/new-vesrsion/packs/`
