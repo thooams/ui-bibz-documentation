@@ -15,9 +15,10 @@
         = ui_col( xl: { num: 2 }, lg: { num: 2 }, class: 'secondary-nav d-md-none d-lg-block' ) do
           - unless @sections.nil?
             .sticky
-              %h3 Contents
+              %h4 On this page
+              %hr
               = subnav do |n|
-                - @sections.names.each do |s|
+                - @sections.names.sort.each do |s|
                   - n.link s
 
       .scroll-to-top

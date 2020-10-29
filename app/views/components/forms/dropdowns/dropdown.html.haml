@@ -37,8 +37,8 @@
   - co.list 'inline', types: 'boolean', values: %w(true false)
   - co.list 'outline', types: 'boolean', values: %w(true false)
   - co.list 'caret', types: 'boolean', values: %w(true false), description: 'Remove caret'
-  - co.list 'position', types: 'symbol', values: %w(:right :left)
-  - co.list 'type', types: 'symbol', values: %w(:dropup :dropdown :dropleft :dropright), default: ':dropdown'
+  - co.list 'alignement', types: 'symbol', values: %w(:right :left), default: ":left"
+  - co.list 'position', types: 'symbol', values: %w(:up :down :left :right), default: ':down'
   - co.list 'tag', types: 'symbol', values: %w(:a :button), default: ':button'
   - co.popover_link
   - co.cache_link
@@ -139,22 +139,22 @@
           </div>
         </div>
 
-  - s.section title: "Position" do
+  - s.section title: "Alignement" do
     = example do |c|
       - c.header do
-        = ui_dropdown "Dropdown with right menu", position: :right, open: true, class: 'open-dropdown-example' do |d|
+        = ui_dropdown "Dropdown with right alignement menu", alignement: :right, open: true, class: 'open-dropdown-example' do |d|
           - d.link "Action 1", url: '#action-1'
           - d.link "Action 2", url: '#action-2'
           - d.link "Action 3", url: '#action-3'
       - c.code do
-        ui_dropdown "Dropdown with right menu", position: :right do |d|
+        ui_dropdown "Dropdown with right alignement menu", alignement: :right do |d|
           d.link "Action 1", url: "#action-1"
           d.link "Action 2", url: "#action-2"
           d.link "Action 3", url: "#action-3"
         end
       - c.html do
         <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown with right menu <span class="caret"></span></button>
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown with right alignement menu <span class="caret"></span></button>
           <div class="dropdown-menu dropdown-menu-right">
             <a class="dropdown-item" href="#action-1">Action 1</a>
             <a class="dropdown-item" href="#action-2">Action 2</a>
@@ -230,8 +230,8 @@
 
   - s.section title: "Html" do
     = example do |c|
-      - c.header do
-        = ui_dropdown "Form in Dropdown" do |d|
+      - c.header({}, { style: "height: 450px"}) do
+        = ui_dropdown "Form in Dropdown", open: true do |d|
           - d.html do
             %form.px-4.py-3
               .mb-3
@@ -576,11 +576,11 @@
               </div>
             </div>
 
-  - s.section title: "Type" do
+  - s.section title: "Position" do
     = example do |c|
-      - c.header do
-        - %i[dropleft dropup dropdown dropright].each do |type|
-          = ui_dropdown type.to_s.titleize, type: type, inline: true do |bd|
+      - c.header class: "d-flex justify-content-between" do
+        - %i[right up down left].each do |position|
+          = ui_dropdown position.to_s.titleize, position: position, inline: true do |bd|
             - bd.link "Action", url: '#action', glyph: 'gem'
             - bd.link url: '#another-action' do
               = "Another action"
@@ -590,9 +590,9 @@
             - bd.link({ url: '#separate-link'}, { class: 'my-link'}) do
               = "Separate link"
       - c.code do
-        - %i[dropleft dropup dropdown dropright].each do |type|
+        - %i[right up down up left].each do |position|
           :plain
-            ui_dropdown "#{ type.to_s.titleize }", type: :#{type}, inline: true do |bd|
+            ui_dropdown "#{ position.to_s.titleize }", position: :#{position}, inline: true do |bd|
               bd.link "Action", url: "#action", glyph: "gem"
               bd.link url: "#another-action" do
                 "Another action"
@@ -606,7 +606,7 @@
               end
             end
       - c.html do
-        - %i[dropleft dropup dropdown dropright].each do |type|
+        - %i[dropright dropup dropdown dropleft].each do |type|
           :plain
             <div class="#{type} btn-group">
               <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown-248578436189652527536962324584326088393">#{type.to_s.titleize} <span class="caret"></span></button>

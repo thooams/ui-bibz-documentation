@@ -131,9 +131,8 @@
               bg.button "Paste", text: false, glyph: "paste", status: :danger
               bg.button "Cut", text: false, glyph: "cut"
             end
-            t.button_group status: :primary do |bg|
-              bg.button 4
-              bg.button 5
+            t.form "form", url: '#', type: :form_tag do
+              ui_text_field "text"
             end
             t.button_group do |bg|
               bg.button 4
@@ -151,10 +150,9 @@
               <button class="btn-danger btn without-text" title="" data-original-title="Paste"><i class="glyph fa fa-paste"></i> &nbsp;</button>
               <button class="btn-success btn without-text" title="" data-original-title="Cut"><i class="glyph fa fa-cut"></i> &nbsp;</button>
             </div>
-            <div class="btn-group" role="group">
-              <button class="btn-primary btn">4</button>
-              <button class="btn-primary btn">5</button>
-            </div>
+            <form url="#" type="form_tag" class="btn-group" action="form" accept-charset="UTF-8" method="post">
+              <input type="text" name="text" id="text" class="form-control">
+            </form>
             <div class="btn-group" role="group">
               <button class="btn">6</button>
               <button class="btn">7</button>

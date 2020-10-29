@@ -1,8 +1,9 @@
 @import "~ui-bibz-js/sass/ui-bibz"
+$primary-link: #448cca
 @import "stylesheets/components"
 
 .anchorjs-link:hover
-  color: #007bff
+  color: $primary-link
   font-weight: bold
 
 .bd-example-modal .modal
@@ -55,7 +56,7 @@
           a.nav-link.active
             padding-left: 8px
             font-weight: 800
-            border-left: 2px solid #007bff
+            border-left: 2px solid $primary-link
   .nav
     font-size: 1rem
     padding-left: 10px !important
@@ -64,9 +65,9 @@
 
 .nav-left a.nav-link.active
   font-weight: 800
-  color: #007bff
+  color: $primary-link
   background-color: transparent
-  border-left: 2px solid #007bff
+  border-left: 2px solid $primary-link
 
 .nav-left .nav-link
   padding: 0.2rem 0.5rem
@@ -207,6 +208,9 @@ body > footer
 .secondary-nav
   a
     color: #868e96
+    text-decoration: none
+    &:hover
+      text-decoration: underline
   h3
     margin-top: 0.5rem
   background: linear-gradient(to right, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 10%)
@@ -231,6 +235,9 @@ body > footer
   max-height: calc(100vh - 3.5rem)
   top: 3.5rem
   padding-bottom: 3.5rem
+  overflow: hidden
+  &:hover
+    overflow: auto
 
 .left-nav
   padding: 0px 0px 0px 0.5rem
@@ -238,7 +245,7 @@ body > footer
   a
     color: #868e96
   a:hover
-    color: #007bff
+    color: $primary-link
   h2:first-child
     margin-top: 0rem
   .nav-text
@@ -342,18 +349,40 @@ blockquote
 
 footer, .page, .sidebar, .content
   a:not([class]), .anchorjs-link
-    color: #448cca
+    color: $primary-link
 
 footer a
-  color: #448cca
+  color: $primary-link
 
 .card-header a:not([class])
   color: $primary
 
+.multiselect-container a
+  color: inherit !important
+
 .pageheader-white
   .bg-primary, .btn-primary
-    background-color: #448cca !important
-    border-color: darken(#448cca, 10) !important
+    background-color: $primary-link !important
+    border-color: darken($primary-link, 10) !important
     color: white
 
+.card-code .card-block .nav-item a
+  color: $nav-tabs-link-active-color
+
+*
+  scrollbar-width: thin
+  scrollbar-color: $primary-link white
+
+/* Works on Chrome/Edge/Safari */
+*::-webkit-scrollbar
+  width: 15px
+  height: 15px
+
+*::-webkit-scrollbar-track
+  background: white
+
+*::-webkit-scrollbar-thumb
+  background-color: $primary-link
+  border-radius: 20px
+  border: 5px solid white
 

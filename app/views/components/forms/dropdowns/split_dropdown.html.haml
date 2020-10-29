@@ -1,6 +1,6 @@
 = title 'Split Dropdown', url: bootstrap_start_url("components/dropdowns/#single-button")
 %blockquote UiBibz::Ui::Core::Forms::Dropdowns::SplitDropdown
-%p.bd-callout Use any button to trigger a dropdown menu by providing the proper menu markup.
+%p.bd-callout Use any button to trigger a dropdown menu by providing the proper menu markup. <strong>Split dropdown</strong> component inherit of #{link_to "Dropdown", components_forms_dropdowns_dropdown_path} component.
 
 = code do
   :plain
@@ -36,8 +36,8 @@
   - co.size_link
   - co.list 'inline', types: 'boolean', values: %w(true false)
   - co.list 'outline', types: 'boolean', values: %w(true false)
-  - co.list 'position', types: 'symbol', values: %w(:right :left)
-  - co.list 'type', types: 'symbol', values: %w(:dropup :dropdown), default: ':dropdown'
+  - co.list 'alignement', types: 'symbol', values: %w(:right :left), default: ":left"
+  - co.list 'position', types: 'symbol', values: %w(:up :down :left :right), default: ':down'
   - co.list 'tag', types: 'symbol', values: %w(:a :button), default: ':button'
   - co.popover_link
   - co.cache_link
@@ -45,21 +45,373 @@
   - co.stimulus_action_link
   - co.stimulus_target_link
 
-= content_for :third_nav do
-  = ui_nav class: 'secondary-nav' do |n|
-    - n.link 'Split dropdown', url: '#split-dropdown'
-    - n.nav do |na|
-      - na.link 'Split dropdown options', url: '#button-dropdown-options'
-
 - @sections = sections do |s|
   - s.section title: "Split dropdown" do
-    :markdown
-      Split Dropdown has several block type:
+    = example do |c|
+      - c.header do
+        = ui_split_dropdown('Split Dropdown', { open: true }, { class: 'open-dropdown-example' }) do |d|
+          - d.link "Action 1", url: '#action'
+          - d.link url: '#another-action' do
+            = "Action 2"
+          - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+            = "Action 3"
+      - c.code do
+        :plain
+          ui_split_dropdown 'Split Dropdown' do |d|
+            d.link "Action 1", url: '#action'
+            d.link url: '#another-action' do
+              "Action 2"
+            end
+            d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+              "Action 3"
+            end
+          end
+      - c.html do
+        :plain
+          <div class="open-dropdown-example btn-group dropdown">
+            <button class="btn btn-secondary">Split Dropdown</button>
+            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
+            <div class="dropdown-menu show" arial-labelledby="dropdown-35018">
+              <a class="dropdown-item" href="#action">Action 1</a>
+              <a class="dropdown-item" href="#another-action">Action 2</a>
+              <a class="my-link dropdown-item" href="#separate-link">Action 3</a>
+            </div>
+          </div>
 
-      * Link
-      * Divider
-      * Header
-      * Html
+  - s.section title: "Split Dropdown options" do
+    = example do |c|
+      - c.header do
+        = ui_split_dropdown('Split Dropdown', { status: :secondary, glyph: 'gem', open: true }, { class: 'open-dropdown-example' }) do |d|
+          - d.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
+          - d.link url: '#another-action', glyph: "gem" do
+            = "Action 2"
+          - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+            = "Action 3"
+      - c.code do
+        ui_split_dropdown("Split Dropdown", { status: :secondary, glyph: "gem" }, { class: "my-dropdown"}) do |d|
+          d.link "Confirm action", url: "#action", link_html_options: { data: { confirm: "Are you sure?" }}, method: :delete
+          d.link url: "#another-action", glyph: "gem" do
+            "Action 2"
+          end
+          d.link({ url: "#separate-link"}, { class: "my-link"}) do
+            "Action 3"
+          end
+        end
+      - c.html do
+        :plain
+          <div class="open-dropdown-example btn-group dropdown">
+            <button class="btn btn-secondary"><i class="glyph fas fa-gem"></i>  Split Dropdown</button>
+            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
+            <div class="dropdown-menu show" arial-labelledby="dropdown-71880">
+              <a class="dropdown-item" data-confirm="Are you sure?" href="#action">Confirm action</a>
+              <a class="dropdown-item" href="#another-action"><i class="glyph fas fa-gem"></i>  Action 2</a>
+              <a class="my-link dropdown-item" href="#separate-link">Action 3</a>
+            </div>
+          </div
+
+  - s.section title: "Position" do
+    = example do |c|
+      - c.header do
+        = ui_split_dropdown "Split Dropdown with right menu", position: :right, open: true, class: 'open-dropdown-example' do |d|
+          - d.link "Action 1", url: '#action-1'
+          - d.link "Action 2", url: '#action-2'
+          - d.link "Action 3", url: '#action-3'
+      - c.code do
+        ui_split_dropdown "Split Dropdown with right menu", position: :right do |d|
+          d.link "Action 1", url: "#action-1"
+          d.link "Action 2", url: "#action-2"
+          d.link "Action 3", url: "#action-3"
+        end
+      - c.html do
+        :plain
+          <div class="open-dropdown-example btn-group dropdown">
+            <button class="btn btn-secondary">Split Dropdown with right menu</button>
+            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
+            <div class="dropdown-menu dropdown-menu-right show" arial-labelledby="dropdown-55155">
+              <a class="dropdown-item" href="#action-1">Action 1</a>
+              <a class="dropdown-item" href="#action-2">Action 2</a>
+              <a class="dropdown-item" href="#action-3">Action 3</a>
+            </div>
+          </div>
+
+
+  - s.section title: "Header" do
+    = example do |c|
+      - c.header do
+        = ui_split_dropdown "Split Dropdown", open: true, class: 'open-dropdown-example' do |d|
+          - d.header "Header 1"
+          - d.link "Action 1", url: '#action-1'
+          - d.header class: 'my-header' do
+            = 'Header 2'
+          - d.link "Action 2", url: '#action-2'
+          - d.link "Action 3", url: '#action-3'
+        %br
+        %br
+        %br
+        %br
+      - c.code do
+        ui_split_dropdown "Split Dropdown" do |d|
+          d.header "Header 1"
+          d.link "Action 1", url: "#action-1"
+          d.header class: "my-header" do
+            "Header 2"
+          end
+          d.link "Action 2", url: "#action-2"
+          d.link "Action 3", url: "#action-3"
+        end
+      - c.html do
+        :plain
+          <div class="open-dropdown-example btn-group dropdown">
+            <button class="btn btn-secondary">Split Dropdown</button>
+            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
+            <div class="dropdown-menu show" arial-labelledby="dropdown-81289">
+              <h6 class="dropdown-header" role="presentation">
+                Header 1
+              </h6>
+              <a class="dropdown-item" href="#action-1">Action 1</a>
+              <h6 class="my-header dropdown-header" role="presentation">
+                Header 2
+              </h6>
+              <a class="dropdown-item" href="#action-2">Action 2</a>
+              <a class="dropdown-item" href="#action-3">Action 3</a>
+            </div>
+          </div>
+
+  - s.section title: "Divider" do
+    = example do |c|
+      - c.header do
+        = ui_split_dropdown "Split Dropdown", open: true, class: 'open-dropdown-example' do |d|
+          - d.link "Action 1", url: '#action-1'
+          - d.divider
+          - d.link "Separate action 1", url: '#separate-action-1'
+          - d.link "Separate action 2", url: '#separate-action-2'
+        %br
+        %br
+      - c.code do
+        ui_split_dropdown "Split Dropdown" do |d|
+          d.link "Action 1", url: "#action-1"
+          d.divider
+          d.link "Separate action 1", url: "#separate-action-1"
+          d.link "Separate action 2", url: "#separate-action-2"
+        end
+      - c.html do
+        :plain
+          <div class="open-dropdown-example btn-group dropdown">
+            <button class="btn btn-secondary">Split Dropdown</button>
+            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
+            <div class="dropdown-menu show" arial-labelledby="dropdown-81289">
+              <h6 class="dropdown-header" role="presentation">
+                Header 1
+              </h6>
+              <a class="dropdown-item" href="#action-1">Action 1</a>
+              <h6 class="my-header dropdown-header" role="presentation">
+                Header 2
+                <div class="open-dropdown-example btn-group dropdown">
+                  <button class="btn btn-secondary">Split Dropdown</button>
+                  <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
+                  <div class="dropdown-menu show" arial-labelledby="dropdown-69587">
+                    <a class="dropdown-item" href="#action-1">Action 1</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#separate-action-1">Separate action 1</a>
+                    <a class="dropdown-item" href="#separate-action-2">Separate action 2</a>
+                  </div>
+                </div>
+              </h6>
+              <a class="dropdown-item" href="#action-2">Action 2</a>
+              <a class="dropdown-item" href="#action-3">Action 3</a>
+            </div>
+          </div>
+
+  - s.section title: "Html" do
+    = example do |c|
+      - c.header({}, { style: "height: 450px"}) do
+        = ui_split_dropdown "Form in Split Dropdown", open: true do |d|
+          - d.html do
+            %form.px-4.py-3
+              .mb-3
+                %label.form-label{:for => "exampleDropdownFormEmail1"} Email address
+                %input#exampleDropdownFormEmail1.form-control{:placeholder => "email@example.com", :type => "email"}/
+              .mb-3
+                %label.form-label{:for => "exampleDropdownFormPassword1"} Password
+                %input#exampleDropdownFormPassword1.form-control{:placeholder => "Password", :type => "password"}/
+              .mb-3
+                .form-check
+                  %input#dropdownCheck.form-check-input{:type => "checkbox"}/
+                  %label.form-check-label{:for => "dropdownCheck"}
+                    Remember me
+              %button.btn.btn-primary{:type => "submit"} Sign in
+            .dropdown-divider
+            %a.dropdown-item{:href => "#"} New around here? Sign up
+            %a.dropdown-item{:href => "#"} Forgot password?
+        %br
+        %br
+      - c.code do
+        :plain
+          ui_split_dropdown "Form in Split Dropdown" do |d|
+            - d.html do
+              <form class="px-4 py-3">
+                <div class="mb-3">
+                  <label for="exampleDropdownFormEmail1" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleDropdownFormPassword1" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                </div>
+                <div class="mb-3">
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                    <label class="form-check-label" for="dropdownCheck">
+                      Remember me
+                    </label>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign in</button>
+              </form>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">New around here? Sign up</a>
+              <a class="dropdown-item" href="#">Forgot password?</a>
+            end
+          end
+      - c.html do
+        :plain
+          <div class="btn-group dropdown">
+            <button class="btn btn-secondary">Form in Split Dropdown</button>
+            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
+            <div class="dropdown-menu show" arial-labelledby="dropdown-74806">
+              <form class="px-4 py-3">
+                <div class="mb-3">
+                  <label class="form-label" for="exampleDropdownFormEmail1">Email address</label>
+                  <input class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com" type="email">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="exampleDropdownFormPassword1">Password</label>
+                  <input class="form-control" id="exampleDropdownFormPassword1" placeholder="Password" type="password">
+                </div>
+                <div class="mb-3">
+                  <div class="form-check">
+                    <input class="form-check-input" id="dropdownCheck" type="checkbox">
+                    <label class="form-check-label" for="dropdownCheck">Remember me</label>
+                  </div>
+                </div>
+                <button class="btn btn-primary" type="submit">Sign in</button>
+              </form>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">New around here? Sign up</a>
+              <a class="dropdown-item" href="#">Forgot password?</a>
+            </div>
+          </div>
+
+  - s.section title: "Inline" do
+    = example do |c|
+      - c.header do
+        = ui_split_dropdown "Inline 1", inline: true do |d|
+          - d.link "Action 1", url: '#action-1'
+          - d.link "Action 2", url: '#action-2', state: :disabled
+          - d.link "Action 3", url: '#action-3'
+        = ui_split_dropdown "Inline 2", inline: true do |d|
+          - d.link "Action 1", url: '#action-1'
+          - d.link "Action 2", url: '#action-2', state: :disabled
+          - d.link "Action 3", url: '#action-3'
+      - c.code do
+        ui_split_dropdown "Inline 1" do |d|
+          d.link "Action 1", url: "#action-1"
+          d.link "Action 2", url: "#action-2", state: :disabled
+          d.link "Action 3", url: "#action-3"
+        end
+        ui_split_dropdown "Inline 2" do |d|
+          d.link "Action 1", url: "#action-1"
+          d.link "Action 2", url: "#action-2", state: :disabled
+          d.link "Action 3", url: "#action-3"
+        end
+      - c.html do
+        :plain
+          <div class="btn-group dropdown">
+            <button class="btn btn-secondary">Inline 1</button>
+            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
+            <div class="dropdown-menu" arial-labelledby="dropdown-76837" style="">
+              <a class="dropdown-item" href="#action-1">Action 1</a>
+              <a class="disabled dropdown-item" href="#action-2">Action 2</a>
+              <a class="dropdown-item" href="#action-3">Action 3</a>
+            </div>
+          </div>
+
+  - s.section title: "Disabled" do
+    = example do |c|
+      - c.header do
+        = ui_split_dropdown "Split Dropdown", open: true, class: 'open-dropdown-example' do |d|
+          - d.link "Action 1", url: '#action-1'
+          - d.link "Action 2", url: '#action-2', state: :disabled
+          - d.link "Action 3", url: '#action-3'
+      - c.code do
+        ui_split_dropdown "Split Dropdown" do |d|
+          d.link "Action 1", url: "#action-1"
+          d.link "Action 2", url: "#action-2", state: :disabled
+          d.link "Action 3", url: "#action-3"
+        end
+      - c.html do
+        :plain
+          <div class="open-dropdown-example btn-group dropdown">
+            <button class="btn btn-secondary">Split Dropdown</button>
+            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
+            <div class="dropdown-menu show" arial-labelledby="dropdown-8820">
+              <a class="dropdown-item" href="#action-1">Action 1</a>
+              <a class="disabled dropdown-item" href="#action-2">Action 2</a>
+              <a class="dropdown-item" href="#action-3">Action 3</a>
+            </div>
+          </div>
+
+  - s.section title: "Active" do
+    = example do |c|
+      - c.header do
+        = ui_split_dropdown "Split Dropdown", open: true, class: 'open-dropdown-example' do |d|
+          - d.link "Action 1", url: '#action-1'
+          - d.link "Action 2", url: '#action-2', state: :active
+          - d.link "Action 3", url: '#action-3'
+      - c.code do
+        ui_split_dropdown "Split Dropdown" do |d|
+          d.link "Action 1", url: "#action-1"
+          d.link "Action 2", url: "#action-2", state: :active
+          d.link "Action 3", url: "#action-3"
+        end
+      - c.html do
+        :plain
+          <div class="open-dropdown-example btn-group dropdown">
+            <button class="btn btn-secondary">Split Dropdown</button>
+            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
+            <div class="dropdown-menu show" arial-labelledby="dropdown-93886">
+              <a class="dropdown-item" href="#action-1">Action 1</a>
+              <a class="active dropdown-item" href="#action-2">Action 2</a>
+              <a class="dropdown-item" href="#action-3">Action 3</a>
+            </div>
+          </div>
+
+  - s.section title: "Open" do
+    = example do |c|
+      - c.header do
+        = ui_split_dropdown "Split Dropdown", open: true, class: 'open-dropdown-example' do |d|
+          - d.link "Action 1", url: '#action-1'
+          - d.link "Action 2", url: '#action-2', state: :disabled
+          - d.link "Action 3", url: '#action-3'
+      - c.code do
+        ui_split_dropdown "Split Dropdown", open: true do |d|
+          d.link "Action 1", url: "#action-1"
+          d.link "Action 2", url: "#action-2", state: :disabled
+          d.link "Action 3", url: "#action-3"
+        end
+      - c.html do
+        :plain
+          <div class="open-dropdown-example btn-group dropdown">
+            <button class="btn btn-secondary">Split Dropdown</button>
+            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
+            <div class="dropdown-menu show" arial-labelledby="dropdown-57010">
+              <a class="dropdown-item" href="#action-1">Action 1</a>
+              <a class="disabled dropdown-item" href="#action-2">Action 2</a>
+              <a class="dropdown-item" href="#action-3">Action 3</a>
+            </div>
+          </div>
+
+  - s.section title: "Statuses" do
 
     %p The <code>status</code> option for agument the following symbols :
     %ul
@@ -219,62 +571,77 @@
             </div>
           </div>
 
-  - s.section title: "Buttonsplit  dropdown options" do
+  - s.section title: "Position" do
+    = example do |c|
+      - c.header class: "d-flex justify-content-between" do
+        - %i[right up down left].each do |position|
+          = ui_split_dropdown position.to_s.titleize, position: position, inline: true do |bd|
+            - bd.link "Action", url: '#action', glyph: 'gem'
+            - bd.link url: '#another-action' do
+              = "Another action"
+            - bd.divider
+            - bd.header 'Header'
+            - bd.html "     Normal Text"
+            - bd.link({ url: '#separate-link'}, { class: 'my-link'}) do
+              = "Separate link"
+      - c.code do
+        - %i[right up down left].each do |position|
+          :plain
+            ui_split_dropdown "#{ position.to_s.titleize }", position: :#{position}, inline: true do |bd|
+              bd.link "Action", url: "#action", glyph: "gem"
+              bd.link url: "#another-action" do
+                "Another action"
+              end
+              bd.divider
+              bd.header "Header"
+              bd.html "     Normal Text"
+              bd.link "Separate link", url: "#separate-link"
+              bd.link({ url: "#separate-link"}, { class: "my-link"}) do
+                "Separate link"
+              end
+            end
+      - c.html do
+        - %i[dropright dropup dropdown dropleft].each do |type|
+          :plain
+            <div class="btn-group #{type}">
+              <button class="btn btn-secondary">Split #{type.to_s.titleize} </button>
+              <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
+              <div class="dropdown-menu" arial-labelledby="dropdown-42719">
+                <a class="dropdown-item" href="#action"><i class="glyph fas fa-gem"></i>  Action</a>
+                <a class="dropdown-item" href="#another-action">Another action</a>
+                <div class="dropdown-divider"></div>
+                <h6 class="dropdown-header" role="presentation">
+                  Header
+                </h6>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Normal Text
+                <a class="my-link dropdown-item" href="#separate-link">Separate link</a>
+              </div>
+            </div>
+
+  - s.section title: "Theme" do
     = example do |c|
       - c.header do
-        = ui_split_dropdown "Dropdown right", glyph: 'gem', status: :success, size: :lg, position: :right do |bd|
-          - bd.link "Confirm action", url: '#action', link_html_options: { data: { confirm: 'Are you sure?' }}, method: :delete
-          - bd.link "Another action", url: '#another-action'
-          - bd.divider
-          - bd.header 'Header'
-          - bd.link "Separate link", url: '#separate-link'
-
-        = ui_split_dropdown "Dropup", status: :danger, size: :sm, type: :dropup do |bd|
-          - bd.link "Action",  { url: '#action' }, { class: 'action' }
-          - bd.link "Another action", url: '#another-action'
-          - bd.divider
-          - bd.header 'Header'
-          - bd.link "Separate link", url: '#separate-link'
-
+        = ui_split_dropdown "Dark split dropdown", theme: :dark, open: true, class: 'open-dropdown-example' do |d|
+          - d.link "Action 1", url: '#action-1'
+          - d.link "Action 2", url: '#action-2', state: :active
+          - d.link "Action 3", url: '#action-3'
       - c.code do
-        ui_split_dropdown "Dropdown right", glyph: "gem", status: :success, size: :lg, position: :right do |bd|
-          bd.link "Confirm action", url: "#action", link_html_options: { data: { confirm: "Are you sure?" }}, method: :delete
-          bd.link "Another action", url: "#another-action"
-          bd.divider
-          bd.header "Header"
-          bd.link "Separate link", url: "#separate-link"
-        end
-         
-        ui_split_dropdown "Dropup", status: :danger, size: :sm, type: :dropup do |bd|
-          bd.link "Action",  { url: "#action" }, { class: "action" }
-          bd.link "Another action", url: "#another-action"
-          bd.divider
-          bd.header "Header"
-          bd.link "Separate link", url: "#separate-link"
-        end
+        :plain
+          ui_split_dropdown "Dark split dropdown", theme: :dark, open: true, class: 'open-dropdown-example' do |d|
+            d.link "Action 1", url: '#action-1'
+            d.link "Action 2", url: '#action-2', state: :active
+            d.link "Action 3", url: '#action-3'
+          end
       - c.html do
-        <div class="btn-group dropdown" role="group">
-          <button class="btn btn-success btn-lg">Dropdown right</button>
-          <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button>
-          <div class="dropdown-menu dropdown-menu-right">
-            <a class="dropdown-item" data-confirm="Are you sure?" href="#action">Confirm action</a>
-            <a class="dropdown-item" href="#another-action">Another action</a>
-            <div class="dropdown-divider"></div>
-            <h6 class="dropdown-header" role="presentation">Header</h6>
-            <a class="dropdown-item" href="#separate-link">Separate link</a>
-          </div>
-        </div>
-          
-        <div class="btn-group dropup" role="group">
-          <button class="btn btn-danger btn-sm">Dropup</button>
-          <button class="btn btn-danger btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button>
-          <div class="dropdown-menu dropdown-menu-left">
-            <a class="action dropdown-item" href="#action">Action</a>
-            <a class="dropdown-item" href="#another-action">Another action</a>
-            <div class="dropdown-divider"></div>
-            <h6 class="dropdown-header" role="presentation">Header</h6>
-            <a class="dropdown-item" href="#separate-link">Separate link</a>
-          </div>
-        </div>
+        :plain
+          <div class="open-dropdown-example btn-group dropdown show">
+            <button class="btn btn-secondary">Dark split dropdown</button>
+            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
+            <div class="dropdown-menu dropdown-menu-dark show" arial-labelledby="dropdown-23936">
+              <a class="dropdown-item" href="#action-1">Action 1</a>
+              <a class="active dropdown-item" href="#action-2">Action 2</a>
+              <a class="dropdown-item" href="#action-3">Action 3</a>
+            </div>
+          </div>
 
 = @sections.render

@@ -560,12 +560,9 @@
     %h4 Switch
     = ui_switch_field 'Switch'
   = ui_col do
-    %h4 Multi Select #{ exclusiveness }
+    %h4 Dropdown Select #{ exclusiveness }
     - grouped_options = { 'North America' => [['United statuss','US'], 'Canada'], 'Europe' => ['Denmark','Germany','France'] }
     = ui_multi_select_field 'example', select_all_option: true, searchable: true, collapsible_opt_group: true, option_tags: grouped_options_for_select(grouped_options)
-  = ui_col do
-    %h4 Dropdown Select #{ exclusiveness }
-    = ui_dropdown_select_field 'example1', searchable: true, option_tags: options_for_select(5.times.map{ |i| "option #{i}" })
   = ui_col do
     %h4 Box Switch  #{ exclusiveness }
     = ui_box_switch_field 'box_switch'

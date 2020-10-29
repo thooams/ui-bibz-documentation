@@ -1,5 +1,5 @@
 import AnchorJS from 'anchor-js'
-// const anchors = new AnchorJS()
+const anchors = new AnchorJS()
 
 export default class App {
 
@@ -9,7 +9,7 @@ export default class App {
       let sidebar = document.querySelector(".sidebar")
       if(sidebar){
         me.scrollSidbar(sidebar)
-        // me.anchorsPage()
+        me.anchorsPage()
         me.submenuToggle(sidebar)
       }
     })
