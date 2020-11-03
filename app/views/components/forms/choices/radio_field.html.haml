@@ -61,6 +61,50 @@
             <label class="custom-control-label" for="state_false">choice 2</label>
           </div>
 
+  - s.section title: "Status" do
+    = status_description
+    = example do |c|
+      - c.header do
+        - UiBibzApp::Application::STATUSES.each do |status|
+          = ui_radio_field status, checked: true, inline: true, status: status
+      - c.code do
+        - UiBibzApp::Application::STATUSES.each do |status|
+          = "ui_radio_field :#{status}, checked: true, inline: true, status: :#{status}"
+      - c.html do
+        :plain
+          <div class="form-check-input-primary form-check form-check-inline">
+            <input type="radio" name="primary" id="primary_" class="form-check-input form-check-input-primary" checked="checked">
+            <label class="form-check-label" for="primary_">primary</label>
+          </div>
+          <div class="form-check-input-secondary form-check form-check-inline">
+            <input type="radio" name="secondary" id="secondary_" class="form-check-input form-check-input-secondary" checked="checked">
+            <label class="form-check-label" for="secondary_">secondary</label>
+          </div>
+          <div class="form-check-input-success form-check form-check-inline">
+            <input type="radio" name="success" id="success_" class="form-check-input form-check-input-success" checked="checked">
+            <label class="form-check-label" for="success_">success</label>
+          </div>
+          <div class="form-check-input-danger form-check form-check-inline">
+            <input type="radio" name="danger" id="danger_" class="form-check-input form-check-input-danger" checked="checked">
+            <label class="form-check-label" for="danger_">danger</label>
+          </div>
+          <div class="form-check-input-warning form-check form-check-inline">
+            <input type="radio" name="warning" id="warning_" class="form-check-input form-check-input-warning" checked="checked">
+            <label class="form-check-label" for="warning_">warning</label>
+          </div>
+          <div class="form-check-input-info form-check form-check-inline">
+            <input type="radio" name="info" id="info_" class="form-check-input form-check-input-info" checked="checked">
+            <label class="form-check-label" for="info_">info</label>
+          </div>
+          <div class="form-check-input-light form-check form-check-inline">
+            <input type="radio" name="light" id="light_" class="form-check-input form-check-input-light" checked="checked">
+            <label class="form-check-label" for="light_">light</label>
+          </div>
+          <div class="form-check-input-dark form-check form-check-inline">
+            <input type="radio" name="dark" id="dark_" class="form-check-input form-check-input-dark" checked="checked">
+            <label class="form-check-label" for="dark_">dark</label>
+          </div>
+
   - s.section title: "Label" do
     = example do |e|
       - e.header do

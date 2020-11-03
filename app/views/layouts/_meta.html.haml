@@ -10,3 +10,11 @@
   "#{ Rouge::Theme::find('github').render(scope: '.highlight') }"
 = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
 = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+<!-- Global site tag (gtag.js) - Google Analytics -->
+%script{ async: true, src: "https://www.googletagmanager.com/gtag/js?id=G-JHZ4Y79ZS3"}
+:javascript
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JHZ4Y79ZS3');

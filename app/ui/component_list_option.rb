@@ -69,7 +69,7 @@ class ComponentListOption < UiBibz::Ui::Core::Component
   end
 
   def render
-    content_tag :ul, @items.join.html_safe, class: 'list-options'
+    content_tag :ul, @items.sort.join.html_safe, class: 'list-options'
   end
 
 private

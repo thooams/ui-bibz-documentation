@@ -5,6 +5,7 @@
 
 = component_options do |co|
   - co.state_link
+  - co.status_link
   - co.list 'min', types: %w(integer float), description: "The minimum acceptable value"
   - co.list 'max', types: %w(integer float), description: "The maximum acceptable value"
   - co.list 'thumb_min', types: %w(integer float), description: "Placement of the min thumb"
@@ -12,6 +13,7 @@
   - co.list 'step', types: %w(integer float), description: "The acceptable value granularity."
   - co.list "input_name_min", types: :string, description: "Override the name of the first input"
   - co.list "input_name_max", types: :string, description: "Override the name of the last input"
+  - co.list 'track_status', types: :symbol, values: UiBibzApp::Application::STATUSES.map{ |s| ":#{ s }" }
 
 - @sections = sections do |s|
   - s.section title: "Slider Field" do
@@ -40,6 +42,43 @@
             <input type="range" name="price_min" id="price_min" value="0" max="100" min="0" step="1">
             <input type="range" name="price_max" id="price_max" value="100" max="100" min="0" step="1">
           </div>
+
+  - s.section title: "Status" do
+    = status_description
+    = example do |e|
+      - e.header do
+        - UiBibzApp::Application::STATUSES.each_with_index do |status, i|
+          = ui_slider_field 'price', { thumb_min: i*5, thumb_max: 100-i*5, status: status}, { id: "price-#{i}" }
+      - e.code do
+        - UiBibzApp::Application::STATUSES.each_with_index do |status, i|
+          = "ui_slider_field :price, status: :#{status}, thumb_min: #{i*5}, thumb_max: #{100-i*5}, status: status"
+      - e.html do
+        :plain
+          <div id="price-0" class="slider-primary slider">
+            <div>
+              <div class="slider-inverse-left" style="width: 100%"></div>
+              <div class="slider-inverse-right" style="width: 100%"></div>
+              <div class="slider-range" style="left: 0%; right: 0%"></div>
+              <div class="slider-thumb slider-thumb-left" style="left: 0%"></div>
+              <div class="slider-thumb slider-thumb-right" style="left: 100%"></div>
+            </div>
+            <input type="range" name="price_min" id="price_min" value="0" max="100" min="0" step="1">
+            <input type="range" name="price_max" id="price_max" value="100" max="100" min="0" step="1">
+          </div>
+
+  - s.section title: "Track Status" do
+    = status_description
+    = example do |e|
+      - e.header do
+        = ui_slider_field 'price', { thumb_min: 20, thumb_max: 70, track_status: :dark }, { id: "price-dark" }
+        = ui_slider_field 'price', { thumb_min: 30, thumb_max: 60, status: :dark, track_status: :primary }, { id: "price-primary" }
+      - e.code do
+        :plain
+          ui_slider_field 'price', { thumb_min: 20, thumb_max: 70, track_status: :dark }, { id: "price-dark" }
+          ui_slider_field 'price', { thumb_min: 30, thumb_max: 60, status: :dark, track_status: :primary }, { id: "price-primary" }
+      - e.html do
+        :plain
+          ""
 
   - s.section title: "Thumb min and max" do
     = example do |e|

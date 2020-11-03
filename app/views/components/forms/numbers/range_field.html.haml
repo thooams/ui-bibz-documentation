@@ -4,12 +4,15 @@
 = code "ui_range_field", component_name: "name"
 
 = component_options do |co|
-  - co.list 'value', types: 'string', description: "Input's value"
-  - co.list 'min', types: %w(integer float), description: "The minimum acceptable value"
-  - co.list 'max', types: %w(integer float), description: "The maximum acceptable value"
+  - co.status_link
   - co.list 'in', types: 'array', description: "A range specifying the :min and :max values."
-  - co.list 'within', types: 'array', description: "Same as :in"
+  - co.list 'max', types: %w(integer float), description: "The maximum acceptable value"
+  - co.list 'min', types: %w(integer float), description: "The minimum acceptable value"
   - co.list 'step', types: %w(integer float), description: "The acceptable value granularity."
+  - co.list 'thumb_status', types: :symbol, values: UiBibzApp::Application::STATUSES.map{ |s| ":#{ s }" }
+  - co.list 'track_status', types: :symbol, values: UiBibzApp::Application::STATUSES.map{ |s| ":#{ s }" }
+  - co.list 'value', types: 'string', description: "Input's value"
+  - co.list 'within', types: 'array', description: "Same as :in"
 
 - @sections = sections do |s|
   - s.section title: "Range Field" do
@@ -66,6 +69,36 @@
             <option value="8"></option>
             <option value="10" label="10">10</option>
           </datalist>
+
+  - s.section title: "Status" do
+    = status_description
+    = example do |e|
+      - e.header do
+        - UiBibzApp::Application::STATUSES.each_with_index do |status, i|
+          = ui_range_field 'range', status: status, value: (100/UiBibzApp::Application::STATUSES.count+2)*i
+      - e.code do
+        - UiBibzApp::Application::STATUSES.each_with_index do |status, i|
+          = "ui_range_field :range, status: :#{status}, value: #{(100/UiBibzApp::Application::STATUSES.count+2)*i}"
+
+  - s.section title: "Thumb Status" do
+    = status_description
+    = example do |e|
+      - e.header do
+        - UiBibzApp::Application::STATUSES.each_with_index do |status, i|
+          = ui_range_field 'range', thumb_status: status, value: (100/UiBibzApp::Application::STATUSES.count+2)*i
+      - e.code do
+        - UiBibzApp::Application::STATUSES.each_with_index do |status, i|
+          = "ui_range_field :range, thumb_status: :#{status}, value: #{(100/UiBibzApp::Application::STATUSES.count+2)*i}"
+
+  - s.section title: "Track Status" do
+    = status_description
+    = example do |e|
+      - e.header do
+        - UiBibzApp::Application::STATUSES.each_with_index do |status, i|
+          = ui_range_field 'range', thumb_status: :dark, track_status: status, value: (100/UiBibzApp::Application::STATUSES.count+2)*i
+      - e.code do
+        - UiBibzApp::Application::STATUSES.each_with_index do |status, i|
+          = "ui_range_field :range, thumb_status: :dark, track_status: :#{status}, value: #{(100/UiBibzApp::Application::STATUSES.count+2)*i}"
 
   - s.section title: "Simple form" do
     %p= simple_form_text_with_input "ui_range_field"

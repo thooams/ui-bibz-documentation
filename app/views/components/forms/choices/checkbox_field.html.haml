@@ -5,6 +5,7 @@
 = code "ui_checkbox_field", component_name: "name"
 
 = component_options do |co|
+  - co.status_link
   - co.state_link
   - co.list 'value', types: %w(boolean string integer)
   - co.list 'label', types: %w(string boolean)
@@ -65,6 +66,51 @@
             <input type="hidden" name="state_2" id="state_2-hidden" value="0">
             <input type="checkbox" name="state_2" id="state_2" value="1" disabled="disabled" class="custom-control-input" checked="checked">
             <label class="custom-control-label" for="state_2">choice 2</label>
+          </div>
+
+
+  - s.section title: "Status" do
+    = status_description
+    = example do |c|
+      - c.header do
+        - UiBibzApp::Application::STATUSES.each do |status|
+          = ui_checkbox_field status, checked: true, inline: true, status: status
+      - c.code do
+        - UiBibzApp::Application::STATUSES.each do |status|
+          = "ui_checkbox_field :#{status}, checked: true, inline: true, status: :#{status}"
+      - c.html do
+        :plain
+          <div class="form-check-input-primary form-check form-check-inline">
+            <input type="checkbox" name="primary" id="primary" value="1" class="form-check-input form-check-input-primary" checked="checked">
+            <label class="form-check-label" for="primary">primary</label>
+          </div>
+          <div class="form-check-input-secondary form-check form-check-inline">
+            <input type="checkbox" name="secondary" id="secondary" value="1" class="form-check-input form-check-input-secondary" checked="checked">
+            <label class="form-check-label" for="secondary">secondary</label>
+          </div>
+          <div class="form-check-input-success form-check form-check-inline">
+            <input type="checkbox" name="success" id="success" value="1" class="form-check-input form-check-input-success" checked="checked">
+            <label class="form-check-label" for="success">success</label>
+          </div>
+          <div class="form-check-input-danger form-check form-check-inline">
+            <input type="checkbox" name="danger" id="danger" value="1" class="form-check-input form-check-input-danger" checked="checked">
+            <label class="form-check-label" for="danger">danger</label>
+          </div>
+          <div class="form-check-input-warning form-check form-check-inline">
+            <input type="checkbox" name="warning" id="warning" value="1" class="form-check-input form-check-input-warning" checked="checked">
+            <label class="form-check-label" for="warning">warning</label>
+          </div>
+          <div class="form-check-input-info form-check form-check-inline">
+            <input type="checkbox" name="info" id="info" value="1" class="form-check-input form-check-input-info" checked="checked">
+            <label class="form-check-label" for="info">info</label>
+          </div>
+          <div class="form-check-input-light form-check form-check-inline">
+            <input type="checkbox" name="light" id="light" value="1" class="form-check-input form-check-input-light" checked="checked">
+            <label class="form-check-label" for="light">light</label>
+          </div>
+          <div class="form-check-input-dark form-check form-check-inline">
+            <input type="checkbox" name="dark" id="dark" value="1" class="form-check-input form-check-input-dark" checked="checked">
+            <label class="form-check-label" for="dark">dark</label>
           </div>
 
   - s.section title: "Label" do

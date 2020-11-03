@@ -23,7 +23,6 @@
   - ci.inherit_component 'radio_field', components_forms_choices_radio_field_path
   - ci.inherit_component 'date_picker_field', components_forms_dates_date_picker_field_path
   - ci.inherit_component 'dropdown_select_field', components_forms_selects_dropdown_select_field_path
-  - ci.inherit_component 'multi_select_field', components_forms_selects_multi_select_field_path
   - ci.inherit_component 'select_field', components_forms_selects_select_field_path
   - ci.inherit_component 'auto_complete_field', components_forms_texts_auto_complete_field_path
   - ci.inherit_component 'text_field', components_forms_texts_text_field_path
@@ -54,7 +53,6 @@
           - sf.button_refresh
           - sf.text_field 'toto'
           - sf.dropdown_select_field 'select', option_tags: select_options_tags
-          - sf.multi_select_field 'select', option_tags: select_options_tags
           - sf.button_link 'link', url: '#link'
       - e.code do
         :plain
@@ -75,7 +73,6 @@
           ui_surround_field do |sf|
             sf.button_refresh
             sf.dropdown_select_field 'select', option_tags: select_options_tags
-            sf.multi_select_field 'select', option_tags: select_options_tags
             sf.button_link 'link', url: '#link'
           end
       - e.html do
@@ -253,7 +250,6 @@
       %li= inherit_specific_component_link 'radio_field', components_forms_choices_radio_field_path
       %li= inherit_specific_component_link 'date_picker_field', components_forms_dates_date_picker_field_path
       %li= inherit_specific_component_link 'dropdown_select_field', components_forms_selects_dropdown_select_field_path
-      %li= inherit_specific_component_link 'multi_select_field', components_forms_selects_multi_select_field_path
       %li= inherit_specific_component_link 'select_field', components_forms_selects_select_field_path
       %li= inherit_specific_component_link 'auto_complete_field', components_forms_texts_auto_complete_field_path
       %li= inherit_specific_component_link 'text_field', components_forms_texts_text_field_path
