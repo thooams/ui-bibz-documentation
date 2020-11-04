@@ -4,7 +4,7 @@
 = code "ui_range_field", component_name: "name"
 
 = component_options do |co|
-  - co.status_link
+  - co.inherit_options_links except: %i(size glyph popover tooltip)
   - co.list 'in', types: 'array', description: "A range specifying the :min and :max values."
   - co.list 'max', types: %w(integer float), description: "The maximum acceptable value"
   - co.list 'min', types: %w(integer float), description: "The minimum acceptable value"

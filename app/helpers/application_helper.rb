@@ -127,4 +127,8 @@ module ApplicationHelper
   def bootstrap_start_url name
     "https://getbootstrap.com/docs/#{ UiBibzApp::Application::BOOTSTRAP_VERSION[0,3] }/#{ name }"
   end
+
+  def image_pack_path(name)
+    resolve_path_to_image(name)
+  end
 end

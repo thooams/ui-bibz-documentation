@@ -18,13 +18,10 @@
 
     ui_breadcrumb store, options, html_options
 
-- component_options do |co|
+= component_options do |co|
+  - co.inherit_options_links except: %i(glyph popover size state status tooltip)
   - co.list 'link_label', types: 'symbol', values: ':name'
   - co.list 'link_url', types: 'string', values: '#'
-  - co.cache_link
-  - co.stimulus_controller_link
-  - co.stimulus_action_link
-  - co.stimulus_target_link
 
 = component_items do |ci|
   - ci.inherit_component 'link', components_navigations_link_path

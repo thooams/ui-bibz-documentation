@@ -8,16 +8,12 @@
 = code "ui_markdown_editor_field", component_name: "name"
 
 = component_options do |co|
-  - co.state_link
+  - co.inherit_options_links except: %i(glyph status size popover tooltip)
   - co.list 'autofocus', types: 'boolean'
   - co.list 'savable', types: 'boolean'
   - co.list 'hideable', types: 'boolean'
   - co.list 'hidden_buttons', types: 'boolean'
   - co.list 'disabled_buttons', types: 'boolean'
-  - co.cache_link
-  - co.stimulus_controller_link
-  - co.stimulus_action_link
-  - co.stimulus_target_link
 
 - @sections = sections do |s|
   - s.section title: "Markdown Editor Field" do

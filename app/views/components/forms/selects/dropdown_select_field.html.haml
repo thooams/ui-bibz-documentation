@@ -5,8 +5,9 @@
 = code "ui_dropdown_select_field", component_name: "name"
 
 = component_options do |co|
-  - co.status_link
-  - co.state_link
+  - co.inherit_options_links except: %i(glyph popover tooltip)
+  - co.list 'append', types: %w(string html)
+  - co.list 'prepend', types: %w(string html)
   - co.list 'option_tags', types: %w(array object)
   - co.list 'multiple', types: :boolean
   - co.list 'clickable_opt_group', types: 'boolean'
@@ -16,10 +17,6 @@
   - co.list 'connect', types: 'hash'
   - co.list 'append', types: %w(string html)
   - co.list 'prepend', types: %w(string html)
-  - co.cache_link
-  - co.stimulus_controller_link
-  - co.stimulus_action_link
-  - co.stimulus_target_link
 
 - @sections = sections do |s|
   - s.section title: "Dropdown Select Field" do
@@ -139,6 +136,61 @@
             <li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" value="France"> France</label></a></li>
           </ul>
         </div>
+
+  - s.section title: "Append, prepend" do
+    = example do |e|
+      - e.header do
+        = ui_dropdown_select_field 'value', append: ui_glyph("calendar"), prepend: ui_glyph("pencil-alt"), option_tags: select_options_tags
+      - e.code do
+        ui_dropdown_select_field 'value', append: ui_glyph("calendar"), prepend: ui_glyph("pencil-alt"), option_tags: select_options_tags
+      - e.html do
+        :plain
+          <div class="input-group ui_surround_field">
+            <span class="input-group-text"><i class="glyph fas fa-calendar"></i></span>
+            <span class="multiselect-native-select">
+              <select name="value" id="value" class="btn-secondary multi-select-field">
+                <option value="0">option 0</option>
+                <option value="1">option 1</option>
+                <option value="2">option 2</option>
+                <option value="3">option 3</option>
+                <option value="4">option 4</option>
+              </select>
+              <div class="btn-group">
+                <button type="button" class="multiselect dropdown-toggle btn btn-secondary multi-select-field" data-toggle="dropdown" title="option 0" aria-expanded="false">
+                  <span class="multiselect-selected-text">option 0</span>
+                  <b class="caret"></b>
+                </button>
+                <ul class="multiselect-container dropdown-menu" style="">
+                  <li class="dropdown-item active">
+                    <a tabindex="0">
+                      <label class="radio" title="option 0"><input type="radio" class="form-check-input" value="0"> option 0</label>
+                    </a>
+                  </li>
+                  <li class="dropdown-item">
+                    <a tabindex="0">
+                      <label class="radio" title="option 1"><input type="radio" class="form-check-input" value="1"> option 1</label>
+                    </a>
+                  </li>
+                  <li class="dropdown-item">
+                    <a tabindex="0">
+                      <label class="radio" title="option 2"><input type="radio" class="form-check-input" value="2"> option 2</label>
+                    </a>
+                  </li>
+                  <li class="dropdown-item">
+                    <a tabindex="0">
+                      <label class="radio" title="option 3"><input type="radio" class="form-check-input" value="3"> option 3</label>
+                    </a>
+                  </li>
+                  <li class="dropdown-item">
+                    <a tabindex="0">
+                      <label class="radio" title="option 4"><input type="radio" class="form-check-input" value="4"> option 4</label>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </span>
+            <span class="input-group-text"><i class="glyph fas fa-pencil-alt"></i></span>
+          </div>
 
   - s.section title: "Searchable options" do
     = example do |e|

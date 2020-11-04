@@ -4,7 +4,8 @@
 = code "ui_number_field", component_name: "name"
 
 = component_options do |co|
-  - co.state_link
+  - co.inherit_options_links except: %i(glyph status popover tooltip)
+  - co.append_and_prepend_list
   - co.list 'value', types: 'string', description: "Input's value"
   - co.list 'min', types: %w(integer float), description: "The minimum acceptable value"
   - co.list 'max', types: %w(integer float), description: "The maximum acceptable value"
@@ -21,6 +22,20 @@
         ui_text_field "number"
       - e.html do
         <input type="number" name="number" id="number" class="custom-number">
+
+  - s.section title: "Append, prepend" do
+    = example do |e|
+      - e.header do
+        = ui_number_field 'number', append: ui_glyph("calendar"), prepend: ui_glyph("pencil-alt")
+      - e.code do
+        ui_number_field 'number', append: ui_glyph("calendar"), prepend: ui_glyph("pencil-alt")
+      - e.html do
+        :plain
+          <div class="input-group ui_surround_field">
+            <span class="input-group-text"><i class="glyph fas fa-calendar"></i></span>
+            <input type="number" name="number" id="number" class="form-control">
+            <span class="input-group-text"><i class="glyph fas fa-pencil-alt"></i></span>
+          </div>
 
   - s.section title: "Number Field min, max, step and value" do
     = example do |e|

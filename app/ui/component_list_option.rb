@@ -35,6 +35,10 @@ class ComponentListOption < UiBibz::Ui::Core::Component
     list("target", { types: :string, description: "(use component #{ option_link('stimulus-options') } method)" })
   end
 
+  def turbolinks_link
+    list("turbolinks", { types: :string, description: "(use component #{ option_link('turbolinks') } method)" })
+  end
+
   def glyph_link
     list('glyph', { types: %w(string hash), description: "(use component #{ option_link('glyph') } method)" })
   end
@@ -49,6 +53,10 @@ class ComponentListOption < UiBibz::Ui::Core::Component
 
   def popover_link
     list('popover', { types: [:string, :hash], description: "(use component #{ option_link('popover') } method)" })
+  end
+
+  def tooltip_link
+    list('tooltip', { types: [:string, :hash], description: "(use component #{ option_link('tooltip') } method)" })
   end
 
   def state_link
@@ -70,6 +78,20 @@ class ComponentListOption < UiBibz::Ui::Core::Component
 
   def render
     content_tag :ul, @items.sort.join.html_safe, class: 'list-options'
+  end
+
+  def inherit_options_links(except: [])
+    status_link unless except.include?(:status)
+    glyph_link unless except.include?(:glyph)
+    cache_link unless except.include?(:cache)
+    state_link unless except.include?(:state)
+    size_link unless except.include?(:size)
+    popover_link unless except.include?(:popover)
+    tooltip_link unless except.include?(:tooltip)
+    stimulus_controller_link unless except.include?(:stimulus_controller)
+    stimulus_target_link unless except.include?(:stimulus_target)
+    stimulus_action_link unless except.include?(:stimulus_action)
+    turbolinks_link  unless except.include?(:turbolinks)
   end
 
 private

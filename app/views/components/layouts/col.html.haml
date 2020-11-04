@@ -8,6 +8,7 @@
 = code 'col'
 
 = component_options do |co|
+  - co.inherit_options_links except: %i(glyph state size popover tooltip)
   - co.list 'num', types: 'integer'
   - co.list 'offset', types: 'integer'
   - co.list 'pull', types: 'integer'
@@ -15,10 +16,6 @@
   - co.list 'order', types: 'integer'
   - UiBibzApp::Application::BREAKPOINTS.each do |breakpoint|
     - co.list breakpoint, types: ["integer", "hash"]
-  - co.cache_link
-  - co.stimulus_controller_link
-  - co.stimulus_action_link
-  - co.stimulus_target_link
 
 - @sections = sections do |s|
   - s.section title: "Col" do

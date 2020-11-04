@@ -72,10 +72,7 @@
     end
 
 = component_options do |co|
-  - co.cache_link
-  - co.stimulus_controller_link
-  - co.stimulus_action_link
-  - co.stimulus_target_link
+  - co.inherit_options_links except: %i(size status glyph state popover tooltip)
 
 = component_items do |ci|
   - ci.inherit_component 'header'

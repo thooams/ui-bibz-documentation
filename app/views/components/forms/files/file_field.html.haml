@@ -4,12 +4,8 @@
 = code "ui_file_field", component_name: "name"
 
 = component_options do |co|
-  - co.state_link
-  - co.cache_link
+  - co.inherit_options_links except: %i(glyph popover status tooltip)
   - co.list "multiple", types: :boolean, description: "Upload multiple files"
-  - co.stimulus_controller_link
-  - co.stimulus_action_link
-  - co.stimulus_target_link
 
 - @sections = sections do |s|
   - s.section title: "File Field" do

@@ -5,21 +5,13 @@
 = code "ui_button"
 
 = component_options do |co|
-  - co.glyph_link
+  - co.inherit_options_links
   - co.list 'outline', types: 'boolean'
-  - co.size_link
-  - co.state_link
-  - co.status_link
   - co.list 'text', types: 'boolean'
   - co.list 'toggle', types: 'boolean'
   - co.list 'type', types: 'symbol', values: ':block'
   - co.list 'shortcut', types: 'string', description: "To show shortuct in the title"
   - co.list 'badge', types: %w(hash string), description: "(use component #{ link_to('badge',components_boxes_card_path) } method)"
-  - co.popover_link
-  - co.cache_link
-  - co.stimulus_controller_link
-  - co.stimulus_action_link
-  - co.stimulus_target_link
 
 - @sections = sections do |s|
   - s.section title: "Status" do

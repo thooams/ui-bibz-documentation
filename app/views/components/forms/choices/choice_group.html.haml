@@ -14,14 +14,9 @@
     end
 
 = component_options do |co|
-  - co.status_link
-  - co.size_link
+  - co.inherit_options_links except: %i(glyph popover state status tooltip)
   - co.list 'type', types: 'symbol', values: %w(:radio :checkbox), default: :checkbox
   - co.list 'outline', types: 'boolean'
-  - co.cache_link
-  - co.stimulus_controller_link
-  - co.stimulus_action_link
-  - co.stimulus_target_link
 
 = component_items do |ci|
   - ci.list "choice"

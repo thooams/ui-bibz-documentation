@@ -13,6 +13,7 @@
     end
 
 = component_options do |co|
+  - co.inherit_options_links except: %i(size glyph status state popover tooltip)
   - co.list 'num', types: 'integer'
   - co.list 'xs', types: 'hash'
   - co.list 'sm', types: 'hash'
@@ -20,10 +21,6 @@
   - co.list 'lg', types: 'hash'
   - co.list 'xl', types: 'hash'
   - co.list "gutters", types: %i[integer hash], description: "The same options as the gutters in the #{link_to('row component',  components_layouts_row_path(anchor: 'gutters'))}"
-  - co.cache_link
-  - co.stimulus_controller_link
-  - co.stimulus_action_link
-  - co.stimulus_target_link
 
 = component_items do |ci|
   - ci.inherit_component 'card', components_boxes_card_path

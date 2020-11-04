@@ -26,14 +26,11 @@
     end
 
 = component_options do |co|
+  - co.inherit_options_links except: %i(glyph state size popover tooltip)
   - co.list 'gutters', types: %w(integer hash)
   - co.list "num", types: :integer
   - UiBibzApp::Application::BREAKPOINTS.each do |breakpoint|
     - co.list breakpoint, types: 'hash'
-  - co.cache_link
-  - co.stimulus_controller_link
-  - co.stimulus_action_link
-  - co.stimulus_target_link
 
 = component_items do |ci|
   - ci.inherit_component 'col'

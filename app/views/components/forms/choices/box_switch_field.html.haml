@@ -5,7 +5,7 @@
 = code "ui_box_switch_field", component_name: "name"
 
 = component_options do |co|
-  - co.state_link
+  - co.inherit_options_links except: %i(glyph popover status tooltip)
   - co.list 'value', types: %w(boolean string integer)
   - co.list 'label', types: 'string'
   - co.list 'intermediate', types: 'boolean'
@@ -16,10 +16,6 @@
   - co.list 'middle_text', types: 'string'
   - co.list 'left_color', types: 'symbol', values: UiBibzApp::Application::STATUSES
   - co.list 'right_color', types: 'symbol', values: UiBibzApp::Application::STATUSES
-  - co.cache_link
-  - co.stimulus_controller_link
-  - co.stimulus_action_link
-  - co.stimulus_target_link
 
 = component_html_options do |cho|
   - cho.list 'readonly', types: 'boolean'

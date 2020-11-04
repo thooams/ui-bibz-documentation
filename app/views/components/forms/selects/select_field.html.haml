@@ -4,16 +4,11 @@
 = code "ui_select_field", component_name: "name"
 
 = component_options do |co|
-  - co.state_link
+  - co.inherit_options_links except: %i(glyph popover tooltip)
+  - co.append_and_prepend_list
   - co.list 'option_tags', types: %w(array object)
   - co.list 'connect', types: "hash"
   - co.list 'refresh', types: "hash"
-  - co.list 'append', types: %w(string html)
-  - co.list 'prepend', types: %w(string html)
-  - co.cache_link
-  - co.stimulus_controller_link
-  - co.stimulus_action_link
-  - co.stimulus_target_link
 
 - @sections = sections do |s|
 
@@ -33,6 +28,26 @@
             <option value="option 3">option 3</option>
             <option value="option 4">option 4</option>
           </select>
+
+  - s.section title: "Append, prepend" do
+    = example do |e|
+      - e.header do
+        = ui_select_field 'value', append: ui_glyph("calendar"), prepend: ui_glyph("pencil-alt"), option_tags: select_options_tags
+      - e.code do
+        ui_select_field 'value', append: ui_glyph("calendar"), prepend: ui_glyph("pencil-alt"), option_tags: select_options_tags
+      - e.html do
+        :plain
+          <div class="input-group ui_surround_field">
+            <span class="input-group-text"><i class="glyph fas fa-calendar"></i></span>
+            <select name="value" id="value" class="select-field form-control form-select">
+              <option value="0">option 0</option>
+              <option value="1">option 1</option>
+              <option value="2">option 2</option>
+              <option value="3">option 3</option>
+              <option value="4">option 4</option>
+            </select>
+            <span class="input-group-text"><i class="glyph fas fa-pencil-alt"></i></span>
+          </div>
 
   - s.section title: "Optgroup options" do
     = example do |e|

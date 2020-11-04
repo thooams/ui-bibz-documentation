@@ -5,18 +5,10 @@
 = code "ui_button_link"
 
 = component_options do |co|
-  - co.status_link
-  - co.glyph_link
-  - co.state_link
-  - co.size_link
+  - co.inherit_options_links
   - co.list 'toggle', types: 'boolean'
   - co.list 'outline', types: 'boolean'
   - co.list 'type', types: 'symbol', values: ':block'
-  - co.popover_link
-  - co.cache_link
-  - co.stimulus_controller_link
-  - co.stimulus_action_link
-  - co.stimulus_target_link
 
 - @sections = sections do |s|
   - s.section title: "Status" do

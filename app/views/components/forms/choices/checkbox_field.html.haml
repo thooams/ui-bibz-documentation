@@ -5,17 +5,12 @@
 = code "ui_checkbox_field", component_name: "name"
 
 = component_options do |co|
-  - co.status_link
-  - co.state_link
+  - co.inherit_options_links except: %i(size glyph popover tooltip)
   - co.list 'value', types: %w(boolean string integer)
   - co.list 'label', types: %w(string boolean)
   - co.list 'intermediate', types: 'boolean'
   - co.list 'inline', types: 'boolean'
   - co.list "boolean", types: "boolean", description: "If your checkbox is for a boolean"
-  - co.cache_link
-  - co.stimulus_controller_link
-  - co.stimulus_action_link
-  - co.stimulus_target_link
 
 - @sections = sections do |s|
   - s.section title: "Checkbox" do

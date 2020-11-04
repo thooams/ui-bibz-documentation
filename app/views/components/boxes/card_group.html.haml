@@ -12,6 +12,9 @@
       end
     end
 
+= component_options do |co|
+  - co.inherit_options_links except: %i(size glyph state popover tooltip)
+
 = component_items do |ci|
   - ci.inherit_component 'card', components_boxes_card_path
   - ci.html_link

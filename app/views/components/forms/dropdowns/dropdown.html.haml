@@ -30,21 +30,13 @@
     end
 
 = component_options do |co|
-  - co.status_link
-  - co.glyph_link
-  - co.state_link
-  - co.size_link
+  - co.inherit_options_links
   - co.list 'inline', types: 'boolean', values: %w(true false)
   - co.list 'outline', types: 'boolean', values: %w(true false)
   - co.list 'caret', types: 'boolean', values: %w(true false), description: 'Remove caret'
   - co.list 'alignement', types: 'symbol', values: %w(:right :left), default: ":left"
   - co.list 'position', types: 'symbol', values: %w(:up :down :left :right), default: ':down'
   - co.list 'tag', types: 'symbol', values: %w(:a :button), default: ':button'
-  - co.popover_link
-  - co.cache_link
-  - co.stimulus_controller_link
-  - co.stimulus_action_link
-  - co.stimulus_target_link
 
 - @sections = sections do |s|
   - s.section title: "Dropdown" do

@@ -5,13 +5,9 @@
 = code "ui_switch_field", component_name: "name"
 
 = component_options do |co|
-  - co.state_link
-  - co.cache_link
+  - co.inherit_options_links except: %i(size glyph status popover tooltip)
   - co.list 'inline', types: 'boolean'
   - co.list 'checked', types: 'boolean'
-  - co.stimulus_controller_link
-  - co.stimulus_action_link
-  - co.stimulus_target_link
 
 = component_html_options do |cho|
   - cho.list 'readonly', types: 'boolean'

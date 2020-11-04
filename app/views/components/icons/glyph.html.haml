@@ -16,20 +16,13 @@
     ui_glyph options
 
 = component_options do |co|
-  - co.status_link
-  - co.state_link
-  - co.size_link
+  - co.inherit_options_links except: %i(glyph state)
   - co.list 'flip', types: 'symbol', values: %w(:horizontal :vertical)
   - co.list 'name', types: 'string'
   - co.list 'rotate', types: 'number'
   - co.list 'stack', types: 'integer'
   - co.list 'label', types: 'string'
   - co.list 'style', types: 'symbol'
-  - co.cache_link
-  - co.popover_link
-  - co.stimulus_controller_link
-  - co.stimulus_action_link
-  - co.stimulus_target_link
 
 - @sections = sections do |s|
   - s.section title: "Glyph" do

@@ -24,14 +24,9 @@
     end
 
 = component_options do |co|
-  - co.status_link
+  - co.inherit_options_links except: %i(glyph popover size state tooltip)
   - co.list 'closable', types: :boolean, default: "false"
   - co.list 'timeout', types: :integer, description: 'Fade out after timeout'
-  - co.popover_link
-  - co.cache_link
-  - co.stimulus_controller_link
-  - co.stimulus_action_link
-  - co.stimulus_target_link
 
 - @sections = sections do |s|
   - s.section title: "Alert" do

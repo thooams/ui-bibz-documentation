@@ -5,12 +5,8 @@
 = code 'link'
 
 = component_options do |co|
+  - co.inherit_options_links except: %i(size)
   - co.list 'url', types: 'string'
-  - co.cache_link
-  - co.popover_link
-  - co.stimulus_controller_link
-  - co.stimulus_action_link
-  - co.stimulus_target_link
 
 - @sections = sections do |s|
   - s.section title: "Link" do

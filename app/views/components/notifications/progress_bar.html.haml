@@ -22,16 +22,11 @@
     end
 
 = component_options do |co|
-  - co.status_link
+  - co.inherit_options_links except: %i(glyph size)
   - co.list 'value', types: 'number'
   - co.list 'striped', types: 'boolean'
   - co.list 'animated', types: 'boolean'
   - co.list 'statuses', types: %w(boolean array)
-  - co.popover_link
-  - co.cache_link
-  - co.stimulus_controller_link
-  - co.stimulus_action_link
-  - co.stimulus_target_link
 
 = component_items do |ci|
   - ci.inherit_component "bar"
