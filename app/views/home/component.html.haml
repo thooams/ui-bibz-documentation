@@ -170,6 +170,16 @@
             Component.new 'My sub component 2', action: 'click->hello#greet'
           end
 
+  - s.section title: "Turbolinks" do
+    %p
+      Disable turbolinks for some components:
+      #{link_to("data-turbolinks='false'", 'https://github.com/turbolinks/turbolinks#disabling-turbolinks-on-specific-links', target: "_blank") }
+
+    = example do |c|
+      - c.code do
+        :plain
+          = ui_link "My link", url: "my-link.html", turbolinks: false
+
   - s.section title: "Html options" do
     %p You can add any html properties.
     = example do |c|
