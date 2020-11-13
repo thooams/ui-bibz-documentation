@@ -34,7 +34,7 @@ private
   end
 
   def code_nav
-    UiBibz::Ui::Core::Navigations::Nav.new(type: :tabs).tap do |n|
+    UiBibz::Ui::Core::Navigations::TabGroup.new.tap do |n|
       n.link @code.options[:title] || 'Ruby', a_html: { "data-target": "##{ @ruby_id }"}, state: :active
       n.link 'Html', a_html: { "data-target": "##{ @html_id }" } unless @html.nil?
     end.render
