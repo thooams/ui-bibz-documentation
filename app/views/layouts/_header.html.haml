@@ -3,7 +3,7 @@
     - nb.navbar_toggle_html do
       = button_tag class: "navbar-toggler d-block d-md-none collapsed submenu-toggler" do
         = ui_glyph "arrow-alt-circle-down"
-    - nb.brand image_pack_tag('brand.png', alt: "Ui Bibz logo"), url: root_url
+    - nb.brand image_pack_tag('brand.png', alt: "Ui Bibz logo", size: "37x30"), url: root_url
     - nb.nav do |n|
       - opts = { url: getting_started_path }
       - opts.merge!({ state: :active }) if params[:action] == 'getting_started'
@@ -27,9 +27,14 @@
       - n.link 'Theme', opts
     - nb.spacer
     - nb.nav do |sn|
-      - opts = { url: about_path, text: false, glyph: "info-circle" }
+      - opts = { url: about_path, glyph: "info-circle" }
       - opts.merge!({ state: :active}) if params[:action] == 'about'
-      - sn.link 'About', opts
-      - sn.link "Github", url: "https://github.com/thooams/Ui-Bibz", text: false, glyph: { name: "github", style: :brands }, a_html: { target: "_blank"}
-      - sn.link "Ruby Gem", url: "https://rubygems.org/gems/ui_bibz", text: false, glyph: "gem", a_html: { target: "_blank"}
-      - sn.link "Npm", url: "https://www.npmjs.com/package/ui-bibz-js", text: false, glyph:  { name: "npm", style: :brands }, a_html: { target: "_blank"}
+      - sn.link opts do
+        .visually-hidden About
+      - sn.link url: "https://github.com/thooams/Ui-Bibz", glyph: { name: "github", style: :brands }, a_html: { target: "_blank", rel: "noopener"} do
+        .visually-hidden Github
+      - sn.link url: "https://rubygems.org/gems/ui_bibz", glyph: "gem", a_html: { target: "_blank", rel: "noopener"} do
+        .visually-hidden Ruby Gem
+      - sn.link url: "https://www.npmjs.com/package/ui-bibz-js", glyph:  { name: "npm", style: :brands }, a_html: { target: "_blank", rel: "noopener"} do
+        .visually-hidden Npm
+

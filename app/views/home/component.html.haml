@@ -94,7 +94,7 @@
       - co.list 'postion', types: 'symbol', values: %w(:auto :top :left :right :bottom), description: "How to position the popover"
       - UiBibz::Ui::Core::Component::POPOVER_METHODS.each do |mth|
         - co.list mth
-    %p Documentation for popover options are in #{ link_to("bootstrap documentation", bootstrap_start_url("components/popovers/#options"), target: "_blank") }.
+    %p Documentation for popover options are in #{ link_to("bootstrap documentation", bootstrap_start_url("components/popovers/#options"), target: "_blank", rel: "noopener") }.
     = example do |c|
       - c.code do
         :plain
@@ -114,7 +114,7 @@
       - UiBibz::Ui::Core::Component::TOOLTIP_METHODS.each do |mth|
         - co.list mth
 
-    %p Documentation for popover options are in #{ link_to("bootstrap documentation", bootstrap_start_url("components/tooltips/#options"), target: "_blank") }.
+    %p Documentation for popover options are in #{ link_to("bootstrap documentation", bootstrap_start_url("components/tooltips/#options"), target: "_blank", rel: "noopener") }.
 
     = example do |c|
       - c.code do
@@ -138,7 +138,7 @@
           end
 
   - s.section title: "Cache" do
-    %p You can cache your component thanks to rails #{ link_to 'cache', 'https://guides.rubyonrails.org/caching_with_rails.html', target: "_blank" } options.
+    %p You can cache your component thanks to rails #{ link_to 'cache', 'https://guides.rubyonrails.org/caching_with_rails.html', target: "_blank", rel: "noopener" } options.
     = example do |c|
       - c.code do
         :plain
@@ -151,7 +151,7 @@
           end
 
   - s.section title: "Stimulus options" do
-    %p Ui Bibz can use #{ link_to "stimulus", "https://stimulusjs.org/", target: "_blank" } with these options:
+    %p Ui Bibz can use #{ link_to "stimulus", "https://stimulusjs.org/", target: "_blank", rel: "noopener" } with these options:
     %ul.list-options
       %li
         controller
@@ -173,7 +173,7 @@
   - s.section title: "Turbolinks" do
     %p
       Disable turbolinks for some components:
-      #{link_to("data-turbolinks='false'", 'https://github.com/turbolinks/turbolinks#disabling-turbolinks-on-specific-links', target: "_blank") }
+      #{link_to("data-turbolinks='false'", 'https://github.com/turbolinks/turbolinks#disabling-turbolinks-on-specific-links', target: "_blank", rel: "noopener") }
 
     = example do |c|
       - c.code do

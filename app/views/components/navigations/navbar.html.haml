@@ -32,6 +32,8 @@
   - co.list 'sticky', types: 'boolean', values: %w(true false)
   - co.list 'container', types: 'hash', description: "same options like  #{ link_to('container', components_layouts_container_path) }"
   - co.list 'container_html', types: 'hash', description: "html options for container"
+  - co.list 'expand_size', types: :symbol, values: %w(:sm :md :lg :xl :xxl), description: "size which you want expand the navbar"
+  - co.list 'collapsible', types: :boolean, description: "turn on/off the responsive collapsing"
 
 = component_items do |ci|
   - ci.inherit_component 'navbar_toggle_html'

@@ -33,7 +33,7 @@ module ApplicationHelper
   end
 
   def getbootstrap_doc url
-    link_to('Bootstrap doc', "https://v5.getbootstrap.com/docs/5.0/#{ url }", target: '_blank')
+    link_to('Bootstrap doc', "https://v5.getbootstrap.com/docs/5.0/#{ url }", target: '_blank', rel: "noopener")
   end
 
   def nav_active_link path
@@ -97,7 +97,7 @@ module ApplicationHelper
   end
 
   def simple_form_text_with_input input_name
-    "Ui Bibz is compatible with #{ link_to "simple form", "https://github.com/plataformatec/simple_form", target: '_blank' }.
+    "Ui Bibz is compatible with #{ link_to "simple form", "https://github.com/plataformatec/simple_form", target: '_blank', rel: "noopener" }.
     You can use defaults inputs of <strong>Simple Form</strong> and defaults inputs of <strong>Ui Bibz</strong> like <code>#{ input_name }</code>. You can use Simple Form input options and Ui Bibz #{ input_name } options.".html_safe
   end
 

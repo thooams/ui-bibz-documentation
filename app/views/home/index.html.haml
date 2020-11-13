@@ -1,9 +1,9 @@
 .pageheader-white
   = ui_container do
     = ui_row do
-      = ui_col md: { num: 2 }, sm: { num: 12 } do
+      = ui_col md: 2, sm: 12 do
         = image_pack_tag 'ui-bibz-logo.png', alt: "Ui Bibz logo", class: "img-fluid", title: "Ui Bibz"
-      = ui_col md: { num: 8 }, sm: { num: 12} do
+      = ui_col md: 8, sm: 12 do
         %h1 Build your own interface without writting HTML
         %p
           Design through many components your own web interface thanks to Ui Bibz.
@@ -26,7 +26,7 @@
               - r.col num: 1, class: "bg-primary text-white"
               - r.col num: 11 do |col|
                 - col.body do
-                  %h3 Ruby on Rails
+                  %h2 Ruby on Rails
                   A Ruby on Rails gem to facilitate the integration of your own interface.
                   Compatible with Simple Form and Will Paginate.
           - cg.card do |c|
@@ -34,14 +34,14 @@
               - r.col num: 1, class: "bg-primary text-white"
               - r.col num: 11 do |col|
                 - col.body do
-                  %h3 Bootstrap
+                  %h2 Bootstrap
                   Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit.
           - cg.card do |c|
             - c.row gutters: 0 do |r|
               - r.col num: 1, class: "bg-primary text-white"
               - r.col num: 11 do |col|
                 - col.body do
-                  %h3 Font Awesome
+                  %h2 Font Awesome
                   Get vector icons and social logos on your website with Font Awesome, the web's most popular icon set and toolkit.
         %br
         %br
