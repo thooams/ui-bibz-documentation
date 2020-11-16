@@ -38,7 +38,7 @@
         = ui_card_grid(num: 2, gutters: 4) do |cd|
           - 4.times.each do
             - cd.card do |c|
-              - c.image image
+              - c.image image, {}, alt: "image #{rand(99)}"
               - c.body 'This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.'
       - e.code do
         :plain

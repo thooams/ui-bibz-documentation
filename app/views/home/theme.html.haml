@@ -12,7 +12,7 @@
   = ui_col do
     = ui_card do |c|
       - c.header 'Card'
-      - c.image "https://picsum.photos/700/200"
+      - c.image "https://picsum.photos/700/200", {}, alt: "image 1"
       - c.body do |b|
         - b.title "Card title"
         - b.text "Some quick example text to build on the ui_card title and make up the bulk of the ui_card's content."
@@ -53,7 +53,7 @@
     - c.body 'content 1'
     - c.footer 'footer 1'
   - cg.card do |c|
-    - c.image "https://picsum.photos/300/200"
+    - c.image "https://picsum.photos/300/200", {}, alt: "image 2"
     - c.body do |b|
       - b.title 'card title'
       - b.text 'this is a wider ui_card with supporting text below as a natural lead-in to additional content. this content is a little bit longer.'
@@ -95,7 +95,7 @@
     - c.body "content 1"
     - c.footer 'footer 1'
   - cc.card do |c|
-    - c.image "https://picsum.photos/300/200"
+    - c.image "https://picsum.photos/300/200", {}, alt: "image 2"
     - c.body do |b|
       - b.title 'Card title'
       - b.text 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.'
@@ -115,7 +115,7 @@
     - c.body "content 1"
     - c.footer 'footer 1'
   - cc.card do |c|
-    - c.image "https://picsum.photos/300/200"
+    - c.image "https://picsum.photos/300/200", {}, alt: "image 3"
     - c.body do |b|
       - b.title 'Card title'
       - b.text 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.'
@@ -212,12 +212,12 @@
     %h3 Toolbars
     = ui_toolbar justify: true do |bt|
       - bt.button_group status: :success  do |bg|
-        - bg.button '', text: false, glyph: 'copy'
-        - bg.button '', text: false, glyph: 'paste', status: :danger
-        - bg.button '', text: false, glyph: 'cut'
+        - bg.button "copy", text: false, glyph: 'copy'
+        - bg.button "paste", text: false, glyph: 'paste', status: :danger
+        - bg.button "cut", text: false, glyph: 'cut'
       - bt.button_group do |bg|
-        - bg.button '', status: :dark, glyph: 'car'
-        - bg.button '', status: :dark, glyph: 'star'
+        - bg.button "car", status: :dark, glyph: 'car'
+        - bg.button "star", status: :dark, glyph: 'star'
       - bt.button_group do |bg|
         - bg.button 'Edit', status: :dark
         - bg.button 'Delete', status: :dark

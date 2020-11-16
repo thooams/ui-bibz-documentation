@@ -66,7 +66,8 @@
   - ci.inherit_component 'header'
   - ci.inherit_component 'body'
   - ci.inherit_component 'footer'
-  - ci.inherit_component 'image'
+  - ci.list "image", description: "(Inherit of component)" do |clo|
+    - clo.list "pack", types: :boolean, description: "Use <code>image_pack_tag</code> instead of <code>image_tag</code>."
   - ci.inherit_component 'list_group', components_layouts_row_path
   - ci.html_link
   - ci.list 'row', types: ['content', 'hash'], description: "(inherit of #{link_to('row', components_layouts_row_path)})" do |clo|
@@ -263,7 +264,7 @@
         = ui_card do |c|
           - c.row gutters: 0 do |r|
             - r.col 4 do |cl|
-              - cl.image "https://picsum.photos/300/100", position: :left
+              - cl.image "https://picsum.photos/300/100", { position: :left },{ alt: "image 1"}
             - r.col 8 do |cl|
               - cl.body do |b|
                 - b.title "Card title"
@@ -274,14 +275,14 @@
         = ui_card do |c|
           - c.row gutters: 0 do |r|
             - r.col 3 do |cl|
-              - cl.image "https://picsum.photos/300/100", position: :left
+              - cl.image "https://picsum.photos/300/100", { position: :left }, { alt: "image 2" }
             - r.col 6 do |cl|
               - cl.body do |b|
                 - b.title "Card title"
                 - b.subtitle "Card subtitle"
                 - b.text "Some quick example text to build on the card title and make up the bulk of the card's content."
             - r.col 3 do |cl|
-              - cl.image "https://picsum.photos/300/100", position: :right
+              - cl.image "https://picsum.photos/300/100", { position: :right}, { alt: "image 3"}
         %br
         = ui_card do |c|
           - c.row gutters: 0 do |r|

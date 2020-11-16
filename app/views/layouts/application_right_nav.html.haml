@@ -12,10 +12,10 @@
             = render "components/nav"
           = yield :third_nav
         = ui_col( xl: { num: 8 }, lg: { num: 8 }, md: { num: 8, }, sm: { num: 12 }, xs: { num: 12 }, class: 'content') do
-          = yield
+          %main= yield
         = ui_col( xl: { num: 2 }, lg: { num: 2 }, class: 'secondary-nav d-md-none d-lg-block' ) do
           - unless @sections.nil?
-            .sticky
+            %aside.sticky
               %h4 On this page
               %hr
               = subnav do |n|

@@ -9,7 +9,6 @@
   - co.list 'outline', types: 'boolean'
   - co.list 'text', types: 'boolean'
   - co.list 'toggle', types: 'boolean'
-  - co.list 'type', types: 'symbol', values: ':block'
   - co.list 'shortcut', types: 'string', description: "To show shortuct in the title"
   - co.list 'badge', types: %w(hash string), description: "(use component #{ link_to('badge',components_boxes_card_path) } method)"
 
@@ -76,19 +75,38 @@
         <button class="btn-primary btn">Medium button</button>
         <button class="btn-primary btn btn-sm">Small button</button>
 
-  - s.section title: "Type", tag: :h3 do
+  - s.section title: "block", tag: :h3 do
     :markdown
-      Buttons can be presented as a block through the `type` option that argument for the symbol `:block`.
+      Buttons can be presented as a block through the class `.d-grid`.
     = example do |c|
       - c.header do
-        = ui_button 'Block level button', status: :primary, type: :block
-        = ui_button 'Block level button', status: :secondary, type: :block
+        .d-grid.gap-2
+          = ui_button 'Block level button', status: :primary, type: :block
+          = ui_button 'Block level button', status: :secondary, type: :block
+        %br
+        .d-grid.gap-2.d-md-block
+          = ui_button 'Block level button', status: :primary, type: :block
+          = ui_button 'Block level button', status: :secondary, type: :block
       - c.code do
-        ui_button "Block level button", status: :primary, type: :block
-        ui_button "Block level button", status: :secondary, type: :block
+        :plain
+          <div class="d-grid gap-2">
+            ui_button "Block level button", status: :primary, type: :block
+            ui_button "Block level button", status: :secondary, type: :block
+          </div>
+          <div class="d-grid gap-2 d-md-block">
+            ui_button "Block level button", status: :primary, type: :block
+            ui_button "Block level button", status: :secondary, type: :block
+          </div>
       - c.html do
-        <button class="btn-primary btn btn-block">Block level button</button>
-        <button class="btn-secondary btn btn-block">Block level button</button>
+        :plain
+          <div class="d-grid gap-2 d-md-block">
+            <button class="btn-primary btn btn-block">Block level button</button>
+            <button class="btn-secondary btn btn-block">Block level button</button>
+          </div>
+          <div class="d-grid gap-2 d-md-block">
+            <button class="btn-primary btn btn-block">Block level button</button>
+            <button class="btn-secondary btn btn-block">Block level button</button>
+          </div>
 
   - s.section title: "State", tag: :h3 do
     :markdown

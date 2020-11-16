@@ -56,7 +56,7 @@
     = example do |c|
       - c.header class: 'bg-dark' do
         = ui_toast class: 'my-toast show', auto_hide: true do |t|
-          - t.header 'My toast Header', img: image_pack_path('ui-bibz-logo-30.gif'), time: '2 seconds ago'
+          - t.header 'My toast Header', img: image_pack_path('ui-bibz-logo-30.gif', alt: "Ui Bibz logo"), time: '2 seconds ago'
           - t.body 'My toast Body'
         = ui_toast class: 'my-toast2 show' do |t|
           - t.header 'My toast Header 2', glyph: :gem, time: 'Now'
