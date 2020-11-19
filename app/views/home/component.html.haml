@@ -121,6 +121,8 @@
         :plain
           # by boolean
           Component.new content, { tooltip: true }, { title: 'My popover text...' }
+          # or
+          Component.new content, tooltip: true, text: false
 
           # or by hash
           Component.new content, tooltip: { content: 'My popover text...', title: 'My Titel', ... }

@@ -16,3 +16,8 @@
     RAILS_ENV=production rails assets:precompile
     RAILS_ENV=production RAILS_SERVE_STATIC_FILES=yes rails s
     wget -r -k -E "http://localhost:3000"
+
+# Remove href errors
+
+
+Vscode => search and replace: `nav-link" href="([^"#]*)#"` by `nav-link" href="#"`
