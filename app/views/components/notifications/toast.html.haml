@@ -24,6 +24,11 @@
   - co.inherit_options_links except: %i(glyph state size tooltip popover)
   - co.list 'time', types: :string, description: 'Time info'
   - co.list "auto_hide", types: :boolean
+  - co.list "image", types: %i[string hash], description: "Url of the image or a Hash" do |cl|
+    - cl.list "pack", types: :boolean, description: "Use image_pack_tag instead of image_tag"
+    - cl.list "href", types: :string, required: true
+    - cl.list "alt", types: :string
+    - cl.list "... image attributes", types: :string
 
 - @sections = sections do |s|
   - s.section title: "Toast" do
@@ -56,7 +61,7 @@
     = example do |c|
       - c.header class: 'bg-dark' do
         = ui_toast class: 'my-toast show', auto_hide: true do |t|
-          - t.header 'My toast Header', img: image_pack_path('ui-bibz-logo-30.gif', alt: "Ui Bibz logo"), time: '2 seconds ago'
+          - t.header 'My toast Header', image: { pack: true, href: 'ui-bibz-logo-30.gif', size: "20x20", alt: "Ui Bibz logo" }, time: '2 seconds ago'
           - t.body 'My toast Body'
         = ui_toast class: 'my-toast2 show' do |t|
           - t.header 'My toast Header 2', glyph: :gem, time: 'Now'
@@ -64,7 +69,9 @@
       - c.code do
         :plain
           ui_toast class: 'my-toast show', auto_hide: true do |t|
-            t.header 'My toast Header', img: image_pack_path('ui-bibz-logo-30.gif'), time: '2 seconds ago'
+            t.header 'My toast Header', image: 'ui-bibz-logo-30.gif', time: '2 seconds ago'
+            # or
+            t.header 'My toast Header', image: { pack: true, href: 'ui-bibz-logo-30.gif', size: "20x20" alt: "Ui Bibz logo" }, time: '2 seconds ago'
             t.body 'My toast Body'
           end
 

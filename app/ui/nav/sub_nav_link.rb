@@ -1,7 +1,7 @@
 class Nav::SubNavLink < UiBibz::Ui::Core::Component
   # Render html tag
   def render
-    content_tag :li, link_to(@content, "##{ @content.parameterize }"), html_options
+    content_tag :li, link_to(@content, "##{ @content.parameterize }", "data-turbolinks": false), html_options
   end
 
   private
