@@ -18,7 +18,7 @@
 
     %h2 Assets with webpack
 
-    Put this line in: <code>app/javascript/packs/applications.js</code>
+    Put these lines in the good place:
     = example  do |c|
       - c.code title: 'Code' do
         :plain
@@ -28,11 +28,34 @@
           ...
 
 
+    = example  do |c|
       - c.code title: 'Code' do
         :plain
           # app/javascript/stylesheets/application.sass
           ...
           @import "~ui-bibz-js/sass/ui-bibz"
+          ...
+
+    = example  do |c|
+      - c.code title: 'Code' do
+        :plain
+          # config/webpack/environment.js
+          ...
+          const { environment } = require('@rails/webpacker')
+
+          const webpack = require('webpack')
+
+          // Ui Bibz required Jquery yet for some js libraries
+          environment.plugins.prepend(
+              'Provide',
+              new webpack.ProvidePlugin({
+                  $: 'jquery/src/jquery',
+                  jQuery: 'jquery/src/jquery',
+                  jquery: 'jquery/src/jquery'
+              })
+          )
+          module.exports = environment
+          environment.loaders.delete('nodeModules')
           ...
 
   = ui_col md: { num: 4 }, sm: { num: 12 } do

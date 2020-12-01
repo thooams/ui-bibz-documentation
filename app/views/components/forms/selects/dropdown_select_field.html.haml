@@ -17,6 +17,10 @@
   - co.list 'connect', types: 'hash'
   - co.list 'append', types: %w(string html)
   - co.list 'prepend', types: %w(string html)
+  - co.list 'open', types: 'boolean'
+  - co.list 'alignement', types: 'symbol', values: %w(:right :left), default: ":left"
+  - co.list 'position', types: 'symbol', values: %w(:up :down :left :right), default: ':down'
+  - co.list 'theme', types: 'symbol', value: %w(:dark)
 
 - @sections = sections do |s|
   - s.section title: "Dropdown Select Field" do

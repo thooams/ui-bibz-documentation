@@ -34,9 +34,11 @@
   - co.list 'inline', types: 'boolean', values: %w(true false)
   - co.list 'outline', types: 'boolean', values: %w(true false)
   - co.list 'caret', types: 'boolean', values: %w(true false), description: 'Remove caret'
+  - co.list 'open', types: 'boolean'
   - co.list 'alignement', types: 'symbol', values: %w(:right :left), default: ":left"
   - co.list 'position', types: 'symbol', values: %w(:up :down :left :right), default: ':down'
   - co.list 'tag', types: 'symbol', values: %w(:a :button), default: ':button'
+  - co.list 'theme', types: 'symbol', value: %w(:dark)
 
 - @sections = sections do |s|
   - s.section title: "Dropdown" do

@@ -1,6 +1,5 @@
 const { environment } = require('@rails/webpacker')
 
-// TODO: Maybe remove ??
 const webpack = require('webpack')
 environment.plugins.prepend(
     'Provide',
