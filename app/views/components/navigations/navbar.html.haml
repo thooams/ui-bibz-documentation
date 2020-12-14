@@ -62,7 +62,7 @@
               - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
                 = "Action 3"
           - nb.form '/search', { type: :form_tag, position: :right } do
-            = ui_text_field 'Search', class: 'mr-sm-2'
+            = ui_text_field 'Search', class: 'me-sm-2'
             = ui_button('Search', status: :success, outline: true)
       - c.code do
         ui_navbar title: 'Navbar' do |nb|
@@ -82,7 +82,7 @@
             end
           end
           nb.form "/search", { type: :form_tag, position: :right } do
-            ui_text_field "Search", class: "mr-sm-2"
+            ui_text_field "Search", class: "me-sm-2"
             ui_button "Search", status: :success, outline: true
           end
         end
@@ -134,7 +134,7 @@
       - c.code do
         :plain
           ui_navbar title: "Navbar" do |nb|
-            nb.nav class: "mr-auto" do |n|
+            nb.nav class: "me-auto" do |n|
               n.link "Home", url: "#active", state: :active
               n.link url: "#link", class: "my-link" do
                 Features
@@ -283,7 +283,7 @@
           - nb.nav do |n|
             - n.link 'Link', url: '#link'
           - nb.spacer 2
-          - nb.form @user, { type: :ui_form_for, url: components_navigations_navbar_path, method: 'get', input_html: { class: 'mr-sm-2' }} do |f|
+          - nb.form @user, { type: :ui_form_for, url: components_navigations_navbar_path, method: 'get', input_html: { class: 'me-sm-2' }} do |f|
             = f.input :country_id, as: :ui_select_field, label: false, collection: Country.all
             = f.ui_surround_field do |s|
               - s.glyph 'user'
@@ -297,7 +297,7 @@
             nb.nav do |n|
               n.link "Link", url: "#link"
             end
-            nb.form @user, { type: :ui_form_for, url: components_navigations_navbar_path, method: "get", input_html: { class: "mr-sm-2" }} do |f|
+            nb.form @user, { type: :ui_form_for, url: components_navigations_navbar_path, method: "get", input_html: { class: "me-sm-2" }} do |f|
               = f.input :country_id, as: :ui_select_field, label: false, collection: Country.all
               = f.ui_surround_field do |s|
                 s.glyph "user"

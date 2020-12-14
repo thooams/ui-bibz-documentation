@@ -288,7 +288,7 @@
   = ui_col num: 12 do
     %h3 Navbars
     = ui_navbar title: 'Navbar', justify: true, status: :dark, type: :dark do |nb|
-      - nb.nav class: 'mr-auto' do |n|
+      - nb.nav class: 'me-auto' do |n|
         - n.link 'Home', url: '#active', state: :active
         - n.link 'Profil', url: '#profil'
         - n.link 'Disabled', url: '#profil', state: :disabled
@@ -299,12 +299,12 @@
           - d.divider
           - d.link 'Separted link'
       - nb.form '#', { method: :get, type: :form_tag, position: :right } do
-        = ui_text_field 'Search', class: 'mr-2'
+        = ui_text_field 'Search', class: 'me-2'
         = ui_button 'Search', status: :success, outline: true
 
     %br
     = ui_navbar title: 'Navbar', justify: true, status: :info, type: :dark do |nb|
-      - nb.nav class: 'mr-auto' do |n|
+      - nb.nav class: 'me-auto' do |n|
         - n.link 'Home', url: '#active', state: :active
         - n.link 'Profil', url: '#profil'
         - n.link 'Disabled', url: '#profil', state: :disabled
@@ -315,12 +315,12 @@
           - d.divider
           - d.link 'Separted link'
       - nb.form '#', { method: :get, type: :form_tag, position: :right } do
-        = ui_text_field 'Search', class: 'mr-2'
+        = ui_text_field 'Search', class: 'me-2'
         = ui_button 'Search', status: :light, outline: true
 
     %br
     = ui_navbar title: 'Navbar', justify: true, status: :warning do |nb|
-      - nb.nav class: 'mr-auto' do |n|
+      - nb.nav class: 'me-auto' do |n|
         - n.link 'Home', url: '#active', state: :active
         - n.link 'Profil', url: '#profil'
         - n.link 'Disabled', url: '#profil', state: :disabled
@@ -331,7 +331,7 @@
           - d.divider
           - d.link 'Separted link'
       - nb.form '#', { method: :get, type: :form_tag, position: :right } do
-        = ui_text_field 'Search', class: 'mr-2'
+        = ui_text_field 'Search', class: 'me-2'
         = ui_button 'Search', status: :danger, outline: true
 
 %h2 Icons

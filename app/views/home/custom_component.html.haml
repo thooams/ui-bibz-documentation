@@ -251,13 +251,13 @@ Useful variables in render method:
 = example do |e|
   - e.header do
     = my_complex_component class: 'my-class' do |cc|
-      - cc.link 'Link1', url: '#link1', class: 'mr-2'
+      - cc.link 'Link1', url: '#link1', class: 'me-2'
       - cc.link url: '#link2' do
         Link 2
   - e.code do
     :plain
       my_complex_component class: 'my-class' do |cc|
-        cc.link "Link1", url: "#link1", class: "mr-2"
+        cc.link "Link1", url: "#link1", class: "me-2"
         cc.link url: "#link2" do
           Link 2
         end
@@ -265,7 +265,7 @@ Useful variables in render method:
   - e.html do
     :plain
       <div class='my-class my-complex-component'>
-        <a href='#link1' class="mr-2">Link 1</a>
+        <a href='#link1' class="me-2">Link 1</a>
         <a href='#link2'>Link 2</a>
       </div>
 
