@@ -33,8 +33,8 @@
   - co.inherit_options_links
   - co.list 'inline', types: 'boolean', values: %w(true false)
   - co.list 'outline', types: 'boolean', values: %w(true false)
-  - co.list 'alignement', types: 'symbol', values: %w(:right :left), default: ":left"
-  - co.list 'position', types: 'symbol', values: %w(:up :down :left :right), default: ':down'
+  - co.list 'alignment', types: %w[symbol hash], values: %w(:right :left :start :end), default: ":start"
+  - co.list 'position', types: 'symbol', values: %w(:up :down :left :right :end :start), default: ':down'
   - co.list 'tag', types: 'symbol', values: %w(:a :button), default: ':button'
 
 - @sections = sections do |s|
@@ -62,7 +62,7 @@
         :plain
           <div class="open-dropdown-example btn-group dropdown">
             <button class="btn btn-secondary">Split Dropdown</button>
-            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
+            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
             <div class="dropdown-menu show" arial-labelledby="dropdown-35018">
               <a class="dropdown-item" href="#action">Action 1</a>
               <a class="dropdown-item" href="#another-action">Action 2</a>
@@ -93,7 +93,7 @@
         :plain
           <div class="open-dropdown-example btn-group dropdown">
             <button class="btn btn-secondary"><i class="glyph fas fa-gem"></i>  Split Dropdown</button>
-            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
+            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
             <div class="dropdown-menu show" arial-labelledby="dropdown-71880">
               <a class="dropdown-item" data-confirm="Are you sure?" href="#action">Confirm action</a>
               <a class="dropdown-item" href="#another-action"><i class="glyph fas fa-gem"></i>  Action 2</a>
@@ -101,31 +101,55 @@
             </div>
           </div
 
-  - s.section title: "Position" do
+  - s.section title: "Alignment" do
+    %p
+      You can replace <code>:left</code> by <code>:start</code> and <code>:right</code> by <code>:end</code>.
+      Both are interchangeable.
     = example do |c|
       - c.header do
-        = ui_split_dropdown "Split Dropdown with right menu", position: :right, open: true, class: 'open-dropdown-example' do |d|
+        = ui_split_dropdown "Dropdown with right alignment menu", alignment: :end, open: true, class: 'open-dropdown-example' do |d|
+          - d.link "Action 1", url: '#action-1'
+          - d.link "Action 2", url: '#action-2'
+          - d.link "Action 3", url: '#action-3'
+
+        = ui_split_dropdown "Dropdown with right alignment menu", alignment: { size: :lg, direction: :end }, open: true, class: 'open-dropdown-example' do |d|
           - d.link "Action 1", url: '#action-1'
           - d.link "Action 2", url: '#action-2'
           - d.link "Action 3", url: '#action-3'
       - c.code do
-        ui_split_dropdown "Split Dropdown with right menu", position: :right do |d|
-          d.link "Action 1", url: "#action-1"
-          d.link "Action 2", url: "#action-2"
-          d.link "Action 3", url: "#action-3"
-        end
+        :plain
+          ui_split_dropdown "Dropdown with right alignment menu", alignment: :end do |d|
+            d.link "Action 1", url: "#action-1"
+            d.link "Action 2", url: "#action-2"
+            d.link "Action 3", url: "#action-3"
+          end
+
+          ui_split_dropdown "Dropdown with right alignment menu", alignment: { size: :lg, direction: :end } do |d|
+            d.link "Action 1", url: '#action-1'
+            d.link "Action 2", url: '#action-2'
+            d.link "Action 3", url: '#action-3'
+          end
       - c.html do
         :plain
-          <div class="open-dropdown-example btn-group dropdown">
-            <button class="btn btn-secondary">Split Dropdown with right menu</button>
-            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
-            <div class="dropdown-menu dropdown-menu-right show" arial-labelledby="dropdown-55155">
+          <div class="btn-group dropdown dropdown-menu-end show">
+            <button class="btn btn-secondary">Dropdown with right alignment menu</button>
+            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
+            <div class="dropdown-menu dropdown-menu-end show" arial-labelledby="dropdown-75154">
               <a class="dropdown-item" href="#action-1">Action 1</a>
               <a class="dropdown-item" href="#action-2">Action 2</a>
               <a class="dropdown-item" href="#action-3">Action 3</a>
             </div>
           </div>
 
+          <div class="btn-group dropdown dropdown-menu-lg-end show">
+            <button class="btn btn-secondary">Dropdown with right alignment menu</button>
+            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
+            <div class="dropdown-menu dropdown-menu-lg-end show" arial-labelledby="dropdown-5713">
+              <a class="dropdown-item" href="#action-1">Action 1</a>
+              <a class="dropdown-item" href="#action-2">Action 2</a>
+              <a class="dropdown-item" href="#action-3">Action 3</a>
+            </div>
+          </div>
 
   - s.section title: "Header" do
     = example do |c|
@@ -155,7 +179,7 @@
         :plain
           <div class="open-dropdown-example btn-group dropdown">
             <button class="btn btn-secondary">Split Dropdown</button>
-            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
+            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
             <div class="dropdown-menu show" arial-labelledby="dropdown-81289">
               <h6 class="dropdown-header" role="presentation">
                 Header 1
@@ -190,7 +214,7 @@
         :plain
           <div class="open-dropdown-example btn-group dropdown">
             <button class="btn btn-secondary">Split Dropdown</button>
-            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
+            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
             <div class="dropdown-menu show" arial-labelledby="dropdown-81289">
               <h6 class="dropdown-header" role="presentation">
                 Header 1
@@ -200,7 +224,7 @@
                 Header 2
                 <div class="open-dropdown-example btn-group dropdown">
                   <button class="btn btn-secondary">Split Dropdown</button>
-                  <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
+                  <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
                   <div class="dropdown-menu show" arial-labelledby="dropdown-69587">
                     <a class="dropdown-item" href="#action-1">Action 1</a>
                     <div class="dropdown-divider"></div>
@@ -269,7 +293,7 @@
         :plain
           <div class="btn-group dropdown">
             <button class="btn btn-secondary">Form in Split Dropdown</button>
-            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
+            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
             <div class="dropdown-menu show" arial-labelledby="dropdown-74806">
               <form class="px-4 py-3">
                 <div class="mb-3">
@@ -320,7 +344,7 @@
         :plain
           <div class="btn-group dropdown">
             <button class="btn btn-secondary">Inline 1</button>
-            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
+            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
             <div class="dropdown-menu" arial-labelledby="dropdown-76837" style="">
               <a class="dropdown-item" href="#action-1">Action 1</a>
               <a class="disabled dropdown-item" href="#action-2">Action 2</a>
@@ -345,7 +369,7 @@
         :plain
           <div class="open-dropdown-example btn-group dropdown">
             <button class="btn btn-secondary">Split Dropdown</button>
-            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
+            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
             <div class="dropdown-menu show" arial-labelledby="dropdown-8820">
               <a class="dropdown-item" href="#action-1">Action 1</a>
               <a class="disabled dropdown-item" href="#action-2">Action 2</a>
@@ -370,7 +394,7 @@
         :plain
           <div class="open-dropdown-example btn-group dropdown">
             <button class="btn btn-secondary">Split Dropdown</button>
-            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
+            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
             <div class="dropdown-menu show" arial-labelledby="dropdown-93886">
               <a class="dropdown-item" href="#action-1">Action 1</a>
               <a class="active dropdown-item" href="#action-2">Action 2</a>
@@ -395,7 +419,7 @@
         :plain
           <div class="open-dropdown-example btn-group dropdown">
             <button class="btn btn-secondary">Split Dropdown</button>
-            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
+            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
             <div class="dropdown-menu show" arial-labelledby="dropdown-57010">
               <a class="dropdown-item" href="#action-1">Action 1</a>
               <a class="disabled dropdown-item" href="#action-2">Action 2</a>
@@ -442,7 +466,7 @@
           :plain
             <div class="btn-group dropdown">
               <button class="btn btn-#{ status }">Primary</button>
-              <button class="btn btn-#{ status } dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <button class="btn btn-#{ status } dropdown-toggle dropdown-toggle-split" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="sr-only">Toggle Dropdown</span>
               </button>
               <div class="dropdown-menu" arial-labelledby="dropdown-168070325483302158190560373773057452001">
@@ -487,7 +511,7 @@
           :plain
             <div class="btn-group dropdown">
               <button class="btn btn-outline-#{ status }">Primary</button>
-              <button class="btn btn-outline-#{ status } dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <button class="btn btn-outline-#{ status } dropdown-toggle dropdown-toggle-split" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="sr-only">Toggle Dropdown</span>
               </button>
               <div class="dropdown-menu" arial-labelledby="dropdown-168070325483302158190560373773057452001">
@@ -536,7 +560,7 @@
       - e.html do
         :plain
           <div class="dropdown btn-group">
-            <button class="btn btn-primary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown Lg <span class="caret"></span>
+            <button class="btn btn-primary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown Lg <span class="caret"></span>
             </button>
             <div class="dropdown-menu dropdown-menu-left">
               <a class="dropdown-item" href="#action-1">Action 1</a>
@@ -546,7 +570,7 @@
           </div>
 
           <div class="dropdown btn-group">
-            <button class="btn btn-primary btn-md dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown Md <span class="caret"></span></button>
+            <button class="btn btn-primary btn-md dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown Md <span class="caret"></span></button>
             <div class="dropdown-menu dropdown-menu-left">
               <a class="dropdown-item" href="#action-1">Action 1</a>
               <a class="disabled dropdown-item" href="#action-2">Action 2</a>
@@ -555,7 +579,7 @@
           </div>
 
           <div class="dropdown btn-group">
-            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown Sm <span class="caret"></span></button>
+            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown Sm <span class="caret"></span></button>
             <div class="dropdown-menu dropdown-menu-left">
               <a class="dropdown-item" href="#action-1">Action 1</a>
               <a class="disabled dropdown-item" href="#action-2">Action 2</a>
@@ -564,6 +588,9 @@
           </div>
 
   - s.section title: "Position" do
+    %p
+      You can replace <code>:left</code> by <code>:start</code> and <code>:right</code> by <code>:end</code>.
+      Both are interchangeable.
     = example do |c|
       - c.header class: "d-flex justify-content-between" do
         - %i[right up down left].each do |position|
@@ -597,7 +624,7 @@
           :plain
             <div class="btn-group #{type}">
               <button class="btn btn-secondary">Split #{type.to_s.titleize} </button>
-              <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
+              <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
               <div class="dropdown-menu" arial-labelledby="dropdown-42719">
                 <a class="dropdown-item" href="#action"><i class="glyph fas fa-gem"></i>  Action</a>
                 <a class="dropdown-item" href="#another-action">Another action</a>
@@ -628,7 +655,7 @@
         :plain
           <div class="open-dropdown-example btn-group dropdown show">
             <button class="btn btn-secondary">Dark split dropdown</button>
-            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
+            <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button>
             <div class="dropdown-menu dropdown-menu-dark show" arial-labelledby="dropdown-23936">
               <a class="dropdown-item" href="#action-1">Action 1</a>
               <a class="active dropdown-item" href="#action-2">Action 2</a>
