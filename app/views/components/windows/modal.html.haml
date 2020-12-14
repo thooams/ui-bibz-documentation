@@ -65,7 +65,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title"><b>Modal title</b></h5>
-                  <button class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                  <button class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
                 </div>
                 <div class="modal-body">One fine body</div>
                 <div class="modal-footer"><button class="btn-danger btn">Close</button>
@@ -115,7 +115,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">Sm Modal title</h5>
-                  <button class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                  <button class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
                 </div>
                 <div class="modal-body">One fine body</div>
               </div>
@@ -125,17 +125,17 @@
   - s.section title: "Backdrop static" do
     = example do |c|
       - c.header do
-        = ui_button_link 'Static Backdrop modal', { url: '#' }, { data: { toggle: 'modal', target: '#backdrop-modal' }}
+        = ui_button_link 'Static Backdrop modal', { url: '#' }, { data: { "bs-toggle": 'modal', "bs-target": '#backdrop-modal' }}
         = ui_modal({ effect: :fade, backdrop: :static}, {id: "backdrop-modal"}) do |m|
           - m.header do
             = 'Backdrop Modal title'
           - m.body do
             = 'One fine body'
           - m.footer do
-            = ui_button "Close", { status: :secondary }, data: { dismiss: "modal" }
+            = ui_button "Close", { status: :secondary }, data: { "bs-dismiss": "modal" }
             = ui_button "Understood", status: :primary
       - c.code do
-        ui_button_link 'Static Backdrop modal', { url: '#' }, { data: { toggle: 'modal', target: '#backdrop-modal' }}
+        ui_button_link 'Static Backdrop modal', { url: '#' }, { data: { "bs-toggle": 'modal', "bs-target": '#backdrop-modal' }}
 
         ui_modal({ effect: :fade, backdrop: :static}, {id: "backdrop-modal"}) do |m|
           m.header do
@@ -145,13 +145,13 @@
             "One fine body"
           end
           m.footer do
-            ui_button "Close", { status: :secondary }, data: { dismiss: "modal" }
+            ui_button "Close", { status: :secondary }, data: { "bs-dismiss": "modal" }
             ui_button "Understood", status: :primary
           end
         end
       - c.html do
         :plain
-          <a data-toggle="modal" data-target="#backdrop-modal" class="btn-secondary btn" role="button" href="#">Static Backdrop modal</a>
+          <a data-toggle="modal" data-bs-target="#backdrop-modal" class="btn-secondary btn" role="button" href="#">Static Backdrop modal</a>
 
           <div id="backdrop-modal" data-backdrop="static" data-keyboard="false" class="fade modal show" tabindex="-1" aria-labelledby="Backdrop Modal title
             " aria-modal="true" role="dialog" style="display: block; padding-right: 15px;">
@@ -159,10 +159,10 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">Backdrop Modal title</h5>
-                  <button class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                  <button class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
                 </div>
                 <div class="modal-body">One fine body</div>
-                <div class="modal-footer"><button data-dismiss="modal" class="btn-secondary btn">Close</button>
+                <div class="modal-footer"><button data-bs-dismiss="modal" class="btn-secondary btn">Close</button>
                   <button class="btn-primary btn">Understood</button>
                 </div>
               </div>
@@ -173,9 +173,9 @@
     %p Modal must be inserted outside a card.
     = example do |c|
       - c.header do
-        = ui_button_link 'Scrollable modal', { url: '#' }, { data: { toggle: 'modal', target: '#scrollable-modal' }}
+        = ui_button_link 'Scrollable modal', { url: '#' }, { data: { "bs-toggle": 'modal', "bs-target": '#scrollable-modal' }}
       - c.code do
-        ui_button_link 'Scrollable modal', { url: '#' }, { data: { toggle: 'modal', target: '#scrollable-modal' }}
+        ui_button_link 'Scrollable modal', { url: '#' }, { data: { "bs-toggle": 'modal', "bs-target": '#scrollable-modal' }}
 
         ui_modal({ scrollable: true }, {id: "backdrop-modal"}) do |m|
           m.header do
@@ -191,21 +191,21 @@
         end
       - c.html do
         :plain
-          <a data-toggle="modal" data-target="#scrollable-modal" class="btn-secondary btn" role="button" href="#">Scrollable modal</a>
+          <a data-toggle="modal" data-bs-target="#scrollable-modal" class="btn-secondary btn" role="button" href="#">Scrollable modal</a>
 
           <div id="scrollable-modal" class="modal show" tabindex="-1" aria-labelledby="Scrollable Modal title" aria-modal="true" role="dialog" style="padding-right: 15px; display: block;">
             <div class="modal-dialog modal-dialog-scrollable">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">Scrollable Modal title</h5>
-                  <button class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                  <button class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
                 </div>
                 <div class="modal-body">
                   <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
                   <p>...</p>
                   <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
                 </div>
-                <div class="modal-footer"><button data-dismiss="modal" class="btn-secondary btn">Close</button>
+                <div class="modal-footer"><button data-bs-dismiss="modal" class="btn-secondary btn">Close</button>
                   <button class="btn-primary btn">Understood</button>
                 </div>
               </div>
@@ -216,9 +216,9 @@
     %p Modal must be inserted outside a card.
     = example do |c|
       - c.header do
-        = ui_button_link 'Vertical centered modal', { url: '#' }, { data: { toggle: 'modal', target: '#centered-modal' }}
+        = ui_button_link 'Vertical centered modal', { url: '#' }, { data: { "bs-toggle": 'modal', "bs-target": '#centered-modal' }}
       - c.code do
-        ui_button_link 'Vertical centered modal', { url: '#' }, { data: { toggle: 'modal', target: '#centered-modal' }}
+        ui_button_link 'Vertical centered modal', { url: '#' }, { data: { "bs-toggle": 'modal', "bs-target": '#centered-modal' }}
 
         ui_modal({ position: centered }, {id: "backdrop-modal"}) do |m|
           m.header do
@@ -230,16 +230,16 @@
         end
       - c.html do
         :plain
-          <a data-toggle="modal" data-target="#centered-modal" class="btn-secondary btn" role="button" href="#">Vertical centered modal</a>
+          <a data-toggle="modal" data-bs-target="#centered-modal" class="btn-secondary btn" role="button" href="#">Vertical centered modal</a>
 
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title">Vertical Centered Modal title</h5>
-                <button class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <button class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
               </div>
               <div class="modal-body">One fine body</div>
-              <div class="modal-footer"><button data-dismiss="modal" class="btn-secondary btn">Close</button>
+              <div class="modal-footer"><button data-bs-dismiss="modal" class="btn-secondary btn">Close</button>
                 <button class="btn-primary btn">Understood</button>
               </div>
             </div>
@@ -249,12 +249,12 @@
     %p Modal must be inserted outside a card.
     = example do |c|
       - c.header do
-        = ui_button_link 'fullscreen', { url: '#' }, { data: { toggle: 'modal', target: '#modal-test1' }}
+        = ui_button_link 'fullscreen', { url: '#' }, { data: { "bs-toggle": 'modal', "bs-target": '#modal-test1' }}
         - UiBibzApp::Application::SIZES.each_with_index do |size|
-          = ui_button_link "fullscreen below #{size}", { url: '#' }, { data: { toggle: 'modal', target: "#modal-test-#{size}" }}
+          = ui_button_link "fullscreen below #{size}", { url: '#' }, { data: { "bs-toggle": 'modal', "bs-target": "#modal-test-#{size}" }}
 
       - c.code do
-        ui_button_link 'fullscreen', { url: '#' }, { data: { toggle: 'modal', target: '#modal-test1' }}
+        ui_button_link 'fullscreen', { url: '#' }, { data: { "bs-toggle": 'modal', "bs-target": '#modal-test1' }}
         ui_modal class: "modal-example", size: :sm do |m|
           m.header do
             "Fullscreen title"
@@ -268,7 +268,7 @@
           <div class="modal-dialog ui_modal-sm" role="document">
             <div class="modal-content"><div class="modal-header">
               <h5 class="modal-title">Modal title</h5>
-              <button class="close" data-dismiss="modal" aria-label="Close">
+              <button class="close" data-bs-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">×</span>
                 <span class="sr-only">Close</span>
               </button>
@@ -281,14 +281,14 @@
   - s.section title: "Effect" do
     = example do |c|
       - c.header do
-        = ui_button_link 'click here', { url: '#' }, { data: { toggle: 'modal', target: '#modal-test' }}
+        = ui_button_link 'click here', { url: '#' }, { data: { "bs-toggle": 'modal', "bs-target": '#modal-test' }}
         = ui_modal({ effect: :fade }, { id: 'modal-test' }) do |m|
           - m.header do
             = 'Modal title'
           - m.body do
             = 'One fine body'
       - c.code do
-        ui_button_link "click here", { url: "#" }, { data: { toggle: "modal", target: "#modal-test" }}
+        ui_button_link "click here", { url: "#" }, { data: { "bs-toggle": "modal", "bs-target": "#modal-test" }}
         ui_modal({ effect: :fade }, { id: "modal-test" }) do |m|
           m.header do
             "Modal itle"
@@ -298,13 +298,13 @@
           end
         end
       - c.html do
-        <a data-toggle="modal" data-target="#modal-test" class="btn-primary btn" href="#">click here</a>
+        <a data-toggle="modal" data-bs-target="#modal-test" class="btn-primary btn" href="#">click here</a>
         <div id="modal-test" class="fade ui_modal" style="display: none;">
           <div class="modal-dialog " role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title">Modal title</h5>
-                <button class="close" data-dismiss="modal" aria-label="Close">
+                <button class="close" data-bs-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">×</span>
                   <span class="sr-only">Close</span>
                 </button>
@@ -365,5 +365,5 @@
     %p Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
     %p Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
   - m.footer do
-    = ui_button "Close", { status: :secondary }, data: { dismiss: "modal" }
+    = ui_button "Close", { status: :secondary }, data: { "bs-dismiss": "modal" }
     = ui_button "Understood", status: :primary

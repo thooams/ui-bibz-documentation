@@ -35,8 +35,8 @@
   - co.list 'outline', types: 'boolean', values: %w(true false)
   - co.list 'caret', types: 'boolean', values: %w(true false), description: 'Remove caret'
   - co.list 'open', types: 'boolean'
-  - co.list 'alignement', types: 'symbol', values: %w(:right :left), default: ":left"
-  - co.list 'position', types: 'symbol', values: %w(:up :down :left :right), default: ':down'
+  - co.list 'alignment', types: %w[symbol hash], values: %w(:right :left :start :end), default: ":start"
+  - co.list 'position', types: 'symbol', values: %w(:up :down :left :right :end :start), default: ':down'
   - co.list 'tag', types: 'symbol', values: %w(:a :button), default: ':button'
   - co.list 'theme', types: 'symbol', value: %w(:dark)
 
@@ -69,7 +69,7 @@
         end
       - c.html do
         <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></button>
+          <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></button>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="#action">Action 1</a>
             <a class="dropdown-item" href="#another-action">Action 2</a>
@@ -99,7 +99,7 @@
       - c.html do
         :plain
           <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="glyph fa fa-gem"></i> Dropdown <span class="caret"></span>
             </button>
             <div class="dropdown-menu">
@@ -125,7 +125,7 @@
         end
       - c.html do
         <div class="dropdown">
-          <a class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown with right menu <span class="caret"></span></a>
+          <a class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown with right menu <span class="caret"></span></a>
           <div class="dropdown-menu dropdown-menu-right">
             <a class="dropdown-item" href="#action-1">Action 1</a>
             <a class="dropdown-item" href="#action-2">Action 2</a>
@@ -133,29 +133,53 @@
           </div>
         </div>
 
-  - s.section title: "Alignement" do
+  - s.section title: "Alignment" do
+    %p
+      You can replace <code>:left</code> by <code>:start</code> and <code>:right</code> by <code>:end</code>.
+      Both are interchangeable.
     = example do |c|
       - c.header do
-        = ui_dropdown "Dropdown with right alignement menu", alignement: :right, open: true, class: 'open-dropdown-example' do |d|
+        = ui_dropdown "Dropdown with right alignment menu", alignment: :end, open: true, class: 'open-dropdown-example' do |d|
+          - d.link "Action 1", url: '#action-1'
+          - d.link "Action 2", url: '#action-2'
+          - d.link "Action 3", url: '#action-3'
+
+        = ui_dropdown "Dropdown with right alignment menu", alignment: { size: :lg, direction: :end }, open: true, class: 'open-dropdown-example' do |d|
           - d.link "Action 1", url: '#action-1'
           - d.link "Action 2", url: '#action-2'
           - d.link "Action 3", url: '#action-3'
       - c.code do
-        ui_dropdown "Dropdown with right alignement menu", alignement: :right do |d|
-          d.link "Action 1", url: "#action-1"
-          d.link "Action 2", url: "#action-2"
-          d.link "Action 3", url: "#action-3"
-        end
-      - c.html do
-        <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown with right alignement menu <span class="caret"></span></button>
-          <div class="dropdown-menu dropdown-menu-right">
-            <a class="dropdown-item" href="#action-1">Action 1</a>
-            <a class="dropdown-item" href="#action-2">Action 2</a>
-            <a class="dropdown-item" href="#action-3">Action 3</a>
-          </div>
-        </div>
+        :plain
+          ui_dropdown "Dropdown with right alignment menu", alignment: :end do |d|
+            d.link "Action 1", url: "#action-1"
+            d.link "Action 2", url: "#action-2"
+            d.link "Action 3", url: "#action-3"
+          end
 
+          ui_dropdown "Dropdown with right alignment menu", alignment: { size: :lg, direction: :end } do |d|
+            d.link "Action 1", url: '#action-1'
+            d.link "Action 2", url: '#action-2'
+            d.link "Action 3", url: '#action-3'
+          end
+      - c.html do
+        :plain
+          <div class="open-dropdown-example dropdown show btn-group">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown-10449">Dropdown with right alignment menu</button>
+            <div class="dropdown-menu dropdown-menu-end show" arial-labelledby="dropdown-10449">
+              <a class="dropdown-item" href="#action-1">Action 1</a>
+              <a class="dropdown-item" href="#action-2">Action 2</a>
+              <a class="dropdown-item" href="#action-3">Action 3</a>
+            </div>
+          </div>
+
+          <div class="open-dropdown-example dropdown show btn-group">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown-43325">Dropdown with right alignment menu</button>
+            <div class="dropdown-menu dropdown-menu-lg-end show" arial-labelledby="dropdown-43325">
+              <a class="dropdown-item" href="#action-1">Action 1</a>
+              <a class="dropdown-item" href="#action-2">Action 2</a>
+              <a class="dropdown-item" href="#action-3">Action 3</a>
+            </div>
+          </div>
 
   - s.section title: "Header" do
     = example do |c|
@@ -183,7 +207,7 @@
         end
       - c.html do
         <div class="open-dropdown-example dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></button>
+          <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></button>
           <div class="dropdown-menu">
             <h6 class="dropdown-header" role="presentation">Header 1</h6>
             <a class="dropdown-item" href="#action-1">Action 1</a>
@@ -213,7 +237,7 @@
         end
       - c.html do
         <div class="open-dropdown-example dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></button>
+          <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></button>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="#action-1">Action 1</a>
             <div class="dropdown-divider"></div>
@@ -276,7 +300,7 @@
       - c.html do
         :plain
           <div class="open-dropdown-example dropdown show">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown-21758">Form in Dropdown</button>
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown-21758">Form in Dropdown</button>
             <div class="dropdown-menu show" arial-labelledby="dropdown-21758">
               <form class="px-4 py-3">
                 <div class="mb-3">
@@ -329,7 +353,7 @@
         :plain
           <div class="card-header">
           <div class="dropdown btn-group">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown-45190075074587396113525735017455033692">Inline 1 <span class="caret"></span></button>
+            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown-45190075074587396113525735017455033692">Inline 1 <span class="caret"></span></button>
             <div class="dropdown-menu" arial-labelledby="dropdown-45190075074587396113525735017455033692">
               <a class="dropdown-item" href="#action-1">Action 1</a>
               <a class="disabled dropdown-item" href="#action-2">Action 2</a>
@@ -338,7 +362,7 @@
           </div>
 
           <div class="dropdown btn-group">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown-190866694514187334502439692726974162800">Inline 2 <span class="caret"></span></button>
+            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown-190866694514187334502439692726974162800">Inline 2 <span class="caret"></span></button>
             <div class="dropdown-menu" arial-labelledby="dropdown-190866694514187334502439692726974162800">
               <a class="dropdown-item" href="#action-1">Action 1</a>
               <a class="disabled dropdown-item" href="#action-2">Action 2</a>
@@ -361,7 +385,7 @@
         end
       - c.html do
         <div class="open-dropdown-example dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></button>
+          <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></button>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="#action-1">Action 1</a>
             <a class="disabled dropdown-item" href="#action-2">Action 2</a>
@@ -384,7 +408,7 @@
         end
       - c.html do
         <div class="open-dropdown-example dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></button>
+          <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></button>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="#action-1">Action 1</a>
             <a class="active dropdown-item" href="#action-2">Action 2</a>
@@ -407,7 +431,7 @@
       - c.html do
         :plain
           <div class="open-dropdown-example dropdown show">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown-94287437770994765671303713555990454778">Dropdown <span class="caret"></span></button>
+            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown-94287437770994765671303713555990454778">Dropdown <span class="caret"></span></button>
             <div class="dropdown-menu show" arial-labelledby="dropdown-94287437770994765671303713555990454778">
               <a class="dropdown-item" href="#action-1">Action 1</a>
               <a class="disabled dropdown-item" href="#action-2">Action 2</a>
@@ -451,7 +475,7 @@
       - e.html do
         :plain
           <div class="dropdown btn-group">
-            <button class="btn btn-primary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown Lg <span class="caret"></span>
+            <button class="btn btn-primary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown Lg <span class="caret"></span>
             </button>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="#action-1">Action 1</a>
@@ -461,7 +485,7 @@
           </div>
 
           <div class="dropdown btn-group">
-            <button class="btn btn-primary btn-md dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown Md <span class="caret"></span></button>
+            <button class="btn btn-primary btn-md dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown Md <span class="caret"></span></button>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="#action-1">Action 1</a>
               <a class="disabled dropdown-item" href="#action-2">Action 2</a>
@@ -470,7 +494,7 @@
           </div>
 
           <div class="dropdown btn-group">
-            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown Sm <span class="caret"></span></button>
+            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown Sm <span class="caret"></span></button>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="#action-1">Action 1</a>
               <a class="disabled dropdown-item" href="#action-2">Action 2</a>
@@ -511,7 +535,7 @@
         - UiBibzApp::Application::STATUSES.each do |status|
           :plain
             <div class="dropdown btn-group">
-              <button class="btn btn-#{ status } dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown-248578436189652527536962324584326088393">Primary <span class="caret"></span></button>
+              <button class="btn btn-#{ status } dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown-248578436189652527536962324584326088393">Primary <span class="caret"></span></button>
               <div class="dropdown-menu" arial-labelledby="dropdown-248578436189652527536962324584326088393">
                 <a class="dropdown-item" href="#action">
                   <i class="glyph fa fa-gem"></i> Action
@@ -557,7 +581,7 @@
         - UiBibzApp::Application::STATUSES.each do |status|
           :plain
             <div class="dropdown btn-group">
-              <button class="btn btn-outline-#{ status } dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown-248578436189652527536962324584326088393">Primary <span class="caret"></span></button>
+              <button class="btn btn-outline-#{ status } dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown-248578436189652527536962324584326088393">Primary <span class="caret"></span></button>
               <div class="dropdown-menu" arial-labelledby="dropdown-248578436189652527536962324584326088393">
                 <a class="dropdown-item" href="#action">
                   <i class="glyph fa fa-gem"></i> Action
@@ -571,6 +595,9 @@
             </div>
 
   - s.section title: "Position" do
+    %p
+      You can replace <code>:left</code> by <code>:start</code> and <code>:right</code> by <code>:end</code>.
+      Both are interchangeable.
     = example do |c|
       - c.header class: "d-flex justify-content-between" do
         - %i[right up down left].each do |position|
@@ -603,7 +630,7 @@
         - %i[dropright dropup dropdown dropleft].each do |type|
           :plain
             <div class="#{type} btn-group">
-              <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown-248578436189652527536962324584326088393">#{type.to_s.titleize} <span class="caret"></span></button>
+              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown-248578436189652527536962324584326088393">#{type.to_s.titleize} <span class="caret"></span></button>
               <div class="dropdown-menu" arial-labelledby="dropdown-248578436189652527536962324584326088393">
                 <a class="dropdown-item" href="#action">
                   <i class="glyph fa fa-gem"></i> Action
@@ -633,7 +660,7 @@
       - c.html do
         :plain
           <div class="open-dropdown-example dropdown show">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown-18744">Dark dropdown</button>
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdown-18744">Dark dropdown</button>
             <div class="dropdown-menu dropdown-menu-dark show" arial-labelledby="dropdown-18744">
               <a class="dropdown-item" href="#action-1">Action 1</a>
               <a class="active dropdown-item" href="#action-2">Action 2</a>
