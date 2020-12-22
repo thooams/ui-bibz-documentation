@@ -1,5 +1,6 @@
 @import "~ui-bibz-js/sass/ui-bibz"
 $primary-link: #448cca
+@import "stylesheets/mixins"
 @import "stylesheets/components"
 
 html
@@ -233,14 +234,11 @@ body > footer
 
 // Menu de gauche
 .sidebar
-  overflow: auto
   position: sticky
   max-height: calc(100vh - 3.5rem)
   top: 3.5rem
   padding-bottom: 3.5rem
-  overflow: hidden
-  &:hover
-    overflow: overlay
+  +overflow-hidden
 
 .left-nav
   padding: 0px 0px 0px 0.5rem
@@ -379,7 +377,7 @@ footer a
   scrollbar-color: $primary-link white
 
 /* Works on Chrome/Edge/Safari */
-*::-webkit-scrollbar
+*::-webkit-scrollbar, *::-
   width: 15px
   height: 15px
 
