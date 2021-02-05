@@ -18,9 +18,9 @@ Rails.application.routes.draw do
       namespace :buttons do
         get 'button'
         get 'button-group'
-        get 'button-toolbar'
         get 'button-link'
         get 'button-split-dropdown'
+        get 'button-toolbar'
       end
 
       namespace :dropdowns do
@@ -40,8 +40,8 @@ Rails.application.routes.draw do
 
       # texts
       namespace :texts do
-        get 'text-field'
         get 'auto-complete-field'
+        get 'text-field'
       end
 
       # textareas
@@ -59,9 +59,9 @@ Rails.application.routes.draw do
 
       # selects
       namespace :selects do
-        get 'select-field'
         get 'dropdown-select-field'
         get 'multi-column-field'
+        get 'select-field'
       end
 
       # dates
@@ -71,18 +71,18 @@ Rails.application.routes.draw do
 
       # choices
       namespace :choices do
-        get 'choice-group'
-        get 'switch-field'
         get 'box-switch-field'
         get 'checkbox-field'
+        get 'choice-group'
         get 'radio-field'
+        get 'switch-field'
       end
     end
 
     namespace :boxes do
       get 'card'
-      get 'card-column'
       get 'card-accordion'
+      get 'card-column'
       get 'card-grid'
       get 'card-group'
       get 'jumbotron'
@@ -90,15 +90,15 @@ Rails.application.routes.draw do
 
     namespace :containers do
       get 'panel'
-      get 'panel-tree'
       get 'panel-table'
+      get 'panel-tree'
       get 'viewport'
     end
 
     namespace :layouts do
       get 'col'
-      get 'row'
       get 'container'
+      get 'row'
     end
 
     namespace :windows do
@@ -107,22 +107,24 @@ Rails.application.routes.draw do
 
     namespace :navigations do
       get 'breadcrumb'
-      get 'toolbar'
       get 'link'
-      get 'pagination'
       get 'nav'
       get 'navbar'
+      get 'pagination'
       get 'tab_group'
+      get 'toolbar'
     end
 
      # notifications
     namespace :notifications do
-      get 'component'
       get 'alert'
       get 'badge'
+      get 'component'
+      get 'popover'
       get 'progress_bar'
       get 'spinner'
       get 'toast'
+      get 'tooltip'
     end
 
     namespace :icons do
@@ -136,8 +138,8 @@ Rails.application.routes.draw do
     end
 
     namespace :lists do
-      get 'list_group'
       get 'list'
+      get 'list_group'
     end
   end
 end

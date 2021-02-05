@@ -1,0 +1,60 @@
+= title 'Popover', url: "components/popovers/"
+%blockquote UiBibz::Ui::Core::Notifications::Popover
+%p.bd-callout Documentation and examples for adding custom Bootstrap popovers with CSS and JavaScript using CSS3 for animations and data-bs-attributes for local title storage
+
+= code 'popover'
+
+= component_options do |co|
+  - co.list 'animation', types: "Boolean", default: "true", description: "Apply a CSS fade transition to the popover"
+  - co.list 'boundary', types: "String", description: 'Overflow constraint boundary of the popover'
+  - co.list 'container', types: %w(String Element Boolean), default: "false", description: 'Delay showing and hiding the popover (ms) - does not apply to manual trigger type'
+  - co.list 'content', types: %w(String), description: 'Default content value if data-bs-content attribute isn\'t present.'
+  - co.list 'customClass', types: "String", description: 'Add classes to the popover when it is shown'
+  - co.list 'delai', types: %w(Integer Object), default: "0", description: 'Appends the popover to a specific element'
+  - co.list 'fallbackPlacement', types: "Array", default: 'flip', description: 'Allow to specify which position Popper will use on fallback'
+  - co.list 'html', types: "Boolean", default: "false", description: 'Allow HTML in the popover.'
+  - co.list 'offset', types: "Integer", default: 0, description: 'Offset of the popover relative to its target'
+  - co.list 'placement', types: "String", description: 'Alias of position'
+  - co.list 'popperConfig', types: "Object", description: 'To change Bootstrap\'s default Popper config'
+  - co.list 'position', types: "String", default: "top", description: 'How to position the popover - auto | top | bottom | left | right. When auto is specified, it will dynamically reorient the popover.'
+  - co.list 'selector', types: %w(String Boolean), description: 'If a selector is provided, popover objects will be delegated to the specified targets'
+  - co.list 'template', types: "String", description: 'Base HTML to use when creating the popover'
+  - co.list 'title', types: "String", description: 'Default title value if title attribute isn\'t present.'
+  - co.list 'trigger', types: "String", default: "hover focus", description: 'How popover is triggered - click | hover | focus | manual. You may pass multiple triggers; separate them with a space.'
+%p.bd-callout Note that for security reasons the <code>sanitize</code>, <code>sanitizeFn</code>, and <code>allowList</code> options cannot be supplied using data attributes.
+
+- @sections = sections do |s|
+  - s.section title: "Options by Object" do
+    = example do |c|
+      - c.header do
+        - popover = UiBibz::Ui::Core::Notifications::Popover.new('My popover', position: :right)
+        = ui_glyph "gem", popover: popover
+      - c.code do
+        popover = UiBibz::Ui::Core::Notifications::Popover.new('My popover', position: :right)
+        ui_glyph "gem", popover: popover
+      - c.html do
+        :plain
+          <i data-bs-toggle="popover" data-bs-title="My popover" data-bs-placement="right" class="glyph fas fa-gem" data-bs-original-title="" title=""></i>
+
+  - s.section title: "Options by Hash" do
+    = example do |c|
+      - c.header do
+        = ui_button "My button", popover: { content: 'My popover', title: 'My title', position: :top}, status: :primary
+      - c.code do
+        ui_button "My button", popover: { content: 'My popover', title: 'My title' position: :top}, status: :primary
+      - c.html do
+        :plain
+          <button data-bs-toggle="popover" data-bs-title="My popover" data-bs-placement="right" class="btn-primary btn" data-bs-original-title="" title="">My button</button>
+
+  - s.section title: "Options by String" do
+    %p To replace title notification by popover notification
+    = example do |c|
+      - c.header do
+        = ui_badge "My badge", type: :pill, popover: 'My popover', status: :danger
+      - c.code do
+        ui_badge "My badge", type: :pill, popover: 'My popover', status: :danger
+      - c.html do
+        :plain
+          <span data-bs-toggle="popover" data-bs-title="My popover" class="bg-danger badge rounded-pill" data-bs-original-title="" title="">My badge</span>
+
+= @sections.render
