@@ -91,7 +91,7 @@
       This option lets you add a popover to its component by string or hash.
 
     = component_list_options do |co|
-      - co.list 'postion', types: 'symbol', values: %w(:auto :top :left :right :bottom), description: "How to position the popover"
+      - co.list 'position', types: 'symbol', values: %w(:auto :top :left :right :bottom), description: "How to position the popover"
       - UiBibz::Ui::Core::Component::POPOVER_METHODS.each do |mth|
         - co.list mth
     %p Documentation for popover options are in #{ link_to("bootstrap documentation", bootstrap_start_url("components/popovers/#options"), target: "_blank", rel: "noopener") }.
@@ -110,7 +110,7 @@
       This option lets you add a tooltip to its component by boolean or hash.
 
     = component_list_options do |co|
-      - co.list 'postion', types: 'symbol', values: %w(:auto :top :left :right :bottom), description: "How to position the popover"
+      - co.list 'position', types: 'symbol', values: %w(:auto :top :left :right :bottom), description: "How to position the popover"
       - UiBibz::Ui::Core::Component::TOOLTIP_METHODS.each do |mth|
         - co.list mth
 
