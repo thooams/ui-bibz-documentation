@@ -8,14 +8,14 @@
       = ui_row( class: 'row-fluid' ) do
         %a{ name: 'top' }
         = ui_col( xl: { num: 2 }, lg: { num: 2 }, md: { num: 4 }, sm: { num: 12 }, xs: { num: 12 }, class: 'left-nav d-none d-md-block' ) do
-          .sidebar
+          %nav.sidebar{ "aria-labelledby": "Main Navigation" }
             = render "components/nav"
           = yield :third_nav
         = ui_col( xl: { num: 8 }, lg: { num: 8 }, md: { num: 8, }, sm: { num: 12 }, xs: { num: 12 }, class: 'content') do
           %main= yield
         = ui_col( xl: { num: 2 }, lg: { num: 2 }, class: 'secondary-nav d-md-none d-lg-block' ) do
           - unless @sections.nil?
-            %aside.sticky
+            %nav.sticky{ "aria-labelledby": "Second Navigation" }
               %h4 On this page
               %hr
               = subnav do |n|
