@@ -27,10 +27,10 @@
     = example do |c|
       - c.code do
         :plain
-          # by variable
+          # By variable
           Component.new content, options, html_options
 
-          # or by block
+          # By block
           Component.new(options, html_options) do
             content
           end
@@ -41,10 +41,10 @@
     = example do |c|
       - c.code do
         :plain
-          # by variable
+          # By variable
           Component.new('My content', { status: :primary }, { class: 'my-class' }).render
 
-          # or by block
+          # By block
           Component.new({ size: :xs }, { id: 'my-id' }) do
             My content
           end.render
@@ -76,19 +76,21 @@
     = example do |c|
       - c.code do
         :plain
-          # by variable
+          # By variable
           Component.new content, glyph: 'star'
 
-          # or by block
+          # By block
           Component.new glyph: { name: 'star', size: 2, type: 'fw', label: 'gem' } do
             content
           end
 
 
   - s.section title: "Popover" do
-    :markdown
-      Some component may have the `popover` option in their settings like buttons, links, ...
+    %p
+      Some component may have the <code>popover</code> option in their settings like buttons, links, ...
+      %br
       This option lets you add a popover to its component by object, hash or string.
+      %br
       See #{ link_to "the popover component", components_notifications_popover_path }.
 
     = component_list_options do |co|
@@ -99,20 +101,22 @@
     = example do |c|
       - c.code do
         :plain
-          # by object
+          # By object
           popover = UiBibz::Ui::Core::Notifications::Popover.new('My popover text...', title: 'My popover title')
           Component.new content, popover: popover
 
-          # or by hash
+          # By hash
           Component.new content, popover: { content: 'My popover text...', title: 'My Title', ... }
 
-          # by sting
+          # By string
           Component.new content, popover: 'My popover text...'
 
   - s.section title: "Tooltip" do
-    :markdown
-      Some component may have the `tooltip` option in their settings like buttons, links, ...
+    %p
+      Some component may have the <code>tooltip</code> option in their settings like buttons, links, ...
+      %br
       This option lets you add a tooltip to its component by object, hash or boolean.
+      %br
       See #{ link_to "the tooltip component", components_notifications_tooltip_path }.
 
     = component_list_options do |co|
@@ -125,24 +129,26 @@
     = example do |c|
       - c.code do
         :plain
-          # by object
+          # By object
           tooltip = UiBibz::Ui::Core::Notifications::Tooltip.new('My popover text...')
           Component.new content, tooltip: tooltip
 
-          # or by hash
+          # By hash
           Component.new content, tooltip: { content: 'My popover text...', title: 'My Title', ... }
 
-          # by boolean
+          # By boolean
           Component.new content, { tooltip: true }, { title: 'My popover text...' }
+          # or
+          Component.new content, tooltip: true, text: false
 
   - s.section title: "State" do
     = example do |c|
       - c.code do
         :plain
-          # by variable
+          # By variable
           Component.new content, state: :active
 
-          # or by block
+          # By block
           Component.new state: :disabled do
             content
           end
@@ -152,10 +158,10 @@
     = example do |c|
       - c.code do
         :plain
-          # by variable
+          # By variable
           Component.new content, cache: "my-component-cache-\#{ Date.today }"
 
-          # or by block
+          # By block
           Component.new cache: "my-static-component-cache" do
             content
           end
@@ -195,10 +201,10 @@
     = example do |c|
       - c.code do
         :plain
-          # by variable
+          # By variable
           Component.new content, nil, { class: 'my-component', data: { level: 'first' }}
 
-          # or by block
+          # By block
           Component.new({}, { id: 'my-id' }) do
             content
           end
@@ -210,11 +216,11 @@
     = example do |c|
       - c.code do
         :plain
-          # by variable
+          # By variable
           Component.new content, { size: :xs }, { class: 'my-component' }
           Component.new content, class: 'my-component', size: :xs
 
-          # or by block
+          # By block
           Component.new class: 'my-component', size: :xs do
             content
           end

@@ -45,13 +45,20 @@
 
   - s.section title: "Options by Boolean" do
     %p To replace title notification by tooltip notification
+    %p
+      If the options <code>text: false</code> and <code>tooltip: true</code> are present, the tooltip
+      will take the content of the component.
     = example do |c|
       - c.header do
         = ui_badge "My badge", { type: :pill, tooltip: true, status: :danger }, { title: 'My tooltip' }
+
+        = ui_button_link "Share link", glyph: 'share', tooltip: true, text: false
       - c.code do
         ui_badge "My badge", { type: :pill, tooltip: true, status: :danger }, { title: 'My tooltip' }
+        ui_button_link "Share link", glyph: 'share', tooltip: true, text: false
       - c.html do
         :plain
           <span data-bs-toggle="tooltip" data-bs-title="My tooltip" class="bg-danger badge rounded-pill" data-bs-original-title="" title="">My badge</span>
+          <a data-bs-toggle="tooltip" data-bs-title="Share link" class="btn-secondary btn" role="button" href="#" data-bs-original-title="" title=""><i class="glyph fas fa-share"></i> <span class="visually-hidden">Share link</span></a>
 
 = @sections.render
