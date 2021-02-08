@@ -587,7 +587,7 @@
   = ui_row do
     %h3 Tables  #{ exclusiveness }
     = ui_col num: 12 do
-      = ui_table({ store: @users, }) do |b|
+      = ui_table({ store: @users, class: 'table-responsive'}) do |b|
         - b.columns do |cls|
           - cls.column :id
           - cls.column :email
@@ -613,7 +613,7 @@
 
 %br.clear
 %h3 Table Cards  #{ exclusiveness }
-= ui_table_card store: @users, title: 'Table card', class: 'table-test' do |b|
+= ui_table_card store: @users, title: 'Table card', responsive: true, class: 'table-test table-responsive' do |b|
   - b.columns do |cls|
     - cls.column :id
     - cls.column :email
@@ -677,7 +677,7 @@
   - p.deck do |d|
     - d.panel do |b|
       - b.header 'Tree Header'
-      - b.body 'Tree Body<br/>with content<br/>on multiline'
+      - b.body 'Tree Body<br/>with content<br/>on multiline'.html_safe
     - d.panel do |b|
       - b.header 'Overview Header'
       - b.body 'Overview Body'

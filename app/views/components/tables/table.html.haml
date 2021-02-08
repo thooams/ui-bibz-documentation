@@ -48,8 +48,8 @@
   - co.list 'thead', types: 'hash', values: 'status: [:inverse || :default]'
   - co.list 'bordered', types: 'boolean'
   - co.list 'hoverable', types: 'boolean'
-  - co.list 'responsive', types: 'boolean'
-  - co.list 'reflow', types: 'boolean'
+  - co.list 'responsive', types: 'boolean', description: "Generate a div wrapper for a responsive table"
+  - co.list 'breakpoint', types: 'symbol', values: %w(:sm :md :lg :xl :xxl), description: "Need option <code>responsive: true</code> to work"
 
 = component_items do |ci|
   - ci.inherit_component "columns"
@@ -103,7 +103,7 @@
 
     = example do |c|
       - c.header do
-        = ui_table(store: @users) do |b|
+        = ui_table(store: @users, responsive: true) do |b|
           - b.columns do |cls|
             - cls.column :id
             - cls.column :email
@@ -216,7 +216,7 @@
 
     = example do |c|
       - c.header do
-        = ui_table(store: @users) do |b|
+        = ui_table(store: @users, responsive: true) do |b|
           - b.columns do |cls|
             - cls.column :id, name: '#'
             - cls.column :email, link: '#email'
@@ -300,7 +300,7 @@
 
     = example do |c|
       - c.header do
-        = ui_table(store: @users) do |b|
+        = ui_table(store: @users, responsive: true) do |b|
           - b.columns do |cls|
             - cls.column :id
             - cls.column :email
@@ -378,7 +378,7 @@
 
     = example do |c|
       - c.header do
-        = ui_table(store: @users) do |b|
+        = ui_table(store: @users, responsive: true) do |b|
           - b.columns do |cls|
             - cls.column :id
             - cls.column :email
