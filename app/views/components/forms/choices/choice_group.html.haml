@@ -108,7 +108,7 @@
     = example do |c|
       - c.header do
         = ui_choice_group size: :lg, status: :primary, type: :radio, outline: true do |bc|
-          - bc.choice 'Radio 1', glyph: 'gem'
+          - bc.choice 'Radio 1', glyph: 'gem', state: :active
           - bc.choice 'Radio 2', status: :danger, glyph: 'gem', text: false
           - bc.choice 'Radio 3'
           - bc.choice 'Radio 4', status: :danger
