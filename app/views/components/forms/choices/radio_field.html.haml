@@ -9,6 +9,8 @@
   - co.list 'value', types: %w(boolean string integer)
   - co.list 'label', types: 'string'
   - co.list 'inline', types: 'boolean'
+  - co.list "wrapper_html", types: "hash", description: "Html options for the wrapper"
+  - co.list "label_html", types: "hash", description: "Html options for the label"
 
 - @sections = sections do |s|
   - s.section title: "Radio" do
@@ -19,9 +21,9 @@
         ui_radio_field :custom_radio
       - e.html do
         :plain
-          <div class="custom-control custom-radio">
-            <input type="radio" name="custom_radio" id="custom_radio_" class="custom-control-input">
-            <label class="custom-control-label" for="custom_radio_">custom_radio</label>
+          <div class="form-check custom-radio">
+            <input type="radio" name="custom_radio" id="custom_radio_" class="form-check-input">
+            <label class="form-check-label" for="custom_radio_">custom_radio</label>
           </div>
 
   - s.section title: "Inline" do
@@ -33,9 +35,9 @@
         ui_radio_field "inline-radio", value: 'Radio 1', inline: true
       - e.html do
         :plain
-          <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" name="inline-radio" id="inline-radio_radio-0" value="radio-0" class="custom-control-input" checked="checked">
-            <label class="custom-control-label" for="inline-radio_radio-0">Radio 0</label>
+          <div class="form-check custom-radio form-check-inline">
+            <input type="radio" name="inline-radio" id="inline-radio_radio-0" value="radio-0" class="form-check-input" checked="checked">
+            <label class="form-check-label" for="inline-radio_radio-0">Radio 0</label>
           </div>
 
   - s.section title: "State" do
@@ -48,13 +50,13 @@
         ui_radio_field :state, value: false, state: :disabled, label: "disabled", checked: true
       - e.html do
         :plain
-          <div class="disabled custom-control custom-radio">
-            <input type="radio" name="state" id="state_true" value="true" disabled="disabled" class="custom-control-input">
-            <label class="custom-control-label" for="state_true">choice 1</label>
+          <div class="disabled form-check custom-radio">
+            <input type="radio" name="state" id="state_true" value="true" disabled="disabled" class="form-check-input">
+            <label class="form-check-label" for="state_true">choice 1</label>
           </div>
-          <div class="disabled custom-control custom-radio">
-            <input type="radio" name="state" id="state_false" value="false" disabled="disabled" class="custom-control-input" checked="checked">
-            <label class="custom-control-label" for="state_false">choice 2</label>
+          <div class="disabled form-check custom-radio">
+            <input type="radio" name="state" id="state_false" value="false" disabled="disabled" class="form-check-input" checked="checked">
+            <label class="form-check-label" for="state_false">choice 2</label>
           </div>
 
   - s.section title: "Status" do
@@ -109,9 +111,23 @@
         ui_radio_field :radio, label: 'My label'
       - e.html do
         :plain
-          <div class="custom-control custom-radio">
-            <input type="radio" name="radio" id="radio_" class="custom-control-input">
-            <label class="custom-control-label" for="radio_">My label</label>
+          <div class="form-check custom-radio">
+            <input type="radio" name="radio" id="radio_" class="form-check-input">
+            <label class="form-check-label" for="radio_">My label</label>
+          </div>
+
+  - s.section title: "Wrapper_html & Label_html" do
+    = example do |e|
+      - e.header do
+        = ui_radio_field :radio, wrapper_html: { title: 'My title'}, label_html: { class: 'test' }
+      - e.code do
+        ui_radio_field :radio, wrapper_html: { title: 'My title'}, label_html: { class: 'test' }
+      - e.html do
+        :plain
+          <div title="My title" class="form-check">
+            <input type="checkbox" name="check" id="check" value="1" class="form-check-input">
+            <input type="radio" name="radio" id="radio_" class="form-check-input">
+            <label class="form-check-label test" for="check">check</label>
           </div>
 
 = @sections.render

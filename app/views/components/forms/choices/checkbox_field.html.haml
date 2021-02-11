@@ -11,6 +11,8 @@
   - co.list 'intermediate', types: 'boolean'
   - co.list 'inline', types: 'boolean'
   - co.list "boolean", types: "boolean", description: "If your checkbox is for a boolean"
+  - co.list "wrapper_html", types: "hash", description: "Html options for the wrapper"
+  - co.list "label_html", types: "hash", description: "Html options for the label"
 
 - @sections = sections do |s|
   - s.section title: "Checkbox" do
@@ -21,10 +23,24 @@
         ui_checkbox_field :custom_check
       - e.html do
         :plain
-          <div class="custom-control custom-checkbox">
+          <div class="form-check custom-checkbox">
             <input type="hidden" name="custom_check" id="custom_check-hidden" value="0">
-            <input type="checkbox" name="custom_check" id="custom_check" value="1" class="custom-control-input">
-            <label class="custom-control-label" for="custom_check">custom_check</label>
+            <input type="checkbox" name="custom_check" id="custom_check" value="1" class="form-check-input">
+            <label class="form-check-label" for="custom_check">custom_check</label>
+          </div>
+
+  - s.section title: "Boolean" do
+    = example do |e|
+      - e.header do
+        = ui_checkbox_field "boolean", boolean: true
+      - e.code do
+        ui_checkbox_field "boolean", boolean: true
+      - e.html do
+        :plain
+          <div class="form-check custom-checkbox form-check-inline">
+            <input type="hidden" name="inline-1" id="inline-1-hidden" value="0">
+            <input type="checkbox" name="inline-1" id="inline-1" value="checkbox-1" class="form-check-input" checked="checked">
+            <label class="form-check-label" for="inline-1">Checkbox 1</label>
           </div>
 
   - s.section title: "Inline" do
@@ -36,10 +52,9 @@
         ui_checkbox_field :checkbox_1, value: 'Checkbox 1', inline: true, checked: true
       - e.html do
         :plain
-          <div class="custom-control custom-checkbox custom-control-inline">
-            <input type="hidden" name="inline-1" id="inline-1-hidden" value="0">
-            <input type="checkbox" name="inline-1" id="inline-1" value="checkbox-1" class="custom-control-input" checked="checked">
-            <label class="custom-control-label" for="inline-1">Checkbox 1</label>
+          <div class="form-check custom-checkbox form-check-inline">
+            <input type="checkbox" name="inline-1" id="inline-1" value="checkbox-1" class="form-check-input" checked="checked">
+            <label class="form-check-label" for="inline-1">Checkbox 1</label>
           </div>
 
   - s.section title: "State" do
@@ -52,15 +67,13 @@
         ui_checkbox_field :state,  value: false, state: :disabled, label: 'disabled', checked: true
       - e.html do
         :plain
-          <div class="disabled custom-control custom-checkbox">
-            <input type="hidden" name="state_1" id="state_1-hidden" value="0">
-            <input type="checkbox" name="state_1" id="state_1" value="true" disabled="disabled" class="custom-control-input">
-            <label class="custom-control-label" for="state_1">choice 1</label>
+          <div class="disabled form-check custom-checkbox">
+            <input type="checkbox" name="state_1" id="state_1" value="true" disabled="disabled" class="form-check-input">
+            <label class="form-check-label" for="state_1">choice 1</label>
           </div>
-          <div class="disabled custom-control custom-checkbox">
-            <input type="hidden" name="state_2" id="state_2-hidden" value="0">
-            <input type="checkbox" name="state_2" id="state_2" value="1" disabled="disabled" class="custom-control-input" checked="checked">
-            <label class="custom-control-label" for="state_2">choice 2</label>
+          <div class="disabled form-check custom-checkbox">
+            <input type="checkbox" name="state_2" id="state_2" value="1" disabled="disabled" class="form-check-input" checked="checked">
+            <label class="form-check-label" for="state_2">choice 2</label>
           </div>
 
 
@@ -116,10 +129,22 @@
         ui_checkbox_field :check, label: 'My label'
       - e.html do
         :plain
-          <div class="custom-control custom-checkbox">
-            <input type="hidden" name="check" id="check-hidden" value="0">
-            <input type="checkbox" name="check" id="check" value="1" class="custom-control-input">
-            <label class="custom-control-label" for="check">My label</label>
+          <div class="form-check custom-checkbox">
+            <input type="checkbox" name="check" id="check" value="1" class="form-check-input">
+            <label class="form-check-label" for="check">My label</label>
+          </div>
+
+  - s.section title: "Wrapper_html & Label_html" do
+    = example do |e|
+      - e.header do
+        = ui_checkbox_field :check, wrapper_html: { title: 'My title'}, label_html: { class: 'test' }
+      - e.code do
+        ui_checkbox_field :check, wrapper_html: { title: 'My title'}, label_html: { class: 'test' }
+      - e.html do
+        :plain
+          <div title="My title" class="form-check">
+            <input type="checkbox" name="check" id="check" value="1" class="form-check-input">
+            <label class="form-check-label test" for="check">check</label>
           </div>
 
 = @sections.render
