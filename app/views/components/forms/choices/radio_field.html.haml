@@ -21,7 +21,7 @@
         ui_radio_field :custom_radio
       - e.html do
         :plain
-          <div class="form-check custom-radio">
+          <div class="form-check">
             <input type="radio" name="custom_radio" id="custom_radio_" class="form-check-input">
             <label class="form-check-label" for="custom_radio_">custom_radio</label>
           </div>
@@ -35,7 +35,7 @@
         ui_radio_field "inline-radio", value: 'Radio 1', inline: true
       - e.html do
         :plain
-          <div class="form-check custom-radio form-check-inline">
+          <div class="form-check form-check-inline">
             <input type="radio" name="inline-radio" id="inline-radio_radio-0" value="radio-0" class="form-check-input" checked="checked">
             <label class="form-check-label" for="inline-radio_radio-0">Radio 0</label>
           </div>
@@ -50,11 +50,11 @@
         ui_radio_field :state, value: false, state: :disabled, label: "disabled", checked: true
       - e.html do
         :plain
-          <div class="disabled form-check custom-radio">
+          <div class="disabled form-check">
             <input type="radio" name="state" id="state_true" value="true" disabled="disabled" class="form-check-input">
             <label class="form-check-label" for="state_true">choice 1</label>
           </div>
-          <div class="disabled form-check custom-radio">
+          <div class="disabled form-check">
             <input type="radio" name="state" id="state_false" value="false" disabled="disabled" class="form-check-input" checked="checked">
             <label class="form-check-label" for="state_false">choice 2</label>
           </div>
@@ -111,7 +111,7 @@
         ui_radio_field :radio, label: 'My label'
       - e.html do
         :plain
-          <div class="form-check custom-radio">
+          <div class="form-check">
             <input type="radio" name="radio" id="radio_" class="form-check-input">
             <label class="form-check-label" for="radio_">My label</label>
           </div>
@@ -125,9 +125,22 @@
       - e.html do
         :plain
           <div title="My title" class="form-check">
-            <input type="checkbox" name="check" id="check" value="1" class="form-check-input">
             <input type="radio" name="radio" id="radio_" class="form-check-input">
             <label class="form-check-label test" for="check">check</label>
           </div>
+
+  - s.section title: "Simple form" do
+    %p= simple_form_text_with_input "ui_radio_field"
+    = example do |e|
+      - e.header do
+        - @user.active = true
+        = ui_form_for(@user) do |f|
+          = f.input :active, as: :ui_radio_field
+      - e.code do
+        ui_bibz_form_for(@user) do |f|
+          ...
+          f.input :active, as: :ui_radio_field
+          ...
+        end
 
 = @sections.render

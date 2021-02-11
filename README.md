@@ -13,6 +13,7 @@
 
 # Generate doc
 
+    rm -R public/packs && rm -R public/assets
     RAILS_ENV=production rails assets:precompile
     RAILS_ENV=production RAILS_SERVE_STATIC_FILES=yes rails s
     wget -r -k -E "http://localhost:3000"

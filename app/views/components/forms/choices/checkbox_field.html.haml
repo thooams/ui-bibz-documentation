@@ -23,7 +23,7 @@
         ui_checkbox_field :custom_check
       - e.html do
         :plain
-          <div class="form-check custom-checkbox">
+          <div class="form-check">
             <input type="hidden" name="custom_check" id="custom_check-hidden" value="0">
             <input type="checkbox" name="custom_check" id="custom_check" value="1" class="form-check-input">
             <label class="form-check-label" for="custom_check">custom_check</label>
@@ -37,7 +37,7 @@
         ui_checkbox_field "boolean", boolean: true
       - e.html do
         :plain
-          <div class="form-check custom-checkbox form-check-inline">
+          <div class="form-check form-check-inline">
             <input type="hidden" name="inline-1" id="inline-1-hidden" value="0">
             <input type="checkbox" name="inline-1" id="inline-1" value="checkbox-1" class="form-check-input" checked="checked">
             <label class="form-check-label" for="inline-1">Checkbox 1</label>
@@ -52,7 +52,7 @@
         ui_checkbox_field :checkbox_1, value: 'Checkbox 1', inline: true, checked: true
       - e.html do
         :plain
-          <div class="form-check custom-checkbox form-check-inline">
+          <div class="form-check form-check-inline">
             <input type="checkbox" name="inline-1" id="inline-1" value="checkbox-1" class="form-check-input" checked="checked">
             <label class="form-check-label" for="inline-1">Checkbox 1</label>
           </div>
@@ -67,11 +67,11 @@
         ui_checkbox_field :state,  value: false, state: :disabled, label: 'disabled', checked: true
       - e.html do
         :plain
-          <div class="disabled form-check custom-checkbox">
+          <div class="disabled form-check">
             <input type="checkbox" name="state_1" id="state_1" value="true" disabled="disabled" class="form-check-input">
             <label class="form-check-label" for="state_1">choice 1</label>
           </div>
-          <div class="disabled form-check custom-checkbox">
+          <div class="disabled form-check">
             <input type="checkbox" name="state_2" id="state_2" value="1" disabled="disabled" class="form-check-input" checked="checked">
             <label class="form-check-label" for="state_2">choice 2</label>
           </div>
@@ -129,7 +129,7 @@
         ui_checkbox_field :check, label: 'My label'
       - e.html do
         :plain
-          <div class="form-check custom-checkbox">
+          <div class="form-check">
             <input type="checkbox" name="check" id="check" value="1" class="form-check-input">
             <label class="form-check-label" for="check">My label</label>
           </div>
@@ -146,5 +146,19 @@
             <input type="checkbox" name="check" id="check" value="1" class="form-check-input">
             <label class="form-check-label test" for="check">check</label>
           </div>
+
+  - s.section title: "Simple form" do
+    %p= simple_form_text_with_input "ui_checkbox_field"
+    = example do |e|
+      - e.header do
+        - @user.active = true
+        = ui_form_for(@user) do |f|
+          = f.input :active, as: :ui_checkbox_field
+      - e.code do
+        ui_bibz_form_for(@user) do |f|
+          ...
+          f.input :active, as: :ui_checkbox_field
+          ...
+        end
 
 = @sections.render
