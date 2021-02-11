@@ -133,14 +133,16 @@
     %p= simple_form_text_with_input "ui_radio_field"
     = example do |e|
       - e.header do
-        - @user.active = true
         = ui_form_for(@user) do |f|
-          = f.input :active, as: :ui_radio_field
+          = f.input :name, as: :ui_radio_field, label: "Radio 1", input_html: { checked: true, id: 'radio_1' }
+          = f.input :name, as: :ui_radio_field, label: "Radio 2", input_html: { id: 'radio_2' }
       - e.code do
-        ui_bibz_form_for(@user) do |f|
-          ...
-          f.input :active, as: :ui_radio_field
-          ...
-        end
+        :plain
+          ui_bibz_form_for(@user) do |f|
+            ...
+            f.input :name, as: :ui_radio_field, label: "Radio 1", input_html: { checked: true, id: 'radio_1' }
+            f.input :name, as: :ui_radio_field, label: "Radio 2", input_html: { id: 'radio_2' }
+            ...
+          end
 
 = @sections.render
