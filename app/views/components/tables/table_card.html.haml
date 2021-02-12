@@ -56,7 +56,7 @@
 
     = example do |c|
       - c.header do
-        = ui_table_card(store: @users, table_options: {class: 'table-responsive')} do |b|
+        = ui_table_card(store: @users, table_options: {class: 'table-responsive'}) do |b|
           - b.columns do |cls|
             - cls.column :id
             - cls.column :email
