@@ -11,6 +11,7 @@
   - co.list 'option_tags', types: %w(array object)
   - co.list 'multiple', types: :boolean
   - co.list 'clickable_opt_group', types: 'boolean'
+  - co.list 'non_selected_text', types: 'string'
   - co.list 'collapsible_opt_group', types: 'boolean'
   - co.list 'searchable', types: 'boolean'
   - co.list 'select_all_options', types: 'boolean'
@@ -199,10 +200,10 @@
   - s.section title: "Searchable options" do
     = example do |e|
       - e.header do
-        = ui_dropdown_select_field 'example1', multiple: true, searchable: true, option_tags: select_options_tags
+        = ui_dropdown_select_field 'example1', multiple: true, searchable: true, non_selected_text: 'No item selected', option_tags: select_options_tags
       - e.code do
         option_tags = options_for_select(5.times.map{ |i| ["option \#{i}", i] })
-        ui_dropdown_select_field 'example', multiple: true, searchable: true, option_tags: option_tags
+        ui_dropdown_select_field 'example', multiple: true, searchable: true, non_selected_text: 'No item selected', option_tags: option_tags
       - e.html do
         <select name="example1[]" id="example1" data-enable-filtering="true" class="btn-primary btn multi-select" multiple="multiple" style="display: none;">
           <option value="option 0">option 0</option>
