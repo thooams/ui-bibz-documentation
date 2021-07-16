@@ -544,6 +544,7 @@
     = example do |c|
       - c.code do
         Arguments  = { sortable: {
+          controller: "users",
           column: 'users',
           count:  true,
           joins: "LEFT OUTER JOIN documents_products ON documents_products.document_id = documents.id
