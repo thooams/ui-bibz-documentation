@@ -543,17 +543,18 @@
       We can add arguments in the method `table_search_pagination` that will help to make joints.
     = example do |c|
       - c.code do
-        Arguments  = { sortable: {
-          controller: "users",
-          column: 'users',
-          count:  true,
-          joins: "LEFT OUTER JOIN documents_products ON documents_products.document_id = documents.id
-                  LEFT OUTER JOIN products ON products.id = documents_products.product_id
-                  LEFT OUTER JOIN products_users ON products_users.product_id = products.id
-                  LEFT OUTER JOIN users ON users.id = products_users.user_id"
-        } }
+        :plain
+          Arguments  = { sortable: {
+            controller: "users",
+            column: 'users',
+            count:  true,
+            joins: "LEFT OUTER JOIN documents_products ON documents_products.document_id = documents.id
+                    LEFT OUTER JOIN products ON products.id = documents_products.product_id
+                    LEFT OUTER JOIN products_users ON products_users.product_id = products.id
+                    LEFT OUTER JOIN users ON users.id = products_users.user_id"
+          } }
 
-        @documents = Document.includes(:users).table_search_pagination(params, session, arguments)
+          @documents = Document.includes(:users).table_search_pagination(params, session, arguments)
     :markdown
       Here the sortable argument means that one wishes to interresser the sorting functionality.
       For that it is necessary :
