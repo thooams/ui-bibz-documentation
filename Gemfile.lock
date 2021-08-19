@@ -1,7 +1,7 @@
 PATH
   remote: ../ui_bibz
   specs:
-    ui_bibz (3.0.2)
+    ui_bibz (3.0.3)
       will-paginate-i18n
       will_paginate (~> 3.3.0)
       will_paginate-bootstrap4
