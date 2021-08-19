@@ -61,9 +61,11 @@
     - clo.list 'positon', types: 'symbol', values: %w(:left :center :right)
     - clo.size_link
   - co.list 'outline', types: 'boolean', values: %w(true false)
+  - co.list 'tabbed', types: 'boolean', values: %w(true false), description: "To link tab_group in the header with the card bodies"
 
 = component_items do |ci|
-  - ci.inherit_component 'header'
+  - ci.inherit_component 'header' do |h|
+    - h.inherit_component 'tab_group', components_navigations_tab_group_path
   - ci.inherit_component 'body'
   - ci.inherit_component 'footer'
   - ci.list "image", description: "(Inherit of component)" do |clo|
@@ -703,11 +705,11 @@
   - s.section title: "Card tabs" do
     = example do |c|
       - c.header do
-        = ui_card do |c|
+        = ui_card tabbed: true do |c|
           - c.header do |h|
             - h.tab_group do |n|
               - n.tab 'Active', url: '#active', state: :active
-              - n.tab 'Another link', url: '#active'
+              - n.tab 'Another link', url: '#another'
               - n.tab 'Disabled', url: '#disabled', state: :disabled
               - n.spacer
               - n.dropdown 'Dropdown' do |d|
@@ -716,20 +718,23 @@
                   = "Action 2"
                 - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
                   = "Action 3"
-          - c.body ''
+          - c.body "Active Pane", tab_pane: 'active', state: :active
+          - c.body "Another Pane", tab_pane: 'another'
+          - c.body "Disable Pane", tab_pane: 'disabled'
+
       - c.code do
         :plain
-          ui_card do |c|
+          ui_card tabbed: true do |c|
             c.header do |h|
               h.tab_group do |n|
                 n.tab 'Active', url: '#active', state: :active
-                n.tab 'Another link', url: '#active'
+                n.tab 'Another link', url: '#another'
                 n.tab 'Disabled', url: '#disabled', state: :disabled
                 n.spacer
                 n.dropdown 'Dropdown' do |d|
                   d.link "Action 1", url: '#action'
                   d.link url: '#another-action' do
-                    "Action 2"
+                    = "Action 2"
                   end
                   d.link({ url: '#separate-link'}, { class: 'my-link'}) do
                     "Action 3"
@@ -737,25 +742,21 @@
                 end
               end
             end
-            c.body ''
+            c.body "Active Pane", tab_pane: 'active', state: :active
+            c.body "Another Pane", tab_pane: 'another'
+            c.body "Disable Pane", tab_pane: 'disabled'
           end
       - c.html do
         :plain
-          <div class="card">
+          <div class="card tab-content">
             <div class="card-header">
-              <ul class="nav nav-tabs card-header-tabs">
-                <li class="active nav-item">
-                  <a class="nav-link" href="#active">Active</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#active">Another link</a>
-                </li>
-                <li class="disabled  me-auto nav-item">
-                  <a class="disabled nav-link" href="#disabled">Disabled</a>
-                </li>
+              <ul class="nav nav-tabs card-header-tabs" role="tablist">
+                <li class="nav-item"><a href="#active" class="nav-link" data-bs-toggle="tab" role="tab" aria-selected="false">Active</a></li>
+                <li class="nav-item"><a href="#another" class="nav-link active" data-bs-toggle="tab" role="tab" aria-selected="true">Another link</a></li>
+                <li class="me-auto nav-item"><a href="#disabled" class="disabled nav-link" data-bs-toggle="tab" role="tab">Disabled</a></li>
                 <li class="dropdown nav-item">
-                  <a class="dropdown-toggle nav-link active" data-bs-toggle="dropdown" aria-expanded="false" href="#">Dropdown <span class="caret"></span></a>
-                  <div class="dropdown-menu" arial-labelledby="dropdown-215166184182764420015994202772620281414" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 42px, 0px); top: 0px; left: 0px; will-change: transform;">
+                  <a class="dropdown-toggle nav-link" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                  <div class="dropdown-menu" arial-labelledby="dropdown-20969">
                     <a class="dropdown-item" href="#action">Action 1</a>
                     <a class="dropdown-item" href="#another-action">Action 2</a>
                     <a class="my-link dropdown-item" href="#separate-link">Action 3</a>
@@ -763,9 +764,16 @@
                 </li>
               </ul>
             </div>
-            <div class="card-body"></div>
+            <div class="card-body tab-pane" id="active">
+              Active Pane
+            </div>
+            <div class="card-body tab-pane active" id="another">
+              Another Pane
+            </div>
+            <div class="card-body tab-pane" id="disabled">
+              Disable Pane
+            </div>
           </div>
-
 
   - s.section title: "Complexe example" do
     %p
@@ -774,7 +782,7 @@
 
     = example do |e|
       - e.header do
-        = ui_card class: "table-card tab-content" do |c|
+        = ui_card tabbed: true, class: "table-card" do |c|
           - c.header do |h|
             - h.tab_group do |n|
               - n.tab "Table", url: "#table-pane", glyph: "table", state: :active
@@ -806,7 +814,7 @@
 
       - e.code do
         :plain
-          ui_card class: "table-card tab-content" do |c|
+          ui_card tabbed: true, class: "table-card" do |c|
             c.header do |h|
               h.tab_group do |n|
                 n.tab "Table", url: "#table-pane", glyph: "table", state: :active
