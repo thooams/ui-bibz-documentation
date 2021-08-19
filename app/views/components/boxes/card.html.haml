@@ -523,72 +523,6 @@
             </div>
           </div>
 
-  - s.section title: "Card tabs" do
-    = example do |c|
-      - c.header do
-        = ui_card do |c|
-          - c.header do |h|
-            - h.tab_group do |n|
-              - n.tab 'Active', url: '#active', state: :active
-              - n.tab 'Another link', url: '#active'
-              - n.tab 'Disabled', url: '#disabled', state: :disabled
-              - n.spacer
-              - n.dropdown 'Dropdown' do |d|
-                - d.link "Action 1", url: '#action'
-                - d.link url: '#another-action' do
-                  = "Action 2"
-                - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
-                  = "Action 3"
-          - c.body ''
-      - c.code do
-        :plain
-          ui_card do |c|
-            c.header do |h|
-              h.tab_group do |n|
-                n.tab 'Active', url: '#active', state: :active
-                n.tab 'Another link', url: '#active'
-                n.tab 'Disabled', url: '#disabled', state: :disabled
-                n.spacer
-                n.dropdown 'Dropdown' do |d|
-                  d.link "Action 1", url: '#action'
-                  d.link url: '#another-action' do
-                    "Action 2"
-                  end
-                  d.link({ url: '#separate-link'}, { class: 'my-link'}) do
-                    "Action 3"
-                  end
-                end
-              end
-            end
-            c.body ''
-          end
-      - c.html do
-        :plain
-          <div class="card">
-            <div class="card-header">
-              <ul class="nav nav-tabs card-header-tabs">
-                <li class="active nav-item">
-                  <a class="nav-link" href="#active">Active</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#active">Another link</a>
-                </li>
-                <li class="disabled  me-auto nav-item">
-                  <a class="disabled nav-link" href="#disabled">Disabled</a>
-                </li>
-                <li class="dropdown nav-item">
-                  <a class="dropdown-toggle nav-link active" data-bs-toggle="dropdown" aria-expanded="false" href="#">Dropdown <span class="caret"></span></a>
-                  <div class="dropdown-menu" arial-labelledby="dropdown-215166184182764420015994202772620281414" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 42px, 0px); top: 0px; left: 0px; will-change: transform;">
-                    <a class="dropdown-item" href="#action">Action 1</a>
-                    <a class="dropdown-item" href="#another-action">Action 2</a>
-                    <a class="my-link dropdown-item" href="#separate-link">Action 3</a>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="card-body"></div>
-          </div>
-
   - s.section title: "Status" do
     = example do |e|
       = status_description
@@ -764,6 +698,361 @@
               <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
             </div>
             <div class="card-footer text-dark border-dark bg-transparent">Dark Footer</div>
+          </div>
+
+  - s.section title: "Card tabs" do
+    = example do |c|
+      - c.header do
+        = ui_card do |c|
+          - c.header do |h|
+            - h.tab_group do |n|
+              - n.tab 'Active', url: '#active', state: :active
+              - n.tab 'Another link', url: '#active'
+              - n.tab 'Disabled', url: '#disabled', state: :disabled
+              - n.spacer
+              - n.dropdown 'Dropdown' do |d|
+                - d.link "Action 1", url: '#action'
+                - d.link url: '#another-action' do
+                  = "Action 2"
+                - d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+                  = "Action 3"
+          - c.body ''
+      - c.code do
+        :plain
+          ui_card do |c|
+            c.header do |h|
+              h.tab_group do |n|
+                n.tab 'Active', url: '#active', state: :active
+                n.tab 'Another link', url: '#active'
+                n.tab 'Disabled', url: '#disabled', state: :disabled
+                n.spacer
+                n.dropdown 'Dropdown' do |d|
+                  d.link "Action 1", url: '#action'
+                  d.link url: '#another-action' do
+                    "Action 2"
+                  end
+                  d.link({ url: '#separate-link'}, { class: 'my-link'}) do
+                    "Action 3"
+                  end
+                end
+              end
+            end
+            c.body ''
+          end
+      - c.html do
+        :plain
+          <div class="card">
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs">
+                <li class="active nav-item">
+                  <a class="nav-link" href="#active">Active</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#active">Another link</a>
+                </li>
+                <li class="disabled  me-auto nav-item">
+                  <a class="disabled nav-link" href="#disabled">Disabled</a>
+                </li>
+                <li class="dropdown nav-item">
+                  <a class="dropdown-toggle nav-link active" data-bs-toggle="dropdown" aria-expanded="false" href="#">Dropdown <span class="caret"></span></a>
+                  <div class="dropdown-menu" arial-labelledby="dropdown-215166184182764420015994202772620281414" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 42px, 0px); top: 0px; left: 0px; will-change: transform;">
+                    <a class="dropdown-item" href="#action">Action 1</a>
+                    <a class="dropdown-item" href="#another-action">Action 2</a>
+                    <a class="my-link dropdown-item" href="#separate-link">Action 3</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="card-body"></div>
+          </div>
+
+
+  - s.section title: "Complexe example" do
+    %p
+      To create a card with a table inside you could easily use the #{ link_to "card_table", components_tables_table_card_path} component.
+      But Ui Bibz allow to be more flexible and create your own card table like this:
+
+    = example do |e|
+      - e.header do
+        = ui_card class: "table-card tab-content" do |c|
+          - c.header do |h|
+            - h.tab_group do |n|
+              - n.tab "Table", url: "#table-pane", glyph: "table", state: :active
+              - n.tab "Grid", url: "#grid-pane", glyph: "th", class: "me-auto"
+              - n.html do
+                = ui_table_search_field store: @users
+          - c.body tab_pane: "table-pane", state: :active do
+            = ui_table store: @users do |b|
+              - b.columns do |cls|
+                - cls.column :id, sortable: false
+                - cls.column :email, format: lambda { |records, record| "Personal: #{record.email }" }
+              - b.actions do |acs|
+                - acs.link "See"
+
+          - c.body tab_pane: "grid-pane" do
+            = ui_row do
+              -  @users.records.each do |record|
+                = ui_col class: "text-center" do
+                  = image_pack_tag "bootstrap-icon.png"
+                  %p.description
+                    %b Id
+                    = record.id
+                    |
+                    %b Email
+                    = record.email
+          - c.footer do |f|
+            = ui_table_pagination store: @users
+            .ms-auto= ui_table_pagination_per_page store: @users
+
+      - e.code do
+        :plain
+          ui_card class: "table-card tab-content" do |c|
+            c.header do |h|
+              h.tab_group do |n|
+                n.tab "Table", url: "#table-pane", glyph: "table", state: :active
+                n.tab "Grid", url: "#grid-pane", glyph: "th", class: "me-auto"
+                n.html do
+                  ui_table_search_field store: @users
+                end
+              end
+            end
+
+            c.body tab_pane: "table-pane", state: :active do
+              ui_table store: @users do |b|
+                b.columns do |cls|
+                  cls.column :id, sortable: false
+                  cls.column :email, format: lambda { |records, record| "Personal: #\{record.email }" }
+                end
+                b.actions do |acs|
+                  acs.link "See"
+                end
+              end
+            end
+
+            c.body tab_pane: "grid-pane" do
+              ui_row do
+                @users.records.each do |record|
+                  ui_col class: "text-center" do
+                    image_pack_tag "bootstrap-icon.png"
+                    <p class="description">
+                      <b>Id</b> record.id
+                      |
+                      <b>Email</b> record.email
+                    </p>
+                  end
+                end
+              end
+            end
+
+            c.footer do |f|
+              ui_table_pagination store: @users
+              .ms-auto= ui_table_pagination_per_page store: @users
+            end
+          end
+
+      - e.html do
+        :plain
+          <div class="table-card tab-content card">
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs" role="tablist">
+                <li class="nav-item">
+                  <a href="#table-pane" class="active nav-link" data-bs-toggle="tab" role="tab"><i class="glyph fas fa-table"></i> Table</a>
+                </li>
+                <li class="me-auto nav-item">
+                  <a href="#grid-pane" class="me-auto nav-link" data-bs-toggle="tab" role="tab"><i class="glyph fas fa-th"></i> Grid</a>
+                </li>
+                <form class="form-table-search-field" action="/components/boxes/card" accept-charset="UTF-8" method="get" data-dashlane-rid="e54b90af7125f3c3" data-form-type="">
+                  <div class="input-group input-group-sm table-search-field">
+                    <span class="input-group-text"><i class="glyph fas fa-search"></i></span>
+                    <input type="hidden" name="store_id" value="components/boxes">
+                    <input type="hidden" name="link_type" value="search">
+                    <input type="search" name="search" class="form-control" placeholder="Search by Email..." data-dashlane-rid="5a70c6d46822517a" data-form-type="">
+                    <button type="button" class="btn btn-secondary input-group-btn clear-search-btn" data-dashlane-rid="2c8f862b853fdc71" data-form-type="" data-dashlane-label="true">
+                      <i class="glyph fas fa-times-circle"></i>
+                      <span class="visually-hidden">Clear Search</span>
+                    </button>
+                  </div>
+                </form>
+              </ul>
+            </div>
+            <div class="active card-body tab-pane" id="table-pane">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>
+                      <a class="dropup" href="/components/boxes/card?column_id=id&amp;direction=asc&amp;link_type=column&amp;sort=users.id&amp;store_id=components%2Fboxes">Id</a>
+                    </th>
+                    <th>
+                      <a class="dropup" href="/components/boxes/card?column_id=email&amp;direction=asc&amp;link_type=column&amp;sort=users.email&amp;store_id=components%2Fboxes">Email</a>
+                    </th>
+                    <th class="action"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      1
+                    </td>
+                    <td>
+                      Personal: test0@test.com
+                    </td>
+                    <td>
+                      <div class="dropdown-action dropdown">
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown-45280"><i class="glyph fas fa-ellipsis-v fa-fw"></i> Actions</button>
+                        <div class="dropdown-menu" arial-labelledby="dropdown-45280">
+                          <a class="dropdown-item" href="#">See</a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      2
+                    </td>
+                    <td>
+                      Personal: test1@test.com
+                    </td>
+                    <td>
+                      <div class="dropdown-action dropdown">
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown-87773"><i class="glyph fas fa-ellipsis-v fa-fw"></i> Actions</button>
+                        <div class="dropdown-menu" arial-labelledby="dropdown-87773">
+                          <a class="dropdown-item" href="#">See</a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      3
+                    </td>
+                    <td>
+                      Personal: test2@test.com
+                    </td>
+                    <td>
+                      <div class="dropdown-action dropdown">
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown-97655"><i class="glyph fas fa-ellipsis-v fa-fw"></i> Actions</button>
+                        <div class="dropdown-menu" arial-labelledby="dropdown-97655">
+                          <a class="dropdown-item" href="#">See</a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      4
+                    </td>
+                    <td>
+                      Personal: test3@test.com
+                    </td>
+                    <td>
+                      <div class="dropdown-action dropdown">
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown-12415"><i class="glyph fas fa-ellipsis-v fa-fw"></i> Actions</button>
+                        <div class="dropdown-menu" arial-labelledby="dropdown-12415">
+                          <a class="dropdown-item" href="#">See</a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      5
+                    </td>
+                    <td>
+                      Personal: test4@test.com
+                    </td>
+                    <td>
+                      <div class="dropdown-action dropdown">
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown-19500"><i class="glyph fas fa-ellipsis-v fa-fw"></i> Actions</button>
+                        <div class="dropdown-menu" arial-labelledby="dropdown-19500">
+                          <a class="dropdown-item" href="#">See</a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="card-body tab-pane" id="grid-pane">
+              <div class="row">
+                <div class="text-center col">
+                  <img src="/packs/media/images/bootstrap-icon-6040c3f32c3b518c69e4385fd6237ab6.png">
+                  <p class="description">
+                    <b>Id</b>
+                    1|
+                    <b>Email</b>
+                    test0@test.com
+                  </p>
+                </div>
+                <div class="text-center col">
+                  <img src="/packs/media/images/bootstrap-icon-6040c3f32c3b518c69e4385fd6237ab6.png">
+                  <p class="description">
+                    <b>Id</b>
+                    2|
+                    <b>Email</b>
+                    test1@test.com
+                  </p>
+                </div>
+                <div class="text-center col">
+                  <img src="/packs/media/images/bootstrap-icon-6040c3f32c3b518c69e4385fd6237ab6.png">
+                  <p class="description">
+                    <b>Id</b>
+                    3|
+                    <b>Email</b>
+                    test2@test.com
+                  </p>
+                </div>
+                <div class="text-center col">
+                  <img src="/packs/media/images/bootstrap-icon-6040c3f32c3b518c69e4385fd6237ab6.png">
+                  <p class="description">
+                    <b>Id</b>
+                    4|
+                    <b>Email</b>
+                    test3@test.com
+                  </p>
+                </div>
+                <div class="text-center col">
+                  <img src="/packs/media/images/bootstrap-icon-6040c3f32c3b518c69e4385fd6237ab6.png">
+                  <p class="description">
+                    <b>Id</b>
+                    5|
+                    <b>Email</b>
+                    test4@test.com
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <nav class="pagination">
+                <ul class="pagination" role="group">
+                  <li class="previous page-item disabled"><span class="page-link">«</span></li>
+                  <li class="page-item active"><span class="page-link">1</span></li>
+                  <li class="page-item"><a class="page-link" rel="next" href="/components/boxes/card?page=2&amp;store_id=components%2Fboxes">2</a></li>
+                  <li class="next page-item"><a class="page-link" rel="next" href="/components/boxes/card?page=2&amp;store_id=components%2Fboxes">»</a></li>
+                </ul>
+              </nav>
+              <div class="ms-auto">
+                <form action="/components/boxes/card" accept-charset="UTF-8" method="get">
+                  <div class="table-pagination-per-page">
+                    Displaying User
+                    <b>1&nbsp;-&nbsp;5</b>
+                     of
+                    <b>10</b>
+                     in total | Per page:
+                    <select name="per_page" id="per_page" class="form-select">
+                      <option selected="selected" value="5">5</option>
+                      <option value="10">10</option>
+                      <option value="20">20</option>
+                      <option value="30">30</option>
+                      <option value="50">50</option>
+                      <option value="100">100</option>
+                      <option value="200">200</option>
+                      <option value="500">500</option>
+                    </select>
+                    <input type="hidden" name="store_id" value="components/boxes">
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
 
 = @sections.render

@@ -9,7 +9,7 @@ class HomeController < ApplicationController
   end
 
   def theme
-    @users = User.all.table_search_pagination(params, session)
+    @users = User.all.table_search_pagination(params, session, per_page: 5)
   end
 
   def custom_component

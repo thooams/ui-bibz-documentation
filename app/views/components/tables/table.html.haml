@@ -80,14 +80,21 @@
     :markdown
       Use the method in your model `table_search_pagination` passing arguments :
 
-      * params
-      * session
-      * opts (optional)
+    = component_list_options do |clo|
+      - clo.list 'params', types: :hash, order: 1
+      - clo.list 'session', types: :hash, order: 2
+      - clo.list 'options', types: :hash, order: 3 do |cl|
+        - cl.list 'actions_controller', types: 'string', description: 'To change the record actions if they aren’t the same than the current controller', default: "params[:controller]"
+        - cl.list 'store_id', types: 'string', description: 'To add a specific id to the store', default: "params[:controller]"
+        - cl.list 'per_page', types: 'integer', description: 'Force by defaut a per_page number', default: 30
+        - cl.list 'model', types: ['string', 'object'], description: 'Force a specific model'
+        - cl.list 'sortable', types: 'boolean', description: 'Enable or disable the sortable feature', default: 'true'
+
     = example do |c|
       - c.code do
         class UserController < ApplicationController
           def index
-            @users = User.table_search_pagination(params, session, opts)
+            @users = User.table_search_pagination(params, session, options)
             ...
           end
           ...

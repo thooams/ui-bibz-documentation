@@ -39,6 +39,15 @@
   - co.list 'paginable', types: 'boolean'
   - co.list 'title', types: 'string'
   - co.list 'table_html_options', types: 'hash'
+  - co.list 'table_options', types: 'hash' do |cu|
+    - cu.list 'actionable', types: 'boolean'
+    - cu.list 'sortable', types: 'boolean'
+    - cu.list 'default_actions', types: 'boolean'
+    - cu.list 'thead', types: 'hash', values: 'status: [:inverse || :default]'
+    - cu.list 'bordered', types: 'boolean'
+    - cu.list 'hoverable', types: 'boolean'
+    - cu.list 'responsive', types: 'boolean', description: "Generate a div wrapper for a responsive table"
+    - cu.list 'breakpoint', types: 'symbol', values: %w(:sm :md :lg :xl :xxl), description: "Need option <code>responsive: true</code> to work"
 
 = component_items do |ci|
   - ci.inherit_component "columns"
@@ -46,6 +55,51 @@
   - ci.html_link
 
 - @sections = sections do |s|
+
+  - s.section title: "Model" do
+
+    %p You must include UiBibz Searchable Concern and list searchable fields through <code>searchable_attributes</code> method. Insert in the model the following line :
+    = example do |c|
+      - c.code do
+        :plain
+          class User < ActiveRecord::Base
+            include UiBibz::Concerns::Models::Searchable
+            ...
+            # in User table
+            searchable_attributes :email, :name
+            # or in join table
+            searchable_attributes :name, company: :email
+            # or in join table with multi columns
+            searchable_attributes :name, company: [:email, :active]
+            # or with build column with :as argument
+            searchable_attributes :name, company: :email, as: :mybuildcolumn
+            ...
+          end
+
+  - s.section title: "Controller" do
+    :markdown
+      Use the method in your model `table_search_pagination` passing arguments :
+
+    = component_list_options do |clo|
+      - clo.list 'params', types: :hash, order: 1
+      - clo.list 'session', types: :hash, order: 2
+      - clo.list 'options', types: :hash, order: 3 do |cl|
+        - cl.list 'actions_controller', types: 'string', description: 'To change the record actions if they aren’t the same than the current controller', default: "params[:controller]"
+        - cl.list 'store_id', types: 'string', description: 'To add a specific id to the store', default: "params[:controller]"
+        - cl.list 'per_page', types: 'integer', description: 'Force by defaut a per_page number', default: 30
+        - cl.list 'model', types: ['string', 'object'], description: 'Force a specific model'
+        - cl.list 'sortable', types: 'boolean', description: 'Enable or disable the sortable feature', default: 'true'
+
+    = example do |c|
+      - c.code do
+        class UserController < ApplicationController
+          def index
+            @users = User.table_search_pagination(params, session, options)
+            ...
+          end
+          ...
+        end
+
   - s.section title: "View" do
     :markdown
       The columns are all displayed by default and the default actions are :
@@ -160,25 +214,42 @@
             <br class="ui-bibz-clear">
           </div>
         </form>
-      - c.footer do
-        = documentation_link 'Documentation', '#'
 
-  - s.section title: "Table card Options" do
-    %p Table has several options:
-    = component_list_options do |clo|
-      - clo.glyph_link
-      - clo.list link_to('store', components_tables_table_path(anchor: 'controller')), types: 'object', required: true
-      - clo.list link_to('table_options', components_tables_table_path(anchor: 'component-options')), types: :hash
-      - clo.list 'searchable', types: :boolean
-      - clo.list 'paginable', types: :boolean
-      - clo.list 'title', types: :string
-      - clo.list 'table_html_options', types: :hash
-
-  - s.section title: "Table card Blocks" do
+  - s.section title: "Controller arguments" do
     :markdown
-      Table has several blocks:
+      If we wish, for example, count users who have no direct link with the documents. Imagine, for example, a user with products and that these products contain several documents. We wish to count the number of users by documents.
+      We can add arguments in the method `table_search_pagination` that will help to make joints.
+    = example do |c|
+      - c.code do
+        :plain
+          Arguments  = { sortable: {
+            controller: "users",
+            column: 'users',
+            count:  true,
+            joins: "LEFT OUTER JOIN documents_products ON documents_products.document_id = documents.id
+                    LEFT OUTER JOIN products ON products.id = documents_products.product_id
+                    LEFT OUTER JOIN products_users ON products_users.product_id = products.id
+                    LEFT OUTER JOIN users ON users.id = products_users.user_id"
+          } }
 
-      * columns
-      * actions
+          @documents = Document.includes(:users).table_search_pagination(params, session, arguments)
+    :markdown
+      Here the sortable argument means that one wishes to interresser the sorting functionality.
+      For that it is necessary :
+
+      * define the name of the column sorted through the argument column (`String`)
+      * determine whether the treatment is done on counting with the count argument (`Boolean`)
+      * define the join along with the argument (`String , Array , Hash`)
+
+    = example do |c|
+      - c.code do
+        ui_table store: @documents do |g|
+          g.columns do |c|
+            c.column :users, { name: 'Users count', count: true, custom_sort: true }
+          end
+        end
+
+    .bd-callout
+      %p For more examples, see the the #{link_to("table component", components_tables_table_path)} examples with lot of table_options...
 
 = @sections.render

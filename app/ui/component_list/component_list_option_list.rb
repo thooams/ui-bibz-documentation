@@ -1,6 +1,6 @@
 class ComponentList::ComponentListOptionList < UiBibz::Ui::Core::Component
   def render
-    content_tag :li do
+    content_tag :li, class: order do
       concat content_tag :span, content, class: 'option-name'
       concat content_tag :span, types_list, class: 'option-types'                   unless options[:types].nil?
       concat content_tag :span, values_list, class: 'option-values'                 unless options[:values].nil?
@@ -12,6 +12,10 @@ class ComponentList::ComponentListOptionList < UiBibz::Ui::Core::Component
   end
 
 private
+
+  def order
+    "order-#{options[:order]}" unless options[:order].nil?
+  end
 
   def values_list
     "(<code>#{ [options[:values]].flatten.join(', ') }</code>)".html_safe
