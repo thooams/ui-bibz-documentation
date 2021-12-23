@@ -570,6 +570,15 @@
       * determine whether the treatment is done on counting with the count argument (`Boolean`)
       * define the join along with the argument (`String , Array , Hash`)
 
+    = component_options do |co|
+      - co.list 'sortable', types: 'object' do |c|
+        - c.attribute 'controller', types: 'string', required: true
+        - c.attribute 'column', types: 'string', required: true
+        - c.attribute 'count', types: 'boolean', required: false
+        - c.attribute 'joins', types: 'string', required: false
+      - co.list "default", types: 'object' do |c|
+        - c.attribute 'order', types: %w(string hash)
+
     = example do |c|
       - c.code do
         ui_table store: @documents do |g|
