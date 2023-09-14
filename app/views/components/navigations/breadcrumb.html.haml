@@ -33,12 +33,10 @@
       - c.header do
         = ui_breadcrumb do |b|
           - b.link 'Home', current: true
-        %br
         = ui_breadcrumb do |b|
           - b.link 'Home', url: '#home'
           - b.link 'Library', current: true
-        %br
-        = ui_breadcrumb do |b|
+        = ui_breadcrumb divider: ">" do |b|
           - b.link 'Home', url: '#active'
           - b.link 'Library', url: '#library'
           - b.link 'Data', current: true
@@ -52,7 +50,7 @@
           b.link "Library", current: true
         end
          
-        ui_breadcrumb do |b|
+        ui_breadcrumb divider: ">" do |b|
           b.link "Home", url: "#home"
           b.link "Library", url: "#library"
           b.link "Data", current: true
@@ -72,7 +70,7 @@
             </ol>
           </nav>
 
-          <nav arial-label="breadcrumb">
+          <nav arial-label="breadcrumb" style="--bs-breadcrumb-divider: '>';">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="#active">Home</a></li>
               <li class="breadcrumb-item"><a href="#library">Library</a></li>
