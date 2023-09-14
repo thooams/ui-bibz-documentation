@@ -3,7 +3,7 @@
     - nb.navbar_toggle_html do
       = button_tag class: "navbar-toggler d-block d-md-none collapsed submenu-toggler" do
         = ui_glyph "arrow-alt-circle-down"
-    - nb.brand image_pack_tag('brand.png', alt: "Ui Bibz logo", size: "37x30"), url: root_url
+    - nb.brand image_tag('brand.png', alt: "Ui Bibz logo", size: "37x30"), url: root_url
     - nb.nav do |n|
       - opts = { url: getting_started_path }
       - opts.merge!({ state: :active }) if params[:action] == 'getting_started'

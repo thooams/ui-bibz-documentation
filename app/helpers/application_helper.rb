@@ -120,7 +120,7 @@ module ApplicationHelper
   end
 
   def bootstrap_or_ui_bibz_logo name, url
-    img = image_pack_tag "#{ name.parameterize }-icon.png", class: 'icon-indicator', alt: "#{ name.parameterize.titleize } Logo"
+    img = image_tag "#{ name.parameterize }-icon.png", class: 'icon-indicator', alt: "#{ name.parameterize.titleize } Logo"
     url.nil? ? img : link_to(img, url, target: "_blank", rel: "noreferrer", title: "See original component documentation")
   end
 

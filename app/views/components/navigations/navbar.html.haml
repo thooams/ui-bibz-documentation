@@ -279,7 +279,7 @@
     = example do |e|
       - e.header do
         = ui_navbar type: :dark, status: :dark do |nb|
-          - nb.brand image_pack_tag 'ruby-white.png', alt: "white ruby", size: "10x9"
+          - nb.brand image_tag 'ruby-white.png', alt: "white ruby", size: "10x9"
           - nb.nav do |n|
             - n.link 'Link', url: '#link'
           - nb.spacer 2
@@ -293,7 +293,7 @@
       - e.code do
         :plain
           ui_navbar type: :dark, status: :dark do |nb|
-            nb.brand image_pack_tag "ruby-white.png"
+            nb.brand image_tag "ruby-white.png"
             nb.nav do |n|
               n.link "Link", url: "#link"
             end

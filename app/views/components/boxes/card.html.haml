@@ -66,8 +66,7 @@
   - ci.inherit_component 'header'
   - ci.inherit_component 'body'
   - ci.inherit_component 'footer'
-  - ci.list "image", description: "(Inherit of component)" do |clo|
-    - clo.list "pack", types: :boolean, description: "Use <code>image_pack_tag</code> instead of <code>image_tag</code>."
+  - ci.list "image", description: "(Inherit of component)"
   - ci.inherit_component 'list_group', components_layouts_row_path
   - ci.html_link
   - ci.list 'row', types: ['content', 'hash'], description: "(inherit of #{link_to('row', components_layouts_row_path)})" do |clo|

@@ -25,7 +25,6 @@
   - co.list 'time', types: :string, description: 'Time info'
   - co.list "auto_hide", types: :boolean
   - co.list "image", types: %i[string hash], description: "Url of the image or a Hash" do |cl|
-    - cl.list "pack", types: :boolean, description: "Use image_pack_tag instead of image_tag"
     - cl.list "href", types: :string, required: true
     - cl.list "alt", types: :string
     - cl.list "... image attributes", types: :string

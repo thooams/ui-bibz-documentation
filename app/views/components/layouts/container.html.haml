@@ -12,7 +12,7 @@
   - s.section title: "Container" do
     = example do |c|
       - c.header do
-        = image_pack_tag "container.png", alt: "container", class: 'img-fluid', :style => "width: 40rem;"
+        = image_tag "container.png", alt: "container", class: 'img-fluid', :style => "width: 40rem;"
       - c.code do
         ui_container class: "test" do
           ...
@@ -29,7 +29,7 @@
   - s.section title: "Type" do
     = example do |c|
       - c.header do
-        = image_pack_tag "container-fluid.png", alt: "fluid container", class: 'img-fluid', :style => "width: 40rem;"
+        = image_tag "container-fluid.png", alt: "fluid container", class: 'img-fluid', :style => "width: 40rem;"
       - c.code do
         ui_container content, { type: :fluid }, { class: "test-2" }
       - c.html do
@@ -46,7 +46,7 @@
         %li :#{breakpoint}
     = example do |c|
       - c.header do
-        = image_pack_tag "container.png", alt: "breakpont container", class: 'img-fluid', :style => "width: 40rem;"
+        = image_tag "container.png", alt: "breakpont container", class: 'img-fluid', :style => "width: 40rem;"
       - c.code do
         ui_container content, { size: :sm }, { class: "test-2" }
       - c.html do

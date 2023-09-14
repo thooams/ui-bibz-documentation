@@ -13,10 +13,10 @@
 %meta{ name: 'Author', CONTENT: 'Thomas HUMMEL <thomas@hummel.link>'}
 %meta{ name: "theme-color", content: "#343a40"}
 %meta{ name: 'Keywords', CONTENT: 'bootstrap rails, bootstrap ruby, ui bibz, bibz bootstrap, bootstrap interface, bootstrap ui, bootstrap interface, ui framework, ui interface'}
-%link{ rel: "shortcut icon", type: "image/x-icon", href: image_pack_path("favicon.ico") }
-%link{ rel: "appel-touch-icon", href:  image_pack_path("ui-bibz-logo.png") }
+%link{ rel: "shortcut icon", type: "image/x-icon", href: image_path("favicon.ico") }
+%link{ rel: "appel-touch-icon", href:  image_path("ui-bibz-logo.png") }
 %meta{ name: "viewport", content: "width=device-width, initial-scale=1"}
 :css
   "#{ Rouge::Theme::find('github').render(scope: '.highlight') }"
-= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag "application", "data-turbo-track": "reload"
+= javascript_importmap_tags
