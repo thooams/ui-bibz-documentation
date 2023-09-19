@@ -35,8 +35,8 @@ class ComponentListOption < UiBibz::Ui::Core::Component
     list("target", { types: :string, description: "(use component #{ option_link('stimulus-options') } method)" })
   end
 
-  def turbolinks_link
-    list("turbolinks", { types: :string, description: "(use component #{ option_link('turbolinks') } method)" })
+  def turbo_link
+    list("turbo", { types: :string, description: "(use component #{ option_link('turbo') } method)" })
   end
 
   def glyph_link
@@ -91,7 +91,7 @@ class ComponentListOption < UiBibz::Ui::Core::Component
     stimulus_controller_link unless except.include?(:stimulus_controller)
     stimulus_target_link unless except.include?(:stimulus_target)
     stimulus_action_link unless except.include?(:stimulus_action)
-    turbolinks_link  unless except.include?(:turbolinks)
+    turbo_link  unless except.include?(:turbo)
   end
 
 private

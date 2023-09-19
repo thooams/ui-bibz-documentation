@@ -1,0 +1,160 @@
+= title 'Offcanvas', url: "components/offcanvas/"
+%blockquote UiBibz::Ui::Core::Windows::Offcanvas
+%p.bd-callout Build hidden sidebars into your project for navigation, shopping carts, and more with a few classes and our JavaScript plugin.
+
+= code do
+  :plain
+    ui_offcanvas options, html_options do |m|
+      # by variable
+      m.header content, options, html_options
+      # or by block
+      m.header options, html_options do
+        content
+      end
+
+      # by variable
+      m.body content, options, html_options
+      # or by block
+      m.body options, html_options do
+        content
+      end
+    end
+
+= component_options do |co|
+  - co.inherit_options_links except: %i(glyph popover state status tooltip size)
+  - co.list 'position', types: 'symbol', values: %w(:start :end :top :bottom)
+  - co.list 'scroll', types: 'boolean'
+  - co.list 'backdrop', types: 'symbol', values: %w(:static)
+
+= component_items do |ci|
+  - ci.inherit_component "header"
+  - ci.inherit_component "body"
+
+- @sections = sections do |s|
+  - s.section title: "Offcanvas" do
+    = example do |c|
+      - c.header do
+        = ui_button_link 'offcanvas', { url: '#' }, { data: { "bs-toggle": 'offcanvas', "bs-target": '#offcanvas' }}
+        = ui_offcanvas({class: 'offcanvas-example'}, {id: "offcanvas"})  do |m|
+          - m.header 'Offcanvas title'
+          - m.body 'One fine body'
+      - c.code do
+        ui_offcanvas({class: 'offcanvas-example'}, {id: "offcanvas"}) do |m|
+          m.header "<b>Offcanvas title</b>"
+          m.body "One fine body"
+        end
+      - c.html do
+        :plain
+          ""
+
+  - s.section title: "Backdrop static" do
+    %p You can also enable <body> scrolling with a visible backdrop.
+    = example do |c|
+      - c.header do
+        = ui_button_link 'Static Backdrop offcanvas', { url: '#' }, { data: { "bs-toggle": 'offcanvas', "bs-target": '#backdrop-offcanvas' }}
+        = ui_offcanvas({ backdrop: :static}, {id: "backdrop-offcanvas"}) do |m|
+          - m.header do
+            = 'Backdrop Offcanvas title'
+          - m.body do
+            = 'One fine body'
+      - c.code do
+        :plain
+          ui_button_link 'Static Backdrop offcanvas', { url: '#' }, { data: { "bs-toggle": 'offcanvas', "bs-target": '#backdrop-offcanvas' }}
+
+          ui_offcanvas({ backdrop: :static}, {id: "backdrop-offcanvas"}) do |m|
+            m.header do
+              "Backdrop Offcanvas title"
+            end
+            m.body do
+              "One fine body"
+            end
+          end
+      - c.html do
+        :plain
+          <div class="card-header"><a data-bs-toggle="offcanvas" data-bs-target="#offcanvas" class="btn-secondary btn" role="button" href="#">offcanvas</a>
+          <div id="offcanvas" class="offcanvas-example offcanvas offcanvas-start show" tabindex="-1" aria-modal="true" role="dialog">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title">Offcanvas title</h5>
+              <button class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">One fine body</div>
+          </div>
+
+  - s.section title: "Scrollable" do
+    %p Scrolling the <body> element is disabled when an offcanvas and its backdrop are visible. Use the data-bs-scroll attribute to enable <body> scrolling.
+    = example do |c|
+      - c.header do
+        = ui_button_link 'Scrollable offcanvas', { url: '#' }, { data: { "bs-toggle": 'offcanvas', "bs-target": '#scrollable-offcanvas' }}
+        = ui_offcanvas({ scrollable: true}, {id: "scrollable-offcanvas"}) do |m|
+          - m.header do
+            = 'Backdrop Offcanvas title'
+          - m.body do
+            = 'One fine body'
+      - c.code do
+        ui_button_link 'Scrollable offcanvas', { url: '#' }, { data: { "bs-toggle": 'offcanvas', "bs-target": '#scrollable-offcanvas' }}
+
+        ui_offcanvas({ scrollable: true }, {id: "scrollable-offcanvas"}) do |m|
+          m.header do
+            "Scrollable Offcanvas title"
+          end
+          m.body do
+            "..."
+          end
+        end
+      - c.html do
+        :plain
+          <a data-bs-toggle="offcanvas" data-bs-target="#scrollable-offcanvas" class="btn-secondary btn" role="button" href="#">Scrollable offcanvas</a>
+
+          <div id="scrollable-offcanvas" class="offcanvas show" tabindex="-1" aria-labelledby="Scrollable Offcanvas title" aria-offcanvas="true" role="dialog" style="padding-right: 15px; display: block;">
+            <div class="offcanvas-dialog offcanvas-dialog-scrollable">
+              <div class="offcanvas-content">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title">Scrollable Offcanvas title</h5>
+                  <button class="close" data-bs-dismiss="offcanvas" aria-label="Close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                </div>
+                <div class="offcanvas-body">
+                  <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                  <p>...</p>
+                  <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                </div>
+                <div class="offcanvas-footer"><button data-bs-dismiss="offcanvas" class="btn-secondary btn">Close</button>
+                  <button class="btn-primary btn">Understood</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+  - s.section title: "Position" do
+    %p Offcanvas must be inserted outside a card.
+    = example do |c|
+      - c.header do
+        = ui_button_link 'offcanvas bottom', { url: '#' }, { data: { "bs-toggle": 'offcanvas', "bs-target": '#bottom-offcanvas' }}
+        = ui_offcanvas({ position: :bottom}, {id: "bottom-offcanvas"}) do |m|
+          - m.header do
+            = 'Backdrop Offcanvas title'
+          - m.body do
+            = 'One fine body'
+
+      - c.code do
+        :plain
+          ui_buttcanvas bottom', { url: '#' }, { data: { "bs-toggle": 'offcanvas', "bs-target": '#bottom-offcanvas' }}
+          ui_offcanvas({ position: :bottom}, {id: "bottom-offcanvas"}) do |m|
+            m.header do
+              'Backdrop Offcanvas title'
+            end
+            m.body do
+              'One fine body'
+            end
+          end
+      - c.html do
+        :plain
+          <a data-bs-toggle="offcanvas" data-bs-target="#bottom-offcanvas" class="btn-secondary btn" role="button" href="#">offcanvas bottom</a>
+          <div id="bottom-offcanvas" class="offcanvas offcanvas-bottom show" tabindex="-1" aria-modal="true" role="dialog">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title">Backdrop Offcanvas title</h5>
+              <button class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">One fine body</div>
+          </div>
+
+= @sections.render

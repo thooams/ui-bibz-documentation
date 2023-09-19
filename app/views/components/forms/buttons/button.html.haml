@@ -137,7 +137,7 @@
     = example do |c|
       - c.header do
         = ui_button 'Primary Active', status: :primary, state: :active, shortcut: 'Shift + P'
-        = ui_button 'Toggle Danger', { status: :danger, glyph: :gem, toggle: true }, { class: 'button' }
+        = ui_button 'Toggle Danger', { status: :danger, glyph: :gem, toggle: true, outline: true }, { class: 'button' }
         = ui_button 'Text', glyph: 'gem', status: :success, text: false
         = ui_button({ badge: 2, status: :success }, { class: 'button' }) do
           = 'Info'

@@ -305,6 +305,30 @@
           <li class="nav-item"><a class="disabled nav-link" href="#disabled">Disabled</a></li>
         </ul>
 
+  - s.section title: "Underline" do
+    = example do |c|
+      - c.header do
+        = ui_nav underline: true do |n|
+          - n.link 'Active', url: '#active', state: :active
+          - n.link 'Link', url: '#link'
+          - n.link 'Another link', url: '#another-link'
+          - n.link 'Disabled', url: '#disabled', state: :disabled
+      - c.code do
+        ui_nav underline: true do |n|
+          n.link "Active", url: "#active", state: :active
+          n.link "Link", url: "#link"
+          n.link "Another link", url: "#another-link"
+          n.link "Disabled", url: "#disabled", state: :disabled
+        end
+      - c.html do
+        <ul class="nav nav-underline">
+          <li class="nav-item"><a class="active ui_nav-link" href="#active">Active</a></li>
+          <li class="nav-item"><a class="nav-link" href="#link">Link</a></li>
+          <li class="nav-item"><a class="nav-link" href="#another-link">Another link</a></li>
+          <li class="nav-item"><a class="disabled nav-link" href="#disabled">Disabled</a></li>
+        </ul>
+
+
   - s.section title: "Connection" do
     %p For more information see: #{ link_to 'Boostrap nav', 'https://getbootstrap.com/docs/4.0/components/navs/"' }
     = example do |c|

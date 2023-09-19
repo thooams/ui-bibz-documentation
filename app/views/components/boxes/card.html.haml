@@ -262,9 +262,9 @@
       - e.header do
         = ui_card do |c|
           - c.row gutters: 0 do |r|
-            - r.col 4 do |cl|
+            - r.col num: 4 do |cl|
               - cl.image "https://picsum.photos/300/100", { position: :left },{ class: "img-fluid h-100", alt: "image 1"}
-            - r.col 8 do |cl|
+            - r.col num: 8 do |cl|
               - cl.body do |b|
                 - b.title "Card title"
                 - b.subtitle "Card subtitle"
@@ -273,19 +273,19 @@
         %br
         = ui_card do |c|
           - c.row gutters: 0 do |r|
-            - r.col 3 do |cl|
+            - r.col num: 3 do |cl|
               - cl.image "https://picsum.photos/300/100", { position: :left }, { class: "img-fluid h-100", alt: "image 2" }
-            - r.col 6 do |cl|
+            - r.col num: 6 do |cl|
               - cl.body do |b|
                 - b.title "Card title"
                 - b.subtitle "Card subtitle"
                 - b.text "Some quick example text to build on the card title and make up the bulk of the card's content."
-            - r.col 3 do |cl|
+            - r.col num: 3 do |cl|
               - cl.image "https://picsum.photos/300/100", { position: :right}, { class: "img-fluid h-100", alt: "image 3"}
         %br
         = ui_card do |c|
           - c.row gutters: 0 do |r|
-            - r.col 6 do |cl|
+            - r.col num: 6 do |cl|
               - cl.list_group do |gl|
                 - gl.list "List 1"
                 - gl.list "List 2"
@@ -293,7 +293,7 @@
                 - gl.list "List 4"
                 - gl.list "List 5"
                 - gl.list "List 6"
-            - r.col 6 do |cl|
+            - r.col num: 6 do |cl|
               - cl.header "Header card"
               - cl.body do |b|
                 - b.title "Card title"
@@ -311,10 +311,10 @@
         :plain
           ui_card do |c|
             c.row gutters: 0 do |r|
-              r.col 4 do |col|
+              r.col num: 4 do |col|
                 col.image "https://picsum.photos/300/100", position: :left
               end
-              r.col 8 do |col|
+              r.col num: 8 do |col|
                 col.body do |b|
                   b.title "Card title"
                   b.subtitle "Card subtitle"
@@ -325,25 +325,25 @@
 
             ui_card do |c|
               c.row gutters: 0 do |r|
-                r.col 3 do |col|
+                r.col num: 3 do |col|
                   col.image "https://picsum.photos/300/100", position: :left
                 end
-                r.col 6 do |col|
+                r.col num: 6 do |col|
                   col.body do |b|
                     b.title "Card title"
                     b.subtitle "Card subtitle"
                     b.text "Some quick example text to build on the card title and make up the bulk of the card's content."
                   end
                 end
-                r.col 3 do |col|
+                r.col num: 3 do |col|
                   col.image "https://picsum.photos/300/100", position: :right
                 end
               end
             end
 
             ui_card do |c|
-              c.row gutters: 0do |r|
-                r.col 6 do |col|
+              c.row gutters: 0 do |r|
+                r.col num: 6 do |col|
                   col.list_group do |gl|
                     gl.list "List 1"
                     gl.list "List 2"
@@ -353,7 +353,7 @@
                     gl.list "List 6"
                   end
                 end
-                r.col 6 do |col|
+                r.col num: 6 do |col|
                   col.header "Header card"
                   col.body do |b|
                     b.title "Card title"

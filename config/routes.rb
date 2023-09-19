@@ -103,6 +103,7 @@ Rails.application.routes.draw do
 
     namespace :windows do
       get 'modal'
+      get 'offcanvas'
     end
 
     namespace :navigations do

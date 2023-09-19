@@ -23,6 +23,9 @@ class Components::NavigationsController < ApplicationController
     @users = User.all.limit(3)
   end
 
+  def offcanvas
+  end
+
   private
 
   def inputs_params
