@@ -1,6 +1,15 @@
 = ui_row do
   = ui_col md: { num: 8 }, sm: { num: 12 }  do
     = title 'Getting Started ', display_ui: false
+    .bd-callout
+      %p
+        %strong Important:
+        Ui Bibz doesn’t use webpacker anymore (No Nodejs needed).
+        The librairie uses the new
+        = link_to "importmap", "https://github.com/rails/importmap-rails", target: "_blank"
+        solution introduced in Ruby on Rails 7.x.x.
+        From now on, Ui Bibz use importmap and sprocket.
+
     %h2 Install
 
     Add these lines in your Gemfile:
@@ -14,48 +23,36 @@
       - c.code title: 'Terminal' do
         :plain
           bundle install
-          yarn add ui-bibz-js
 
-    %h2 Assets with webpack
+    %h2 Assets with importmap and sprocket
 
     Put these lines in the good place:
     = example  do |c|
       - c.code title: 'Code' do
         :plain
-          # app/javascript/packs/applications.js
+          # config/importmap.rb
           ...
-          require("ui-bibz-js").start()
+          pin 'ui_bibz_js', to: 'ui_bibz_js.js', preload: true
+          ...
+
+    = example  do |c|
+      - c.code title: 'Code' do
+        :plain
+          # app/javascript/applications.js
+          ...
+          import UiBibz from 'ui_bibz_js'
+
+          let uiBibzJs = new UiBibz
+          uiBibzJs.start()
           ...
 
 
     = example  do |c|
       - c.code title: 'Code' do
         :plain
-          # app/javascript/stylesheets/application.sass
+          # app/assets/stylesheets/application.sass
           ...
-          @import "~ui-bibz-js/sass/ui-bibz"
-          ...
-
-    = example  do |c|
-      - c.code title: 'Code' do
-        :plain
-          # config/webpack/environment.js
-          ...
-          const { environment } = require('@rails/webpacker')
-
-          const webpack = require('webpack')
-
-          // Ui Bibz required Jquery yet for some js libraries
-          environment.plugins.prepend(
-              'Provide',
-              new webpack.ProvidePlugin({
-                  $: 'jquery/src/jquery',
-                  jQuery: 'jquery/src/jquery',
-                  jquery: 'jquery/src/jquery'
-              })
-          )
-          module.exports = environment
-          environment.loaders.delete('nodeModules')
+          @import ui_bibz
           ...
 
   = ui_col md: { num: 4 }, sm: { num: 12 } do
@@ -64,7 +61,9 @@
 
         ##Compatibility
 
-        Gem is compatible with [**Ruby**](https://www.ruby-lang.org/ "Ruby") version 2.x.x and [**Ruby On Rails**](http://rubyonrails.org/ "Rails") 6.x.x.
+        Gem is compatible with [**Ruby**](https://www.ruby-lang.org/ "Ruby") version 3.x.x and [**Ruby On Rails**](http://rubyonrails.org/ "Rails") 7.x.x.
+
+        With __rails 7.x.x__, __Ui Bibz__ is compatible with [**hotwire**](https://hotwire.dev/ "Hotwire") and [**stimulus**](https://stimulus.hotwire.dev/ "Stimulus").
 
     %div
       :markdown
