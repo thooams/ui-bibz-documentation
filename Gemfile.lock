@@ -1,7 +1,7 @@
 PATH
   remote: ../ui_bibz
   specs:
-    ui_bibz (4.0.0.beta)
+    ui_bibz (4.0.0.beta3)
       bootstrap (~> 5.3.0)
       rails (>= 7.0.6)
       will-paginate-i18n
