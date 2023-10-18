@@ -41,6 +41,8 @@ Rails.application.routes.draw do
       # texts
       namespace :texts do
         get 'auto-complete-field'
+        get 'combobox-field'
+        get 'combobox-list'
         get 'text-field'
       end
 

@@ -1,0 +1,149 @@
+= title 'Combobox Field', logo_name: 'ui bibz'
+%blockquote UiBibz::Ui::Core::Forms::Texts::ComboboxField
+%p.bd-callout
+  ui_combobox_field is a text_field which uses html #{ link_to('datalist', 'https://www.w3.org/wiki/HTML/Elements/datalist', target: "_blank", rel: "noopener") } to auto complete results.
+
+= code "ui_combobox_field", component_name: "name"
+
+= component_options do |co|
+  - co.inherit_options_links except: %i(glyph status popover tooltip)
+  - co.list 'value', types: 'string', description: "Input's value"
+  - co.append_and_prepend_list
+
+- @sections = sections do |s|
+  - s.section title: "Combobox Field" do
+    = example do |e|
+      - e.header do
+        = ui_combobox_field 'example1', url: components_forms_texts_combobox_list_path
+      - e.code do
+        :plain
+          # app/views/maps/form.erb
+          = ui_combobox_field 'example1', url: "/maps/search"
+
+          # app/controllers/maps_controller.rb
+          def search
+            results = 5.times.map { |a| "Option #\{a}" }.select{ |e| e.match(/#\{params[:query]}/i) }
+            respond_to do |format|
+              format.html { render partial: 'maps/combobox_results', locals: { autocomplete_results: results } }
+            end
+          end
+
+          # app/view/maps/_combobox_results.erb
+          <%= turbo_frame_tag "example1-combobox-list" do %>
+            <ul class="search-results">
+              <%- autocomplete_results.each do |address| %>
+                <li data-action="click->combobox#insertValue"><%= address.address %></li>
+              <% end %>
+            </ul>
+          <% end %>
+
+          # app/assets/stylesheets/combobox.sass
+          .search-results
+            border: 1px solid $border-color
+            border-top: 0px
+            background-color: $light
+            list-style-type: none
+            padding: 0px
+
+            > li
+              width: 100%
+              padding: 10px
+              &:odd
+                background-color: $dark
+              &:hover
+                cursor: pointer
+                background-color: $primary-link
+
+      - e.html do
+        :plain
+          <div data-controller="combobox" data-combobox-url-value="/maps/search" class="combobox">
+            <input type="text" name="example1" id="example1" data-action="keyup->combobox#search" class="form-control combobox-field" autocomplete="false">
+            <div class="combobox-list">
+              <turbo-frame id="example1-combobox-list" src="http://localhost:3000/components/forms/texts/combobox-list?query=op" complete="">
+                <ul class="search-results">
+                  <li data-action="click->combobox#insertValue">Option 0</li>
+                  <li data-action="click->combobox#insertValue">Option 1</li>
+                  <li data-action="click->combobox#insertValue">Option 2</li>
+                  <li data-action="click->combobox#insertValue">Option 3</li>
+                  <li data-action="click->combobox#insertValue">Option 4</li>
+                </ul>
+              </turbo-frame>
+            </div>
+          </div>
+  - s.section title: "Combobox Field surrounded" do
+    = example do |e|
+      - e.header do
+        = ui_combobox_field 'example2', url: components_forms_texts_combobox_list_path, debounce: 200, append: ui_glyph('pencil-alt'), prepend: ui_glyph('camera-retro')
+      - e.code do
+        :plain
+          # app/views/maps/form.erb
+          ui_combobox_field 'example2', url: "/maps/search", debounce: 200, append: ui_glyph('pencil-alt'), prepend: ui_glyph('camera-retro')
+
+          # app/controllers/maps_controller.rb
+          def search
+            respond_to do |format|
+              format.html { render partial: 'maps/combobox_results', locals: { autocomplete_results: ["Option 1", "Option 2"] } }
+            end
+          end
+
+          # app/view/maps/_combobox_results.erb
+          <%= turbo_frame_tag "example2-combobox-list" do %>
+            <ul class="search-results">
+              <%- autocomplete_results.each do |address| %>
+                <li data-action="click->combobox#insertValue"><%= address.address %></li>
+              <% end %>
+            </ul>
+          <% end %>
+
+          # app/assets/stylesheets/combobox.sass
+          .search-results
+            border: 1px solid $border-color
+            border-top: 0px
+            background-color: $light
+            list-style-type: none
+            padding: 0px
+
+            > li
+              width: 100%
+              padding: 10px
+              &:odd
+                background-color: $dark
+              &:hover
+                cursor: pointer
+                background-color: $primary-link
+      - e.html do
+        :plain
+          <div data-controller="combobox" data-combobox-url-value="/maps/search" data-combobox-debounce-value="200" class="combobox">
+            <input type="text" name="example2" id="example1" data-action="keyup->combobox#search" class="form-control combobox-field" autocomplete="false">
+            <div class="combobox-list">
+              <turbo-frame id="example2-combobox-list" src="/maps/search?query=op" complete="">
+                <ul class="search-results">
+                  <li data-action="click->combobox#insertValue">Option 0</li>
+                  <li data-action="click->combobox#insertValue">Option 1</li>
+                  <li data-action="click->combobox#insertValue">Option 2</li>
+                  <li data-action="click->combobox#insertValue">Option 3</li>
+                  <li data-action="click->combobox#insertValue">Option 4</li>
+                </ul>
+              </turbo-frame>
+            </div>
+          </div>
+
+  - s.section title: "Simple form" do
+    %p= simple_form_text_with_input "ui_combobox_field"
+    %p
+      Then in your view, you can insert your input combobox field.
+      This simple form component is based on simple_form
+
+    = example do |e|
+      - e.header do
+        = ui_form_for(@user) do |f|
+          - f.input :email, append: ui_glyph('envelope'), as: :ui_combobox_field, url: components_forms_texts_combobox_list_path
+      - e.code do
+        :plain
+          ui_form_for(@user) do |f|
+            ...
+            f.input :email, append: ui_glyph("envelope"), as: :ui_combobox_field, url: "/maps/search"
+            ...
+          end
+
+= @sections.render

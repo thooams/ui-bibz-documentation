@@ -1,0 +1,5 @@
+= turbo_frame_tag "example1-combobox-list" do
+  %ul.search-results
+    - autocomplete_results.each do |address|
+      %li{ data: { action: "click->combobox#insertValue"}}= address
+
