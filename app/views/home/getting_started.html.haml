@@ -38,6 +38,15 @@
     = example  do |c|
       - c.code title: 'Code' do
         :plain
+          # app/assets/config/manifest.js
+          ...
+          //= link ui_bibz.js
+          uiBibzJs.start()
+          ...
+
+    = example  do |c|
+      - c.code title: 'Code' do
+        :plain
           # app/javascript/applications.js
           ...
           import UiBibz from 'ui_bibz_js'
